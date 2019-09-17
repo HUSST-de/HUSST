@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:api="http://www.husst.de/HusstAppinfo"
+	xmlns:ktapi="http://www.krauth-techology.de/KtHusstAppinfo" xmlns:dt="http://www.husst.de/HusstDatentypen"
+	targetNamespace="http://www.husst.de/HusstDatentypen"
+	elementFormDefault="qualified">
+
+	<include schemaLocation="HusstDTLanguage_Daisy.xsd" />
+
+	<simpleType name="DateTimeCompact">
+		<restriction base="dateTime">
+			<minInclusive value="1990-01-01T00:00:00Z" />
+			<maxInclusive value="2117-12-31T23:59:58Z" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="DateCompact">
+		<restriction base="date">
+			<minInclusive value="1990-01-01" />
+			<maxInclusive value="2117-12-31" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Betriebszeit_Type">
+		<annotation>
+			<documentation>Betriebszeiten dürfen über 24:00 Uhr hinausgehen
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="[0-9]{1,2}:[0-9]{1,2}" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="INT1">
+		<restriction base="unsignedInt">
+			<minInclusive value="0" />
+			<maxInclusive value="255" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="INT2">
+		<restriction base="unsignedInt">
+			<minInclusive value="0" />
+			<maxInclusive value="65535" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="INT3">
+		<restriction base="unsignedInt">
+			<minInclusive value="0" />
+			<maxInclusive value="16777215" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="INT4">
+		<restriction base="unsignedInt">
+			<minInclusive value="0" />
+			<maxInclusive value="4294967295" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="INT8">
+		<restriction base="unsignedLong">
+			<minInclusive value="0" />
+			<maxInclusive value="18446744073709551615" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="FLOAT1">
+		<annotation>
+			<documentation>englische Notation beachten, z. B. 19 Euro =
+				19.00 Euro
+			</documentation>
+		</annotation>
+		<restriction base="decimal">
+			<minInclusive value="0" />
+			<maxInclusive value="100" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="KoordWgs84_Type">
+		<restriction base="float">
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Char">
+		<restriction base="string">
+			<minLength value="1" />
+			<maxLength value="1" />
+		</restriction>
+	</simpleType>
+
+    <element name="LanguageString_Element">
+      <complexType>
+        <complexContent>
+          <extension base="dt:LanguageString_new"/>          
+        </complexContent> 
+      </complexType>
+      <unique name="UniqueLang">
+        <selector xpath="text"/>
+        <field xpath="@lang"/>
+      </unique>
+    </element>
+
+
+	<complexType name="LanguageString_new">
+	  <sequence>
+	    <element name="Text" type="dt:LanguageString"/>
+	  </sequence>
+	</complexType>
+
+	<complexType name="LanguageString">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="lang" type="dt:Language_Typ" />
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="twoNumberVersion">
+		<restriction base="string">
+			<pattern value="[0-9]+\.[0-9]+" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ZusatzinfoTyp_Typ">
+		<annotation>
+			<documentation>
+				Die Werte einer Zusatzinformation werden als String
+				abgelegt. Wie dieser zu verstehen ist, wird durch den
+				ZusatzinfoTyp
+				definiert.
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="int">
+				<annotation>
+					<documentation>vorzeichenbehaftete Ganzzahl</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bool">
+				<annotation>
+					<documentation>logischer Wert, Wertebereich „0“ für false oder „1“
+						für true
+					</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="string">
+				<annotation>
+					<documentation>Zeichenkette</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="datetime">
+				<annotation>
+					<documentation>Zeitpunkt (Datum/Uhrzeit) nach ISO8601 - (Beispiel:
+						2014-06-10T07:46+02:00, eine Angabe ohne die Abweichung von der
+						UTC-Zeit ist auch zulässig)
+					</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="hex">
+				<annotation>
+					<documentation>hexadezimal codierter Datenstring - zulässige
+						Zeichen: ‚0‘-‘9‘, ‚a‘-‚f‘, ‚A‘-‚F‘. Niederwertiges Byte zuerst,
+						höherwertiges Halb-Byte zuerst.
+					</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="id_sprachtext">
+				<annotation>
+					<documentation>vorzeichenlose Ganzzahl, Verweis auf ID_Sprachtext
+						in der Tabelle Sprachtexte, einen möglicherweise mehrsprachig
+						hinterlegten Text
+					</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="Sortentyp_Typ">
+		<restriction base="string">
+			<enumeration value="Einzelkarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>0</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotEinzelkarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Tageskarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>1</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotTageskarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Wochenkarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>2</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotTageskarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Monatskarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>3</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotTageskarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Halbjahreskarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>4</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotTageskarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Jahreskarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>5</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotTageskarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Mehrfahrtenkarte">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>6</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotMehrfahrtenkarte</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Bargutschrift">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>7</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotBargutschrift</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="Abo-Einzahlung">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>8</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotAboEinzahlung</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+			<enumeration value="EBE-Einzahlung">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>9</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>sotEbeEinzahlung</ktapi:constname>
+					</appinfo>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+</schema>

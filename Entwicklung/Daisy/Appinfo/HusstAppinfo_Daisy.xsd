@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:api="http://www.husst.de/HusstAppinfo"
+	targetNamespace="http://www.husst.de/HusstAppinfo" elementFormDefault="qualified">
+
+
+	<simpleType name="dbValue_Typ">
+		<annotation>
+			<documentation>Wert, den ein Enumerationselement bei der Ablage in
+				einer Datenbank repräsentiert</documentation>
+		</annotation>
+		<restriction base="string" />
+	</simpleType>
+
+	<complexType name="fieldReference_Typ">
+		<attribute name="name" type="string" use="required">
+			<annotation>
+				<documentation>Name des Datenelementes in der Struktur mit dem Namen
+					'parentname'</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="parentname" type="string" use="optional">
+			<annotation>
+				<documentation>Name der Struktur in der das Datenelement 'name'
+					defniert ist. Wenn 'parentname' leer ist bezieht sich 'name' auf
+					die aktuelle Datenstruktur.</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="indexfieldReference_Typ">
+		<attribute name="name" type="string" use="required">
+			<annotation>
+				<documentation>Name des Datenelementes in der Struktur mit dem Namen
+					'parentname'</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="parentname" type="string" use="optional">
+			<annotation>
+				<documentation>Name der Struktur in der das Datenelement 'name'
+					defniert ist. Wenn 'parentname' leer ist bezieht sich 'name' auf
+					die aktuelle Datenstruktur.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="direction" use="optional" default="asc">
+			<annotation>
+				<documentation>Sortierreihenfolge.</documentation>
+			</annotation>
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="asc">
+						<annotation>
+							<documentation>aufsteigend</documentation>
+						</annotation>
+					</enumeration>
+					<enumeration value="desc">
+						<annotation>
+							<documentation>absteigend</documentation>
+						</annotation>
+					</enumeration>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+
+	<complexType name="extraFieldReference_Typ">
+		<attribute name="name" type="string" use="required">
+			<annotation>
+				<documentation>Name des Datenelementes in der Struktur mit dem Namen
+					'parentname'</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="type" type="string" use="required">
+			<annotation>
+				<documentation>Type des Datenbankfeldes</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="parentname" type="string" use="optional">
+			<annotation>
+				<documentation>Name der Struktur in der das Datenelement 'name'
+					defniert ist. Wenn 'parentname' leer ist bezieht sich 'name' auf
+					die aktuelle Datenstruktur.</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="primaryKey_Typ">
+		<annotation>
+			<documentation>Primärschlüssel der Datenstruktur. Alle Elemente
+				dieser Struktur müssen sich in mindestens einem Wert der
+				aufgeführten Felder von einander unterscheiden.</documentation>
+		</annotation>
+		<choice>
+			<element name="field" type="api:fieldReference_Typ"
+				minOccurs="1" maxOccurs="unbounded" />
+		</choice>
+		<attribute name="name" type="string" />
+	</complexType>
+
+	<complexType name="foreignKey_Typ">
+		<annotation>
+			<documentation>Fremdschlüssel zur Definition von referentieller
+				Integrität.</documentation>
+		</annotation>
+		<choice>
+			<element name="field" type="api:fieldReference_Typ"
+				minOccurs="1" maxOccurs="unbounded" />
+		</choice>
+		<attribute name="name" type="string" />
+		<attribute name="foreignElement" type="string" />
+	</complexType>
+
+	<complexType name="index_Typ">
+		<annotation>
+			<documentation>Performanceindex der Datenstruktur. Indiziert die
+				Elemente dieses Typs über die aufgeführten Felder.</documentation>
+		</annotation>
+		<choice>
+			<element name="field" type="api:indexfieldReference_Typ"
+				minOccurs="1" maxOccurs="unbounded" />
+		</choice>
+		<attribute name="name" type="string" />
+	</complexType>
+
+	<complexType name="extraField_Typ">
+		<annotation>
+			<documentation>Felder, die notwendigerweise für die Abbildung in
+				einer Datenbank ergänzt werden müssten.</documentation>
+		</annotation>
+		<choice>
+			<element name="field" type="api:fieldReference_Typ"
+				minOccurs="1" maxOccurs="1" />
+		</choice>
+		<attribute name="name" type="string" />
+	</complexType>
+
+	<element name="dbBindingEnumeration" type="api:dbBindingEnumeration_Typ">
+	</element>
+
+	<complexType name="dbBindingEnumeration_Typ">
+		<sequence>
+			<element name="dbValue" type="api:dbValue_Typ" maxOccurs="1"
+				minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="dbBinding" type="api:dbBinding_Typ" />
+
+	<complexType name="dbBinding_Typ">
+		<choice>
+			<element name="primaryKey" type="api:primaryKey_Typ"
+				minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="index" type="api:index_Typ" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+			<element name="foreignKey" type="api:foreignKey_Typ"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</choice>
+	</complexType>
+</schema>

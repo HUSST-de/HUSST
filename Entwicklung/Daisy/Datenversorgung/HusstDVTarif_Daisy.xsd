@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dv="http://www.husst.de/HusstVersorgung"
+	xmlns:api="http://www.husst.de/HusstAppinfo" xmlns:ktapi="http://www.krauth-techology.de/KtHusstAppinfo"
+	xmlns:dt="http://www.husst.de/HusstDatentypen" targetNamespace="http://www.husst.de/HusstVersorgung"
+	elementFormDefault="qualified">
+
+	<import schemaLocation="../Datentypen/HusstDatentypen_Daisy.xsd"
+		namespace="http://www.husst.de/HusstDatentypen" />
+	<import schemaLocation="../Appinfo/HusstAppinfo_Daisy.xsd"
+		namespace="http://www.husst.de/HusstAppinfo" />
+
+	<include schemaLocation="HusstDVBasis_Daisy.xsd" />
+
+	<element name="Tarifdaten" type="dv:Tarifdaten_Typ"/>
+
+	<complexType name="TarifGebiet_Typ">
+		<annotation>
+			<documentation>Tarifgebiet ist eine logische Einheit, die alle
+Tarifelemente eines Tarifgebers definiert.			</documentation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Tarifgebiet -->
+					<api:primaryKey>
+						<api:field name="ID_Tarifgebiet" />
+						<api:field name="ID_Zeitraum" />
+					</api:primaryKey>
+				</api:dbBinding>
+
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+
+	<!-- Datenbereich Tarif -->
+	<complexType name="Tarifdaten_Typ">
+		<annotation>
+			<documentation>Arbeitspaket: kt
+
+				Vollständige Produktbeschreibung zum
+				Verkauf und
+				zur Registrierung von Beförderungsleistungen und
+				Artikeln
+				Tarifgebiet Tarifart Sorten Preisstufen
+				Preise Tarifpunkte
+				Relationscodes Relationen
+				Teilrelationen (jeder Teilrelationseintrag
+				benötigt selbst noch einmal eine ID -&gt; siehe
+				KA_RaeumlicheGueltigkeit_Teilrelation)) Vias
+				Tarifstelle
+				(kt:Ortspunkte.Typ=31) Sortengruppen
+
+				KA_RaeumlicheGueltigkeit (ID,
+				Bezeichner[string],
+				KA_GueltigkeitsRaum[blobstring])
+				KA_RaeumlicheGueltigkeit_Teilrelation
+				(ID_KA_RaeumlicheGueltigkeit,
+				ID_Teilrelation
+				[Achtung! ggf. den exakten DS in der
+				Teilrelation])
+				KA_RaeumlicheGueltigkeit_Preis
+				(ID_KA_RaeumlicheGueltigkeit,
+				ID_Preis)
+			</documentation>
+		</annotation>
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element name="Zeitraumkontext" type="dv:TarifZeitraumkontext"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</choice>
+	</complexType>
+
+	<complexType name="TarifMwst_Typ">
+		<annotation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Mwst -->
+					<api:primaryKey>
+						<api:field name="ID_Mwst" />
+						<api:field name="ID_Zeitraum" />
+					</api:primaryKey>
+				</api:dbBinding>
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ">
+				<sequence>
+					<element name="Mwstsatz" type="dt:FLOAT1" maxOccurs="1"
+						minOccurs="0" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifOrt_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ">
+				<sequence>
+					<element name="Id_TarifPunkt" type="dt:INT4" maxOccurs="1"
+						minOccurs="1">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifGeberpunkt_Type">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ">
+				<sequence>
+					<element name="Id_TarifPunkt" type="dt:INT4" maxOccurs="unbounded"
+						minOccurs="1"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifPunkt_Typ">
+        <annotation>
+        	<documentation>Eine abstrakte Abbildung der Start- und Zielpunkte von TarifVerbindung. 
+
+Die TarifPunkte können hierachisch organisiert werden. TarifVerbindungen sind über Hierachiestufen hinweg möglich.</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ">
+				<sequence>
+					<element name="Id_TarifPunkt" type="dt:INT4" maxOccurs="1"
+						minOccurs="0"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+    <simpleType name="TarifPreisermittlungstyp_Typ">
+        <annotation>
+        	<documentation>Die Addition von Preisstufen muss projektspezifisch definiert werden.</documentation>
+        </annotation>
+        <restriction base="string">
+    		<enumeration value="Preisaddition"></enumeration>
+    		<enumeration value="Preisstufenaddition"></enumeration>
+    	</restriction>
+    </simpleType>
+
+	<complexType name="TarifTeilverbindung_Typ">
+        <annotation>
+        	<documentation>Verweist eine TarifVerbindung auf TarifTeilverbindungen, müssen diese für die Preisermittlung herangezogen werden. Die übergeordnete TarifVerbindung kann auf eine TarifKategorieVerbindung verweisen, die keine Preisstufe definieren muss.</documentation></annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="Id_TarifVerbindung" type="dt:INT4" maxOccurs="1"
+						minOccurs="1">
+					</element>
+					<element name="Id_TarifVerbindungTeilverbindung" type="dt:INT4" maxOccurs="1"
+						minOccurs="1">
+					</element>
+					<element name="Position" type="dt:INT4" maxOccurs="1"
+						minOccurs="1">
+					</element>
+					<element name="TarifPreisermittlungstyp" type="dv:TarifPreisermittlungstyp_Typ" maxOccurs="1"
+						minOccurs="0"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifVerbindung_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="Id_TarifPunktStart" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifPunktZiel" type="dt:INT4" maxOccurs="1"
+						minOccurs="1">
+					</element>
+					<element name="Bidirektional" type="boolean" maxOccurs="1"
+						minOccurs="0">
+					</element>
+					<element name="Via" type="dt:LanguageString" maxOccurs="1"
+						minOccurs="0"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifPreisstufe_Typ">
+        <annotation>
+        	<documentation>Die TarifPreisstufe ist eine logische Gliederung der TarifPreise der TarifSorten.
+Nicht alle TarifSorten unterstützen alle TarifPreisstufen. 
+Jeder TarifPreis hängt zwingend an einer TarifPreisstufe und an einer TarifSorte.
+Für Festpreise die keine Beziehung zu den TarifKategorieVerbindungen haben, muss auch eine TarifPreisstufe definiert sein.
+
+TarifPreisstufen haben untereinander keine definierte Reihenfolge.</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifKategorie_Typ">
+        <annotation>
+        	<documentation>Eine TarifKategorie ist ein künstliches Element, das TarifSorten gruppiert und dieser Gruppe eine TarifKategorieVerbindung zuordnet.
+Damit können für eine TarifVerbindung (von-nach-via) mehrere Ausprägungen bezogen auf Preisstufe, Druck-, und Registrierungsdaten definiert werden.
+Für verschiedene TarifVerbindungen können die gleichen TarifSorten in unterschiedlichen TarifKategorien zusammengefasst werden.
+
+dabei gilt:
+mehrere Definition der selben Restriktion:
+1. Eine TarifVerbindung darf nicht über mehrere TarifKategorieVerbindungen verfügen, die über die TarifKategorie mehrfach dieselbe TarifSorte referenzieren.
+2. Eine TarifVerbindung darf nicht mehreren TarifKategorien zugeordnet sein, die derselben TarifSorte zugeordnet sind.
+3. Einer TarifVerbindung dürfen nur TarifKategorien zugeordnet werden, bei denen die TarifKategorien nicht mehrfach eine TarifSorte referenzieren.
+4. Zusammen mit der TarifSorte muss bei der TarifVerbindung die TarifKategorieVerbindung eindeutig bestimmbar sein.
+
+Referenz zur Husst 1.x/2.x:
+Ehemals: TarifArt
+</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifKategorieVerbindung_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="Id_TarifVerbindung" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifKategorie" type="dt:INT4" maxOccurs="1"
+						minOccurs="1"></element>
+					<element name="Id_TarifGeberpunktStart" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifGeberpunktZiel" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifPreisstufe" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifRaumgueltigkeitStart" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+                        <annotation>
+                        	<documentation>Für jede Richtung der TarifKategorieVerbindung kann eine TarifRaumgueltigkeit angegeben werden.</documentation></annotation>
+					</element>
+					<element name="Id_TarifRaumgueltigkeitZiel" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+                        <annotation>
+                        	<documentation>Für jede Richtung der TarifKategorieVerbindung kann eine TarifRaumgueltigkeit angegeben werden.</documentation></annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifRaumgueltigkeit_Typ">
+        <annotation>
+        	<documentation>Definiert den Drucktext und die Registrierungsinformation der räumlichen Gültigkeit.</documentation></annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="Id_TarifRaumgueltigkeit" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+    <simpleType name="TarifRaumgueltigkeitGeberpunkttyp_Typ">
+        <annotation>
+        	<documentation></documentation>
+        </annotation>
+        <restriction base="string">
+    		<enumeration value="Start"></enumeration>
+    		<enumeration value="Ziel"></enumeration>
+    		<enumeration value="Via"></enumeration>
+    		<enumeration value="Umstieg"></enumeration>
+    		<enumeration value="Zwischenpunkt"></enumeration>
+    		<enumeration value="Brechpunkt"></enumeration>
+    	</restriction>
+    </simpleType>
+
+	<complexType name="TarifRaumgueltigkeitGeberpunkt_Typ">
+        <annotation>
+        	<documentation>Menge mit Tarifgeberpunkten die eine räumliche Gültigkeit und ggf. eine Reisekette beschreiben. Start- und Ziel-Tarifgeberpunkt müssen auch darin enthalten sein. Die Menge kann sortiert sein, dann gibt die Postion die Reihenfolge an. Der TarifRaumgueltigkeitGeberpunkttyp beschreibt die Funktion des Punkts innerhalb der Menge (Von, Nach, Über, Umsteigepunkt, Zwischenpunkt).
+
+Die Menge dient unter anderem der Prüfbarkeit des Produkts.</documentation></annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="Id_TarifRaumgueltigkeit" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifGeberpunkt" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifRaumgueltigkeitGeberpunkttyp" type="dv:TarifRaumgueltigkeitGeberpunkttyp_Typ"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Position" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifSorte_Typ">
+        <annotation>
+        	<documentation>Die TarifSorte ist die Ausformulierung einer Fahrtberechtigung.
+Bei TarifVerbindungs bezogenen TarifSorten ohne die räumliche Gültigkeit.
+Die zeitliche Gültigkeit bestimmt sich zum einen aus --- das muss noch klarer definieret werden: Zeitschemata der Sorte ---- 
+und dem Gültigsbeginn des verkauften Produktes.
+
+Die Ausformulierung umfasst den Personentyp, die Fahrklasse, Rabattklasse, etc.</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ">
+				<sequence>
+					<element name="Id_TarifKategorie" type="dt:INT4"
+						maxOccurs="unbounded" minOccurs="0">
+					</element>
+                    <element name="Id_TarifSortengruppe" type="dt:INT4" maxOccurs="unbounded" minOccurs="0">
+                    	<annotation>
+                    		<documentation>Alle Sortengruppen, die zusätzlich zu dieser Sorte verkauft werden (dürfen).
+Über die Sortengruppentypen der referenzierten Sortengruppen wird die genaue Verwendung der jeweiligen Sortengruppe differenziert.
+Entwurfsmuster: Kompositum</documentation>
+                    	</annotation></element>
+                    <element name="Id_TarifServicetyp" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Id_TarifFahrgasttyp" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Id_TarifRabatttyp" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Id_TarifFahrttyp" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Mindestpersonenanzahl" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Hoechstpersonenanzahl" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+	<complexType name="TarifFahrgasttyp_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifServicetyp_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifRabatttyp_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifFahrttyp_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifVerkaufsart_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifZahlart_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandardBezeichnet_Typ"/>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifPreis_Typ">
+		<complexContent>
+			<extension base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="Id_TarifSorte" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_TarifPreisstufe" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="Id_BasisWaehrung" type="dt:INT4"
+						maxOccurs="1" minOccurs="1">
+						<annotation>
+							<documentation></documentation>
+						</annotation>
+					</element>
+					<element name="Id_TarifMwst" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+					<element name="Id_TarifVerkaufsart" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+					</element>
+                    <element name="Id_TarifBezahlart" type="dt:INT4" maxOccurs="1" minOccurs="0">
+					</element>
+                    <element name="Preis" type="dt:INT4" maxOccurs="1"
+						minOccurs="1">
+					</element>
+                    <element name="Id_TarifGueltigkeitsregel" type="dt:INT4" maxOccurs="1" minOccurs="0">
+                        <annotation>
+                        	<documentation>to be defined!</documentation>
+                        </annotation>
+					</element>
+					<element name="Id_TarifRaumgueltigkeit" type="dt:INT4"
+						maxOccurs="1" minOccurs="0">
+                        <annotation>
+                        	<documentation>Definiert die räumliche Gültigkeit eines Festpreis Produktes, das nicht über eine TarifKategorieVerbindung ermittelt wird.</documentation></annotation>
+					</element>
+                </sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="TarifZeitraumkontext">
+        <annotation>
+        	<documentation>Der TarifZeitraumkontext fasst alle Tarifelemente eines Zeitraums zusammen.
+
+In gesplitteten Datenlieferungen kann der gleiche TarifZeitraumkontext (gleiche id_zeitraum) mehrfach geliefert werden.</documentation>
+        </annotation>
+        <choice minOccurs="0" maxOccurs="unbounded">
+					<element name="TarifGebiet" type="dv:TarifGebiet_Typ"
+						maxOccurs="unbounded" minOccurs="0">
+					</element>
+					<element name="TarifGebietkontext" type="dv:TarifGebietkontext_Typ"
+						maxOccurs="unbounded" minOccurs="0">
+					</element>
+		</choice>		
+		<attribute name="id_zeitraum" type="dt:INT4" use="required">
+			<annotation>
+				<documentation>Verweist auf das HusstDV.Infrastrukturdaten.DvZeitraum Element mit dieser Id.</documentation>
+			</annotation></attribute>
+	</complexType>
+
+	<complexType name="TarifGebietkontext_Typ">
+        <annotation>
+        	<documentation>Der Tarifgebietkontext fasst alle Tarifelemente eines Tarifgebiets zusammen.
+
+In gesplitteten Datenlieferungen kann der gleiche Tarifgebietkontext (gleiches id_tarifgebiet) mehrfach geliefert werden.</documentation>
+        </annotation>
+        <choice minOccurs="0" maxOccurs="unbounded">
+        	<element name="TarifPreisstufe"
+        		type="dv:TarifPreisstufe_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifKategorie" type="dv:TarifKategorie_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifServicetyp"
+        		type="dv:TarifServicetyp_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifFahrgasttyp"
+        		type="dv:TarifFahrgasttyp_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifRabatttyp" type="dv:TarifRabatttyp_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifFahrttyp" type="dv:TarifFahrttyp_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifVerkaufsart"
+        		type="dv:TarifVerkaufsart_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifZahlart" type="dv:TarifZahlart_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifMwst" type="dv:TarifMwst_Typ"
+        		maxOccurs="unbounded" minOccurs="0" />
+        	<element name="TarifSorte" type="dv:TarifSorte_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifPreis" type="dv:TarifPreis_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifPunkt" type="dv:TarifPunkt_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifGeberpunkt"
+        		type="dv:TarifGeberpunkt_Type" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifOrt" type="dv:TarifOrt_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifVerbindung"
+        		type="dv:TarifVerbindung_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifTeilverbindung" type="dv:TarifTeilverbindung_Typ" minOccurs="0" maxOccurs="unbounded"></element>
+        	<element name="TarifKategorieVerbindung"
+        		type="dv:TarifKategorieVerbindung_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifKategorieVerbindungZusatzangebot"
+        		type="dv:TarifKategorieVerbindungZusatzangebot_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="TarifGueltigkeitsregel"
+        		type="dv:TarifGueltigkeitsregel_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifSortengruppe"
+        		type="dv:TarifSortengruppe_Type" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="TarifZusatzangebot"
+        		type="dv:TarifZusatzangebot_Typ" minOccurs="0"
+        		maxOccurs="unbounded">
+        	</element>
+        	<element name="TarifZusatzangebotGeberpunkt"
+        		type="dv:TarifZusatzangebotGeberpunkt_Typ" minOccurs="0"
+        		maxOccurs="unbounded">
+        	</element>
+        	<element name="TarifRaumgueltigkeit"
+        		type="dv:TarifRaumgueltigkeit_Typ" minOccurs="0"
+        		maxOccurs="unbounded">
+        	</element>
+        	<element name="TarifRaumgueltigkeitGeberpunkt"
+        		type="dv:TarifRaumgueltigkeitGeberpunkt_Typ" minOccurs="0"
+        		maxOccurs="unbounded">
+        	</element>
+        </choice>
+        <attribute name="id_tarifgebiet" type="dt:INT4" use="required"></attribute>
+	</complexType>
+
+    <complexType name="TarifGueltigkeitsregel_Typ">
+    	<annotation>
+    		<documentation>to be defined
+Gültigkeitsregeln für die Definition des Zeitrasters, für das eine Sorte verkauft werden kann.
+Konkrete Ausgestaltung muss noch definiert werden.</documentation>
+    	</annotation></complexType>
+
+    <complexType name="TarifSortengruppe_Type">
+        <annotation>
+        	<documentation>16.05.2018 neubauer (kt)
+Die folgende Definition scheint mir überholt (bezüglich Definiert):
+
+Eine TarifSortengruppe lässt sich zu den verknüpften Sorten (TarifSorteSortengruppe.Definiert == wahr) verkaufen.
+Falls eine TarifGeberpunktSortengruppe existiert schränkt diese die Verwendung der TarifSortengruppe an Start- oder/und Zielort ein.
+
+Das Attribut TarifGeberpunktEinsatz ist eine Enumeration mit folgenden Werten
+- nein (XML nicht vorhanden) (TarifGeberpunktSortengruppe muss nicht beachtet werden)
+- alternativ (TarifGeberpunktSortengruppe muss entweder Start oder Ziel richtig sein)
+- beide (TarifGeberpunktSortengruppe muss Start und Ziel richtig sein)
+- Start (TarifGeberpunktSortengruppe muss  Start richtig sein)
+- Ziel (TarifGeberpunktSortengruppe muss  Ziel richtig sein)
+
+Es können alle Sorten (TarifSorteSortengruppe.Definiert == false) verkauft werden.</documentation>
+        </annotation>
+        <complexContent>
+    		<extension base="dv:HusstDVBasisStandardBezeichnet_Typ">
+    			<sequence>
+    				<element name="TarifSortengruppentyp"
+    					type="dv:TarifSortengruppentyp_Typ" maxOccurs="1" minOccurs="1">
+                        <annotation>
+                        	<documentation>Verweis auf den Sortengruppentyp.</documentation>
+                        </annotation>
+    				</element>
+    				<element name="Id_Sorte" type="dt:INT4" maxOccurs="unbounded" minOccurs="0">
+    					<annotation>
+    						<documentation>Alle Sorten der Sortengruppe.</documentation>
+    					</annotation></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+
+
+
+    <complexType name="TarifZusatzangebotGeberpunkt_Typ">
+    	<annotation>
+    		<documentation>Schränkt ein Zusatzangebot auf die Verwendung an einem Ende einer TarifKategorieverbindung ein.
+
+Start und Ziel geben dabei an, ob der referenzierte Tarifgeberpunkt als Start oder als Ziel der TarifKategorieverbindung vorkommen muss. 
+
+Ist ein TarifZusatzangebot an die komplette Strecke geknüpft (Start und Ziel), dann sind keine TarifZusatzangebotGeberpunkte zu definieren.</documentation>
+    	</annotation>
+    	<complexContent>
+    		<extension base="dv:HusstDVBasis_Typ">
+    		  <sequence>
+    		    <element name="Start" type="boolean" maxOccurs="1" minOccurs="1"></element>
+    		    <element name="Ziel" type="boolean" maxOccurs="1" minOccurs="1"></element>
+    		    <element name="Id_TarifGeberpunkt" type="dt:INT4" maxOccurs="1" minOccurs="1"></element>
+    		    <element name="Id_TarifZusatzangebot" type="dt:INT4" maxOccurs="1" minOccurs="1"></element>
+    		  </sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TarifZusatzangebot_Typ">
+    	<annotation>
+    		<documentation>Schränkt diese die Verwendung der TarifSortengruppe an Start- oder/und Zielort ein.
+</documentation>
+    	</annotation>
+    	<complexContent>
+    		<extension base="dv:HusstDVBasisStandard_Typ">
+    		  <sequence>
+    		    <element name="Id_TarifZusatzangebot" type="dt:INT4" maxOccurs="1" minOccurs="1"></element>
+    		    <element name="Id_TarifSortengruppe" type="dt:INT4" maxOccurs="1" minOccurs="1"></element>
+    		  </sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+    <complexType name="TarifKategorieVerbindungZusatzangebot_Typ">
+    	<annotation>
+    		<documentation>
+			</documentation>
+    	</annotation>
+    	<complexContent>
+    		<extension base="dv:HusstDVBasisStandard_Typ">
+    		  <sequence>
+    		    <element name="Id_TarifKategorieVerbindung" type="dt:INT4" maxOccurs="1" minOccurs="1"></element>
+    		    <element name="Id_TarifZusatzangebot" type="dt:INT4" maxOccurs="1" minOccurs="1"></element>
+    		  </sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+	<simpleType name="TarifSortengruppentypDefiniert_Typ">
+        <annotation>
+        	<documentation>husst.zusatz           Zusatzangebot - Auswahlliste an optional kombinierbaren Sorten
+husst.komposition Komposition - Liste mit Untersorten zur gewählten Hauptsorte, die zwingend zusammengehören.
+husst.alternative    Alternativangebot - Liste mit Sorten, die aufgrund ihrer Typ-Eigenschaften (Servcietyp, Fahrgasttyp, Rabatttyp, Fahrttyp) und der Mindest- / Hoechstpersonenanzahl untereinander austauschbar sind.</documentation>
+        </annotation>
+        <restriction base="string">
+			<enumeration value="husst.zusatz">
+			  <annotation>
+			    <documentation>Zusatzangebot - Auswahlliste an optional kombinierbaren Sorten</documentation>
+			  </annotation>
+			</enumeration>
+			<enumeration value="husst.komposition">
+			  <annotation>
+			    <documentation>Komposition - Liste mit Untersorten zur gewählten Hauptsorte, die zwingend zusammengehören.</documentation>
+			  </annotation>
+			</enumeration>
+			<enumeration value="husst.alternative">
+			  <annotation>
+			    <documentation>Alternativangebot - Liste mit Sorten, die aufgrund ihrer Typ-Eigenschaften (Servcietyp, Fahrgasttyp, Rabatttyp, Fahrttyp) und der Mindest- / Hoechstpersonenanzahl untereinander austauschbar sind.</documentation>
+			  </annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="TarifSortengruppentypFrei_Typ">
+		<annotation>
+			<documentation>Für projektspezifische Zwecke oder zum Test 
+				können eigene Namen für Sortengruppentypen verwendet werden.
+
+				Namensregeln:
+				Eigene Namen ..
+				.. dürfen nicht mit 'husst.' beginnen,
+				.. dürfen nicht mit einer Zahl beginnen,
+				.. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten
+				.. müssen mit einem Wort beginnen,
+				.. dürfen mehrere Wörter mit '.' oder '-' trennen,
+				.. dürfen nicht mit einem Punkt enden.
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern
+				value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*" />
+<!-- 				value="(((h|H)[^(u|U)])|(h|H)(u|U)[^(s|S)]|(h|H)(u|U)(s|S)[^(s|S)]|(h|H)(u|U)(s|S)(s|S)[^(t|T)]|(h|H)(u|U)(s|S)(s|S)(t|T)[^\.]|[a-gi-zA-ZöäüÖÄÜß0-9])((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+" /> -->
+			<!-- Leider untersützt xsd keinen negativen Forcast (?!husst\.), das 
+				macht den Ausdruck unnötig kompliziert. <pattern value="(?!husst\.)((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+"/> -->
+
+		</restriction>
+	</simpleType>
+
+    <simpleType name="TarifSortengruppentyp_Typ">
+        <annotation>
+        	<documentation>Der Sortengruppentyp ist entweder ein von husst vordefinierter Typ oder ein im Projekt vereinbarter String, der nicht mit 'husst.' beginnen darf.
+
+</documentation>
+        </annotation>
+        <union memberTypes="dv:TarifSortengruppentypDefiniert_Typ dv:TarifSortengruppentypFrei_Typ" />
+    </simpleType>
+</schema>

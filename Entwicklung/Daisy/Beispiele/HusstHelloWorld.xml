@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<dv:HusstDV xmlns:dv="http://www.husst.de/HusstVersorgung"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="..\Datenversorgung\HusstDatenversorgung_Daisy.xsd"
+  lang="de" version="3.0">
+
+  <dv:Infrastrukturdaten>
+    <dv:Zeitraum>
+      <dv:Id>1</dv:Id>
+      <dv:Zusatzinfo>
+        <dv:Text typ="string" name="Hinweis">Mein erster Besipielzeitraum</dv:Text>      
+        <dv:Text typ="string" name="Hinweis">Mein erster Besipielzeitraum</dv:Text>      
+        <dv:Text typ="string" name="Hinweis">Mein erster Besipielzeitraum</dv:Text>      
+        <dv:Text typ="string" name="Hinweis">Mein erster Besipielzeitraum</dv:Text>
+        <dv:Hex typ="hex" name="Layout">001D23FF</dv:Hex>
+        <dv:Zeitpunkt typ="datetime" name="Start">2017-10-01T00:00:00Z</dv:Zeitpunkt>      
+        <dv:Sprachtext name="Anzeige">
+          <dv:Text lang="de">Zusatz</dv:Text>
+          <dv:Text lang="en">Addon</dv:Text>
+        </dv:Sprachtext>      
+
+        <dv:Text typ="string" name="Husst.Interpretationen.Matrixtyp">Halbmatrix</dv:Text>
+      </dv:Zusatzinfo>
+<!--       <dv:Zusatzinfo name="Hinweis2">eine echte Spielwiese</dv:Zusatzinfo> -->
+<!--       <dv:Zusatzinfo name="Hinweis2" lang="en">a real playground</dv:Zusatzinfo> -->
+      <dv:ZeitraumVon>1990-01-01T00:00:00Z</dv:ZeitraumVon>
+      <dv:ZeitraumBis>1990-01-01T00:00:00Z</dv:ZeitraumBis>
+      <dv:HauptZeitraumNr>1</dv:HauptZeitraumNr>
+      <dv:SubZeitraumNr>1</dv:SubZeitraumNr>
+    </dv:Zeitraum>
+  </dv:Infrastrukturdaten>
+
+<!--     <dv:Unternehmen> -->
+<!--       <dv:ID_Zeitraum>1</dv:ID_Zeitraum> -->
+<!--       <dv:ID_Unternehmen>1</dv:ID_Unternehmen> -->
+<!--       <dv:Bezeichnung lang="de">krauth technology GmbH</dv:Bezeichnung> -->
+<!--       <dv:Bezeichnung lang="en">krauth technology</dv:Bezeichnung> -->
+<!--       <dv:BezeichnungKurz>kt</dv:BezeichnungKurz> -->
+<!--       <dv:Mandant>true</dv:Mandant> -->
+<!--     </dv:Unternehmen> -->
+    
+<!--     <dv:Unternehmen> -->
+<!--       <dv:ID_Zeitraum>1</dv:ID_Zeitraum> -->
+<!--       <dv:ID_Unternehmen>2</dv:ID_Unternehmen> -->
+<!--       <dv:Bezeichnung>highQ GmbH</dv:Bezeichnung> -->
+<!--       <dv:BezeichnungKurz>hQ</dv:BezeichnungKurz> -->
+<!--       <dv:Mandant>true</dv:Mandant> -->
+<!--     </dv:Unternehmen> -->
+<!--     </dv:Basisdaten>-->
+    
+</dv:HusstDV>

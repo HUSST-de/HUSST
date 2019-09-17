@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dv="http://www.husst.de/HusstVersorgung" xmlns:api="http://www.husst.de/HusstAppinfo"
+	xmlns:ktapi="http://www.krauth-techology.de/KtHusstAppinfo" xmlns:dt="http://www.husst.de/HusstDatentypen"
+	targetNamespace="http://www.husst.de/HusstVersorgung"
+	elementFormDefault="qualified">
+
+	<import schemaLocation="../Appinfo/HusstAppinfo_Daisy.xsd"
+		namespace="http://www.husst.de/HusstAppinfo" />
+	<import schemaLocation="../Datentypen/HusstDatentypen_Daisy.xsd"
+		namespace="http://www.husst.de/HusstDatentypen" />
+
+	<include schemaLocation="HusstDVBasis_Daisy.xsd" />
+
+	<element name="Infrastrukturdaten" type="dv:Infrastrukturdaten_Typ"/>
+
+	<complexType name="DvZeitraum_Typ">
+		<annotation>
+			<documentation>Gültigkeitszeitraum</documentation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Zeitraum -->
+					<api:ID_Tabelle>1002003</api:ID_Tabelle>
+					<api:primaryKey>
+						<api:field name="ID_Zeitraum" />
+					</api:primaryKey>
+				</api:dbBinding>
+
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasis_Typ">
+				<sequence>
+					<element name="ZeitraumVon" type="dt:DateTimeCompact"
+						nillable="true" minOccurs="1" maxOccurs="1" />
+					<element name="ZeitraumBis" type="dt:DateTimeCompact"
+						nillable="true" minOccurs="1" maxOccurs="1" />
+					<element name="HauptZeitraumNr" type="dt:INT4" nillable="false"
+						minOccurs="1" maxOccurs="1">
+						<annotation>
+							<documentation>Alle Zeiträume mit dem gleichen Hauptzeitraum
+								bilden einen gemeinsamen Datenraum, in dem alle Refrenzen ID_xx
+								die gleiche Bedeutung haben und auflösbar sind.
+								Sind zu einem
+								Zeitpunkt mehrere Zeiträume mit unterschiedlichen
+								Hauptzeitraumnummern gültig, hat der mit der höheren
+								Hauptzeitraumnummer Vorrang.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="SubZeitraumNr" type="dt:INT4" nillable="false"
+						minOccurs="1" maxOccurs="1">
+						<annotation>
+							<documentation>Die Subzeitraumnummer ist innerhalb einer
+								Hauptzeitraumnummer ununterbrochen, aufsteigend nummeriert,
+								beginnend mit 1.
+								Bei gleichzeitiger Gültigkeit mehrere
+								Subzeiträume hat die höhere
+								SubZeitraumNr Vorrang vor der
+								kleineren.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="DvBearbeitung_Typ">
+		<annotation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Bearbeitung -->
+					<api:primekey>
+						<api:field name="Bearbeitungsdatum" />
+						<api:field name="Lieferant" />
+					</api:primekey>
+				</api:dbBinding>
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasis_Typ">
+				<sequence>
+					<element name="Bearbeitungsdatum" type="dt:DateTimeCompact"
+						nillable="false" minOccurs="1" maxOccurs="1" />
+					<element name="Lieferant" type="dt:LanguageString"
+						nillable="false" minOccurs="1" maxOccurs="unbounded" />
+					<element name="Kommentar" type="dt:LanguageString"
+						nillable="true" minOccurs="0" maxOccurs="unbounded" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="DvInhalt_Typ">
+		<annotation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Inhalt -->
+					<api:primaryKey>
+						<api:field name="ID_Zeitraum" />
+					</api:primaryKey>
+				</api:dbBinding>
+
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasis_Typ">
+				<sequence>
+					<element name="ID_Inhalt" type="dt:INT4" nillable="false"
+						minOccurs="1" maxOccurs="1" />
+					<element name="Erstellungsdatum" type="dt:DateTimeCompact"
+						nillable="false" minOccurs="1" maxOccurs="1" />
+					<element name="Lieferant" type="dt:LanguageString"
+						nillable="false" minOccurs="1" maxOccurs="unbounded" />
+					<element name="Testdaten" type="boolean" nillable="true"
+						minOccurs="0" maxOccurs="1" />
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="Infrastrukturdaten_Typ">
+		<annotation>
+			<documentation>
+				Arbeitspaket: kt
+
+				- Inhaltsversionen
+				- Strukturversion
+				-
+				Erzeugungs-und Auslieferungsgeschichte
+				- Zeiträume
+			</documentation>
+		</annotation>
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element name="DvBearbeitung" type="dv:DvBearbeitung_Typ" />
+			<element name="DvInhalt" type="dv:DvInhalt_Typ" />
+			<element name="DvZeitraum" type="dv:DvZeitraum_Typ" />
+		</choice>
+	</complexType>
+</schema>

@@ -1,0 +1,70 @@
+ToDo HUSST DV 
+
+2018.05.03
+- Zeiträume/Subzeiträume diskutieren und definieren
+
+
+<Zusatz>
+   <Text name="husst.was.weiss.ich">Das ist ein beispl</Text>
+   <Zahl name="husst.jahresjahl">2018</Zahl>
+   <Logisch name="husst.boo">1</Logisch>
+</Zusatz>
+
+
+
+2018.04
+
+Anwendungsfälle
+  einfache Versorgung
+  einfache Versorgung über ein zweistufiges Versorgungssystem
+  komplexe Versorgung über ein Versorgungssystem
+  komplexe Versorgung über ein Verdichtungs- und ein Versorgungssystem
+  komplexe Versorgung über ein Verdichtungs- ein Zwischentransport- und ein Versorgungssystem
+  
+  
+Definition von Schnittstellen
+
+Namen und Aufteilungen
+  Benennung der Basistypen (noch nicht sehr klar und einheitlich)
+  
+  >> Tarif - Namen
+    1.x                        IST                        Daisy
+    ===                        ===                        =====                       
+	Tarifgebiet                Tarifgebiet                Tarifgeber
+    OrtspunktTG                Tarifhalt                  Tarifhalt
+    Tarifpunkt                 Tarifpunkt                 Tarifverbindungspunkt
+    Teilrelation               Tarifverbindung            Tarifverbindung
+    [Teilrelation(..)]         Tarifteilverbindung        Tarifteilstrecke
+    Sorte                      Sorte                      Tarifsorte
+	Preisstufe                 Preisstufe                 Tarifpreisstufe
+    Preis                      Preis                      Tarifpreis
+	Mwst                       Mwst                       Tarifmwst
+    Preisspalte                Preisspalte                Tarifpreisspalte
+	
+    Tarifart                   Tarifart                   Tarifart ???
+    
+    -                          TarifverbindungGruppe      TarifverbindungGruppe
+    -                          TarifteilverbindungGruppe  TarifteilstreckeGruppe
+    -                          Tarifteilverbindungstyp    TarifteilstreckeTyp
+    -                          Tarifpunkttyp              TarifverbindungspunktTyp
+
+    
+    Waehrung                   Waehrung                   Tarifwaehrung oder -> Basis.Waehrung  oder -> Basiswaehrung
+
+
+    unter dem Radar
+    Fahrgasttyp                Fahrgasttyp (.. der Sorte)
+    Kompfortklasse             Kompfortklasse (.. der Sorte)
+    Rabattklasse               Rabattklasse (.. der Sorte)
+    Streckentyp                Streckentyp (.. der Sorte)
+
+
+  >> Angebot - Namen
+    1.x                        IST                        Daisy
+    ===                        ===                        =====                       
+	Ortspunkt                  Relationshalt              Angebotshalt
+	Relationscode              Relationspunkt             Angebotsverbindungspunkt
+	Relation                   Relationsverbindung        Angebotsverbindung
+     
+    Ortspunkttyp               Relationshalttyp           Angebotshalttyp
+     

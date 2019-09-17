@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dv="http://www.husst.de/HusstVersorgung" xmlns:dt="http://www.husst.de/HusstDatentypen"
+	targetNamespace="http://www.husst.de/HusstVersorgung"
+	elementFormDefault="qualified">
+
+	<import schemaLocation="../Datentypen/HusstDatentypen_Daisy.xsd"
+		namespace="http://www.husst.de/HusstDatentypen" />
+
+	<include schemaLocation="HusstDVBasis_Daisy.xsd" />
+	<include schemaLocation="HusstDVInfrastruktur_Daisy.xsd" />
+	<include schemaLocation="HusstDVPersonal_Daisy.xsd" />
+	<include schemaLocation="HusstDVBeauftragung_Daisy.xsd" />
+	<include schemaLocation="HusstDVGeraet_Daisy.xsd" />
+	<include schemaLocation="HusstDVTarif_Daisy.xsd" />
+	<include schemaLocation="HusstDVAngebot_Daisy.xsd" />
+	<include schemaLocation="HusstDVNetz_Daisy.xsd" />
+
+	<complexType name="HusstDV_Typ">
+		<annotation>
+			<documentation>
+				Entwicklungsziel HUSST
+
+				Die HUSST definiert eine einfache, herstellerunabhängige
+				Standardschnittstelle zum Austausch von Tarif- und 
+				Ergebnisdaten zur Unterstützung von Verkaufsanwendungen im
+				Öffentlichen Verkehr.
+
+				Entwicklungsziele Datenversorgung Daisy
+				1. Verklarung der Namen der Strukturelemente
+				2. Vereinheitlichung der Datenstrukturen
+				3. Verschlankung der Datenstrukturen
+				4. Flexibilisierung der Datenstrukturen über Zusatzinformationen
+				5. Mehrsprachigkeit
+				6. Abbildung von einfachen Tarifen ohne Abstraktionsebene
+				7. Aufräumarbeiten
+				8. Modularisierung
+				9. eigene Typen - Tabellen (Sortentyp, Ortspunkttyp, Auflösung von
+				Enumerations)
+
+
+				Detailsammlung
+				1. Gültigkeitsregeln überarbeiten - muss vereinfacht, funktional
+				erweitert und automatisiert prüfbar werden.
+				2. Strukturierte Sortenmodellierung (Baumstruktur) (für Olaf:
+				Hauptsorten - Untersorten - ....)
+				3. KA
+				3.1 eigene assoziierte Datentypen
+				3.2 räumliche Gültigkeit
+				4. klarere Strukturierung der Tarifpunkthierarchie
+				5. Tarifrelevantepunkte Struktur überarbeiten
+
+
+				Designregeln
+				1. Jeder Datentyp hat folgende Felder
+
+
+			</documentation>
+		</annotation>
+		<all minOccurs="0" maxOccurs="1">
+			<element name="Basisdaten" type="dv:Basisdaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: kt
+
+						optionale modulübergreifende Datenstrukturen -
+						Kalender - Unternehmen - Stringtabelle -
+						Mappingtabelle - Zusatzinfo (Nutzlast)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Infrastrukturdaten" type="dv:Infrastrukturdaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: kt
+
+						Inhaltsversionen, Strukturversion, Erzeugungs-
+						und Auslieferungsgeschichte Zeiträume
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Personaldaten" type="dv:Personaldaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: highQ
+
+						Personalinformation - Personen - Identifikation
+						- Berechtigungen - Rollen
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Beauftragungsdaten" type="dv:Beauftragungsdaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: highQ
+
+						klären? ist das wirklich ein eigener Datnebereich oder gehört es doch
+						eher zu? Personal?
+
+						- Beauftragungen
+						- Unternehmensbeauftragung
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Geraetedaten" type="dv:Geraetedaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: highQ
+
+						Geräte - Identifikation (- Sam-Excelliste?)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Tarifdaten" type="dv:Tarifdaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: kt
+
+						Vollständige Produktbeschreibung zum Verkauf und
+						zur Registrierung von Beförderungsleistungen und
+						Artikeln Tarifgebiet Tarifart Sorten Preisstufen
+						Preise Tarifpunkte Relationscodes Relationen
+						Teilrelationen (jeder Teilrelationseintrag
+						benötigt selbst noch einmal eine ID -&gt; siehe
+						KA_RaeumlicheGueltigkeit_Teilrelation)) Vias
+						Tarifstelle (kt:Ortspunkte.Typ=31) Sortengruppen
+
+						KA_RaeumlicheGueltigkeit (ID,
+						Bezeichner[string],
+						KA_GueltigkeitsRaum[blobstring])
+						KA_RaeumlicheGueltigkeit_Teilrelation
+						(ID_KA_RaeumlicheGueltigkeit, ID_Teilrelation
+						[Achtung! ggf. den exakten DS in der
+						Teilrelation]) KA_RaeumlicheGueltigkeit_Preis
+						(ID_KA_RaeumlicheGueltigkeit, ID_Preis)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Angebotsdaten" type="dv:Angebotdaten_Typ"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: kt
+
+						Information zur Auswahl von Produkten.
+						Bediengebiete TarifrelevantePunkte Sortengruppen
+						Relationscodegruppen Preisstufendirektwahl
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Netzdaten" type="dv:Netzdaten_Typ" minOccurs="0"
+				maxOccurs="1">
+				<annotation>
+					<documentation>
+						Arbeitspaket: highQ
+
+						Entwurfsziel: - Andockbarkeit an VDV-452 -
+						husst-Variante möglichst schmal
+
+						Ortspunkte Wege Fahrten Linien Wagenumläufe
+						raus?: Zieltexte
+					</documentation>
+				</annotation>
+			</element>
+		</all>
+		<attribute name="lang" type="dt:Language_Typ" use="optional"
+			default="de" />
+		<attribute name="version" type="dt:twoNumberVersion" use="required" />
+	</complexType>
+
+	<element name="HusstDV" type="dv:HusstDV_Typ" />
+</schema>

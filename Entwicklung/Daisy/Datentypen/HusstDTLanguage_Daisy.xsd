@@ -1,0 +1,1953 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:api="http://www.husst.de/HusstAppinfo"
+	xmlns:ktapi="http://www.krauth-techology.de/KtHusstAppinfo" xmlns:dt="http://www.husst.de/HusstDatentypen"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.husst.de/HusstDatentypen"
+	elementFormDefault="qualified">
+
+	<import schemaLocation="../Appinfo/HusstAppinfo_Daisy.xsd"
+		namespace="http://www.husst.de/HusstAppinfo" />
+
+	<simpleType name="Language_Typ">
+		<restriction base="string">
+			<enumeration value="aa">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>1</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAA</ktapi:constname>
+					</appinfo>
+					<documentation>Afar / afar</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ab">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>2</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAB</ktapi:constname>
+					</appinfo>
+					<documentation>Abkhazian / abchasisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="af">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>3</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAF</ktapi:constname>
+					</appinfo>
+					<documentation>Abkhazian / abchasisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ak">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>4</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAK</ktapi:constname>
+					</appinfo>
+					<documentation>Akan / akanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="am">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>5</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAM</ktapi:constname>
+					</appinfo>
+					<documentation>Amharic / amharisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="an">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>6</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAN</ktapi:constname>
+					</appinfo>
+					<documentation>Aragonese / aragonesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ar">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>7</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAR</ktapi:constname>
+					</appinfo>
+					<documentation>Arabic / arabisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="as">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>8</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAS</ktapi:constname>
+					</appinfo>
+					<documentation>Assamese / assamesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="av">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>9</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAV</ktapi:constname>
+					</appinfo>
+					<documentation>Avaric / Awarisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ay">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>10</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAY</ktapi:constname>
+					</appinfo>
+					<documentation>Aymara / aymara</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="az">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>11</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langAZ</ktapi:constname>
+					</appinfo>
+					<documentation>Azerbaijani / aserbaidschanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ba">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>12</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBA</ktapi:constname>
+					</appinfo>
+					<documentation>Bashkir / baschkirisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="be">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>13</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBE</ktapi:constname>
+					</appinfo>
+					<documentation>Belarusian / belorussisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bg">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>14</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBG</ktapi:constname>
+					</appinfo>
+					<documentation>Bulgarian / bulgarisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bh">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>15</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBH</ktapi:constname>
+					</appinfo>
+					<documentation>Bihari / biharisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bi">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>16</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBI</ktapi:constname>
+					</appinfo>
+					<documentation>Bislama / bislamisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bm">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>17</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBM</ktapi:constname>
+					</appinfo>
+					<documentation>Bambara / bambara</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>18</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBN</ktapi:constname>
+					</appinfo>
+					<documentation>Bengali / bengalisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>19</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBO</ktapi:constname>
+					</appinfo>
+					<documentation>Tibetan / tibetanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="br">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>20</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBR</ktapi:constname>
+					</appinfo>
+					<documentation>Breton / bretonisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="bs">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>21</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langBS</ktapi:constname>
+					</appinfo>
+					<documentation>Bosnian / bosnisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ca">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>22</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCA</ktapi:constname>
+					</appinfo>
+					<documentation>Catalan / katalanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ca">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>22</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCA</ktapi:constname>
+					</appinfo>
+					<documentation>Catalan / katalanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ch">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>24</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCH</ktapi:constname>
+					</appinfo>
+					<documentation>Chamorro / chamorro</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="co">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>25</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCO</ktapi:constname>
+					</appinfo>
+					<documentation>Chamorro / chamorro</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="co">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>26</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCR</ktapi:constname>
+					</appinfo>
+					<documentation>Chamorro / chamorro</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="cs">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>27</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCS</ktapi:constname>
+					</appinfo>
+					<documentation>Czech / tschechisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="cv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>28</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCV</ktapi:constname>
+					</appinfo>
+					<documentation>Chuvash / chuvash</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="cy">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>29</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langCY</ktapi:constname>
+					</appinfo>
+					<documentation>Welsh / walisisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="da">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>30</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langDA</ktapi:constname>
+					</appinfo>
+					<documentation>Danish / dänisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="de">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>31</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langDE</ktapi:constname>
+					</appinfo>
+					<documentation>German / deutsch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="dv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>32</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langDV</ktapi:constname>
+					</appinfo>
+					<documentation>Dhivehi / Dhivehi </documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="dz">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>33</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langDZ</ktapi:constname>
+					</appinfo>
+					<documentation>Dzongkha / bhutani</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ee">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>34</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langEE</ktapi:constname>
+					</appinfo>
+					<documentation>Dzongkha / bhutani</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="el">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>35</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langEL</ktapi:constname>
+					</appinfo>
+					<documentation>Greek / griechisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="en">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>36</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langEN</ktapi:constname>
+					</appinfo>
+					<documentation>English / englisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="eo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>37</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langEO</ktapi:constname>
+					</appinfo>
+					<documentation>Esperanto / esperanto</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="es">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>38</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langES</ktapi:constname>
+					</appinfo>
+					<documentation>Spanish / spanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="et">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>39</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langET</ktapi:constname>
+					</appinfo>
+					<documentation>Estonian / estnisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="eu">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>40</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langEU</ktapi:constname>
+					</appinfo>
+					<documentation>Basque / baskisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="fa">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>41</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFA</ktapi:constname>
+					</appinfo>
+					<documentation>Persian / persisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ff">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>42</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFF</ktapi:constname>
+					</appinfo>
+					<documentation>Fulah / </documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ff">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>43</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFI</ktapi:constname>
+					</appinfo>
+					<documentation>Finnish / finisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="fj">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>44</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFJ</ktapi:constname>
+					</appinfo>
+					<documentation>Fijian / fiji</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="fo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>45</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFO</ktapi:constname>
+					</appinfo>
+					<documentation>Faroese / faröisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="fr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>46</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFR</ktapi:constname>
+					</appinfo>
+					<documentation>French / französisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="fy">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>47</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langFY</ktapi:constname>
+					</appinfo>
+					<documentation>Western Frisian / friesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ga">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>48</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langGA</ktapi:constname>
+					</appinfo>
+					<documentation>Irish / irisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="gd">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>49</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langGD</ktapi:constname>
+					</appinfo>
+					<documentation>Scottish Gaelic / schottisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="gl">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>50</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langGL</ktapi:constname>
+					</appinfo>
+					<documentation>Scottish Gaelic / schottisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="gn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>51</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langGN</ktapi:constname>
+					</appinfo>
+					<documentation>Guarani / guarani</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="gu">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>52</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langGU</ktapi:constname>
+					</appinfo>
+					<documentation>Gujarati / gujaratisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="gv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>53</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langGV</ktapi:constname>
+					</appinfo>
+					<documentation>Manx /</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ha">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>54</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHA</ktapi:constname>
+					</appinfo>
+					<documentation>Hausa / haussa</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="he">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>55</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHE</ktapi:constname>
+					</appinfo>
+					<documentation>Hebrew / hebräisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="hi">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>56</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHI</ktapi:constname>
+					</appinfo>
+					<documentation>Hebrew / hebräisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ho">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>57</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHO</ktapi:constname>
+					</appinfo>
+					<documentation>Hiri Motu / Hiri Motu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="hr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>58</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHR</ktapi:constname>
+					</appinfo>
+					<documentation>Croatian / kroatisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ht">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>59</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHT</ktapi:constname>
+					</appinfo>
+					<documentation>Haitian / </documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="hu">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>60</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHT</ktapi:constname>
+					</appinfo>
+					<documentation>Hungarian / ungarisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="hy">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>61</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHY</ktapi:constname>
+					</appinfo>
+					<documentation>Armenian / armenisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="hz">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>62</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langHZ</ktapi:constname>
+					</appinfo>
+					<documentation>Herero / herero</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="id">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>63</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langID</ktapi:constname>
+					</appinfo>
+					<documentation>Indonesian / indonesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ig">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>64</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langIG</ktapi:constname>
+					</appinfo>
+					<documentation>Igbo / igbo</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ii">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>64</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langII</ktapi:constname>
+					</appinfo>
+					<documentation>Sichuan Yi / </documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ik">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>66</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langIK</ktapi:constname>
+					</appinfo>
+					<documentation>Inupiaq / inupiak</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="io">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>67</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langIO</ktapi:constname>
+					</appinfo>
+					<documentation>Ido / ido</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="is">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>68</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langIS</ktapi:constname>
+					</appinfo>
+					<documentation>Icelandic / isländisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="it">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>69</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langIT</ktapi:constname>
+					</appinfo>
+					<documentation>Italian / italienisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="it">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>70</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langIU</ktapi:constname>
+					</appinfo>
+					<documentation>Inuktitut / inuktitut -Eskimo-</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ja">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>71</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langJA</ktapi:constname>
+					</appinfo>
+					<documentation>Japanese / japanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="jv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>72</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langJV</ktapi:constname>
+					</appinfo>
+					<documentation>Javanese / javanesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ka">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>73</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKA</ktapi:constname>
+					</appinfo>
+					<documentation>ka</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kg">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>74</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKG</ktapi:constname>
+					</appinfo>
+					<documentation>Kongo / kongolesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ki">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>75</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKI</ktapi:constname>
+					</appinfo>
+					<documentation>Kikuyu / kikuyu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kj">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>76</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKJ</ktapi:constname>
+					</appinfo>
+					<documentation>Kikuyu / kikuyu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kk">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>77</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKK</ktapi:constname>
+					</appinfo>
+					<documentation>Kikuyu / kikuyu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kl">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>78</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKL</ktapi:constname>
+					</appinfo>
+					<documentation>Kalaallisut / </documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="km">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>79</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKM</ktapi:constname>
+					</appinfo>
+					<documentation>Central Khmer / kambodschanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>80</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKN</ktapi:constname>
+					</appinfo>
+					<documentation>Kannada / kanadisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ko">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>81</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKO</ktapi:constname>
+					</appinfo>
+					<documentation>Korean / koreanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>82</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKR</ktapi:constname>
+					</appinfo>
+					<documentation>Kanuri / kalaallisut (Grönländ.)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ks">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>83</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKS</ktapi:constname>
+					</appinfo>
+					<documentation>Kashmiri / kaschmirisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ku">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>84</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKU</ktapi:constname>
+					</appinfo>
+					<documentation>ku</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>85</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKV</ktapi:constname>
+					</appinfo>
+					<documentation>Komi / komi</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="kw">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>86</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKW</ktapi:constname>
+					</appinfo>
+					<documentation>Cornish / </documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ky">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>87</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langKY</ktapi:constname>
+					</appinfo>
+					<documentation>Kirghiz / kirgisisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="lb">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>88</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLB</ktapi:constname>
+					</appinfo>
+					<documentation>Luxembourgish / luxemburgisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="lg">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>89</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLG</ktapi:constname>
+					</appinfo>
+					<documentation>Ganda / ganda</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="li">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>90</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLG</ktapi:constname>
+					</appinfo>
+					<documentation>Limburgan / limburgisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ln">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>91</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLN</ktapi:constname>
+					</appinfo>
+					<documentation>Lingala / lingala</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="lo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>92</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLO</ktapi:constname>
+					</appinfo>
+					<documentation>Lao / laotisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="lt">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>93</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLT</ktapi:constname>
+					</appinfo>
+					<documentation>Lithuanian / litauisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="lu">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>94</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLU</ktapi:constname>
+					</appinfo>
+					<documentation>Lithuanian / litauisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="lv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>95</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langLV</ktapi:constname>
+					</appinfo>
+					<documentation>Lithuanian / litauisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mg">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>96</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMG</ktapi:constname>
+					</appinfo>
+					<documentation>Malagasy / malagasisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mh">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>97</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMH</ktapi:constname>
+					</appinfo>
+					<documentation>Marshallese / marshallese</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mi">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>98</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMI</ktapi:constname>
+					</appinfo>
+					<documentation>mri Maori / maorisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mk">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>99</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMK</ktapi:constname>
+					</appinfo>
+					<documentation>mri Maori / maorisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ml">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>100</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langML</ktapi:constname>
+					</appinfo>
+					<documentation>Malayalam / malajalam</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>101</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMN</ktapi:constname>
+					</appinfo>
+					<documentation>Mongolian / mongolisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>102</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMR</ktapi:constname>
+					</appinfo>
+					<documentation>Marathi / marathi</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ms">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>103</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMS</ktapi:constname>
+					</appinfo>
+					<documentation>msa Malay (macrolanguage) / malaysisch
+					</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="mt">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>104</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMT</ktapi:constname>
+					</appinfo>
+					<documentation>Maltese / maltesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="my">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>105</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langMY</ktapi:constname>
+					</appinfo>
+					<documentation>mya Burmese / burmesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="na">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>106</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNA</ktapi:constname>
+					</appinfo>
+					<documentation>Nauru / nauruisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="nb">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>107</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNB</ktapi:constname>
+					</appinfo>
+					<documentation>Norwegian Bokmål / norwegisch Bokmål</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="nd">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>108</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langND</ktapi:constname>
+					</appinfo>
+					<documentation>North Ndebele / Nord-ndebele</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ne">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>109</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNE</ktapi:constname>
+					</appinfo>
+					<documentation>Nepali (macrolanguage) / nepalisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ng">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>110</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNG</ktapi:constname>
+					</appinfo>
+					<documentation>Ndonga / ndonga</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="nl">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>111</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNL</ktapi:constname>
+					</appinfo>
+					<documentation>Dutch / holländisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="nn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>112</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNN</ktapi:constname>
+					</appinfo>
+					<documentation>Norwegian Nynorsk / norwegisch Nynorsk
+					</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="no">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>113</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNO</ktapi:constname>
+					</appinfo>
+					<documentation>Norwegian / norwegisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="nr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>114</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNR</ktapi:constname>
+					</appinfo>
+					<documentation>South Ndebele / Süd-Ndebele</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="nv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>115</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNV</ktapi:constname>
+					</appinfo>
+					<documentation>Navajo / navajo</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ny">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>116</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langNY</ktapi:constname>
+					</appinfo>
+					<documentation>Nyanja / chichewa</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="oc">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>117</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langOC</ktapi:constname>
+					</appinfo>
+					<documentation>Occitan/ okzitanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="om">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>118</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langOM</ktapi:constname>
+					</appinfo>
+					<documentation>Occitan/ okzitanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="or">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>119</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langOR</ktapi:constname>
+					</appinfo>
+					<documentation>Oriya (macrolanguage) / orija</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="os">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>120</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langOR</ktapi:constname>
+					</appinfo>
+					<documentation>Oriya (macrolanguage) / orija</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="pa">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>121</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langPA</ktapi:constname>
+					</appinfo>
+					<documentation>Panjabi / pandschabisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="pl">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>122</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langPL</ktapi:constname>
+					</appinfo>
+					<documentation>Polish / polnisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ps">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>123</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langPS</ktapi:constname>
+					</appinfo>
+					<documentation>Pushto / paschtu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="pt">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>124</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langPT</ktapi:constname>
+					</appinfo>
+					<documentation>Portuguese / portugiesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="qu">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>125</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langQU</ktapi:constname>
+					</appinfo>
+					<documentation>Quechua / quechua</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="rm">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>126</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langRM</ktapi:constname>
+					</appinfo>
+					<documentation>Romansh / rätoromanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="rn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>127</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langRN</ktapi:constname>
+					</appinfo>
+					<documentation>Rundi / kirundisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ro">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>128</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langRO</ktapi:constname>
+					</appinfo>
+					<documentation>ron Romanian / rumänisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ru">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>129</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langRU</ktapi:constname>
+					</appinfo>
+					<documentation>Russian / russisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="rw">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>130</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langRW</ktapi:constname>
+					</appinfo>
+					<documentation>Kinyarwanda / kijarwanda</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sc">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>131</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSC</ktapi:constname>
+					</appinfo>
+					<documentation>Sardinian / sardinisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sd">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>132</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSD</ktapi:constname>
+					</appinfo>
+					<documentation>Sindhi / zinti</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="se">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>133</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSE</ktapi:constname>
+					</appinfo>
+					<documentation>Northern Sami / Nord-sami</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sg">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>134</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSG</ktapi:constname>
+					</appinfo>
+					<documentation>Sango / sango</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="si">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>135</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSI</ktapi:constname>
+					</appinfo>
+					<documentation>Sinhala / singhalesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sk">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>136</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSK</ktapi:constname>
+					</appinfo>
+					<documentation>Slovak / slowakisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sl">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>137</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSL</ktapi:constname>
+					</appinfo>
+					<documentation>Slovenian / slowenisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sm">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>138</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSM</ktapi:constname>
+					</appinfo>
+					<documentation>Samoan / samoanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>139</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSN</ktapi:constname>
+					</appinfo>
+					<documentation>Shona / schonisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="so">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>140</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSO</ktapi:constname>
+					</appinfo>
+					<documentation>Somali / somalisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sq">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>141</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSQ</ktapi:constname>
+					</appinfo>
+					<documentation>Albanian / albanisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>142</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSR</ktapi:constname>
+					</appinfo>
+					<documentation>Serbian / serbisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ss">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>143</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSS</ktapi:constname>
+					</appinfo>
+					<documentation>Swati / swasiländisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="st">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>144</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langST</ktapi:constname>
+					</appinfo>
+					<documentation>Southern Sotho / sesothisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="su">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>145</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSU</ktapi:constname>
+					</appinfo>
+					<documentation>su</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sv">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>146</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSV</ktapi:constname>
+					</appinfo>
+					<documentation>Swedish / schwedisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="sw">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>147</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langSW</ktapi:constname>
+					</appinfo>
+					<documentation>Swahili (macrolanguage) / suaheli</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ta">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>148</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTA</ktapi:constname>
+					</appinfo>
+					<documentation>Swahili (macrolanguage) / suaheli</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="te">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>149</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTE</ktapi:constname>
+					</appinfo>
+					<documentation>Telugu / tegulu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tg">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>150</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTG</ktapi:constname>
+					</appinfo>
+					<documentation>Tajik / tadschikisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="th">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>151</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTH</ktapi:constname>
+					</appinfo>
+					<documentation>Thai / thai</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ti">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>152</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTI</ktapi:constname>
+					</appinfo>
+					<documentation>Tigrinya / tegulu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tk">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>153</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTK</ktapi:constname>
+					</appinfo>
+					<documentation>Turkmen / turkmenisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tl">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>154</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTL</ktapi:constname>
+					</appinfo>
+					<documentation>Tagalog / tagalog</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tn">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>155</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTN</ktapi:constname>
+					</appinfo>
+					<documentation>Tswana / sezuan</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="to">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>156</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTO</ktapi:constname>
+					</appinfo>
+					<documentation>Tonga (Tonga Islands) / tongaisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tr">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>157</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTR</ktapi:constname>
+					</appinfo>
+					<documentation>Turkish / türkisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ts">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>158</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTS</ktapi:constname>
+					</appinfo>
+					<documentation>Tsonga / tsongaisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tt">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>159</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTT</ktapi:constname>
+					</appinfo>
+					<documentation>Tatar / tatarisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="tw">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>160</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTW</ktapi:constname>
+					</appinfo>
+					<documentation>Twi / twi</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ty">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>161</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langTY</ktapi:constname>
+					</appinfo>
+					<documentation>Twi / twi</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ug">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>162</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langUG</ktapi:constname>
+					</appinfo>
+					<documentation>Uighur / uighur</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="uk">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>163</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langUK</ktapi:constname>
+					</appinfo>
+					<documentation>Ukrainian / ukrainisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ur">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>164</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langUR</ktapi:constname>
+					</appinfo>
+					<documentation>Urdu / urdu</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="uz">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>165</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langUZ</ktapi:constname>
+					</appinfo>
+					<documentation>Uzbek / usbekisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="ve">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>166</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langVE</ktapi:constname>
+					</appinfo>
+					<documentation>Venda /</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="vi">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>167</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langVI</ktapi:constname>
+					</appinfo>
+					<documentation>Vietnamese / vietnamesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="vo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>168</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langVO</ktapi:constname>
+					</appinfo>
+					<documentation>Volapük / volapük</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="wa">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>169</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langWA</ktapi:constname>
+					</appinfo>
+					<documentation>Walloon / walonisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="wo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>170</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langWO</ktapi:constname>
+					</appinfo>
+					<documentation>Wolof / wolof</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="xh">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>171</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langXH</ktapi:constname>
+					</appinfo>
+					<documentation>Xhosa / xhosa</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="yi">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>172</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langXH</ktapi:constname>
+					</appinfo>
+					<documentation>Xhosa / xhosa</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="yo">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>173</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langYO</ktapi:constname>
+					</appinfo>
+					<documentation>Yoruba / joruba</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="za">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>174</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langZA</ktapi:constname>
+					</appinfo>
+					<documentation>Zhuang / zhuang</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="zh">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>175</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langZH</ktapi:constname>
+					</appinfo>
+					<documentation>Chinese / chinesisch</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="zu">
+				<annotation>
+					<appinfo>
+						<api:dbBindingEnumeration>
+							<api:dbValue>176</api:dbValue>
+						</api:dbBindingEnumeration>
+						<ktapi:constname>langZU</ktapi:constname>
+					</appinfo>
+					<documentation>Zulu / zulu</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+
+</schema>

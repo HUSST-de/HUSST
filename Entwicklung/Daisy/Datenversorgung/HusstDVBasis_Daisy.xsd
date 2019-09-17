@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dv="http://www.husst.de/HusstVersorgung"
+	xmlns:api="http://www.husst.de/HusstAppinfo" xmlns:ktapi="http://www.krauth-techology.de/KtHusstAppinfo"
+	xmlns:dt="http://www.husst.de/HusstDatentypen" targetNamespace="http://www.husst.de/HusstVersorgung"
+	elementFormDefault="qualified">
+
+	<import schemaLocation="../Datentypen/HusstDatentypen_Daisy.xsd"
+		namespace="http://www.husst.de/HusstDatentypen" />
+	<import schemaLocation="../Appinfo/HusstAppinfo_Daisy.xsd"
+		namespace="http://www.husst.de/HusstAppinfo" />
+
+	<element name="Basisdaten" type="dv:Basisdaten_Typ"/>
+
+	<group name="Zusatzelemente_Typ">
+		<choice>
+			<element name="Text" type="dv:ZusatzText_Typ" nillable="true"/>
+			<element name="Logisch" type="dv:ZusatzLogisch_Typ"/>
+			<element name="Zahl" type="dv:ZusatzZahl_Typ" nillable="true"/>
+			<element name="Zeitpunkt" type="dv:ZusatzZeitpunkt_Typ"/>
+			<element name="Hex" type="dv:ZusatzHex_Typ" nillable="true"/>
+			<element name="Sprachtext" type="dv:ZusatzSprachtext_Typ" nillable="true"/>
+		</choice>		
+	</group>
+
+	<complexType name="Zusatz_Typ">
+		<choice maxOccurs="unbounded" minOccurs="0">
+		  <group ref="dv:Zusatzelemente_Typ"></group>
+		</choice>
+	</complexType>
+
+	<complexType name="ZusatzText_Typ">
+		<simpleContent>
+			<restriction base="dv:ZusatzElement_Typ">
+				<simpleType>
+					<restriction base="string" />
+				</simpleType>
+			</restriction>			
+		</simpleContent>
+	</complexType>
+
+	<complexType name="ZusatzLogisch_Typ">
+		<simpleContent>
+			<restriction base="dv:ZusatzElement_Typ">
+				<simpleType>
+					<restriction base="boolean">
+					</restriction>
+				</simpleType>
+			</restriction>
+		</simpleContent>
+	</complexType>
+	<complexType name="ZusatzZahl_Typ">
+		<simpleContent>
+			<restriction base="dv:ZusatzElement_Typ">
+				<simpleType>
+					<restriction base="dt:INT4" />
+				</simpleType>
+			</restriction>
+		</simpleContent>
+	</complexType>
+	<complexType name="ZusatzZeitpunkt_Typ">
+		<simpleContent>
+			<restriction base="dv:ZusatzElement_Typ">
+				<simpleType>
+					<restriction base="dt:DateTimeCompact" />
+				</simpleType>
+			</restriction>
+		</simpleContent>
+	</complexType>
+	<complexType name="ZusatzHex_Typ">
+		<simpleContent>
+			<restriction base="dv:ZusatzElement_Typ">
+				<simpleType>
+					<restriction base="string" />
+				</simpleType>
+			</restriction>
+		</simpleContent>
+	</complexType>
+	<complexType name="ZusatzSprachtext_Typ" mixed="true">
+		<complexContent>
+			<extension base="dv:ZusatzElement_Typ">
+				<sequence>
+					<element name="Text" nillable="true" minOccurs="0"
+						maxOccurs="unbounded">
+						<complexType mixed="true">
+							<attribute name="lang" type="dt:Language_Typ" />
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="ZusatzElement_Typ" mixed="true" abstract="true">
+		<annotation>
+			<documentation>
+				Zusatz decken mehrere Bedürfnisse ab.
+				1. Selten
+				verwendete Attribute blähen nicht mehr die Datentruktur auf,
+				sondern
+				werden bei Bedarf als Zusatz an ein Element hinzugefügt.
+				2.
+				Kurzfristig benötigte Erweiterungen der Datenstruktur können im
+				Vorfeld einer Standardisierung erprobt werden.
+				3. Daten, die keine
+				strukturelle Bedeutung haben (Filtern, Suchen,
+				Ordnen, Referenzieren)
+				können als Zusatzinformation definiert werden
+				um die Datenstrukturen
+				möglichst klein zu halten.
+			</documentation>
+			<appinfo>
+				<api:dbBinding>
+					<api:extraField>
+						<api:field name="ID" type="dt:INT4" />
+					</api:extraField>
+					<api:extraField>
+						<api:field name="Tabelle" type="enumeration" /> <!-- todo: type enumeration durch eine enumeration mit allen Tabellen ersetzen -->
+					</api:extraField>
+					<api:primaryKey>
+						<api:field name="ID" />
+						<api:field name="Tabelle" />
+						<api:field name="Wert" />
+					</api:primaryKey>
+				</api:dbBinding>
+			</appinfo>
+		</annotation>
+		<attribute name="name" type="dv:ZusatzName_Typ" use="required"/>
+	</complexType>
+
+	<simpleType name="ZusatzNameDefinedEnum_Typ">
+		<restriction base="string">
+			<enumeration value="husst.dv.angebot.sorte.font.name" />
+			<enumeration value="husst.dv.tarif.druck.layouttyp" />
+		</restriction>
+	</simpleType>
+	<simpleType name="ZusatzNameDefinedPattern_Typ">
+		<restriction base="string">
+			<pattern value="husst\.dv\.tarif\.druck\.text\.[0-9]+"/>
+		</restriction>
+	</simpleType>
+	<simpleType name="ZusatzNameDefined_Typ">
+		<union memberTypes="dv:ZusatzNameDefinedEnum_Typ dv:ZusatzNameDefinedPattern_Typ" />
+	</simpleType>
+
+	<simpleType name="ZusatzNameFrei_Typ">
+		<annotation>
+			<documentation>Für interne Zwecke, oder zum Test neuer
+				Zusatzinformationen können eigene Namen verwendet werden.
+				Eine
+				Datenmenge mit eigenen Zusatznamen ist nicht mehr
+				standardkonform.
+				Soll die Datenmenge standardkonform werden, müssen
+				die Zusatznamen
+				unter der Domain husst.
+				standardisiert werden.
+
+				Namensregeln:
+				Eigene Namen ..
+				.. dürfen nicht mit 'husst.' beginnen,
+				.. dürfen nicht mit einer Zahl beginnen,
+				.. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten
+				.. müssen mit einem Wort beginnen,
+				.. dürfen mehrere Wörter mit '.'
+				oder '-' trennen,
+				.. dürfen nicht mit einem Punkt enden.
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern
+				value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*" />
+<!-- 				value="(((h|H)[^(u|U)])|(h|H)(u|U)[^(s|S)]|(h|H)(u|U)(s|S)[^(s|S)]|(h|H)(u|U)(s|S)(s|S)[^(t|T)]|(h|H)(u|U)(s|S)(s|S)(t|T)[^\.]|[a-gi-zA-ZöäüÖÄÜß0-9])((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+" /> -->
+			<!-- Leider untersützt xsd keinen negativen Forcast (?!husst\.), das 
+				macht den Ausdruck unnötig kompliziert. <pattern value="(?!husst\.)((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+"/> -->
+
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ZusatzName_Typ">
+		<union memberTypes="dv:ZusatzNameDefined_Typ dv:ZusatzNameFrei_Typ" />
+	</simpleType>
+
+	<!-- <choice minOccurs="0" maxOccurs="unbounded"> -->
+	<!-- todo: dt:languageString ersetzen durch einen abstrakten dt:Zusatz_Wert 
+		mit konkreten Ableitungen als string und dt:LanguageString -->
+	<!-- <element name="Wert" type="dt:LanguageString" /> -->
+	<!-- </choice> -->
+	<!-- <attribute name="typ" type="dt:ZusatzTyp_Typ" /> -->
+	<!-- todo: Enumeration der möglichen Namen 'husst.xxxx' + Ausweichtyp für 
+		nicht husstkonforme Erweiterungen -->
+	<!-- <attribute name="name" type="string" /> -->
+
+	<group name="HusstDVBasisId_Gruppe">
+		<sequence>
+		</sequence>
+	</group>
+
+	<group name="HusstDVBasisIdZusatz_Gruppe">
+		<sequence>
+			<group ref="dv:HusstDVBasisId_Gruppe" />
+			<element name="Zusatz" type="dv:Zusatz_Typ" nillable="true" maxOccurs="1" minOccurs="0"/>			 
+		</sequence>
+	</group>
+
+	<group name="HusstDVBasisIdZusatzDruckRegistrierung_Gruppe">
+		<sequence>
+			<group ref="dv:HusstDVBasisId_Gruppe" />
+			<element name="Zusatz" type="dv:Zusatz_Typ" nillable="true" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Zusatzinformation zu einem Datenelement, die weder zum Druck noch zur Registrierung verwendet wird.
+Der Namensraum für definierte husst-Zusatzinformationen ist:
+husst.*
+Die Schlüssel werden vom Husst-Projekt zentral verwaltet.
+Die Verwendung von anderen Schlüsseln kann für Testzwecke oder für interne Datenelemente verwendet werden. 
+Eine Husst-konforme Transport-Datenmenge darf nur registrierte husst.* Schlüssel verwenden.</documentation>
+				</annotation></element>			 
+			<element name="Druck" type="dv:Zusatz_Typ" nillable="true" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Druckinformationen zu einem Datenelement.
+Soll eine Information sowohl für den Druck als auch für die Registrierung oder auch für andere Zwecke verwendet werden, muss sie in 
+der Sammlung Registrierung bzw. Zusatz noch einmal geliefert werden.
+
+Der Namensraum für definierte husst-Zusatzinformationen ist:
+husst.*
+
+Die Schlüssel werden vom Husst-Projekt zentral verwaltet.
+Die Verwendung von anderen Schlüsseln kann für Testzwecke oder für interne Datenelemente verwendet werden. 
+Eine Husst-konforme Transport-Datenmenge darf nur registrierte husst.* Schlüssel verwenden.</documentation>
+				</annotation></element>			 
+			<element name="Registrierung" type="dv:Zusatz_Typ" nillable="true" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Registrierungsinformation zu einem Datenelement.
+Diese Elemente werden bei einem Verkaufsvorgang in den Registrierungsdaten zurückgeliefert.
+
+Soll eine Information sowohl für den Druck als auch für die Registrierung oder auch für andere Zwecke verwendet werden, muss sie in 
+der Sammlung Registrierung bzw. Zusatz noch einmal geliefert werden.
+
+Der Namensraum für definierte husst-Zusatzinformationen ist:
+husst.*
+
+Die Schlüssel werden vom Husst-Projekt zentral verwaltet.
+Die Verwendung von anderen Schlüsseln kann für Testzwecke oder für interne Datenelemente verwendet werden. 
+Eine Husst-konforme Transport-Datenmenge darf nur registrierte husst.* Schlüssel verwenden.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</group>
+	
+	<group name="HusstDVBasisIdZusatzDruckRegistrierungReferenzExtern_Gruppe">
+		<sequence>
+			<group ref="dv:HusstDVBasisIdZusatzDruckRegistrierung_Gruppe" />
+			<group ref="dv:HusstDVReferenzExtern_Gruppe" />
+		</sequence>
+	</group>
+
+	<group name="HusstDVReferenzExtern_Gruppe">
+		<sequence>
+			<element name="ReferenzExtern" type="string" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+Dient als Referenz um das Datenelement über eine alphanumerische Referenz ggf. auch bezogen auf Drittsysteme
+identifizieren zu können.
+
+ReferenzExtern ist ein logischer, semantischer Schlüssel zur Identifikation eines Elementes über Zeiträume und 
+Datenlieferungen hinweg. Ob es ReferenzExtern gibt, und wie der Wert für ReferenzExtern zu bilden ist, muss im
+Projekt konkret definiert werden.
+
+Der Wert von ReferenzExtern ist case-sensitive.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</group>
+	
+	<group name="HusstDVBasisReferenzExtern_Gruppe">
+		<sequence>
+			<group ref="dv:HusstDVBasisIdZusatz_Gruppe" />
+			<group ref="dv:HusstDVReferenzExtern_Gruppe"></group>
+		</sequence>
+	</group>
+
+	<complexType name="HusstDVBasis_Typ" abstract="true">
+		<annotation>
+			<documentation>
+				Basiselemente aller HusstDV-Datentypen zur
+				ID-Bestimmung.
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisId_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional"></attribute>
+	</complexType>
+
+<!-- 	<complexType name="HusstDVBasisZeitraum_Typ" abstract="true">
+		<annotation>
+			<documentation>
+				Basiselemente aller HusstDV-Datentypen.
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisZeitraum_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional"></attribute>
+	</complexType>
+ -->
+	<complexType name="HusstDVBasisZusatz_Typ"
+		abstract="true">
+		<annotation>
+			<documentation>Basiselemente aller HusstDV-Datentypen mit einer
+				Externen Referenz aber ohne Zeitraum.
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisIdZusatz_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="HusstDVBasisReferenzExtern_Typ"
+		abstract="true">
+		<annotation>
+			<documentation>Basiselemente aller HusstDV-Datentypen mit Zusatzinfo.
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisReferenzExtern_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional"></attribute>
+	</complexType>
+
+ 	<complexType name="HusstDVBasisStandard_Typ"
+		abstract="true">
+		<annotation>
+			<documentation>Standard Basiselemente aller HusstDV-Datentypen ohne Bezeichnung
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisIdZusatzDruckRegistrierungReferenzExtern_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional">
+			<annotation>
+				<documentation>Wenn deaktiviert=true dann ist das Datenelement als "gelöscht" zu behandeln. Damit können Teildatenlieferungen Elemente aus vorherigen Sub-Zeiträumen ausblenden.</documentation>
+			</annotation></attribute>
+	</complexType>
+
+ 	<complexType name="HusstDVBasisStandardBezeichnet_Typ"
+		abstract="true">
+		<annotation>
+			<documentation>Standard Basiselemente aller HusstDV-Datentypen mit optionaler Bezeichnung
+			</documentation>
+		</annotation>
+		<sequence>
+		  <group ref="dv:HusstDVBasisIdZusatzDruckRegistrierungReferenzExtern_Gruppe" />
+		  <element name="Bezeichnung" type="dt:LanguageString" maxOccurs="1" minOccurs="0"/>
+		</sequence>  		
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional">
+			<annotation>
+				<documentation>Wenn deaktiviert=true dann ist das Datenelement als "gelöscht" zu behandeln. Damit können Teildatenlieferungen Elemente aus vorherigen Sub-Zeiträumen ausblenden.</documentation>
+			</annotation></attribute>
+	</complexType>
+
+<!-- 	<complexType name="HusstDVBasisZeitraumReferenzExtern_Typ"
+		abstract="true">
+		<annotation>
+			<documentation>Basiselemente aller HusstDV-Datentypen mit einer
+				Externen Referenz mit Zeitraum.
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisZeitraumReferenzExtern_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional"></attribute>
+	</complexType>
+ -->
+<!-- 	<complexType name="HusstDVBasisZeitraumDruckRegistrierungReferenzExtern_Typ"
+		abstract="true">
+		<annotation>
+			<documentation>Basiselemente aller HusstDV-Datentypen mit einer
+				Externen Referenz mit Zeitraum die Druck- und Registrierungsinformationen enthalten.
+			</documentation>
+		</annotation>
+		<group ref="dv:HusstDVBasisZeitraumDruckRegistrierungReferenzExtern_Gruppe" />
+		<attribute name="id" type="dt:INT4" use="required"></attribute>
+		<attribute name="deaktiviert" type="boolean" use="optional"></attribute>
+	</complexType>
+ -->
+	<!-- Hauptdatentypen Datenbereich Basis -->
+	<complexType name="BasisUnternehmen_Typ">
+		<annotation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Unternehmen -->
+					<api:primaryKey>
+						<api:field name="Id" />
+						<api:field name="Id_Zeitraum" />
+					</api:primaryKey>
+					<api:foreignKey foreignElement="Zeitraum"
+						name="FK_Unternehmen_Zeitraeume">
+						<api:field name="Id_Zeitraum" />
+					</api:foreignKey>
+				</api:dbBinding>
+
+			</appinfo>
+			<documentation>Unternehmen, die in irgendeiner Form mit anderen Daten
+				im Paket in Beziehung stehen.
+			</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasisReferenzExtern_Typ">
+				<sequence>
+					<element name="Bezeichnung" type="dt:LanguageString"
+						nillable="true" minOccurs="0" maxOccurs="unbounded" />
+					<element name="BezeichnungKurz" type="dt:LanguageString"
+						nillable="true" minOccurs="0" maxOccurs="unbounded" />
+					<element name="Mandant" type="boolean" maxOccurs="1"
+						minOccurs="0" nillable="true">
+						<annotation>
+							<documentation>
+								True, wenn das Unternehmen als Mandant im System
+								geführt wird.
+							</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="BasisTagesart_Typ">
+		<annotation>
+			<documentation>Tagesart</documentation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Tagesart --><!--keine PrimaryKey - deshalb: suche Element in Vorgängerstrukturen=ID_Tagesart -->
+					<api:hiddenPrimaryKey>
+						<api:field name="Id" />
+						<api:field name="Id_Zeitraum" />
+					</api:hiddenPrimaryKey>
+					<api:foreignKey foreignElement="Zeitraum"
+						name="FK_Tagesarten_Zeitraeume">
+						<api:field name="Id_Zeitraeume" />
+					</api:foreignKey>
+				</api:dbBinding>
+
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasisReferenzExtern_Typ">
+				<sequence>
+					<element name="Bezeichnung" type="dt:LanguageString"
+						nillable="true" minOccurs="0" maxOccurs="unbounded">
+						<annotation>
+							<documentation>Bedeutung dieser Tagesart</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="BasisBetriebstag_Typ">
+		<annotation>
+			<documentation>Jahreskalender mit Sondertagsinformation
+			</documentation>
+			<appinfo>
+				<api:dbBinding><!--dbBinding gefunden --><!--typename=Betriebstag -->
+					<api:primaryKey>
+						<api:field name="Id" />
+						<api:field name="Id_Zeitraum" />
+					</api:primaryKey>
+					<api:index name="Idx_BetriebstagTagesart">
+						<api:field name="Id_Tagesart" />
+					</api:index>
+					<api:foreignKey foreignElement="Zeitraum"
+						name="FK_Betriebstag_Zeitraeume">
+						<api:field name="Id_Zeitraum" />
+					</api:foreignKey>
+					<api:foreignKey foreignElement="Tagesart"
+						name="FK_Betriebstag_Tagesart">
+						<api:field name="Id_Tagesart" />
+						<api:field name="Id_Zeitraum" />
+					</api:foreignKey>
+				</api:dbBinding>
+
+			</appinfo>
+		</annotation>
+		<complexContent>
+			<extension base="dv:HusstDVBasisReferenzExtern_Typ">
+				<sequence>
+					<element name="Id_Tagesart" type="dt:INT4" nillable="false"
+						minOccurs="1" maxOccurs="1">
+						<annotation>
+							<documentation>Tagesart des Betriebstages</documentation>
+						</annotation>
+					</element>
+					<element name="Datum" type="dt:DateCompact" nillable="false"
+						minOccurs="1" maxOccurs="1">
+						<annotation>
+							<documentation>Datum des Betriebstages</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+
+<!-- 	Vorschlag:  -->
+<!--      Vezicht auf Interpretationen -->
+<!--      Allgemeine Anweisungen zur Beschreibung der Datenmenge als Zusatz des Zeitraum-Datensatzes -->
+<!-- 	<complexType name="Interpretation_Typ"> -->
+<!-- 		<annotation> -->
+<!-- 			<appinfo> -->
+<!-- 				<api:dbBinding>dbBinding gefundentypename=Interpretation -->
+<!-- 					<api:primaryKey> -->
+<!-- 						<api:field name="Name" /> -->
+<!-- 						<api:field name="ID_Zeitraum" /> -->
+<!-- 					</api:primaryKey> -->
+<!-- 					<api:foreignKey name="FK_Interpretationen_Zeitraum" -->
+<!-- 						foreignElement="Zeitraum"> -->
+<!-- 						<api:field name="ID_Zeitraum" /> -->
+<!-- 					</api:foreignKey> -->
+<!-- 				</api:dbBinding> -->
+
+<!-- 			</appinfo> -->
+<!-- 		</annotation> -->
+<!-- 		<sequence> -->
+<!-- 			<element name="Deaktiviert" type="boolean" nillable="true" -->
+<!-- 				minOccurs="0" maxOccurs="1" /> -->
+<!-- 			<element name="ID_Zeitraum" type="dt:INT4" nillable="false" -->
+<!-- 				maxOccurs="1" minOccurs="1" /> -->
+<!-- 			<element name="Name" type="string" nillable="false" -->
+<!-- 				minOccurs="1" maxOccurs="1" /> -->
+<!-- 			<element name="Wert" type="dt:LanguageString" nillable="true" -->
+<!-- 				minOccurs="0" maxOccurs="unbounded" /> -->
+<!-- 		</sequence> -->
+<!-- 		<attribute name="id_typ" type="dt:INT4" use="optional" -->
+<!-- 			default="1001001" /> -->
+<!-- 	</complexType> -->
+
+	<!-- Datenbereich Basis -->
+	<complexType name="Basisdaten_Typ">
+		<annotation>
+			<documentation>
+				Arbeitspaket: kt
+
+				optionale modulübergreifende
+				Datenstrukturen
+				- Tagesart
+				- Betriebstag [Kalender]
+				- Unternehmen
+
+				Stringtabelle
+				- Mappingtabelle
+				- Zusatz (Nutzlast)
+			</documentation>
+		</annotation>
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<!-- 			<element name="Interpretation" type="dv:Interpretation_Typ" /> -->
+			<element name="Zeitraumkontext"
+				type="dv:BasisZeitraumkontext_Typ" maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</choice>
+	</complexType>
+
+	<complexType name="BasisWaehrung_Typ">
+		<complexContent>
+			<extension
+				base="dv:HusstDVBasisStandard_Typ">
+				<sequence>
+					<element name="IsoCode" type="string" maxOccurs="1" minOccurs="1">
+						<annotation>
+							<documentation>
+								'EUR' oder 'CHF' nach ISO 4217 ISO 4217
+								ist die von der International
+								Organization for Standardization
+								publizierte Normung für
+								Währungs-Abkürzungen, die im
+								internationalen Zahlungsverkehr zur
+								eindeutigen Identifizierung benutzt
+								werden sollen.
+							</documentation>
+						</annotation>
+					</element>
+					<element name="IsoNumerisch" type="dt:INT4" maxOccurs="1" minOccurs="1">
+						<annotation>
+							<documentation>999 oder 978 für EUR
+ansonsten lt. ISO 4217:
+Neben der Buchstabenkodierung werden auch dreistellige Zifferncodes verwendet. Dabei bedeuten die Zahlenbereiche
+
+    002–898   reguläre Währungen von Einzelstaaten; dies ist gleich der Kodierung des herausgebenden Staates nach ISO 3166-1. Ungerade Kodierungen zeigen später gebildete Staaten an.
+    900–998   Sonderzahlungsmittel sowie nach 1981 eingeführte Währungen von Einzelstaaten, wenn mehrere Zahlungsmittel gleichzeitig gültig sind.</documentation>
+						</annotation></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="BasisZeitraumkontext_Typ">
+		<sequence>
+			<element name="BasisUnternehmen"
+				type="dv:BasisUnternehmen_Typ" maxOccurs="unbounded" minOccurs="0" />
+			<element name="BasisTagesart" type="dv:BasisTagesart_Typ"
+				maxOccurs="unbounded" minOccurs="0" />
+			<element name="BasisBetriebstag"
+				type="dv:BasisBetriebstag_Typ" maxOccurs="unbounded" minOccurs="0" />
+			<element name="BasisWaehrung" type="dv:BasisWaehrung_Typ"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="id_zeitraum" type="dt:INT4" use="required"></attribute>
+	</complexType>
+</schema>

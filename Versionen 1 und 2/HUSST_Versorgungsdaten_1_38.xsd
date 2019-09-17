@@ -1,0 +1,4006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+  xmlns:tns="http://husst.de/Tarifpersonaldaten-1_38"
+  targetNamespace="http://husst.de/Tarifpersonaldaten-1_38" 
+  elementFormDefault="qualified" 
+  attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>Tarifdatenversorgung von Verkaufssystemen
+     
+     $Id: Tarifpersonaldaten1_38.xsd 3 2017-05-05 14:53:23Z kthn $
+     
+     Änderungen:
+     2015-10-30 - V1.38 - husst-Arbeitstreffen(2015-10-07)/angschließende Abstimmungstimmungen 
+        NEW: ID_Teilrelation in Relationen_Type ergänzt
+        NEW: Deaktiviert und ID_Zeitraum in Kalender_Type (ID_Zeitraum auch im primekey)
+        NEW: ID_Start_TarifPunktTyp, ID_Ziel_TarifPunktTyp, ID_Start_Tarifgebiet, ID_Ziel_Tarifgebiet in RaeumlicheGueltigkeit_Type (und im primekey)
+        NEW: SortOrder in PreisStufen_Type
+        NEW: ID_PreisStufeReferenz in Preise_Type
+        NEW: neuer Performanceindex für Sortengruppen_Type: Idx_SoGr_ID_Sorte
+        CHG: ID_TarifGebiet und ReferenzExtern in Tarifarten_Type eingefügt
+        NEW: Preisabschlussberechnung in Sorten_Type
+        CHG: Sammelbeleg erweitert um Option "auswahl" in Sorten_Type
+        NEW: ID_MwSt in Sorten_Type eingefügt
+        CHG: SorteTarifgeber in Sorten_Type von String(30) zu String(80) geändert
+        NEW: ExtOrtsNummer in OrtspunkteTG_Type ergänzt
+        CHG: TarifgeberProduktNr in Preise_Type von INT4 zu String(80) geändert
+        NEW: ID_Start_TarifPunktTyp und ID_Ziel_TarifPunktTyp in Teilrelationen_Type
+        NEW: ReferenzExtern in MwSt_Type
+        NEW: Zielanzeigetyp_Type
+        NEW: Deaktiviert und ID_Zeitraum in Fahrten_Type, Wege_Type, Wegpositionen_Type, Linie_Type aufgenommen, ID_Zeitraum auch in den Primekey
+        DEL: ZeitGruppeElement_Type gelöscht
+        NEW: Zielanzeigetext_Type
+        NEW: Wagenumlauf_Type
+        NEW: Wegpositionenzeit_Type
+        NEW: Innenanzeigetext bei Ortspunkte_Type
+        NEW: Fangbereich bei Wegpositionen_Type
+        NEW: ID_BetriebsTagesArt in Fahrten_Type aufgenommen - auch in den Primekey
+        CHG: ID_WegeNr in Wege_Type und Wegpositionen_Type umbenannt in ID_Weg entsprechend auch in Linie_Type
+        NEW: ID_OrtsPunktTypRef und ID_OrtsnummerRef in Ortspunkte_Type
+        NEW: BezeichnungDruck in Ortspunkte_Type
+        NEW: BezeichnungKurz in Ortspunkte_Type
+        NEW: OrtsbezeichnungDruck in OrtspunkteTG_Type
+        NEW: OrtsbezeichnungKurz in OrtspunkteTG_Type
+        NEW: TarifpunktbezeichnungDruck in OrtspunkteTG_Type
+        NEW: TarifpunktbezeichnungKurz in OrtspunkteTG_Type
+     2014-12-17 - V1.35 - hneubauer(kt)
+        NEW: Zusatzinformation, Mandant und ReferenzExtern in Unternehmen_Type
+        NEW: Beauftragungen_Type 
+        NEW: UnternehmensBeauftragungen_Type
+        NEW: Beauftragungen_Type 
+        CHG: ID_ViaNr in primekey RaeumlicheGueltigkeit_Type aufgenommen
+     2012-10-17 - V1.34 - hneubauer(kt)
+        NEW: ID_PreisStufe in den primekey von Zusatzsorten_Type aufgenommen
+        DEL: ID_TarifGebiet aus dem Zusatzsorten_Type herausgenommen 
+        CHG: Elementname primkey in primekey geändert
+        NEW: Status in VersionenStruktur_Type
+        NEW: VersionStatus_Type
+        CHG: XKoordWgs84/YKoordWgs84 in Ortspunkte_Type und KA_MwSt in TMwSt_Type optional gemacht
+        CHG: alle nillable="true" um minOccurs="0" maxOccurs="1" erweitert
+        DEL: eigener Boolean-Type zugunsten xs:boolean gelöscht
+        CHG: alle xs:sequence-Blöcke durch xs:all-Blöcke ersetzt
+        CHG: Doppeltes Deaktiviert in Bediengebiete_Type gelöscht
+        CHG: ID_Preisstufe in ID_PreisStufe geaendert in Zusatzsorten_Type
+        NEW: ID_Zeitraum in Tarifarten_Type
+        DEL: ID_Tarifart in Relationen_Type
+        prepared if necessary: NEW: GebundeneAnzahl in Zusatzsorten_Type 
+        NEW: primkey-Angabe in Zusatzsorten_Type
+     2012-09-25 - V1.33 - hneubauer(kt)
+        CHG: ID_RelCode in TarifrelevantePunkte_Type nillable="true" statt bisher "false"
+        NEW: Zusatzsorten_Type
+        NEW: ID_Sortengruppe und ID_SortenGruppenTyp in TarifrelevantePunkte_Type
+        NEW: ID_PreisStufe in Sortengruppen_Type (optional)
+        NEW: Deaktiviert für alle Datentypen, mit Element ID_Zeitraum (außer Zeitraeume_Type)
+        NEW: RelationsIDTarifgeber in TeilRelationen_Type
+        NEW: SubZeitraumNr in Zeitraueme_Type
+        CHG: ID_HauptZeitraum zu HauptZeitraumNr in Zeitraeume_Type geändert
+        NEW: Attribut Zusatzsorte (Boolean) in Sorten_Type
+     2012-09-10 - V1.32a - cfiedler(kt)
+        CHG: Indexname bei PersonalIdentobejekte, Identobjekte
+     2012-08-15 - V1.32 - hneubauer(kt)
+        CHG: ID_HauptZeitraum in Zeitraeume_Type darf fehlen
+        CHG: ID_AbrUnternehmen in Personal_Type darf fehlen
+        CHG: Aenderungsdatum und Aenderungsautor in Versions_Type dürfen fehlen
+        CHG: INT4 maxInclusive value="4294967295" korrigiert (war "31")
+        NEW: IdentObjektTypen_Type
+        NEW: IdentObjekte_Type
+        NEW: PersonalIdentObjekte_Type
+     2012-07-18 - V1.31 - hneubauer(kt)
+        NEW: zusätzliche Textfelder für die Sorten_Typen: 
+             AnzeigeKurz/-Lang
+             KundendisplayKurz/-Lang
+             BelegdruckKurz/Lang
+             Mindespersonenanzahl
+             Hoechstpersonenanzahl
+        NEW: ID_Tarifkennung in Zeitraeume_Type
+     2012-05-14 - V1.30 - hneubauer(kt)
+        NEW: Zeitraeume_Type - ID_HauptZeitraum - optional
+        NEW: ZeitraumOptionen_Type
+        CHG: ID_TarifGebiet aus primkey des Sorten_Type entfernt - ID_Sorte ist eindeutig innerhalb des ID_Zeitraum
+        NEW: SortenTarifarten_Type - n:m Beziehung zwischen Sorten und Tarifarten   
+        NEW: Sorten_Type - Druckoption
+        NEW: Sorten_Type - KdNummer   
+        DEL: Sorten_Type - ID_Tarifart   
+     2012-02-29 - V1.29 - hneubauer(kt)
+        NEW: ID_Bediengebiet in Sortengruppen_Type aufgenommen - auch in den Schlüssel
+        NEW: ID_OTPTyp_Ref und Bezeichnung_Ref in TarifrelevantePunkte_Type aufgenommen
+        NEW: Rang in TarifrelevantePunkte_Type aufgenommen
+        CHG: ID_RelCode kann jetzt auch NILL sein in TarifrelevantePunkte_Type        
+      2012-02-23 - V1.28a - hneubauer(kt)
+        CHG: Sorten_Type - Zahlungsart - im Kommentar den Wertebereich und seine Bedeutung definiert
+      2012-01-24 - V1.28 - hneubauer(kt)
+        NEW: Standortwahl_ID_Bediengebiet in TarifrelevantePunkte_Type ergänzt
+      2012-01-04 - V1.27 - hneubauer(kt)
+        NEW: PreisuebergangVorverkauf in Sorten_Type aufgenommen       
+        CHG: Tarifpunkte_Type Drucktext von 20 auf 50 Zeichen verlängert
+      2011-11-30 - V1.26 - hneubauer(kt)
+        CHG: Nachbarhaltestellen_Type ergänzt um SortOrder und ID_ViaNr
+      2011-09-30 - V1.25 - hneubauer(kt)
+        NEW: ID_Zeitraum in Nachbarhaltestellen_Type aufgenommen (auch in die Indexe)      
+      2011-09-21 - V1.24 - hneubauer(kt)
+        CHG: Interpretationen_Type - Feld ID_Zeitraum ergänzt und Schlüssel korrigiert
+      2011-09-15 - V1.23 - hneubauer(kt)
+        NEW: Interpretationen_Type
+        NEW: OrtspunkteTG_Type
+      2011-08-24 - V1.22 - hneubauer(kt)
+        NEW: KA_Tarifpunktbezeichnung in OrtspunkteKA_Type
+        CHG: ID_TarifArt in Teilrealtionen_Type auf nillable="false" gesetzt 
+      2011-08-12 - V1.21 - hneubauer(kt)
+        NEW: Nachbarhaltestellen_Type komplett überarbeitet      
+        NEW: Bearbeitung_Type
+        NEW: Unternehmen_Type
+        NEW: Element GegenrichtungLiegtVor in Relationen_Type
+        NEW: Element ID_Unternehmen und ID_AbrUnternehmen in Personal_Type ergänzt
+        NEW: Element Gemeindekennziffer in  Ortspunkte_Type ergänzt
+      2011-06-10 - V1.20 - hneubauer(kt)
+        CHG: Schreibweise Element KA_ProdOrgID in Sorten_Type vereinheitlicht
+        CHG: Schreibweise Element TarifGebiet in VerkaufbareTarifgebiete_Type vereinheitlicht
+        CHG: Schreibweise Element Drucktext in Tarifpunkte_Type vereinheitlicht
+        CHG: Schreibweise Element Sortenklasse in Sortenklassen_Type vereinheitlicht
+        CHG: Schreibweise Element Layout in Preise_Type vereinheitlicht
+        CHG: Schreibweise Element ID_PreisStufe in RaeumlicheGueltigkeit_Type vereinheitlicht
+        NEW: Elemente ID_Tarifart in TeilRelationen_Type ergänzt
+        NEW: Elemente ID_TarifpunktTyp, ID_TarifPunktTypRef und ID_TarifPunktRef in Tarifpunkte ergänzt 
+        NEW: Elemente ID_Tarifart in TeilRelationen_Type ergänzt 
+      2011-05-31 - V1.19 - hneubauer(kt)
+        NEW: Elemente Anzeigetetxt und Drucktext bei PreisstufenDirektwahl_Type ergänzt 
+      2011-05-27 - V1.18 - hneubauer(kt)
+        DEL: Element KA_psOrgID aus Preisstufen_Type entfernt
+        CHG: Element KA_PV umbenannt in KA_ProdOrgID in Preise_Type
+        DEL: Element KA_KVP aus Preise_Type entfernt
+        DEL: Element KA_OrtTypArt aus OrtspunkteKA_Type entfernt
+        DEL: Elemente KA_OrtOrgID, KA_Ort_Typ und KA_OrtNummer aus Sorten_Type entfernt
+        NEW: Element UpgradeStopp in Preisstufen_Type integriert
+        NEW: Elemente ID_OrtsPunktTyp und ID_OrtsNummer in TarifrelevantePunkte_Type ergänzt
+        CHG: Start_TarifPunktName und Ziel_TarifPunktName auf 80 Zeichen verlängert
+        NEW: Element AlternativePreisGruppe in Teilrelationen_Type
+        NEW: Element EinnahmeAufteilung in Teilrelationen_Type
+      2011-05-13 - V1.17 - hneubauer(kt)
+        NEW: PreisstufenDirektwahl_Type
+        NEW: ID_Schluesselwert als optionales Feld in Preisstufe_Type aufgenommen
+        CHG: Erstellungsdatum und Lieferant in Inhalt_Type auf "nillable="false" gesetzt und 
+             in den Primkey aufgenommen
+        CHG: ID_Bundesland in Ortspunkte_Type und TarifrelevantePunkte_Type auf nillable=true geändert
+        CHG: AttributText in den Primkey von Sortenattributgruppen_Type aufgenommen
+        CHG: Preise_Type Gueltigtext bisher 30 Zeichen, neu 60 Zeichen
+        CHG: Vias_Type, Anzeigetext bisher 80, neu 120 Zeichen
+        CHG: Vias_Type, Anzeigetextrueck, bisher 80, neue 120 Zeichen      
+      2011-04-15 - V1.16 - hneubauer(kt)
+        NEW: Element/Type OrtspunkteKA_Type
+        CHG: Ortspunkte_Type - ID_Zeitraum ergänzt und auch in den Primary Key aufgenommen
+        CHG: Ortspunkte_Type - KA Elemente ausgelagert in OrtspunkteKA_Type
+      2011-02-21 - V1.15 - hneubauer(kt)
+        NEW: Element/Type RaeumlicheGueltigkeit_Type 
+      2011-02-17 - V1.14a - hneubauer(kt)
+        CHG: Bei Sorten_Typ den Primkey um ID_TarifGebiet ergänzt
+      2011-02-17 - V1.14 - hneubauer(kt)
+        CHG: Element ID_Bundeslaender überall auf ID_Bundesland geändert
+        NEW: Element ID_Bundesland in Ortspunkte_Typ und in TarifrelevantePunkte_Typ aufgenommen 
+      2011-02-16 - V1.13a - hneubauer(kt)
+        CHG: Sortengruppen_Type - Primekey korrigiert
+        TarifrelevantePunkte_Type - Primekey korrigiert
+      2011-02-16 - V1.13 - hneubauer(kt)
+        NEW: Attribut Vertriebsweg bei Relationen_Typ 
+      2011-02-15 - V1.12b - hneubauer(kt)
+        NEW: Den meisten Typen wurde eine Primkey Definition
+             manchen noch weitere Index Definitionen in einem 
+             "appinfo" Tag mitgegeben.
+             Wird intern bei krauth technology verwendet.
+        CHG: Elemente in OePVTarifDB wurden neu sortiert      
+      2011-02-11 - V1.12a - hneubauer(kt)
+        NEW: Sortenattribut KA Infotext
+        NEW: Element/Type Bundeslaender
+        NEW: Element/Type Feiertage
+        NEW: Element/Type Preisquellen
+        NEW: Attribut ID_Preisquelle bei TeilRelationen_Type
+        NEW: optionales Attribut ID_TarifGebiet bei Fahrten_Type
+        NEW: Attribut KA_MwSt bei MwSt_Type
+        NEW: Attribut KA_RaeumlicheCodierung bei Preise_Type
+        NEW: Attribut KA_Rabatttyp bei Preise_Type
+        NEW: Attribut KA_Mitnahme bei Sorten_Type
+        NEW: Attribut KA_Verkehrsmittel bei Sorten_Type
+        NEW: Attribut KA_Serviceklasse bei Sorten_Type
+      2010-12-16 - V1.11 - hneubauer(kt)
+        DEL: optionales Attribut SpezialFlag bei Sorten_Type entfernt
+        DEL: optionale Fahrzeit und Haltezeit Elemente in Wegpositionen entfernt
+      2010-12-03 - V1.10 - hneubauer(kt)
+        CHG: Max-Länge des Basistyps PrintableString auf 256 erhöht
+        NEW: Element/Type Sortenattributgruppen und dazu ID_SoAttributKlasse_Type
+        NEW: Attribut optional SpezialFlag bei Sorten_Type und 
+             SpezialFlag_Type
+        NEW: Attribut optional PstLayoutTyp bei Preisstufen_Type
+        NEW: Attribut BezeichnungKurz bei Preisspalten_Type ergänzt
+        NEW: optionales Attribut ID_Weg in Fahrten_Type ergänzt
+        NEW: in Fahrten_Type optional Fahrzeitgruppe und Haltezeitgruppe ergänzt
+        NEW: in Fahrten_Type optional Abfahrt eingefügt
+        NEW: KoordWgs84_Type
+        NEW: Betriebszeit_Type
+        NEW: zwei optionale Attribute XKoordWgs84 und YKoordWgs84 bei
+             Ortpunkte_type
+        NEW: bei Wegpositionen: Entfernung, Fahrzeit und Haltezeit ergänzt
+      2010-11-24 - V1.9 - hneubauer(kt)
+        CHG: Referenz auf Element Inhalt in die Gesamtliste aufgenommen
+        CHG: Schreibweise "ID_OrtsPunktTyp" bei "Ortspunkttypen_Type" korrigiert
+      2010-11-19 - V1.8 - hneubauer(kt)
+        DEL: Attribute Gueltig_param und Gueltig_text aus Preisstufen_type
+             entfernt
+        CHG: Attribute Drucktext1 bis Drucktext3 auf 250 Zeichen in Sorten_Type
+             erhöht
+        CHG: Neu: Datentyp Inhalt_Type
+      2010-11-11 - V1.7 - sgumbert(highQ)
+        CHG: Richtung_Type -&gt; Richtungen_Type
+      2010-10-29 - V1.6 - hneubauer(kt)
+        CHG: Element GueltigRegel in Preise_Type ergänzt
+      2010-10-27 - V1.5 - hneubauer(kt)
+        CHG: Personal_Type.Passwort - Maxlänge von 10 auf 20 erhöht
+      2010-10-14 - V1.4 - hneubauer(kt)
+        CHG: Element TarifInfo in Sorten_Type wirklich eingbaut
+        CHG: Element TarifInfo in Sortengruppen_Type wirklich eingbaut
+        CHG: Element GueltigParam in Sorten_Type auf 250 erweitert
+        CHG: Element GueltigParam in Preisstufen_Type auf 250 erweitert
+        CHG: Element GueltigParam in Preise_Type auf 250 erweitert
+      2010-10-13 - V1.3 - sgumbert(highQ)
+        NEW: simpleType blobString
+        NEW: Element TarifInfo in Sorten_Type
+        NEW: Element TarifInfo in Sortengruppen_Type
+        CHG: Element GueltigMin(INT4) umbenannt zu
+             GueltigParam(PrintableString[20]) in Preisstufen_Type
+        CHG: Element GueltigText in Preisstufen_Type: PrintableString[20]-&gt;[30]
+        CHG: Element Layout in Sorten_Type: PrintableString -&gt; blobString
+        CHG: Element GueltigkeitsRegel umbenannt in GueltigRegel in
+             Sorten_Type
+        CHG: Element GueltigkeitsDauer(INT4) umbenannt in
+             GueltigParam(PrintableString[20]) in Sorten_Type
+        NEW: Element GueltigText in Sorten_Type
+        CHG: Element GueltigkeitsEinheiten umbenannt in GueltigParam (INT4 -&gt;
+             PrintableString[20]) in Preise_Type
+        DEL: Element GueltigkeitsRegel in Preise_Type
+        NEW: Element GueltigText in Preise_Type
+        CHG: Element KA_Referenz_EFS in Preise_Type: PrintableString -&gt; [50]
+        CHG: Element ID_Bediengebiet in TarifrelevantePunkte_Type:
+             nillable="false" gesetzt
+        DEL: Element ID_Tarifgbebiet in Sortengruppen_Type
+      2010-10-08 - V1.2 - hneubauer(kt)
+        CHG: in den neuen Feldern wurden tlw. xs:... Typen verwendet, das ist
+             jetzt alles auf tns:... Typen umgestellt
+      2010-10-08 - V1.1 - hneubauer(kt)
+        NEW: Element -&gt; VersionStruktur:VersionStruktur_Type
+             in den Default-Werten sind die Infos zum Stand der Strukturversion
+             abzulegen
+        DEL: Element Sortenpakete und Typ Sortenpakete_Type
+        CHG: Element OTP umbenannt zu TarifrelevantePunkte
+        NEW: Element -&gt; Fahrten:Fahrten_Type
+        NEW: Typ -&gt; Richtung_Type
+        NEW: Element Rabattklass in Sorten_Type
+        NEW: Element Fahrgasttyp in Sorten_Type
+        NEW: Element LayoutBeleg in Sorten_Type
+        NEW: Element BelegAnzahl in Sorten_Type
+        NEW: Element Sammelbeleg in Sorten_Type
+    </xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="DateTimeCompact">
+  	<xs:restriction base="xs:dateTime">
+  		<xs:minInclusive value="1990-01-01T00:00:00Z" />
+  		<xs:maxInclusive value="2117-12-31T23:59:58Z" />
+  	</xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DateCompact">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1990-01-01"/>
+      <xs:maxInclusive value="2117-12-31"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Betriebszeit_Type">
+    <xs:annotation>
+      <xs:documentation>Betriebszeiten dürfen über 24:00 Uhr hinausgehen
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{1,2}:[0-9]{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="INT1">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="INT2">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="65535"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="INT3">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="16777215"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="INT4">
+  	<xs:restriction base="xs:unsignedInt">
+  		<xs:minInclusive value="0" />
+  		<xs:maxInclusive value="4294967295" />
+  	</xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="INT8">
+    <xs:restriction base="xs:unsignedLong">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="18446744073709551615"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FLOAT1">
+    <xs:annotation>
+      <xs:documentation>englische Notation beachten, z. B. 19 Euro =
+        19.00 Euro</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="KoordWgs84_Type">
+    <xs:restriction base="xs:float">
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Char">
+    <xs:restriction base="xs:string">
+
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrintableString">
+    <xs:restriction base="xs:string">
+
+      <xs:minLength value="0"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrintableString80">
+    <xs:restriction base="xs:string">
+
+      <xs:minLength value="0"/>
+      <xs:maxLength value="80"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="blobString">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[ -þ€–]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ID_SortenAttributKlasse_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert die SortenAttributKlasse. Zur Zeit
+        gibt es genau
+        drei SortenAttributKlassen. Das können in Zukunft
+        auch noch
+        mehr werden. 1=Komfortklasse 2=Rabattklasse
+        3=Fahrgasttyp
+      </xs:documentation>
+      <xs:appinfo>
+        <LookUpItem value="1">Komfortklasse</LookUpItem>
+        <LookUpItem value="2">Rabattklasse</LookUpItem>
+        <LookUpItem value="3">Fahrgasttyp</LookUpItem>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="tns:INT4">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+  <!--Allgemein -->
+  <xs:complexType name="Tarifgebiete_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Tarifgebiet ist eine logische Einheit, die alle
+        Tarifelemente eines Tarifgebers
+        zusammenfasst
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="BezeichnungKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungLang" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Erstellungsdatum" type="tns:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Version" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Tarifpunkte_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_TarifPunkt"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ID_TarifPunkt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+
+      <xs:element name="ID_TarifPunktTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Drucktext" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_TarifPunktTypRef" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_TarifPunktRef" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_OrtOrgID" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Organisationsnumer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_OrtTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Ortstyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Zeitraeume_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Gültigkeitszeitraum
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ZeitraumVon" type="tns:DateTimeCompact" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ZeitraumBis" type="tns:DateTimeCompact" nillable="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Tarifkennung" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="HauptZeitraumNr" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Alle Zeiträume mit dem gleichen Hauptzeitraum bilden einen gemeinsamen Datenraum, in dem alle Refrenzen ID_xx die gleiche Bedeutung haben und auflösbar sind.
+Sind zu einem Zeitpunkt mehrere Zeiträume mit unterschiedlichen Hauptzeitraumnummern gültig, hat der mit der höheren Hauptzeitraumnummer Vorrang.</xs:documentation>
+        </xs:annotation></xs:element>
+      <xs:element name="SubZeitraumNr" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Die Subzeitraumnummer ist innerhalb einer Hauptzeitraumnummer ununterbrochen, aufsteigend nummeriert, beginnend mit 1. 
+Bei gleichzeitiger Gültigkeit mehrere Subzeiträume hat die höhere SubZeitraumNr Vorrang vor der kleineren.</xs:documentation>
+        </xs:annotation></xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="ZeitraumOptionen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        ordnet einem Zeitraum zusätzliche Optionen zu
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_Schluessel"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Schluessel" type="tns:PrintableString80" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Wert" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Kalender_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Jahreskalender mit Sondertagsinformation
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_BetriebsTag"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_Kalender_BTagArt">
+          <field name="ID_BetriebsTagesArt"/>
+          <field name="ID_BetriebsTag"/>
+        </index>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_BetriebsTag" type="tns:DateCompact" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Datum des Betriebstages</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_BetriebsTagesArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tagesart des Betriebstages
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Tagesarten_Type">
+    <xs:all>
+      <xs:element name="ID_BetriebsTagesArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung der Tagesart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Informationen, welche Bedeutung diese
+            Kennung hat</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="IdentobjektTypen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Auflistung der verschiedenen Objekttypen, die zur Identifizierung einer Person eingesetzt werden
+        Defaultwerte sind:
+        1=Fahrermodul
+        2=Chipkarte
+        3=Schlüssel 
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_IdentobjektTyp"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_IdentobjektTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Nummer des Ident-Objekt Typs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichner" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Identobjekte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Ident Objekte zur Identifizierung einer Person.
+        Die ID des Identobjektes ist über alle Objekttypen und Mandanten eindeutig zu halten.
+         
+        Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im System eindeutig sein.
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Identobjekt"/>
+        </primekey>
+        <index name="Idx_IdentObj_Type">
+          <field name="Identobjekt_Schluessel"/>
+          <field name="ID_IdentobjektTyp"/>
+          <field name="ID_Unternehmen"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Identobjekt" type="tns:PrintableString80" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>systemweit eindeutige Nummer/Kennung des Ident-Objektes
+          z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel ggf. mit ID_Unternehmen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_IdentobjektTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Nummer des Ident-Objekt Typs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Unternehmen" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Nummer des Unternehmens, dem das Identobjekt zugeorndet ist</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Identobjekt_Schluessel" type="tns:PrintableString80" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Objektspezifische Kennung (z.B. Modulnummer oder Chipkartennummer, etc.)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichner" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Freier Text, der z.B. zur Anzeige verwendet werden kann.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="PersonalIdentobjekte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        PersonalIdentobjekte weist einer Person kein, ein oder mehrere Identobjekte zu.
+        Hinweis: Es handelt sich um eine n:m Beziehung. Auf einen künstlichen Schlüssel wird verzichtet.
+        Die Struktur hat deshalb keinen PrimeKey!
+        
+        Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen
+        AktivAb, AktivBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,
+        wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt im AktivAb,AktivBis Intervall
+        liegt. Ist AktivAb nicht angegeben, gilt die Zuordnung ab "schon immer", ist AktivBis nicht angegeben
+        gilt die Zuordnung "bis ewig".              
+      </xs:documentation>
+      <xs:appinfo>
+        <primkey/>
+        <index name="Idx_IdentObj_Personal">
+          <field name="ID_Identobjekt"/>
+          <field name="ID_Personal"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Identobjekt" type="tns:PrintableString80" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>systemweit eindeutige Nummer/Kennung des Identobjektes
+          z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel ggf. mit ID_Unternehmen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Personal" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Personal-Nr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Ausgabedatum" type="tns:DateCompact" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Zeitpunkt, zu dem das Identobjekt ausgegeben wurde.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AktivAb" type="tns:DateCompact" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Wenn angegeben, definiert AktivAb den Beginn der Verwendbarkeit des Ident-Objektes. 
+          Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AktivBis" type="tns:DateCompact" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Wenn angegeben, definiert AktivBis das Ende der Verwendbarkeit des Ident-Objektes. 
+          Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Personal_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Personalstammdaten
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Personal"/>
+        </primekey>
+        <index name="Idx_Pers_Aktiv">
+          <field name="ID_Personal"/>
+          <field name="Aktiv"/>
+        </index>
+        <index name="Idx_Pers_GueltigAb">
+          <field name="GueltigAb"/>
+        </index>
+        <index name="Idx_Pers_GueltigBis">
+          <field name="GueltigBis"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Personal" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>PersonalNr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Unternehmen" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Arbeitgeber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_AbrUnternehmen" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Abrechnungs-Unternehmen, bei dem Einnahmen abgeliefert werden müssen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Passwort" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>kt definiert den HashWert</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Vorname" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Nachname" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Aktiv" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GueltigAb" type="tns:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GueltigBis" type="tns:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Personaleinsatz_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Geräte- und Rollenzuordnung zu Personal
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Personal"/>
+          <field name="ID_GeraeteTyp"/>
+          <field name="ID_GeraeteEinsatzTyp"/>
+        </primekey>
+        <index name="Idx_PersEin_GTyp">
+          <field name="ID_GeraeteTyp"/>
+          <field name="ID_GeraeteEinsatzTyp"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Personal" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>PersonalNr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_GeraeteTyp" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_GeraeteEinsatzTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_EinsatzArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Rolle, die er auf dem Gerätetyp
+            einnimmt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Standort_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Gerätestandort
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Standort" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Geraet_Type">
+    <xs:annotation>
+      <xs:documentation>Geräteverwaltung</xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_GeraeteTyp"/>
+          <field name="ID_Geraet"/>
+        </primekey>
+        <index name="Idx_GeraeteTyp_Geraet">
+          <field name="ID_Geraet"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Geraet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>GeräteNr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_GeraeteTyp" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Info" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="kaKVP" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA KVP Nr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="GeraetEinsatztypen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Zur Kennzeichnung der Tarifverteilung
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_GeraeteEinsatzTyp"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_GeraeteEinsatzTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Info" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <!--Relationen -->
+  <xs:complexType name="Interpretationen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Interpretationen definiert, wie die Daten zu interpretieren sind.
+        Dazu werden Parameter mit einem ID_Schluessel und einem Wert eingetragen.
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Schluessel"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Schluessel" type="tns:PrintableString80" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Wert" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Relationscodes_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Relationscodes fassen Tarifpunkte mehrerer
+        Tarifgeber zusammen. Damit können
+        einzelnen Orten/Haltestellen
+        unterschiedlich viele Tarifpunkte
+        unterschiedlicher Tarifgeber
+        zugeordnet werden
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_RelCode"/>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_TarifPunkt"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_RelCode" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifPunkt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Relationscodegruppen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Zusammenfassung von Relationscodes bspw. für
+        City Option
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_RelCodeTyp"/>
+          <field name="ID_RelCodeGruppe"/>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_RelCode"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_RelCodeTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_RelCodeGruppe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_RelCode" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="RaeumlicheGueltigkeit_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definition der räumlichen Gültigkeit für KA
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_Start_TarifPunkt"/>
+          <field name="ID_PreisStufe"/>
+          <field name="KA_RaeumlicheCodierung"/>
+          <field name="ID_Ziel_TarifPunkt"/>
+          <field name="ID_ViaNr"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Start_TarifPunkt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="KA_RaeumlicheCodierung" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Ziel_TarifPunkt" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_GueltigkeitsRaum" type="tns:blobString" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>projektspezifische Hinterlegung der Beschreibung der räumlichen Gültigkeit für den KA EFS</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Vertriebswege" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bitfeld Vertriebswege</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_ViaNr" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Nummer der Viatexte für diese
+            Verbindung</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+	<xs:complexType name="Relationen_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Relation auf Relationscode Ebene
+			</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_Relation" />
+					<field name="ID_Zeitraum" />
+				</primekey>
+				<index name="IDX_REL_START_ZIEL">
+					<field name="ID_RelCode_Start" />
+					<field name="ID_RelCode_Ziel" />
+					<field name="ID_Zeitraum" />
+					<SortOrder />
+				</index>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:all>
+			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true"
+				minOccurs="0" maxOccurs="1" />
+			<xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="ID_Relation" type="tns:INT4" nillable="false"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="ID_RelCode_Start" type="tns:INT4"
+				nillable="false" minOccurs="1" maxOccurs="1" />
+			<xs:element name="ID_RelCode_Ziel" type="tns:INT4"
+				nillable="false" minOccurs="1" maxOccurs="1" />
+			<xs:element name="SortOrder" type="tns:INT4" nillable="false"
+				minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Variantenzählung - Bestimmt die Reihenfolge der Vias
+						in der Auswahl
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_TeilRelation" type="tns:INT4"
+				nillable="false" maxOccurs="1" minOccurs="1">
+			</xs:element>
+			<xs:element name="GegenrichtungLiegtVor" type="xs:boolean"
+				nillable="true" minOccurs="0" maxOccurs="1" />
+			<xs:element name="Vertriebswege" type="tns:INT4" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Bitfeld Vertriebswege
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_ViaNr" type="tns:INT4" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Nummer der Viatexte für diese Verbindung
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+    </xs:all>
+	</xs:complexType>
+
+  <xs:complexType name="Vias_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Gesamt Relationsinformation
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_ViaNr"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_ViaNr" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Anzeigetext" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Text zur Auswahl der Variante, Teilstrecken
+            mit '*' getrennt</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Drucktext" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Drucktext, Teilstrecken mit '*' getrennt
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Anzeigetext_Rueck" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Text zur Auswahl der Variante in der
+            Rückrichtung, Teilstrecken mit '*' getrennt
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Drucktext_Rueck" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Drucktext in der Rückrichtung,
+            Teilstrecken mit '*' getrennt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="TeilRelationen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Relation (und Teilrelation) auf Tarifpunkt Ebene
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_TeilRelation"/>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_Tarifart"/>
+          <field name="SortOrder"/>
+        </primekey>
+        <index name="Idx_TR_StartTarifpunkt">
+          <field name="ID_Start_TarifGebiet"/>
+          <field name="ID_Start_TarifPunkt"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_TR_ZielTarifpunkt">
+          <field name="ID_Ziel_TarifGebiet"/>
+          <field name="ID_Ziel_TarifPunkt"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_TR_Pst">
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_PreisStufe"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <schema name="Tarif" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TeilRelation" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SortOrder" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Reihenfolge der Vias innerhalb der Relation.
+            Präzisierung: Reihenfolge der Gesamtrelation für
+            Anzeige/Auswahl != ID_POS in Teilrelationen (= Reihenfolge
+            der Vias innerhalb der Relation)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Start_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Start_TarifPunkt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Start_TarifPunktTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Start_TarifPunktName" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="ID_Ziel_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Ziel_TarifPunkt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Ziel_TarifPunktTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Ziel_TarifPunktName" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Preisquelle" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_TarifArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifart (0=Allgemein, 1=Bartarif,
+            2=Zeittarif)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Komfortklasse" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>(z.B. 1.Kl., 2.Kl., ...)
+            Verweis auf
+            Sortenattributgruppen.AttributText
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AlternativePreisGruppe" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="EinnahmeAufteilung" type="tns:PrintableString" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="KA_startOrtOrgID" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Ort Organisationsnummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_startOrtTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Ortstyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_startOrtNummer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA OrtNr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_zielOrtOrgID" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Ort Organisationsnummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_zielOrtTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Ortstyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_zielOrtNummer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA OrtNr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Linie" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RelationsIDTarifgeber" type="tns:PrintableString" minOccurs="0" nillable="true" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Referenz der zugrunde liegenden Information
+            zu einer Datenmenge des Tarifgebers.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Nachbarhaltestellen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definition von Haltestellengruppen für
+        Kurzstrecken/Zahlgrenzen
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OrtspunkttypVon"/>
+          <field name="ID_OrtspunktVon"/>
+          <field name="ID_OrtspunkttypNach"/>
+          <field name="ID_OrtspunktNach"/>
+          <field name="SortOrder"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_NachbarHst_PstTg">
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_PreisStufe"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OrtspunkttypVon" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OrtspunktVon" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Haltestellennummer, für die eine Nachbbarbeziehung
+            definiert wird (kleinere Nummer des Paares, bei Halbmatrix)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_OrtspunkttypNach" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OrtspunktNach" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Haltestellennummer, für die eine Nachbbarbeziehung
+            definiert wird (größere Nummer des Paares, bei
+            Halbmatrix)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="SortOrder" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_ViaNr" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifgebiet, für das eine Nachbarhaltestelle definiert
+            wird
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Zuordnung Preisstufe</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Zahlgrenzen" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Anzahl der Zahlgrenzen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="PreisstufenDirektwahl_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definition von Haltestellengruppen für
+        Kurzstrecken/Zahlgrenzen
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Schluesselwert"/>
+          <field name="ID_Tarifart"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_Relation">
+          <field name="ID_Relation"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Schluesselwert" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Schlüsselwert, über den die Pst-Direktwahl gefunden wird. Projektspezifisch definiert.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tarifart (0=Allgemein, 1=Bartarif,
+            2=Zeittarif)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TarifGebiet_PreisStufe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Zuordnung Tarifgebiet der Preisstufe</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Zuordnung Preisstufe</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Anzeigetext" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Text zur Anzeige der Preisstufendirektwahl</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="120"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Drucktext" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Drucktext
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Relation" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Vertriebswege" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bitfeld Vertriebswege</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <!--Produkte -->
+  <xs:complexType name="Preisspalten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Preiszusätze für die Preisfindung
+        (bspw. Rabattierungen)</xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_PreisSpalte"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisSpalte" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Waehrungscode" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            ISO-Kennung (dezimal) der Währung -
+            außer
+            EUR=999
+              </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_Preisspaltenkennung" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung (Nr) zur systematischen
+            Interpretation (dflt=0)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Spaltenüberschrift
+              </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungKurz" type="tns:PrintableString" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Hinweis" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Info zur Preisspalte</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+<xs:complexType name="Preisstufen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_PreisStufe"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_Schluesselwert">
+          <field name="ID_Schluesselwert"/>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <schema name="Tarif" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Schluesselwert" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungLang" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="WegstreckeInMetern" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            durschnittliche Wegstrecke in Meter für
+            PKM Berechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_MwSt" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Nummer des Mehrwertsteuersatzes
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="UpgradeStopp" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Ein Preisupgrade kann bis zu einschließlich
+            dieser Preisstufe erfolgen.
+            Es können mehrere Stopps eingebaut sein.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PstLayoutTyp" type="tns:INT4" minOccurs="0" maxOccurs="1" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Die Interpretation des PstLayoutTyps ist
+            stark projektspezifisch und erlaubt die Definition
+            von
+            Layout-Hinweisen aufgrund der Preisstufe
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="SortenTarifarten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        N:M Zuordnung - Sorte / Tarifart
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Sorte"/>
+          <field name="ID_Tarifart"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Sorte" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Nummer der Sorte, eindeutig über alle
+            Tarifgebiete innerhalb des ID_Zeitraum bzw. des Haupt-ID_Zeitraum
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TarifArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifart (siehe Hilfstabelle Tarifart)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Sorten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Artikel/Produkte/Fahrscheintypen
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Sorte"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_So_Tarifgebiet">
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_So_Tarifgeber">
+          <field name="SorteTarifgeber"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_So_Komfortklasse">
+          <field name="Komfortklasse"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_So_Rabattklasse">
+          <field name="Rabattklasse"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_So_Fahrgasttyp">
+          <field name="Fahrgasttyp"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <schema name="Tarif" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Sorte" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Nummer der Sorte, eindeutig über alle
+            Tarifgebiete und Tarifversionen
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Sortenklasse" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+
+      <xs:element name="SorteTarifgeber" nillable="true" minOccurs="0" maxOccurs="1" type="tns:PrintableString80">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Sorte
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BezeichnungKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Identifikation / optional Druck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungLang" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Identifikation / optional Druck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AnzeigeKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Produktanwahl
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AnzeigeLang" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Produktanwahl / Warenkorb
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KundendisplayKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Kundendisplay
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KundendisplayLang" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Kundendisplay
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BelegdruckKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Belegdruck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BelegdruckLang" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verwendung: Belegdruck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Druckoption" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            wenn die Druckoption nicht angegeben ist, wird sie
+            als Wert=0 interpretiert. 0:Druck über Layout bzw.
+            LayoutBeleg 1:Druck über ein zum Verkaufszeitpunkt
+            zugeordnetes Hauptprodukt 2:Druck über ein zum
+            Verkaufszeitpunkt zugeordnetes Hauptprodukt oder
+            über Layout bzw. LayoutBeleg, wenn kein Hauptprodukt
+            zugeordnet wurde
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Layout" type="tns:blobString" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Layoutdefinition für den Ausdruck des Produktes
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LayoutBeleg" type="tns:blobString" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Layouthinweise für den Ausdruck eines Einzelbeleges.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BelegAnzahl" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Wieviele Einzelbelege sind für dieses Produkt zu
+            erstellen? 0..n
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Sammelbeleg" type="tns:SammelbelegType" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Soll das Produkt auf einem Sammelbeleg aufgeführt
+            werden? Ja/Nein
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Vertriebswege" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bitfeld Vertriebswege
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_MwSt" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ZahlungsArt" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Zahlungsart 1 Byte:
+
+            0x00..0x0f: Barzahlung oder barzahlungsäquivalente
+            Zahlung: 0x00 = Barzahlung, 0x0f = allgemeine
+            barzahlungsäquivalente Zahlung 0x10..0x1f:
+            Geldkartenzahlung: 0x10 = GeldKarte, 0x1f =
+            allgemeine Geldkartenzahlung 0x20..0x2f:
+            ec-Cash-Varianten: 0x20 = ec-Cash 0x30..0x3f:
+            Gutscheinzahlung: 0x3f = allgemeine Gutscheinzahlung
+            0x40..0x4f: Pre-Paid-Zahlung (nicht
+            bargeldäquivalent): 0x40..0x47 = kundeneigene
+            Pre-Paid-Zahlungen(z.B. LEGIC), 0x48 = DING-Card,
+            0x49 = BODO-Card, 0x4f = allgemeine Pre-Paid-Zahlung
+            0x80..0x8f: Lastschriftzahlung: 0x80 = ec
+            Lastschrift, 0x8f = allgemeine Lastschriftzahlung
+            0x90..0x9f: Rechnungszahlung: 0x9f = allgemeine
+            Zahlung 0xa0..0xaf: Kreditkartenzahlung: 0xa0 =
+            Visa, 0xa1 = Euro-/MasterCard, 0xa2 = American
+            Express, 0xa3 = Diners Club, 0xa4 = Maestro, 0xaf =
+            allgemeine Kreditkartenzahlung 0xe0..0xef: sonstige
+            Post-Paid-Zahlungen: 0xe0 = KA-BOB-Card, 0xef =
+            allgemeine Post-Paid-Zahlung 0xf0..0xff: Sonstige
+            Zahlung: 0xff = allgemeine sonstigeZahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Komfortklasse" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            (z.B. 1.Kl., 2.Kl., ...) Verweis auf
+            Sortenattributgruppen.AttributText
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Rabattklasse" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            zum Beispiel: Bahncard/Bahncard 25/SH-Card Die
+            Rabattklassen schließen sich gegenseitig aus.
+            Verweis auf Sortenattributgruppen.AttributText
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Fahrgasttyp" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            normal Kind Schüler Azubi Verweis auf
+            Sortenattributgruppen.AttributText
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SortenTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            1=Tageskarte,2=Wochenkarte,3=Monatskarte,4=Halbjahreskarte,5=Jahreskarte,6=Mehrfahrten,0=Einzelkarte,7=Bargutschrift,8=AboEinzahlung,9=EBEEinzahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Zusatzsorte" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            TRUE, wenn die Sorte eine Zusatzsorte ist, dann gibt
+            es ein Objekt des Typs Zusatzsorten_Type
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Mindestpersonenanzahl" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Ab wievielen Personen darf der Fahrschein verkauft
+            werden
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Hoechstpersonenanzahl" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Bis zu wievielen Personen darf der Fahrschein
+            maximal verkauft werden
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KdNummer" type="tns:PrintableString" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, ob und in welchem Format eine
+            Kundennummer zu erfassen ist. Das Format definiert,
+            wieviele und welche Zeichen erfasst werden können:
+            a: -&gt; mit diesem Hinweis muss der Formatstring
+            beginnen, er definiert die folgende Syntax ?=steht
+            für ein beliebiges Zeichen #=steht für eine Zahl
+            $=steht für eine beliebige Zahl oder ein beliebiger
+            Buchstabe (ohne Sonderzeichen ohne Leerzeichen)
+            Optionale Zeichen sind mit [] einzufassen Beispiel:
+            a:##$$[??????] es müssen zwei Ziffern, gefolgt von
+            zwei Ziffern oder Buchstaben gefolgt von bis zu 6
+            beliebigen Zeichen eingegeben werden. a:#[#########]
+            eine Zahl mit mindestens einer und max. 10 Ziffern
+            a:[##########] eine beliebige Zahl mit max. 10
+            Ziffern - Eingabe ist optional
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GueltigRegel" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            1=KW/KM/KJ (fest), 2=gleitend - nächste Einheit -1,
+            3=Anzahl Tage/Monate
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GueltigParam" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            bei GRegel 3: Anzahl Tage/Monate
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GueltigText" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GueltigRegelEFS" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            1=KW/KM/KJ (fest), 2=gleitend - nächste Einheit -1,
+            3=Anzahl Tage/Monate
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GueltigParamEFS" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            bei GRegel 3: Anzahl Tage/Monate
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Vorverkauf" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Wieviele Tage im Voraus verkaufbar
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Umschalttag" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            ab welchem Tag, wird der nächste feste Zeitraum
+            angeboten (GRegel=1)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PreisuebergangVorverkauf" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Gibt an, wie lange die Sorte im Vorverkauf mit dem
+            aktuellen Preis verkauft wird, obwohl ihre
+            Gültigkeit schon im neuen Tarif liegt.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Preisfindung" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Hinweis zur Preisfindung 1=Festpreis,
+            2=Relationsbezogen, 3=Relationsbezogen mit
+            Preisstufenupgrade
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Preisabschlussberechnung" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Definiert die Regel(n), nach der ein ermittelter
+            Fahrscheinpreis am Ende noch einmal gegen generelle Preisnormen
+            abgeglichen wird.
+            Z.B.: Mindespreis, Rundung, etc...
+
+            wenn keine Regel angegeben ist, gilt der ermittelte Preis
+
+            Die Definition der Regeln ist in der Dokumentation hinterlegt.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AnzahlBerechtigungen" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Anzahl Fahrtberechtigungen bei SortenTyp 6
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="AnzahlAbschnitte" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Anzahl FSAbschnitte bei SortenTyp 6
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HinUndRueckfahrt" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="TarifInfo" type="tns:blobString" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="Drucktext1" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Drucktext Verwendung ist abhängig von der
+            Layoutdefinition
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Drucktext2" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Drucktext3" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KA_ReferenzEFS" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA EFS Struktur</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KA_ProdOrgID" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Produkt Organisationsnummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_ProdNr" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Produkt</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_Infotext" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KA_Fahrgasttyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Fahrgasttyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_Mitnahme" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Mitnahme</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_Verkehrsmittel" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Verkehrsmittel</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_Serviceklasse" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Serviceklasse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Zusatzsorten_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Sorte"/>
+          <field name="ID_PreisStufe"/>
+          <field name="ZuordnungRelCodeGrp"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Sorte" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ZuordnungRelCodeGrp" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            „S“=StartRelCode, „Z“=ZielRelCode, „R“=StartZielRelCode)
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:Char">
+            <xs:enumeration value="S"/>
+            <xs:enumeration value="Z"/>
+            <xs:enumeration value="R"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Anbindung" nillable="true" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                  <xs:documentation>„V“=Vorlauf, „N“=Nachlauf, „H“=Hauptlauf</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+          <xs:restriction base="tns:Char">
+            <xs:enumeration value="V"/>
+            <xs:enumeration value="N"/>
+            <xs:enumeration value="H"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Zusatzsortentyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation><xs:documentation>(Bedeutung projektspezifisch. MENT:1=Flächenanstoß, 2=Zusatzanstoß, 3=Streckenanstoß)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Fremdschlüssel zur Produktbildung - wenn angegeben, wird diese Preisstufe fest zur Preisbestimmung verwendet. 
+Die Angabe hat Vorrang vor ID_PreisstufenGrenze.
+        </xs:documentation>
+        </xs:annotation>
+      </xs:element> 
+            <xs:element name="ID_PreisstufeGrenze" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>wenn nicht vorhanden (und ID_Preisstufe nicht vorhanden) - alle Preisstufen möglich
+sonst alle Preisstufen mit ID_Preisstufe kleiner gleich ID_PreisstufeGrenze</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+            <xs:element name="Hinweistext" type="tns:PrintableString" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation><xs:documentation>
+        z.B. für Zusatzinfo auf Quittungsausdruck – nicht bei Direktverkauf!
+        </xs:documentation> </xs:annotation>
+      </xs:element>  
+      <xs:element name="ID_SortengruppeHauptsorten" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Verweis auf SortenGruppe mit erlaubten Hauptsorten</xs:documentation>
+        </xs:annotation>
+      </xs:element> 
+      <xs:element name="ID_RelCodeGruppeStart" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Verweis auf RelCodeGruppe die erlaubte RelCode_Start der Hauptrelation gruppiert = Vorlauf</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_RelCodeGruppeZiel" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Verweis auf RelCodeGruppe die erlaubte RelCode_Ziel der Hauptrelation gruppiert = Nachlauf
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>      
+      <xs:element name="Direktverkauf" type="xs:boolean" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>False=“immer mit Hauptsorte“, True=“Direktverkauf ohne Hauptsorte, falls Verkaufsort in Gruppierung durch VerkaufsRelCode enthalten</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!-- prepared if necessary 10.10.2012 hneubauer
+           im Datenmodell LTN existiert mit Tb_Anstoss.C_EINHEIT ein Schalter, der aussagt, ob das Anzahl verkaufter Anstoßprodukte
+           an die Anzahl der zugrundeliegenden Hauptfahrscheine gebunden ist, oder frei definiert werden kann.
+           Falls dieses Verhalten wirklich gebraucht wird (Hr. Block, Vorläuferläufergesellschaft wollte das lt. Aussage bei der Sitzung am 5.10. in 
+           Cloppenburg klären) schlagen wird das folgende Element vor:
+      <xs:element name="GebundeneAnzahl" type="xs:boolean" nillable="false">
+        <xs:annotation>
+          <xs:documentation>False=“Anzahl Anschlussprodukte kann frei editiert werden“, True=“Anzahl Anschlussprodukte ist identisch mit Anzahl in Hauptsorte"</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+       -->      
+    </xs:all>
+  </xs:complexType>
+
+
+<xs:complexType name="Preise_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Sorte"/>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_PreisStufe"/>
+          <field name="ID_PreisSpalte"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Tarif" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Sorte" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisSpalte" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="TarifgeberProduktNr" nillable="true" minOccurs="0" maxOccurs="1" type="tns:PrintableString80">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Preis" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Preis in kleinster Währungseinheit (z.b.
+            Cent)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PreisStufenbezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            optional: abweichende Preisstufenbezeichnung
+            für Anzeige und Druck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_MwSt" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            optional: abweichende Mehrwertsteuerkennung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Layout" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            optional: abweichende Layoutdefinition
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_PreisStufeReferenz" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            optional
+            Referenz auf die tatsächlich zu verwendende Preisstufe für 
+              Druck
+              Anzeige
+              Registrierung
+              Gültigkeitsberechnung
+            
+            Verwendung:
+            Wenn eine Tarifverbindung eine ID_Preisstufe x liefert, und die Tarifbestimmungen definieren, dass 
+            für dieses Sorte statt der ID_Preisstufe x ein Fahrschein mit der Preisstufe y verkauft werden soll,
+            wird in ID_PreisStufeReferenz ein Verweis auf Preisstufe y eingetragen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GueltigRegel" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="GueltigParam" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Menge der Gültigkeitseinheiten,
+            Interpretation nach GueltigRegel
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GueltigText" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="GueltigRegelEFS" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            1=KW/KM/KJ (fest), 2=gleitend - nächste Einheit
+            -1, 3=Anzahl Tage/Monate
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GueltigParamEFS" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            bei GRegel 3: Anzahl Tage/Monate
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="VerkaufbarkeitsRegel" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verkaufsbarkeitregel
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VerkaufbarkeitsEinheiten" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Verkaufsbarkeiteinheiten
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <!-- KA -->
+      <xs:element name="plOrgID" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Preislisten Organisationsnummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="plNummer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Preislistennummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_ProdOrgID" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Produkt Verantwortlicher, überschreibt, wenn
+            vorhanden, die Angabe KA_ProdOrgID aus der
+            Sorten
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="KA_RaeumlicheCodierung" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Art der Codierung der räumlichen Gültigkeit
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_Rabatttyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Rabatttyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_ReferenzEFS" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Referenz EFS (optional: abweichende EFS
+            Struktur)
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <!--Netz -->
+  <xs:complexType name="OrtspunkteTG_Type">
+    <xs:annotation>
+      <xs:documentation>
+        tarifgebietspezifische-Attribute der Ortspunkte
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OrtsNummer"/>
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="ID_TarifGebiet"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Angebot" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OrtsPunktTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bspw. Betriebshof
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_OrtsNummer" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bundeseinheitliche HST Nummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Ortsbezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Ortsbezeichnung
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OrtsbezeichnungKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kurzbezeichnung des Orts
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="OrtsbezeichnungDruck" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bezeichnung des Orts für den Ausdruck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ExtOrtsNummer" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifgeberspez. Nr., bspw. für Aufdruck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Tarifpunktbezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifpunktbezeichnung
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TarifpunktbezeichnungKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kurzbezeichnung des Tarifpuntkes
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="TarifpunktbezeichnungDruck" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifpunktbezeichnung für den Ausdruck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="OrtspunkteKA_Type">
+    <xs:annotation>
+      <xs:documentation>
+        KA-Attribute der Ortspunkte je KVP-ID
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OrtsNummer"/>
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="KA_OrtOrgID"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_OPKA_OrtNummer">
+          <field name="KA_OrtOrgID"/>
+          <field name="KA_OrtNummer"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OrtsPunktTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bspw. Betriebshof
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_OrtsNummer" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bundeseinheitliche HST Nummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_OrtOrgID" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="KA_OrtTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Ortstyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_OrtNummer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA Ortnummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="KA_Ortsbezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Ortsbezeichnung
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KA_Tarifpunktbezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            KA Tarifpunktbezeichnung
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="60"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Ortspunkte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Haltestellen mit Zonen/Relationscode Zuordnung
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OrtsNummer"/>
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_OP_IBISnr">
+          <field name="IBISnr"/>
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_OP_RelCode">
+          <field name="ID_RelCode"/>
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <index name="Idx_OP_ExtOrtsNummer">
+          <field name="ExtOrtsNummer"/>
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <schema name="Angebot" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_OrtsPunktTyp" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bspw. Betriebshof</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_OrtsNummer" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bundeseinheitliche HST Nummer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_RelCode" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="IBISnr" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="256"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_Bundesland" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Gemeindekennziffer" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bezeichnung des Ortspunktes (z.B. für die Anzeige)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BezeichnungKurz" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kurzbezeichnung des Ortspunktes (z.B. für zusammengesetzte
+            Via-Information, wenn das Attribut leer ist, wird
+            Bezeichnung verwendet)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BezeichnungDruck" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bezeichnung des Ortspunktes für den Ausdruck (wenn das
+            Attribut leer ist, wird Bezeichnung verwendet)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ExtOrtsNummer" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tarifgeberspez. Nr., bspw. für Aufdruck
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="XKoordWgs84" type="tns:KoordWgs84_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="YKoordWgs84" type="tns:KoordWgs84_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Fangbereich" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Fangbereich für GPS in Metern. Wenn kein Fangbereich
+            angegeben ist, gilt ein systeminterner Defaultwert
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_OrtsPunktTypRef" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Referenziert einen übergeordneten Ortspunkt - zusammen mit
+            ID_OrtsNummerRef
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_OrtsNummerRef" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Referenziert einen übergeordneten Ortspunkt - zusammen mit
+            ID_OrtsPunktTypRef
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Innenanzeigetext" type="xs:string" maxOccurs="1" minOccurs="0" nillable="true"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Linien_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Linie"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Linie" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Liniennummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Weg_Hin" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Linienhauptweg</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Weg_Rueck" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Linienhauptweg Rückrichtung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Konzessionaer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Wege_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Fahrtnummer, Kursnummer
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Weg"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Weg" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige Nummer des Weges.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Wegpositionen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Ortsposition innerhalb der Fahrt
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Weg"/>
+          <field name="SortOrder"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_WP_OP">
+          <field name="ID_OrtsPunktTyp"/>
+          <field name="ID_OrtsNummer"/>
+          <field name="ID_Weg"/>
+        </index>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Weg" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="SortOrder" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_OrtsPunktTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_OrtsNummer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Entfernung" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Entfernung vom vorhergehenden Ortspunkt in Metern
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="Fangbereich" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            optionaler Fangbereich der Wegposition in Metern für eine
+            GPS Ortung - überschreibt eine entsprechende Angabe bei der
+            Ortspunktdefinition
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Wegpositionenzeit_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Fahr- und Haltezeiten einer Wegposition für verschiedene
+        Fahr-/Haltezeitgruppen
+      </xs:documentation>
+      <xs:appinfo>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Weg" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>
+            ID_Weg bildet mit SortOrder den Fremdschlüssel zur
+            Wegposition, der sie zugeordnet sind.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SortOrder" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="ID_Wegzeittyp" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>
+            Wegzeittyp definiert die Art von Wegzeit, die hier
+            dokumentiert wird: 1=Fahrzeit, 2=Haltezeit.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Zeitgruppe" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>
+            Nummer der Haltezeitgruppe bzw. der
+            Fahrzeitgruppe, zu der die angegebene Wegpositionenzeit
+            gehört.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Dauer" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Dauer der Wegpositionszeit in Sekunden.
+            Bei Fahrzeiten ist das die Dauer bis zum Erreichen der nächsten
+            Wegposition,
+            bei Haltezeiten ist das die Aufenthaltsdauer bis zur Abfahrt an
+            dieser Wegposition.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Zielanzeigetext_Type">
+    <xs:annotation>
+      <xs:documentation>Anzeigetexte für die Zielanzeigen (vorne und auf
+        der Seite) des Fahrzeuges.</xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Zielanzeigetext"/>
+          <field name="ID_Zielanzeigetyp"/>
+          <field name="Taktnummer"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Netz" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Zielanzeigetext" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+
+      <xs:element name="Taktnummer" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="ID_Zielanzeigetyp" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="IBISZielcode" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="Fahreranzeige" type="tns:PrintableString" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="FronttextOben" type="tns:PrintableString" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="FronttextUnten" type="tns:PrintableString" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="SeitetextOben" type="tns:PrintableString" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="SeitetextUnten" type="tns:PrintableString" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="Sonderzeichen" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <!--Hilfstabellen -->
+  <xs:complexType name="Sortenklassen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <schema name="Tarif" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Sortenklasse" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Nummer der Sortenklasse</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+
+  <!--Hilfstabellen -->
+   <xs:complexType name="Waehrungen_Type">
+    <xs:all>
+      <xs:element name="ID_Waehrungscode" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>ISO-Kennung (dezimal) der Währung -
+            außer EUR=999</xs:documentation>
+          <xs:appinfo>
+            <primekey>
+              <field name="ID_Waehrungscode"/>
+            </primekey>
+          </xs:appinfo>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Bezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>ISO-Kurzbezeichnung z.B. EUR, USD, CHF,...
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="MwSt_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_MwSt"/>
+        </primekey>
+        <schema name="Tarif" nillable="false"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_MwSt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Mehrwertsteuersatzes
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MwStSatz" type="tns:FLOAT1" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Prozentzahl des Mehrwertsteuersatzes
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Info zum MwSt.-Satz; bspw. ermäßigter Steuersatz etc.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ReferenzExtern" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Dient als Referenz um extern definierte
+            Mehrwertsteuerdatensätze über eine nicht numerische Referenz
+            identifizieren zu können.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="KA_MwSt" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Preisspaltekennungen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Preisspaltenkennung"/>
+        </primekey>
+        <index name="Idx_PspKenn_Psp">
+          <field name="ID_PreisSpalte"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Preisspaltenkennung" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisSpalte" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>1=1. Klasse, 2=2. Klasse,
+            3=Klassenübergang</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BahnCard" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+<xs:complexType name="Tarifarten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Gruppierungs- (Sorten via SortenTarifarten) und
+        Differenzierungsattribut (Teilrelationen,
+        Preisstufendirektwahlen).
+        Damit lassen sich z.B. eigene
+        Relationen für ganze Gruppen von Fahrscheinensorten vom
+        allgemeinen Fall abtrennen (Bartarif/Zeittarif).
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_TarifArt"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Tarif" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_TarifArt" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            0=Allgemein, 1=Bartarif, 2=Zeittarif
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="ReferenzExtern" type="tns:PrintableString80" maxOccurs="1" minOccurs="0" nillable="true"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Relationscodegruppentypen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        bspw. als Magneten für Citytarif
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_RelCodeGruppenTyp"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_RelCodeGruppenTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>1=Magnet, 2=Startort</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Ortspunkttypen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OrtsPunktTyp"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_OrtsPunktTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>1=Haltestelle, 2=Betriebshof
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Zielanzeigetyp_Type">
+    <xs:annotation>
+      <xs:documentation>Anzeigetypen, die unterschiedliche Versorgungsdaten
+        verlangen</xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Zielanzeigetyp"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Netz" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Zielanzeigetyp" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Inhalt_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Inhaltsversion"/>
+          <field name="Erstellungsdatum"/>
+          <field name="Lieferant"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_Inhaltsversion" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Testdaten" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Erstellungsdatum" type="tns:DateTimeCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lieferant" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Kommentar" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Bearbeitung_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="Bearbeitungsdatum"/>
+          <field name="Lieferant"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Bearbeitungsdatum" type="tns:DateTimeCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lieferant" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Kommentar" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Geraetetypen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_GeraeteTyp"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_GeraeteTyp" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>AKxxxx</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Einsatzarten_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_EinsatzArt"/>
+          <field name="ID_GeraeteTyp"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="ID_GeraeteTyp" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>AKxxxx</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ID_EinsatzArt" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="TarifrelevantePunkte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        OTP - Orte und tarifrelevante Punkte. Unabhhänig von konkreten
+        Haltestellen bieten tarifrelevante Punkte die Möglichkeit, dem
+        Bediener Reiseziele anzubieten, zu denen einen Verkauf erfolgen
+        soll. Jedem OTP ist genau ein Relationscode zugeordnet, über den
+        Relationen gesucht werden.
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OTPTyp"/>
+          <field name="ID_Bediengebiet"/>
+          <field name="ID_Zeitraum"/>
+          <field name="Bezeichnung"/>
+          <field name="Rang"/>
+        </primekey>
+        <index name="Idx_OTP_RelCode">
+          <field name="ID_RelCode"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="false" minOccurs="1" maxOccurs="1">
+      </xs:element>
+      <xs:element name="ID_RelCode" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_OTPTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OrtsPunktTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_OrtsNummer" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Sortengruppe" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Verweist zusammen mit ID_SortenGruppenTyp, ID_Bediengebiet auf eine Sortengruppe, die mit dieser Zielauswahl direkt verkauft wird (Festpreis, keine Relation)</xs:documentation>
+        </xs:annotation></xs:element>
+      <xs:element name="ID_SortenGruppenTyp" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>siehe ID_Sortengruppe</xs:documentation>
+        </xs:annotation></xs:element>
+      <xs:element name="Standortwahl_ID_Bediengebiet" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_OTPTyp_Ref" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Über ID_OTPTyp_Ref und Bezeichnung_Ref kann eine baumartige
+            Auswahlstruktur definiert werden. Blätter und Knoten
+            referenzieren über die beiden Felder explizit und ihre
+            eigenen Felder ID_Zeitraum und ID_Bediengebiet implizit
+            einen Elternknoten. Die Bildung von Referenzbäumen ist
+            optional. SortOrder definiert die Sortierung aller
+            Kindknoten eines Ranges. Innerhalb der gleichen SortOrder
+            werden die Knoten alphabetisch sortiert.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="Bezeichnung_Ref" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="Rang" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SortOrder" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Bediengebiete_Type">
+    <xs:annotation>
+      <xs:documentation>Bediengebiete erlauben die Defintion von Sichten
+        auf Auswahlelemente (Tarifrelevante Punkte, Haltestellen, etc.).
+        Damit ist die Möglichkeit zur Filterung von Start/Zielauswahlen
+        in verschiedenen Umfeldern möglich.            
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Bediengebiet"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="VerkaufbareTarifgebiete_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Bediengebiet"/>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_TarifGebiet"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Verkaufbarkeit" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>1=Verkaufbar projektspezifische
+            Restriktionen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="OTPTypen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_OTPTyp"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_OTPTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+
+<xs:complexType name="Sortengruppen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Sortengruppe"/>
+          <field name="ID_SortenGruppenTyp"/>
+          <field name="ID_Bediengebiet"/>
+          <field name="SortOrder"/>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_Sorte"/>
+        </primekey>
+        <index name="Idx_SoGr_ID_Sorte">
+          <field name="ID_Sorte"/>
+          <field name="ID_Zeitraum"/>
+        </index>
+        <schema name="Tarif" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Sortengruppe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_SortenGruppenTyp" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="SortOrder" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="TarifInfo" type="tns:blobString" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Sorte" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PreisStufe" type="tns:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>ID_PreisStufe ist optional. Wenn die
+            Preisstufe angegeben ist, wird der Produkt als Festpreis
+            verkauft. Ansonsten muss die Preisstufe aufgrund weiterer
+            Einschränkungen (z.b. Auswahl einer Relation) ermittelt bzw.
+            festgelegt werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="VersionStatus_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="stabil"/>
+      <xs:enumeration value="in Arbeit"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="VersionStruktur_Type">
+    <xs:all>
+      <xs:element name="VersionMajor" type="tns:INT4" default="1" maxOccurs="1" minOccurs="1" nillable="false"/>
+      <xs:element name="VersionMinor" type="tns:INT4" default="38" maxOccurs="1" minOccurs="1" nillable="false"/>
+      <xs:element name="Status" type="tns:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1" nillable="true"/>
+      <xs:element name="Aenderungsdatum" type="tns:DateCompact" default="2015-10-30" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="Aenderungsautor" type="tns:PrintableString" default="Neubauer(kt)" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Fahrten_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Fahrt"/>
+          <field name="ID_BetriebsTagesArt"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <index name="Idx_Fahrt_Linie">
+          <field name="ID_Linie"/>
+        </index>
+        <index name="Idx_Fahrt_Weg">
+          <field name="ID_Weg"/>
+        </index>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_BetriebsTagesArt" type="tns:INT4" minOccurs="1" maxOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>
+            Betriebstagesart, zu der diese Fahrt definiert ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Fahrt" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>
+            eindeutige Nummer des Fahrt für die angegebene
+            Betriebstagesart
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Linie" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="ID_TarifGebiet" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="ID_Zielanzeigetext" type="tns:INT4" maxOccurs="1" minOccurs="0" nillable="true"/>
+      <xs:element name="Richtung" type="tns:Richtungen_Type" maxOccurs="1" minOccurs="0" nillable="true">
+      </xs:element>
+      <xs:element name="ID_Weg" type="tns:INT4" minOccurs="0" maxOccurs="1" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Wenn keine ID_Weg angegeben ist, wird der zur Richtung
+            passende Weg von der Linie verwendet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Abfahrt" type="tns:Betriebszeit_Type" minOccurs="0" maxOccurs="1" nillable="true"/>
+      <xs:element name="Fahrzeitgruppe" type="tns:INT4" minOccurs="0" maxOccurs="1" nillable="true"/>
+      <xs:element name="Haltezeitgruppe" type="tns:INT4" minOccurs="0" maxOccurs="1" nillable="true"/>
+
+    </xs:all>
+  </xs:complexType>
+
+
+  <xs:complexType name="Wagenumlauf_Type">
+    <xs:annotation>
+      <xs:documentation>Wagenumläufe stellen eine Reihe von Fahrten
+        zusammen, die hintereinander abgefahren werden.</xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_BetriebsTagesArt"/>
+          <field name="ID_Wagenumlauf"/>
+          <field name="SortOrder"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+        <schema name="Angebot" nillable="true"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_BetriebsTagesArt" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>ID der Betriebstagesart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Wagenumlauf" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+        <xs:annotation>
+          <xs:documentation>
+            eindeutige Nummer des Wagenumlaufes für die angegebene Betriebstagesart
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SortOrder" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+      <xs:element name="ID_Fahrt" type="tns:INT4" maxOccurs="1" minOccurs="1" nillable="false">
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:simpleType name="Richtungen_Type">
+    <xs:restriction base="tns:PrintableString">
+      <xs:enumeration value="Hin"/>
+      <xs:enumeration value="Rueck"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SammelbelegType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true">
+        <xs:annotation>
+          <xs:documentation>ein Fahrschein für n Personen</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="false">
+        <xs:annotation>
+          <xs:documentation>n Fahrscheine für n Personen</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="auswahl">
+        <xs:annotation>
+          <xs:documentation>Bediener entscheidet, ob ein oder n Fahrscheine
+            gedruckt werden, bei n&gt;1</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Sortenattributgruppen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        In dieser Tabelle werden die verschiedenen Werte
+        der Attributgruppen aufgelistet und nach
+        tarifarischer Bedeutung
+        gruppiert
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_AttributKlasse"/>
+          <field name="ID_Zeitraum"/>
+          <field name="ID_Bediengebiet"/>
+          <field name="ID_AttributGruppe"/>
+          <field name="AttributText"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_AttributKlasse" type="tns:ID_SortenAttributKlasse_Type" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            AttributKlasse (1=Komfortklasse,
+            2=Rabattklasse,
+            3=Fahrgasttyp, ...)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Bediengebiet" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_AttributGruppe" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Attributgruppe innerhalb einer
+            Attributklasse Mit der
+            Gruppierung können mehrere Attribute,
+            auf gemeinsame
+            Steuerungselemente (z.B. Buttons) bezogen
+            werden.
+
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="AttributText" type="tns:PrintableString" nillable="false" minOccurs="1" maxOccurs="1">
+
+      </xs:element>
+      <xs:element name="Bezeichnung" type="tns:PrintableString" nillable="true" minOccurs="0" maxOccurs="1">
+
+      </xs:element>
+
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Bundeslaender_Type">
+    <xs:annotation>
+      <xs:documentation>Ortspunkte werden einem Bundesland zugeordnet
+        (direkt oder ggf. auch indirekt)</xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Bundesland"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Name des Bundeslandes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Feiertage_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="Datum"/>
+          <field name="ID_Bundesland"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Datum" type="tns:DateCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Unternehmen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Unternehmen"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Unternehmen" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+
+      <xs:element name="BezeichnungKurz" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungLang" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="Mandant" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            True, wenn das Unternehmen als Mandant im System geführt
+            wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Zusatzinfo" type="tns:blobString" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="ReferenzExtern" maxOccurs="1" minOccurs="0" type="tns:PrintableString80" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um Unternehmen über eine nicht numerische
+            Referenz ggf. auch bezogen auf Drittsysteme identifizieren
+            zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Beauftragungen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Beauftragung"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Beauftragung" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um Beauftragsungstype über eine nicht numerische
+            Referenz ggf. auch bezogen auf Drittsysteme identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="UnternehmensBeauftragungen_Type">
+    <xs:annotation>
+      <xs:documentation>Definiert ein Auftragsverhältnis zwischen zwei in Unternehmen_Type definierten Unternehmen.
+      Das gleiche Unternehmen das im einen Fall als Auftraggeber auftritt, kann gleichzeitig in einem anderen 
+      Fall als Auftragnehmer fungieren.
+      </xs:documentation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_UnternehmenAuftraggeber"/>
+          <field name="ID_UnternehmenAuftragnehmer"/>
+          <field name="ID_Beauftragung"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_UnternehmenAuftraggeber" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_UnternehmenAuftragnehmer" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Beauftragung" type="tns:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+
+      <xs:element name="Information" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Optionale Information zur Auftraggeber/-nehmer Verbindung</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="BezeichnungLang" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+      <xs:element name="Mandant" type="xs:boolean" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            True, wenn das Unternehmen als Mandant im System geführt
+            wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" maxOccurs="1" minOccurs="0" nillable="true">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um Unternehmen über eine nicht numerische
+            Referenz ggf. auch bezogen auf Drittsysteme identifizieren
+            zu können.
+          </xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tns:PrintableString">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Zusatzinfo" type="tns:blobString" nillable="true" minOccurs="0" maxOccurs="1">
+      </xs:element>
+
+    </xs:all>
+  </xs:complexType>
+
+  <xs:complexType name="Preisquellen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <primekey>
+          <field name="ID_Preisquelle"/>
+          <field name="ID_Zeitraum"/>
+        </primekey>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Preisquelle" type="tns:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="tns:PrintableString80" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Preisquelle z.B.
+            NE-Blatt-Nummer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+
+  <!--Ende Tabellen -->
+
+  <!--Allgemein -->
+  <xs:element name="Inhalt" type="tns:Inhalt_Type" nillable="true"/>
+  <xs:element name="Bearbeitung" type="tns:Bearbeitung_Type" nillable="true"/>
+  <xs:element name="Bundeslaender" type="tns:Bundeslaender_Type" nillable="true"/>
+  <xs:element name="Tarifgebiete" type="tns:Tarifgebiete_Type" nillable="true"/>
+  <xs:element name="Tarifpunkte" type="tns:Tarifpunkte_Type" nillable="true"/>
+  <xs:element name="Zeitraeume" type="tns:Zeitraeume_Type" nillable="true"/>
+  <xs:element name="Kalender" type="tns:Kalender_Type" nillable="true"/>
+  <xs:element name="Tagesarten" type="tns:Tagesarten_Type" nillable="true"/>
+  <xs:element name="IdentobjektTypen" type="tns:IdentobjektTypen_Type" nillable="true"/>
+  <xs:element name="Identobjekte" type="tns:Identobjekte_Type" nillable="true"/>
+  <xs:element name="PersonalIdentobjekte" type="tns:PersonalIdentobjekte_Type" nillable="true"/>
+  <xs:element name="Personal" type="tns:Personal_Type" nillable="true"/>
+  <xs:element name="Personaleinsatz" type="tns:Personaleinsatz_Type" nillable="true"/>
+  <xs:element name="Standort" type="tns:Standort_Type" nillable="true"/>
+  <xs:element name="Geraet" type="tns:Geraet_Type" nillable="true"/>
+  <xs:element name="GeraetEinsatztypen" type="tns:GeraetEinsatztypen_Type" nillable="true"/>
+  <xs:element name="Feiertage" type="tns:Feiertage_Type" nillable="true"/>
+  <xs:element name="Unternehmen" type="tns:Unternehmen_Type" nillable="true"/>
+  <xs:element name="UnternehmensBeauftragungen" type="tns:UnternehmensBeauftragungen_Type" nillable="true"/>
+    
+  <!--Relationen -->
+  <xs:element name="Interpretationen" type="tns:Interpretationen_Type" nillable="true"/>
+  <xs:element name="RaeumlicheGueltigkeit" type="tns:RaeumlicheGueltigkeit_Type" nillable="true"/>
+  <xs:element name="Relationscodes" type="tns:Relationscodes_Type" nillable="true"/>
+  <xs:element name="Relationscodegruppen" type="tns:Relationscodegruppen_Type" nillable="true"/>
+  <xs:element name="Relationen" type="tns:Relationen_Type" nillable="true"/>
+  <xs:element name="Vias" type="tns:Vias_Type" nillable="true"/>
+  <xs:element name="TeilRelationen" type="tns:TeilRelationen_Type" nillable="true"/>
+  <xs:element name="Nachbarhaltestellen" type="tns:Nachbarhaltestellen_Type" nillable="true"/>
+  <xs:element name="PreisstufenDirektwahl" type="tns:PreisstufenDirektwahl_Type" nillable="true"/>
+
+  <!--Produkte -->
+  <xs:element name="Preisspalten" type="tns:Preisspalten_Type" nillable="true"/>
+  <xs:element name="Preisstufen" type="tns:Preisstufen_Type" nillable="true"/>
+  <xs:element name="SortenTarifarten" type="tns:SortenTarifarten_Type" nillable="true"/>
+  <xs:element name="Sorten" type="tns:Sorten_Type" nillable="true"/>
+  <xs:element name="Zusatzsorten" type="tns:Zusatzsorten_Type" nillable="true"/>
+  <xs:element name="Preise" type="tns:Preise_Type" nillable="true"/>
+
+
+  <!--Netz -->
+  <xs:element name="OrtspunkteTG" type="tns:OrtspunkteTG_Type" nillable="true"/>
+  <xs:element name="OrtspunkteKA" type="tns:OrtspunkteKA_Type" nillable="true"/>
+  <xs:element name="Ortspunkte" type="tns:Ortspunkte_Type" nillable="true"/>
+  <xs:element name="TarifrelevantePunkte" type="tns:TarifrelevantePunkte_Type"/>
+  <xs:element name="Bediengebiete" type="tns:Bediengebiete_Type"/>
+  <xs:element name="VerkaufbareTarifgebiete" type="tns:VerkaufbareTarifgebiete_Type"/>
+  <xs:element name="Linien" type="tns:Linien_Type" nillable="true"/>
+  <xs:element name="Wege" type="tns:Wege_Type" nillable="true"/>
+  <xs:element name="Wegpositionen" type="tns:Wegpositionen_Type" nillable="true"/>
+  <xs:element name="Fahrten" type="tns:Fahrten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Fahrten verweisen auf Linien und geben an, ob
+        sie die
+        Hin- oder Rückrichtung abfahren. Die ID_Fahrt kann im
+        Bahnverkehr auch als Zugnummer interpretiert werden.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <!--Hilfs -->
+  <xs:element name="Sortenklassen" type="tns:Sortenklassen_Type" nillable="true"/>
+  <xs:element name="Waehrungen" type="tns:Waehrungen_Type" nillable="true"/>
+  <xs:element name="MwSt" type="tns:MwSt_Type" nillable="true"/>
+  <xs:element name="Preisspaltekennungen" type="tns:Preisspaltekennungen_Type" nillable="true"/>
+  <xs:element name="Tarifarten" type="tns:Tarifarten_Type" nillable="true"/>
+  <xs:element name="Preisquellen" type="tns:Preisquellen_Type" nillable="true"/>
+  <xs:element name="Relationscodegruppentypen" type="tns:Relationscodegruppentypen_Type" nillable="true"/>
+  <xs:element name="Ortspunkttypen" type="tns:Ortspunkttypen_Type" nillable="true"/>
+  <xs:element name="Geraetetypen" type="tns:Geraetetypen_Type" nillable="true"/>
+  <xs:element name="Einsatzarten" type="tns:Einsatzarten_Type" nillable="true"/>
+  <xs:element name="OTPTypen" type="tns:OTPTypen_Type"/>
+  <xs:element name="Sortengruppen" type="tns:Sortengruppen_Type"/>
+  <xs:element name="VersionStruktur" type="tns:VersionStruktur_Type"/>
+  <xs:element name="Sortenattributgruppen" type="tns:Sortenattributgruppen_Type"/>
+
+  <!--Wurzel -->
+  <xs:element name="OePVTarifDB" nillable="false">
+    <xs:complexType>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element ref="tns:Bediengebiete"/>
+        <xs:element ref="tns:Bearbeitung"/>
+        <xs:element ref="tns:Bundeslaender"/>
+        <xs:element ref="tns:Einsatzarten"/>
+        <xs:element ref="tns:Fahrten"/>
+        <xs:element ref="tns:Feiertage"/>
+        <xs:element ref="tns:Geraet"/>
+        <xs:element ref="tns:GeraetEinsatztypen"/>
+        <xs:element ref="tns:Geraetetypen"/>
+        <xs:element ref="tns:IdentobjektTypen"/>
+        <xs:element ref="tns:Identobjekte"/>
+        <xs:element ref="tns:Inhalt"/>
+        <xs:element ref="tns:Interpretationen"/>
+        <xs:element ref="tns:Kalender"/>
+        <xs:element ref="tns:Linien"/>
+        <xs:element ref="tns:MwSt"/>
+        <xs:element ref="tns:Nachbarhaltestellen"/>
+        <xs:element ref="tns:Ortspunkte"/>
+        <xs:element ref="tns:OrtspunkteKA"/>
+        <xs:element ref="tns:OrtspunkteTG"/>
+        <xs:element ref="tns:Ortspunkttypen"/>
+        <xs:element ref="tns:OTPTypen"/>
+        <xs:element ref="tns:Personal"/>
+        <xs:element ref="tns:PersonalIdentobjekte"/>
+        <xs:element ref="tns:Personaleinsatz"/>
+        <xs:element ref="tns:Preise"/>
+        <xs:element ref="tns:Preisquellen"/>
+        <xs:element ref="tns:Preisspaltekennungen"/>
+        <xs:element ref="tns:Preisspalten"/>
+        <xs:element ref="tns:Preisstufen"/>
+        <xs:element ref="tns:PreisstufenDirektwahl"/>
+        <xs:element ref="tns:RaeumlicheGueltigkeit"/>
+        <xs:element ref="tns:Relationen"/>
+        <xs:element ref="tns:Relationscodegruppen"/>
+        <xs:element ref="tns:Relationscodegruppentypen"/>
+        <xs:element ref="tns:Relationscodes"/>
+        <xs:element ref="tns:Sorten"/>
+        <xs:element ref="tns:Sortenattributgruppen"/>
+        <xs:element ref="tns:Sortengruppen"/>
+        <xs:element ref="tns:Sortenklassen"/>
+        <xs:element ref="tns:SortenTarifarten"/>
+        <xs:element ref="tns:Standort"/>
+        <xs:element ref="tns:Tagesarten"/>
+        <xs:element ref="tns:Tarifarten"/>
+        <xs:element ref="tns:Tarifgebiete"/>
+        <xs:element ref="tns:Tarifpunkte"/>
+        <xs:element ref="tns:TarifrelevantePunkte"/>
+        <xs:element ref="tns:TeilRelationen"/>
+        <xs:element ref="tns:Unternehmen"/>
+        <xs:element ref="tns:UnternehmensBeauftragungen"/>
+        <xs:element ref="tns:VerkaufbareTarifgebiete"/>
+        <xs:element ref="tns:VersionStruktur"/>
+        <xs:element ref="tns:Vias"/>
+        <xs:element ref="tns:Waehrungen"/>
+        <xs:element ref="tns:Wege"/>
+        <xs:element ref="tns:Wegpositionen"/>
+        <xs:element ref="tns:Zeitraeume"/>
+        <xs:element ref="tns:Zusatzsorten"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

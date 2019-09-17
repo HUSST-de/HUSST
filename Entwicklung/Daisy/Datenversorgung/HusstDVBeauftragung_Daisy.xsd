@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dv="http://www.husst.de/HusstVersorgung"
+	targetNamespace="http://www.husst.de/HusstVersorgung"
+	elementFormDefault="qualified">
+
+	<complexType name="Beauftragungsdaten_Typ">
+		<annotation>
+			<documentation>
+				Arbeitspaket: highQ
+
+				klären? ist das wirklich ein eigener Datnebereich oder gehört es doch eher
+				zu? Personal?
+
+				- Beauftragungen
+				- Unternehmensbeauftragung
+			</documentation>
+		</annotation>
+	</complexType>
+</schema>

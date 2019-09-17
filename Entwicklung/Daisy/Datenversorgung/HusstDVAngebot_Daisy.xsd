@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dv="http://www.husst.de/HusstVersorgung"
+	targetNamespace="http://www.husst.de/HusstVersorgung"
+	elementFormDefault="qualified" xmlns:Q1="http://www.husst.de/HusstDatentypen">
+
+	<import schemaLocation="../Datentypen/HusstDatentypen_Daisy.xsd"
+		namespace="http://www.husst.de/HusstDatentypen" />
+	<import schemaLocation="../Appinfo/HusstAppinfo_Daisy.xsd"
+		namespace="http://www.husst.de/HusstAppinfo" />
+
+	<include schemaLocation="HusstDVBasis_Daisy.xsd" />
+
+	<complexType name="Angebotdaten_Typ">
+        <annotation>
+        	<documentation>Angebotsdaten liefern Informationen zur Tarifgebiet übergreifenden Auswahl von Produkten. 
+Die Koppelung zu den konkreten Daten aus den Tarifgebieten erfolgt dabei über die ReferenzExtern Schlüssel der TarifElemente. Die Zeiträume der Tarif-Daten muss nicht zwingend mit den 
+Zeiträumen der Angebotsdaten übereinstimmen. 
+
+Z.B. kann eine TarifSorte für ein ganzes Kalenderjahr definiert sein, aber nur für eine kurze Zeit (z.B. die Sommerferien) wird sie in den AngebotDaten auch wirklich aufgenommen.
+
+--- initialer Arbeitsauftrag ---
+Arbeitspaket: kt
+
+Information zur Auswahl von Produkten.
+Bediengebiete TarifrelevantePunkte Sortengruppen
+Relationscodegruppen Preisstufendirektwahl
+</documentation>
+        </annotation>
+        <sequence>
+			<element name="Zeitraumkontext"
+				type="dv:AngebotZeitraumkontext_Typ" maxOccurs="unbounded"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<element name="Angebotdaten" type="dv:Angebotdaten_Typ"></element>
+
+	<complexType name="AngebotZeitraumkontext_Typ">
+        <annotation>
+        	<documentation>Der AngebotZeitraumkontext fasst alle Angebotelemente eines Zeitraums zusammen.
+
+In gesplitteten Datenlieferungen kann der gleiche AngebotZeitraumkontext (gleiche id_zeitraum) mehrfach geliefert werden.</documentation>
+        </annotation>
+        <choice minOccurs="0" maxOccurs="unbounded">
+        	<element name="AngebotBediengebiet"
+        		type="dv:AngebotBediengebiet_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotOrt" type="dv:AngebotOrt_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        	</element>
+        	<element name="AngebotStartort" type="dv:AngebotStartort_Typ" minOccurs="0" maxOccurs="unbounded"></element>
+        	<element name="AngebotSortengruppe"
+        		type="dv:AngebotSortengruppe_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotPunkt" type="dv:AngebotPunkt_Typ"
+        		maxOccurs="unbounded" minOccurs="0">
+        		<annotation>
+        			<documentation></documentation>
+        		</annotation>
+        	</element>
+        	<element name="AngebotVerbindung"
+        		type="dv:AngebotVerbindung_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotRabatttyp"
+        		type="dv:AngebotRabatttyp_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotServicetyp"
+        		type="dv:AngebotServicetyp_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotFahrgasttyp"
+        		type="dv:AngebotFahrgasttyp_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotFahrttyp"
+        		type="dv:AngebotFahrttyp_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        	<element name="AngebotDialogelement"
+        		type="dv:AngebotDialogelement_Typ" maxOccurs="unbounded"
+        		minOccurs="0">
+        	</element>
+        </choice>
+        <attribute name="id_zeitraum" type="Q1:INT4">
+			<annotation>
+				<documentation>Verweist auf das HusstDV.Infrastrukturdaten.DvZeitraum Element mit dieser Id.</documentation></annotation></attribute>
+	</complexType>
+
+	<complexType name="AngebotOrt_Typ">
+        <annotation>
+        	<documentation>Eine Zusammenfassung mehrerer TarifOrte aus unterschiedlichen TarifGebieten, die im Kontext eines Bediengebiets an ein Dialogelement gebunden werden.
+
+Dieser dient zur Auswahl von Start und Ziel einer Verbindung im ÖPV</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung" type="Q1:LanguageString"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifOrtReferenz"
+						maxOccurs="unbounded" minOccurs="0"
+						type="dv:TarifOrtReferenz_Typ">
+					</element>
+					<element name="Dialogelement"
+						type="dv:AngebotOrtDialogelement_Typ" maxOccurs="unbounded"
+						minOccurs="0">
+						<annotation>
+							<documentation>Liste der AngebotBediengebiete und aller Dialogelemente für die dieser AngebotOrt definiert ist.
+Wenn der AngebotOrt für verschiedene AngebotBediengebiete an unterschiedliche AngebotDialogelemente gebunden werden soll, müssen mehrere Dialogelemente definiert werden.</documentation>
+						</annotation>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+    <complexType name="AngebotPunkt_Typ">
+        <annotation>
+        	<documentation>Eine abstrakte Abbildung der Start- und Zielpunkte von AngebotVerbindungen. 
+</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+			</extension>
+		</complexContent>
+    </complexType>
+    
+    <complexType name="AngebotVerbindung_Typ">
+        <annotation>
+        	<documentation>Die AngebotVerbindungen sind die zusammengeführten Tarifmatrizen über alle TarifGebiete. Sie definiert, welche Verbindungen zwischen zwei AngebotPunkten verfügbar sind und ggf. in 
+welcher Reihenfolge alternative Verbindungen angeboten werden. 
+
+Bei der Zusammenführung der Verbindungen über mehrere Tarifgebiete werden ggf. einzelne Verbindungen nicht in die Menge der angebotenenen Verbindungen aufgenommen. 
+
+Kleines Beispiel: Zwischen zwei Orten existiert je eine TarifVerbindung aus einem TarifGebiet TG1 und einem TarifGebiet TG2. In dem Bereich ist aber definiert, dass Verbindungen aus dem TG1 
+Vorrang haben vor solchen aus dem TG2. Dann wird in der AngebotVerbindung zwischen den beiden Orten nur die TarifVerbindung für TG1 aufgenommen. Welche Regeln für die Zusammenführung 
+von TarifVerbindungen mehrerer TarifGebiete gelten, wie die Sortierung der verbleibenden TarifVerbindungen ermittelt wird ist nicht Bestandteil der HUSST-Datenstruktur. Sie dient lediglich als 
+Container für die gebildeten Daten.
+
+Falls mehrere Einträge zu zwei AngebotPunkten (Start und Ziel) vorhanden sind, ist eine Auswahl über die Bezeichnung nötig, die sich dringend unterscheiden sollte.</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung"
+						type="Q1:LanguageString" maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifVerbindung" maxOccurs="unbounded" minOccurs="0" type="dv:AngebotTarifVerbindung_Typ">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    
+    <complexType name="AngebotSortengruppe_Typ">
+        <annotation>
+        	<documentation>Menge von TarifSorten, die im Kontext eines Bediengebiets an ein Dialogelement gebunden werden. Die Menge kann über die Position sortiert werden.</documentation></annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung" type="Q1:LanguageString"
+						maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifSorteReferenz"
+						maxOccurs="unbounded" minOccurs="0">
+						<complexType>
+							<sequence>
+								<element
+									name="TarifGebietReferenzExtern" type="string" minOccurs="1"
+									maxOccurs="1">
+								</element>
+								<element name="TarifSorteReferenzExtern"
+									type="string" minOccurs="1" maxOccurs="1">
+								</element>
+							</sequence>
+						</complexType>
+					</element>
+					<element name="Dialogelement"
+						type="dv:AngebotSortengruppeDialogelement" maxOccurs="unbounded"
+						minOccurs="0">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+
+    <complexType name="AngebotBediengebiet_Typ">
+        <annotation>
+        	<documentation>Mit AngebotBediengebieten können AngebotOrte und AngebotSortengruppen eingeschränkt werden, die für eine bestimmtes Bedienungsszenario verfügbar sein sollen.
+
+Leitend ist dabei der Gedanke eines örtlich definierten Bediengebietes. Es sind aber auch darüber hinaus andere Rahmenbediungen denkbar, die ein eigenes Bediengebiet mit entsprechenden Einschränkungen definieren.</documentation>
+        </annotation>
+        <complexContent>
+    		<extension base="dv:HusstDVBasisZusatz_Typ">
+    			<sequence>
+    				<element name="Bezeichnung"
+    					type="Q1:LanguageString" maxOccurs="1" minOccurs="0">
+    				</element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+    <complexType name="AngebotRabatttyp_Typ">
+        <annotation>
+        	<documentation>Fasst alle logisch gleichen Rabatttypen der verschiedenen TarifGebiete zu einem AngebotRabatttyp zusammen (z.B. Bahncard 25 / ..).</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung"
+						type="Q1:LanguageString" maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifRabatttyp" maxOccurs="unbounded" minOccurs="0" type="dv:AngebotTarifRabatttyp_Typ">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    
+    <complexType name="AngebotServicetyp_Typ">
+        <annotation>
+        	<documentation>Fasst alle logisch gleichen Servicetypen der verschiedenen TarifGebiete zu einem AngebotServicetyp zusammen (z.B. 1. Klasse / 2. Klasse / ..).</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung"
+						type="Q1:LanguageString" maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifServicetyp" maxOccurs="unbounded" minOccurs="0" type="dv:AngebotTarifServicetyp_Typ">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    
+    <complexType name="AngebotFahrgasttyp_Typ">
+        <annotation>
+        	<documentation>Fasst alle logisch gleichen Fahrgasttypen der verschiedenen TarifGebiete zu einem AngebotFahrgasttyp zusammen (z.B. Erwachsener / Azubi / ..).</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung"
+						type="Q1:LanguageString" maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifFahrgasttyp" maxOccurs="unbounded" minOccurs="0" type="dv:AngebotTarifFahrgasttyp_Typ">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    
+    <complexType name="AngebotFahrttyp_Typ">
+        <annotation>
+        	<documentation>Fasst alle logisch gleichen Fahrttypen der verschiedenen TarifGebiete zu einem AngebotFahrttyp zusammen (z.B. einfache Fahrt / Hin-/Rückfahrt / Rundreise / ..).</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisZusatz_Typ">
+				<sequence>
+					<element name="Bezeichnung"
+						type="Q1:LanguageString" maxOccurs="1" minOccurs="1">
+					</element>
+					<element name="TarifFahrttyp" maxOccurs="unbounded" minOccurs="0" type="dv:AngebotTarifFahrttyp_Typ">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    
+    
+    <complexType name="AngebotTarifRabatttyp_Typ">
+    	<sequence>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifGebietReferenzExtern" type="string">
+    		</element>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifRabattypReferenzExtern" type="string">
+    		</element>
+    	</sequence>
+    </complexType>
+    <complexType name="AngebotTarifServicetyp_Typ">
+    	<sequence>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifGebietReferenzExtern" type="string">
+    		</element>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifServicetypReferenzExtern" type="string">
+    		</element>
+    	</sequence>
+    </complexType>
+    <complexType name="AngebotTarifFahrgasttyp_Typ">
+    	<sequence>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifGebietReferenzExtern" type="string">
+    		</element>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifFahrgasttypReferenzExtern" type="string">
+    		</element>
+    	</sequence>
+    </complexType>
+    <complexType name="AngebotTarifFahrttyp_Typ">
+    	<sequence>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifGebietReferenzExtern" type="string">
+    		</element>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifFahrttypReferenzExtern" type="string">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AngebotDialogelement_Typ">
+        <annotation>
+        	<documentation>Bezug zu einem oder mehreren Dialog-Elementen eines Angebot-Dialogs. Die Bindung zum Dialogelement erfolgt über ReferenzExtern.</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasisReferenzExtern_Typ">
+				<sequence>
+					<element name="Bezeichnung"
+						type="Q1:LanguageString" maxOccurs="1" minOccurs="1">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    <complexType name="TarifOrtReferenz_Typ">
+    	<sequence>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifGebietReferenzExtern" type="string">
+    		</element>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifOrtReferenzExtern" type="string">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AngebotOrtDialogelement_Typ">
+        <annotation>
+        	<documentation>Liste der AngebotBediengebiete und aller Dialogelemente für die dieser AngebotOrt definiert ist.
+Wenn der AngebotOrt für verschiedene AngebotBediengebiete an unterschiedliche AngebotDialogelemente gebunden werden soll, müssen mehrere AngebotOrtDialogelemente definiert werden.</documentation></annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasis_Typ">
+				<sequence>
+                    <element name="Id_AngebotBediengebiet"
+						type="Q1:INT4" maxOccurs="unbounded" minOccurs="0">
+					</element>
+                    <element name="Id_AngebotDialogelement"
+						type="Q1:INT4" maxOccurs="unbounded" minOccurs="0">
+					</element>
+                    <element name="Id_AngebotStartort"
+						type="Q1:INT4" maxOccurs="1" minOccurs="0">
+                        <annotation>
+                        	<documentation>Verweist auf das neu einzustellenden AngebotBediengebiet, wenn die Auswahl des AngebotOrts zu einer Startort-Umwahl führt.</documentation>
+                        </annotation>
+                    </element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+
+    <complexType name="AngebotSortengruppeDialogelement">
+        <annotation>
+        	<documentation>Liste der AngebotBediengebiete und aller Dialogelemente für die diese AngebotSortengruppe definiert ist.
+Wenn die AngebotSortengruppe für verschiedene AngebotBediengebiete an unterschiedliche AngebotDialogelemente gebunden werden soll, müssen mehrere AngebotSortengruppeDialogelement definiert werden.</documentation>
+        </annotation>
+        <complexContent>
+			<extension base="dv:HusstDVBasis_Typ">
+				<sequence>
+                    <element name="Id_AngebotBediengebiet"
+						type="Q1:INT4" maxOccurs="unbounded" minOccurs="0">
+					</element>
+                    <element name="Id_AngebotDialogelement"
+						type="Q1:INT4" maxOccurs="unbounded" minOccurs="0">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+    </complexType>
+    <complexType name="AngebotTarifVerbindung_Typ">
+    	<sequence>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifGebietReferenzExtern" type="string">
+    		</element>
+    		<element minOccurs="1" maxOccurs="1"
+    			name="TarifVerbindungReferenzExtern" type="string">
+    		</element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AngebotStartort_Typ">
+    	<complexContent>
+    		<extension base="dv:HusstDVBasisReferenzExtern_Typ">
+    			<sequence>
+    				<element name="Id_AngebotOrt" type="Q1:INT4"
+    					minOccurs="0" maxOccurs="1">
+    				</element>
+    				<element name="Id_AngebotBediengebiet"
+    					type="Q1:INT4" minOccurs="0" maxOccurs="1">
+    				</element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+</schema>
