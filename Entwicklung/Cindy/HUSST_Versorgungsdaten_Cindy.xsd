@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:husst="http://husst.de/Versorgungsdaten/Cindy"
+	xmlns:husstDV="http://husst.de/Versorgungsdaten/Cindy"
 	xmlns:api="http://www.husst.de/Appinfo/Cindy"
 	targetNamespace="http://husst.de/Versorgungsdaten/Cindy"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -104,7 +104,7 @@
 				<LookUpItem value="3">Fahrgasttyp</LookUpItem>
 			</xs:appinfo>
 		</xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:minInclusive value="1"/>
 			<xs:maxInclusive value="3"/>
 		</xs:restriction>
@@ -125,7 +125,7 @@
 				„R“=StartZielRelCode
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:Char">
+		<xs:restriction base="husstDV:Char">
 			<xs:enumeration value="S"/>
 			<xs:enumeration value="Z"/>
 			<xs:enumeration value="R"/>
@@ -141,7 +141,7 @@
 				„U“=Richtungsungebunden
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:Char">
+		<xs:restriction base="husstDV:Char">
 			<xs:enumeration value="V"/>
 			<xs:enumeration value="N"/>
 			<xs:enumeration value="H"/>
@@ -195,7 +195,7 @@
 			<xs:documentation>Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
       		<xs:enumeration value="1">
         		<xs:annotation>
           			<xs:documentation>Standard.
@@ -238,7 +238,7 @@
         <xs:annotation>
         	<xs:documentation>Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_RelationenberechnungsregelungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_RelationenberechnungsregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   	</xs:simpleType>
 
 	<xs:simpleType name="ID_RelationendruckregelungHUSST_Type">
@@ -246,7 +246,7 @@
 			<xs:documentation>Die HUSST definiert ID_Relationendruckregelung kleiner 1000
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
       		<xs:enumeration value="1">
         		<xs:annotation>
           			<xs:documentation>Ein.
@@ -272,7 +272,7 @@
         <xs:annotation>
         	<xs:documentation>Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_RelationendruckregelungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_RelationendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   	</xs:simpleType>
 
   <xs:simpleType name="KA_Kundentyp_CODE_Type">
@@ -285,7 +285,7 @@
         BOM 6-38
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="husst:INT1">
+    <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
         <xs:annotation>
           <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -375,7 +375,7 @@
         des OePV BOM 6_45
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="husst:INT1">
+    <xs:restriction base="husstDV:INT1">
 
       <xs:enumeration value="0">
         <xs:annotation>
@@ -469,7 +469,7 @@
         BOM 6-49
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="husst:INT1">
+    <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
         <xs:annotation>
           <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -501,7 +501,7 @@
         BOM 6-60
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="husst:INT1">
+    <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
         <xs:annotation>
           <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -590,7 +590,7 @@
         BOM 6-71
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="husst:INT1">
+    <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
         <xs:annotation>
           <xs:documentation>Keine Ermäßigung</xs:documentation>
@@ -684,11 +684,11 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="BezeichnungKurz" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Erstellungsdatum" type="husst:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Version" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
@@ -699,7 +699,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -715,10 +715,10 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifpunkt" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifpunkttyp" type="husst:ID_Tarifpunkttyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifpunkt" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifpunkttyp" type="husstDV:ID_Tarifpunkttyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>1=Zone/Wabe/Ring/Tarifpunkt
 						2=Wabentyp
@@ -732,7 +732,7 @@
 			</xs:element>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BezeichnungDruck" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_TarifpunktReferenz" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_TarifpunktReferenz" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -742,7 +742,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -759,8 +759,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifpunktmenge" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifpunktmenge" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			
 			
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
@@ -771,7 +771,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -790,11 +790,11 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_TarifpunktmengeElement" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Tarifpunktmenge" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Tarifpunkt" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="SortOrder" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_TarifpunktmengeElement" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Tarifpunktmenge" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Tarifpunkt" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -812,9 +812,9 @@
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ZeitraumVon" type="husst:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ZeitraumBis" type="husst:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ZeitraumVon" type="husstDV:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ZeitraumBis" type="husstDV:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="DatenversionZeitraum" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -823,7 +823,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="HauptZeitraumNr" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+			<xs:element name="HauptZeitraumNr" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Alle Zeiträume mit dem gleichen
 						Hauptzeitraum
@@ -839,7 +839,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="SubZeitraumNr" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+			<xs:element name="SubZeitraumNr" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Die Subzeitraumnummer ist innerhalb einer
 						Hauptzeitraumnummer ununterbrochen, aufsteigend nummeriert,
@@ -867,7 +867,7 @@
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Option" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Schlüsselstring der Option</xs:documentation>
@@ -906,13 +906,13 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Betriebstag" type="husst:DateCompact" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Betriebstag" type="husstDV:DateCompact" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Datum des Betriebstages</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Betriebstagesart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Betriebstagesart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Tagesart des Betriebstages
 					</xs:documentation>
@@ -927,7 +927,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -948,8 +948,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Betriebstagesart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Betriebstagesart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung der Tagesart</xs:documentation>
 				</xs:annotation>
@@ -970,7 +970,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1021,8 +1021,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tagesmerkmal" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tagesmerkmal" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
 				</xs:annotation>
@@ -1047,7 +1047,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1073,14 +1073,14 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_TagesmerkmalElement" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_TagesmerkmalElement" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung des Tagesmerkmalelements
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Tagesmerkmal" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Tagesmerkmal" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
 				</xs:annotation>
@@ -1100,7 +1100,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1128,20 +1128,20 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_TagesartMerkmalElement" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_TagesartMerkmalElement" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung des Tagesartmerkmalelements
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Betriebstagesart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Betriebstagesart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung der ID_Betriebstagesart
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_TagesmerkmalElement" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_TagesmerkmalElement" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Kennung des Tagesmerkmalelements
 					</xs:documentation>
@@ -1156,7 +1156,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1181,8 +1181,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Interpretationsschluessel" type="husst:Interpretationsschluessel_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Interpretationsschluessel" type="husstDV:Interpretationsschluessel_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Wert" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -1209,9 +1209,9 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relcode" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifpunkt" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relcode" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifpunkt" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1233,12 +1233,12 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relcodegruppentyp" type="husst:ID_Relcodegruppentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relcodegruppe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Gruppennummer" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relcode" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relcodegruppentyp" type="husstDV:ID_Relcodegruppentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relcodegruppe" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Gruppennummer" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relcode" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1257,8 +1257,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_RaeumlicheGueltigkeit" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_RaeumlicheGueltigkeit" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
             Eindeutige Datensatz-ID innerhalb eines Zeitraumes
@@ -1266,14 +1266,14 @@
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="ID_Tarifpunktmenge" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Tarifpunktmenge" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Referenz  auf eine Tarifpunktmenge.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_GueltigkeitsraumOriginaer" type="husst:blobString" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="KA_GueltigkeitsraumOriginaer" type="husstDV:blobString" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
             Die originäre räumliche Gültigkeit auf einem KA Ticket.
@@ -1281,7 +1281,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_GueltigkeitsraumAlternativ" type="husst:blobString" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="KA_GueltigkeitsraumAlternativ" type="husstDV:blobString" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
             Die alternative räumliche Gültigkeit auf einem KA Ticket.
@@ -1298,7 +1298,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1319,11 +1319,11 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relation" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_RelcodeStart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_RelcodeZiel" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="SortOrder" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relation" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_RelcodeStart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_RelcodeZiel" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Variantenzählung - Bestimmt die Reihenfolge der
@@ -1334,35 +1334,35 @@
 			</xs:element>
 			
 			<xs:element name="GegenrichtungLiegtVor" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Vertriebswege" type="husst:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Via" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Via" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Nummer der Viatexte für diese Verbindung
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Berechnungsregelung" type="husst:ID_Relationenberechnungsregelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Berechnungsregelung" type="husstDV:ID_Relationenberechnungsregelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Regelt die Verwendung konkurrierender Teilrelationen (gleiche ID_Tarifgebiet, ID_Tarifart) zur Preisberechnung und Registrierung. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Druckregelung" type="husst:ID_Relationendruckregelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Druckregelung" type="husstDV:ID_Relationendruckregelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Regelt die Verwendung konkurrierender Teilrelationen für den Ausdruck von Tickets. 
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1381,8 +1381,8 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Via" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Via" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Text zur Auswahl der Variante, Teilstrecken
@@ -1412,7 +1412,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1437,12 +1437,12 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Relationszuordung" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Relation" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Teilrelation" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Sortorder" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Relationszuordung" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Relation" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Teilrelation" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Sortorder" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1464,29 +1464,29 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Teilrelation" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="ID_TarifpunktStart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Teilrelation" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_TarifpunktStart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="TarifpunktbezeichnungStart" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_TarifpunktZiel" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_TarifpunktZiel" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="TarifpunktbezeichnungZiel" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Die ID_Tarifgebiet bleibt als retundante Information erhalten.
 Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documentation>
 				</xs:annotation>
 </xs:element>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="ID_Preisquelle" type="husst:ID_Preisquelle_Type" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="ID_Komfortklasse" type="husst:ID_Komfortklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Preisquelle" type="husstDV:ID_Preisquelle_Type" nillable="true" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="AlternativePreisGruppe" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="AlternativePreisGruppe" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="EinnahmeAufteilung" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="ViabezeichnungDruck" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
@@ -1512,7 +1512,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_RaeumlicheGueltigkeit" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_RaeumlicheGueltigkeit" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Verweis auf eine Definition für die räumliche
@@ -1521,14 +1521,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="ID_RaeumlicheGueltigkeit_Rueck" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_RaeumlicheGueltigkeit_Rueck" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Optionale Referenz auf eine Tarifpunktmenge für den Rückweg.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Linie" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Linie" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
@@ -1537,7 +1537,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1564,23 +1564,23 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Nachbarhaltestelle" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Nachbarhaltestelle" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Nachbarhaltestellenbeziehung" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Nachbarhaltestellenbeziehung" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Art der Nachbarbeziehung.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_OrtspunktVon" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_OrtspunktVon" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Haltestellennummer, für die eine
@@ -1591,7 +1591,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_OrtspunktNach" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_OrtspunktNach" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						Haltestellennummer, für die eine
@@ -1603,9 +1603,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="SortOrder" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="ID_Via" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Via" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						Tarifgebiet, für das eine
@@ -1615,17 +1615,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Zuordnung Preisstufe</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Zahlgrenzen" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="Zahlgrenzen" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Anzahl der Zahlgrenzen</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1647,14 +1647,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Preisstufendirektwahl" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Preisstufendirektwahl" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Datensatz-Schlüssel - eindeutig innheralb der
 						ID_Zeitraum
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Direktwahlschluessel" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Schlüsselwert, über den die Pst-Direktwahl
@@ -1664,14 +1664,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:element>
 
 
-			<xs:element name="ID_Tarifart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Tarifart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Tarifart (0=Allgemein, 1=Bartarif,
 						2=Zeittarif)
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Zuordnung Preisstufe</xs:documentation>
 				</xs:annotation>
@@ -1688,8 +1688,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Relation" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Vertriebswege" type="husst:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Relation" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
@@ -1705,7 +1705,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1727,9 +1727,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Preisspalte" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Waehrung" type="husst:ID_Waehrung_Type" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Preisspalte" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Waehrung" type="husstDV:ID_Waehrung_Type" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						ISO-Kennung (dezimal) der Währung -
@@ -1738,7 +1738,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Preisspaltentyp" type="husst:ID_Preisspaltentyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Kennung (Nr) zur systematischen
@@ -1769,7 +1769,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1790,14 +1790,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Preisstufennummer" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Preisstufennummer" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="BezeichnungKurz" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="WegstreckeInMetern" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="WegstreckeInMetern" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						durschnittliche Wegstrecke in Meter für
@@ -1806,7 +1806,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Mwst" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Mwst" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Nummer des Mehrwertsteuersatzes
@@ -1823,7 +1823,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 <!-- 			wird in die dynamischen Attribute verlagert -->
-<!-- 			<xs:element name="PstLayoutTyp" type="husst:INT4" minOccurs="0" -->
+<!-- 			<xs:element name="PstLayoutTyp" type="husstDV:INT4" minOccurs="0" -->
 <!-- 				maxOccurs="1"> -->
 <!-- 				<xs:annotation> -->
 <!-- 					<xs:documentation>Die Interpretation des PstLayoutTyps ist -->
@@ -1835,9 +1835,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 <!-- 					</xs:documentation> -->
 <!-- 				</xs:annotation> -->
 <!-- 			</xs:element> -->
-			<xs:element name="SortOrder" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="KA_Preisstufe" type="husst:INT1" nillable="false" maxOccurs="1" minOccurs="0"/>      
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="KA_Preisstufe" type="husstDV:INT1" nillable="false" maxOccurs="1" minOccurs="0"/>      
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1857,8 +1857,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Sorte" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Sorte" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Nummer der Sorte, eindeutig über alle
@@ -1867,7 +1867,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Tarifart" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+			<xs:element name="ID_Tarifart" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Tarifart (siehe Hilfstabelle Tarifart)
@@ -1898,8 +1898,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sorte" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sorte" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Nummer der Sorte, eindeutig über alle
@@ -1907,8 +1907,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortenklasse" type="husst:ID_Sortenklasse_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -1940,19 +1940,19 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			
 			
 			
-			<xs:element name="ID_Ausgaberegelung" type="husst:ID_Sortenausgaberegelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Ausgaberegelung" type="husstDV:ID_Sortenausgaberegelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zur Ausgabe der Sorte (Papierfahrschein / Elektronischer Fahrausweis etc.)	  	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Druckregelung" type="husst:ID_Sortendruckregelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Druckregelung" type="husstDV:ID_Sortendruckregelung_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Steuert die Fahrscheinausgabe auf verschiedene Medien. 	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Layout" type="husst:blobString" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Layout" type="husstDV:blobString" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Layoutdefinition für den Ausdruck des Produktes
@@ -1962,38 +1962,38 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			
 			
 			
-			<xs:element name="ID_Vertriebswege" type="husst:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Schränkt die Verwendung der Sorte auf die angegebenen Vertriebswege ein. 	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Mwst" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zahlungsarten" type="husst:ID_Zahlungsarten_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Mwst" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Zahlungsarten" type="husstDV:ID_Zahlungsarten_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Schränkt die Verwendung der Sorte auf die angegebenen Zahlungsarten ein. 	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Komfortklasse" type="husst:ID_Komfortklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).	  	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Rabattklasse" type="husst:ID_Rabattklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Rabattklasse" type="husstDV:ID_Rabattklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zur Rabattklasse (BC25/BC50 ect.).	  	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Fahrgasttyp" type="husst:ID_Fahrgasttyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Fahrgasttyp" type="husstDV:ID_Fahrgasttyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zum Fahrgasttyp (Erwachsener/Kind etc.).	  	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Sortentyp" type="husst:ID_Sortentyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						1=Tageskarte,2=Wochenkarte,3=Monatskarte,4=Halbjahreskarte,5=Jahreskarte,6=Mehrfahrten,0=Einzelkarte,7=Bargutschrift,8=AboEinzahlung,9=EBEEinzahlung
@@ -2001,7 +2001,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 			
-			<xs:element name="Mindestpersonenanzahl" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="Mindestpersonenanzahl" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						Ab wievielen Personen darf der Fahrschein
@@ -2009,7 +2009,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Hoechstpersonenanzahl" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="Hoechstpersonenanzahl" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						Bis zu wievielen Personen darf der Fahrschein
@@ -2019,7 +2019,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:element>
 			
 			
-			<xs:element name="ID_GueltigkeitszeitRegel" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_GueltigkeitszeitRegel" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Definiert die zeitliche Gültigkeit des Produktes.
@@ -2032,7 +2032,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			
 			
 			
-			<xs:element name="ID_Preisfindung" type="husst:ID_Preisfindung_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Preisfindung" type="husstDV:ID_Preisfindung_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zur Preisfindung.	  	
 	  				</xs:documentation>
@@ -2041,7 +2041,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			
 			
 			
-			<xs:element name="ID_Reisetyp" type="husst:ID_Reisetyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Reisetyp" type="husstDV:ID_Reisetyp_Type" nillable="true" minOccurs="0" maxOccurs="1">
 	        	<xs:annotation>
 					<xs:documentation>Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...)</xs:documentation>
         		</xs:annotation>
@@ -2058,39 +2058,39 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:element>
 			
 			
-			<xs:element name="KA_ProdOrgID" type="husst:INT2" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_ProdOrgID" type="husstDV:INT2" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						KA Produkt Organisationsnummer
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_ProdNr" type="husst:INT2" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_ProdNr" type="husstDV:INT2" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>KA Produkt</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="KA_Infotext" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="KA_Fahrgasttyp" type="husst:KA_Kundentyp_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_Fahrgasttyp" type="husstDV:KA_Kundentyp_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>KA Fahrgasttyp</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_Verkehrsmittel" type="husst:KA_TransportmittelKategorie_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_Verkehrsmittel" type="husstDV:KA_TransportmittelKategorie_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						KA Verkehrsmittel
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_Serviceklasse" type="husst:KA_ServiceKlasse_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_Serviceklasse" type="husstDV:KA_ServiceKlasse_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						KA Serviceklasse
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2111,19 +2111,19 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Zusatzsorte" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sorte" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ZuordnungRelCodeGrp" type="husst:ZuordnungRelCodeGrp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Anbindung" type="husst:ZusSorteAnbindung_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Zusatzsortentyp" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zusatzsorte" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sorte" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ZuordnungRelCodeGrp" type="husstDV:ZuordnungRelCodeGrp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Anbindung" type="husstDV:ZusSorteAnbindung_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Zusatzsortentyp" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>(Bedeutung projektspezifisch.
 						MENT:1=Flächenanstoß, 2=Zusatzanstoß, 3=Streckenanstoß)
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Fremdschlüssel zur Produktbildung - wenn
 						angegeben, wird diese Preisstufe fest zur Preisbestimmung
@@ -2132,7 +2132,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_PreisstufeGrenze" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_PreisstufeGrenze" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>wenn nicht vorhanden (und ID_Preisstufe
 						nicht
@@ -2151,21 +2151,21 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_SortengruppeHauptsorten" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_SortengruppeHauptsorten" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Verweis auf SortenGruppe mit erlaubten
 						Hauptsorten
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_RelcodegruppeStart" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_RelcodegruppeStart" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Verweis auf RelCodeGruppe die erlaubte
 						RelCode_Start der Hauptrelation gruppiert = Vorlauf
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_RelcodegruppeZiel" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_RelcodegruppeZiel" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Verweis auf RelCodeGruppe die erlaubte
 						RelCode_Ziel der Hauptrelation gruppiert = Nachlauf
@@ -2192,7 +2192,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				<xs:annotation> <xs:documentation>False=“Anzahl Anschlussprodukte kann frei 
 				editiert werden“, True=“Anzahl Anschlussprodukte ist identisch mit Anzahl 
 				in Hauptsorte"</xs:documentation> </xs:annotation> </xs:element> -->
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2216,17 +2216,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Preis" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Sorte" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Preis" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Sorte" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Die ID_Tarifgebiet bleibt als retundante Information erhalten.
 Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documentation>
 				</xs:annotation>
 </xs:element>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Preisspalte" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Preisspalte" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>bisher: TarifgeberProduktNr
@@ -2235,7 +2235,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Preis" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Preis" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Preis in kleinster Währungseinheit (z.b.
@@ -2260,14 +2260,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Mwst" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Mwst" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						optional: abweichende Mehrwertsteuerkennung
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_PreisstufeReferenz" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_PreisstufeReferenz" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						optional
@@ -2287,7 +2287,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_GueltigkeitszeitRegel" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_GueltigkeitszeitRegel" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Definiert die zeitliche Gültigkeit des Produktes.
@@ -2297,7 +2297,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			
 			
 			<!-- KA -->
-			<xs:element name="ID_RaeumlicheGueltigkeit" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_RaeumlicheGueltigkeit" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Verweis auf eine Definition für die räumliche
@@ -2305,30 +2305,30 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="KA_ProdOrgID" type="husst:INT2" nillable="true" minOccurs="0" maxOccurs="1">
+      <xs:element name="KA_ProdOrgID" type="husstDV:INT2" nillable="true" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             KA Produkt Organisationsnummer
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="KA_ProdNr" type="husst:INT2" nillable="true" minOccurs="0" maxOccurs="1">
+      <xs:element name="KA_ProdNr" type="husstDV:INT2" nillable="true" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>KA Produkt</xs:documentation>
         </xs:annotation>
       </xs:element>
-			<xs:element name="KA_Rabatttyp" type="husst:KA_RabattParameter_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_Rabatttyp" type="husstDV:KA_RabattParameter_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>KA Rabatttyp</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-      <xs:element name="KA_Mitnahme1Typ" type="husst:KA_Profil_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="KA_Mitnahme1MinAnzahl" type="husst:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="KA_Mitnahme1MaxAnzahl" type="husst:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="KA_Mitnahme2Typ" type="husst:KA_Profil_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="KA_Mitnahme2MinAnzahl" type="husst:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="KA_Mitnahme2MaxAnzahl" type="husst:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>      
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="KA_Mitnahme1Typ" type="husstDV:KA_Profil_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Mitnahme1MinAnzahl" type="husstDV:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Mitnahme1MaxAnzahl" type="husstDV:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Mitnahme2Typ" type="husstDV:KA_Profil_CODE_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Mitnahme2MinAnzahl" type="husstDV:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Mitnahme2MaxAnzahl" type="husstDV:INT1" nillable="true" minOccurs="0" maxOccurs="1"/>      
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2354,20 +2354,20 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_OrtspunktTG" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_OrtspunktTG" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Ortspunkt" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Ortspunkt" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Referenz zum Ortspunkt, den der OrtspunktTG tarifgebietspezifisch ergänzt oder überschreibt.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -2396,7 +2396,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2417,20 +2417,20 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Ortspunkt" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Ortspunkt" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_OrtOrgID" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="KA_OrtTyp" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_OrtOrgID" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="KA_OrtTyp" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>KA Ortstyp</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_OrtNummer" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="KA_OrtNummer" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>KA Ortnummer</xs:documentation>
 				</xs:annotation>
@@ -2444,7 +2444,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="Ortspunkte_Type">
@@ -2471,28 +2471,28 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Ortspunkt" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Ortspunkt" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Ortspunkttyp" type="husst:ID_Ortspunkttyp_Type" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Ortspunkttyp" type="husstDV:ID_Ortspunkttyp_Type" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bspw. Betriebshof</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Ortsnummer" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="Ortsnummer" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Bundeseinheitliche HST Nummer
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Relcode" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Relcode" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="IBISnr" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Bundesland" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Bundesland" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Gemeindekennziffer" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -2528,23 +2528,23 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Bestimmt das Bediengebiet, das einzustellen ist, wenn dieser Ortspunkt als Standort ermittelt wird.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_OrtspunktReferenz" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_OrtspunktReferenz" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						Referenziert einen übergeordneten Ortspunkt
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="XKoordWgs84" type="husst:KoordWgs84_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="YKoordWgs84" type="husst:KoordWgs84_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="XKoordWgs84" type="husstDV:KoordWgs84_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="YKoordWgs84" type="husstDV:KoordWgs84_Type" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2560,26 +2560,26 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Linie" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Linie" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Liniennummer</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Weg_Hin" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_Weg_Hin" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Linienhauptweg</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Weg_Rueck" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_Weg_Rueck" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Linienhauptweg Rückrichtung
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Konzessionaer" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Konzessionaer" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -2589,7 +2589,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2608,8 +2608,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Weg" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Weg" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutige Nummer des Weges.</xs:documentation>
 				</xs:annotation>
@@ -2624,7 +2624,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2649,13 +2649,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Wegposition" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Weg" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="SortOrder" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Ortspunkt" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Entfernung" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Wegposition" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Weg" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Ortspunkt" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Entfernung" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						Entfernung vom vorhergehenden Ortspunkt in Metern
@@ -2663,7 +2663,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="Fangbereich" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="Fangbereich" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
 						optionaler Fangbereich der Wegposition in Metern
@@ -2674,7 +2674,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -2684,7 +2684,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
     	<xs:annotation>
 			<xs:documentation>Frei definierbare IDs für Def-Elemente beginnen mit 1000</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:minInclusive value="1000"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -2695,7 +2695,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnen mit 1024
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:minInclusive value="1024"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -2707,7 +2707,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Außer für den EUR. Hier ist in der HUSST die 999 definiert. 
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="999"/>
 		</xs:restriction>
@@ -2716,7 +2716,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_WaehrungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_WaehrungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
     </xs:simpleType>
 
 	<xs:simpleType name="ID_SortentypHUSST_Type">
@@ -2731,7 +2731,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						,999=Sonstige 
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
           <xs:enumeration value="0">
           	<xs:annotation>
           		<xs:documentation>Einzelkarte</xs:documentation>
@@ -2823,14 +2823,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_SortentypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_SortentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
     </xs:simpleType>
 
 	<xs:simpleType name="ID_TarifpunkttypHUSST_Type">
     	<xs:annotation>
 			<xs:documentation>Die HUSST definiert Tarifpunkttypen kleiner 1000</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">
+        <xs:restriction base="husstDV:INT4">
           <xs:enumeration value="1">
           	<xs:annotation>
           		<xs:documentation>Tarifhaltestelle (falls jede Hst ein eigener Tarifpunkt bildet)</xs:documentation>
@@ -2867,14 +2867,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_TarifpunkttypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_TarifpunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="ID_OrtspunkttypHUSST_Type">
     	<xs:annotation>
 			<xs:documentation>Die HUSST definiert Ortspunkttypen kleiner 1000</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
           <xs:enumeration value="1">
           	<xs:annotation>
           		<xs:documentation>Haltestelle</xs:documentation>
@@ -2901,7 +2901,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_OrtspunkttypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_OrtspunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="ID_OTPTypHUSST_Type">
@@ -2910,7 +2910,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				todo: HUSST-OTPTypen definieren 
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:minExclusive value="0"/>
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
@@ -2919,7 +2919,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_OTPTypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_OTPTypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="ID_PreisquelleHUSST_Type">
@@ -2928,7 +2928,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				todo: HUSST ID_Preisquelle definieren
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:minExclusive value="0"/>
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
@@ -2937,14 +2937,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_PreisquelleHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_PreisquelleHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="ID_PreisspaltentypHUSST_Type">
     	<xs:annotation>
 			<xs:documentation>Die HUSST definiert ID_Preisspaltentyp kleiner 1000</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
           <xs:enumeration value="1">
           	<xs:annotation>
           		<xs:documentation>Standard / Standardpreisspalte für den allgemeinen Verkauf</xs:documentation>
@@ -2956,7 +2956,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_PreisspaltentypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_PreisspaltentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 	
 	
@@ -2964,7 +2964,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
     	<xs:annotation>
 			<xs:documentation>Die HUSST definiert ID_Relcodegruppentyp kleiner 1000</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
           <xs:enumeration value="1">
           	<xs:annotation>
           		<xs:documentation>Magnet</xs:documentation>
@@ -2981,7 +2981,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_RelcodegruppentypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_RelcodegruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 	
 	<xs:simpleType name="ID_SortengruppentypHUSST_Type">
@@ -2990,7 +2990,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				todo: HUSST ID_Sortengruppentyp definieren
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:minExclusive value="0"/>
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
@@ -2999,7 +2999,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_SortengruppentypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 	
 	<xs:simpleType name="ID_SortenklasseHUSST_Type">
@@ -3008,7 +3008,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				todo: HUSST ID_Sortenklasse definieren
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:minExclusive value="0"/>
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
@@ -3017,7 +3017,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Sortenklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_SortenklasseHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_SortenklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 	
 	<xs:simpleType name="InterpretationsschluesselHUSST_Type">
@@ -3086,7 +3086,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:InterpretationsschluesselHUSST_Type husst:InterpretationsschluesselProjektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:InterpretationsschluesselHUSST_Type husstDV:InterpretationsschluesselProjektspezifisch_Type"/>
 	</xs:simpleType>
 	
 	<xs:complexType name="DefTarifpunkttyp_Type">
@@ -3101,8 +3101,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifpunkttyp" type="husst:ID_Tarifpunkttyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifpunkttyp" type="husstDV:ID_Tarifpunkttyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
@@ -3113,7 +3113,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -3129,8 +3129,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortentyp" type="husst:ID_Sortentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
@@ -3141,7 +3141,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3158,10 +3158,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortengruppentyp" type="husst:ID_Sortengruppentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3177,8 +3177,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortenklasse" type="husst:ID_Sortenklasse_Type" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Nummer der Sortenklasse</xs:documentation>
 				</xs:annotation>
@@ -3193,7 +3193,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3209,8 +3209,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Waehrung" type="husst:ID_Waehrung_Type" maxOccurs="1" minOccurs="1" nillable="false"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Waehrung" type="husstDV:ID_Waehrung_Type" maxOccurs="1" minOccurs="1" nillable="false"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>ISO-Kurzbezeichnung z.B. EUR, USD, CHF,...
@@ -3226,7 +3226,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3244,7 +3244,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Updatetime" type="husst:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Updatetime" type="husstDV:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Zeitpunkt des Updatevorgangs
 					</xs:documentation>
@@ -3279,15 +3279,15 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Mwst" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Mwst" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Kennung des Mehrwertsteuersatzes
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="MwstSatz" type="husst:FLOAT1" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="MwstSatz" type="husstDV:FLOAT1" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Prozentzahl des Mehrwertsteuersatzes
@@ -3310,8 +3310,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="KA_Mwst" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="KA_Mwst" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3330,8 +3330,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Preisspaltentyp" type="husst:ID_Preisspaltentyp_Type" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation/>
 				</xs:annotation>
@@ -3356,7 +3356,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Preisspaltentyps.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 		
@@ -3372,8 +3372,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Fahrgasttyp" type="husst:ID_Fahrgasttyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Fahrgasttyp" type="husstDV:ID_Fahrgasttyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung des Fahrgasttyps</xs:documentation>
@@ -3388,7 +3388,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -3398,7 +3398,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				angelehnt an VDV-KA Kundentyp					
 			</xs:documentation>
         </xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -3483,7 +3483,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_FahrgasttypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_FahrgasttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 	
 	<xs:complexType name="DefKomfortklasse_Type">
@@ -3498,8 +3498,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Komfortklasse" type="husst:ID_Komfortklasse_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung der Komfortklasse.</xs:documentation>
@@ -3514,7 +3514,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -3524,7 +3524,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				angelehnt an VDV-KA ServiceKlasse
 			</xs:documentation>
         </xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -3546,7 +3546,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_KomfortklasseHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_KomfortklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 
 	<xs:complexType name="DefRabattklasse_Type">
@@ -3561,8 +3561,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Rabattklasse" type="husst:ID_Rabattklasse_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Rabattklasse" type="husstDV:ID_Rabattklasse_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung der Rabattklasse.</xs:documentation>
@@ -3577,7 +3577,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -3587,7 +3587,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				angelehnt an VDV-KA RabattParameter
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:INT4">			
+		<xs:restriction base="husstDV:INT4">			
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>Keine Ermäßigung</xs:documentation>
@@ -3665,7 +3665,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_RabattklasseHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_RabattklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 
 	<xs:complexType name="DefPreisfindung_Type">
@@ -3680,14 +3680,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Preisfindung" type="husst:ID_Preisfindung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Preisfindung" type="husstDV:ID_Preisfindung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung des Preisfindungs</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -3700,7 +3700,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Bit 8=Freie Preiseingabe (mit allen kombinierbar)
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -3746,7 +3746,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_PreisfindungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_PreisfindungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>	
 
 	<xs:complexType name="DefSortenausgaberegelung_Type">
@@ -3761,14 +3761,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortenausgaberegelung" type="husst:ID_Sortenausgaberegelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sortenausgaberegelung" type="husstDV:ID_Sortenausgaberegelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung des Sortenausgaberegelungs</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -3784,7 +3784,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
    Bit 4=EFS und Papierfahrschein [mit Barcode] 
 			</xs:documentation>
         </xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -3984,7 +3984,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.
 			</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_SortenausgaberegelungHUSST_Type husst:ID_ProjektspezifischBitfeld_Type"/>
+        <xs:union memberTypes="husstDV:ID_SortenausgaberegelungHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>	
 	
 	<xs:complexType name="DefSortendruckregelung_Type">
@@ -3999,14 +3999,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortendruckregelung" type="husst:ID_Sortendruckregelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Sortendruckregelung" type="husstDV:ID_Sortendruckregelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung des Sortendruckregelungs</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -4015,7 +4015,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:documentation>Die HUSST definiert ID_Sortendruckregelung kleiner 1000			
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -4043,7 +4043,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_SortendruckregelungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_SortendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>	
 	
 	<xs:complexType name="DefReisetyp_Type">
@@ -4058,8 +4058,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Reisetyp" type="husst:ID_Reisetyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Reisetyp" type="husstDV:ID_Reisetyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung des Reisetyps</xs:documentation>
@@ -4074,7 +4074,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -4083,7 +4083,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:documentation>Die HUSST definiert ID_Reisetyp kleiner 1000			
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -4110,7 +4110,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_ReisetypHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husstDV:ID_ReisetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
 		
 	<xs:complexType name="DefNachbarhaltestellenbeziehung_Type">
@@ -4128,14 +4128,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Nachbarhaltestellenbeziehung" type="husst:ID_Nachbarhaltestellenbeziehung_Type" nillable="false" minOccurs="1" maxOccurs="1">
+			<xs:element name="ID_Nachbarhaltestellenbeziehung" type="husstDV:ID_Nachbarhaltestellenbeziehung_Type" nillable="false" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Art der Nachbarbeziehung.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -4152,7 +4152,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>
@@ -4175,7 +4175,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.
 			</xs:documentation>
 		</xs:annotation>
-		<xs:union memberTypes="husst:ID_NachbarhaltestellenbeziehungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+		<xs:union memberTypes="husstDV:ID_NachbarhaltestellenbeziehungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
    	</xs:simpleType>	
 
 	<xs:complexType name="DefVertriebswege_Type">
@@ -4191,14 +4191,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Vertriebswege" type="husst:ID_Vertriebswege_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung der Vertriebswege.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -4208,7 +4208,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Die HUSST definiert ID_Vertriebswege kleiner 1024
 			</xs:documentation>
         </xs:annotation>
-        <xs:restriction base="husst:INT4">			
+        <xs:restriction base="husstDV:INT4">			
 			<xs:enumeration value="0">
 				<xs:annotation>
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
@@ -4222,7 +4222,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.
 			</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_VertriebswegeHUSST_Type husst:ID_ProjektspezifischBitfeld_Type"/>
+        <xs:union memberTypes="husstDV:ID_VertriebswegeHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="Vorverkauf_Type">
@@ -4262,9 +4262,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_GueltigkeitszeitRegel" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="GueltigkeitszeitRegelNr" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_GueltigkeitszeitRegel" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="GueltigkeitszeitRegelNr" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Param" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -4281,21 +4281,21 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Zahlungsarten" type="husst:ID_Zahlungsarten_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zahlungsarten" type="husstDV:ID_Zahlungsarten_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung der Zahlungsarten.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="ID_Zahlungsarten_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_ZahlungsartenHUSST_Type husst:ID_ProjektspezifischBitfeld_Type"/>
+        <xs:union memberTypes="husstDV:ID_ZahlungsartenHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>
 	
 			
@@ -4307,7 +4307,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				todo: HUSST ID_Zahlungsart definieren (Fabian)
 			</xs:documentation>
 		</xs:annotation>
-		<xs:restriction base="husst:INT4">
+		<xs:restriction base="husstDV:INT4">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="1023"/>
 		</xs:restriction>
@@ -4337,8 +4337,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifart" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifart" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -4346,9 +4346,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_Tarifgebiet" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4367,10 +4367,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relcodegruppentyp" type="husst:ID_Relcodegruppentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relcodegruppentyp" type="husstDV:ID_Relcodegruppentyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4388,10 +4388,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Ortspunkttyp" type="husst:ID_Ortspunkttyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Ortspunkttyp" type="husstDV:ID_Ortspunkttyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4418,7 +4418,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Testdaten" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Erstellungsdatum" type="husst:DateTimeCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Lieferant" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Kommentar" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
@@ -4436,7 +4436,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Bearbeitungsdatum" type="husst:DateTimeCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Bearbeitungsdatum" type="husstDV:DateTimeCompact" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Lieferant" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Kommentar" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
@@ -4468,29 +4468,29 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Tarifrelevanterpunkt" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Tarifrelevanterpunkt" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutiger DS-Index innerhalb der ID_Zeitraum
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_OTPTyp" type="husst:ID_OTPTyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_OTPTyp" type="husstDV:ID_OTPTyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="SortOrder" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relcode" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>			
-			<xs:element name="ID_Bundesland" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Ortsnummer" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Sortengruppe" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0">
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relcode" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>			
+			<xs:element name="ID_Bundesland" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Ortsnummer" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Sortengruppe" type="husstDV:INT4" nillable="true" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Verweist auf eine Sortengruppe, die mit dieser
 						Zielauswahl direkt verkauft wird (Festpreis, keine Relation)
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Standortwahl_ID_Bediengebiet" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_TarifrelevanterpunktReferenz" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="Standortwahl_ID_Bediengebiet" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_TarifrelevanterpunktReferenz" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Über ID_TarifrelevanterpunktReferenz kann eine baumartige
@@ -4505,7 +4505,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4527,10 +4527,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4548,10 +4548,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_OTPTyp" type="husst:ID_OTPTyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_OTPTyp" type="husstDV:ID_OTPTyp_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4577,20 +4577,20 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Sortengruppe" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Sortengruppennummer" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Sortengruppentyp" type="husst:ID_Sortengruppentyp_Type" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="SortOrder" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Sortengruppe" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Sortengruppennummer" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Info</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TarifInfo" type="husst:blobString" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Sorte" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="TarifInfo" type="husstDV:blobString" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Sorte" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>ID_Preisstufe ist optional. Wenn die
 						Preisstufe
@@ -4603,7 +4603,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4614,10 +4614,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="VersionMajor" type="husst:INT4" default="3" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="VersionMinor" type="husst:INT4" default="0" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Status" type="husst:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="husst:DateCompact" default="2019-05-09" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="VersionMinor" type="husstDV:INT4" default="0" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2019-05-09" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="Neubauer(kt)" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -4640,8 +4640,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Bundesland" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Bundesland" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Iso" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Für Deutschland: die letzten zwei Stellen des ISO
@@ -4679,7 +4679,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4700,12 +4700,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Feiertag" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Bundesland" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Datum" type="husst:DateCompact" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Feiertag" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Bundesland" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Datum" type="husstDV:DateCompact" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4722,8 +4722,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Unternehmen" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Unternehmen" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="BezeichnungKurz" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Mandant" type="xs:boolean" nillable="true" maxOccurs="1" minOccurs="0">
@@ -4743,7 +4743,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4759,8 +4759,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Preisquelle" type="husst:ID_Preisquelle_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Preisquelle" type="husstDV:ID_Preisquelle_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Bezeichnung der Preisquelle z.B.
@@ -4777,7 +4777,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4793,10 +4793,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relationenberechnungsregelung" type="husst:ID_Relationenberechnungsregelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relationenberechnungsregelung" type="husstDV:ID_Relationenberechnungsregelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4812,95 +4812,93 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Relationendruckregelung" type="husst:ID_Relationendruckregelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Relationendruckregelung" type="husstDV:ID_Relationendruckregelung_Type" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
 	<!--Ende Tabellen -->
 
 	<!--Allgemein -->
-	<xs:element name="VersionInhalt" type="husst:VersionInhalt_Type" nillable="true"/>
-	<xs:element name="Bearbeitung" type="husst:Bearbeitung_Type" nillable="true"/>
-	<xs:element name="DefBundeslaender" type="husst:DefBundesland_Type" nillable="true"/>
-	<xs:element name="Tarifgebiete" type="husst:Tarifgebiete_Type" nillable="true"/>
-	<xs:element name="Tarifpunkte" type="husst:Tarifpunkte_Type" nillable="true"/>
-	<xs:element name="TarifpunktmengeElemente" type="husst:TarifpunktmengeElemente_Type" nillable="true"/>
-	<xs:element name="Tarifpunktmengen" type="husst:Tarifpunktmengen_Type" nillable="true"/>
-	<xs:element name="Zeitraeume" type="husst:Zeitraeume_Type" nillable="true"/>
-	<xs:element name="Zeitraumoptionen" type="husst:Zeitraumoptionen_Type" nillable="true"/>
-	<xs:element name="Kalender" type="husst:Kalender_Type" nillable="true"/>
-	<xs:element name="Tagesarten" type="husst:Tagesarten_Type" nillable="true"/>
-	<xs:element name="Tagesmerkmale" type="husst:Tagesmerkmale_Type" nillable="true"/>
-	<xs:element name="TagesmerkmalElemente" type="husst:TagesmerkmalElemente_Type" nillable="true"/>
-	<xs:element name="TagesartMerkmalElemente" type="husst:TagesartMerkmalElemente_Type" nillable="true"/>
-	<xs:element name="Feiertage" type="husst:Feiertage_Type" nillable="true"/>
-	<xs:element name="Unternehmen" type="husst:Unternehmen_Type" nillable="true"/>
+	<xs:element name="VersionInhalt" type="husstDV:VersionInhalt_Type" nillable="true"/>
+	<xs:element name="Bearbeitung" type="husstDV:Bearbeitung_Type" nillable="true"/>
+	<xs:element name="DefBundeslaender" type="husstDV:DefBundesland_Type" nillable="true"/>
+	<xs:element name="Tarifgebiete" type="husstDV:Tarifgebiete_Type" nillable="true"/>
+	<xs:element name="Tarifpunkte" type="husstDV:Tarifpunkte_Type" nillable="true"/>
+	<xs:element name="TarifpunktmengeElemente" type="husstDV:TarifpunktmengeElemente_Type" nillable="true"/>
+	<xs:element name="Tarifpunktmengen" type="husstDV:Tarifpunktmengen_Type" nillable="true"/>
+	<xs:element name="Zeitraeume" type="husstDV:Zeitraeume_Type" nillable="true"/>
+	<xs:element name="Zeitraumoptionen" type="husstDV:Zeitraumoptionen_Type" nillable="true"/>
+	<xs:element name="Kalender" type="husstDV:Kalender_Type" nillable="true"/>
+	<xs:element name="Tagesarten" type="husstDV:Tagesarten_Type" nillable="true"/>
+	<xs:element name="Tagesmerkmale" type="husstDV:Tagesmerkmale_Type" nillable="true"/>
+	<xs:element name="TagesmerkmalElemente" type="husstDV:TagesmerkmalElemente_Type" nillable="true"/>
+	<xs:element name="TagesartMerkmalElemente" type="husstDV:TagesartMerkmalElemente_Type" nillable="true"/>
+	<xs:element name="Feiertage" type="husstDV:Feiertage_Type" nillable="true"/>
+	<xs:element name="Unternehmen" type="husstDV:Unternehmen_Type" nillable="true"/>
 
 
 	<!--Relationen -->
-	<xs:element name="Interpretationen" type="husst:Interpretationen_Type" nillable="true"/>
-	<xs:element name="RaeumlicheGueltigkeit" type="husst:RaeumlicheGueltigkeit_Type" nillable="true"/>
-	<xs:element name="Relationscodes" type="husst:Relationscodes_Type" nillable="true"/>
-	<xs:element name="Relationscodegruppen" type="husst:Relationscodegruppen_Type" nillable="true"/>
-	<xs:element name="Relationen" type="husst:Relationen_Type" nillable="true"/>
-	<xs:element name="Vias" type="husst:Vias_Type" nillable="true"/>
-	<xs:element name="Teilrelationen" type="husst:Teilrelationen_Type" nillable="true"/>
-	<xs:element name="Nachbarhaltestellen" type="husst:Nachbarhaltestellen_Type" nillable="true"/>
-	<xs:element name="Preisstufendirektwahl" type="husst:Preisstufendirektwahl_Type" nillable="true"/>
+	<xs:element name="Interpretationen" type="husstDV:Interpretationen_Type" nillable="true"/>
+	<xs:element name="RaeumlicheGueltigkeit" type="husstDV:RaeumlicheGueltigkeit_Type" nillable="true"/>
+	<xs:element name="Relationscodes" type="husstDV:Relationscodes_Type" nillable="true"/>
+	<xs:element name="Relationscodegruppen" type="husstDV:Relationscodegruppen_Type" nillable="true"/>
+	<xs:element name="Relationen" type="husstDV:Relationen_Type" nillable="true"/>
+	<xs:element name="Vias" type="husstDV:Vias_Type" nillable="true"/>
+	<xs:element name="Teilrelationen" type="husstDV:Teilrelationen_Type" nillable="true"/>
+	<xs:element name="Nachbarhaltestellen" type="husstDV:Nachbarhaltestellen_Type" nillable="true"/>
+	<xs:element name="Preisstufendirektwahl" type="husstDV:Preisstufendirektwahl_Type" nillable="true"/>
 
 	<!--Produkte -->
-	<xs:element name="Preisspalten" type="husst:Preisspalten_Type" nillable="true"/>
-	<xs:element name="Preisstufen" type="husst:Preisstufen_Type" nillable="true"/>
-	<xs:element name="SortenTarifarten" type="husst:SortenTarifarten_Type" nillable="true"/>
-	<xs:element name="Sorten" type="husst:Sorten_Type" nillable="true"/>
-	<xs:element name="Zusatzsorten" type="husst:Zusatzsorten_Type" nillable="true"/>
-	<xs:element name="Preise" type="husst:Preise_Type" nillable="true"/>
+	<xs:element name="Preisspalten" type="husstDV:Preisspalten_Type" nillable="true"/>
+	<xs:element name="Preisstufen" type="husstDV:Preisstufen_Type" nillable="true"/>
+	<xs:element name="SortenTarifarten" type="husstDV:SortenTarifarten_Type" nillable="true"/>
+	<xs:element name="Sorten" type="husstDV:Sorten_Type" nillable="true"/>
+	<xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type" nillable="true"/>
+	<xs:element name="Preise" type="husstDV:Preise_Type" nillable="true"/>
 
 
 	<!--Netz -->
-	<xs:element name="OrtspunkteTG" type="husst:OrtspunkteTG_Type" nillable="true"/>
-	<xs:element name="OrtspunkteKA" type="husst:OrtspunkteKA_Type" nillable="true"/>
-	<xs:element name="Ortspunkte" type="husst:Ortspunkte_Type" nillable="true"/>
-	<xs:element name="Tarifrelevantepunkte" type="husst:Tarifrelevantepunkte_Type"/>
-	<xs:element name="Bediengebiete" type="husst:Bediengebiete_Type"/>
-	<xs:element name="Linien" type="husst:Linien_Type" nillable="true"/>
-	<xs:element name="Wege" type="husst:Wege_Type" nillable="true"/>
-	<xs:element name="Wegpositionen" type="husst:Wegpositionen_Type" nillable="true"/>
+	<xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type" nillable="true"/>
+	<xs:element name="OrtspunkteKA" type="husstDV:OrtspunkteKA_Type" nillable="true"/>
+	<xs:element name="Ortspunkte" type="husstDV:Ortspunkte_Type" nillable="true"/>
+	<xs:element name="Tarifrelevantepunkte" type="husstDV:Tarifrelevantepunkte_Type"/>
+	<xs:element name="Bediengebiete" type="husstDV:Bediengebiete_Type"/>
+	<xs:element name="Linien" type="husstDV:Linien_Type" nillable="true"/>
+	<xs:element name="Wege" type="husstDV:Wege_Type" nillable="true"/>
+	<xs:element name="Wegpositionen" type="husstDV:Wegpositionen_Type" nillable="true"/>
 
 
 	<!--Hilfs -->
-	<xs:element name="DefSortenklassen" type="husst:DefSortenklasse_Type" nillable="true"/>
-	<xs:element name="DefTarifpunkttypen" type="husst:DefTarifpunkttyp_Type" nillable="true"/>
-	<xs:element name="DefSortentypen" type="husst:DefSortentyp_Type" nillable="true"/>
-	<xs:element name="DefWaehrungen" type="husst:DefWaehrung_Type" nillable="true"/>
-	<xs:element name="Mwst" type="husst:Mwst_Type" nillable="true"/>
-	<xs:element name="DefPreisspaltentypen" type="husst:DefPreisspaltentyp_Type" nillable="true"/>
-	<xs:element name="Tarifarten" type="husst:Tarifarten_Type" nillable="true"/>
-	<xs:element name="DefPreisquellen" type="husst:DefPreisquelle_Type" nillable="true"/>
-	<xs:element name="DefRelationenberechnungsregelungen" type="husst:DefRelationenberechnungsregelung_Type" nillable="true"/>
-	<xs:element name="DefRelationendruckregelungen" type="husst:DefRelationendruckregelung_Type" nillable="true"/>
-	<xs:element name="DefRelationscodegruppentypen" type="husst:DefRelationscodegruppentyp_Type" nillable="true"/>
-	<xs:element name="DefOrtspunkttypen" type="husst:DefOrtspunkttyp_Type" nillable="true"/>
+	<xs:element name="DefSortenklassen" type="husstDV:DefSortenklasse_Type" nillable="true"/>
+	<xs:element name="DefTarifpunkttypen" type="husstDV:DefTarifpunkttyp_Type" nillable="true"/>
+	<xs:element name="DefSortentypen" type="husstDV:DefSortentyp_Type" nillable="true"/>
+	<xs:element name="DefWaehrungen" type="husstDV:DefWaehrung_Type" nillable="true"/>
+	<xs:element name="Mwst" type="husstDV:Mwst_Type" nillable="true"/>
+	<xs:element name="DefPreisspaltentypen" type="husstDV:DefPreisspaltentyp_Type" nillable="true"/>
+	<xs:element name="Tarifarten" type="husstDV:Tarifarten_Type" nillable="true"/>
+	<xs:element name="DefPreisquellen" type="husstDV:DefPreisquelle_Type" nillable="true"/>
+	<xs:element name="DefRelationenberechnungsregelungen" type="husstDV:DefRelationenberechnungsregelung_Type" nillable="true"/>
+	<xs:element name="DefRelationendruckregelungen" type="husstDV:DefRelationendruckregelung_Type" nillable="true"/>
+	<xs:element name="DefRelationscodegruppentypen" type="husstDV:DefRelationscodegruppentyp_Type" nillable="true"/>
+	<xs:element name="DefOrtspunkttypen" type="husstDV:DefOrtspunkttyp_Type" nillable="true"/>
 
-	<xs:element name="DefOTPTypen" type="husst:DefOTPTyp_Type"/>
-	<xs:element name="DefSortengruppentypen" type="husst:DefSortengruppentyp_Type"/>
-	<xs:element name="Sortengruppen" type="husst:Sortengruppen_Type"/>
-	<xs:element name="VersionStruktur" type="husst:VersionStruktur_Type"/>
-	<xs:element name="DefFahrgasttypen" type="husst:DefFahrgasttyp_Type" nillable="true"/>
-	<xs:element name="DefKomfortklassen" type="husst:DefKomfortklasse_Type" nillable="true"/>
-	<xs:element name="DefNachbarhaltestellenbeziehungen" type="husst:DefNachbarhaltestellenbeziehung_Type" nillable="true"/>
-	<xs:element name="DefPreisfindungen" type="husst:DefPreisfindung_Type" nillable="true"/>
-	<xs:element name="DefRabattklassen" type="husst:DefRabattklasse_Type" nillable="true"/>
-	<xs:element name="DefReisetypen" type="husst:DefReisetyp_Type" nillable="true"/>
-	<xs:element name="DefSortenausgaberegelungen" type="husst:DefSortenausgaberegelung_Type" nillable="true"/>
-	<xs:element name="DefSortendruckregelungen" type="husst:DefSortendruckregelung_Type" nillable="true"/>
-	<xs:element name="DefVertriebswege" type="husst:DefVertriebswege_Type" nillable="true"/>
-	<xs:element name="DefZahlungsarten" type="husst:DefZahlungsarten_Type" nillable="true"/>
-
-
+	<xs:element name="DefOTPTypen" type="husstDV:DefOTPTyp_Type"/>
+	<xs:element name="DefSortengruppentypen" type="husstDV:DefSortengruppentyp_Type"/>
+	<xs:element name="Sortengruppen" type="husstDV:Sortengruppen_Type"/>
+	<xs:element name="VersionStruktur" type="husstDV:VersionStruktur_Type"/>
+	<xs:element name="DefFahrgasttypen" type="husstDV:DefFahrgasttyp_Type" nillable="true"/>
+	<xs:element name="DefKomfortklassen" type="husstDV:DefKomfortklasse_Type" nillable="true"/>
+	<xs:element name="DefNachbarhaltestellenbeziehungen" type="husstDV:DefNachbarhaltestellenbeziehung_Type" nillable="true"/>
+	<xs:element name="DefPreisfindungen" type="husstDV:DefPreisfindung_Type" nillable="true"/>
+	<xs:element name="DefRabattklassen" type="husstDV:DefRabattklasse_Type" nillable="true"/>
+	<xs:element name="DefReisetypen" type="husstDV:DefReisetyp_Type" nillable="true"/>
+	<xs:element name="DefSortenausgaberegelungen" type="husstDV:DefSortenausgaberegelung_Type" nillable="true"/>
+	<xs:element name="DefSortendruckregelungen" type="husstDV:DefSortendruckregelung_Type" nillable="true"/>
+	<xs:element name="DefVertriebswege" type="husstDV:DefVertriebswege_Type" nillable="true"/>
+	<xs:element name="DefZahlungsarten" type="husstDV:DefZahlungsarten_Type" nillable="true"/>
 
 
 
@@ -4909,86 +4907,88 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 
 
 
-	<xs:element name="Relationszuordnungen" type="husst:Relationszuordnungen_Type" nillable="true"/>
+
+
+	<xs:element name="Relationszuordnungen" type="husstDV:Relationszuordnungen_Type" nillable="true"/>
 	
 
 	<!-- INTERN! NUR FÜR IMPORT VON TARIFDATEN -->
 
-	<xs:element name="Updateinfo" type="husst:Updateinfo_Type"/>
+	<xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
 
 	<!--Wurzel -->
-	<xs:element name="OePVTarifDB" nillable="false" type="husst:OePVTarifDB_Type"/>
+	<xs:element name="OePVTarifDB" nillable="false" type="husstDV:OePVTarifDB_Type"/>
 
 	<xs:complexType name="OePVTarifDB_Type">
 		<xs:choice maxOccurs="unbounded">
-			<xs:element ref="husst:DefFahrgasttypen"/>
-			<xs:element ref="husst:DefKomfortklassen"/>
-			<xs:element ref="husst:DefNachbarhaltestellenbeziehungen"/>
-			<xs:element ref="husst:DefPreisfindungen"/>
-			<xs:element ref="husst:DefRabattklassen"/>
-			<xs:element ref="husst:DefReisetypen"/>
-			<xs:element ref="husst:DefSortenausgaberegelungen"/>
-			<xs:element ref="husst:DefSortendruckregelungen"/>
-			<xs:element ref="husst:DefVertriebswege"/>
-			<xs:element ref="husst:DefZahlungsarten"/>
-			<xs:element ref="husst:Relationszuordnungen"/>
-			<xs:element ref="husst:Bearbeitung"/>
-			<xs:element ref="husst:Bediengebiete"/>
-			<xs:element ref="husst:DefBundeslaender"/>
-			<xs:element ref="husst:DefOTPTypen"/>
-			<xs:element ref="husst:DefOrtspunkttypen"/>
-			<xs:element ref="husst:DefPreisquellen"/>
-			<xs:element ref="husst:DefPreisspaltentypen"/>
-			<xs:element ref="husst:DefRelationenberechnungsregelungen"/>
-			<xs:element ref="husst:DefRelationendruckregelungen"/>
-			<xs:element ref="husst:DefRelationscodegruppentypen"/>
-			<xs:element ref="husst:DefSortengruppentypen"/>
-			<xs:element ref="husst:DefSortenklassen"/>
-			<xs:element ref="husst:DefSortentypen"/>
-			<xs:element ref="husst:DefTarifpunkttypen"/>
-			<xs:element ref="husst:DefWaehrungen"/>
-			<xs:element ref="husst:Feiertage"/>
-			<xs:element ref="husst:Interpretationen"/>
-			<xs:element ref="husst:Kalender"/>
-			<xs:element ref="husst:Linien"/>
-			<xs:element ref="husst:Mwst"/>
-			<xs:element ref="husst:Nachbarhaltestellen"/>
-			<xs:element ref="husst:Ortspunkte"/>
-			<xs:element ref="husst:OrtspunkteKA"/>
-			<xs:element ref="husst:OrtspunkteTG"/>
-			<xs:element ref="husst:Preise"/>
-			<xs:element ref="husst:Preisspalten"/>
-			<xs:element ref="husst:Preisstufen"/>
-			<xs:element ref="husst:Preisstufendirektwahl"/>
-			<xs:element ref="husst:RaeumlicheGueltigkeit"/>
-			<xs:element ref="husst:Relationen"/>
-			<xs:element ref="husst:Relationscodegruppen"/>
-			<xs:element ref="husst:Relationscodes"/>
-			<xs:element ref="husst:Sorten"/>
-			<xs:element ref="husst:SortenTarifarten"/>
+			<xs:element ref="husstDV:DefFahrgasttypen"/>
+			<xs:element ref="husstDV:DefKomfortklassen"/>
+			<xs:element ref="husstDV:DefNachbarhaltestellenbeziehungen"/>
+			<xs:element ref="husstDV:DefPreisfindungen"/>
+			<xs:element ref="husstDV:DefRabattklassen"/>
+			<xs:element ref="husstDV:DefReisetypen"/>
+			<xs:element ref="husstDV:DefSortenausgaberegelungen"/>
+			<xs:element ref="husstDV:DefSortendruckregelungen"/>
+			<xs:element ref="husstDV:DefVertriebswege"/>
+			<xs:element ref="husstDV:DefZahlungsarten"/>
+			<xs:element ref="husstDV:Relationszuordnungen"/>
+			<xs:element ref="husstDV:Bearbeitung"/>
+			<xs:element ref="husstDV:Bediengebiete"/>
+			<xs:element ref="husstDV:DefBundeslaender"/>
+			<xs:element ref="husstDV:DefOTPTypen"/>
+			<xs:element ref="husstDV:DefOrtspunkttypen"/>
+			<xs:element ref="husstDV:DefPreisquellen"/>
+			<xs:element ref="husstDV:DefPreisspaltentypen"/>
+			<xs:element ref="husstDV:DefRelationenberechnungsregelungen"/>
+			<xs:element ref="husstDV:DefRelationendruckregelungen"/>
+			<xs:element ref="husstDV:DefRelationscodegruppentypen"/>
+			<xs:element ref="husstDV:DefSortengruppentypen"/>
+			<xs:element ref="husstDV:DefSortenklassen"/>
+			<xs:element ref="husstDV:DefSortentypen"/>
+			<xs:element ref="husstDV:DefTarifpunkttypen"/>
+			<xs:element ref="husstDV:DefWaehrungen"/>
+			<xs:element ref="husstDV:Feiertage"/>
+			<xs:element ref="husstDV:Interpretationen"/>
+			<xs:element ref="husstDV:Kalender"/>
+			<xs:element ref="husstDV:Linien"/>
+			<xs:element ref="husstDV:Mwst"/>
+			<xs:element ref="husstDV:Nachbarhaltestellen"/>
+			<xs:element ref="husstDV:Ortspunkte"/>
+			<xs:element ref="husstDV:OrtspunkteKA"/>
+			<xs:element ref="husstDV:OrtspunkteTG"/>
+			<xs:element ref="husstDV:Preise"/>
+			<xs:element ref="husstDV:Preisspalten"/>
+			<xs:element ref="husstDV:Preisstufen"/>
+			<xs:element ref="husstDV:Preisstufendirektwahl"/>
+			<xs:element ref="husstDV:RaeumlicheGueltigkeit"/>
+			<xs:element ref="husstDV:Relationen"/>
+			<xs:element ref="husstDV:Relationscodegruppen"/>
+			<xs:element ref="husstDV:Relationscodes"/>
+			<xs:element ref="husstDV:Sorten"/>
+			<xs:element ref="husstDV:SortenTarifarten"/>
 			
-			<xs:element ref="husst:Sortengruppen"/>
-			<xs:element ref="husst:TagesartMerkmalElemente"/>
-			<xs:element ref="husst:Tagesarten"/>
-			<xs:element ref="husst:TagesmerkmalElemente"/>
-			<xs:element ref="husst:Tagesmerkmale"/>
-			<xs:element ref="husst:Tarifarten"/>
-			<xs:element ref="husst:Tarifgebiete"/>
-			<xs:element ref="husst:Tarifpunkte"/>
-			<xs:element ref="husst:TarifpunktmengeElemente"/>
-			<xs:element ref="husst:Tarifpunktmengen"/>
-			<xs:element ref="husst:Tarifrelevantepunkte"/>
-			<xs:element ref="husst:Teilrelationen"/>
-			<xs:element ref="husst:Unternehmen"/>
-			<xs:element ref="husst:Updateinfo"/>
-			<xs:element ref="husst:VersionInhalt"/>
-			<xs:element ref="husst:VersionStruktur"/>
-			<xs:element ref="husst:Vias"/>
-			<xs:element ref="husst:Wege"/>
-			<xs:element ref="husst:Wegpositionen"/>
-			<xs:element ref="husst:Zeitraeume"/>
-			<xs:element ref="husst:Zeitraumoptionen"/>
-			<xs:element ref="husst:Zusatzsorten"/>		
+			<xs:element ref="husstDV:Sortengruppen"/>
+			<xs:element ref="husstDV:TagesartMerkmalElemente"/>
+			<xs:element ref="husstDV:Tagesarten"/>
+			<xs:element ref="husstDV:TagesmerkmalElemente"/>
+			<xs:element ref="husstDV:Tagesmerkmale"/>
+			<xs:element ref="husstDV:Tarifarten"/>
+			<xs:element ref="husstDV:Tarifgebiete"/>
+			<xs:element ref="husstDV:Tarifpunkte"/>
+			<xs:element ref="husstDV:TarifpunktmengeElemente"/>
+			<xs:element ref="husstDV:Tarifpunktmengen"/>
+			<xs:element ref="husstDV:Tarifrelevantepunkte"/>
+			<xs:element ref="husstDV:Teilrelationen"/>
+			<xs:element ref="husstDV:Unternehmen"/>
+			<xs:element ref="husstDV:Updateinfo"/>
+			<xs:element ref="husstDV:VersionInhalt"/>
+			<xs:element ref="husstDV:VersionStruktur"/>
+			<xs:element ref="husstDV:Vias"/>
+			<xs:element ref="husstDV:Wege"/>
+			<xs:element ref="husstDV:Wegpositionen"/>
+			<xs:element ref="husstDV:Zeitraeume"/>
+			<xs:element ref="husstDV:Zeitraumoptionen"/>
+			<xs:element ref="husstDV:Zusatzsorten"/>		
 		</xs:choice>
 	</xs:complexType>
 
@@ -5044,7 +5044,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttributTyp" type="husst:DynAttributTyp_Type" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="DynAttributTyp" type="husstDV:DynAttributTyp_Type" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Der Datentyp der konkreten Daten die unter der
 						ID_DynAttributDef in der Datenmenge DynAttribut_Type im Feld Wert
@@ -5139,7 +5139,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="ID_DynAttributDef" type="xs:integer" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Referenznummer der dynamischen
@@ -5149,7 +5149,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Tabellennummer" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="Tabellennummer" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutige Nummer der referenzierten
 						Datenstruktur.
@@ -5163,7 +5163,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="ID_DatensatzRef" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="ID_DatensatzRef" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Eindeutiger Datensatzschlüssel (ID_[Typname]) des
 						Datensatzes, für den dieses dynamische Attribut definiert ist.
@@ -5179,7 +5179,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Wert" type="husst:blobString" nillable="false" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Wert" type="husstDV:blobString" nillable="false" maxOccurs="1" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -5222,7 +5222,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						abgelegt ist.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Lang" type="husst:Lang_Type" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="Lang" type="husstDV:Lang_Type" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Sprache, für die der Text abgelegt ist.
 					</xs:documentation>
@@ -5292,17 +5292,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Struktur. Er entspricht dem Xml-Attribut "name" der Element-Definition der
 						Struktur in der XML-Datenmenge. Zum Beispiel
 						&lt;xs:element name="Sorten"
-						type="husst:Sorten_Type" nillable="true" /&gt;
+						type="husstDV:Sorten_Type" nillable="true" /&gt;
 						oder auch
 						&lt;xs:element name="SortenTarifarten"
-						type="husst:SortenTarifarten_Type" nillable="true" /&gt;
+						type="husstDV:SortenTarifarten_Type" nillable="true" /&gt;
 
 						Die Schreibweise des Names entspricht dem Elementname, der in der
 						Xml-Datenmenge verwendet wird.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Tabellennummer" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+			<xs:element name="Tabellennummer" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Persistente und eindeutigen numerische
@@ -5336,15 +5336,15 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Wert" type="husst:DynAttributWert_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="Wert" type="husstDV:DynAttributWert_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="dtyp" type="husst:DynAttributTyp_Type"/>
+		<xs:attribute name="dtyp" type="husstDV:DynAttributTyp_Type"/>
 	</xs:complexType>
 
 	<xs:complexType name="DynAttributWert_Subtype">
 		<xs:simpleContent>
-			<xs:extension base="husst:blobString">
-				<xs:attribute name="lang" type="husst:Lang_Type"/>
+			<xs:extension base="husstDV:blobString">
+				<xs:attribute name="lang" type="husstDV:Lang_Type"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
