@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:husst="http://husst.de/Versorgungsdaten/Cindy"
+	xmlns:api="http://www.husst.de/Appinfo/Cindy"
 	targetNamespace="http://husst.de/Versorgungsdaten/Cindy"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
-			$Id: HUSST_Cindy_2019-08-26.xsd 38 2019-08-26 14:00:00Z amfg $
 		</xs:documentation>
 	</xs:annotation>
 
@@ -674,11 +674,11 @@
 				zusammenfasst
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tarifgebiet"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Tarifgebiet"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -706,11 +706,11 @@
 	<xs:complexType name="Tarifpunkte_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tarifpunkt"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Tarifpunkt"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -749,11 +749,11 @@
 	<xs:complexType name="Tarifpunktmengen_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tarifpunktmenge"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Tarifpunktmenge"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -776,6 +776,18 @@
 	</xs:complexType>
 	
 	<xs:complexType name="TarifpunktmengeElemente_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Eintrag in einer geordneten Menge von Tarifpunkten.
+			</xs:documentation>
+			<xs:appinfo>
+				<api:primekey>
+					<api:field name="ID_TarifpunktmengeElement"/> 
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
@@ -792,10 +804,10 @@
 				Gültigkeitszeitraum
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Basis" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -847,11 +859,11 @@
 				ordnet einem Zeitraum zusätzliche Optionen zu
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="Option"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="Option"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -884,15 +896,12 @@
 				Tagsartmerkmalelemente_Type.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Betriebstag"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_Kalender_BTagArt">
-					<field name="ID_Betriebstagesart"/>
-					<field name="ID_Betriebstag"/>
-				</index>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Betriebstag"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -929,11 +938,11 @@
 				Einem Kalendertag ist genau eine Tagesart zugeordnet.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Betriebstagesart"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Betriebstagesart"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1002,11 +1011,11 @@
 				Auswertung ist über den HUSST-Standard nicht definiert.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tagesmerkmal"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Tagesmerkmal"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1049,15 +1058,16 @@
 				Siehe auch Tagesmerkmale_Type.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_TagesmerkmalElement"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_TagMerkEl_Main">
-					<field name="ID_TagesmerkmalElement"/>
-					<field name="ID_Tagesmerkmal"/>
-				</index>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_TagesmerkmalElement"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_TagesmerkmalElemente">
+					<api:field name="ID_Tagesmerkmal"/>
+					<api:field name="Bezeichnung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				<api:schema name="Angebot" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1107,15 +1117,12 @@
 				Bedeutung definiert (siehe Tagesmerkmale_Type).
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_TagesartMerkmalElement"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_TagartMerkEl_Main">
-					<field name="ID_TagesmerkmalElement"/>
-					<field name="ID_Betriebstagesart"/>
-				</index>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_TagesartMerkmalElement"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				<api:schema name="Angebot" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1164,12 +1171,12 @@
 				einem Wert eingetragen.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="Interpretationsschluessel"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="Interpretationsschluessel"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1191,12 +1198,12 @@
 				zugeordnet werden
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Relcode"/>
-					<field name="ID_Zeitraum"/>
-					<field name="ID_Tarifpunkt"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Relcode"/>
+					<api:field name="ID_Zeitraum"/>
+					<api:field name="ID_Tarifpunkt"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1215,20 +1222,13 @@
 				unter einer Gruppennummer innerhalb eines ID_Relcodegruppentyps
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Relcodegruppe"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_Relcodegruppe_Main">
-					<field name="Gruppennummer"/>
-					<field name="ID_Relcodegruppentyp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_Relcodegruppe_Relcode">
-					<field name="ID_Relcode"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Relcodegruppe"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1247,11 +1247,11 @@
 			<xs:documentation>
 				Definition der räumlichen Gültigkeit </xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_RaeumlicheGueltigkeit"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_RaeumlicheGueltigkeit"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1308,17 +1308,12 @@
 				Relation auf Relationscode Ebene
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Relation"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="IDX_REL_START_ZIEL">
-					<field name="ID_RelcodeStart"/>
-					<field name="ID_RelcodeZiel"/>
-					<field name="ID_Zeitraum"/>
-					<SortOrder/>
-				</index>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Relation"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				<api:schema name="Angebot" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -1339,9 +1334,11 @@
 			</xs:element>
 			
 			<xs:element name="GegenrichtungLiegtVor" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Vertriebswege" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Vertriebswege" type="husst:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Bitfeld Vertriebswege</xs:documentation>
+					<xs:documentation>
+						Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ID_Via" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
@@ -1375,11 +1372,11 @@
 				Gesamt Relationsinformation
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Via"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Via"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1425,16 +1422,17 @@
         Verknüpft Relationen und Teilrelationen
       </xs:documentation>
       <xs:appinfo>
-        <primekey>
-          <field name="ID_Relationszuordung"/>
-          <field name="ID_Zeitraum"/>
-        </primekey>
-        <index name="Idx_RZ_Main">
-          <field name="ID_Zeitraum"/>
-          <field name="ID_Relation"/>
-          <field name="ID_Teilrelation"/>
-        </index>
-        <schema name="Tarif" nillable="false"/>
+        <api:primekey>
+          <api:field name="ID_Relationszuordung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:uniquekey name="Uix_Relationszuordnungen">
+			<api:field name="ID_Teilrelation"/>
+			<api:field name="ID_Relation"/>
+			<api:field name="ID_Relationszuordung"/>
+			<api:field name="ID_Zeitraum"/>
+		</api:uniquekey>
+        <api:schema name="Angebot" nillable="false"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1454,23 +1452,14 @@
 				Relation (und Teilrelation) auf Tarifpunkt Ebene
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Teilrelation"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_TR_StartTarifpunkt">
-					<field name="ID_TarifpunktStart"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_TR_ZielTarifpunkt">
-					<field name="ID_TarifpunktZiel"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_TR_Pst">
-					<field name="ID_Preisstufe"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Teilrelation"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				
+				
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1490,11 +1479,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 </xs:element>
 			<xs:element name="ID_Preisstufe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="ID_Preisquelle" type="husst:ID_Preisquelle_Type" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="Komfortklasse" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Komfortklasse" type="husst:ID_Komfortklasse_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						(z.B. 1.Kl., 2.Kl., ...) Verweis auf
-						Sortenattributgruppen.AttributText
+						Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1560,28 +1548,38 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Kurzstrecken/Zahlgrenzen
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Nachbarhaltestelle"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-        <index name="Idx_NachbarHst_Main">
-					<field name="ID_OrtspunktVon"/>
-					<field name="ID_OrtspunktNach"/>
-					<field name="SortOrder"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_NachbarHst_PstTg">
-					<field name="ID_Tarifgebiet"/>
-					<field name="ID_Preisstufe"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Nachbarhaltestelle"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+        
+				<api:uniquekey name="Uix_Nachbarhaltestellen">
+					<api:field name="ID_OrtspunktVon"/>
+					<api:field name="ID_OrtspunktNach"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_Nachbarhaltestelle" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_Nachbarhaltestellenbeziehung" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Art der Nachbarbeziehung.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
 			<xs:element name="ID_OrtspunktVon" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1638,19 +1636,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Kurzstrecken/Zahlgrenzen
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preisstufendirektwahl"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_PstDirekt_Main">
-					<field name="Direktwahlschluessel"/>
-					<field name="ID_Tarifart"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_Relation">
-					<field name="ID_Relation"/>
-				</index>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Preisstufendirektwahl"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1697,9 +1689,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ID_Relation" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Vertriebswege" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_Vertriebswege" type="husst:ID_Vertriebswege_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Bitfeld Vertriebswege</xs:documentation>
+					<xs:documentation>
+						Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			
@@ -1724,11 +1718,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Rabattierungen)
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preisspalte"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Preisspalte"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1782,16 +1776,16 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Preisstufen_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preisstufe"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_Preisstufennummer">
-					<field name="ID_Preisstufennummer"/>
-					<field name="ID_Tarifgebiet"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Preisstufe"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Preisstufen">
+					<api:field name="Preisstufennummer"/>
+					<api:field name="ID_Tarifgebiet"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1853,12 +1847,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				N:M Zuordnung - Sorte / Tarifart
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sorte"/>
-					<field name="ID_Tarifart"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Sorte"/>
+					<api:field name="ID_Tarifart"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1889,31 +1883,16 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Artikel/Produkte/Fahrscheintypen
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sorte"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_So_Tarifgebiet">
-					<field name="ID_Tarifgebiet"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_So_Tarifgeber">
-					<field name="SorteTarifgeber"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_So_Komfortklasse">
-					<field name="Komfortklasse"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_So_Rabattklasse">
-					<field name="Rabattklasse"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_So_Fahrgasttyp">
-					<field name="Fahrgasttyp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Sorte"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				
+				
+				
+				
+				<api:schema name="Tarif" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -2040,29 +2019,18 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:element>
 			
 			
-			<xs:element name="GueltigZeit" type="husst:GueltigZeit_Type" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_GueltigkeitszeitRegel" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Definiert eine Formel für die Berechnung der zeitlichen Gültigkeit des Fahrscheines. 
-	  	          Die Formel wird im Verkaufsdialog um weitere Attribute ergänzt.
-	  	          Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.</xs:documentation>
+					<xs:documentation>
+						Definiert die zeitliche Gültigkeit des Produktes.
+					</xs:documentation>
 				</xs:annotation>
-
 			</xs:element>
 			
 			
 			
-			<xs:element name="Vorverkauf" type="husst:Vorverkauf_Type" nillable="true" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist. 
-	  	          Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Umschalttag" type="husst:Umschalttag_Type" nillable="true" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Definiert den Zeitraum, ab dem der nächste feste Gültigkeitszeitraum (Woche/Monat/Jahr) angeboten wird. 
-	  	          Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.</xs:documentation>
-				</xs:annotation>
-			</xs:element>
+			
+			
 			
 			<xs:element name="ID_Preisfindung" type="husst:ID_Preisfindung_Type" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -2129,17 +2097,16 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Zusatzsorten_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Zusatzsorte"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="IDX_ZS_Main">
-					<field name="ID_Sorte"/>
-					<field name="ID_Preisstufe"/>
-					<field name="ZuordnungRelCodeGrp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Zusatzsorte"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Zusatzsorten">
+					<api:field name="ID_Sorte"/>
+					<api:field name="ZuordnungRelCodeGrp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2233,18 +2200,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Preise_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preis"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_Pr_Main">
-					<field name="ID_Preisstufe"/>
-					<field name="ID_Sorte"/>
-					<field name="ID_Preisspalte"/>
-					<field name="ID_Tarifgebiet"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Preis"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Preise">
+					<api:field name="ID_Preisstufe"/>
+					<api:field name="ID_Sorte"/>
+					<api:field name="ID_Preisspalte"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				<api:schema name="Tarif" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -2321,17 +2287,15 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GueltigRegel" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="GueltigParam" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+			<xs:element name="ID_GueltigkeitszeitRegel" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-						Menge der Gültigkeitseinheiten,
-						Interpretation
-						nach GueltigRegel
+						Definiert die zeitliche Gültigkeit des Produktes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="GueltigText" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			
+			
 			<!-- KA -->
 			<xs:element name="ID_RaeumlicheGueltigkeit" type="husst:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -2375,16 +2339,16 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				tarifgebietspezifische-Attribute der Ortspunkte
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_OrtspunktTG"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_OPTG_Main">
-					<field name="ID_Ortspunkt"/>
-					<field name="ID_Tarifgebiet"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Angebot" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_OrtspunktTG"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_OrtspunkteTG">
+					<api:field name="ID_Ortspunkt"/>
+					<api:field name="ID_Tarifgebiet"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				<api:schema name="Tarif" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -2442,15 +2406,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				KA-Attribute der Ortspunkte
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Ortspunkt"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_OPKA_OrtOrgID">
-					<field name="KA_OrtOrgID"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Ortspunkt"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				<api:schema name="Angebot" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -2492,31 +2453,19 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Haltestellen mit Zonen/Relationscode Zuordnung
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Ortspunkt"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_OP_Main">
-					<field name="Ortsnummer"/>
-					<field name="ID_Ortspunkttyp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_OP_IBISnr">
-					<field name="IBISnr"/>
-					<field name="ID_Ortspunkttyp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_OP_RelCode">
-					<field name="ID_Relcode"/>
-					<field name="ID_Ortspunkttyp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_OP_ExtOrtsNummer">
-					<field name="ReferenzExtern"/>
-					<field name="ID_Ortspunkttyp"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Angebot" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Ortspunkt"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Ortspunkte">
+					<api:field name="Ortsnummer"/>
+					<api:field name="ID_Ortspunkttyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				
+				
+				
+				<api:schema name="Angebot" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -2602,11 +2551,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Linien_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Linie"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Linie"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2650,11 +2599,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Fahrtnummer, Kursnummer
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Weg"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Weg"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2685,20 +2634,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Ortsposition innerhalb der Fahrt
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Wegposition"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_WP_Main">
-					<field name="ID_Weg"/>
-					<field name="SortOrder"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<index name="Idx_WP_OP">
-					<field name="ID_Ortspunkt"/>
-					<field name="ID_Weg"/>
-				</index>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Wegposition"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Wegpositionen">
+					<api:field name="ID_Weg"/>
+					<api:field name="SortOrder"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2740,6 +2686,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         </xs:annotation>
         <xs:restriction base="husst:INT4">			
 			<xs:minInclusive value="1000"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="ID_ProjektspezifischBitfeld_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnen mit 1024
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="husst:INT4">
+			<xs:minInclusive value="1024"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -3135,11 +3092,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefTarifpunkttyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tarifpunkttyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Tarifpunkttyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3163,11 +3120,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefSortentyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sortentyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Sortentyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3191,12 +3148,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefSortengruppentyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sortengruppentyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="false"/>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Sortengruppentyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="false"/>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3211,11 +3168,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefSortenklasse_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sortenklasse"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Sortenklasse"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3243,11 +3200,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefWaehrung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Waehrung"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Waehrung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3279,11 +3236,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				generierten Datenmenge
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="Updatetime"/>
-					<field name="Filename"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="Updatetime"/>
+					<api:field name="Filename"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3312,11 +3269,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Mwst_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Mwst"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Mwst"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -3361,11 +3318,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefPreisspaltentyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preisspaltentyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Preisspaltentyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 			<xs:documentation>Definiert den Verwendungszweck oder die Herkunft
 				einer Preisspalte.
@@ -3406,11 +3363,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefFahrgasttyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Fahrgasttyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Fahrgasttyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3532,11 +3489,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefKomfortklasse_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Komfortklasse"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Komfortklasse"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3595,11 +3552,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefRabattklasse_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Rabattklasse"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Rabattklasse"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3714,11 +3671,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefPreisfindung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preisfindung"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Preisfindung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -3795,11 +3752,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefSortenausgaberegelung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sortenausgaberegelung"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Sortenausgaberegelung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4023,19 +3980,21 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	</xs:simpleType>
 	<xs:simpleType name="ID_Sortenausgaberegelung_Type">
         <xs:annotation>
-        	<xs:documentation>Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+        	<xs:documentation>
+				Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.
+			</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_SortenausgaberegelungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husst:ID_SortenausgaberegelungHUSST_Type husst:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>	
 	
 	<xs:complexType name="DefSortendruckregelung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sortendruckregelung"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Sortendruckregelung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4090,11 +4049,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefReisetyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Reisetyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Reisetyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4152,16 +4111,82 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         	<xs:documentation>Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
         <xs:union memberTypes="husst:ID_ReisetypHUSST_Type husst:ID_Projektspezifisch_Type"/>
-	</xs:simpleType>	
+	</xs:simpleType>
+		
+	<xs:complexType name="DefNachbarhaltestellenbeziehung_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Art einer Nachbarhaltestellenbeziehung.
+			</xs:documentation>
+			<xs:appinfo>
+				<api:primekey>
+					<api:field name="ID_Nachbarhaltestellenbeziehung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Nachbarhaltestellenbeziehung" type="husst:ID_Nachbarhaltestellenbeziehung_Type" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Art der Nachbarbeziehung.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+						Bezeichnung der Art der Nachbarbeziehung.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+   	</xs:complexType>
+		
+	<xs:simpleType name="ID_NachbarhaltestellenbeziehungHUSST_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="husst:INT4">
+			<xs:enumeration value="0">
+				<xs:annotation>
+					<xs:documentation>
+						nicht spezifiziert/unbestimmt
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1">
+				<xs:annotation>
+					<xs:documentation>
+						Kurzstrecke
+					</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>		
+	<xs:simpleType name="ID_Nachbarhaltestellenbeziehung_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.
+			</xs:documentation>
+		</xs:annotation>
+		<xs:union memberTypes="husst:ID_NachbarhaltestellenbeziehungHUSST_Type husst:ID_Projektspezifisch_Type"/>
+   	</xs:simpleType>	
 
 	<xs:complexType name="DefVertriebswege_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Vertriebswege"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Vertriebswege"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4179,7 +4204,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	
 	<xs:simpleType name="ID_VertriebswegeHUSST_Type">
     	<xs:annotation>
-			<xs:documentation>Die HUSST definiert ID_Vertriebswege kleiner 1000
+			<xs:documentation>
+				Die HUSST definiert ID_Vertriebswege kleiner 1024
 			</xs:documentation>
         </xs:annotation>
         <xs:restriction base="husst:INT4">			
@@ -4192,9 +4218,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	</xs:simpleType>
 	<xs:simpleType name="ID_Vertriebswege_Type">
         <xs:annotation>
-        	<xs:documentation>Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+        	<xs:documentation>
+				Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.
+			</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_VertriebswegeHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husst:ID_VertriebswegeHUSST_Type husst:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>
 
 	<xs:simpleType name="Vorverkauf_Type">
@@ -4217,24 +4245,38 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:restriction base="xs:string"/>
 	</xs:simpleType>
 
-	<xs:simpleType name="GueltigZeit_Type">
-    	<xs:annotation>
-			<xs:documentation>Definiert eine Formel für die Berechnung der zeitlichen Gültigkeit des Fahrscheines. 
-	  	          Die Formel wird im Verkaufsdialog um weitere Attribute ergänzt.
-	  	          Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.
+	<xs:complexType name="GueltigkeitszeitRegel">
+		<xs:annotation>
+			<xs:documentation>
+				Definiert eine zeitliche Gültigkeit. Darin enthalten sein kann auch die Vorverkaufbarkeit 
+				(Regel zum möglichen Gültigkeitsbeginn) und die Umschaltung auf einen neuen Default-Gültigkeitsbeginn.
+				Der Datentyp wird noch weiter ausgebaut und in einer eigenen HUSST-Definition konkretisiert. 
 			</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="xs:string"/>
-	</xs:simpleType>
+			<xs:appinfo>
+				<api:primekey>
+					<api:field name="ID_GueltigkeitszeitRegel"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_GueltigkeitszeitRegel" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="GueltigkeitszeitRegelNr" type="husst:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Param" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
 
 	<xs:complexType name="DefZahlungsarten_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Zahlungsarten"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Zahlungsarten"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4253,7 +4295,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:annotation>
         	<xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.</xs:documentation>
         </xs:annotation>
-        <xs:union memberTypes="husst:ID_ZahlungsartenHUSST_Type husst:ID_Projektspezifisch_Type"/>
+        <xs:union memberTypes="husst:ID_ZahlungsartenHUSST_Type husst:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>
 	
 			
@@ -4286,11 +4328,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				(Bartarif/Zeittarif).
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tarifart"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Tarifart"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -4316,11 +4358,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				bspw. als Magneten für Citytarif
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Relcodegruppentyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Relcodegruppentyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4335,11 +4377,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefOrtspunkttyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Ortspunkttyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Ortspunkttyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 			<xs:documentation>Definiert die Bedeutung eines Ortspunktes.
 			</xs:documentation>
@@ -4356,12 +4398,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="VersionInhalt_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="DatenversionInhalt"/>
-					<field name="Erstellungsdatum"/>
-					<field name="Lieferant"/>
-				</primekey>
-				<schema name="Basis" nillable="false"/>
+				<api:primekey>
+					<api:field name="DatenversionInhalt"/>
+					<api:field name="Erstellungsdatum"/>
+					<api:field name="Lieferant"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -4385,11 +4427,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Bearbeitung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="Bearbeitungsdatum"/>
-					<field name="Lieferant"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="Bearbeitungsdatum"/>
+					<api:field name="Lieferant"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -4414,21 +4456,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Relationen gesucht werden.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Tarifrelevanterpunkt"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_OTP_Main">
-					<field name="ID_OTPTyp"/>
-					<field name="ID_Bediengebiet"/>
-					<field name="ID_Zeitraum"/>
-					<field name="Bezeichnung"/>
-				</index>
-				<index name="Idx_OTP_Relcode">
-					<field name="ID_Relcode"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Angebot" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_Tarifrelevanterpunkt"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				
+				
+				<api:schema name="Angebot" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -4484,11 +4518,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				verschiedenen Umfeldern möglich.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Bediengebiet"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Bediengebiet"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4504,11 +4538,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefOTPTyp_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_OTPTyp"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Angebot" nillable="false"/>
+				<api:primekey>
+					<api:field name="ID_OTPTyp"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="false"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -4525,23 +4559,20 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Sortengruppen_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sortengruppe"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_SoGr_Main">
-					<field name="Sortengruppennummer"/>
-					<field name="ID_Sortengruppentyp"/>
-					<field name="ID_Bediengebiet"/>
-					<field name="SortOrder"/>
-					<field name="ID_Zeitraum"/>
-					<field name="ID_Sorte"/>
-				</index>
-				<index name="Idx_SoGr_ID_Sorte">
-					<field name="ID_Sorte"/>
-					<field name="ID_Zeitraum"/>
-				</index>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Sortengruppe"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Sortengruppen">
+					<api:field name="Sortengruppennummer"/>
+					<api:field name="ID_Sortengruppentyp"/>
+					<api:field name="ID_Bediengebiet"/>
+					<api:field name="SortOrder"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				
+				<api:schema name="Tarif" nillable="true"/>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4579,76 +4610,20 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="VersionStruktur_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<schema name="Basis" nillable="false"/>
+				<api:schema name="Basis" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="VersionMajor" type="husst:INT4" default="2" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="VersionMinor" type="husst:INT4" default="43" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="VersionMajor" type="husst:INT4" default="3" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="VersionMinor" type="husst:INT4" default="0" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="husst:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="husst:DateCompact" default="2019-01-14" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="husst:DateCompact" default="2019-05-09" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="Neubauer(kt)" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 
 
-	<xs:complexType name="Sortenattributgruppen_Type">
-		<xs:annotation>
-			<xs:documentation>
-				In dieser Tabelle werden die verschiedenen Werte
-				der Attributgruppen aufgelistet und nach
-				tarifarischer Bedeutung
-				gruppiert
-			</xs:documentation>
-			<xs:appinfo>
-        		<primekey>
-          			<field name="ID_Sortenattributgruppe"/>
-          			<field name="ID_Zeitraum"/>
-        		</primekey>
-				<index name="IDX_Sortenattributgruppe_Main">
-					<field name="ID_AttributKlasse"/>
-					<field name="ID_Zeitraum"/>
-					<field name="ID_Bediengebiet"/>
-					<field name="ID_AttributGruppe"/>
-					<field name="AttributText"/>
-				</index>
-				<schema name="Tarif" nillable="true"/>
-			</xs:appinfo>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortenattributgruppe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_AttributKlasse" type="husst:ID_SortenAttributKlasse_Type" nillable="false" maxOccurs="1" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						AttributKlasse (1=Komfortklasse,
-						2=Rabattklasse,
-						3=Fahrgasttyp, ...)
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="ID_Bediengebiet" type="husst:INT4" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="ID_AttributGruppe" type="husst:INT4" nillable="false" maxOccurs="1" minOccurs="0">
-				<xs:annotation>
-					<xs:documentation>
-						Attributgruppe innerhalb einer
-						Attributklasse Mit
-						der
-						Gruppierung können mehrere Attribute,
-						auf gemeinsame
-						Steuerungselemente (z.B. Buttons) bezogen
-						werden.
-
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-
-			<xs:element name="AttributText" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Bezeichnung" type="xs:string" nillable="true" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
+	
 
 	<xs:complexType name="DefBundesland_Type">
 		<xs:annotation>
@@ -4656,11 +4631,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				Bundesland).
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Bundesland"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Bundesland"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4711,15 +4686,16 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Feiertage_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Feiertag"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<index name="Idx_Feiertag_Main">
-					<field name="Datum"/>
-					<field name="ID_Bundesland"/>
-				</index>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Feiertag"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:uniquekey name="Uix_Feiertage">
+					<api:field name="Datum"/>
+					<api:field name="ID_Bundesland"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:uniquekey>
+				<api:schema name="Basis" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4736,11 +4712,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="Unternehmen_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Unternehmen"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Unternehmen"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -4774,11 +4750,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefPreisquelle_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Preisquelle"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Preisquelle"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4808,11 +4784,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefRelationenberechnungsregelung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Relationenberechnungsregelung"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Relationenberechnungsregelung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4827,11 +4803,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:complexType name="DefRelationendruckregelung_Type">
 		<xs:annotation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Relationendruckregelung"/>
-					<field name="ID_Zeitraum"/>
-				</primekey>
-				<schema name="Tarif" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Relationendruckregelung"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Angebot" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4913,7 +4889,28 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:element name="DefSortengruppentypen" type="husst:DefSortengruppentyp_Type"/>
 	<xs:element name="Sortengruppen" type="husst:Sortengruppen_Type"/>
 	<xs:element name="VersionStruktur" type="husst:VersionStruktur_Type"/>
-	<xs:element name="Sortenattributgruppen" type="husst:Sortenattributgruppen_Type"/>
+	<xs:element name="DefFahrgasttypen" type="husst:DefFahrgasttyp_Type" nillable="true"/>
+	<xs:element name="DefKomfortklassen" type="husst:DefKomfortklasse_Type" nillable="true"/>
+	<xs:element name="DefNachbarhaltestellenbeziehungen" type="husst:DefNachbarhaltestellenbeziehung_Type" nillable="true"/>
+	<xs:element name="DefPreisfindungen" type="husst:DefPreisfindung_Type" nillable="true"/>
+	<xs:element name="DefRabattklassen" type="husst:DefRabattklasse_Type" nillable="true"/>
+	<xs:element name="DefReisetypen" type="husst:DefReisetyp_Type" nillable="true"/>
+	<xs:element name="DefSortenausgaberegelungen" type="husst:DefSortenausgaberegelung_Type" nillable="true"/>
+	<xs:element name="DefSortendruckregelungen" type="husst:DefSortendruckregelung_Type" nillable="true"/>
+	<xs:element name="DefVertriebswege" type="husst:DefVertriebswege_Type" nillable="true"/>
+	<xs:element name="DefZahlungsarten" type="husst:DefZahlungsarten_Type" nillable="true"/>
+
+
+
+
+
+
+
+
+
+
+	<xs:element name="Relationszuordnungen" type="husst:Relationszuordnungen_Type" nillable="true"/>
+	
 
 	<!-- INTERN! NUR FÜR IMPORT VON TARIFDATEN -->
 
@@ -4924,6 +4921,17 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 
 	<xs:complexType name="OePVTarifDB_Type">
 		<xs:choice maxOccurs="unbounded">
+			<xs:element ref="husst:DefFahrgasttypen"/>
+			<xs:element ref="husst:DefKomfortklassen"/>
+			<xs:element ref="husst:DefNachbarhaltestellenbeziehungen"/>
+			<xs:element ref="husst:DefPreisfindungen"/>
+			<xs:element ref="husst:DefRabattklassen"/>
+			<xs:element ref="husst:DefReisetypen"/>
+			<xs:element ref="husst:DefSortenausgaberegelungen"/>
+			<xs:element ref="husst:DefSortendruckregelungen"/>
+			<xs:element ref="husst:DefVertriebswege"/>
+			<xs:element ref="husst:DefZahlungsarten"/>
+			<xs:element ref="husst:Relationszuordnungen"/>
 			<xs:element ref="husst:Bearbeitung"/>
 			<xs:element ref="husst:Bediengebiete"/>
 			<xs:element ref="husst:DefBundeslaender"/>
@@ -4958,7 +4966,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element ref="husst:Relationscodes"/>
 			<xs:element ref="husst:Sorten"/>
 			<xs:element ref="husst:SortenTarifarten"/>
-			<xs:element ref="husst:Sortenattributgruppen"/>
+			
 			<xs:element ref="husst:Sortengruppen"/>
 			<xs:element ref="husst:TagesartMerkmalElemente"/>
 			<xs:element ref="husst:Tagesarten"/>
@@ -5006,10 +5014,10 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				spezifischen Zeitraum innerhalb der Datenmenge.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_DynAttributDef"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_DynAttributDef"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -5119,13 +5127,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				hängen.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Zeitraum"/>
-					<field name="ID_DynAttributDef"/>
-					<field name="Tabellennummer"/>
-					<field name="ID_DatensatzRef"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Zeitraum"/>
+					<api:field name="ID_DynAttributDef"/>
+					<api:field name="Tabellennummer"/>
+					<api:field name="ID_DatensatzRef"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
@@ -5199,11 +5207,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				eine referenzierende Bedeutung.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="ID_Sprachtext"/>
-					<field name="Lang"/>
-				</primekey>
-				<schema name="Basis" nillable="true"/>
+				<api:primekey>
+					<api:field name="ID_Sprachtext"/>
+					<api:field name="Lang"/>
+				</api:primekey>
+				<api:schema name="Basis" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -5264,13 +5272,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				DB-Repräsentationen empfohlen.
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
-					<field name="Tabellennummer"/>
-				</primekey>
+				<api:primekey>
+					<api:field name="Tabellennummer"/>
+				</api:primekey>
 				<index name="Idx_Tabinfoname">
 					<field name="Tabellenname"/>
 				</index>
-				<schema name="Basis" nillable="true"/>
+				<api:schema name="Basis" nillable="true"/>
 
 			</xs:appinfo>
 		</xs:annotation>
