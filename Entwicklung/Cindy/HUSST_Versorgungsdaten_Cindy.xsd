@@ -6,7 +6,13 @@
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
-		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
+		<xs:documentation>
+			Tarifdatenversorgung von Verkaufssystemen
+			V 3.0 - in Arbeit - 2019-09-20
+
+			Lizenzmodell: CC BY-SA 4.0
+			homepage: www.husst.de
+			GitHub Repository: https://github.com/HUSST-de/HUSST
 		</xs:documentation>
 	</xs:annotation>
 
@@ -4617,8 +4623,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="husstDV:INT4" default="0" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2019-05-09" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="Aenderungsautor" type="xs:string" default="Neubauer(kt)" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2019-09-20" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe / Neubauer(kt)" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 
