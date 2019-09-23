@@ -8,7 +8,6 @@
 	
 	<xs:annotation>
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
-            $Id: Tarifpersonaldaten-2_45.xsd 56 2019-09-17 16:20:11Z kthn $
 
             Änderungen:
         stabil: 2019-09-17 - V2.45 - sgumbert(hQ)
@@ -663,12 +662,12 @@
 			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
-				  		Dient als Referenz um extern definierte Elemente 񉑲 einen ggf. auch nicht numerischen Schl񜱥l
-				  		identifizieren zu k篮en.
+				  		Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+				  		identifizieren zu können.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="DynAttribut" type="husst:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="DynAttribut" type="tpd:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	
@@ -4429,7 +4428,7 @@
 			<xs:element ref="tpd:Wegpositionen"/>
 			<xs:element ref="tpd:Wegpositionenzeit"/>
 			<xs:element ref="tpd:Zeitraeume"/>
-			<xs:element red="tpd:ZeitraumOptionen"/>
+			<xs:element ref="tpd:ZeitraumOptionen"/>
 			<xs:element ref="tpd:Zielanzeigetext"/>
 			<xs:element ref="tpd:Zielanzeigetyp"/>
 			<xs:element ref="tpd:Zusatzsorten"/>
