@@ -3903,9 +3903,9 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="VersionMajor" type="tpd:INT4" default="2" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="VersionMinor" type="tpd:INT4" default="44" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="VersionMinor" type="tpd:INT4" default="45" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="tpd:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2019-07-19" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2019-09-17" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="sgumbert(hQ)" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
