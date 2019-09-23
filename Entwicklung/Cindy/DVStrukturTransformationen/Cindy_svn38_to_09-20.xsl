@@ -159,18 +159,6 @@
     </xsl:template>
 
     <xsl:template match="index[@name='Idx_Preisstufennummer']">
-      <xsl:element name="api:uniquekey">
-      	<xsl:attribute name="name">Uix_Preisstufen</xsl:attribute><xsl:text>
-					</xsl:text><xsl:element name="api:field">
-      		<xsl:attribute name="name">Preisstufennummer</xsl:attribute>
-      	</xsl:element><xsl:text>
-					</xsl:text><xsl:element name="api:field">
-      		<xsl:attribute name="name">ID_Tarifgebiet</xsl:attribute>
-      	</xsl:element><xsl:text>
-					</xsl:text><xsl:element name="api:field">
-      		<xsl:attribute name="name">ID_Zeitraum</xsl:attribute>
-      	</xsl:element><xsl:text>
-				</xsl:text></xsl:element>
     </xsl:template>
 
     <xsl:template match="index[@name='Idx_TagMerkEl_Main']">
