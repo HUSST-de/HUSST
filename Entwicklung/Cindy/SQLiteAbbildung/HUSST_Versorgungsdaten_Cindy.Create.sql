@@ -2,7 +2,7 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-* generiert am 2019-09-20
+* generiert am 2019-09-24
 *
 * HUSST Cindy (V 3.0 - in Arbeit vom 2019-09-20 )
 *
@@ -357,7 +357,6 @@ CREATE TABLE Preisstufen(
 	SortOrder                           largeint NOT NULL, 
 	KA_Preisstufe                       largeint NOT NULL,
 	PRIMARY KEY(ID_Preisstufe ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Preisstufen ON Preisstufen(Preisstufennummer ASC, ID_Tarifgebiet ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Preisstufendirektwahl(
 	Deaktiviert                         bit, 

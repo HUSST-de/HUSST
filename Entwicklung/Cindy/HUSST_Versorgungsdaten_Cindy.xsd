@@ -1,18 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/Cindy"
-	xmlns:api="http://www.husst.de/Appinfo/Cindy"
-	targetNamespace="http://husst.de/Versorgungsdaten/Cindy"
-	elementFormDefault="qualified" attributeFormDefault="unqualified">
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:husstDV="http://husst.de/Versorgungsdaten/Cindy" xmlns:api="http://www.husst.de/Appinfo/Cindy" targetNamespace="http://husst.de/Versorgungsdaten/Cindy" elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
 		<xs:documentation>
 			Tarifdatenversorgung von Verkaufssystemen
-			V 3.0 - in Arbeit - 2019-09-20
+			Version: Cindy - in Arbeit - 2019-09-20
 
-			Lizenzmodell: CC BY-SA 4.0
-			homepage: www.husst.de
-			GitHub Repository: https://github.com/HUSST-de/HUSST
+			Lizenzmodell:   CC BY-SA 4.0
+			homepage:       www.husst.de
+			Git Repository: https://github.com/HUSST-de/HUSST
 		</xs:documentation>
 	</xs:annotation>
 
@@ -1786,6 +1781,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Preisstufe"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
+				
 				<api:schema name="Tarif" nillable="false"/>
 			</xs:appinfo>
 		</xs:annotation>

@@ -67,15 +67,17 @@
 			<xsl:text>
 			Tarifdatenversorgung von Verkaufssystemen
 			</xsl:text>
-			
-			<xsl:text>V </xsl:text>			<xsl:value-of select="$VS_VersionMajor"/>
-			<xsl:text>.</xsl:text>			<xsl:value-of select="$VS_VersionMinor"/>
+
+			<xsl:text>Version: Cindy</xsl:text>
+<!-- 	 später, wenn wir den Arbeitnamen 'Cindy' verlassen -->		
+<!-- 			<xsl:text>V </xsl:text>			<xsl:value-of select="$VS_VersionMajor"/> -->
+<!-- 			<xsl:text>.</xsl:text>			<xsl:value-of select="$VS_VersionMinor"/> -->
 			<xsl:text> - </xsl:text>		<xsl:value-of select="$VS_Status"/>
 			<xsl:text> - </xsl:text>		<xsl:value-of select="$VS_Aenderungsdatum"/>
 
-			Lizenzmodell: CC BY-SA 4.0
-			homepage: www.husst.de
-			GitHub Repository: https://github.com/HUSST-de/HUSST
+			Lizenzmodell:   CC BY-SA 4.0
+			homepage:       www.husst.de
+			Git Repository: https://github.com/HUSST-de/HUSST
 		</xsl:copy>		
 	</xsl:template>
 
