@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema targetNamespace="http://husst.de/Ergebnisdaten/Cindy" elementFormDefault="qualified" 
 	xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:husst="http://husst.de/Ergbnisdaten/Cindy">
+	xmlns:husst="http://husst.de/Ergebnisdaten/Cindy">
 
 	<annotation>
 		<documentation>
@@ -10,8 +10,6 @@
       Hintergrundsystem zurückgeliefert werden.
       (c) 2019 HUSST Forum im ITS Germany e.V.
 
-      Revision: $Id: HUSST_Ergebnisdaten_Cindy.xsd 54 2019-08-26 14:00:00Z amfg $
-     
       Maintainer:
       Fabian Gerst, AMCON GmbH
       Klaus Hitschler, krauth technology GmbH
@@ -22,27 +20,21 @@
 
 	<complexType name="Warenkorb_Type">
 		<sequence>
-			<element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
 
 		</sequence>
-		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="DienstNr" type="int" use="required"/>
 	</complexType>
 
 
 	<complexType name="Zahlung_Type">
 		<sequence>
-			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
 			<choice>
-				<element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1">
-				</element>
+				<element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="Gutschein" type="husst:Gutscheinbezahlung_Type" maxOccurs="1" minOccurs="1">
 					<annotation>
 						<documentation>
@@ -52,26 +44,18 @@
 						</documentation>
 					</annotation>
 				</element>
-				<element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1">
-				</element>
-				<element name="KABezahlung" type="husst:KABezahlung_Type" maxOccurs="1" minOccurs="1">
-				</element>
-				<element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1">
-				</element>
-				<element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1">
-				</element>
-				<element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1">
-				</element>
-				<element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1">
-				</element>
-				<element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1">
-				</element>
+				<element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="KABezahlung" type="husst:KABezahlung_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1"/>
 			</choice>
 
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="Zahlart" type="husst:Zahlart_Type" use="optional"></attribute>
+		<attribute name="Zahlart" type="husst:Zahlart_Type" use="optional"/>
 	</complexType>
 
 
@@ -217,17 +201,14 @@
 
 
 
-			<element name="Koordinate" type="husst:KoordWgs84_Type" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Koordinate" type="husst:KoordWgs84_Type" maxOccurs="1" minOccurs="0"/>
 
 
 
 
 
-			<element name="ZaehldatenListe" type="husst:Zaehldatenliste_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="ZaehldatenListe" type="husst:Zaehldatenliste_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 		<attribute name="Datenversion" type="int" use="required">
 			<annotation>
@@ -245,7 +226,7 @@
 			</documentation>
 		</annotation>
 		<sequence>
-			<element name="Nr" type="int" minOccurs="1" maxOccurs="1"></element>
+			<element name="Nr" type="int" minOccurs="1" maxOccurs="1"/>
 			<element name="MeldModTyp" type="string" maxOccurs="1" minOccurs="1">
 				<annotation>
 					<documentation>Typ des meldunggenerierenden Moduls</documentation>
@@ -285,7 +266,7 @@
 				</annotation>
 			</element>
 		</sequence>
-		<attribute name="Klasse" type="husst:Meldungsklasse_Type" use="required"></attribute>
+		<attribute name="Klasse" type="husst:Meldungsklasse_Type" use="required"/>
 	</complexType>
 
 	<simpleType name="Ausloeser_Type">
@@ -293,17 +274,15 @@
 			<documentation></documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="manuell"></enumeration>
-			<enumeration value="automatisch"></enumeration>
+			<enumeration value="manuell"/>
+			<enumeration value="automatisch"/>
 		</restriction>
 	</simpleType>
 
 	<complexType name="Transaktion_Type">
 		<sequence>
-			<element name="Produkt" type="husst:Produkt_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="KundenNr" type="string" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Produkt" type="husst:Produkt_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="KundenNr" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="BezugsNr" type="string" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>
@@ -346,9 +325,8 @@
 				</element>
 			</choice>
 		</sequence>
-		<attribute name="Typ" type="husst:TransaktionTyp_Type" use="required">
-		</attribute>
-		<attribute name="Storno" type="boolean" use="optional" default="false"></attribute>
+		<attribute name="Typ" type="husst:TransaktionTyp_Type" use="required"/>
+		<attribute name="Storno" type="boolean" use="optional" default="false"/>
 	</complexType>
 
 	<simpleType name="TransaktionTyp_Type">
@@ -367,10 +345,10 @@
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Verkauf"></enumeration>
-			<enumeration value="Erstattung"></enumeration>
-			<enumeration value="Registrierung"></enumeration>
-			<enumeration value="Einzahlung"></enumeration>
+			<enumeration value="Verkauf"/>
+			<enumeration value="Erstattung"/>
+			<enumeration value="Registrierung"/>
+			<enumeration value="Einzahlung"/>
 		</restriction>
 	</simpleType>
 
@@ -385,10 +363,8 @@
 			</documentation>
 		</annotation>
 		<sequence>
-			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Tarifprodukt" type="husst:Tarifprodukt_Type" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
+			<element name="Tarifprodukt" type="husst:Tarifprodukt_Type" maxOccurs="1" minOccurs="1"/>
 			<element name="Preis" type="husst:Preis_Type" maxOccurs="unbounded" minOccurs="0">
 				<annotation>
 					<documentation>
@@ -397,10 +373,8 @@
 				</annotation>
 			</element>
 
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Fahrschein" type="husst:ProdFahrschein_Type" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Fahrschein" type="husst:ProdFahrschein_Type" maxOccurs="1" minOccurs="0"/>
 			<element name="Teilprodukt" type="husst:Produkt_Type" maxOccurs="unbounded" minOccurs="0">
 				<annotation>
 					<documentation>
@@ -435,16 +409,11 @@
 		</annotation>
 		<sequence>
 
-			<element name="ZeitVon" type="dateTime" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="ZeitBis" type="dateTime" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Von" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Nach" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Via" type="husst:Transaktionsort_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="ZeitVon" type="dateTime" maxOccurs="1" minOccurs="1"/>
+			<element name="ZeitBis" type="dateTime" maxOccurs="1" minOccurs="0"/>
+			<element name="Von" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Nach" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Via" type="husst:Transaktionsort_Type" maxOccurs="unbounded" minOccurs="0"/>
 
 
 			<element name="ID_Relation" type="husst:INT4" maxOccurs="1" minOccurs="0">
@@ -456,16 +425,12 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Komfortklasse" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Rabattklasse" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Mitnahme" type="husst:Mitnahme_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Teilrelation" type="husst:Teilrelation_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="Komfortklasse" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Rabattklasse" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Mitnahme" type="husst:Mitnahme_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Teilrelation" type="husst:Teilrelation_Type" maxOccurs="unbounded" minOccurs="0"/>
 
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
@@ -480,9 +445,8 @@
 			</documentation>
 		</annotation>
 		<choice>
-			<element name="Betrag" type="husst:Betrag_Type" minOccurs="1" maxOccurs="1">
-			</element>
-			<element name="ID_Mwst" type="husst:INT4" maxOccurs="1" minOccurs="0"></element>
+			<element name="Betrag" type="husst:Betrag_Type" minOccurs="1" maxOccurs="1"/>
+			<element name="ID_Mwst" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
 			<element name="MwstSatz" maxOccurs="1" minOccurs="1" type="husst:FLOAT1">
 				<annotation>
 					<documentation>
@@ -495,8 +459,7 @@
 
 
 		</choice>
-		<attribute name="Verrechnung" type="husst:Preisverrechnung_Type" use="required">
-		</attribute>
+		<attribute name="Verrechnung" type="husst:Preisverrechnung_Type" use="required"/>
 
 
 
@@ -507,23 +470,23 @@
 			<documentation>Währungscode nach ISO 4217.</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="CZK"></enumeration>
-			<enumeration value="DKK"></enumeration>
-			<enumeration value="DEM"></enumeration>
-			<enumeration value="PLN"></enumeration>
-			<enumeration value="ZAR"></enumeration>
-			<enumeration value="CHF"></enumeration>
-			<enumeration value="USD"></enumeration>
-			<enumeration value="EUR"></enumeration>
+			<enumeration value="CZK"/>
+			<enumeration value="DKK"/>
+			<enumeration value="DEM"/>
+			<enumeration value="PLN"/>
+			<enumeration value="ZAR"/>
+			<enumeration value="CHF"/>
+			<enumeration value="USD"/>
+			<enumeration value="EUR"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="Preisverrechnung_Type">
 		<restriction base="string">
-			<enumeration value="Basispreis"></enumeration>
-			<enumeration value="Abschlag"></enumeration>
-			<enumeration value="Zuschlag"></enumeration>
-			<enumeration value="Information"></enumeration>
+			<enumeration value="Basispreis"/>
+			<enumeration value="Abschlag"/>
+			<enumeration value="Zuschlag"/>
+			<enumeration value="Information"/>
 		</restriction>
 	</simpleType>
 
@@ -549,9 +512,9 @@
 
 
 
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="Typ" type="husst:BelegTyp_Type" use="required"></attribute>
+		<attribute name="Typ" type="husst:BelegTyp_Type" use="required"/>
 
 	</complexType>
 
@@ -560,51 +523,51 @@
 			<documentation></documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Papier"></enumeration>
+			<enumeration value="Papier"/>
 
-			<enumeration value="ECard"></enumeration>
-			<enumeration value="KACard"></enumeration>
-			<enumeration value="BOBCard"></enumeration>
+			<enumeration value="ECard"/>
+			<enumeration value="KACard"/>
+			<enumeration value="BOBCard"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="Zahlart_Type">
 		<restriction base="string">
-			<enumeration value="Barverkauf"></enumeration>
-			<enumeration value="Gutschein"></enumeration>
-			<enumeration value="ZKA-Geldkarte"></enumeration>
-			<enumeration value="CashCard"></enumeration>
-			<enumeration value="EC-Cash"></enumeration>
-			<enumeration value="ELV"></enumeration>
-			<enumeration value="Maestro"></enumeration>
-			<enumeration value="P-Card"></enumeration>
-			<enumeration value="Mastercard"></enumeration>
-			<enumeration value="Visa"></enumeration>
-			<enumeration value="Amex"></enumeration>
-			<enumeration value="Diners"></enumeration>
-			<enumeration value="DingCard"></enumeration>
-			<enumeration value="LemgoCard"></enumeration>
-			<enumeration value="Lynx"></enumeration>
-			<enumeration value="Postcard"></enumeration>
-			<enumeration value="undefiniert"></enumeration>
-			<enumeration value="Debitkarte"></enumeration>
-			<enumeration value="Kreditkarte"></enumeration>
-			<enumeration value="unbar"></enumeration>
-			<enumeration value="KA-POB"></enumeration>
-			<enumeration value="KA-PEB"></enumeration>
-			<enumeration value="JCB"></enumeration>
-			<enumeration value="Überweisung"></enumeration>
-			<enumeration value="VPay"></enumeration>
-			<enumeration value="KA-WEB"></enumeration>
-			<enumeration value="Digicash"></enumeration>
-			<enumeration value="FLASHiZ"></enumeration>
-			<enumeration value="SaferPay"></enumeration>
-			<enumeration value="Rechnung"></enumeration>
-			<enumeration value="PayPal"></enumeration>
-			<enumeration value="Adyen"></enumeration>
-			<enumeration value="Zeitmeilen"></enumeration>
-			<enumeration value="Sammelabrechnung"></enumeration>
-			<enumeration value="LogPay"></enumeration>
+			<enumeration value="Barverkauf"/>
+			<enumeration value="Gutschein"/>
+			<enumeration value="ZKA-Geldkarte"/>
+			<enumeration value="CashCard"/>
+			<enumeration value="EC-Cash"/>
+			<enumeration value="ELV"/>
+			<enumeration value="Maestro"/>
+			<enumeration value="P-Card"/>
+			<enumeration value="Mastercard"/>
+			<enumeration value="Visa"/>
+			<enumeration value="Amex"/>
+			<enumeration value="Diners"/>
+			<enumeration value="DingCard"/>
+			<enumeration value="LemgoCard"/>
+			<enumeration value="Lynx"/>
+			<enumeration value="Postcard"/>
+			<enumeration value="undefiniert"/>
+			<enumeration value="Debitkarte"/>
+			<enumeration value="Kreditkarte"/>
+			<enumeration value="unbar"/>
+			<enumeration value="KA-POB"/>
+			<enumeration value="KA-PEB"/>
+			<enumeration value="JCB"/>
+			<enumeration value="Überweisung"/>
+			<enumeration value="VPay"/>
+			<enumeration value="KA-WEB"/>
+			<enumeration value="Digicash"/>
+			<enumeration value="FLASHiZ"/>
+			<enumeration value="SaferPay"/>
+			<enumeration value="Rechnung"/>
+			<enumeration value="PayPal"/>
+			<enumeration value="Adyen"/>
+			<enumeration value="Zeitmeilen"/>
+			<enumeration value="Sammelabrechnung"/>
+			<enumeration value="LogPay"/>
 		</restriction>
 	</simpleType>
 
@@ -615,7 +578,7 @@
 					<documentation>Eindeutige Kennung des Gutscheintyps</documentation>
 				</annotation>
 			</element>
-			<element name="Nr" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="Nr" type="string" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 
 	</complexType>
@@ -627,12 +590,12 @@
 			<documentation>Beschreibt den Typ eines ausgegebenen Papierdokumentes näher,</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Fahrschein"></enumeration>
-			<enumeration value="Rollenbeginn"></enumeration>
-			<enumeration value="Rollenende"></enumeration>
-			<enumeration value="Probedruck"></enumeration>
-			<enumeration value="Quittung"></enumeration>
-			<enumeration value="Beleg"></enumeration>
+			<enumeration value="Fahrschein"/>
+			<enumeration value="Rollenbeginn"/>
+			<enumeration value="Rollenende"/>
+			<enumeration value="Probedruck"/>
+			<enumeration value="Quittung"/>
+			<enumeration value="Beleg"/>
 		</restriction>
 	</simpleType>
 
@@ -657,8 +620,7 @@
 				</annotation>
 			</element>
 
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 		<attribute name="Typ" type="husst:AusgabeabschnittTyp_Type" use="required">
 			<annotation>
@@ -677,28 +639,25 @@
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Anfangsbestand"></enumeration>
-			<enumeration value="Endbestand"></enumeration>
-			<enumeration value="Behaelterzufuehrung"></enumeration>
-			<enumeration value="Behaelterentnahme"></enumeration>
-			<enumeration value="Bestandsaufnahme"></enumeration>
-			<enumeration value="Befuellung"></enumeration>
-			<enumeration value="Entnahme"></enumeration>
-			<enumeration value="Uebergabemeldung"></enumeration>
-			<enumeration value="Entnahmemeldung"></enumeration>
-			<enumeration value="Geldabwurf"></enumeration>
+			<enumeration value="Anfangsbestand"/>
+			<enumeration value="Endbestand"/>
+			<enumeration value="Behaelterzufuehrung"/>
+			<enumeration value="Behaelterentnahme"/>
+			<enumeration value="Bestandsaufnahme"/>
+			<enumeration value="Befuellung"/>
+			<enumeration value="Entnahme"/>
+			<enumeration value="Uebergabemeldung"/>
+			<enumeration value="Entnahmemeldung"/>
+			<enumeration value="Geldabwurf"/>
 		</restriction>
 	</simpleType>
 
 
 	<complexType name="Zaehldaten_Type">
 		<sequence>
-			<element name="Einsteiger" type="husst:INT4" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Aussteiger" type="husst:INT4" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Fehler" type="husst:INT4" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Einsteiger" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
+			<element name="Aussteiger" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
+			<element name="Fehler" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 		<attribute name="Kennung" type="int" use="required">
 			<annotation>
@@ -722,23 +681,18 @@
 				muss paarweise mit Schichtbeginn vorkommen.</documentation>
 		</annotation>
 		<sequence>
-			<element name="Ausloeser" type="husst:Ausloeser_Type" minOccurs="1" maxOccurs="1">
-			</element>
-			<element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Ausloeser" type="husst:Ausloeser_Type" minOccurs="1" maxOccurs="1"/>
+			<element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 
 	</complexType>
 
 	<complexType name="Lastschrift_Type">
 		<sequence>
-			<element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="KartenfolgeNr" type="int" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="KartenfolgeNr" type="int" maxOccurs="1" minOccurs="1"/>
 			<element name="Kartenart" type="int" maxOccurs="1" minOccurs="1">
 				<annotation>
 					<documentation>1=ec-Karte Magnetstreifen</documentation>
@@ -749,15 +703,14 @@
 					<documentation>Gültigendejahr der Karte</documentation>
 				</annotation>
 			</element>
-			<element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1"></element>
+			<element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Schichtsummen_Type">
 		<choice>
-			<element name="Kassenliste" type="husst:Kassenliste_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="BelegKassenliste" type="husst:Belegkassenliste_Type" maxOccurs="1" minOccurs="0"></element>
+			<element name="Kassenliste" type="husst:Kassenliste_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="BelegKassenliste" type="husst:Belegkassenliste_Type" maxOccurs="1" minOccurs="0"/>
 		</choice>
 	</complexType>
 
@@ -770,7 +723,7 @@
 				</annotation>
 			</element>
 		</choice>
-		<attribute name="Zahlart" type="husst:Zahlart_Type" use="required"></attribute>
+		<attribute name="Zahlart" type="husst:Zahlart_Type" use="required"/>
 	</complexType>
 
 	<simpleType name="KasseTyp_Type">
@@ -778,8 +731,8 @@
 			<documentation></documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="bar"></enumeration>
-			<enumeration value="unbar"></enumeration>
+			<enumeration value="bar"/>
+			<enumeration value="unbar"/>
 		</restriction>
 	</simpleType>
 
@@ -793,13 +746,11 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Gutschrift" type="husst:Tarifprodukt_Type" minOccurs="0" maxOccurs="1">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Gutschrift" type="husst:Tarifprodukt_Type" minOccurs="0" maxOccurs="1"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="Typ" type="husst:BelegkasseTyp_Type" use="required">
-		</attribute>
-		<attribute name="Anzahl" type="int" use="required"></attribute>
+		<attribute name="Typ" type="husst:BelegkasseTyp_Type" use="required"/>
+		<attribute name="Anzahl" type="int" use="required"/>
 	</complexType>
 
 
@@ -808,51 +759,51 @@
 			<documentation></documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Restgeldquittung"></enumeration>
-			<enumeration value="Stornierung"></enumeration>
-			<enumeration value="Gutschein"></enumeration>
-			<enumeration value="Rücknahme"></enumeration>
-			<enumeration value="Chipkarte"></enumeration>
-			<enumeration value="Flugcoupon"></enumeration>
-			<enumeration value="Anfahrtscoupon"></enumeration>
+			<enumeration value="Restgeldquittung"/>
+			<enumeration value="Stornierung"/>
+			<enumeration value="Gutschein"/>
+			<enumeration value="Rücknahme"/>
+			<enumeration value="Chipkarte"/>
+			<enumeration value="Flugcoupon"/>
+			<enumeration value="Anfahrtscoupon"/>
 		</restriction>
 	</simpleType>
 
 	<complexType name="SchichtListe_Type">
 		<choice>
-			<element name="Schicht" type="husst:Schicht_Type" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="Schicht" type="husst:Schicht_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</choice>
 	</complexType>
 
 
 	<complexType name="Transaktionsliste_Type">
 		<sequence>
-			<element name="Transaktion" type="husst:Transaktion_Type" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="Transaktion" type="husst:Transaktion_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Zahlungsliste_Type">
 		<sequence>
-			<element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 
 
 	<complexType name="Zaehldatenliste_Type">
 		<sequence>
-			<element name="Zaehldaten" type="husst:Zaehldaten_Type" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="Zaehldaten" type="husst:Zaehldaten_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Kassenliste_Type">
 		<sequence>
-			<element name="Kasse" type="husst:Kasse_Type" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="Kasse" type="husst:Kasse_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Belegkassenliste_Type">
 		<sequence>
-			<element name="BelegKasse" type="husst:Belegkasse_Type" minOccurs="0" maxOccurs="unbounded"></element>
+			<element name="BelegKasse" type="husst:Belegkasse_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 
@@ -860,20 +811,15 @@
 
 	<complexType name="Dienstende_Type">
 		<sequence>
-			<element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="unbounded" minOccurs="1">
-			</element>
-			<element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded">
-			</element>
-			<element name="Kassenliste" type="husst:Kassenliste_Type" minOccurs="1" maxOccurs="1">
-			</element>
-			<element name="Belegkassenliste" type="husst:Belegkassenliste_Type" minOccurs="1" maxOccurs="1">
-			</element>
-			<element name="Bargeldbilanz" type="husst:Bargeldbilanz_Type" minOccurs="0" maxOccurs="1">
-			</element>
+			<element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="unbounded" minOccurs="1"/>
+			<element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="Kassenliste" type="husst:Kassenliste_Type" minOccurs="1" maxOccurs="1"/>
+			<element name="Belegkassenliste" type="husst:Belegkassenliste_Type" minOccurs="1" maxOccurs="1"/>
+			<element name="Bargeldbilanz" type="husst:Bargeldbilanz_Type" minOccurs="0" maxOccurs="1"/>
 
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="DienstNr" type="int" use="required"/>
 	</complexType>
 
 
@@ -882,15 +828,11 @@
 			<documentation>notiert die Geldwerte oder sonstige Werte (Gutscheine, Stornierungsbelege, ...) bezogen auf einen Vorgangszeitpunkt</documentation>
 		</annotation>
 		<sequence>
-			<element name="Vorgang" type="husst:GeldBehaeltervorgang_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Geldbehaelter" type="husst:Geldbehaelter_Type" minOccurs="0" maxOccurs="unbounded">
-			</element>
-			<element name="Wertbehaelter" type="husst:Wertbehaelter_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Vorgang" type="husst:GeldBehaeltervorgang_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Geldbehaelter" type="husst:Geldbehaelter_Type" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="Wertbehaelter" type="husst:Wertbehaelter_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 		<attribute name="DienstNr" type="int" use="required">
 			<annotation>
@@ -901,12 +843,10 @@
 
 	<complexType name="Geldbehaelter_Type">
 		<sequence>
-			<element name="Stueck" type="husst:Stuecke_Type" minOccurs="0" maxOccurs="unbounded">
-			</element>
-			<element name="Wert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Stueck" type="husst:Stuecke_Type" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="Wert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
 		</sequence>
-		<attribute name="Typ" type="husst:GeldbehaelterTyp_Type"></attribute>
+		<attribute name="Typ" type="husst:GeldbehaelterTyp_Type"/>
 		<attribute name="Nr" type="int">
 			<annotation>
 				<documentation>Behälternummer</documentation>
@@ -970,40 +910,30 @@
 
 	<complexType name="Komponentenliste_Type">
 		<sequence>
-			<element name="Vorgang" type="husst:KomponentenVorgang_Type"></element>
-			<element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded">
-			</element>
+			<element name="Vorgang" type="husst:KomponentenVorgang_Type"/>
+			<element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Komponente_Type">
 		<sequence>
-			<element name="Name" type="string" minOccurs="1" maxOccurs="1">
-			</element>
-			<element name="Version" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Variante" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="SerienNr" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="PhysPosition" type="int" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="ErstellZeitPunkt" type="dateTime" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Hersteller" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded">
-			</element>
+			<element name="Name" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="Version" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Variante" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="SerienNr" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="PhysPosition" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="ErstellZeitPunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
+			<element name="Hersteller" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="Klasse" type="husst:KomponentenKlasse_Type" use="required">
-		</attribute>
+		<attribute name="Klasse" type="husst:KomponentenKlasse_Type" use="required"/>
 	</complexType>
 
 	<simpleType name="KomponentenKlasse_Type">
 		<restriction base="string">
-			<enumeration value="Software"></enumeration>
-			<enumeration value="Hardware"></enumeration>
-			<enumeration value="Daten"></enumeration>
+			<enumeration value="Software"/>
+			<enumeration value="Hardware"/>
+			<enumeration value="Daten"/>
 		</restriction>
 	</simpleType>
 
@@ -1061,21 +991,21 @@
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Person"></enumeration>
-			<enumeration value="Geraet"></enumeration>
-			<enumeration value="Fahrzeug"></enumeration>
-			<enumeration value="Verkaufsstelle"></enumeration>
-			<enumeration value="Servicestelle"></enumeration>
+			<enumeration value="Person"/>
+			<enumeration value="Geraet"/>
+			<enumeration value="Fahrzeug"/>
+			<enumeration value="Verkaufsstelle"/>
+			<enumeration value="Servicestelle"/>
 		</restriction>
 	</simpleType>
 
 	<complexType name="Tarifprodukt_Type">
 		<sequence>
-			<element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1"></element>
-			<element name="ID_Sorte" type="husst:INT4" maxOccurs="1" minOccurs="0"></element>
+			<element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1"/>
+			<element name="ID_Sorte" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
 
 
-			<element name="ReferenzExternSorte" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="ReferenzExternSorte" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1">
 				<annotation>
 					<documentation>
@@ -1083,11 +1013,10 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="ID_Preis" type="husst:INT4" maxOccurs="1" minOccurs="0"></element>
-			<element name="ReferenzExternPreis" type="string" maxOccurs="1" minOccurs="0"></element>
-			<element name="ID_Preisspalte" type="int" maxOccurs="1" minOccurs="0"></element>
+			<element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="ID_Preis" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
+			<element name="ReferenzExternPreis" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="ID_Preisspalte" type="int" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 
 		<attribute name="DatenversionInhalt" type="string" use="required">
@@ -1106,7 +1035,7 @@
 
 	<complexType name="Betrag_Type">
 		<sequence>
-			<element name="Waehrung" type="husst:Waehrung_Type"></element>
+			<element name="Waehrung" type="husst:Waehrung_Type"/>
 			<element name="Betrag" type="int">
 				<annotation>
 					<documentation>Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent)
@@ -1120,20 +1049,20 @@
 
 	<simpleType name="GeldbehaelterTyp_Type">
 		<restriction base="string">
-			<enumeration value="Personenkasse"></enumeration>
-			<enumeration value="Muenzendkasse"></enumeration>
-			<enumeration value="Banknotenendkasse"></enumeration>
-			<enumeration value="Geldwechsler"></enumeration>
-			<enumeration value="Geldspeicher"></enumeration>
-			<enumeration value="Zwischenkasse"></enumeration>
-			<enumeration value="Wertbehaelter"></enumeration>
-			<enumeration value="Handkasse"></enumeration>
+			<enumeration value="Personenkasse"/>
+			<enumeration value="Muenzendkasse"/>
+			<enumeration value="Banknotenendkasse"/>
+			<enumeration value="Geldwechsler"/>
+			<enumeration value="Geldspeicher"/>
+			<enumeration value="Zwischenkasse"/>
+			<enumeration value="Wertbehaelter"/>
+			<enumeration value="Handkasse"/>
 		</restriction>
 	</simpleType>
 
 
 
-	<element name="Schichten" type="husst:Schichtenliste_Type"></element>
+	<element name="Schichten" type="husst:Schichtenliste_Type"/>
 
 	<complexType name="Schicht_Type">
 		<sequence>
@@ -1235,7 +1164,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
@@ -1288,9 +1217,9 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="DienstNr" type="int" use="required"/>
 		<attribute name="PruefNr" type="int" use="required">
 			<annotation>
 				<documentation></documentation>
@@ -1305,9 +1234,9 @@
 					<documentation>Ausstiegshaltestelle</documentation>
 				</annotation>
 			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="DienstNr" type="int" use="required"/>
 		<attribute name="PruefNr" type="int" use="required">
 			<annotation>
 				<documentation></documentation>
@@ -1317,41 +1246,41 @@
 
 	<simpleType name="Pruefkleidung_Type">
 		<restriction base="string">
-			<enumeration value="Zivilkleidung"></enumeration>
-			<enumeration value="Dienstkleidung"></enumeration>
-			<enumeration value="Sonstiges"></enumeration>
+			<enumeration value="Zivilkleidung"/>
+			<enumeration value="Dienstkleidung"/>
+			<enumeration value="Sonstiges"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="Pruefart_Type">
 		<restriction base="string">
-			<enumeration value="Standardprüfung"></enumeration>
-			<enumeration value="Abgangskontrolle"></enumeration>
-			<enumeration value="Sonstiges"></enumeration>
+			<enumeration value="Standardprüfung"/>
+			<enumeration value="Abgangskontrolle"/>
+			<enumeration value="Sonstiges"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="Verkehrsmittel_Type">
 		<restriction base="string">
-			<enumeration value="nicht spezifiziert/unbestimmt"></enumeration>
-			<enumeration value="Linienbus im Stadtverkehr"></enumeration>
-			<enumeration value="Metro/U-Bahn/S-Bahn"></enumeration>
-			<enumeration value="Straßenbahn/TRAM"></enumeration>
-			<enumeration value="Schiff"></enumeration>
-			<enumeration value="ICE"></enumeration>
-			<enumeration value="Überlandbus/Regionalbus"></enumeration>
-			<enumeration value="Regionalzug"></enumeration>
-			<enumeration value="IC"></enumeration>
-			<enumeration value="Standseilbahn"></enumeration>
-			<enumeration value="Regionalexpress"></enumeration>
-			<enumeration value="Expressbus"></enumeration>
-			<enumeration value="Flughafenzubringer"></enumeration>
-			<enumeration value="Verbundnahverkehr"></enumeration>
-			<enumeration value="Verbundnahverkehr ohne Kurzstrecke"></enumeration>
-			<enumeration value="SPNV"></enumeration>
-			<enumeration value="Verbundnahverkehr ohne Sonderverkehrsmittel"></enumeration>
-			<enumeration value="Fähre"></enumeration>
-			<enumeration value="Bergbahn"></enumeration>
+			<enumeration value="nicht spezifiziert/unbestimmt"/>
+			<enumeration value="Linienbus im Stadtverkehr"/>
+			<enumeration value="Metro/U-Bahn/S-Bahn"/>
+			<enumeration value="Straßenbahn/TRAM"/>
+			<enumeration value="Schiff"/>
+			<enumeration value="ICE"/>
+			<enumeration value="Überlandbus/Regionalbus"/>
+			<enumeration value="Regionalzug"/>
+			<enumeration value="IC"/>
+			<enumeration value="Standseilbahn"/>
+			<enumeration value="Regionalexpress"/>
+			<enumeration value="Expressbus"/>
+			<enumeration value="Flughafenzubringer"/>
+			<enumeration value="Verbundnahverkehr"/>
+			<enumeration value="Verbundnahverkehr ohne Kurzstrecke"/>
+			<enumeration value="SPNV"/>
+			<enumeration value="Verbundnahverkehr ohne Sonderverkehrsmittel"/>
+			<enumeration value="Fähre"/>
+			<enumeration value="Bergbahn"/>
 		</restriction>
 	</simpleType>
 
@@ -1376,7 +1305,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 		<attribute name="DienstNr" type="int" use="required">
 			<annotation>
@@ -1412,17 +1341,17 @@
 
 	<simpleType name="Betriebsart_Type">
 		<restriction base="string">
-			<enumeration value="Echtbetrieb"></enumeration>
-			<enumeration value="Testbetrieb"></enumeration>
-			<enumeration value="Schulungsbetrieb"></enumeration>
+			<enumeration value="Echtbetrieb"/>
+			<enumeration value="Testbetrieb"/>
+			<enumeration value="Schulungsbetrieb"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="StandortTyp_Type">
 		<restriction base="string">
-			<enumeration value="Fahrzeug"></enumeration>
-			<enumeration value="Ort"></enumeration>
-			<enumeration value="Verkaufsstelle"></enumeration>
+			<enumeration value="Fahrzeug"/>
+			<enumeration value="Ort"/>
+			<enumeration value="Verkaufsstelle"/>
 		</restriction>
 	</simpleType>
 
@@ -1469,18 +1398,17 @@
 
 	<simpleType name="KomponentenVorgang_Type">
 		<restriction base="string">
-			<enumeration value="Entnahme"></enumeration>
-			<enumeration value="Zufuehrung"></enumeration>
-			<enumeration value="Bestandsaufnahme"></enumeration>
-			<enumeration value="Update"></enumeration>
+			<enumeration value="Entnahme"/>
+			<enumeration value="Zufuehrung"/>
+			<enumeration value="Bestandsaufnahme"/>
+			<enumeration value="Update"/>
 		</restriction>
 	</simpleType>
 
 	<complexType name="Stuecke_Type">
 		<sequence>
-			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="StueckWert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"></element>
+			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
+			<element name="StueckWert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
@@ -1523,9 +1451,9 @@
 					</annotation>
 				</element>
 			</choice>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="DienstNr" type="int" use="required"/>
 	</complexType>
 
 
@@ -1557,16 +1485,14 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Transaktionsdaten_Type">
 		<sequence>
-			<element name="Transaktionsart" maxOccurs="1" minOccurs="1" type="husst:Transaktionsart_Type">
-			</element>
-			<element name="Transaktionsdaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="Transaktionsart" maxOccurs="1" minOccurs="1" type="husst:Transaktionsart_Type"/>
+			<element name="Transaktionsdaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1"/>
 			<choice>
 				<element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
 					<annotation>
@@ -1588,7 +1514,7 @@
 					</annotation>
 				</element>
 			</choice>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
@@ -1600,17 +1526,12 @@
 				Kassenliste.</documentation>
 		</annotation>
 		<sequence>
-			<element name="Anfangsbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1">
-			</element>
-			<element name="Zuführungen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Entnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Fehleinnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Kassenentnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"></element>
-			<element name="Endbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1">
-			</element>
+			<element name="Anfangsbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1"/>
+			<element name="Zuführungen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Entnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Fehleinnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Kassenentnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Endbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
@@ -1628,49 +1549,37 @@
 					</annotation>
 				</element>
 			</choice>
-			<element name="EBEVorgang" type="husst:EBEVorgang_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
-			<element name="Merkmale" type="husst:EBEMerkmale_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Kundendaten" type="husst:Kundendaten_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Verfolgung" type="husst:Verfolgung_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="EBEVorgang" type="husst:EBEVorgang_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Merkmale" type="husst:EBEMerkmale_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Kundendaten" type="husst:Kundendaten_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Verfolgung" type="husst:Verfolgung_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="DienstNr" type="int" use="required"/>
 	</complexType>
 
 	<complexType name="Kundendaten_Type">
 		<sequence>
-			<element name="Fahrgast" type="husst:Person_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Erzieher" type="husst:Person_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Fahrgast" type="husst:Person_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Erzieher" type="husst:Person_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 
 	<complexType name="Verfolgung_Type">
 		<sequence>
-			<element name="Typ" type="husst:VerfolgungsTyp_Type" maxOccurs="unbounded" minOccurs="1">
-			</element>
-			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Typ" type="husst:VerfolgungsTyp_Type" maxOccurs="unbounded" minOccurs="1"/>
+			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="EBEVorgang_Type">
 		<sequence>
-			<element name="Typ" type="husst:VorgangsTyp_Type" maxOccurs="unbounded" minOccurs="1">
-			</element>
+			<element name="Typ" type="husst:VorgangsTyp_Type" maxOccurs="unbounded" minOccurs="1"/>
 			<element name="Beanstandung" type="string" maxOccurs="1" minOccurs="1">
 				<annotation>
 					<documentation>
@@ -1687,10 +1596,9 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Forderung" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"></element>
-			<element name="Referenzbetrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"></element>
+			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Forderung" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Referenzbetrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
@@ -1711,8 +1619,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="KomfortKlasse" type="int" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="KomfortKlasse" type="int" maxOccurs="1" minOccurs="0"/>
 			<element name="Fahrausweisart" type="string" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>
@@ -1736,10 +1643,8 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="FahrausweisAbholung" type="date" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Bearbeitungsstelle" type="string" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="FahrausweisAbholung" type="date" maxOccurs="1" minOccurs="0"/>
+			<element name="Bearbeitungsstelle" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="EinstiegsHaltestelle" type="int" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>Die IBNR</documentation>
@@ -1795,34 +1700,26 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Linie" type="int" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Kurs" type="int" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Verbundkennung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Linie" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="Kurs" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="Verbundkennung" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="ZVTBezahlung_Type">
 		<sequence>
-			<element name="Kartenherausgeber" type="husst:Zahlart_Type" maxOccurs="1" minOccurs="0"></element>
-			<element name="TerminalId" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Kartenherausgeber" type="husst:Zahlart_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="TerminalId" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="KABezahlung_Type">
 		<sequence>
-			<element name="KAZahlart" maxOccurs="1" minOccurs="1" type="husst:KAZahlart_Type">
-			</element>
+			<element name="KAZahlart" maxOccurs="1" minOccurs="1" type="husst:KAZahlart_Type"/>
 			<element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>Referenz zu einem global eindeutigen Vorgang - diese
@@ -1835,38 +1732,33 @@
 
 	<complexType name="Barbezahlung_Type">
 		<sequence>
-			<element name="Einnahme" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"></element>
-			<element name="Rueckgabe" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"></element>
+			<element name="Einnahme" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Rueckgabe" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="KKOfflineBezahlung_Type">
 		<sequence>
-			<element name="Kartenherausgeber" type="husst:Zahlart_Type" maxOccurs="1" minOccurs="0"></element>
-			<element name="KartenNr" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Pruefkennung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="GueltigBis" type="gYearMonth" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="Kartenherausgeber" type="husst:Zahlart_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="KartenNr" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="Pruefkennung" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="GueltigBis" type="gYearMonth" maxOccurs="1" minOccurs="1"/>
+			<element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Transaktionsort_Type">
 		<sequence>
-			<element name="Ortspunkt" type="husst:Ortspunkt_Type" maxOccurs="1" minOccurs="0"></element>
+			<element name="Ortspunkt" type="husst:Ortspunkt_Type" maxOccurs="1" minOccurs="0"/>
 
 
-			<element name="Tarifpunkt" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Tarifpunkt" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0"/>
 			<element name="ID_Relcode" type="int" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>Dieser Inhalt referenziert den Relationscode des Tarifs</documentation>
 				</annotation>
 			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 
 		</sequence>
 		<attribute name="DatenversionInhalt" type="string" use="required">
@@ -1883,67 +1775,48 @@
 
 
 	<simpleType name="Personenart_Type">
-		<restriction base="string"></restriction>
+		<restriction base="string"/>
 	</simpleType>
 
 	<complexType name="Restgeldbeleg_Type">
 		<sequence>
-			<element name="Ausgabevertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="Ausgabevertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="1" minOccurs="1"/>
 
 			<element name="Kennung" type="string" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>Eine eindeutige Kennung zur Identifikation des Restgeldbelegs.</documentation>
 				</annotation>
 			</element>
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Ausstelldatum" type="dateTime" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Ausstelldatum" type="dateTime" maxOccurs="1" minOccurs="0"/>
 
 		</sequence>
 	</complexType>
 
 	<complexType name="Schichtenliste_Type">
 		<sequence>
-			<element name="Version" type="husst:VersionStruktur_Type" maxOccurs="1" minOccurs="1"></element>
-			<element name="Schicht" type="husst:Schicht_Type" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="Version" type="husst:VersionStruktur_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Schicht" type="husst:Schicht_Type" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Datensatz_Type">
 		<choice>
-			<element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Pruefabschluss" type="husst:Pruefabschluss_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Komponentenliste" type="husst:Komponentenliste_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Meldung" type="husst:Meldung_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Ausgabeabschnitt" type="husst:Ausgabeabschnitt_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Dienstbeginn" type="husst:Dienstbeginn_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Pruefabschluss" type="husst:Pruefabschluss_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Komponentenliste" type="husst:Komponentenliste_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Meldung" type="husst:Meldung_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Ausgabeabschnitt" type="husst:Ausgabeabschnitt_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Dienstbeginn" type="husst:Dienstbeginn_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1"/>
 		</choice>
 		<attribute name="Zeitpunkt" type="dateTime" use="required">
 			<annotation>
@@ -1963,27 +1836,25 @@
 
 	<simpleType name="Meldungsklasse_Type">
 		<restriction base="string">
-			<enumeration value="Debug"></enumeration>
-			<enumeration value="Info"></enumeration>
-			<enumeration value="Warnung"></enumeration>
-			<enumeration value="Fehler"></enumeration>
-			<enumeration value="SchwererFehler"></enumeration>
+			<enumeration value="Debug"/>
+			<enumeration value="Info"/>
+			<enumeration value="Warnung"/>
+			<enumeration value="Fehler"/>
+			<enumeration value="SchwererFehler"/>
 		</restriction>
 	</simpleType>
 	<simpleType name="Transaktionsart_Type">
 		<restriction base="string">
-			<enumeration value="KA"></enumeration>
-			<enumeration value="Geldkarte"></enumeration>
-			<enumeration value="BOB"></enumeration>
+			<enumeration value="KA"/>
+			<enumeration value="Geldkarte"/>
+			<enumeration value="BOB"/>
 		</restriction>
 	</simpleType>
 
 	<complexType name="Any_Type">
 		<choice>
-			<element name="StringData" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="BinaryData" type="base64Binary" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="StringData" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="BinaryData" type="base64Binary" maxOccurs="1" minOccurs="0"/>
 		</choice>
 	</complexType>
 
@@ -1991,37 +1862,37 @@
 
 	<simpleType name="VorgangsTyp_Type">
 		<restriction base="string">
-			<enumeration value="KeinFS"></enumeration>
-			<enumeration value="UngueltigFS"></enumeration>
-			<enumeration value="TeilungueltigFS"></enumeration>
-			<enumeration value="Betrugsversuch"></enumeration>
-			<enumeration value="Alkohol"></enumeration>
-			<enumeration value="Rauchen"></enumeration>
-			<enumeration value="Sachbeschaedigung"></enumeration>
-			<enumeration value="Verhalten"></enumeration>
-			<enumeration value="Notbremse"></enumeration>
-			<enumeration value="Sonstiges"></enumeration>
+			<enumeration value="KeinFS"/>
+			<enumeration value="UngueltigFS"/>
+			<enumeration value="TeilungueltigFS"/>
+			<enumeration value="Betrugsversuch"/>
+			<enumeration value="Alkohol"/>
+			<enumeration value="Rauchen"/>
+			<enumeration value="Sachbeschaedigung"/>
+			<enumeration value="Verhalten"/>
+			<enumeration value="Notbremse"/>
+			<enumeration value="Sonstiges"/>
 		</restriction>
 	</simpleType>
 
 
 	<simpleType name="VerfolgungsTyp_Type">
 		<restriction base="string">
-			<enumeration value="Polizei"></enumeration>
-			<enumeration value="Anonym"></enumeration>
-			<enumeration value="AnnahmeVerweigert"></enumeration>
-			<enumeration value="VerkaufsDefekt"></enumeration>
-			<enumeration value="Umsteiger"></enumeration>
-			<enumeration value="Nacherfassung"></enumeration>
-			<enumeration value="Loeschung"></enumeration>
-			<enumeration value="Kulanz"></enumeration>
+			<enumeration value="Polizei"/>
+			<enumeration value="Anonym"/>
+			<enumeration value="AnnahmeVerweigert"/>
+			<enumeration value="VerkaufsDefekt"/>
+			<enumeration value="Umsteiger"/>
+			<enumeration value="Nacherfassung"/>
+			<enumeration value="Loeschung"/>
+			<enumeration value="Kulanz"/>
 		</restriction>
 	</simpleType>
 
 	<complexType name="Ueberweisung_Type">
 		<sequence>
-			<element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1"></element>
-			<element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1"></element>
+			<element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
@@ -2029,18 +1900,18 @@
 
 	<simpleType name="KAZahlart_Type">
 		<restriction base="string">
-			<enumeration value="PEP"></enumeration>
-			<enumeration value="POP"></enumeration>
-			<enumeration value="WES"></enumeration>
+			<enumeration value="PEP"/>
+			<enumeration value="POP"/>
+			<enumeration value="WES"/>
 		</restriction>
 	</simpleType>
 
 
 	<complexType name="Tarifpunkt_Type">
 		<sequence>
-			<element name="ID_Tarifpunkt" type="int" maxOccurs="1" minOccurs="0"></element>
-			<element name="ID_Tarifgebiet" type="int" maxOccurs="1" minOccurs="1"></element>
-			<element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="ID_Tarifpunkt" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="ID_Tarifgebiet" type="int" maxOccurs="1" minOccurs="1"/>
+			<element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
 
 
 		</sequence>
@@ -2061,44 +1932,33 @@
 			</documentation>
 		</annotation>
 		<sequence>
-			<element name="WertAnzahl" type="int" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="WertAnzahl" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="Kennung" type="string" use="required"></attribute>
+		<attribute name="Kennung" type="string" use="required"/>
 	</complexType>
 
 	<complexType name="Person_Type">
 		<sequence>
-			<element name="Vorname" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Nachname" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Namenszuatz" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="StrasseHausNr" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Postleitzahl" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Länderkennzeichen" type="string" maxOccurs="1" minOccurs="0"></element>
-			<element name="Wohnort" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Staat" type="string" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Vorname" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Nachname" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Namenszuatz" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="StrasseHausNr" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Postleitzahl" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Länderkennzeichen" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Wohnort" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Staat" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Geschlecht" maxOccurs="1" minOccurs="0">
 				<simpleType>
 					<restriction base="string">
-						<enumeration value="weiblich"></enumeration>
-						<enumeration value="männlich"></enumeration>
+						<enumeration value="weiblich"/>
+						<enumeration value="männlich"/>
 					</restriction>
 				</simpleType>
 			</element>
-			<element name="TelefonNr" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Geburtsdatum" type="dateTime" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Staatsangehörigkeit" type="string" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="TelefonNr" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Geburtsdatum" type="dateTime" maxOccurs="1" minOccurs="0"/>
+			<element name="Staatsangehörigkeit" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Legitimtation" type="string" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>
@@ -2135,8 +1995,7 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0">
-			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
@@ -2158,8 +2017,8 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2019-05-10"></element>
-			<element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="Klaus Hitschler (krauth technology)"></element>
+			<element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2019-05-10"/>
+			<element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="Klaus Hitschler (krauth technology)"/>
 		</sequence>
 	</complexType>
 
@@ -2174,18 +2033,18 @@
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="00"></enumeration>
-			<enumeration value="22"></enumeration>
-			<enumeration value="33"></enumeration>
-			<enumeration value="34"></enumeration>
-			<enumeration value="52"></enumeration>
-			<enumeration value="53"></enumeration>
-			<enumeration value="66"></enumeration>
-			<enumeration value="77"></enumeration>
-			<enumeration value="90"></enumeration>
-			<enumeration value="91"></enumeration>
-			<enumeration value="92"></enumeration>
-			<enumeration value="93"></enumeration>
+			<enumeration value="00"/>
+			<enumeration value="22"/>
+			<enumeration value="33"/>
+			<enumeration value="34"/>
+			<enumeration value="52"/>
+			<enumeration value="53"/>
+			<enumeration value="66"/>
+			<enumeration value="77"/>
+			<enumeration value="90"/>
+			<enumeration value="91"/>
+			<enumeration value="92"/>
+			<enumeration value="93"/>
 		</restriction>
 	</simpleType>
 
@@ -2213,20 +2072,17 @@
 
 	<complexType name="Polizei_Type">
 		<sequence>
-			<element name="Dienstnummer" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Vorname" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Nachname" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Dienststelle" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="Dienstnummer" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="Vorname" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Nachname" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Dienststelle" type="string" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
 	<complexType name="Mitnahme_Type">
 		<sequence>
-			<element name="Fahrgasttyp" type="husst:FahrgastTyp_Type" maxOccurs="1" minOccurs="1"></element>
-			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"></element>
+			<element name="Fahrgasttyp" type="husst:FahrgastTyp_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
@@ -2298,23 +2154,15 @@
 					</documentation>
 				</annotation>
 			</element>
-			<element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1">
-			</element>
+			<element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1"/>
+			<element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1"/>
 
-			<element name="Start" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="Ziel" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="ReferenzExternRelation" type="string" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="ID_Preisquelle" type="int" maxOccurs="1" minOccurs="0">
-			</element>
-			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="Start" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Ziel" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="ReferenzExternRelation" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="ID_Preisquelle" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 		<attribute name="DatenversionInhalt" type="string" use="required">
 			<annotation>
@@ -2360,8 +2208,8 @@
 
 	<complexType name="Ortspunkt_Type">
 		<sequence>
-			<element name="ID_Ortspunkt" type="int" maxOccurs="1" minOccurs="0"></element>
-			<element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="ID_Ortspunkt" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
@@ -2429,8 +2277,7 @@
 		</restriction>
 	</simpleType>
 	<simpleType name="KoordWgs84_Type">
-		<restriction base="float">
-		</restriction>
+		<restriction base="float"/>
 	</simpleType>
 	<simpleType name="Char">
 		<restriction base="string">
@@ -2457,10 +2304,8 @@
 			</documentation>
 		</annotation>
 		<sequence>
-			<element name="Name" type="string" maxOccurs="1" minOccurs="1">
-			</element>
-			<element name="Wert" type="string" maxOccurs="unbounded" minOccurs="0">
-			</element>
+			<element name="Name" type="string" maxOccurs="1" minOccurs="1"/>
+			<element name="Wert" type="string" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 	</complexType>
 
