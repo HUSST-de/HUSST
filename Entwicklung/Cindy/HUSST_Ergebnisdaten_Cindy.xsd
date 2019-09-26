@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema targetNamespace="http://husst.de/Ergebnisdaten/Cindy" elementFormDefault="qualified" 
 	xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:husst="http://husst.de/Ergbnisdaten/Cindy">
+	xmlns:husst="http://husst.de/Ergebnisdaten/Cindy">
 
 	<annotation>
 		<documentation>
@@ -10,8 +10,6 @@
       Hintergrundsystem zurückgeliefert werden.
       (c) 2019 HUSST Forum im ITS Germany e.V.
 
-      Revision: $Id: HUSST_Ergebnisdaten_Cindy.xsd 54 2019-08-26 14:00:00Z amfg $
-     
       Maintainer:
       Fabian Gerst, AMCON GmbH
       Klaus Hitschler, krauth technology GmbH
