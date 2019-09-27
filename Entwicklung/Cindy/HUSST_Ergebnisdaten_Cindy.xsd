@@ -1016,7 +1016,7 @@
 			<element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="ID_Preis" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
 			<element name="ReferenzExternPreis" type="string" maxOccurs="1" minOccurs="0"/>
-			<element name="ID_Preisspalte" type="int" maxOccurs="1" minOccurs="0"/>
+			<element name="ID_Preisspalte" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
 		</sequence>
 
 		<attribute name="DatenversionInhalt" type="string" use="required">
