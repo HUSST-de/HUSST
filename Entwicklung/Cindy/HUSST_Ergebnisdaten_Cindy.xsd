@@ -33,7 +33,6 @@
 		<attribute name="DienstNr" type="int" use="required"/>
 	</complexType>
 
-
 	<complexType name="Zahlung_Type">
 		<sequence>
 			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
@@ -344,16 +343,24 @@
 	<simpleType name="TransaktionTypHUSST_Type">
 		<annotation>
 			<documentation>Sonderfälle:
-•	Gutscheine werden verkauft
-•	Gutscheine werden erstattet
+				•	Gutscheine werden verkauft
+				•	Gutscheine werden erstattet
 
-•	EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt.
+				•	EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor. 
+					Es gibt einen Preis, es wird ein Beleg gedruckt.
 
-•	Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst werden kann.  Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
-•	Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = Erstattung)
+				•	Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, 
+					dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) 
+					und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
+				•	Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, 
+					es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
 
-•	Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
-•	Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden. 
+				•	Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, 
+					dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann 
+					die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
+				•	Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. 
+					Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. 
+					In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden. 
 			</documentation>
 		</annotation>
 		<restriction base="string">
