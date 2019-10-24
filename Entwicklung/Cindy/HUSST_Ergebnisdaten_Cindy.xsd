@@ -2513,12 +2513,12 @@
 	<simpleType name="ProjektspezifischAnstattKa_Type">
 		<annotation>
 			<documentation>
-        Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann.
-        Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
+				Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann.
+				Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<pattern value="[A-Za-z_]+"/>
+			<pattern value="[A-Za-z][A-Za-z0-9_]*"/>
 		</restriction>
 	</simpleType>
 
