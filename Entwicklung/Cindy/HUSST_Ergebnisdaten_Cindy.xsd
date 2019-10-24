@@ -2319,8 +2319,8 @@
 	<simpleType name="VorgangsTypHUSST_Type">
 		<restriction base="string">
 			<enumeration value="husst.KeinFS"/>
-			<enumeration value="husst.UngueltigFS"/>
-			<enumeration value="husst.TeilungueltigFS"/>
+			<enumeration value="husst.UngueltigerFS"/>
+			<enumeration value="husst.TeilungueltigerFS"/>
 			<enumeration value="husst.Betrugsversuch"/>
 			<enumeration value="husst.Alkohol"/>
 			<enumeration value="husst.Rauchen"/>
