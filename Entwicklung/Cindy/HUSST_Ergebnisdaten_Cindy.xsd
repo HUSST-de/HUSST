@@ -2164,7 +2164,7 @@
 
 	<complexType name="ZVTBezahlung_Type">
 		<sequence>
-			<element name="Kartenherausgeber" type="husst:Bezahlart_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0"/>
 			<element name="TerminalId" type="string" maxOccurs="1" minOccurs="1"/>
 			<element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1"/>
 			<element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
@@ -2180,7 +2180,7 @@
 
 	<complexType name="KKOfflineBezahlung_Type">
 		<sequence>
-			<element name="Kartenherausgeber" type="husst:Bezahlart_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0"/>
 			<element name="KartenNr" type="string" maxOccurs="1" minOccurs="1"/>
 			<element name="Pruefkennung" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="GueltigBis" type="gYearMonth" maxOccurs="1" minOccurs="1"/>
