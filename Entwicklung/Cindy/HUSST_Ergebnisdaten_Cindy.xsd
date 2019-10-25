@@ -781,7 +781,7 @@
 				Definiert einen Papierabschnitt mit seiner Startnummer
 				und der Anzahl seiner Barcodeabschnitte oder Abschnittzähler. Die Startnummer
 				ist immer die kleinste Nummer des gelesenen Abschnittes,
-				egal in welche Richtung die Nummeriung der Rolle geht.
+				egal in welche Richtung die Nummerierung der Rolle geht.
 			</documentation>
 		</annotation>
 		<sequence>
