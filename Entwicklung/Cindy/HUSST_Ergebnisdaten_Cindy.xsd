@@ -633,11 +633,6 @@
 					<documentation>Visacard</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="26">
-				<annotation>
-					<documentation>Visacard</documentation>
-				</annotation>
-			</enumeration>
 			<enumeration value="27">
 				<annotation>
 					<documentation>HandyTicket Konto</documentation>
