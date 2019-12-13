@@ -550,10 +550,10 @@
 	<complexType name="BezahlArt_Type">
 		<simpleContent>
 			<extension base="husst:BezahlArtSimple_Type">
-				<attribute name="Hinweistext" type="string" use="optional">
+				<attribute name="Bezeichnung" type="string" use="optional">
 					<annotation>
 						<documentation>
-              Ein Hinweistext zur Leserlichkeit. Dieser Text kann zum Beispiel den Namen zum numerischen Enumerationswert enthalten.
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
 						</documentation>
 					</annotation>
 				</attribute>
@@ -1447,10 +1447,10 @@
 	<complexType name="TransportserviceArt_Type">
 		<simpleContent>
 			<extension base="husst:TransportserviceArtSimple_Type">
-				<attribute name="Hinweistext" type="string" use="optional">
+				<attribute name="Bezeichnung" type="string" use="optional">
 					<annotation>
 						<documentation>
-              Ein Hinweistext zur Leserlichkeit. Dieser Text kann zum Beispiel den Namen zum numerischen Enumerationswert enthalten.
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
 						</documentation>
 					</annotation>
 				</attribute>
@@ -1637,10 +1637,10 @@
 	<complexType name="OrtsTyp_Type">
 		<simpleContent>
 			<extension base="husst:OrtsTypSimple_Type">
-				<attribute name="Hinweistext" type="string" use="optional">
+				<attribute name="Bezeichnung" type="string" use="optional">
 					<annotation>
 						<documentation>
-              Ein Hinweistext zur Leserlichkeit. Dieser Text kann zum Beispiel den Namen zum numerischen Enumerationswert enthalten.
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
 						</documentation>
 					</annotation>
 				</attribute>
@@ -2527,10 +2527,10 @@
 	<complexType name="KundenTyp_Type">
 		<simpleContent>
 			<extension base="husst:KundenTypSimple_Type">
-				<attribute name="Hinweistext" type="string" use="optional">
+				<attribute name="Bezeichnung" type="string" use="optional">
 					<annotation>
 						<documentation>
-              Ein Hinweistext zur Leserlichkeit. Dieser Text kann zum Beispiel den Namen zum numerischen Enumerationswert enthalten.
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
 						</documentation>
 					</annotation>
 				</attribute>
