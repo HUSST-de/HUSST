@@ -1502,7 +1502,7 @@
 			</enumeration>
 			<enumeration value="11">
 				<annotation>
-					<documentation>Ueberlandbus/Regionalbus</documentation>
+					<documentation>Überlandbus/Regionalbus</documentation>
 				</annotation>
 			</enumeration>
 			<enumeration value="19">
