@@ -7,12 +7,14 @@
 
 	<xs:annotation>
 		<xs:documentation>
-			Tarifdatenversorgung von Verkaufssystemen
-			Version: Cindy - in Arbeit - 2019-10-22
+			HUSST Versorgungsdaten
+			Version: Entwicklung "Cindy"
 
-			Lizenzmodell:   CC BY-SA 4.0
-			homepage:       www.husst.de
-			Git Repository: https://github.com/HUSST-de/HUSST
+			Mehr Informationen:
+			- https://husst.de/
+			- https://github.com/HUSST-de/HUSST
+
+			Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 		</xs:documentation>
 	</xs:annotation>
 

@@ -5,8 +5,17 @@
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
-		<xs:documentation>Husst konforme Appinfo Elemente in den Husst Datenstrukturdefinitionen.
-			$Id$
+		<xs:documentation>
+			HUSST Appinfo
+			Version: Entwicklung "Cindy"
+
+			Mehr Informationen:
+			- https://husst.de/
+			- https://github.com/HUSST-de/HUSST
+
+			Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+		
+			Diese Dokument dient als Ergänzende Definition für Elemente in den XSDs.
 		</xs:documentation>
 	</xs:annotation>
 
