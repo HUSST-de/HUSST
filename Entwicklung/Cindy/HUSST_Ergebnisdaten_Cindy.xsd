@@ -3,8 +3,12 @@
 	xmlns="http://www.w3.org/2001/XMLSchema" 
 	xmlns:husst="http://husst.de/Ergebnisdaten/Cindy">
 
+
+
 	<annotation>
 		<documentation>
+      
+      
       Format der Daten, die von den Verkaufs- und
       Kontrollgeräten an das
       Hintergrundsystem zurückgeliefert werden.
@@ -29,10 +33,10 @@
 		<attribute name="DienstNr" type="int" use="required"/>
 	</complexType>
 
-
 	<complexType name="Zahlung_Type">
 		<sequence>
 			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
 			<choice>
 				<element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="Gutschein" type="husst:Gutscheinbezahlung_Type" maxOccurs="1" minOccurs="1">
@@ -45,7 +49,7 @@
 					</annotation>
 				</element>
 				<element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="KABezahlung" type="husst:KABezahlung_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="KABezahlungReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
@@ -55,7 +59,6 @@
 
 			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
-		<attribute name="Zahlart" type="husst:Zahlart_Type" use="optional"/>
 	</complexType>
 
 
@@ -273,9 +276,13 @@
 		<annotation>
 			<documentation></documentation>
 		</annotation>
+		<union memberTypes="husst:AusloeserHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="AusloeserHUSST_Type">
 		<restriction base="string">
-			<enumeration value="manuell"/>
-			<enumeration value="automatisch"/>
+			<enumeration value="husst.manuell"/>
+			<enumeration value="husst.automatisch"/>
 		</restriction>
 	</simpleType>
 
@@ -330,25 +337,37 @@
 	</complexType>
 
 	<simpleType name="TransaktionTyp_Type">
+		<union memberTypes="husst:TransaktionTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="TransaktionTypHUSST_Type">
 		<annotation>
 			<documentation>Sonderfälle:
-•	Gutscheine werden verkauft
-•	Gutscheine werden erstattet
+				•	Gutscheine werden verkauft
+				•	Gutscheine werden erstattet
 
-•	EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt.
+				•	EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor. 
+					Es gibt einen Preis, es wird ein Beleg gedruckt.
 
-•	Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst werden kann.  Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
-•	Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = Erstattung)
+				•	Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, 
+					dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) 
+					und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
+				•	Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, 
+					es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
 
-•	Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
-•	Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden. 
+				•	Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, 
+					dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann 
+					die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
+				•	Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. 
+					Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. 
+					In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden. 
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="Verkauf"/>
-			<enumeration value="Erstattung"/>
-			<enumeration value="Registrierung"/>
-			<enumeration value="Einzahlung"/>
+			<enumeration value="husst.Verkauf"/>
+			<enumeration value="husst.Erstattung"/>
+			<enumeration value="husst.Registrierung"/>
+			<enumeration value="husst.Einzahlung"/>
 		</restriction>
 	</simpleType>
 
@@ -470,23 +489,20 @@
 			<documentation>Währungscode nach ISO 4217.</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="CZK"/>
-			<enumeration value="DKK"/>
-			<enumeration value="DEM"/>
-			<enumeration value="PLN"/>
-			<enumeration value="ZAR"/>
-			<enumeration value="CHF"/>
-			<enumeration value="USD"/>
-			<enumeration value="EUR"/>
+			<pattern value="[A-Z]{3}"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="Preisverrechnung_Type">
+		<union memberTypes="husst:PreisverrechnungHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="PreisverrechnungHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Basispreis"/>
-			<enumeration value="Abschlag"/>
-			<enumeration value="Zuschlag"/>
-			<enumeration value="Information"/>
+			<enumeration value="husst.Basispreis"/>
+			<enumeration value="husst.Abschlag"/>
+			<enumeration value="husst.Zuschlag"/>
+			<enumeration value="husst.Information"/>
 		</restriction>
 	</simpleType>
 
@@ -509,9 +525,6 @@
 					<documentation>Zugehörige, unveränderliche Dokumentmerkmale. (Abschnittzähler oder rückseitiger Barcode)</documentation>
 				</annotation>
 			</element>
-
-
-
 			<element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
 		<attribute name="Typ" type="husst:BelegTyp_Type" use="required"/>
@@ -522,52 +535,199 @@
 		<annotation>
 			<documentation></documentation>
 		</annotation>
-		<restriction base="string">
-			<enumeration value="Papier"/>
+		<union memberTypes="husst:BelegTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
 
-			<enumeration value="ECard"/>
-			<enumeration value="KACard"/>
-			<enumeration value="BOBCard"/>
+	<simpleType name="BelegTypHUSST_Type">
+		<restriction base="string">
+			<enumeration value="husst.Papier"/>
+			<enumeration value="husst.ECard"/>
+			<enumeration value="husst.KACard"/>
+			<enumeration value="husst.BOBCard"/>
 		</restriction>
 	</simpleType>
 
-	<simpleType name="Zahlart_Type">
-		<restriction base="string">
-			<enumeration value="Barverkauf"/>
-			<enumeration value="Gutschein"/>
-			<enumeration value="ZKA-Geldkarte"/>
-			<enumeration value="CashCard"/>
-			<enumeration value="EC-Cash"/>
-			<enumeration value="ELV"/>
-			<enumeration value="Maestro"/>
-			<enumeration value="P-Card"/>
-			<enumeration value="Mastercard"/>
-			<enumeration value="Visa"/>
-			<enumeration value="Amex"/>
-			<enumeration value="Diners"/>
-			<enumeration value="DingCard"/>
-			<enumeration value="LemgoCard"/>
-			<enumeration value="Lynx"/>
-			<enumeration value="Postcard"/>
-			<enumeration value="undefiniert"/>
-			<enumeration value="Debitkarte"/>
-			<enumeration value="Kreditkarte"/>
-			<enumeration value="unbar"/>
-			<enumeration value="KA-POB"/>
-			<enumeration value="KA-PEB"/>
-			<enumeration value="JCB"/>
-			<enumeration value="Überweisung"/>
-			<enumeration value="VPay"/>
-			<enumeration value="KA-WEB"/>
-			<enumeration value="Digicash"/>
-			<enumeration value="FLASHiZ"/>
-			<enumeration value="SaferPay"/>
-			<enumeration value="Rechnung"/>
-			<enumeration value="PayPal"/>
-			<enumeration value="Adyen"/>
-			<enumeration value="Zeitmeilen"/>
-			<enumeration value="Sammelabrechnung"/>
-			<enumeration value="LogPay"/>
+	<complexType name="BezahlArt_Type">
+		<simpleContent>
+			<extension base="husst:BezahlArtSimple_Type">
+				<attribute name="Bezeichnung" type="string" use="optional">
+					<annotation>
+						<documentation>
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="BezahlArtSimple_Type">
+		<union memberTypes="husst:BezahlArtKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+	</simpleType>
+
+	<simpleType name="BezahlArtKa_Type">
+		<annotation>
+			<documentation>
+        Die BezahlArt kommt aus der VDV-KA.
+        Die KA-Werte kommen aus dem EN1545: PaymentMeansCode
+			</documentation>
+		</annotation>
+		<restriction base="husst:INT1">
+			<enumeration value="0">
+				<annotation>
+					<documentation>Keine Angabe</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="1">
+				<annotation>
+					<documentation>Bar</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="3">
+				<annotation>
+					<documentation>Kreditkarte</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="5">
+				<annotation>
+					<documentation>POB/PEB</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="6">
+				<annotation>
+					<documentation>EC-Karte/Lastschrift</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="7">
+				<annotation>
+					<documentation>Rechnung</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="8">
+				<annotation>
+					<documentation>Werteinheiten</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="14">
+				<annotation>
+					<documentation>Gutschein/Voucher</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="17">
+				<annotation>
+					<documentation>ec-Cash</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="24">
+				<annotation>
+					<documentation>Geldkarte</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="25">
+				<annotation>
+					<documentation>Mastercard</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="26">
+				<annotation>
+					<documentation>Visacard</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="27">
+				<annotation>
+					<documentation>HandyTicket Konto</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="28">
+				<annotation>
+					<documentation>Mobilfunkrechnung</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="100">
+				<annotation>
+					<documentation>Amazon Pay</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="101">
+				<annotation>
+					<documentation>Amex</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="102">
+				<annotation>
+					<documentation>Android Pay</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="103">
+				<annotation>
+					<documentation>Apple-Pay</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="104">
+				<annotation>
+					<documentation>(Sonstige) Appbasierte Zahlverfahren</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="105">
+				<annotation>
+					<documentation>Girocard kontaktlos</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="106">
+				<annotation>
+					<documentation>Girogo (GeldKarte kontaktlos)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="107">
+				<annotation>
+					<documentation>Giropay</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="108">
+				<annotation>
+					<documentation>Maestro</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="109">
+				<annotation>
+					<documentation>Mastercard paypass (kontaktlos)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="110">
+				<annotation>
+					<documentation>Paydirekt</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="111">
+				<annotation>
+					<documentation>PayPal</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="112">
+				<annotation>
+					<documentation>PrintTicket-Konto</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="113">
+				<annotation>
+					<documentation>Sofortüberweisung</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="114">
+				<annotation>
+					<documentation>V-Pay</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="115">
+				<annotation>
+					<documentation>VISA paywave (kontaktlos)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="116">
+				<annotation>
+					<documentation>(Sonstige) Web-basierte Zahlverfahren</documentation>
+				</annotation>
+			</enumeration>
 		</restriction>
 	</simpleType>
 
@@ -583,19 +743,30 @@
 
 	</complexType>
 
-
+	<simpleType name="Projektspezifisch_Type">
+		<annotation>
+			<documentation>Erlaubt alle Werte, die nicht mit "husst." beginnen.</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*"/>
+		</restriction>
+	</simpleType>
 
 	<simpleType name="AusgabeabschnittTyp_Type">
 		<annotation>
-			<documentation>Beschreibt den Typ eines ausgegebenen Papierdokumentes näher,</documentation>
+			<documentation>Beschreibt den Typ eines ausgegebenen Papierdokumentes näher.</documentation>
 		</annotation>
+		<union memberTypes="husst:AusgabeabschnittTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="AusgabeabschnittTypHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Fahrschein"/>
-			<enumeration value="Rollenbeginn"/>
-			<enumeration value="Rollenende"/>
-			<enumeration value="Probedruck"/>
-			<enumeration value="Quittung"/>
-			<enumeration value="Beleg"/>
+			<enumeration value="husst.Fahrschein"/>
+			<enumeration value="husst.Rollenbeginn"/>
+			<enumeration value="husst.Rollenende"/>
+			<enumeration value="husst.Probedruck"/>
+			<enumeration value="husst.Quittung"/>
+			<enumeration value="husst.Beleg"/>
 		</restriction>
 	</simpleType>
 
@@ -605,7 +776,7 @@
 				Definiert einen Papierabschnitt mit seiner Startnummer
 				und der Anzahl seiner Barcodeabschnitte oder Abschnittzähler. Die Startnummer
 				ist immer die kleinste Nummer des gelesenen Abschnittes,
-				egal in welche Richtung die Nummeriung der Rolle geht.
+				egal in welche Richtung die Nummerierung der Rolle geht.
 			</documentation>
 		</annotation>
 		<sequence>
@@ -634,21 +805,24 @@
 	<simpleType name="GeldBehaeltervorgang_Type">
 		<annotation>
 			<documentation>
-				Übergabemeldung dient zur Registrierung von
-				Safebag-Nummern. Dann
+				Übergabemeldung dient zur Registrierung von Safebag-Nummern.
 			</documentation>
 		</annotation>
+		<union memberTypes="husst:GeldBehaeltervorgangHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="GeldBehaeltervorgangHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Anfangsbestand"/>
-			<enumeration value="Endbestand"/>
-			<enumeration value="Behaelterzufuehrung"/>
-			<enumeration value="Behaelterentnahme"/>
-			<enumeration value="Bestandsaufnahme"/>
-			<enumeration value="Befuellung"/>
-			<enumeration value="Entnahme"/>
-			<enumeration value="Uebergabemeldung"/>
-			<enumeration value="Entnahmemeldung"/>
-			<enumeration value="Geldabwurf"/>
+			<enumeration value="husst.Anfangsbestand"/>
+			<enumeration value="husst.Endbestand"/>
+			<enumeration value="husst.Behaelterzufuehrung"/>
+			<enumeration value="husst.Behaelterentnahme"/>
+			<enumeration value="husst.Bestandsaufnahme"/>
+			<enumeration value="husst.Befuellung"/>
+			<enumeration value="husst.Entnahme"/>
+			<enumeration value="husst.Uebergabemeldung"/>
+			<enumeration value="husst.Entnahmemeldung"/>
+			<enumeration value="husst.Geldabwurf"/>
 		</restriction>
 	</simpleType>
 
@@ -715,24 +889,29 @@
 	</complexType>
 
 	<complexType name="Kasse_Type">
-		<choice>
+		<sequence>
 			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1">
 				<annotation>
-					<documentation>Kassenstand in kleinster Waehrungseinheit (z.B. Cent
-						bzw. Rappen)</documentation>
+					<documentation>
+						Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.)
+					</documentation>
 				</annotation>
 			</element>
-		</choice>
-		<attribute name="Zahlart" type="husst:Zahlart_Type" use="required"/>
+			<element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
+		</sequence>
 	</complexType>
 
 	<simpleType name="KasseTyp_Type">
 		<annotation>
 			<documentation></documentation>
 		</annotation>
+		<union memberTypes="husst:KasseTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="KasseTypHUSST_Type">
 		<restriction base="string">
-			<enumeration value="bar"/>
-			<enumeration value="unbar"/>
+			<enumeration value="husst.bar"/>
+			<enumeration value="husst.unbar"/>
 		</restriction>
 	</simpleType>
 
@@ -753,19 +932,22 @@
 		<attribute name="Anzahl" type="int" use="required"/>
 	</complexType>
 
-
 	<simpleType name="BelegkasseTyp_Type">
 		<annotation>
 			<documentation></documentation>
 		</annotation>
+		<union memberTypes="husst:BelegkasseTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="BelegkasseTypHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Restgeldquittung"/>
-			<enumeration value="Stornierung"/>
-			<enumeration value="Gutschein"/>
-			<enumeration value="Rücknahme"/>
-			<enumeration value="Chipkarte"/>
-			<enumeration value="Flugcoupon"/>
-			<enumeration value="Anfahrtscoupon"/>
+			<enumeration value="husst.Restgeldquittung"/>
+			<enumeration value="husst.Stornierung"/>
+			<enumeration value="husst.Gutschein"/>
+			<enumeration value="husst.Ruecknahme"/>
+			<enumeration value="husst.Chipkarte"/>
+			<enumeration value="husst.Flugcoupon"/>
+			<enumeration value="husst.Anfahrtscoupon"/>
 		</restriction>
 	</simpleType>
 
@@ -930,10 +1112,14 @@
 	</complexType>
 
 	<simpleType name="KomponentenKlasse_Type">
+		<union memberTypes="husst:KomponentenKlasseHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="KomponentenKlasseHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Software"/>
-			<enumeration value="Hardware"/>
-			<enumeration value="Daten"/>
+			<enumeration value="husst.Software"/>
+			<enumeration value="husst.Hardware"/>
+			<enumeration value="husst.Daten"/>
 		</restriction>
 	</simpleType>
 
@@ -942,6 +1128,17 @@
 			<documentation></documentation>
 		</annotation>
 		<sequence>
+			<element name="Typ" type="husst:OrtsTyp_Type" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Mit dem Typ wird die Ausprägung des jeweilgen
+						Standorts unterschieden.
+						Die Standorte eines Typs und eines
+						Mandanten sind fortlaufend
+						durchnumeriert.
+					</documentation>
+				</annotation>
+			</element>
 			<element name="Name" type="string" minOccurs="0" maxOccurs="1">
 				<annotation>
 					<documentation>Der Name ist ein beliebiger, sprechender Name des
@@ -949,16 +1146,6 @@
 				</annotation>
 			</element>
 		</sequence>
-		<attribute name="Typ" type="husst:StandortTyp_Type">
-			<annotation>
-				<documentation>Mit dem Standorttyp wird die Ausprägung des jeweilgen
-					Standorts unterschieden.
-					Die Standorte eines Types und eines
-					Mandanten sind fortlaufend
-					durchnumeriert.
-				</documentation>
-			</annotation>
-		</attribute>
 		<attribute name="Nr" type="int">
 			<annotation>
 				<documentation>Nummer des Nutzungsortes des Gerätes zu dem notierten
@@ -983,21 +1170,6 @@
 			</annotation>
 		</attribute>
 	</complexType>
-
-	<simpleType name="VerkaufsstelleTyp_Type">
-		<annotation>
-			<documentation>
-
-			</documentation>
-		</annotation>
-		<restriction base="string">
-			<enumeration value="Person"/>
-			<enumeration value="Geraet"/>
-			<enumeration value="Fahrzeug"/>
-			<enumeration value="Verkaufsstelle"/>
-			<enumeration value="Servicestelle"/>
-		</restriction>
-	</simpleType>
 
 	<complexType name="Tarifprodukt_Type">
 		<sequence>
@@ -1048,15 +1220,19 @@
 	</complexType>
 
 	<simpleType name="GeldbehaelterTyp_Type">
+		<union memberTypes="husst:GeldbehaelterTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="GeldbehaelterTypHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Personenkasse"/>
-			<enumeration value="Muenzendkasse"/>
-			<enumeration value="Banknotenendkasse"/>
-			<enumeration value="Geldwechsler"/>
-			<enumeration value="Geldspeicher"/>
-			<enumeration value="Zwischenkasse"/>
-			<enumeration value="Wertbehaelter"/>
-			<enumeration value="Handkasse"/>
+			<enumeration value="husst.Personenkasse"/>
+			<enumeration value="husst.Muenzendkasse"/>
+			<enumeration value="husst.Banknotenendkasse"/>
+			<enumeration value="husst.Geldwechsler"/>
+			<enumeration value="husst.Geldspeicher"/>
+			<enumeration value="husst.Zwischenkasse"/>
+			<enumeration value="husst.Wertbehaelter"/>
+			<enumeration value="husst.Handkasse"/>
 		</restriction>
 	</simpleType>
 
@@ -1194,7 +1370,7 @@
 					<documentation>Liniennummer</documentation>
 				</annotation>
 			</element>
-			<element name="Verkehrsmittel" type="husst:Verkehrsmittel_Type" minOccurs="0" maxOccurs="1">
+			<element name="Verkehrsmittel" type="husst:TransportserviceArt_Type" minOccurs="0" maxOccurs="1">
 				<annotation>
 					<documentation>Verkehrsmittel</documentation>
 				</annotation>
@@ -1245,42 +1421,150 @@
 	</complexType>
 
 	<simpleType name="Pruefkleidung_Type">
+		<union memberTypes="husst:PruefkleidungHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="PruefkleidungHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Zivilkleidung"/>
-			<enumeration value="Dienstkleidung"/>
-			<enumeration value="Sonstiges"/>
+			<enumeration value="husst.Zivilkleidung"/>
+			<enumeration value="husst.Dienstkleidung"/>
+			<enumeration value="husst.Sonstiges"/>
 		</restriction>
 	</simpleType>
 
 	<simpleType name="Pruefart_Type">
+		<union memberTypes="husst:PruefartHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="PruefartHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Standardprüfung"/>
-			<enumeration value="Abgangskontrolle"/>
-			<enumeration value="Sonstiges"/>
+			<enumeration value="husst.Standardpruefung"/>
+			<enumeration value="husst.Abgangskontrolle"/>
+			<enumeration value="husst.Sonstiges"/>
 		</restriction>
 	</simpleType>
 
-	<simpleType name="Verkehrsmittel_Type">
-		<restriction base="string">
-			<enumeration value="nicht spezifiziert/unbestimmt"/>
-			<enumeration value="Linienbus im Stadtverkehr"/>
-			<enumeration value="Metro/U-Bahn/S-Bahn"/>
-			<enumeration value="Straßenbahn/TRAM"/>
-			<enumeration value="Schiff"/>
-			<enumeration value="ICE"/>
-			<enumeration value="Überlandbus/Regionalbus"/>
-			<enumeration value="Regionalzug"/>
-			<enumeration value="IC"/>
-			<enumeration value="Standseilbahn"/>
-			<enumeration value="Regionalexpress"/>
-			<enumeration value="Expressbus"/>
-			<enumeration value="Flughafenzubringer"/>
-			<enumeration value="Verbundnahverkehr"/>
-			<enumeration value="Verbundnahverkehr ohne Kurzstrecke"/>
-			<enumeration value="SPNV"/>
-			<enumeration value="Verbundnahverkehr ohne Sonderverkehrsmittel"/>
-			<enumeration value="Fähre"/>
-			<enumeration value="Bergbahn"/>
+	<complexType name="TransportserviceArt_Type">
+		<simpleContent>
+			<extension base="husst:TransportserviceArtSimple_Type">
+				<attribute name="Bezeichnung" type="string" use="optional">
+					<annotation>
+						<documentation>
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="TransportserviceArtSimple_Type">
+		<union memberTypes="husst:TransportserviceArtKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+	</simpleType>
+
+	<simpleType name="TransportserviceArtKa_Type">
+		<annotation>
+			<documentation>
+        Die TransportserviceArt kommt aus der VDV-KA.
+        Die KA-Werte kommen aus dem EN1545: TransportTypeCode
+			</documentation>
+		</annotation>
+		<restriction base="husst:INT1">
+			<enumeration value="0">
+				<annotation>
+					<documentation>nicht spezifiziert/unbestimmt</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="1">
+				<annotation>
+					<documentation>Linienbus im Stadtverkehr</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="3">
+				<annotation>
+					<documentation>Metro/U-Bahn/S-Bahn</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="4">
+				<annotation>
+					<documentation>Strassenbahn/TRAM</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="6">
+				<annotation>
+					<documentation>Schiff</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="10">
+				<annotation>
+					<documentation>ICE</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="11">
+				<annotation>
+					<documentation>Überlandbus/Regionalbus</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="19">
+				<annotation>
+					<documentation>Regionalzug</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="20">
+				<annotation>
+					<documentation>IC</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="21">
+				<annotation>
+					<documentation>Standseilbahn</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="29">
+				<annotation>
+					<documentation>Regionalexpress</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="30">
+				<annotation>
+					<documentation>Expressbus</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="31">
+				<annotation>
+					<documentation>Flughafenzubringer</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="32">
+				<annotation>
+					<documentation>Verbundnahverkehr</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="33">
+				<annotation>
+					<documentation>Verbundnahverkehr ohne Kurzstrecke</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="34">
+				<annotation>
+					<documentation>SPNV</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="35">
+				<annotation>
+					<documentation>Verbundnahverkehr ohne Sonderverkehrsmittel</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="36">
+				<annotation>
+					<documentation>Fähre</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="37">
+				<annotation>
+					<documentation>Bergbahn</documentation>
+				</annotation>
+			</enumeration>
 		</restriction>
 	</simpleType>
 
@@ -1338,20 +1622,188 @@
 		</attribute>
 	</complexType>
 
-
 	<simpleType name="Betriebsart_Type">
+		<union memberTypes="husst:BetriebsartHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="BetriebsartHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Echtbetrieb"/>
-			<enumeration value="Testbetrieb"/>
-			<enumeration value="Schulungsbetrieb"/>
+			<enumeration value="husst.Echtbetrieb"/>
+			<enumeration value="husst.Testbetrieb"/>
+			<enumeration value="husst.Schulungsbetrieb"/>
 		</restriction>
 	</simpleType>
 
-	<simpleType name="StandortTyp_Type">
-		<restriction base="string">
-			<enumeration value="Fahrzeug"/>
-			<enumeration value="Ort"/>
-			<enumeration value="Verkaufsstelle"/>
+	<complexType name="OrtsTyp_Type">
+		<simpleContent>
+			<extension base="husst:OrtsTypSimple_Type">
+				<attribute name="Bezeichnung" type="string" use="optional">
+					<annotation>
+						<documentation>
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="OrtsTypSimple_Type">
+		<union memberTypes="husst:OrtsTypKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+	</simpleType>
+
+	<simpleType name="OrtsTypKa_Type">
+		<annotation>
+			<documentation>
+        Der OrtsTyp kommt aus der VDV-KA.
+        Die KA-Werte kommen aus dem EN1545: LocationTypeCode
+			</documentation>
+		</annotation>
+		<restriction base="husst:INT1">
+			<enumeration value="0">
+				<annotation>
+					<documentation>Bushaltestelle</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="1">
+				<annotation>
+					<documentation>U-Bahn- (Metro-)Station</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="2">
+				<annotation>
+					<documentation>Bahnhof (Eisenbahn)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="3">
+				<annotation>
+					<documentation>Strassenbahn- (TRAM-) Haltestelle</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="11">
+				<annotation>
+					<documentation>Verkaufsstelle</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="16">
+				<annotation>
+					<documentation>Gebiet(auch fuer Zone)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="17">
+				<annotation>
+					<documentation>Korridor</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="200">
+				<annotation>
+					<documentation>
+            Haltestelle allgemein
+            fuer Haltestellen im Fahrplansinne,
+            unabhaengig vom Verkehrsmittel
+					</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="201">
+				<annotation>
+					<documentation>Massenpersonalisierer</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="202">
+				<annotation>
+					<documentation>areaList_ID</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="203">
+				<annotation>
+					<documentation>im Fahrzeug/Zug</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="204">
+				<annotation>
+					<documentation>TouchPoint</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="205">
+				<annotation>
+					<documentation>im Fahrzeug der Linie</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="206">
+				<annotation>
+					<documentation>im Fahrzeug der Zugnummer</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="207">
+				<annotation>
+					<documentation>Teilzone</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="208">
+				<annotation>
+					<documentation>neutrale Zone</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="209">
+				<annotation>
+					<documentation>Wabe</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="210">
+				<annotation>
+					<documentation>Grosswabe</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="211">
+				<annotation>
+					<documentation>Tarifpunkt</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="212">
+				<annotation>
+					<documentation>Backoffice</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="213">
+				<annotation>
+					<documentation>im Fahrzeug an Haltestelle</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="214">
+				<annotation>
+					<documentation>Ereignisort (event location)</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="215">
+				<annotation>
+					<documentation>Ticketserver</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="251">
+				<annotation>
+					<documentation>Ortsteil</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="252">
+				<annotation>
+					<documentation>Gemeinde</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="253">
+				<annotation>
+					<documentation>Kreis</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="254">
+				<annotation>
+					<documentation>Land</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="255">
+				<annotation>
+					<documentation>keine Angabe</documentation>
+				</annotation>
+			</enumeration>
 		</restriction>
 	</simpleType>
 
@@ -1397,11 +1849,15 @@
 
 
 	<simpleType name="KomponentenVorgang_Type">
+		<union memberTypes="husst:KomponentenVorgangHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="KomponentenVorgangHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Entnahme"/>
-			<enumeration value="Zufuehrung"/>
-			<enumeration value="Bestandsaufnahme"/>
-			<enumeration value="Update"/>
+			<enumeration value="husst.Entnahme"/>
+			<enumeration value="husst.Zufuehrung"/>
+			<enumeration value="husst.Bestandsaufnahme"/>
+			<enumeration value="husst.Update"/>
 		</restriction>
 	</simpleType>
 
@@ -1459,7 +1915,7 @@
 
 	<complexType name="Vertriebsstelle_Type">
 		<sequence>
-			<element name="Typ" maxOccurs="1" minOccurs="1" type="husst:VerkaufsstelleTyp_Type">
+			<element name="Typ" maxOccurs="1" minOccurs="1" type="husst:OrtsTyp_Type">
 				<annotation>
 					<documentation>
 						Der Typ qualifiziert die beiden Elemente
@@ -1527,7 +1983,7 @@
 		</annotation>
 		<sequence>
 			<element name="Anfangsbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1"/>
-			<element name="Zuführungen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
+			<element name="Zufuehrungen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
 			<element name="Entnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
 			<element name="Fehleinnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
 			<element name="Kassenentnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
@@ -1710,23 +2166,10 @@
 
 	<complexType name="ZVTBezahlung_Type">
 		<sequence>
-			<element name="Kartenherausgeber" type="husst:Zahlart_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0"/>
 			<element name="TerminalId" type="string" maxOccurs="1" minOccurs="1"/>
 			<element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1"/>
 			<element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
-		</sequence>
-	</complexType>
-
-	<complexType name="KABezahlung_Type">
-		<sequence>
-			<element name="KAZahlart" maxOccurs="1" minOccurs="1" type="husst:KAZahlart_Type"/>
-			<element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
-				<annotation>
-					<documentation>Referenz zu einem global eindeutigen Vorgang - diese
-						Information ist auch in den zugehörigen KA Kontrolldaten
-						enthalten.</documentation>
-				</annotation>
-			</element>
 		</sequence>
 	</complexType>
 
@@ -1739,7 +2182,7 @@
 
 	<complexType name="KKOfflineBezahlung_Type">
 		<sequence>
-			<element name="Kartenherausgeber" type="husst:Zahlart_Type" maxOccurs="1" minOccurs="0"/>
+			<element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0"/>
 			<element name="KartenNr" type="string" maxOccurs="1" minOccurs="1"/>
 			<element name="Pruefkennung" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="GueltigBis" type="gYearMonth" maxOccurs="1" minOccurs="1"/>
@@ -1772,11 +2215,6 @@
 			</annotation>
 		</attribute>
 	</complexType>
-
-
-	<simpleType name="Personenart_Type">
-		<restriction base="string"/>
-	</simpleType>
 
 	<complexType name="Restgeldbeleg_Type">
 		<sequence>
@@ -1835,19 +2273,28 @@
 	</complexType>
 
 	<simpleType name="Meldungsklasse_Type">
+		<union memberTypes="husst:MeldungsklasseHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="MeldungsklasseHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Debug"/>
-			<enumeration value="Info"/>
-			<enumeration value="Warnung"/>
-			<enumeration value="Fehler"/>
-			<enumeration value="SchwererFehler"/>
+			<enumeration value="husst.Debug"/>
+			<enumeration value="husst.Info"/>
+			<enumeration value="husst.Warnung"/>
+			<enumeration value="husst.Fehler"/>
+			<enumeration value="husst.SchwererFehler"/>
 		</restriction>
 	</simpleType>
+
 	<simpleType name="Transaktionsart_Type">
+		<union memberTypes="husst:TransaktionsartHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="TransaktionsartHUSST_Type">
 		<restriction base="string">
-			<enumeration value="KA"/>
-			<enumeration value="Geldkarte"/>
-			<enumeration value="BOB"/>
+			<enumeration value="husst.KA"/>
+			<enumeration value="husst.Geldkarte"/>
+			<enumeration value="husst.BOB"/>
 		</restriction>
 	</simpleType>
 
@@ -1861,31 +2308,38 @@
 
 
 	<simpleType name="VorgangsTyp_Type">
+		<union memberTypes="husst:VorgangsTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="VorgangsTypHUSST_Type">
 		<restriction base="string">
-			<enumeration value="KeinFS"/>
-			<enumeration value="UngueltigFS"/>
-			<enumeration value="TeilungueltigFS"/>
-			<enumeration value="Betrugsversuch"/>
-			<enumeration value="Alkohol"/>
-			<enumeration value="Rauchen"/>
-			<enumeration value="Sachbeschaedigung"/>
-			<enumeration value="Verhalten"/>
-			<enumeration value="Notbremse"/>
-			<enumeration value="Sonstiges"/>
+			<enumeration value="husst.KeinFS"/>
+			<enumeration value="husst.UngueltigerFS"/>
+			<enumeration value="husst.TeilungueltigerFS"/>
+			<enumeration value="husst.Betrugsversuch"/>
+			<enumeration value="husst.Alkohol"/>
+			<enumeration value="husst.Rauchen"/>
+			<enumeration value="husst.Sachbeschaedigung"/>
+			<enumeration value="husst.Verhalten"/>
+			<enumeration value="husst.Notbremse"/>
+			<enumeration value="husst.Sonstiges"/>
 		</restriction>
 	</simpleType>
 
-
 	<simpleType name="VerfolgungsTyp_Type">
+		<union memberTypes="husst:VerfolgungsTypHUSST_Type husst:Projektspezifisch_Type"/>
+	</simpleType>
+
+	<simpleType name="VerfolgungsTypHUSST_Type">
 		<restriction base="string">
-			<enumeration value="Polizei"/>
-			<enumeration value="Anonym"/>
-			<enumeration value="AnnahmeVerweigert"/>
-			<enumeration value="VerkaufsDefekt"/>
-			<enumeration value="Umsteiger"/>
-			<enumeration value="Nacherfassung"/>
-			<enumeration value="Loeschung"/>
-			<enumeration value="Kulanz"/>
+			<enumeration value="husst.Polizei"/>
+			<enumeration value="husst.Anonym"/>
+			<enumeration value="husst.AnnahmeVerweigert"/>
+			<enumeration value="husst.VerkaufsDefekt"/>
+			<enumeration value="husst.Umsteiger"/>
+			<enumeration value="husst.Nacherfassung"/>
+			<enumeration value="husst.Loeschung"/>
+			<enumeration value="husst.Kulanz"/>
 		</restriction>
 	</simpleType>
 
@@ -1896,24 +2350,11 @@
 		</sequence>
 	</complexType>
 
-
-
-	<simpleType name="KAZahlart_Type">
-		<restriction base="string">
-			<enumeration value="PEP"/>
-			<enumeration value="POP"/>
-			<enumeration value="WES"/>
-		</restriction>
-	</simpleType>
-
-
 	<complexType name="Tarifpunkt_Type">
 		<sequence>
 			<element name="ID_Tarifpunkt" type="int" maxOccurs="1" minOccurs="0"/>
 			<element name="ID_Tarifgebiet" type="int" maxOccurs="1" minOccurs="1"/>
 			<element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
-
-
 		</sequence>
 	</complexType>
 
@@ -1945,20 +2386,20 @@
 			<element name="Namenszuatz" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="StrasseHausNr" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Postleitzahl" type="string" maxOccurs="1" minOccurs="0"/>
-			<element name="Länderkennzeichen" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Laenderkennzeichen" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Wohnort" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Staat" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Geschlecht" maxOccurs="1" minOccurs="0">
 				<simpleType>
 					<restriction base="string">
 						<enumeration value="weiblich"/>
-						<enumeration value="männlich"/>
+						<enumeration value="maennlich"/>
 					</restriction>
 				</simpleType>
 			</element>
 			<element name="TelefonNr" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Geburtsdatum" type="dateTime" maxOccurs="1" minOccurs="0"/>
-			<element name="Staatsangehörigkeit" type="string" maxOccurs="1" minOccurs="0"/>
+			<element name="Staatsangehoerigkeit" type="string" maxOccurs="1" minOccurs="0"/>
 			<element name="Legitimtation" type="string" maxOccurs="1" minOccurs="0">
 				<annotation>
 					<documentation>
@@ -2022,29 +2463,14 @@
 		</sequence>
 	</complexType>
 
-
 	<simpleType name="Codierung_Type">
 		<annotation>
 			<documentation>
-				Die Codierung entspricht der DB-Codierung entsprechend
-				des Dokumentes "Arbeitsblatt1 FN Codierung,
-				Tarifgebiete.doc" vom
-				13.04.2010
+				Die Codierung entspricht der DB-Codierung
 			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="00"/>
-			<enumeration value="22"/>
-			<enumeration value="33"/>
-			<enumeration value="34"/>
-			<enumeration value="52"/>
-			<enumeration value="53"/>
-			<enumeration value="66"/>
-			<enumeration value="77"/>
-			<enumeration value="90"/>
-			<enumeration value="91"/>
-			<enumeration value="92"/>
-			<enumeration value="93"/>
+			<pattern value="[1-9a-zA-Z]{2}"/>
 		</restriction>
 	</simpleType>
 
@@ -2052,7 +2478,7 @@
 		<sequence>
 			<element name="SamNummer" type="husst:INT3" maxOccurs="1" minOccurs="1">
 				<annotation>
-					<documentation>SAM_ID.saNummer 24 Bit (Beispiel 0x654321), eine, im
+					<documentation>SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im
 						gesamten Geltungsbereich der Kernapplikation eindeutige
 						SAM-Kartennummer</documentation>
 				</annotation>
@@ -2081,64 +2507,127 @@
 
 	<complexType name="Mitnahme_Type">
 		<sequence>
-			<element name="Fahrgasttyp" type="husst:FahrgastTyp_Type" maxOccurs="1" minOccurs="1"/>
+			<element name="Fahrgasttyp" type="husst:KundenTyp_Type" maxOccurs="1" minOccurs="1"/>
 			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
 		</sequence>
 	</complexType>
 
-	<simpleType name="FahrgastTyp_Type">
+	<simpleType name="ProjektspezifischAnstattKa_Type">
 		<annotation>
-			<documentation>Siehe Enumeration</documentation>
+			<documentation>
+				Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann.
+				Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
+			</documentation>
 		</annotation>
 		<restriction base="string">
-			<enumeration value="E">
+			<pattern value="[A-Za-z][A-Za-z0-9_]*"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="KundenTyp_Type">
+		<simpleContent>
+			<extension base="husst:KundenTypSimple_Type">
+				<attribute name="Bezeichnung" type="string" use="optional">
+					<annotation>
+						<documentation>
+							Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
+						</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+
+	<simpleType name="KundenTypSimple_Type">
+		<union memberTypes="husst:KundenTypKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+	</simpleType>
+
+	<simpleType name="KundenTypKa_Type">
+		<annotation>
+			<documentation>
+        Der Kundentyp kommt aus der VDV-KA.
+        Die KA-Werte kommen aus dem EN1545: ProfileCodeIOP
+			</documentation>
+		</annotation>
+		<restriction base="husst:INT1">
+			<enumeration value="0">
 				<annotation>
-					<documentation>Erwachsene</documentation>
+					<documentation>nicht spezifiziert/unbestimmt</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="K">
+			<enumeration value="1">
+				<annotation>
+					<documentation>Erwachsener</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="2">
 				<annotation>
 					<documentation>Kind</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="SL">
+			<enumeration value="3">
 				<annotation>
-					<documentation>Schüler unter 14 Jahren</documentation>
+					<documentation>Student</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="SH">
+			<enumeration value="5">
 				<annotation>
-					<documentation>Schüler über und gleich 14 Jahren</documentation>
+					<documentation>Behinderter</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="H">
+			<enumeration value="6">
 				<annotation>
-					<documentation>Halbtax</documentation>
+					<documentation>Sehbehinderter</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="R">
+			<enumeration value="7">
 				<annotation>
-					<documentation>Ermäßigte</documentation>
+					<documentation>Hoergeschaedigter</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="F">
+			<enumeration value="8">
+				<annotation>
+					<documentation>Arbeitsloser/Sozialhilfeempfaenger</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="9">
+				<annotation>
+					<documentation>Personal</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="10">
+				<annotation>
+					<documentation>Militaeranhehoeriger</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="19">
+				<annotation>
+					<documentation>Schueler</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="20">
+				<annotation>
+					<documentation>Azubi</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="25">
+				<annotation>
+					<documentation>Senior</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="64">
+				<annotation>
+					<documentation>ermäßigt</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="65">
 				<annotation>
 					<documentation>Fahrrad</documentation>
 				</annotation>
 			</enumeration>
-			<enumeration value="Fr">
-				<annotation>
-					<documentation>Freinutzer</documentation>
-				</annotation>
-			</enumeration>
-			<enumeration value="Hu">
+			<enumeration value="66">
 				<annotation>
 					<documentation>Hund</documentation>
-				</annotation>
-			</enumeration>
-			<enumeration value="G">
-				<annotation>
-					<documentation>Undifferenzierte Gruppe</documentation>
 				</annotation>
 			</enumeration>
 		</restriction>
