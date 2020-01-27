@@ -3,22 +3,16 @@
 	xmlns="http://www.w3.org/2001/XMLSchema" 
 	xmlns:husst="http://husst.de/Ergebnisdaten/Cindy">
 
-
-
 	<annotation>
 		<documentation>
-      
-      
-      Format der Daten, die von den Verkaufs- und
-      Kontrollgeräten an das
-      Hintergrundsystem zurückgeliefert werden.
-      (c) 2019 HUSST Forum im ITS Germany e.V.
+			HUSST Ergebnisdaten
+			Version: Entwicklung "Cindy"
 
-      Maintainer:
-      Fabian Gerst, AMCON GmbH
-      Klaus Hitschler, krauth technology GmbH
-      Michael Schmidt, HighQ GmbH
-      
+			Mehr Informationen:
+			- https://husst.de/
+			- https://github.com/HUSST-de/HUSST
+
+			Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 		</documentation>
 	</annotation>
 
