@@ -10,240 +10,240 @@
 
 CREATE TABLE Bearbeitung(
 	Bearbeitungsdatum                   datetime NOT NULL, 
-	Lieferant                           string NOT NULL, 
-	Kommentar                           string,
+	Lieferant                           text NOT NULL, 
+	Kommentar                           text,
 	PRIMARY KEY(Bearbeitungsdatum ASC, Lieferant ASC));
 
 CREATE TABLE Bediengebiete(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Bediengebiet                     bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Bediengebiet ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefBundeslaender(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Bundesland                       bigint NOT NULL, 
-	Iso                                 string, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Iso                                 text, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Bundesland ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefFahrgasttypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Fahrgasttyp                      bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Fahrgasttyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefKomfortklassen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Komfortklasse                    bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Komfortklasse ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefNachbarhaltestellenbeziehungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Nachbarhaltestellenbeziehung     bigint NOT NULL, 
 	ID_Zeitraum                         bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Nachbarhaltestellenbeziehung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefOrtspunkttypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Ortspunkttyp                     bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Ortspunkttyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefOTPTypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_OTPTyp                           bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_OTPTyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefPreisfindungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Preisfindung                     bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Preisfindung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefPreisquellen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Preisquelle                      bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Preisquelle ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefPreisspaltentypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Preisspaltentyp                  bigint NOT NULL, 
-	Kennung                             string, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Kennung                             text, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Preisspaltentyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefRabattklassen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Rabattklasse                     bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Rabattklasse ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefReisetypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Reisetyp                         bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Reisetyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefRelationenberechnungsregelungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relationenberechnungsregelung    bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Relationenberechnungsregelung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefRelationendruckregelungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relationendruckregelung          bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Relationendruckregelung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefRelationscodegruppentypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relcodegruppentyp                bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Relcodegruppentyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefSortenausgaberegelungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sortenausgaberegelung            bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Sortenausgaberegelung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefSortendruckregelungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sortendruckregelung              bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Sortendruckregelung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefSortengruppentypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sortengruppentyp                 bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Sortengruppentyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefSortenklassen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sortenklasse                     bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Sortenklasse ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefSortentypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sortentyp                        bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Sortentyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefTarifpunkttypen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tarifpunkttyp                    bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Tarifpunkttyp ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefVertriebswege(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Vertriebswege                    bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Vertriebswege ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefWaehrungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Waehrung                         bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Waehrung ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefZahlungsarten(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Zahlungsarten                    bigint NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Zahlungsarten ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Feiertage(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Feiertag                         bigint NOT NULL, 
 	ID_Bundesland                       bigint NOT NULL, 
 	Datum                               datetime NOT NULL, 
-	Bezeichnung                         string,
+	Bezeichnung                         text,
 	PRIMARY KEY(ID_Feiertag ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_Feiertage ON Feiertage(Datum ASC, ID_Bundesland ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Interpretationen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
-	Interpretationsschluessel           string NOT NULL, 
-	Wert                                string,
+	Interpretationsschluessel           text NOT NULL, 
+	Wert                                text,
 	PRIMARY KEY(Interpretationsschluessel ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Kalender(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Betriebstag                      datetime NOT NULL, 
 	ID_Betriebstagesart                 bigint NOT NULL, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Betriebstag ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Linien(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Linie                            bigint NOT NULL, 
 	ID_Weg_Hin                          bigint NOT NULL, 
 	ID_Weg_Rueck                        bigint, 
-	Bezeichnung                         string, 
+	Bezeichnung                         text, 
 	ID_Konzessionaer                    bigint, 
 	ID_Bediengebiet                     bigint, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Linie ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Mwst(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Mwst                             bigint NOT NULL, 
-	MwstSatz                            real, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string, 
+	MwstSatz                            numeric, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text, 
 	KA_Mwst                             bigint,
 	PRIMARY KEY(ID_Mwst ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Nachbarhaltestellen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Nachbarhaltestelle               bigint NOT NULL, 
 	ID_Bediengebiet                     bigint, 
@@ -259,19 +259,19 @@ CREATE TABLE Nachbarhaltestellen(
 CREATE UNIQUE INDEX Uix_Nachbarhaltestellen ON Nachbarhaltestellen(ID_OrtspunktVon ASC, ID_OrtspunktNach ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Ortspunkte(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Ortspunkt                        bigint NOT NULL, 
 	ID_Ortspunkttyp                     bigint NOT NULL, 
 	Ortsnummer                          bigint NOT NULL, 
 	ID_Relcode                          bigint NOT NULL, 
-	IBISnr                              string, 
+	IBISnr                              text, 
 	ID_Bundesland                       bigint, 
-	Gemeindekennziffer                  string, 
-	Bezeichnung                         string, 
-	BezeichnungKurz                     string, 
-	BezeichnungDruck                    string, 
-	ReferenzExtern                      string, 
+	Gemeindekennziffer                  text, 
+	Bezeichnung                         text, 
+	BezeichnungKurz                     text, 
+	BezeichnungDruck                    text, 
+	ReferenzExtern                      text, 
 	ID_Bediengebiet                     bigint, 
 	ID_OrtspunktReferenz                bigint, 
 	XKoordWgs84                         real, 
@@ -280,40 +280,40 @@ CREATE TABLE Ortspunkte(
 CREATE UNIQUE INDEX Uix_Ortspunkte ON Ortspunkte(Ortsnummer ASC, ID_Ortspunkttyp ASC, ID_Zeitraum ASC);
 
 CREATE TABLE OrtspunkteKA(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Ortspunkt                        bigint NOT NULL, 
 	KA_OrtOrgID                         bigint, 
 	KA_OrtTyp                           bigint, 
 	KA_OrtNummer                        bigint, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Ortspunkt ASC, ID_Zeitraum ASC));
 
 CREATE TABLE OrtspunkteTG(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_OrtspunktTG                      bigint NOT NULL, 
 	ID_Ortspunkt                        bigint NOT NULL, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
-	Bezeichnung                         string, 
-	BezeichnungKurz                     string, 
-	BezeichnungDruck                    string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	BezeichnungKurz                     text, 
+	BezeichnungDruck                    text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_OrtspunktTG ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_OrtspunkteTG ON OrtspunkteTG(ID_Ortspunkt ASC, ID_Tarifgebiet ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Preise(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Preis                            bigint NOT NULL, 
 	ID_Sorte                            bigint NOT NULL, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
 	ID_Preisstufe                       bigint NOT NULL, 
 	ID_Preisspalte                      bigint NOT NULL, 
-	ReferenzExtern                      string, 
+	ReferenzExtern                      text, 
 	Preis                               bigint, 
-	PreisstufenbezeichnungKurz          string, 
-	Preisstufenbezeichnung              string, 
+	PreisstufenbezeichnungKurz          text, 
+	Preisstufenbezeichnung              text, 
 	ID_Mwst                             bigint, 
 	ID_PreisstufeReferenz               bigint, 
 	ID_GueltigkeitszeitRegel            bigint, 
@@ -331,65 +331,65 @@ CREATE TABLE Preise(
 CREATE UNIQUE INDEX Uix_Preise ON Preise(ID_Preisstufe ASC, ID_Sorte ASC, ID_Preisspalte ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Preisspalten(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Preisspalte                      bigint NOT NULL, 
 	ID_Waehrung                         bigint NOT NULL, 
 	ID_Preisspaltentyp                  bigint, 
-	Bezeichnung                         string, 
-	BezeichnungKurz                     string, 
-	Hinweis                             string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	BezeichnungKurz                     text, 
+	Hinweis                             text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Preisspalte ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Preisstufen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Preisstufe                       bigint NOT NULL, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
 	Preisstufennummer                   bigint, 
-	ReferenzExtern                      string, 
-	BezeichnungKurz                     string, 
-	Bezeichnung                         string, 
+	ReferenzExtern                      text, 
+	BezeichnungKurz                     text, 
+	Bezeichnung                         text, 
 	WegstreckeInMetern                  bigint, 
 	ID_Mwst                             bigint, 
-	UpgradeStopp                        bit, 
+	UpgradeStopp                        integer, 
 	SortOrder                           bigint NOT NULL, 
 	KA_Preisstufe                       bigint NOT NULL,
 	PRIMARY KEY(ID_Preisstufe ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Preisstufendirektwahl(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Preisstufendirektwahl            bigint NOT NULL, 
 	ID_Zeitraum                         bigint NOT NULL, 
-	Direktwahlschluessel                string NOT NULL, 
+	Direktwahlschluessel                text NOT NULL, 
 	ID_Tarifart                         bigint NOT NULL, 
 	ID_Preisstufe                       bigint NOT NULL, 
-	Bezeichnung                         string, 
-	BezeichnungDruck                    string, 
+	Bezeichnung                         text, 
+	BezeichnungDruck                    text, 
 	ID_Relation                         bigint, 
 	ID_Vertriebswege                    bigint, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Preisstufendirektwahl ASC, ID_Zeitraum ASC));
 
 CREATE TABLE RaeumlicheGueltigkeit(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_RaeumlicheGueltigkeit            bigint NOT NULL, 
 	ID_Tarifpunktmenge                  bigint, 
-	KA_GueltigkeitsraumOriginaer        string NOT NULL, 
-	KA_GueltigkeitsraumAlternativ       string NOT NULL, 
-	ReferenzExtern                      string,
+	KA_GueltigkeitsraumOriginaer        text NOT NULL, 
+	KA_GueltigkeitsraumAlternativ       text NOT NULL, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_RaeumlicheGueltigkeit ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Relationen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relation                         bigint NOT NULL, 
 	ID_RelcodeStart                     bigint NOT NULL, 
 	ID_RelcodeZiel                      bigint NOT NULL, 
 	SortOrder                           bigint NOT NULL, 
-	GegenrichtungLiegtVor               bit, 
+	GegenrichtungLiegtVor               integer, 
 	ID_Vertriebswege                    bigint, 
 	ID_Via                              bigint, 
 	ID_Berechnungsregelung              bigint, 
@@ -397,7 +397,7 @@ CREATE TABLE Relationen(
 	PRIMARY KEY(ID_Relation ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Relationscodegruppen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relcodegruppentyp                bigint NOT NULL, 
 	ID_Relcodegruppe                    bigint NOT NULL, 
@@ -406,14 +406,14 @@ CREATE TABLE Relationscodegruppen(
 	PRIMARY KEY(ID_Relcodegruppe ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Relationscodes(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relcode                          bigint NOT NULL, 
 	ID_Tarifpunkt                       bigint NOT NULL,
 	PRIMARY KEY(ID_Relcode ASC, ID_Zeitraum ASC, ID_Tarifpunkt ASC));
 
 CREATE TABLE Relationszuordnungen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Relationszuordung                bigint NOT NULL, 
 	ID_Relation                         bigint NOT NULL, 
@@ -423,17 +423,17 @@ CREATE TABLE Relationszuordnungen(
 CREATE UNIQUE INDEX Uix_Relationszuordnungen ON Relationszuordnungen(ID_Teilrelation ASC, ID_Relation ASC, ID_Relationszuordung ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Sorten(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sorte                            bigint NOT NULL, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
 	ID_Sortenklasse                     bigint NOT NULL, 
-	ReferenzExtern                      string, 
-	BezeichnungKurz                     string, 
-	Bezeichnung                         string, 
+	ReferenzExtern                      text, 
+	BezeichnungKurz                     text, 
+	Bezeichnung                         text, 
 	ID_Ausgaberegelung                  bigint, 
 	ID_Druckregelung                    bigint, 
-	Layout                              string, 
+	Layout                              text, 
 	ID_Vertriebswege                    bigint, 
 	ID_Mwst                             bigint, 
 	ID_Zahlungsarten                    bigint, 
@@ -446,105 +446,105 @@ CREATE TABLE Sorten(
 	ID_GueltigkeitszeitRegel            bigint, 
 	ID_Preisfindung                     bigint, 
 	ID_Reisetyp                         bigint, 
-	BezeichnungDruck                    string, 
+	BezeichnungDruck                    text, 
 	KA_ProdOrgID                        bigint, 
 	KA_ProdNr                           bigint, 
-	KA_Infotext                         string, 
+	KA_Infotext                         text, 
 	KA_Fahrgasttyp                      bigint, 
 	KA_Verkehrsmittel                   bigint, 
 	KA_Serviceklasse                    bigint,
 	PRIMARY KEY(ID_Sorte ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Sortengruppen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sortengruppe                     bigint NOT NULL, 
 	Sortengruppennummer                 bigint NOT NULL, 
 	ID_Sortengruppentyp                 bigint NOT NULL, 
 	ID_Bediengebiet                     bigint NOT NULL, 
 	SortOrder                           bigint NOT NULL, 
-	Bezeichnung                         string, 
-	TarifInfo                           string, 
+	Bezeichnung                         text, 
+	TarifInfo                           text, 
 	ID_Sorte                            bigint NOT NULL, 
 	ID_Preisstufe                       bigint,
 	PRIMARY KEY(ID_Sortengruppe ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_Sortengruppen ON Sortengruppen(Sortengruppennummer ASC, ID_Sortengruppentyp ASC, ID_Bediengebiet ASC, SortOrder ASC, ID_Zeitraum ASC);
 
 CREATE TABLE SortenTarifarten(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Sorte                            bigint NOT NULL, 
 	ID_Tarifart                         bigint NOT NULL,
 	PRIMARY KEY(ID_Sorte ASC, ID_Tarifart ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Tagesarten(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Betriebstagesart                 bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Betriebstagesart ASC, ID_Zeitraum ASC));
 
 CREATE TABLE TagesartMerkmalElemente(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_TagesartMerkmalElement           bigint NOT NULL, 
 	ID_Betriebstagesart                 bigint NOT NULL, 
 	ID_TagesmerkmalElement              bigint NOT NULL, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_TagesartMerkmalElement ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Tagesmerkmale(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tagesmerkmal                     bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Tagesmerkmal ASC, ID_Zeitraum ASC));
 
 CREATE TABLE TagesmerkmalElemente(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_TagesmerkmalElement              bigint NOT NULL, 
 	ID_Tagesmerkmal                     bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_TagesmerkmalElement ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_TagesmerkmalElemente ON TagesmerkmalElemente(ID_Tagesmerkmal ASC, Bezeichnung ASC, ID_Zeitraum ASC);
 
 CREATE TABLE Tarifarten(
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tarifart                         bigint NOT NULL, 
-	Bezeichnung                         string, 
+	Bezeichnung                         text, 
 	ID_Tarifgebiet                      bigint, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Tarifart ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Tarifgebiete(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
-	BezeichnungKurz                     string, 
-	Bezeichnung                         string, 
+	BezeichnungKurz                     text, 
+	Bezeichnung                         text, 
 	Erstellungsdatum                    datetime, 
-	Version                             string, 
-	ReferenzExtern                      string,
+	Version                             text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Tarifgebiet ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Tarifpunkte(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tarifpunkt                       bigint NOT NULL, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
 	ID_Tarifpunkttyp                    bigint, 
-	Bezeichnung                         string, 
-	BezeichnungDruck                    string, 
+	Bezeichnung                         text, 
+	BezeichnungDruck                    text, 
 	ID_TarifpunktReferenz               bigint, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Tarifpunkt ASC, ID_Zeitraum ASC));
 
 CREATE TABLE TarifpunktmengeElemente(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_TarifpunktmengeElement           bigint NOT NULL, 
 	ID_Tarifpunktmenge                  bigint NOT NULL, 
@@ -553,19 +553,19 @@ CREATE TABLE TarifpunktmengeElemente(
 	PRIMARY KEY(ID_TarifpunktmengeElement ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Tarifpunktmengen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tarifpunktmenge                  bigint NOT NULL, 
-	ReferenzExtern                      string,
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Tarifpunktmenge ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Tarifrelevantepunkte(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Tarifrelevanterpunkt             bigint NOT NULL, 
 	ID_OTPTyp                           bigint NOT NULL, 
 	ID_Bediengebiet                     bigint NOT NULL, 
-	Bezeichnung                         string NOT NULL, 
+	Bezeichnung                         text NOT NULL, 
 	SortOrder                           bigint NOT NULL, 
 	ID_Relcode                          bigint, 
 	ID_Bundesland                       bigint, 
@@ -576,79 +576,79 @@ CREATE TABLE Tarifrelevantepunkte(
 	PRIMARY KEY(ID_Tarifrelevanterpunkt ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Teilrelationen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Teilrelation                     bigint NOT NULL, 
 	ID_Tarifart                         bigint NOT NULL, 
 	ID_TarifpunktStart                  bigint NOT NULL, 
-	TarifpunktbezeichnungStart          string, 
+	TarifpunktbezeichnungStart          text, 
 	ID_TarifpunktZiel                   bigint NOT NULL, 
-	TarifpunktbezeichnungZiel           string, 
+	TarifpunktbezeichnungZiel           text, 
 	ID_Tarifgebiet                      bigint NOT NULL, 
 	ID_Preisstufe                       bigint NOT NULL, 
 	ID_Preisquelle                      bigint, 
 	ID_Komfortklasse                    bigint, 
 	AlternativePreisGruppe              bigint, 
-	EinnahmeAufteilung                  string, 
-	ViabezeichnungDruck                 string, 
-	ViabezeichnungRueckDruck            string, 
+	EinnahmeAufteilung                  text, 
+	ViabezeichnungDruck                 text, 
+	ViabezeichnungRueckDruck            text, 
 	ID_RaeumlicheGueltigkeit            bigint, 
 	ID_RaeumlicheGueltigkeit_Rueck      bigint, 
 	ID_Linie                            bigint, 
-	ReferenzExtern                      string NOT NULL,
+	ReferenzExtern                      text NOT NULL,
 	PRIMARY KEY(ID_Teilrelation ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Unternehmen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Unternehmen                      bigint NOT NULL, 
-	BezeichnungKurz                     string, 
-	Bezeichnung                         string, 
-	Mandant                             bit, 
-	ReferenzExtern                      string,
+	BezeichnungKurz                     text, 
+	Bezeichnung                         text, 
+	Mandant                             integer, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Unternehmen ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Updateinfo(
 	Updatetime                          datetime, 
-	Filename                            string NOT NULL, 
-	Purpose                             string,
+	Filename                            text NOT NULL, 
+	Purpose                             text,
 	PRIMARY KEY(Updatetime ASC, Filename ASC));
 
 CREATE TABLE VersionInhalt(
-	DatenversionInhalt                  string NOT NULL, 
-	Testdaten                           bit, 
+	DatenversionInhalt                  text NOT NULL, 
+	Testdaten                           integer, 
 	Erstellungsdatum                    datetime NOT NULL, 
-	Lieferant                           string NOT NULL, 
-	Kommentar                           string,
+	Lieferant                           text NOT NULL, 
+	Kommentar                           text,
 	PRIMARY KEY(DatenversionInhalt ASC, Erstellungsdatum ASC, Lieferant ASC));
 
 CREATE TABLE VersionStruktur(
 	VersionMajor                        bigint, 
 	VersionMinor                        bigint, 
-	Status                              string, 
+	Status                              text, 
 	Aenderungsdatum                     datetime, 
-	Aenderungsautor                     string);
+	Aenderungsautor                     text);
 
 CREATE TABLE Vias(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Via                              bigint NOT NULL, 
-	Bezeichnung                         string, 
-	BezeichnungDruck                    string, 
-	BezeichnungRueck                    string, 
-	BezeichnungRueckDruck               string,
+	Bezeichnung                         text, 
+	BezeichnungDruck                    text, 
+	BezeichnungRueck                    text, 
+	BezeichnungRueckDruck               text,
 	PRIMARY KEY(ID_Via ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Wege(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Weg                              bigint NOT NULL, 
-	Bezeichnung                         string, 
-	ReferenzExtern                      string,
+	Bezeichnung                         text, 
+	ReferenzExtern                      text,
 	PRIMARY KEY(ID_Weg ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Wegpositionen(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Wegposition                      bigint NOT NULL, 
 	ID_Weg                              bigint NOT NULL, 
@@ -664,19 +664,19 @@ CREATE TABLE Zeitraeume(
 	ID_Zeitraum                         bigint NOT NULL, 
 	ZeitraumVon                         datetime, 
 	ZeitraumBis                         datetime, 
-	DatenversionZeitraum                string NOT NULL, 
+	DatenversionZeitraum                text NOT NULL, 
 	HauptZeitraumNr                     bigint NOT NULL, 
 	SubZeitraumNr                       bigint NOT NULL,
 	PRIMARY KEY(ID_Zeitraum ASC));
 
 CREATE TABLE Zeitraumoptionen(
 	ID_Zeitraum                         bigint NOT NULL, 
-	Option                              string NOT NULL, 
-	Wert                                string,
+	Option                              text NOT NULL, 
+	Wert                                text,
 	PRIMARY KEY(Option ASC, ID_Zeitraum ASC));
 
 CREATE TABLE Zusatzsorten(
-	Deaktiviert                         bit, 
+	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint NOT NULL, 
 	ID_Zusatzsorte                      bigint NOT NULL, 
 	ID_Sorte                            bigint NOT NULL, 
@@ -685,18 +685,18 @@ CREATE TABLE Zusatzsorten(
 	Zusatzsortentyp                     bigint, 
 	ID_Preisstufe                       bigint, 
 	ID_PreisstufeGrenze                 bigint, 
-	Hinweistext                         string, 
+	Hinweistext                         text, 
 	ID_SortengruppeHauptsorten          bigint, 
 	ID_RelcodegruppeStart               bigint, 
 	ID_RelcodegruppeZiel                bigint, 
-	Direktverkauf                       bit NOT NULL,
+	Direktverkauf                       integer NOT NULL,
 	PRIMARY KEY(ID_Zusatzsorte ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_Zusatzsorten ON Zusatzsorten(ID_Sorte ASC, ZuordnungRelCodeGrp ASC, ID_Zeitraum ASC);
 
 CREATE TABLE DynAttributDef(
 	ID_DynAttributDef                   bigint NOT NULL, 
-	Name                                string NOT NULL, 
-	DynAttributTyp                      string NOT NULL,
+	Name                                text NOT NULL, 
+	DynAttributTyp                      text NOT NULL,
 	PRIMARY KEY(ID_DynAttributDef ASC));
 
 CREATE TABLE DynAttributWert(
@@ -704,19 +704,19 @@ CREATE TABLE DynAttributWert(
 	ID_DynAttributDef                   bigint NOT NULL, 
 	Tabellennummer                      bigint NOT NULL, 
 	ID_DatensatzRef                     bigint NOT NULL, 
-	Wert                                string NOT NULL,
+	Wert                                text NOT NULL,
 	PRIMARY KEY(ID_Zeitraum ASC, ID_DynAttributDef ASC, Tabellennummer ASC, ID_DatensatzRef ASC));
 
 CREATE TABLE Sprachtexte(
-	ID_Sprachtext                       string NOT NULL, 
+	ID_Sprachtext                       text NOT NULL, 
 	Lang                                varchar(2) NOT NULL, 
-	Text                                string,
+	Text                                text,
 	PRIMARY KEY(ID_Sprachtext ASC, Lang ASC));
 
 CREATE TABLE Tabelleninfo(
-	Tabellenname                        string NOT NULL, 
+	Tabellenname                        text NOT NULL, 
 	Tabellennummer                      bigint NOT NULL, 
-	Strukturname                        string,
+	Strukturname                        text,
 	PRIMARY KEY(Tabellennummer ASC));
 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Bediengebiete", 1, "Bediengebiete_Type"); 
@@ -775,4 +775,4 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("V
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wege", 54, "Wege_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wegpositionen", 55, "Wegpositionen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Zusatzsorten", 56, "Zusatzsorten_Type"); 
-INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 0, "in Arbeit", "2019-09-20"); 
+INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 0, "in Arbeit", "2019-09-20");

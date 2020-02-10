@@ -130,14 +130,14 @@
 			-->
 			<xsl:when test="$type='unsignedInt'">bigint</xsl:when>
 			<xsl:when test="$type='integer'">bigint</xsl:when>
-			<xsl:when test="$type='decimal'">real</xsl:when>
+			<xsl:when test="$type='decimal'">numeric</xsl:when>
 			<xsl:when test="$type='float'">real</xsl:when>
 			<xsl:when test="$type='date'">datetime</xsl:when>
 			<xsl:when test="$type='dateTime'">datetime</xsl:when>
-			<xsl:when test="$type='boolean'">bit</xsl:when>
+			<xsl:when test="$type='boolean'">integer</xsl:when>
 			<xsl:when test="($type='string') or ($type='language')">
 				<xsl:if test="$maxLength">varchar(<xsl:value-of select="$maxLength"></xsl:value-of>)</xsl:if>
-				<xsl:if test="not($maxLength)">string</xsl:if>
+				<xsl:if test="not($maxLength)">text</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>    
 				<xsl:variable name="nextType">
