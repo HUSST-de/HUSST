@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/Cindy"
-	xmlns:api="http://www.husst.de/Appinfo/Cindy"
-	targetNamespace="http://husst.de/Versorgungsdaten/Cindy"
+	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_00"
+	xmlns:api="http://www.husst.de/Appinfo/3_00"
+	targetNamespace="http://husst.de/Versorgungsdaten/3_00"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
 		<xs:documentation>
 			HUSST Versorgungsdaten
-			Version: Entwicklung "Cindy"
+			Version: 3.00
 
 			Mehr Informationen:
 			- https://husst.de/

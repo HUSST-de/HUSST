@@ -39,7 +39,7 @@
 
 	<!-- Versionsinformation als globale Variable definieren -->
 	<xsl:variable name="VS_VersionMajor">3</xsl:variable>
-	<xsl:variable name="VS_VersionMinor">0</xsl:variable>
+	<xsl:variable name="VS_VersionMinor">00</xsl:variable>
 	<xsl:variable name="VS_Status">in Arbeit</xsl:variable>
 	<xsl:variable name="VS_Aenderungsdatum">2019-09-20</xsl:variable>
 	<xsl:variable name="VS_Aenderungsautor">HUSST-Arbeitsgruppe / Neubauer(kt)</xsl:variable>

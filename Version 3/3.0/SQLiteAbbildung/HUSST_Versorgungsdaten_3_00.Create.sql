@@ -4,7 +4,7 @@
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
 * generiert am 2020-02-05
 *
-* HUSST Cindy (V 3.0 - in Arbeit vom 2019-09-20 )
+* HUSST 3.00
 *
 *************************************************************************************/
 
