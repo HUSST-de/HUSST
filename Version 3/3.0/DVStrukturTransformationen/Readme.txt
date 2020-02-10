@@ -1,5 +1,5 @@
 HUSST Datenversorgung
-Transformationen der Strukturdefinition von einer Version zur n‰chsten.
+Transformationen der Strukturdefinition von einer Version zur n√§chsten.
 
 Im Kopf der Transformation sind ggf. weitere Schritte vor und nach der Transformation
 definiert, die zu beachten sind.
