@@ -121,16 +121,23 @@
 		<xsl:variable name="type"><xsl:apply-templates mode="fieldtypename" select="."/></xsl:variable>
 
 		<xsl:choose>
-			<xsl:when test="$type='unsignedInt'">largeint</xsl:when>
-			<xsl:when test="$type='integer'">largeint</xsl:when>
-			<xsl:when test="$type='decimal'">real</xsl:when>
+			<!-- SQLite kennt eigentlich nur *einen* Integer Datentyp, 64bit
+				 Manche DBKomponenten interpretieren den aber als 32bit Integer,
+				 wohingegen der 'bigint' als 64bit Integer verstanden wird.
+				 Der zuvor verwendete 'largeint' wird zumindest von der ZEOS Library, 
+				 zumindest inzwischen, nicht korrekt als 64bit sondern als 32bit Integer
+				 interpretiert.   
+			-->
+			<xsl:when test="$type='unsignedInt'">bigint</xsl:when>
+			<xsl:when test="$type='integer'">bigint</xsl:when>
+			<xsl:when test="$type='decimal'">numeric</xsl:when>
 			<xsl:when test="$type='float'">real</xsl:when>
 			<xsl:when test="$type='date'">datetime</xsl:when>
 			<xsl:when test="$type='dateTime'">datetime</xsl:when>
-			<xsl:when test="$type='boolean'">bit</xsl:when>
+			<xsl:when test="$type='boolean'">integer</xsl:when>
 			<xsl:when test="($type='string') or ($type='language')">
-				<xsl:if test="$maxLength">Varchar(<xsl:value-of select="$maxLength"></xsl:value-of>)</xsl:if>
-				<xsl:if test="not($maxLength)">string</xsl:if>
+				<xsl:if test="$maxLength">varchar(<xsl:value-of select="$maxLength"></xsl:value-of>)</xsl:if>
+				<xsl:if test="not($maxLength)">text</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>    
 				<xsl:variable name="nextType">
