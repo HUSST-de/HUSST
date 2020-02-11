@@ -24,12 +24,14 @@
 			<xs:maxInclusive value="2117-12-31T23:59:58Z"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="DateCompact">
 		<xs:restriction base="xs:date">
 			<xs:minInclusive value="1990-01-01"/>
 			<xs:maxInclusive value="2117-12-31"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="Betriebszeit_Type">
 		<xs:annotation>
 			<xs:documentation>Betriebszeiten dürfen über 24:00 Uhr hinausgehen
@@ -39,36 +41,42 @@
 			<xs:pattern value="[0-9]{1,2}:[0-9]{1,2}"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="INT1">
 		<xs:restriction base="xs:unsignedInt">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="255"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="INT2">
 		<xs:restriction base="xs:unsignedInt">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="65535"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="INT3">
 		<xs:restriction base="xs:unsignedInt">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="16777215"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="INT4">
 		<xs:restriction base="xs:unsignedInt">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="4294967295"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="INT8">
 		<xs:restriction base="xs:unsignedLong">
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="18446744073709551615"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="FLOAT1">
 		<xs:annotation>
 			<xs:documentation>englische Notation beachten, z. B. 19 Euro =
@@ -81,15 +89,24 @@
 			<xs:maxInclusive value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="KoordWgs84_Type">
 		<xs:restriction base="xs:float"/>
 	</xs:simpleType>
+
 	<xs:simpleType name="Char">
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="1"/>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:simpleType name="String250">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="250"/>
+		</xs:restriction>
+	</xs:simpleType>
+
 	<xs:simpleType name="blobString">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="[ -þ€–]*"/>
@@ -182,7 +199,6 @@
 						gedruckt werden, bei n&gt;1</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -242,6 +258,7 @@
       		</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Relationenberechnungsregelung_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -276,6 +293,7 @@
       		</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Relationendruckregelung_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -299,73 +317,61 @@
           <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>Erwachsener</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation>Kind</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>Student</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation>Behinderter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation>Sehbehinderter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation>Hörgeschädigter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation>Arbeitsloser/Sozialhilfeempfänger</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation>Personal</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation>Militärangehöriger</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="19">
         <xs:annotation>
           <xs:documentation>Schüler</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="20">
         <xs:annotation>
           <xs:documentation>Azubi</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="25">
         <xs:annotation>
           <xs:documentation>Senior</xs:documentation>
@@ -384,85 +390,71 @@
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
-
       <xs:enumeration value="0">
         <xs:annotation>
           <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>Erwachsener</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation>Kind</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>Student</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation>Behinderter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation>Sehbehinderter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="7">
         <xs:annotation>
           <xs:documentation>Hörgeschädigter</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="8">
         <xs:annotation>
           <xs:documentation>Arbeitsloser/Sozialhilfeempfänger</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="9">
         <xs:annotation>
           <xs:documentation>Personal</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation>Militärangehöriger</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="19">
         <xs:annotation>
           <xs:documentation>Schüler</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="20">
         <xs:annotation>
           <xs:documentation>Azubi</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="25">
         <xs:annotation>
           <xs:documentation>Senior</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
     </xs:restriction>
   </xs:simpleType>
 
@@ -515,73 +507,61 @@
           <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>Linienbus im Stadtverkehr</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>Metro/U-Bahn/S-Bahn</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation>Straßenbahn/TRAM</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation>ICE</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation>Überlandbus/Regionalbus</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="20">
         <xs:annotation>
           <xs:documentation>IC</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="29">
         <xs:annotation>
           <xs:documentation>Regionalexpress</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="30">
         <xs:annotation>
           <xs:documentation>Expressbus</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="31">
         <xs:annotation>
           <xs:documentation>Flughafenzubringer</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="32">
         <xs:annotation>
           <xs:documentation>Verbundnahverkehr</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="33">
         <xs:annotation>
           <xs:documentation>Verbundnahverkehr ohne Kurzstrecke</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="34">
         <xs:annotation>
           <xs:documentation>SPNV</xs:documentation>
@@ -604,7 +584,6 @@
           <xs:documentation>Keine Ermäßigung</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>
@@ -614,7 +593,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation>
@@ -624,7 +602,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>
@@ -633,7 +610,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation>
@@ -642,7 +618,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="5">
         <xs:annotation>
           <xs:documentation>
@@ -651,7 +626,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation>
@@ -660,7 +634,6 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-
       <xs:enumeration value="46">
         <xs:annotation>
           <xs:documentation>
@@ -687,7 +660,6 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -697,8 +669,7 @@
 			<xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Version" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			
+			<xs:element name="Version" type="xs:string" minOccurs="0" maxOccurs="1"/>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -762,15 +733,12 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_Tarifpunktmenge" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-			
-			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -816,7 +784,6 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Basis"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -876,7 +843,7 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Option" type="xs:string" maxOccurs="1" minOccurs="1">
+			<xs:element name="Option" type="husstDV:String250" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Schlüsselstring der Option</xs:documentation>
 				</xs:annotation>
@@ -951,7 +918,6 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1024,7 +990,6 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1076,7 +1041,6 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:uniquekey>
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1093,13 +1057,12 @@
 					<xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+			<xs:element name="Bezeichnung" type="husstDV:String250" minOccurs="1" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Eindeutiger Bezeichner des
-						Tagesartmerkmalelements</xs:documentation>
+					<xs:documentation>Eindeutiger Bezeichner des Tagesartmerkmalelements</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
+
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1212,7 +1175,6 @@
 					<api:field name="ID_Tarifpunkt"/>
 				</api:primekey>
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1234,8 +1196,6 @@
 					<api:field name="ID_Relcodegruppe"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
-				
-				
 				<api:schema name="Angebot"/>
 			</xs:appinfo>
 		</xs:annotation>
@@ -1260,7 +1220,6 @@
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1319,10 +1278,8 @@
 				<api:primekey>
 					<api:field name="ID_Relation"/>
 					<api:field name="ID_Zeitraum"/>
-				</api:primekey>
-				
+				</api:primekey>				
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1464,9 +1421,6 @@
 					<api:field name="ID_Teilrelation"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
-				
-				
-				
 				<api:schema name="Tarif"/>
 			</xs:appinfo>
 		</xs:annotation>
@@ -1559,14 +1513,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				<api:primekey>
 					<api:field name="ID_Nachbarhaltestelle"/>
 					<api:field name="ID_Zeitraum"/>
-				</api:primekey>
-        
+				</api:primekey>        
 				<api:uniquekey name="Uix_Nachbarhaltestellen">
 					<api:field name="ID_OrtspunktVon"/>
 					<api:field name="ID_OrtspunktNach"/>
 					<api:field name="ID_Zeitraum"/>
-				</api:uniquekey>
-				
+				</api:uniquekey>				
 				<api:schema name="Angebot"/>
 			</xs:appinfo>
 		</xs:annotation>
@@ -1610,7 +1562,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
 			<xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="ID_Via" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
@@ -1648,8 +1599,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Preisstufendirektwahl"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
-				
-				
 				<api:schema name="Angebot"/>
 			</xs:appinfo>
 		</xs:annotation>
@@ -1670,8 +1619,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
-
 			<xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Tarifart (0=Allgemein, 1=Bartarif,
@@ -1703,8 +1650,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			
+			</xs:element>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1767,8 +1713,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				<xs:annotation>
 					<xs:documentation>Info zur Preisspalte</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			
+			</xs:element>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1878,13 +1823,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Sorte"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
-				
-				
-				
-				
-				
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -1900,7 +1839,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:element>
 			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" maxOccurs="1" minOccurs="1"/>
-
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -1915,7 +1853,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Verwendung: Identifikation / optional Druck
 					</xs:documentation>
 				</xs:annotation>
-
 			</xs:element>
 			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
@@ -1923,14 +1860,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Verwendung: Identifikation / optional Druck
 					</xs:documentation>
 				</xs:annotation>
-
 			</xs:element>
-			
-			
-			
-			
-			
-			
 			<xs:element name="ID_Ausgaberegelung" type="husstDV:ID_Sortenausgaberegelung_Type" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zur Ausgabe der Sorte (Papierfahrschein / Elektronischer Fahrausweis etc.)	  	
@@ -1950,9 +1880,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-			
-			
 			<xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Schränkt die Verwendung der Sorte auf die angegebenen Vertriebswege ein. 	
@@ -2008,8 +1935,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-			
 			<xs:element name="ID_GueltigkeitszeitRegel" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -2017,21 +1942,12 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-			
-			
-			
-			
-			
 			<xs:element name="ID_Preisfindung" type="husstDV:ID_Preisfindung_Type" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Hinweis zur Preisfindung.	  	
 	  				</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			
-			
-			
 			<xs:element name="ID_Reisetyp" type="husstDV:ID_Reisetyp_Type" minOccurs="0" maxOccurs="1">
 	        	<xs:annotation>
 					<xs:documentation>Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...)</xs:documentation>
@@ -2045,10 +1961,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Layoutdefinition
 					</xs:documentation>
 				</xs:annotation>
-
 			</xs:element>
-			
-			
 			<xs:element name="KA_ProdOrgID" type="husstDV:INT2" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -2177,7 +2090,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:sequence>
 	</xs:complexType>
 
-
 	<xs:complexType name="Preise_Type">
 		<xs:annotation>
 			<xs:appinfo>
@@ -2192,7 +2104,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Zeitraum"/>
 				</api:uniquekey>
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2274,8 +2185,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						Definiert die zeitliche Gültigkeit des Produktes.
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			
+			</xs:element>			
 			
 			<!-- KA -->
 			<xs:element name="ID_RaeumlicheGueltigkeit" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
@@ -2330,7 +2240,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Zeitraum"/>
 				</api:uniquekey>
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2390,10 +2299,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				<api:primekey>
 					<api:field name="ID_Ortspunkt"/>
 					<api:field name="ID_Zeitraum"/>
-				</api:primekey>
-				
+				</api:primekey>				
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2428,6 +2335,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+
 	<xs:complexType name="Ortspunkte_Type">
 		<xs:annotation>
 			<xs:documentation>
@@ -2443,11 +2351,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Ortspunkttyp"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:uniquekey>
-				
-				
-				
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -2560,8 +2464,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:element>
 			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Konzessionaer" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-			
+			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -2595,8 +2498,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<xs:documentation>Eindeutige Nummer des Weges.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			
+			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -2623,8 +2525,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Weg"/>
 					<api:field name="SortOrder"/>
 					<api:field name="ID_Zeitraum"/>
-				</api:uniquekey>
-				
+				</api:uniquekey>				
 				<api:schema name="Angebot"/>
 			</xs:appinfo>
 		</xs:annotation>
@@ -2659,7 +2560,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		</xs:sequence>
 	</xs:complexType>
 
-
 	<!--Hilfstabellen -->
 	<xs:simpleType name="ID_Projektspezifisch_Type">
     	<xs:annotation>
@@ -2693,6 +2593,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:maxInclusive value="999"/>
 		</xs:restriction>
 	</xs:simpleType>
+
     <xs:simpleType name="ID_Waehrung_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2800,6 +2701,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+
     <xs:simpleType name="ID_Sortentyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2844,6 +2746,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Tarifpunkttyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2878,6 +2781,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Ortspunkttyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2896,6 +2800,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_OTPTyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2914,6 +2819,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Preisquelle_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2933,13 +2839,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Preisspaltentyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
         </xs:annotation>
         <xs:union memberTypes="husstDV:ID_PreisspaltentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
-	
 	
 	<xs:simpleType name="ID_RelcodegruppentypHUSST_Type">
     	<xs:annotation>
@@ -2958,6 +2864,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Relcodegruppentyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2976,6 +2883,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Sortengruppentyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -2994,6 +2902,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:maxExclusive value="0"/>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Sortenklasse_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Sortenklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -3040,6 +2949,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="InterpretationsschluesselProjektspezifisch_Type">
 		<xs:annotation>
 			<xs:documentation>Für projektspezifische Zwecke oder zum Test 
@@ -3063,6 +2973,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="Interpretationsschluessel_Type">
         <xs:annotation>
         	<xs:documentation>Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
@@ -3197,8 +3108,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<xs:documentation>ISO-Kurzbezeichnung z.B. EUR, USD, CHF,...
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			
+			</xs:element>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -3385,74 +3295,62 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation>Erwachsener</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation>Kind</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="3">
 				<xs:annotation>
 					<xs:documentation>Student</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="5">
 				<xs:annotation>
 					<xs:documentation>Behinderter</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="6">
 				<xs:annotation>
 					<xs:documentation>Sehbehinderter</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="7">
 				<xs:annotation>
 					<xs:documentation>Hörgeschädigter</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="8">
 				<xs:annotation>
 					<xs:documentation>Arbeitsloser/Sozialhilfeempfänger
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="9">
 				<xs:annotation>
 					<xs:documentation>Personal</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="10">
 				<xs:annotation>
 					<xs:documentation>Militärangehöriger</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="19">
 				<xs:annotation>
 					<xs:documentation>Schüler</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="20">
 				<xs:annotation>
 					<xs:documentation>Azubi</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="25">
 				<xs:annotation>
 					<xs:documentation>Senior</xs:documentation>
@@ -3460,6 +3358,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Fahrgasttyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -3523,6 +3422,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+
 	<xs:simpleType name="ID_Komfortklasse_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -3574,7 +3474,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<xs:documentation>Keine Ermäßigung</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -3584,7 +3483,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="2">
 				<xs:annotation>
 					<xs:documentation>
@@ -3594,7 +3492,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="3">
 				<xs:annotation>
 					<xs:documentation>
@@ -3603,7 +3500,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="4">
 				<xs:annotation>
 					<xs:documentation>
@@ -3612,7 +3508,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="5">
 				<xs:annotation>
 					<xs:documentation>
@@ -3621,7 +3516,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="6">
 				<xs:annotation>
 					<xs:documentation>
@@ -3630,7 +3524,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
-
 			<xs:enumeration value="46">
 				<xs:annotation>
 					<xs:documentation>
@@ -3642,6 +3535,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Rabattklasse_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -3723,6 +3617,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Preisfindung_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -3959,6 +3854,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Sortenausgaberegelung_Type">
         <xs:annotation>
         	<xs:documentation>
@@ -4020,6 +3916,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Sortendruckregelung_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -4087,6 +3984,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
           </xs:enumeration>			
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Reisetyp_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -4150,6 +4048,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>		
+	
 	<xs:simpleType name="ID_Nachbarhaltestellenbeziehung_Type">
 		<xs:annotation>
 			<xs:documentation>
@@ -4197,6 +4096,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:enumeration>
 		</xs:restriction>
 	</xs:simpleType>
+	
 	<xs:simpleType name="ID_Vertriebswege_Type">
         <xs:annotation>
         	<xs:documentation>
@@ -4272,15 +4172,13 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+	
 	<xs:simpleType name="ID_Zahlungsarten_Type">
         <xs:annotation>
         	<xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.</xs:documentation>
         </xs:annotation>
         <xs:union memberTypes="husstDV:ID_ZahlungsartenHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
 	</xs:simpleType>
-	
-			
-		
 		
 	<xs:simpleType name="ID_ZahlungsartenHUSST_Type">
     	<xs:annotation>
@@ -4292,10 +4190,8 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="1023"/>
 		</xs:restriction>
-	</xs:simpleType>  			
-			
-		
-
+	</xs:simpleType>
+	
 	<xs:complexType name="Tarifarten_Type">
 		<xs:annotation>
 			<xs:documentation>
@@ -4314,7 +4210,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Tarif"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4441,10 +4336,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Tarifrelevanterpunkt"/>
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
-				
-				
 				<api:schema name="Angebot"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4514,7 +4406,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
-
 
 	<xs:complexType name="DefOTPTyp_Type">
 		<xs:annotation>
@@ -4596,14 +4487,11 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		<xs:sequence>
 			<xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="husstDV:INT4" default="0" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2019-10-22" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe / Neubauer(kt)" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Status" type="husstDV:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2020-02-11" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
-
-
-	
 
 	<xs:complexType name="DefBundesland_Type">
 		<xs:annotation>
@@ -4697,7 +4585,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_Zeitraum"/>
 				</api:primekey>
 				<api:schema name="Basis"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -4747,8 +4634,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 						NE-Blatt-Nummer
 					</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			
+			</xs:element>			
 			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -4818,8 +4704,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:element name="TagesartMerkmalElemente" type="husstDV:TagesartMerkmalElemente_Type"/>
 	<xs:element name="Feiertage" type="husstDV:Feiertage_Type"/>
 	<xs:element name="Unternehmen" type="husstDV:Unternehmen_Type"/>
-
-
+	
 	<!--Relationen -->
 	<xs:element name="Interpretationen" type="husstDV:Interpretationen_Type"/>
 	<xs:element name="RaeumlicheGueltigkeit" type="husstDV:RaeumlicheGueltigkeit_Type"/>
@@ -4839,7 +4724,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type"/>
 	<xs:element name="Preise" type="husstDV:Preise_Type"/>
 
-
 	<!--Netz -->
 	<xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type"/>
 	<xs:element name="OrtspunkteKA" type="husstDV:OrtspunkteKA_Type"/>
@@ -4849,7 +4733,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:element name="Linien" type="husstDV:Linien_Type"/>
 	<xs:element name="Wege" type="husstDV:Wege_Type"/>
 	<xs:element name="Wegpositionen" type="husstDV:Wegpositionen_Type"/>
-
 
 	<!--Hilfs -->
 	<xs:element name="DefSortenklassen" type="husstDV:DefSortenklasse_Type"/>
@@ -4879,16 +4762,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:element name="DefSortendruckregelungen" type="husstDV:DefSortendruckregelung_Type"/>
 	<xs:element name="DefVertriebswege" type="husstDV:DefVertriebswege_Type"/>
 	<xs:element name="DefZahlungsarten" type="husstDV:DefZahlungsarten_Type"/>
-
-
-
-
-
-
-
-
-
-
 	<xs:element name="Relationszuordnungen" type="husstDV:Relationszuordnungen_Type"/>
 	
 	<xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
@@ -4942,8 +4815,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element ref="husstDV:Relationscodegruppen"/>
 			<xs:element ref="husstDV:Relationscodes"/>
 			<xs:element ref="husstDV:Sorten"/>
-			<xs:element ref="husstDV:SortenTarifarten"/>
-			
+			<xs:element ref="husstDV:SortenTarifarten"/>			
 			<xs:element ref="husstDV:Sortengruppen"/>
 			<xs:element ref="husstDV:TagesartMerkmalElemente"/>
 			<xs:element ref="husstDV:Tagesarten"/>
@@ -5111,11 +4983,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<api:field name="ID_DatensatzRef"/>
 				</api:primekey>
 				<api:schema name="Basis"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
-
 			<xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
@@ -5256,7 +5126,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<field name="Tabellenname"/>
 				</index>
 				<api:schema name="Basis"/>
-
 			</xs:appinfo>
 		</xs:annotation>
 		<xs:sequence>
@@ -5291,7 +5160,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-
 			<xs:element name="Strukturname" type="xs:string" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Name der Xml-Datenstruktur, die von dieser
