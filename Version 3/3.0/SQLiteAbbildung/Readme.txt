@@ -8,7 +8,7 @@ HUSST_3_00_ToCreateSql.xsl
 		wird erwartet im Format YYYYMMDD 
 
 		in Eclipse z.B. in der Run Configuration
-		In Transformation Parameters einen Parameter hinzufügen (Add Parameter)
+		In Transformation Parameters einen Parameter hinzufÃ¼gen (Add Parameter)
 		Name: current_date
 		Value: ${current_date} 		
 
