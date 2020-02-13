@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:api="http://www.husst.de/Appinfo/Cindy"
-	targetNamespace="http://www.husst.de/Appinfo/Cindy" 
+	xmlns:api="http://www.husst.de/Appinfo/3_00"
+	targetNamespace="http://www.husst.de/Appinfo/3_00" 
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
 		<xs:documentation>
 			HUSST Appinfo
-			Version: Entwicklung "Cindy"
+			Version: 3.00
 
 			Mehr Informationen:
 			- https://husst.de/

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://husst.de/Ergebnisdaten/Cindy" elementFormDefault="qualified" 
+<schema targetNamespace="http://husst.de/Ergebnisdaten/3_00" elementFormDefault="qualified" 
 	xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:husst="http://husst.de/Ergebnisdaten/Cindy">
+	xmlns:husst="http://husst.de/Ergebnisdaten/3_00">
 
 	<annotation>
 		<documentation>
 			HUSST Ergebnisdaten
-			Version: Entwicklung "Cindy"
+			Version: 3.00
 
 			Mehr Informationen:
 			- https://husst.de/
