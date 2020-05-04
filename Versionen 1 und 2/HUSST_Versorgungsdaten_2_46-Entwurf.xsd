@@ -10,7 +10,7 @@
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
 
             Änderungen:
-        in Arbeit: 2020-04-25 - V2.46 - hneubauer(kt)
+        in Arbeit: 2020-04-28 - V2.46 - hneubauer(kt)
                  Änderungen: siehe Git-Commit
         stabil: 2019-09-17 - V2.45 - sgumbert(hQ)
             NEU: Tarifpunktmengen_Type
@@ -604,10 +604,14 @@
 		<xs:annotation>
 			<xs:appinfo>
 				<primekey>
+					<field name="ID_TarifPunktDS"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<index name="Uix_Tarifpunkt">
 					<field name="ID_TarifGebiet"/>
 					<field name="ID_TarifPunkt"/>
 					<field name="ID_Zeitraum"/>
-				</primekey>
+				</index>
 				<schema name="Tarif" nillable="false"/>
 				
 			</xs:appinfo>
@@ -615,6 +619,7 @@
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Zeitraum" type="tpd:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_TarifPunktDS" type="tpd:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_TarifGebiet" type="tpd:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_TarifPunkt" type="tpd:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_TarifPunktTyp" type="tpd:INT4" nillable="true" minOccurs="0" maxOccurs="1">
@@ -641,6 +646,7 @@
 					<xs:documentation>KA Ortstyp</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="DynAttribut" type="tpd:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -1379,12 +1385,6 @@
 					<field name="ID_RelCodeGruppeDS"/>
 					<field name="ID_Zeitraum"/>
 				</primekey>
-				<index name="Uix_Relationscodegruppen">
-					<field name="ID_RelCodeTyp"/>
-					<field name="ID_RelCodeGruppe"/>
-					<field name="ID_Zeitraum"/>
-					<field name="ID_RelCode"/>
-				</index>
 				<schema name="Tarif" nillable="true"/>
 			</xs:appinfo>
 		</xs:annotation>
@@ -1395,6 +1395,7 @@
 			<xs:element name="ID_RelCodeTyp" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_RelCodeGruppe" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_RelCode" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SortOrder" type="tpd:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="DynAttribut" type="tpd:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -3915,7 +3916,7 @@
 			<xs:element name="VersionMajor" type="tpd:INT4" default="2" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="tpd:INT4" default="46" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="tpd:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-04-25" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-04-28" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="hneubauer(kt)" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
