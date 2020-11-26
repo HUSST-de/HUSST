@@ -10,7 +10,7 @@
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
 
             Änderungen:
-        stabli: 2020-11-27 - V2.46 - hneubauer(kt)
+        stabil: 2020-11-27 - V2.46 - hneubauer(kt)
                  Änderungen: siehe Git-Commit
         stabil: 2019-09-17 - V2.45 - sgumbert(hQ)
             NEU: Tarifpunktmengen_Type
