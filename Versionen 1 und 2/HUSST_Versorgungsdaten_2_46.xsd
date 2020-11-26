@@ -10,7 +10,7 @@
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
 
             Änderungen:
-        in Arbeit: 2020-05-04 - V2.46 - hneubauer(kt)
+        stabli: 2020-11-27 - V2.46 - hneubauer(kt)
                  Änderungen: siehe Git-Commit
         stabil: 2019-09-17 - V2.45 - sgumbert(hQ)
             NEU: Tarifpunktmengen_Type
@@ -3923,9 +3923,9 @@
 		<xs:sequence>
 			<xs:element name="VersionMajor" type="tpd:INT4" default="2" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="tpd:INT4" default="46" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="Status" type="tpd:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-05-04" maxOccurs="1" minOccurs="0"/>
-			<xs:element name="Aenderungsautor" type="xs:string" default="hneubauer(kt)" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Status" type="tpd:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-11-27" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsautor" type="xs:string" default="Husst-AG" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 
