@@ -1388,6 +1388,7 @@
 				<index name="Idx_Relcodegruppe_Main">
 					<field name="ID_RelCodeTyp"/>
 					<field name="ID_RelCodeGruppe"/>
+					<field name="ID_Zeitraum"/>
 					<field name="ID_RelCode"/>
 				</index>
 				<schema name="Tarif" nillable="true"/>
