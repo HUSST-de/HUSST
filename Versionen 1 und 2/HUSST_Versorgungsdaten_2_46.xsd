@@ -10,9 +10,11 @@
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
 
             Änderungen:
-        stabil: 2020-12-01 - V2.46 - hneubauer(kt)
+        stabil: 2020-12-02 - V2.46 - Husst-AG
+                 Hotfix divergente Schreibung - siehe Git-Commit
+        stabil: 2020-12-01 - V2.46 - Husst-AG
                  Hotfix RaeumlicheGueltigkeit_Type - siehe Git-Commit
-        stabil: 2020-11-27 - V2.46 - hneubauer(kt)
+        stabil: 2020-11-27 - V2.46 - Husst-AG
                  Änderungen: siehe Git-Commit
         stabil: 2019-09-17 - V2.45 - sgumbert(hQ)
             NEU: Tarifpunktmengen_Type
@@ -690,7 +692,7 @@
 				</primekey>
 				<index name="Uix_TarifpunktmengeElemente">
 					<field name="ID_Tarifpunktmenge"/>
-					<field name="ID_Tarifpunkt"/>
+					<field name="ID_TarifPunkt"/>
 					<field name="SortOrder"/>
 					<field name="ID_Zeitraum"/>
 				</index>
@@ -703,8 +705,8 @@
 			<xs:element name="ID_Zeitraum" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_TarifpunktmengeElement" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_Tarifpunktmenge" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Tarifgebiet" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Tarifpunkt" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_TarifGebiet" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_TarifPunkt" type="tpd:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="SortOrder" type="tpd:INT4" nillable="true" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="DynAttribut" type="tpd:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
@@ -3919,7 +3921,7 @@
 			<xs:element name="VersionMajor" type="tpd:INT4" default="2" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="tpd:INT4" default="46" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="tpd:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-12-01" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-12-02" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="Husst-AG" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
