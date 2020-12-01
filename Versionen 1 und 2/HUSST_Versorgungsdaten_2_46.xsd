@@ -10,6 +10,8 @@
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
 
             Änderungen:
+        stabil: 2020-12-01 - V2.46 - hneubauer(kt)
+                 Hotfix RaeumlicheGueltigkeit_Type - siehe Git-Commit
         stabil: 2020-11-27 - V2.46 - hneubauer(kt)
                  Änderungen: siehe Git-Commit
         stabil: 2019-09-17 - V2.45 - sgumbert(hQ)
@@ -1412,17 +1414,9 @@
 				Definition der räumlichen Gültigkeit für KA
 			</xs:documentation>
 			<xs:appinfo>
-				<primekey>
+					<primekey>
+          			<field name="ID_RaeumlGueltDS"/>
 					<field name="ID_Zeitraum"/>
-          			<field name="ID_Start_TarifGebiet"/>
-          			<field name="ID_Start_TarifPunktTyp"/>
-					<field name="ID_Start_TarifPunkt"/>
-          			<field name="ID_TarifGebiet"/>
-					<field name="ID_PreisStufe"/>
-					<field name="KA_RaeumlicheCodierung"/>
-          			<field name="ID_Ziel_TarifGebiet"/>
-          			<field name="ID_Ziel_TarifPunktTyp"/>
-					<field name="ID_Ziel_TarifPunkt"/>
 				</primekey>
 				<index name="Idx_RaeumlGuelt_Main">
 					<field name="ID_Zeitraum"/>
@@ -1481,6 +1475,7 @@
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="DynAttribut" type="tpd:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -3924,7 +3919,7 @@
 			<xs:element name="VersionMajor" type="tpd:INT4" default="2" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="tpd:INT4" default="46" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="tpd:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-11-27" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-12-01" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="Husst-AG" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
