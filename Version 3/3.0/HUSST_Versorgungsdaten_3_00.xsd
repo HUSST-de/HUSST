@@ -4127,7 +4127,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:restriction base="xs:string"/>
 	</xs:simpleType>
 
-	<xs:complexType name="GueltigkeitszeitRegel_Type">
+	<xs:complexType name="GueltigkeitszeitRegeln_Type">
 		<xs:annotation>
 			<xs:documentation>
 				Definiert eine zeitliche Gültigkeit. Darin enthalten sein kann auch die Vorverkaufbarkeit 
@@ -4713,7 +4713,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 	<xs:element name="Sorten" type="husstDV:Sorten_Type"/>
 	<xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type"/>
 	<xs:element name="Preise" type="husstDV:Preise_Type"/>
-	<xs:element name="GueltigkeitszeitRegel" type="husstDV:GueltigkeitszeitRegel_Type"/>
+	<xs:element name="GueltigkeitszeitRegeln" type="husstDV:GueltigkeitszeitRegeln_Type"/>
 
 	<!--Netz -->
 	<xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type"/>
@@ -4790,7 +4790,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element ref="husstDV:DefTarifpunkttypen"/>
 			<xs:element ref="husstDV:DefWaehrungen"/>
 			<xs:element ref="husstDV:Feiertage"/>
-			<xs:element ref="husstDV:GueltigkeitszeitRegel"/>
+			<xs:element ref="husstDV:GueltigkeitszeitRegeln"/>
 			<xs:element ref="husstDV:Interpretationen"/>
 			<xs:element ref="husstDV:Kalender"/>
 			<xs:element ref="husstDV:Linien"/>

@@ -205,7 +205,7 @@ CREATE TABLE Feiertage(
 	PRIMARY KEY(ID_Feiertag ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_Feiertage ON Feiertage(Datum ASC, ID_Bundesland ASC, ID_Zeitraum ASC);
 
-CREATE TABLE GueltigkeitszeitRegel(
+CREATE TABLE GueltigkeitszeitRegeln(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_GueltigkeitszeitRegel            bigint, 
@@ -753,7 +753,7 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("D
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefWaehrungen", 22, "DefWaehrung_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefZahlungsarten", 23, "DefZahlungsarten_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Feiertage", 24, "Feiertage_Type"); 
-INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("GueltigkeitszeitRegel", 57, "GueltigkeitszeitRegel_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("GueltigkeitszeitRegeln", 57, "GueltigkeitszeitRegeln_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Kalender", 25, "Kalender_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Linien", 26, "Linien_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Mwst", 27, "Mwst_Type"); 
