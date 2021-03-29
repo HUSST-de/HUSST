@@ -336,6 +336,7 @@
 			<xsl:when test="@name='Wege_Type'">54</xsl:when>
 			<xsl:when test="@name='Wegpositionen_Type'">55</xsl:when>
 			<xsl:when test="@name='Zusatzsorten_Type'">56</xsl:when>
+		  	<xsl:when test="@name='GueltigkeitszeitRegeln_Type'">57</xsl:when>
 		  	<xsl:otherwise>Fehler: undefiniert</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

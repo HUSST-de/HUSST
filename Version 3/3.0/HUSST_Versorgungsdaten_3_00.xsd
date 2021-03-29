@@ -1692,6 +1692,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
@@ -4126,7 +4127,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         <xs:restriction base="xs:string"/>
 	</xs:simpleType>
 
-	<xs:complexType name="GueltigkeitszeitRegel">
+	<xs:complexType name="GueltigkeitszeitRegeln_Type">
 		<xs:annotation>
 			<xs:documentation>
 				Definiert eine zeitliche Gültigkeit. Darin enthalten sein kann auch die Vorverkaufbarkeit 
@@ -4146,7 +4147,9 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_GueltigkeitszeitRegel" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="GueltigkeitszeitRegelNr" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Param" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -4475,7 +4478,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="husstDV:INT4" default="0" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="husstDV:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2020-11-24" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2020-03-29" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -4710,6 +4713,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 	<xs:element name="Sorten" type="husstDV:Sorten_Type"/>
 	<xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type"/>
 	<xs:element name="Preise" type="husstDV:Preise_Type"/>
+	<xs:element name="GueltigkeitszeitRegeln" type="husstDV:GueltigkeitszeitRegeln_Type"/>
 
 	<!--Netz -->
 	<xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type"/>
@@ -4786,6 +4790,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element ref="husstDV:DefTarifpunkttypen"/>
 			<xs:element ref="husstDV:DefWaehrungen"/>
 			<xs:element ref="husstDV:Feiertage"/>
+			<xs:element ref="husstDV:GueltigkeitszeitRegeln"/>
 			<xs:element ref="husstDV:Interpretationen"/>
 			<xs:element ref="husstDV:Kalender"/>
 			<xs:element ref="husstDV:Linien"/>

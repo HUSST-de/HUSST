@@ -2,9 +2,9 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-* generiert am 2020-02-11
+* generiert am 2021-03-29
 *
-* HUSST 3_00 (V 3.0 - stabil vom 2020-02-11 )
+* HUSST 3_00 (V 3.0 - stabil vom 2020-03-29 )
 *
 *************************************************************************************/
 
@@ -205,6 +205,15 @@ CREATE TABLE Feiertage(
 	PRIMARY KEY(ID_Feiertag ASC, ID_Zeitraum ASC));
 CREATE UNIQUE INDEX Uix_Feiertage ON Feiertage(Datum ASC, ID_Bundesland ASC, ID_Zeitraum ASC);
 
+CREATE TABLE GueltigkeitszeitRegeln(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_GueltigkeitszeitRegel            bigint, 
+	GueltigkeitszeitRegelNr             bigint, 
+	ID_Tarifgebiet                      bigint, 
+	Param                               text,
+	PRIMARY KEY(ID_GueltigkeitszeitRegel ASC, ID_Zeitraum ASC));
+
 CREATE TABLE Interpretationen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
@@ -335,6 +344,7 @@ CREATE TABLE Preisspalten(
 	ID_Zeitraum                         bigint, 
 	ID_Preisspalte                      bigint, 
 	ID_Waehrung                         bigint, 
+	ID_Tarifgebiet                      bigint, 
 	ID_Preisspaltentyp                  bigint, 
 	Bezeichnung                         text, 
 	BezeichnungKurz                     text, 
@@ -743,6 +753,7 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("D
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefWaehrungen", 22, "DefWaehrung_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefZahlungsarten", 23, "DefZahlungsarten_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Feiertage", 24, "Feiertage_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("GueltigkeitszeitRegeln", 57, "GueltigkeitszeitRegeln_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Kalender", 25, "Kalender_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Linien", 26, "Linien_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Mwst", 27, "Mwst_Type"); 
@@ -775,4 +786,4 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("V
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wege", 54, "Wege_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wegpositionen", 55, "Wegpositionen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Zusatzsorten", 56, "Zusatzsorten_Type"); 
-INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 0, "stabil", "2020-02-11"); 
+INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 0, "stabil", "2020-03-29"); 
