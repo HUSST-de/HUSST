@@ -2881,7 +2881,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         </xs:annotation>
         <xs:restriction base="husstDV:INT4">			
 			<xs:minExclusive value="0"/>
-			<xs:maxExclusive value="0"/>
+			<xs:maxExclusive value="1000"/>
 		</xs:restriction>
 	</xs:simpleType>
 	
@@ -4434,46 +4434,33 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 		<xs:annotation>
 			<xs:appinfo>
 				<api:primekey>
-					<api:field name="ID_Sortengruppe"/>
-					<api:field name="ID_Zeitraum"/>
+					<api:field name="ID_Sortengruppe" />
+					<api:field name="ID_Zeitraum" />
 				</api:primekey>
-				<api:uniquekey name="Uix_Sortengruppen">
-					<api:field name="Sortengruppennummer"/>
-					<api:field name="ID_Sortengruppentyp"/>
-					<api:field name="ID_Bediengebiet"/>
-					<api:field name="SortOrder"/>
-					<api:field name="ID_Zeitraum"/>
-				</api:uniquekey>
-				
-				<api:schema name="Tarif"/>
-				<api:schema name="Angebot"/>
+
+				<api:schema name="Tarif" />
+				<api:schema name="Angebot" />
 			</xs:appinfo>
+			<xs:documentation>Sortengruppen können Sorten für unterschiedliche Anwendungsfälle gruppieren.
+Der Anwendungsfall wird über den Sortengruppentyp unterschieden werden. 
+Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten können auch Preisstufen zugeordnet sein.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Sortengruppennummer" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="SortOrder" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>Info</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="TarifInfo" type="husstDV:blobString" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-			<xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
-					<xs:documentation>ID_Preisstufe ist optional. Wenn die
-						Preisstufe
-						angegeben ist, wird der Produkt als Festpreis
-						verkauft. Ansonsten
-						muss die Preisstufe aufgrund weiterer
-						Einschränkungen (z.b. Auswahl
-						einer Relation) ermittelt bzw.
-						festgelegt werden.
+					<xs:documentation>
+						Externer Schlüssel für die Sortengruppe.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -4755,6 +4742,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 	<xs:element name="DefOTPTypen" type="husstDV:DefOTPTyp_Type"/>
 	<xs:element name="DefSortengruppentypen" type="husstDV:DefSortengruppentyp_Type"/>
 	<xs:element name="Sortengruppen" type="husstDV:Sortengruppen_Type"/>
+	<xs:element name="SortengruppenElemente" type="husstDV:SortengruppenElemente_Type"/>
 	<xs:element name="VersionStruktur" type="husstDV:VersionStruktur_Type"/>
 	<xs:element name="DefFahrgasttypen" type="husstDV:DefFahrgasttyp_Type"/>
 	<xs:element name="DefKomfortklassen" type="husstDV:DefKomfortklasse_Type"/>
@@ -4822,6 +4810,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element ref="husstDV:Sorten"/>
 			<xs:element ref="husstDV:SortenTarifarten"/>			
 			<xs:element ref="husstDV:Sortengruppen"/>
+			<xs:element ref="husstDV:SortengruppenElemente"/>
 			<xs:element ref="husstDV:TagesartMerkmalElemente"/>
 			<xs:element ref="husstDV:Tagesarten"/>
 			<xs:element ref="husstDV:TagesmerkmalElemente"/>
@@ -5198,4 +5187,40 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+
+    <xs:complexType name="SortengruppenElemente_Type">
+		<xs:annotation>
+    		<xs:documentation>Sorten/Preisstufen Einträge einer Sortengruppe.</xs:documentation>
+			<xs:appinfo>
+				<api:primekey>
+					<api:field name="ID_SortengruppenElement"/>
+					<api:field name="ID_Zeitraum"/>
+				</api:primekey>
+				<api:schema name="Tarif"/>
+				<api:schema name="Angebot"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_SortengruppenElement" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>ID_Preisstufe ist optional. Wenn die
+						Preisstufe
+						angegeben ist, wird der Produkt als Festpreis
+						verkauft. Ansonsten
+						muss die Preisstufe aufgrund weiterer
+						Einschränkungen (z.b. Auswahl
+						einer Relation) ermittelt bzw.
+						festgelegt werden.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+    </xs:complexType>
 </xs:schema>
