@@ -203,8 +203,7 @@
 					(ID_Inhaltsversion &lt;&lt; 8) | ID_Zeitraum wobei
 					0 &lt;
 					ID_Zeitraum &lt; 256
-					gilt. Die bisher genutzte Netzversion
-					wird damit obsolet.
+					gilt.
 				</documentation>
 			</annotation>
 		</attribute>
