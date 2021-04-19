@@ -27,6 +27,8 @@
 			ktTransaktion.BezugsNr erneuert.
 			ktGeraeteTyp entfernt.
 			ktGeraet.Typ wird zu Typ string.
+			ktGeldBehaelterTyp Enum um "Recycler" und "Unbekannt" erweitert.
+			ktZahlArt Enum um "Visa-Electron" erweitert.
 
 		</documentation>
 	</annotation>
