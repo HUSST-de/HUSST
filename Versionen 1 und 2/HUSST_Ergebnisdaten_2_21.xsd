@@ -27,6 +27,8 @@
 			ktTransaktion.BezugsNr erneuert.
 			ktGeraeteTyp entfernt.
 			ktGeraet.Typ wird zu Typ string.
+			ktGeldBehaelterTyp Enum um "Recycler" und "Unbekannt" erweitert.
+			ktZahlArt Enum um "Visa-Electron" erweitert.
 
 		</documentation>
 	</annotation>
@@ -881,6 +883,7 @@
 			<enumeration value="Sammelabrechnung"></enumeration>
 			<enumeration value="LogPay"></enumeration>
 			<enumeration value="girocard"></enumeration>
+			<enumeration value="Visa-Electron"></enumeration>
 		</restriction>
 	</simpleType>
 
@@ -1403,6 +1406,8 @@
 			<enumeration value="Zwischenkasse"></enumeration>
 			<enumeration value="Wertbehaelter"></enumeration>
 			<enumeration value="Handkasse"></enumeration>
+			<enumeration value="Recycler"></enumeration>
+			<enumeration value="Unbekannt"></enumeration>
 		</restriction>
 	</simpleType>
 
