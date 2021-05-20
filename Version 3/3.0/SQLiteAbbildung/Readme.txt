@@ -14,8 +14,8 @@ HUSST_3_00_ToCreateSql.xsl
 
 HUSST_Versorgungsdaten_3_00.Create.sql 
          * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-         * generiert am 2021-03-29
+         * generiert am 2021-05-19
 
 
-Stand: 2021-03-29
+Stand: 2021-05-19
 Autor: Neubauer(kt)

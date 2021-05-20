@@ -2,9 +2,9 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-* generiert am 2021-03-29
+* generiert am 2021-05-19
 *
-* HUSST 3_00 (V 3.0 - stabil vom 2020-03-29 )
+* HUSST 3_00 (V 3.0 - stabil vom 2021-05-19 )
 *
 *************************************************************************************/
 
@@ -469,16 +469,22 @@ CREATE TABLE Sortengruppen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Sortengruppe                     bigint, 
-	Sortengruppennummer                 bigint, 
 	ID_Sortengruppentyp                 bigint, 
 	ID_Bediengebiet                     bigint, 
 	SortOrder                           bigint, 
 	Bezeichnung                         text, 
-	TarifInfo                           text, 
+	ReferenzExtern                      text,
+	PRIMARY KEY(ID_Sortengruppe ASC, ID_Zeitraum ASC));
+
+CREATE TABLE SortengruppenElemente(
+	Deaktiviert                         integer, 
+	ID_SortengruppenElement             bigint, 
+	ID_Zeitraum                         bigint, 
+	ID_Sortengruppe                     bigint, 
+	SortOrder                           bigint, 
 	ID_Sorte                            bigint, 
 	ID_Preisstufe                       bigint,
-	PRIMARY KEY(ID_Sortengruppe ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Sortengruppen ON Sortengruppen(Sortengruppennummer ASC, ID_Sortengruppentyp ASC, ID_Bediengebiet ASC, SortOrder ASC, ID_Zeitraum ASC);
+	PRIMARY KEY(ID_SortengruppenElement ASC, ID_Zeitraum ASC));
 
 CREATE TABLE SortenTarifarten(
 	Deaktiviert                         integer, 
@@ -714,8 +720,9 @@ CREATE TABLE DynAttributWert(
 	ID_DynAttributDef                   bigint, 
 	Tabellennummer                      bigint, 
 	ID_DatensatzRef                     bigint, 
+	Lang                                varchar(2), 
 	Wert                                text,
-	PRIMARY KEY(ID_Zeitraum ASC, ID_DynAttributDef ASC, Tabellennummer ASC, ID_DatensatzRef ASC));
+	PRIMARY KEY(ID_Zeitraum ASC, ID_DynAttributDef ASC, Tabellennummer ASC, ID_DatensatzRef ASC, Lang ASC));
 
 CREATE TABLE Sprachtexte(
 	ID_Sprachtext                       text, 
@@ -771,6 +778,7 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("R
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Relationszuordnungen", 39, "Relationszuordnungen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Sorten", 40, "Sorten_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Sortengruppen", 41, "Sortengruppen_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("SortengruppenElemente", 58, "SortengruppenElemente_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Tagesarten", 42, "Tagesarten_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("TagesartMerkmalElemente", 43, "TagesartMerkmalElemente_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Tagesmerkmale", 44, "Tagesmerkmale_Type"); 
@@ -786,4 +794,4 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("V
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wege", 54, "Wege_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wegpositionen", 55, "Wegpositionen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Zusatzsorten", 56, "Zusatzsorten_Type"); 
-INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 0, "stabil", "2020-03-29"); 
+INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 0, "stabil", "2021-05-19"); 

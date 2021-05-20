@@ -275,7 +275,7 @@
 
 	<!-- ===============================================================================
 		Liefert die Tabellennummern einer Tabelle, die für dynamische Attribute 
-		definiert ist oder 'Fehler: undefiniert'.
+		definiert ist oder 'Fehler: tabellennummer undefiniert'.
 		Mode: "tabellennummer"
     =============================================================================== --> 
 	<xsl:template match="xs:*" mode="tabellennummer">
@@ -337,7 +337,8 @@
 			<xsl:when test="@name='Wegpositionen_Type'">55</xsl:when>
 			<xsl:when test="@name='Zusatzsorten_Type'">56</xsl:when>
 		  	<xsl:when test="@name='GueltigkeitszeitRegeln_Type'">57</xsl:when>
-		  	<xsl:otherwise>Fehler: undefiniert</xsl:otherwise>
+			<xsl:when test="@name='SortengruppenElemente_Type'">58</xsl:when>
+		  	<xsl:otherwise>Fehler: tabellennummer undefiniert</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 
