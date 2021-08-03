@@ -32,6 +32,26 @@
 		</xs:restriction>
 	</xs:simpleType>
 	
+  <xs:simpleType name="DauerMinuten">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+        In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten empfohlen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:duration"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="UhrzeitMinuten">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+        In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten nach 0 Uhr empfohlen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:time"/>
+  </xs:simpleType>
+
 	<xs:simpleType name="Betriebszeit_Type">
 		<xs:annotation>
 			<xs:documentation>Betriebszeiten dürfen über 24:00 Uhr hinausgehen
@@ -2223,6 +2243,188 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
+
+  <xs:complexType name="PreisstufenErmittlungen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die PreisstufenErmittlungen dienen dazu, die zu berechenden Preisstufen für eine Sorte zu ermitteln.
+        Dabei orientiert sich die PreisstufenErmittlung an einer variablen Ermittlungseinheit (z.B. Minuten / Kilometer).
+        Die PreisstufenErmittlung ist eine alternative zur Ermittlung der Preisstufe über eine Teilrelation.
+        Die PreisstufenErmittlung hat hauptsächlich im Zusammenhang mit der SortengruppenErmittlung im MaaS-Bereich eine Relevanz.
+        Die ermittelte Preisstufe muss ggf. mehrfach berechnet werden.
+
+        Wenn die Menge an Ermittlungseinheiten in dem Rahmen von "Von" und "Bis" liegt,
+        wird die Anzahl der Schritte aufgerundet auf ganze Werte mal den Preis gerechnet.
+
+        Bsp.: Einheit Minuten, Von 0, Bis 90, Schritt 5, ID_Preisstufe 1
+        => Wenn 32 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 1 7x berechnet.
+
+        Bsp. 2: Einheit Minuten, Von 90, Bis 180, Schritt 10, ID_Preisstufe 2
+        => Wenn 117 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 2 3x berechnet.
+        Zusätzlich sind für den Zeitraum von 0 bis 90 Minuten weitere Preisstufen zu ermitteln. (z.B. aus Beispiel 1 die ID_Preisstufe 1 18x)
+
+        Bsp. 3: Einheit Kilometer, Von 0, Bis 100, Schritt 100, ID_Preisstufe 3
+        => Wenn 5 Kilometer berechnet werden sollen, wird der Preis der ID_Preisstufe 3 1x berechnet.
+        So kann ID_Preisstufe 3 allgemein nur 1x berechnet werden, da Schritt = Bis - Von ist.
+      </xs:documentation>
+
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_PreisstufenErmittlung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+
+        <api:schema name="Tarif"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_PreisstufenErmittlung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Ermittlungseinheit" type="husstDV:DefErmittlungseinheit_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Von" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Incl.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bis" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Excl.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Schritt" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schritt darf nicht größer als Bis - Von sein.
+            Schritt muss ein Teiler von Bis - Von sein => (Bis - Von) Modulo Schritt = 0.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SortengruppenErmittlungen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die SortengruppenErmittlungen definieren Regeln zur Stukturierung von Tarifen in beliebig kleine Zeitperioden innerhalb eines Zeitraums.
+        Eine Zeitperiode wird dabei durch StartVon und -Bis Uhrzeit und der Tagesart definiert. DauerMax und der Überhang verfeinern diese Definition.
+      </xs:documentation>
+
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_SortengruppenErmittlung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+
+        <api:schema name="Tarif"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_SortengruppenErmittlung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Sortengruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifpunktmenge" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Wenn gesetzt, definiert die Tarifpunktmenge zusätzlich zur zeitlichen eine räumliche Einschränkung.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TagesartVon" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Wenn gesetzt, gilt diese Regel nur an den bestimmten Tagen.
+            Die gesetzte Tagesart gilt für die Uhrzeit StartVon.
+            Wenn nicht gesetzt gilt die Regel an allen Tagen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StartVon" type="husstDV:UhrzeitMinuten" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Gibt eine Uhrzeit von dem an diese Zeitperiode gilt. Diese ist inklusiv zu betrachten.
+            Wenn StartVon und StartBis irrelevant sind, kann hier 00:00 Uhr eingetragen werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StartBis" type="husstDV:UhrzeitMinuten" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Gibt eine Uhrzeit an der an diese Zeitperiode endet. Diese ist exklusiv zu betrachten.
+            Wenn StartBis kleiner ist als StartVon, dann ist StartBis am darauffolgenden Tag von StartVon.
+            Wenn StartVon und StartBis irrelevant sind, kann hier 24:00 Uhr eingetragen werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DauerMax" type="husstDV:DauerMinuten" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            DauerMax definiert die maximale Nutzungsdauer für die diese Zeitperiode gewählt werden kann.
+            Diese Dauer bezieht sich auf die Gesamtnutzung, auch wenn diese sich durch mehrere Zeitperioden zieht.
+            Diese Dauer ist inklusiv zu betrachten.
+
+            Bsp. Daten für Bsp. 1 und 2
+            - StartVon = 07:00 Uhr, StartBis = 17:00 Uhr, DauerMax = 48h, SortOrder = 1, ID_Sortengruppe = 1
+            - StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, DauerMax = 48h, SortOrder = 2, ID_Sortengruppe = 2
+            - StartVon = 00:00 Uhr, StartBis = 24:00 Uhr, DauerMax = 144h, SortOrder = 3, ID_Sortengruppe = 3
+
+            Bsp 1: Nutzung von 01.01. 15:00 Uhr bis 03.01. 06:00 Uhr, Nutzungsdauer 39h
+            => ID_Sortengruppe 1 und 2 treten abwechselnd in Kraft, da diese Beiden durch die Sortorder bevorzugt werden
+            und den gesamten Nutzungszeitraum abdecken wird der 3. Datensatz nicht betrachtet.
+
+            Bsp 2: Nutzung von 01.01. 15:00 Uhr bis 05.01. 06:00 Uhr, Nutzungsdauer 63h
+            => ID_Sortengruppe 1 und 2 sind durch DauerMax ausgeschlossen -> ID_Sortengruppe 3 tritt in Kraft
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Ueberhang" type="husstDV:DauerMinuten" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Der Überhang definiert eine Toleranz-Zeitspanne für die die Nutzung der Zeitperiode überschritten werden darf
+            ohne in eine neue Zeitperiode zu kommen.
+
+            Bsp. Daten für Bsp. 1 und 2
+            - StartVon = 07:00 Uhr, StartBis = 17:00 Uhr, Ueberhang = 2h, SortOrder = 1, ID_Sortengruppe = 1
+            - StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, Ueberhang = 2h, SortOrder = 2, ID_Sortengruppe = 2
+
+            Bsp 1: Nutzung von 01.01. 05:00 Uhr bis 01.01. 08:00 Uhr
+            => ID_Sortengruppe 2 tritt in Kraft, da die 2h nach 07:00 Uhr nicht überschritten wurden.
+
+            Bsp 2: Nutzung von 01.01. 05:00 Uhr bis 01.01. 10:00 Uhr
+            => ID_Sortengruppe 2 tritt bis 07:00 Uhr in Kraft, da die 2h überschritten wurden. Ab 07:00 Uhr gilt ID_Sortengruppe 1.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert aufsteigend die Reihenfolge, in der die Regeln ausgewertet werden.
+            Es gelten immer die Regeln, die als Erstes die komplette Nutzungsperiode abdecken.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 
 	<!--Netz -->
 	<xs:complexType name="OrtspunkteTG_Type">
@@ -4675,6 +4877,69 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 		</xs:sequence>
 	</xs:complexType>
 
+  <xs:complexType name="DefErmittlungseinheit_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Ermittlungseinheit"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarif"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Ermittlungseinheit" type="husstDV:ID_Ermittlungseinheit_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Ermittlungseinheit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ID_ErmittlungseinheitHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Ermittlungseinheit kleiner 1000
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>
+            Minuten
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>
+            Kilometer
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ID_Ermittlungseinheit_Type">
+    <xs:annotation>
+      <xs:documentation>Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_ErmittlungseinheitHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
 	<!--Ende Tabellen -->
 
 	<!--Allgemein -->
@@ -4714,6 +4979,8 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 	<xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type"/>
 	<xs:element name="Preise" type="husstDV:Preise_Type"/>
 	<xs:element name="GueltigkeitszeitRegeln" type="husstDV:GueltigkeitszeitRegeln_Type"/>
+  <xs:element name="PreisstufenErmittlungen" type="husstDV:PreisstufenErmittlungen_Type"/>
+  <xs:element name="SortengruppenErmittlungen" type="husstDV:SortengruppenErmittlungen_Type"/>
 
 	<!--Netz -->
 	<xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type"/>
@@ -4754,6 +5021,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 	<xs:element name="DefSortendruckregelungen" type="husstDV:DefSortendruckregelung_Type"/>
 	<xs:element name="DefVertriebswege" type="husstDV:DefVertriebswege_Type"/>
 	<xs:element name="DefZahlungsarten" type="husstDV:DefZahlungsarten_Type"/>
+  <xs:element name="DefErmittlungseinheit" type="husstDV:DefErmittlungseinheit_Type"/>
 	<xs:element name="Relationszuordnungen" type="husstDV:Relationszuordnungen_Type"/>
 	
 	<xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
@@ -4776,6 +5044,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element ref="husstDV:Relationszuordnungen"/>
 			<xs:element ref="husstDV:Bearbeitung"/>
 			<xs:element ref="husstDV:Bediengebiete"/>
+      <xs:element ref="husstDV:DefErmittlungseinheit"/>
 			<xs:element ref="husstDV:DefBundeslaender"/>
 			<xs:element ref="husstDV:DefOTPTypen"/>
 			<xs:element ref="husstDV:DefOrtspunkttypen"/>
@@ -4802,6 +5071,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element ref="husstDV:Preise"/>
 			<xs:element ref="husstDV:Preisspalten"/>
 			<xs:element ref="husstDV:Preisstufen"/>
+      <xs:element ref="husstDV:PreisstufenErmittlungen"/>
 			<xs:element ref="husstDV:Preisstufendirektwahl"/>
 			<xs:element ref="husstDV:RaeumlicheGueltigkeit"/>
 			<xs:element ref="husstDV:Relationen"/>
@@ -4811,6 +5081,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element ref="husstDV:SortenTarifarten"/>			
 			<xs:element ref="husstDV:Sortengruppen"/>
 			<xs:element ref="husstDV:SortengruppenElemente"/>
+      <xs:element ref="husstDV:SortengruppenErmittlungen"/>
 			<xs:element ref="husstDV:TagesartMerkmalElemente"/>
 			<xs:element ref="husstDV:Tagesarten"/>
 			<xs:element ref="husstDV:TagesmerkmalElemente"/>
