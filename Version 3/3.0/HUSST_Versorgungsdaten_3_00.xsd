@@ -4478,7 +4478,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="VersionMinor" type="husstDV:INT4" default="0" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="husstDV:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2020-03-29" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2021-05-19" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -4975,6 +4975,7 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 					<api:field name="ID_DynAttributDef"/>
 					<api:field name="Tabellennummer"/>
 					<api:field name="ID_DatensatzRef"/>
+					<api:field name="Lang"/>
 				</api:primekey>
 				<api:schema name="Basis"/>
 			</xs:appinfo>
@@ -4985,40 +4986,51 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 				<xs:annotation>
 					<xs:documentation>Referenznummer der dynamischen
 						Attributdefinition.
-						Die Nummer hat nur innerhalb der Datenmenge eine Bedeutung und kann
+						Die Nummer hat nur innerhalb der Datenmenge eine Bedeutung und kann 
 						nicht als persistent vorausgesetzt werden.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="Tabellennummer" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Eindeutige Nummer der referenzierten
-						Datenstruktur.
-						Neben dem eindeutigen Namen jedes Datentyps (z.B. Tarifgebiet für
-						Tarifgebiet_Type) der aus dem Typnamen regelbasiert abgeleitet
-						wird, erhält jeder Typ eine eindeutige Tabellennummer.
-						Damit muss nicht bei jeder Datenmenge eine numerische ID für jeden
-						Datentyp abgelegt werden. Andererseits kann bei Referenzen wie
-						DynAttributWert die Tabellennummer viel effizienter als
-						Schlüsselwert verwendet werden, als ein entsprechender Name.
+					<xs:documentation>
+						Eindeutige Nummer der referenzierten
+						Datenstruktur. Neben dem eindeutigen Namen jedes
+						Datentyps (z.B. Tarifgebiet für
+						Tarifgebiet_Type) der aus dem Typnamen
+						regelbasiert abgeleitet wird, erhält jeder Typ
+						eine eindeutige Tabellennummer. Damit muss nicht
+						bei jeder Datenmenge eine numerische ID für
+						jeden Datentyp abgelegt werden. Andererseits
+						kann bei Referenzen wie DynAttributWert die
+						Tabellennummer viel effizienter als
+						Schlüsselwert verwendet werden, als ein
+						entsprechender Name.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ID_DatensatzRef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
 				<xs:annotation>
-					<xs:documentation>Eindeutiger Datensatzschlüssel (ID_[Typname]) des
-						Datensatzes, für den dieses dynamische Attribut definiert ist.
-						Der Datensatz ist in der Datenstruktur zu finden, die mit
-						Tabellennummer eindeutig beschrieben ist und ist zusammen mit
+					<xs:documentation>
+						Eindeutiger Datensatzschlüssel (ID_[Typname])
+						des Datensatzes, für den dieses dynamische
+						Attribut definiert ist. Der Datensatz ist in der
+						Datenstruktur zu finden, die mit Tabellennummer
+						eindeutig beschrieben ist und ist zusammen mit
 						ID_Zeitraum eindeutig zu ermitteln.
 
-						Warnung!
-						Datenstrukturen, die keine eindeutige Datensatz-ID mitführen, können keine
-						dynamischen Attribute haben (z.B. Teilrelationen_Type). Zuvor
-						müssten diese Strukturen um ein ID_[Typname])-Feld erweitert
-						werden.
+						Warnung! Datenstrukturen, die keine eindeutige
+						Datensatz-ID mitführen, können keine dynamischen
+						Attribute haben (z.B. Teilrelationen_Type).
+						Zuvor müssten diese Strukturen um ein
+						ID_[Typname])-Feld erweitert werden.
 					</xs:documentation>
 				</xs:annotation>
+			</xs:element>
+			<xs:element name="Lang" type="husstDV:Lang_Type" maxOccurs="1" minOccurs="0">
+                <xs:annotation>
+                	<xs:documentation>optionale Sprachkennung des Wertes</xs:documentation>
+                </xs:annotation>
 			</xs:element>
 			<xs:element name="Wert" type="husstDV:blobString" maxOccurs="1" minOccurs="0"/>
 		</xs:sequence>
