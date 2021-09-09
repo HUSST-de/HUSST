@@ -4899,7 +4899,7 @@ Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unters
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Ortsnummer" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Sortengruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
