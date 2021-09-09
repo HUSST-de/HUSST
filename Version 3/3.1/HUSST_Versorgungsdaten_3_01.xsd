@@ -3062,7 +3062,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:enumeration value="10">
         <xs:annotation>
           <xs:documentation>Startpunkt (allgemein)
-          Startpunkte mit ID_OTPTyp=10 sind über ihre ID_Ortsnummer mit einem Ortspunkt verbunden.
+          Startpunkte mit ID_OTPTyp=10 sind über ihre ID_Ortspunkt mit einem Ortspunkt verbunden.
           Über diesen Orstpunkt ist der Standort eines Vertriebsgerätes synchronisierbar.
           Z.B. über seine IBISNr.
                     
@@ -3121,7 +3121,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:enumeration value="25">
         <xs:annotation>
           <xs:documentation>Zielhaltestellen
-          Die Ziele mit ID_OTPTyp=25 verweisen verpflichtend auf einen Ortspunkt (über ID_Ortsnummer)
+          Die Ziele mit ID_OTPTyp=25 verweisen verpflichtend auf einen Ortspunkt (über ID_Ortspunkt)
           </xs:documentation>
         </xs:annotation>
 	  </xs:enumeration>
