@@ -256,7 +256,7 @@
         <xs:annotation>
           <xs:documentation>
             Sortorder1
-            Die Teilrelation mit Sortorder 1 muss bepreist werden, die anderen Teilrelarionen werden zusätzlich registriert.
+            Die Teilrelation mit Sortorder 1 muss bepreist werden, die anderen Teilrelationen werden zusätzlich registriert.
             Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.
           </xs:documentation>
         </xs:annotation>
@@ -265,7 +265,7 @@
         <xs:annotation>
           <xs:documentation>
             AdditionPreise
-            Die Preise aller Teilrealtionen werden addiert, es werden alle Teilrelationen registriert.
+            Die Preise aller Teilrelationen werden addiert, es werden alle Teilrelationen registriert.
             Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.
             Für die Bepreisung muss eine Sortengruppe zur Verfügung stehen, in der jeweils eine Sorte zu mindestens einer Teilrelation passt.
           </xs:documentation>
@@ -277,7 +277,7 @@
             AdditionPreisstufen
             Die gewählte Sorte entscheidet über ihre Tarifart(en), welche Teilrelation(en) für die Preisfindung und die Registrierung verwendet werden.
             Nicht passende Teilrelationen werden ignoriert.
-            Damit ist sichergestellt, dass alle verwendeten Teilrelatione aus einem Tarifgebiet stammen.
+            Damit ist sichergestellt, dass alle verwendeten Teilrelationen aus einem Tarifgebiet stammen.
             Die Preisstufen der Teilrelationen werden addiert und dazu der Preis der Sorte ermittelt, alle diese Teilrelationen werden
             registriert.
           </xs:documentation>
@@ -717,13 +717,20 @@
 
   <xs:complexType name="Tarifpunkte_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Tarifpunkt"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Tarifpunkt" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Ein Tarifpunkt dient der Zusammenfassung (ein oder) mehrerer Haltestellen aus Tarifsicht (weil Fahrten zu
+diesen bzw. von diesen Haltestellen immer zum gleichen Preis führen). Ein Tarifpunkt hat eine
+Nummer und ggf. auch einen Namen. Außerdem ist ein Tarifpunkt genau einem Tarifgebiet
+zugeordnet. Tarifpunkte werden zum Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der
+räumlichen Gültigkeit zu ermöglichen. In vielen Tarifsystemen haben Tarifpunkte Namen wie: Zone
+oder Ring.
+Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -> Nach-Tarifpunkt -> Preisstufe</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -761,13 +768,17 @@
 
   <xs:complexType name="Tarifpunktmengen_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Tarifpunktmenge"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Tarifpunktmenge" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Eine Tarifpunktmenge umfasst die Menge der ihr zugeordneten Tarifpunkte in Form von TarifpunktmengeElementen. 
+Über eine Tarifpunktmenge können somit bspw. alle Zonen eines Fahrtverlaufs oder alle erlaubten Zonen zu einer ausgewählten Verbindung abgebildet werden.
+
+RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifpunktmengen verweisen.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -1777,15 +1788,15 @@
 
   <xs:complexType name="Preisstufen_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Preisstufe"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Preisstufe" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
 
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definition der Preisstufen pro Tarifgebiet und Zeitraum</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -1797,9 +1808,9 @@
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="WegstreckeInMetern" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>
+        	<xs:documentation>
             durschnittliche Wegstrecke in Meter für
-            PKM
+            PKM (Personen-Kilometer)
             Berechnung
           </xs:documentation>
         </xs:annotation>
@@ -2054,19 +2065,19 @@
 
   <xs:complexType name="Zusatzsorten_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Zusatzsorte"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:uniquekey name="Uix_Zusatzsorten">
-          <api:field name="ID_Sorte"/>
-          <api:field name="ZuordnungRelCodeGrp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:uniquekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Zusatzsorte" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:uniquekey name="Uix_Zusatzsorten">
+    			<api:field name="ID_Sorte" />
+    			<api:field name="ZuordnungRelCodeGrp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:uniquekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Zusatzsorten sind Anschluss- und Anstossprodukte, die in Abhängigkeit von Preisstufe, bereits gewählter Sorte und Relation angeboten werden</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -2146,20 +2157,20 @@
 
   <xs:complexType name="Preise_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Preis"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:uniquekey name="Uix_Preise">
-          <api:field name="ID_Preisstufe"/>
-          <api:field name="ID_Sorte"/>
-          <api:field name="ID_Preisspalte"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:uniquekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Preis" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:uniquekey name="Uix_Preise">
+    			<api:field name="ID_Preisstufe" />
+    			<api:field name="ID_Sorte" />
+    			<api:field name="ID_Preisspalte" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:uniquekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Preise aller Sorten, abhängig von Zeitraum und Tarifgebiet, ggf. auch von Preisstufe, und Preisspalte</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
@@ -2674,14 +2685,14 @@
 
   <xs:complexType name="Linien_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Linie"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Angebot"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Linie" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Angebot" />
+    	</xs:appinfo>
+    	<xs:documentation>Abbildung von Linien mit Zuordnung zum Fahrtverlauf. Dabei kann für die Hin- und Rückrichtung ein gesonderter Fahrtverlauf angegeben werden.</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -3045,12 +3056,75 @@
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert OTPTypen kleiner 1000
-        todo: HUSST-OTPTypen definieren
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:minExclusive value="0"/>
-      <xs:maxExclusive value="0"/>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>Startpunkt (allgemein)
+          Startpunkte mit ID_OTPTyp=10 sind über ihre ID_Ortsnummer mit einem Ortspunkt verbunden.
+          Über diesen Orstpunkt ist der Standort eines Vertriebsgerätes synchronisierbar.
+          Z.B. über seine IBISNr.
+                    
+          Es muss gewährleistet sein, dass jeder Standort eindeutig über einen Ortspunkt 
+          und einen Tarifrelevantenpunkt mit ID_OTPTyp=10 identifiziert werden kann.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation>Startpunkt im Verbund
+          Definiert eine eingeschränkte Liste von umwählbaren Startorten für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>Startwabe (Namen) im Verbund
+          Definiert eine eingeschränkte Liste von umwählbaren Startwaben mit alphanumerischen Namen für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation>Startwabe (Nummer) im Verbund
+          Definiert eine eingeschränkte Liste von umwählbaren Startwaben mit numerischen Bezeichnern (Nummern) für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="20">
+        <xs:annotation>
+          <xs:documentation>Zielpunkt (allgemein)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="21">
+        <xs:annotation>
+          <xs:documentation>Ziele im Verbund
+          Definiert eine eingeschränkte Liste von Zielen für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="22">
+        <xs:annotation>
+          <xs:documentation>Zielwaben (Namen) im Verbund
+          Definiert eine eingeschränkte Liste von Zielwaben mit alphanumerischen Namen für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="23">
+        <xs:annotation>
+          <xs:documentation>Ziel (Nummer) im Verbund
+          Definiert eine eingeschränkte Liste von Zielwaben mit numerischen Bezeichnern (Nummern) für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="25">
+        <xs:annotation>
+          <xs:documentation>Zielhaltestellen
+          Die Ziele mit ID_OTPTyp=25 verweisen verpflichtend auf einen Ortspunkt (über ID_Ortsnummer)
+          </xs:documentation>
+        </xs:annotation>
+	  </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -3064,8 +3138,7 @@
   <xs:simpleType name="ID_PreisquelleHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Preisquelle kleiner 1000
-        todo: HUSST ID_Preisquelle definieren
+        Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert.        
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3130,12 +3203,38 @@
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Sortengruppentyp kleiner 1000
-        todo: HUSST ID_Sortengruppentyp definieren
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:minExclusive value="0"/>
-      <xs:maxExclusive value="1000"/>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Verkaufssortengruppe (allgemein)
+          Diese Sortengruppen werden beim Verkauf über eine Start-/ Zielwahl angeboten. 
+          </xs:documentation>          
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Verkaufssortengruppe (Verbund)
+          Eingeschränkte Liste von Verkaufssortengruppe für einen Tarifverbund des eingestellten Bediengebietes.  
+          </xs:documentation>          
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>Hauptsorten zu Zusatzsorten
+          Unter dem Sortengruppentyp 10 werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind.
+          In den Zusatzsorten wird im Attribut „ID_SortengruppeHauptsorten“ auf die Sortengruppe vom Typ 10 verwiesen.
+          </xs:documentation>          
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="101">
+        <xs:annotation>
+          <xs:documentation>KA-Verkaufssortengruppe
+          KA-Sorten unter denen ein Produktwechsel möglich ist. Artikel und/oder Serviceklasse.
+          </xs:documentation>          
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -3150,15 +3249,87 @@
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Sortenklasse kleiner 1000
-        todo: HUSST ID_Sortenklasse definieren
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:minExclusive value="0"/>
-      <xs:maxExclusive value="0"/>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Einzelfahrschein</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Einzel Festpreis</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Einzelfahrschein ohne Preis (aber mit Relation)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Zählung (Einzel Festpreis ohne Preis)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>Tageskarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>Tageskarte Festpreis</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation>Wochenkarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>Wochenkarte Festpreis</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Monatskarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>Monatskarte Festpreis</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation>Jahreskarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>Jahreskarte Festpreis</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="20">
+        <xs:annotation>
+          <xs:documentation>Artikel</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="97">
+        <xs:annotation>
+          <xs:documentation>Fehleinnahme</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="103">
+        <xs:annotation>
+          <xs:documentation>Bargutschrift/Restgeldquittung</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-
+  
   <xs:simpleType name="ID_Sortenklasse_Type">
     <xs:annotation>
       <xs:documentation>Die ID_Sortenklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
@@ -3244,14 +3415,14 @@
 
   <xs:complexType name="DefTarifpunkttyp_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Tarifpunkttyp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Tarifpunkttyp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert die Art eines Tarifpunktes (Tarifhaltestelle, Zone/Wabe/Ring, Überzone/Wabentyp etc..) siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -3272,13 +3443,20 @@
 
   <xs:complexType name="DefSortentyp_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Sortentyp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Sortentyp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Der Sortentyp ist der Sortenklasse sehr ähnlich. 
+Während die Angabe der Sortenklasse bei einer Sorte verpflichtend ist, gilt das für den Sortentyp nicht.
+Die vordefinierten Sortentypen stellen eine gröbere Klassizifzierung dar, als die Sortenklassen:
+Sortentyp: Einzelkarte  
+entspricht den 
+Sortenklassen: Einzelfahrschein, Einzel Festpreis, Einzelfahrschein ohne Preis, Zählung.
+Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -3300,15 +3478,15 @@
 
   <xs:complexType name="DefSortengruppentyp_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Sortengruppentyp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Angebot"/>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Sortengruppentyp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Angebot" />
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert den Verwendungszweck eines Typs von Sortengruppen. Siehe auch ID_Sortengruppentyp_Type bzw. ID_SortengruppentypHUSST_Type.</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -3320,13 +3498,19 @@
 
   <xs:complexType name="DefSortenklasse_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Sortenklasse"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Sortenklasse" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Jede Sorte wird genau einer Sortenklasse zugeordnet. 
+Z.B. „Einzelfahrscheine“ oder „Monatskarten Festpreis“. 
+Durch die Sortenklasse können in Vertriebsystemen Sorteneigenschaften festgelegt, bzw. zur Konfiguration angeboten werden. 
+Z.B.: Einstellungsparameter für Monatskarten bei Monatskarte oder eine definierbare Preisstufe bei Festpreisen). 
+Die Husst definiert eine Reihe von Standard Sortenklassen (siehe ID_SortenklasseHUSST_Type).
+Darüber hinaus können projektspezifische Sortenklassen ergänzt werden.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -3352,13 +3536,14 @@
 
   <xs:complexType name="DefWaehrung_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Waehrung"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Waehrung" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -3424,15 +3609,15 @@
 
   <xs:complexType name="Mwst_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Mwst"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Mwst" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
 
-      </xs:appinfo>
-    </xs:annotation>
+    	</xs:appinfo>
+    	<xs:documentation>Definition aller Mehrwertsteuersätze zur jeweiligen Referenzierung in Preisstufen, Sorten und Preisen</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -3522,14 +3707,14 @@
 
   <xs:complexType name="DefFahrgasttyp_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Fahrgasttyp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Fahrgasttyp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Der Fahrgasttyp bezeichnet die tarifrele-vante Kategorie eines Fahrgastes z.B. Kind, Erwachsener, Rentner usw.</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -3637,14 +3822,14 @@
 
   <xs:complexType name="DefKomfortklasse_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Komfortklasse"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Komfortklasse" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert die Komfortklasse für deren Benutzung die Fahrscheinsorte berechtigt (z.B. 1 für 1. Klasse, 2 für 2. Klasse)</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -3702,18 +3887,20 @@
 
   <xs:complexType name="DefRabattklasse_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Rabattklasse"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Rabattklasse" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert die Rabattklasse, z.B. &quot;BahnCard50 1.Kl.&quot;, auf die in Sorten verweisen wird.</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Rabattklasse" type="husstDV:ID_Rabattklasse_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Rabattklasse" type="husstDV:ID_Rabattklasse_Type" maxOccurs="1" minOccurs="1">
+      	<xs:annotation>
+      		<xs:documentation>Eindeutige ID der Rabattklassse</xs:documentation></xs:annotation></xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Bezeichnung der Rabattklasse.</xs:documentation>
@@ -3816,13 +4003,15 @@
 
   <xs:complexType name="DefPreisfindung_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Preisfindung"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Preisfindung" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc. 
+Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -3904,13 +4093,16 @@
 
   <xs:complexType name="DefSortenausgaberegelung_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Sortenausgaberegelung"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Sortenausgaberegelung" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden darf. 
+Bsp. Papierfahrschein oder eTicket. 
+Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabemethoden erlaubt sein können.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4189,13 +4381,15 @@
 
   <xs:complexType name="DefSortendruckregelung_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Sortendruckregelung"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Sortendruckregelung" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird. 
+Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vordefinierter Wert 1). </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4252,18 +4446,20 @@
 
   <xs:complexType name="DefReisetyp_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Reisetyp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Reisetyp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...), auf den in Sorten verwiesen wird.</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Reisetyp" type="husstDV:ID_Reisetyp_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Reisetyp" type="husstDV:ID_Reisetyp_Type" maxOccurs="1" minOccurs="1">
+      	<xs:annotation>
+      		<xs:documentation>Eindeutige ID des Reisetyps</xs:documentation></xs:annotation></xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Bezeichnung des Reisetyps</xs:documentation>
@@ -4387,14 +4583,22 @@
 
   <xs:complexType name="DefVertriebswege_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Vertriebswege"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-        <api:schema name="Angebot"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Vertriebswege" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    		<api:schema name="Angebot" />
+    	</xs:appinfo>
+    	<xs:documentation>Die Vertriebswege kommen bei verschiedenen Typen als Attribut vor. In erster Linie werden sie
+dazu verwendet, die Datenmenge für verschiedene Verkaufsgeräte zu reduzieren, indem
+Elemente, die der entsprechenden Vertriebstechnik nicht zugeordnet sind, auch nicht mit den
+Herstellerunabhängige Standardschnittstelle
+„Datenaustausch in ÖPV-Vertriebssystemen“ 2010-2012 Seite 37 von 178
+Daten versorgt werden. Teilweise haben die Vertriebswege aber auch steuernden Charakter auf
+den Verkaufsgeräten. Z.B. kann mit den Vertriebswegen festgelegt sein, dass eine bestimmte
+Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4483,13 +4687,16 @@
 
   <xs:complexType name="DefZahlungsarten_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Zahlungsarten"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Zahlungsarten" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann.
+Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
+</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4606,15 +4813,19 @@
 
   <xs:complexType name="VersionInhalt_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="DatenversionInhalt"/>
-          <api:field name="Erstellungsdatum"/>
-          <api:field name="Lieferant"/>
-        </api:primekey>
-        <api:schema name="Basis"/>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="DatenversionInhalt" />
+    			<api:field name="Erstellungsdatum" />
+    			<api:field name="Lieferant" />
+    		</api:primekey>
+    		<api:schema name="Basis" />
 
-      </xs:appinfo>
+    	</xs:appinfo>
+    	<xs:documentation>Eine Datenlieferung enthält einen Datensatz VersionInhalt. 
+Dieser definiert, welche Datenversion die komplette Husstlieferung besitzt. 
+Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unterscheiden.
+Über die Registrierung Der DatenversionInhalt können Verkaufsdaten ihrer exakten Versorgungsdatenlieferung zugewordnet werden.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
 
@@ -4744,14 +4955,17 @@
 
   <xs:complexType name="DefOTPTyp_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_OTPTyp"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Angebot"/>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_OTPTyp" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Angebot" />
 
-      </xs:appinfo>
+    	</xs:appinfo>
+    	<xs:documentation>Definiert den Verwendungszweck eines Typs von Tarifrelevantenpunkten 
+(OTP steht für Orte und Tarifrelevante Punkte). 
+Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4905,13 +5119,15 @@
 
   <xs:complexType name="Unternehmen_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Unternehmen"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Basis"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Unternehmen" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Basis" />
+    	</xs:appinfo>
+    	<xs:documentation>Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem eine Rolle übernehmen.
+Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre Mandant Eigenschaft angezeigt werden.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4942,14 +5158,14 @@
 
   <xs:complexType name="DefPreisquelle_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Preisquelle"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Preisquelle" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Tarif" />
+    	</xs:appinfo>
+    	<xs:documentation>Definiert eine Quellenangabe die einer Teilrelation zugeordnet werden kann. Quellenangaben dienen im wesentlichen der späteren Ausgabezuscheidung.</xs:documentation></xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
@@ -4976,13 +5192,16 @@
 
   <xs:complexType name="DefRelationenberechnungsregelung_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Relationenberechnungsregelung"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Angebot"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Relationenberechnungsregelung" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Angebot" />
+    	</xs:appinfo>
+    	<xs:documentation>Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu verarbeiten sind. 
+Diese Regelung kann dabei Auswirkungen auf den Preis haben.
+Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4995,13 +5214,15 @@
 
   <xs:complexType name="DefRelationendruckregelung_Type">
     <xs:annotation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Relationendruckregelung"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Angebot"/>
-      </xs:appinfo>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Relationendruckregelung" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Angebot" />
+    	</xs:appinfo>
+    	<xs:documentation>Die Druckregelung bestimmt, wie die Werte der Teilrelationen zu drucken sind.
+Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
