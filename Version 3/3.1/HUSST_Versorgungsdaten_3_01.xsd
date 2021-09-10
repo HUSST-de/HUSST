@@ -4722,12 +4722,124 @@ Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Zahlungsart kleiner 1024
-        todo: HUSST ID_Zahlungsart definieren (Fabian)
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:minInclusive value="0"/>
-      <xs:maxInclusive value="1023"/>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>
+            Kartenzahlung
+            (Schließt alle Arten der Kartenzahlung ein, die das System unterstützt)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>
+            KA-Zahlung
+            (POB, PEB und WEB)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>
+            Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!--Ab hier zusätzliche Werte, damit das Enum als Bitfeld verwendet werden kann, ohne dass eine Validierung fehlschlägt.-->
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>
+            Keine
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / Kartenzahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / KA-Zahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>
+            Kartenzahlung / KA-Zahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / Kartenzahlung / KA-Zahlung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>
+            Kartenzahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / Kartenzahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>
+            KA-Zahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / KA-Zahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation>
+            Kartenzahlung / KA-Zahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="15">
+        <xs:annotation>
+          <xs:documentation>
+            Barzahlung / Kartenzahlung / KA-Zahlung / Rechnung
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
