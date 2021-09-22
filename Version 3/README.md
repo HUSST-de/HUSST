@@ -3,6 +3,17 @@
 In diesem Ordner befinden sich die Version 3 und alle Unterversionen.
 Zu jeder Version ist auch eine Beispiel SQLite Abbildung verfügbar.
 
+## Herstellerreservierte Bereiche
+Die Typen abgeleitet von ID_Projektspezifisch_Type haben ab 1000 einen freien Wertebereich. 
+Damit es bei herstellerübergreifenden Systemen keine Doppelungen gibt, werden hier Wertebereiche festgelegt, den die Hersteller dafür nutzen.
+
+Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue anfrage / reservieren.
+
+* 2000-2999 AMCON
+* 3000-3999 ICA
+* 4000-4999 krauth
+* 5000-5999 highQ
+
 ## Changelog
 
 ### 3.00 -> 3.01
@@ -15,4 +26,11 @@ Update im Zuge des Husst4Maas Projekts. Es wurden hauptsächlich Ergänzungen vo
   * Ermittlungseinheit Enum hinzugefügt.
   * DauerMinuten Typ hinzugefügt.
   * UhrzeitMinuten Typ hinzugefügt.
+
+Zudem wurden einige allgemeine Optimierungen und Vervollständigungen vorgenommen.
+
 * Ergänzung von Dokumentation an ein paar Stellen, wo diese fehlte.
+* Ausdefinition einiger Enumerationen:
+  * OTPTyp
+  * Preisquelle
+  * Sortengruppentyp

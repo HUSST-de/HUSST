@@ -288,7 +288,10 @@
 
   <xs:simpleType name="ID_Relationenberechnungsregelung_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationenberechnungsregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -329,7 +332,10 @@
 
   <xs:simpleType name="ID_Relationendruckregelung_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -775,7 +781,7 @@ Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -> Nach-Tarifpunk
     		</api:primekey>
     		<api:schema name="Tarif" />
     	</xs:appinfo>
-    	<xs:documentation>Eine Tarifpunktmenge umfasst die Menge der ihr zugeordneten Tarifpunkte in Form von TarifpunktmengeElementen. 
+    	<xs:documentation>Eine Tarifpunktmenge umfasst die Menge der ihr zugeordneten Tarifpunkte in Form von TarifpunktmengeElementen.
 Über eine Tarifpunktmenge können somit bspw. alle Zonen eines Fahrtverlaufs oder alle erlaubten Zonen zu einer ausgewählten Verbindung abgebildet werden.
 
 RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifpunktmengen verweisen.</xs:documentation>
@@ -1857,7 +1863,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Nummer der Sorte, eindeutig über alle Tarifgebiete 
+            Nummer der Sorte, eindeutig über alle Tarifgebiete
             innerhalb des ID_Zeitraum bzw. des Haupt-ID_Zeitraum
           </xs:documentation>
         </xs:annotation>
@@ -1897,7 +1903,13 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Typ der Sorte
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1976,14 +1988,6 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            1=Tageskarte,2=Wochenkarte,3=Monatskarte,4=Halbjahreskarte,5=Jahreskarte,6=Mehrfahrten,0=Einzelkarte,7=Bargutschrift,8=AboEinzahlung,9=EBEEinzahlung
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-
       <xs:element name="Mindestpersonenanzahl" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
@@ -2019,7 +2023,6 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
           <xs:documentation>Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...)</xs:documentation>
         </xs:annotation>
       </xs:element>
-
       <xs:element name="BezeichnungDruck" minOccurs="0" maxOccurs="1" type="xs:string">
         <xs:annotation>
           <xs:documentation>
@@ -2096,7 +2099,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Fremdschlüssel zur Produktbildung - wenn angegeben, 
+            Fremdschlüssel zur Produktbildung - wenn angegeben,
             wird diese Preisstufe fest zur Preisbestimmung verwendet.
             Die Angabe hat Vorrang vor ID_PreisstufenGrenze.
           </xs:documentation>
@@ -2105,7 +2108,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:element name="ID_PreisstufeGrenze" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            wenn nicht vorhanden (und ID_Preisstufe nicht vorhanden) - 
+            wenn nicht vorhanden (und ID_Preisstufe nicht vorhanden) -
             alle Preisstufen möglich sonst alle Preisstufen mit
             ID_Preisstufe kleiner gleich ID_PreisstufeGrenze
           </xs:documentation>
@@ -2814,7 +2817,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
   <!--Hilfstabellen -->
   <xs:simpleType name="ID_Projektspezifisch_Type">
     <xs:annotation>
-      <xs:documentation>Frei definierbare IDs für Def-Elemente beginnen mit 1000</xs:documentation>
+      <xs:documentation>
+        Frei definierbare IDs für Def-Elemente beginnen mit 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:minInclusive value="1000"/>
@@ -2848,7 +2854,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Waehrung_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_WaehrungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2856,105 +2865,114 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
   <xs:simpleType name="ID_SortentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert Sortentypen kleiner 1000
-        0=Einzelkarte,
-        1=Tageskarte,
-        2=Wochenkarte,
-        3=Monatskarte,
-        4=Halbjahreskarte,
-        5=Jahreskarte,
-        6=Mehrfahrten,
-        7=Bargutschrift,
-        8=AboEinzahlung,
-        9=EBEEinzahlung,
-        10=VerkaeuferEinzahlung,
-        11=Gruppe,
-        12=Fehleinnahme,
-        20=Artikel,
-        21=Gutschein,
-        30=Pfand (Pfand für Kundendatenträger),
-        999=Sonstige
+        Die HUSST vordefinierten Sortentypen sind in verschiedene Bereiche geklustert:
+          1- 10 Bar
+         11- 20 Zeit
+         21- 30 Artikel
+         31- 40 Einzahlungen
+         41- 50 Leihgeld
+        991-999 Spezial
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:enumeration value="0">
+      <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>Einzelkarte</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="1">
-        <xs:annotation>
-          <xs:documentation>Tageskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
       <xs:enumeration value="2">
-        <xs:annotation>
-          <xs:documentation>Wochenkarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="3">
-        <xs:annotation>
-          <xs:documentation>Monatskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="4">
-        <xs:annotation>
-          <xs:documentation>Halbjahreskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="5">
-        <xs:annotation>
-          <xs:documentation>Jahreskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="6">
         <xs:annotation>
           <xs:documentation>Mehrfahrten</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="7">
+      <xs:enumeration value="3">
         <xs:annotation>
-          <xs:documentation>Bargutschrift</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="8">
-        <xs:annotation>
-          <xs:documentation>AboEinzahlung</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="9">
-        <xs:annotation>
-          <xs:documentation>EBEEinzahlung</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="10">
-        <xs:annotation>
-          <xs:documentation>VerkäuferEinzahlung</xs:documentation>
+          <xs:documentation>Zähler</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="11">
         <xs:annotation>
-          <xs:documentation>Gruppe</xs:documentation>
+          <xs:documentation>Tageskarte</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="12">
         <xs:annotation>
-          <xs:documentation>Fehleinnahme</xs:documentation>
+          <xs:documentation>Wochenkarte</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="20">
+      <xs:enumeration value="13">
         <xs:annotation>
-          <xs:documentation>Artikel</xs:documentation>
+          <xs:documentation>Monatskarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation>Halbjahreskarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="15">
+        <xs:annotation>
+          <xs:documentation>Jahreskarte</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="21">
         <xs:annotation>
-          <xs:documentation>Gutschein</xs:documentation>
+          <xs:documentation>Artikel</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="30">
+      <xs:enumeration value="22">
         <xs:annotation>
-          <xs:documentation>Pfand (Pfand für Kundendatenträger)</xs:documentation>
+          <xs:documentation>Gutschein (Verkauf)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="23">
+        <xs:annotation>
+          <xs:documentation>Gutschein (Annahme)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="24">
+        <xs:annotation>
+          <xs:documentation>Gutschein (Restwert)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="31">
+        <xs:annotation>
+          <xs:documentation>Verkäufer Einzahlung</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="32">
+        <xs:annotation>
+          <xs:documentation>Abo Einzahlung</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="33">
+        <xs:annotation>
+          <xs:documentation>EBE Einzahlung</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="39">
+        <xs:annotation>
+          <xs:documentation>Sonstige Einzahlung</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="41">
+        <xs:annotation>
+          <xs:documentation>Pfand (z.B. für Kundendatenträger)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="42">
+        <xs:annotation>
+          <xs:documentation>Kaution</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="991">
+        <xs:annotation>
+          <xs:documentation>Fehleinnahme</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="992">
+        <xs:annotation>
+          <xs:documentation>Bargutschrift (Überzahlung / Restgeldquittung etc.)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="999">
@@ -2967,7 +2985,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Sortentyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3012,7 +3033,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Tarifpunkttyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_TarifpunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3047,7 +3071,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Ortspunkttyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OrtspunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3059,78 +3086,37 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:enumeration value="10">
+      <xs:enumeration value="1">
         <xs:annotation>
-          <xs:documentation>Startpunkt (allgemein)
-          Startpunkte mit ID_OTPTyp=10 sind über ihre ID_Ortspunkt mit einem Ortspunkt verbunden.
-          Über diesen Orstpunkt ist der Standort eines Vertriebsgerätes synchronisierbar.
-          Z.B. über seine IBISNr.
-                    
-          Es muss gewährleistet sein, dass jeder Standort eindeutig über einen Ortspunkt 
-          und einen Tarifrelevantenpunkt mit ID_OTPTyp=10 identifiziert werden kann.
+          <xs:documentation>
+            Standort
+
+            Zu jedem Tarifrelevantenpunkt vom OTPTyp Standort muss es einen eindeutigen Ortspunkt geben. (Über ID_Ortspunkt verwiesen)
+            => Es darf kein Ortspunkt mit 2 oder mehr verwiesenden Tarifrelevantenpunkten vom OTPTyp Standort geben.
+
+            Über diesen Ortspunkt ist der Standort eines Vertriebsgerätes synchronisierbar. Z.B. über seine IBISnr oder ReferenzExtern
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="11">
+      <xs:enumeration value="2">
         <xs:annotation>
-          <xs:documentation>Startpunkt im Verbund
-          Definiert eine eingeschränkte Liste von umwählbaren Startorten für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
-          </xs:documentation>
+          <xs:documentation>Startpunkt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="12">
+      <xs:enumeration value="3">
         <xs:annotation>
-          <xs:documentation>Startwabe (Namen) im Verbund
-          Definiert eine eingeschränkte Liste von umwählbaren Startwaben mit alphanumerischen Namen für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
-          </xs:documentation>
+          <xs:documentation>Zielpunkt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="13">
-        <xs:annotation>
-          <xs:documentation>Startwabe (Nummer) im Verbund
-          Definiert eine eingeschränkte Liste von umwählbaren Startwaben mit numerischen Bezeichnern (Nummern) für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="20">
-        <xs:annotation>
-          <xs:documentation>Zielpunkt (allgemein)</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="21">
-        <xs:annotation>
-          <xs:documentation>Ziele im Verbund
-          Definiert eine eingeschränkte Liste von Zielen für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="22">
-        <xs:annotation>
-          <xs:documentation>Zielwaben (Namen) im Verbund
-          Definiert eine eingeschränkte Liste von Zielwaben mit alphanumerischen Namen für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="23">
-        <xs:annotation>
-          <xs:documentation>Ziel (Nummer) im Verbund
-          Definiert eine eingeschränkte Liste von Zielwaben mit numerischen Bezeichnern (Nummern) für einen einzelnen Tarifverbund im jeweiligen Bediengebiet.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="25">
-        <xs:annotation>
-          <xs:documentation>Zielhaltestellen
-          Die Ziele mit ID_OTPTyp=25 verweisen verpflichtend auf einen Ortspunkt (über ID_Ortspunkt)
-          </xs:documentation>
-        </xs:annotation>
-	  </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="ID_OTPTyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OTPTypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3138,7 +3124,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
   <xs:simpleType name="ID_PreisquelleHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert.        
+        Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3149,7 +3135,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Preisquelle_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisquelleHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3169,7 +3158,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Preisspaltentyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisspaltentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3194,7 +3186,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Relcodegruppentyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelcodegruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3202,37 +3197,56 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
   <xs:simpleType name="ID_SortengruppentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Sortengruppentyp kleiner 1000
+        Die HUSST definiert ID_Sortengruppentyp sind in verschiedene Bereicht geklustert:
+         1-10 Verkaufssortengruppe
+        11-20 Zusatzsortengruppen
+        21-30 Gruppenfahrschein
+        31-40 SortengruppenErmittlung-Gruppen
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
         <xs:annotation>
-          <xs:documentation>Verkaufssortengruppe (allgemein)
-          Diese Sortengruppen werden beim Verkauf über eine Start-/ Zielwahl angeboten. 
-          </xs:documentation>          
+          <xs:documentation>
+            Verkaufssortengruppe Relation
+            Diese Sortengruppen werden beim Verkauf über eine Start-/ Zielwahl angeboten.
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
-          <xs:documentation>Verkaufssortengruppe (Verbund)
-          Eingeschränkte Liste von Verkaufssortengruppe für einen Tarifverbund des eingestellten Bediengebietes.  
-          </xs:documentation>          
+          <xs:documentation>
+            Verkaufssortengruppe Festpreis
+            Diese Sortengruppen werden beim Verkauf ohne Relationsauswahl angeboten.
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="10">
+      <xs:enumeration value="11">
         <xs:annotation>
-          <xs:documentation>Hauptsorten zu Zusatzsorten
-          Unter dem Sortengruppentyp 10 werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind.
-          In den Zusatzsorten wird im Attribut „ID_SortengruppeHauptsorten“ auf die Sortengruppe vom Typ 10 verwiesen.
-          </xs:documentation>          
+          <xs:documentation>
+            Hauptsorten zu Zusatzsorten
+            Unter dem Sortengruppentyp werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind.
+            In den Zusatzsorten wird im Attribut "ID_SortengruppeHauptsorten" auf die Sortengruppe von diesem Typ verwiesen.
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="101">
+      <xs:enumeration value="21">
         <xs:annotation>
-          <xs:documentation>KA-Verkaufssortengruppe
-          KA-Sorten unter denen ein Produktwechsel möglich ist. Artikel und/oder Serviceklasse.
-          </xs:documentation>          
+          <xs:documentation>
+            Gruppenfahrschein
+            Ist für Gruppenfahrscheine, bei denen zusammen unterschiedlich Ausprägungen auf ein Ticket gedruckt werden.
+            Bsp.: Ein Fahrschein mit x Erwachsenen und y Kindern.
+            Es werden die Auswahlsorte und die Ausprägungen in eine Gruppe zusammengefasst.
+            Die Auswahlsorte soll Sortorder 1 haben.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="31">
+        <xs:annotation>
+          <xs:documentation>
+            SortengruppenErmittlung
+            Ist für Referenzen vom SortengruppenErmittlungen_Type. (s. SortengruppenErmittlungen_Type)
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -3240,101 +3254,12 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 
   <xs:simpleType name="ID_Sortengruppentyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
-    </xs:annotation>
-    <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
-  </xs:simpleType>
-
-  <xs:simpleType name="ID_SortenklasseHUSST_Type">
-    <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Sortenklasse kleiner 1000
+        Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
     </xs:annotation>
-    <xs:restriction base="husstDV:INT4">
-      <xs:enumeration value="1">
-        <xs:annotation>
-          <xs:documentation>Einzelfahrschein</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="2">
-        <xs:annotation>
-          <xs:documentation>Einzel Festpreis</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="3">
-        <xs:annotation>
-          <xs:documentation>Einzelfahrschein ohne Preis (aber mit Relation)</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="4">
-        <xs:annotation>
-          <xs:documentation>Zählung (Einzel Festpreis ohne Preis)</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="5">
-        <xs:annotation>
-          <xs:documentation>Tageskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="6">
-        <xs:annotation>
-          <xs:documentation>Tageskarte Festpreis</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="7">
-        <xs:annotation>
-          <xs:documentation>Wochenkarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="8">
-        <xs:annotation>
-          <xs:documentation>Wochenkarte Festpreis</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="9">
-        <xs:annotation>
-          <xs:documentation>Monatskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="10">
-        <xs:annotation>
-          <xs:documentation>Monatskarte Festpreis</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="11">
-        <xs:annotation>
-          <xs:documentation>Jahreskarte</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="12">
-        <xs:annotation>
-          <xs:documentation>Jahreskarte Festpreis</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="20">
-        <xs:annotation>
-          <xs:documentation>Artikel</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="97">
-        <xs:annotation>
-          <xs:documentation>Fehleinnahme</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="103">
-        <xs:annotation>
-          <xs:documentation>Bargutschrift/Restgeldquittung</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  
-  <xs:simpleType name="ID_Sortenklasse_Type">
-    <xs:annotation>
-      <xs:documentation>Die ID_Sortenklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
-    </xs:annotation>
-    <xs:union memberTypes="husstDV:ID_SortenklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+    <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
 
   <xs:simpleType name="InterpretationsschluesselHUSST_Type">
@@ -3400,7 +3325,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
     <xs:restriction base="xs:string">
       <xs:pattern value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*"/>
       <!-- 				value="(((h|H)[^(u|U)])|(h|H)(u|U)[^(s|S)]|(h|H)(u|U)(s|S)[^(s|S)]|(h|H)(u|U)(s|S)(s|S)[^(t|T)]|(h|H)(u|U)(s|S)(s|S)(t|T)[^\.]|[a-gi-zA-ZöäüÖÄÜß0-9])((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+" /> -->
-      <!-- Leider untersützt xsd keinen negativen Forcast (?!husst\.), das 
+      <!-- Leider untersützt xsd keinen negativen Forcast (?!husst\.), das
 				macht den Ausdruck unnötig kompliziert. <pattern value="(?!husst\.)((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+"/> -->
 
     </xs:restriction>
@@ -3450,13 +3375,10 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
     		</api:primekey>
     		<api:schema name="Tarif" />
     	</xs:appinfo>
-    	<xs:documentation>Der Sortentyp ist der Sortenklasse sehr ähnlich. 
-Während die Angabe der Sortenklasse bei einer Sorte verpflichtend ist, gilt das für den Sortentyp nicht.
-Die vordefinierten Sortentypen stellen eine gröbere Klassizifzierung dar, als die Sortenklassen:
-Sortentyp: Einzelkarte  
-entspricht den 
-Sortenklassen: Einzelfahrschein, Einzel Festpreis, Einzelfahrschein ohne Preis, Zählung.
-Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.</xs:documentation>
+    	<xs:documentation>
+        Die vordefinierten Sortentypen stellen eine grobe Klassizifzierung der Sorte dar.
+        Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -3492,44 +3414,6 @@ Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.</
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType name="DefSortenklasse_Type">
-    <xs:annotation>
-    	<xs:appinfo>
-    		<api:primekey>
-    			<api:field name="ID_Sortenklasse" />
-    			<api:field name="ID_Zeitraum" />
-    		</api:primekey>
-    		<api:schema name="Tarif" />
-    	</xs:appinfo>
-    	<xs:documentation>Jede Sorte wird genau einer Sortenklasse zugeordnet. 
-Z.B. „Einzelfahrscheine“ oder „Monatskarten Festpreis“. 
-Durch die Sortenklasse können in Vertriebsystemen Sorteneigenschaften festgelegt, bzw. zur Konfiguration angeboten werden. 
-Z.B.: Einstellungsparameter für Monatskarten bei Monatskarte oder eine definierbare Preisstufe bei Festpreisen). 
-Die Husst definiert eine Reihe von Standard Sortenklassen (siehe ID_SortenklasseHUSST_Type).
-Darüber hinaus können projektspezifische Sortenklassen ergänzt werden.</xs:documentation>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" maxOccurs="1" minOccurs="1">
-        <xs:annotation>
-          <xs:documentation>Nummer der Sortenklasse</xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-
-      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
-            identifizieren zu können.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
@@ -3815,7 +3699,10 @@ Darüber hinaus können projektspezifische Sortenklassen ergänzt werden.</xs:do
 
   <xs:simpleType name="ID_Fahrgasttyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_FahrgasttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3880,7 +3767,10 @@ Darüber hinaus können projektspezifische Sortenklassen ergänzt werden.</xs:do
 
   <xs:simpleType name="ID_Komfortklasse_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_KomfortklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3996,7 +3886,10 @@ Darüber hinaus können projektspezifische Sortenklassen ergänzt werden.</xs:do
 
   <xs:simpleType name="ID_Rabattklasse_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RabattklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -4010,7 +3903,7 @@ Darüber hinaus können projektspezifische Sortenklassen ergänzt werden.</xs:do
     		</api:primekey>
     		<api:schema name="Tarif" />
     	</xs:appinfo>
-    	<xs:documentation>Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc. 
+    	<xs:documentation>Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc.
 Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -4086,7 +3979,10 @@ Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.</xs:documentatio
 
   <xs:simpleType name="ID_Preisfindung_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisfindungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -4100,9 +3996,11 @@ Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.</xs:documentatio
     		</api:primekey>
     		<api:schema name="Tarif" />
     	</xs:appinfo>
-    	<xs:documentation>Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden darf. 
-Bsp. Papierfahrschein oder eTicket. 
-Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabemethoden erlaubt sein können.</xs:documentation>
+    	<xs:documentation>
+        Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden darf.
+        Bsp. Papierfahrschein oder eTicket.
+        Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabemethoden erlaubt sein können.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4373,7 +4271,7 @@ Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabeme
   <xs:simpleType name="ID_Sortenausgaberegelung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.
+        Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortenausgaberegelungHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
@@ -4388,7 +4286,7 @@ Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabeme
     		</api:primekey>
     		<api:schema name="Tarif" />
     	</xs:appinfo>
-    	<xs:documentation>Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird. 
+    	<xs:documentation>Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird.
 Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vordefinierter Wert 1). </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -4439,7 +4337,10 @@ Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vo
 
   <xs:simpleType name="ID_Sortendruckregelung_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -4510,7 +4411,10 @@ Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vo
 
   <xs:simpleType name="ID_Reisetyp_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ReisetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -4575,7 +4479,8 @@ Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vo
   <xs:simpleType name="ID_Nachbarhaltestellenbeziehung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.
+        Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_NachbarhaltestellenbeziehungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
@@ -4591,14 +4496,16 @@ Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vo
     		<api:schema name="Tarif" />
     		<api:schema name="Angebot" />
     	</xs:appinfo>
-    	<xs:documentation>Die Vertriebswege kommen bei verschiedenen Typen als Attribut vor. In erster Linie werden sie
-dazu verwendet, die Datenmenge für verschiedene Verkaufsgeräte zu reduzieren, indem
-Elemente, die der entsprechenden Vertriebstechnik nicht zugeordnet sind, auch nicht mit den
-Herstellerunabhängige Standardschnittstelle
-„Datenaustausch in ÖPV-Vertriebssystemen“ 2010-2012 Seite 37 von 178
-Daten versorgt werden. Teilweise haben die Vertriebswege aber auch steuernden Charakter auf
-den Verkaufsgeräten. Z.B. kann mit den Vertriebswegen festgelegt sein, dass eine bestimmte
-Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.</xs:documentation>
+    	<xs:documentation>
+        Die Vertriebswege kommen bei verschiedenen Typen als Attribut vor. In erster Linie werden sie
+        dazu verwendet, die Datenmenge für verschiedene Verkaufsgeräte zu reduzieren, indem
+        Elemente, die der entsprechenden Vertriebstechnik nicht zugeordnet sind, auch nicht mit den
+        Herstellerunabhängige Standardschnittstelle
+        "Datenaustausch in ÖPV-Vertriebssystemen" 2010-2012 Seite 37 von 178
+        Daten versorgt werden. Teilweise haben die Vertriebswege aber auch steuernden Charakter auf
+        den Verkaufsgeräten. Z.B. kann mit den Vertriebswegen festgelegt sein, dass eine bestimmte
+        Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4631,7 +4538,7 @@ Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.</xs:d
   <xs:simpleType name="ID_Vertriebswege_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.
+        Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_VertriebswegeHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
@@ -4713,7 +4620,7 @@ Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
 
   <xs:simpleType name="ID_Zahlungsarten_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl &gt;= 1024.</xs:documentation>
+      <xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.</xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlungsartenHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
@@ -4934,8 +4841,8 @@ Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
     		<api:schema name="Basis" />
 
     	</xs:appinfo>
-    	<xs:documentation>Eine Datenlieferung enthält einen Datensatz VersionInhalt. 
-Dieser definiert, welche Datenversion die komplette Husstlieferung besitzt. 
+    	<xs:documentation>Eine Datenlieferung enthält einen Datensatz VersionInhalt.
+Dieser definiert, welche Datenversion die komplette Husstlieferung besitzt.
 Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unterscheiden.
 Über die Registrierung Der DatenversionInhalt können Verkaufsdaten ihrer exakten Versorgungsdatenlieferung zugewordnet werden.</xs:documentation>
     </xs:annotation>
@@ -5075,8 +4982,8 @@ Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unters
     		<api:schema name="Angebot" />
 
     	</xs:appinfo>
-    	<xs:documentation>Definiert den Verwendungszweck eines Typs von Tarifrelevantenpunkten 
-(OTP steht für Orte und Tarifrelevante Punkte). 
+    	<xs:documentation>Definiert den Verwendungszweck eines Typs von Tarifrelevantenpunkten
+(OTP steht für Orte und Tarifrelevante Punkte).
 Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type</xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -5102,7 +5009,7 @@ Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type</xs:documentation>
       <xs:documentation>
         Sortengruppen können Sorten für unterschiedliche Anwendungsfälle gruppieren.
         Der Anwendungsfall wird über den Sortengruppentyp unterschieden werden.
-        Seine Bedeutung ist projektspezifisch zu konkretisiern. 
+        Seine Bedeutung ist projektspezifisch zu konkretisiern.
         Den zugeordneten Sorten können auch Preisstufen zugeordnet sein.
       </xs:documentation>
     </xs:annotation>
@@ -5311,9 +5218,11 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
     		</api:primekey>
     		<api:schema name="Angebot" />
     	</xs:appinfo>
-    	<xs:documentation>Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu verarbeiten sind. 
-Diese Regelung kann dabei Auswirkungen auf den Preis haben.
-Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.</xs:documentation>
+    	<xs:documentation>
+        Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu verarbeiten sind.
+        Diese Regelung kann dabei Auswirkungen auf den Preis haben.
+        Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -5333,8 +5242,10 @@ Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abg
     		</api:primekey>
     		<api:schema name="Angebot" />
     	</xs:appinfo>
-    	<xs:documentation>Die Druckregelung bestimmt, wie die Werte der Teilrelationen zu drucken sind.
-Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.</xs:documentation>
+    	<xs:documentation>
+        Die Druckregelung bestimmt, wie die Werte der Teilrelationen zu drucken sind.
+        Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -5403,7 +5314,10 @@ Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abg
 
   <xs:simpleType name="ID_Ermittlungseinheit_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
+      <xs:documentation>
+        Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ErmittlungseinheitHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -5461,7 +5375,6 @@ Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abg
   <xs:element name="Wegpositionen" type="husstDV:Wegpositionen_Type"/>
 
   <!--Hilfs -->
-  <xs:element name="DefSortenklassen" type="husstDV:DefSortenklasse_Type"/>
   <xs:element name="DefTarifpunkttypen" type="husstDV:DefTarifpunkttyp_Type"/>
   <xs:element name="DefSortentypen" type="husstDV:DefSortentyp_Type"/>
   <xs:element name="DefWaehrungen" type="husstDV:DefWaehrung_Type"/>
@@ -5522,7 +5435,6 @@ Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abg
       <xs:element ref="husstDV:DefRelationendruckregelungen"/>
       <xs:element ref="husstDV:DefRelationscodegruppentypen"/>
       <xs:element ref="husstDV:DefSortengruppentypen"/>
-      <xs:element ref="husstDV:DefSortenklassen"/>
       <xs:element ref="husstDV:DefSortentypen"/>
       <xs:element ref="husstDV:DefTarifpunkttypen"/>
       <xs:element ref="husstDV:DefWaehrungen"/>
