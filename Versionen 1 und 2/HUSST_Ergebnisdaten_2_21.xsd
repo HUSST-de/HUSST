@@ -29,6 +29,9 @@
 			ktGeraet.Typ wird zu Typ string.
 			ktGeldBehaelterTyp Enum um "Recycler" und "Unbekannt" erweitert.
 			ktZahlArt Enum um "Visa-Electron" erweitert.
+			
+			ktBetriebsart wurde um den Eintrag "Systembetrieb" erweitert. 
+			Eine Schicht mit der Markeirung Systembetrieb enthält keinen Dienst.
 
 		</documentation>
 	</annotation>
@@ -1514,8 +1517,7 @@
 			<element name="Betriebsart" type="kts:ktBetriebsart"
 				minOccurs="1" maxOccurs="1">
 				<annotation>
-					<documentation>Dieses Feld unterscheidet die Datensätze dieser
-						Schicht in Echt- und sonstigen Betrieb.
+					<documentation>Dieses Feld markiert die konkrete Nutzung Schicht. 
 					</documentation>
 				</annotation>
 			</element>
@@ -1709,6 +1711,7 @@
 			<enumeration value="Echtbetrieb"></enumeration>
 			<enumeration value="Testbetrieb"></enumeration>
 			<enumeration value="Schulungsbetrieb"></enumeration>
+			<enumeration value="Systembetrieb"></enumeration>
 		</restriction>
 	</simpleType>
 
