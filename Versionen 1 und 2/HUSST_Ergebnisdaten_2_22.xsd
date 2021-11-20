@@ -34,7 +34,7 @@
 
 			Änderungen von 2.21 auf 2.22
 			Streichung Kommentar: Eine Schicht mit der Markierung Systembetrieb enthält keinen Dienst.
-			
+			AutorisierungsNr in ktZVTBezahlung ergänzt (optionales Textelement)
 			
 
 		</documentation>
@@ -2650,16 +2650,16 @@
 				</annotation>
 			</element>
 			<element name="VersionMinor" type="int" maxOccurs="1"
-				minOccurs="1" default="21">
+				minOccurs="1" default="22">
 				<annotation>
 					<documentation>Diese Versionsnummer zählt kompatible Anpassungen.
 					</documentation>
 				</annotation>
 			</element>
 			<element name="Aenderungsdatum" type="date" maxOccurs="1"
-				minOccurs="1" default="2021-03-23"></element>
+				minOccurs="1" default="2021-11-20"></element>
 			<element name="Aenderungsautor" type="string" maxOccurs="1"
-				minOccurs="1" default="Hitschler(krauth technology GmbH)"></element>
+				minOccurs="1" default="Husst Team"></element>
 		</sequence>
 	</complexType>
 
