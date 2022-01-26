@@ -2,6 +2,7 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
+* generiert am 2022-01-25
 *
 * HUSST 3_00 (V 3.01 - stabil vom 2021-09-09 )
 *
@@ -155,14 +156,6 @@ CREATE TABLE DefSortengruppentypen(
 	ID_Sortengruppentyp                 bigint, 
 	Bezeichnung                         text,
 	PRIMARY KEY(ID_Sortengruppentyp ASC, ID_Zeitraum ASC));
-
-CREATE TABLE DefSortenklassen(
-	Deaktiviert                         integer, 
-	ID_Zeitraum                         bigint, 
-	ID_Sortenklasse                     bigint, 
-	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Sortenklasse ASC, ID_Zeitraum ASC));
 
 CREATE TABLE DefSortentypen(
 	Deaktiviert                         integer, 
@@ -456,7 +449,7 @@ CREATE TABLE Sorten(
 	ID_Zeitraum                         bigint, 
 	ID_Sorte                            bigint, 
 	ID_Tarifgebiet                      bigint, 
-	ID_Sortenklasse                     bigint, 
+	ID_Sortentyp                        bigint, 
 	ReferenzExtern                      text, 
 	BezeichnungKurz                     text, 
 	Bezeichnung                         text, 
@@ -469,7 +462,6 @@ CREATE TABLE Sorten(
 	ID_Komfortklasse                    bigint, 
 	ID_Rabattklasse                     bigint, 
 	ID_Fahrgasttyp                      bigint, 
-	ID_Sortentyp                        bigint, 
 	Mindestpersonenanzahl               bigint, 
 	Hoechstpersonenanzahl               bigint, 
 	ID_GueltigkeitszeitRegel            bigint, 
@@ -788,7 +780,6 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("D
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortenausgaberegelungen", 15, "DefSortenausgaberegelung_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortendruckregelungen", 16, "DefSortendruckregelung_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortengruppentypen", 17, "DefSortengruppentyp_Type"); 
-INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortenklassen", 18, "DefSortenklasse_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortentypen", 19, "DefSortentyp_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefTarifpunkttypen", 20, "DefTarifpunkttyp_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefVertriebswege", 21, "DefVertriebswege_Type"); 

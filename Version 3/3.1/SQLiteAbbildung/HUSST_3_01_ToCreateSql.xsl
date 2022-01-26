@@ -297,7 +297,10 @@
 			<xsl:when test="@name='DefSortenausgaberegelung_Type'">15</xsl:when>
 			<xsl:when test="@name='DefSortendruckregelung_Type'">16</xsl:when>
 			<xsl:when test="@name='DefSortengruppentyp_Type'">17</xsl:when>
+			
+			<!-- stillgelegt 3.0->3.01  
 			<xsl:when test="@name='DefSortenklasse_Type'">18</xsl:when>
+			 -->
 			<xsl:when test="@name='DefSortentyp_Type'">19</xsl:when>
 			<xsl:when test="@name='DefTarifpunkttyp_Type'">20</xsl:when>
 			<xsl:when test="@name='DefVertriebswege_Type'">21</xsl:when>
@@ -336,8 +339,11 @@
 			<xsl:when test="@name='Wege_Type'">54</xsl:when>
 			<xsl:when test="@name='Wegpositionen_Type'">55</xsl:when>
 			<xsl:when test="@name='Zusatzsorten_Type'">56</xsl:when>
-		  	<xsl:when test="@name='GueltigkeitszeitRegeln_Type'">57</xsl:when>
+			<xsl:when test="@name='GueltigkeitszeitRegeln_Type'">57</xsl:when>
 			<xsl:when test="@name='SortengruppenElemente_Type'">58</xsl:when>
+			<xsl:when test="@name='DefErmittlungseinheit_Type'">59</xsl:when>
+			<xsl:when test="@name='PreisstufenErmittlungen_Type'">60</xsl:when>
+			<xsl:when test="@name='SortengruppenErmittlungen_Type'">61</xsl:when>
 		  	<xsl:otherwise>Fehler: tabellennummer undefiniert</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
