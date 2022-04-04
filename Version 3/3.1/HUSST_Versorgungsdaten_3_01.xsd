@@ -2328,7 +2328,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_PreisstufenErmittlung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Ermittlungseinheit" type="husstDV:DefErmittlungseinheit_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Ermittlungseinheit" type="husstDV:ID_Ermittlungseinheit_Type" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Von" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Incl.</xs:documentation>
