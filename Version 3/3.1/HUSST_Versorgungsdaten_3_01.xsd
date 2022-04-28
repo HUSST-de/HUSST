@@ -1469,7 +1469,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:element name="ID_Relationszuordung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Sortorder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
@@ -5046,7 +5046,7 @@ Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type</xs:documentation>
       <xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
       <xs:element name="VersionMinor" type="husstDV:INT4" default="01" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2021-09-09" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2022-04-28" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
