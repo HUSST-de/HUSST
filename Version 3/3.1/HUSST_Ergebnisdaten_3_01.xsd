@@ -1274,10 +1274,10 @@
   </complexType>
 
   <complexType name="Schichtsummen_Type">
-    <choice>
+    <sequence>
       <element name="Kassenliste" type="husst:Kassenliste_Type" maxOccurs="1" minOccurs="0"/>
       <element name="BelegKassenliste" type="husst:Belegkassenliste_Type" maxOccurs="1" minOccurs="0"/>
-    </choice>
+    </sequence>
   </complexType>
 
   <complexType name="Standort_Type">
