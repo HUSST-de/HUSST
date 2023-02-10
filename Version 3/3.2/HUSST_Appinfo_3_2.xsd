@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:api="http://www.husst.de/Appinfo/3_01"
-	targetNamespace="http://www.husst.de/Appinfo/3_01" 
+	xmlns:api="http://www.husst.de/Appinfo/3_2"
+	targetNamespace="http://www.husst.de/Appinfo/3_2" 
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
 	<xs:annotation>
 		<xs:documentation>
 			HUSST Appinfo
-			Version: 3.01
+			Version: 3.2
 
 			Mehr Informationen:
 			- https://husst.de/
@@ -89,6 +89,13 @@
 		  <xs:enumeration value="Tarif">
 			<xs:annotation>
 				<xs:documentation>Husst Datenschema Tarif.</xs:documentation>
+			</xs:annotation>
+		  </xs:enumeration>
+		  <xs:enumeration value="Tarifstrecken">
+			<xs:annotation>
+				<xs:documentation>Husst Datenschema Tarifstrecken.
+Ergänzung des Datenschemas Tarif um Strukturen für Strecken basierte Tarife wie z.B. den Deutschlandtarif. 
+				</xs:documentation>
 			</xs:annotation>
 		  </xs:enumeration>
 		  <xs:enumeration value="Basis">
