@@ -344,7 +344,20 @@
 			<xsl:when test="@name='DefErmittlungseinheit_Type'">59</xsl:when>
 			<xsl:when test="@name='PreisstufenErmittlungen_Type'">60</xsl:when>
 			<xsl:when test="@name='SortengruppenErmittlungen_Type'">61</xsl:when>
-		  	<xsl:otherwise>Fehler: tabellennummer undefiniert</xsl:otherwise>
+			
+			<!-- Erweiterung V3.2 -->
+			<xsl:when test="@name='DefStreckenart_Type'">62</xsl:when>
+			<xsl:when test="@name='DefStreckencodetyp_Type'">63</xsl:when>
+			<xsl:when test="@name='OrtspunktStreckencode_Type'">64</xsl:when>
+			<xsl:when test="@name='Streckencode_Type'">65</xsl:when>
+			<xsl:when test="@name='Strecke_Type'">66</xsl:when>
+			<xsl:when test="@name='Streckenzuordnung_Type'">67</xsl:when>
+			<xsl:when test="@name='Gleichstellungstyp_Type'">68</xsl:when>
+			<xsl:when test="@name='GleichstellungTarifart_Type'">69</xsl:when>
+			<xsl:when test="@name='Gleichstellung_Type'">70</xsl:when>
+			<xsl:when test="@name='Streckenvias_Type'">71</xsl:when>
+			
+		  	<xsl:otherwise>Fehler: Tabellennummer undefiniert</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
 
@@ -408,7 +421,7 @@
 			<xsl:value-of select="$crlf"/>
 		</xsl:if>
 		<xsl:text>*</xsl:text><xsl:value-of select="$crlf"/>
-		<xsl:text>* HUSST 3_00 (</xsl:text><xsl:value-of select="$HUSSTversion"/><xsl:text> )</xsl:text><xsl:value-of select="$crlf"/>
+		<xsl:text>* HUSST Datenversorgung (</xsl:text><xsl:value-of select="$HUSSTversion"/><xsl:text> )</xsl:text><xsl:value-of select="$crlf"/>
 		<xsl:text>*</xsl:text><xsl:value-of select="$crlf"/>
 		<xsl:text>*************************************************************************************/</xsl:text><xsl:value-of select="$crlf"/>
 
