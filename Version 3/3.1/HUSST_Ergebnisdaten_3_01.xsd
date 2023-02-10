@@ -949,7 +949,7 @@
         Die Kennung kann optional die Kennung der Preisspalte enthalten.
       </documentation>
     </annotation>
-    <choice>
+    <sequence>
       <element name="Betrag" type="husst:Betrag_Type" minOccurs="1" maxOccurs="1"/>
       <element name="ID_Mwst" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
       <element name="MwstSatz" maxOccurs="1" minOccurs="1" type="husst:FLOAT1">
@@ -959,7 +959,7 @@
           </documentation>
         </annotation>
       </element>
-    </choice>
+    </sequence>
     <attribute name="Verrechnung" type="husst:Preisverrechnung_Type" use="required"/>
   </complexType>
 
@@ -1274,10 +1274,10 @@
   </complexType>
 
   <complexType name="Schichtsummen_Type">
-    <choice>
+    <sequence>
       <element name="Kassenliste" type="husst:Kassenliste_Type" maxOccurs="1" minOccurs="0"/>
       <element name="BelegKassenliste" type="husst:Belegkassenliste_Type" maxOccurs="1" minOccurs="0"/>
-    </choice>
+    </sequence>
   </complexType>
 
   <complexType name="Standort_Type">
@@ -1449,6 +1449,7 @@
           </annotation>
         </element>
       </choice>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </sequence>
     <attribute name="Typ" type="husst:TransaktionTyp_Type" use="required"/>
     <attribute name="Storno" type="boolean" use="optional" default="false"/>
