@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema 
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns:tpd="http://husst.de/Tarifpersonaldaten-2_46"
-  targetNamespace="http://husst.de/Tarifpersonaldaten-2_46"
+  xmlns:tpd="http://husst.de/Tarifpersonaldaten-2_47"
+  targetNamespace="http://husst.de/Tarifpersonaldaten-2_47"
   elementFormDefault="qualified"
   attributeFormDefault="unqualified">
 	
@@ -10,6 +10,8 @@
 		<xs:documentation>Tarifdatenversorgung von Verkaufssystemen
 
             Änderungen:
+        stabil: 2023-02-13 - V2.47 - Husst-AG
+                 Tarifpunkte erhalten ReferenzExtern
         stabil: 2020-12-02 - V2.46 - Husst-AG
                  Hotfix divergente Schreibung - siehe Git-Commit
         stabil: 2020-12-01 - V2.46 - Husst-AG
@@ -629,10 +631,10 @@
 			<xs:element name="ID_TarifPunktTyp" type="tpd:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>1=Zone/Wabe/Ring/Tarifpunkt
-						2=Wabentyp (Zusammenfassung mehrere Elemente von Typ 1)
+						2=Wabentyp (Zusammenfassung mehrerer Elemente vom Typ 1)
 						3=Tarifhaltestelle
 						4=Ortsteil (in seiner Funktion als Tarifpunkt)
-						5=Ort (Zusammenfassung mehrere Ortsteile)
+						5=Ort (Zusammenfassung mehrerer Ortsteile)
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -648,6 +650,14 @@
 			<xs:element name="KA_OrtTyp" type="tpd:INT4" nillable="true" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>KA Ortstyp</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ReferenzExtern" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>
+				  		Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+				  		identifizieren zu können.
+					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="DynAttribut" type="tpd:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
@@ -3919,9 +3929,9 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="VersionMajor" type="tpd:INT4" default="2" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="VersionMinor" type="tpd:INT4" default="46" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="VersionMinor" type="tpd:INT4" default="47" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Status" type="tpd:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2020-12-02" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="Aenderungsdatum" type="tpd:DateCompact" default="2023-02-13" maxOccurs="1" minOccurs="0"/>
 			<xs:element name="Aenderungsautor" type="xs:string" default="Husst-AG" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
