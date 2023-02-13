@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_01"
-	xmlns:api="http://www.husst.de/Appinfo/3_01"
-	targetNamespace="http://husst.de/Versorgungsdaten/3_01"
+	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_2"
+	xmlns:api="http://www.husst.de/Appinfo/3_2"
+	targetNamespace="http://husst.de/Versorgungsdaten/3_2"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.01
+      Version: 3.2
 
       Mehr Informationen:
       - https://husst.de/
@@ -2628,7 +2628,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Relcode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="IBISnr" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -5044,9 +5044,9 @@ Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="VersionMinor" type="husstDV:INT4" default="01" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="stabil" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2022-04-28" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="VersionMinor" type="husstDV:INT4" default="2" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-02-10" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
@@ -5322,6 +5322,433 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
     <xs:union memberTypes="husstDV:ID_ErmittlungseinheitHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
 
+  <xs:complexType name="DefStreckenart_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Streckenart"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckenart" type="husstDV:ID_Streckenart_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Streckenart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ID_StreckenartHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Streckenart kleiner 1000.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>
+            keine Sonderverkaufslogik
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>
+            Strecke nur kombiniert mit ID_Streckenart=1 verkaufbar
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>
+            nur als Einzelstrecke verkaufbar
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ID_Streckenart_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Streckenart ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_StreckenartHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
+  <xs:complexType name="DefStreckencodetyp_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Streckencodetyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Streckencodetyp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ID_StreckencodetypHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Streckencodetyp kleiner 1000.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>
+            HAST Hauptanstoßbahnhof
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>
+            NAST Nichtanstoßbahnhof
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>
+            NE-Haltespunkt
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>    
+  </xs:simpleType>
+
+  <xs:simpleType name="ID_Streckencodetyp_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_StreckencodetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
+  <xs:complexType name="Strecke_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Strecke eines Streckentarifs.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Strecke"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_StreckencodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_StreckencodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Entfernung" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Entfernungswert der Strecke zur Tarifberechnung.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Streckenvia" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Nummer des Viaanzeigetextes für diese Strecke.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Streckenart" type="husstDV:ID_Streckenart_Type" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert Verkaufbarkeitseinschränkungen dieser Strecke.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Strecke
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Streckencode_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Analog zum Relationscode kombiniert ein ID_Streckencode zu einem oder mehreren ID_Tarifpunkten.
+        Anders als Relationscodes sind Streckencodes aber Tarifgebiethomogen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Streckencode"/>
+          <api:field name="ID_Tarifpunkt"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Typ dieses Streckencodes (dieses Haltepunktes).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diesen Streckencode.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="OrtspunktStreckencode_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Ordnet einen Ortspunkt einem Streckencode in einem Tarifgebiet zu.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Ortspunkt"/>
+          <api:field name="ID_Tarifgebiet"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Typ dieses Streckencodes (dieses Haltepunktes).
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Ortspunkt-Streckencode Zuordnung.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Streckenzuordnung_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Ordnet eine Strecke einem oder mehreren Teilrelationen zu.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Strecke"/>
+          <api:field name="ID_Teilrelation"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Strecke-Teilrelations Zuordnung.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Gleichstellungstyp_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Die Art der Gleichstellung.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Gleichstellungstyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diesen Gleichstellungstyp.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GleichstellungTarifart_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        einen Gelichstellungstyp einer Tarifart zu.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Gleichstellungstyp"/>
+          <api:field name="ID_Tarifart"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Gleichstellungstyp-Tarifart Zuordnung.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Gleichstellung_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Tarifliche Gleichstellung eines Starts oder eines Ziels einer Strecke ab einer definierten Gesamtentfernung.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Gleichstellung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Gleichstellung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_StreckencodeGleichstellung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="EntfernungAb" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Gleichstellung.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Streckenvias_Type">    
+  	<xs:annotation>
+      <xs:documentation>
+        Viaanzeigetext für eine Strecke.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Streckenvia"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarifstrecken"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckenvia" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Anzeigetext" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Schlüssel des Tarifgebers für diese Viainformation.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <!--Ende Tabellen -->
 
   <!--Allgemein -->
@@ -5405,6 +5832,19 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
   <xs:element name="DefErmittlungseinheit" type="husstDV:DefErmittlungseinheit_Type"/>
   <xs:element name="Relationszuordnungen" type="husstDV:Relationszuordnungen_Type"/>
 
+  <xs:element name="DefStreckenart" type="husstDV:DefStreckenart_Type"/>
+  <xs:element name="DefStreckencodetyp" type="husstDV:DefStreckencodetyp_Type"/>
+
+  <xs:element name="Strecke" type="husstDV:Strecke_Type"/>
+  <xs:element name="Streckencode" type="husstDV:Streckencode_Type"/>
+  <xs:element name="OrtspunktStreckencode" type="husstDV:OrtspunktStreckencode_Type"/>
+  <xs:element name="Streckenzuordnung" type="husstDV:Streckenzuordnung_Type"/>
+  <xs:element name="Gleichstellungstyp" type="husstDV:Gleichstellungstyp_Type"/>
+  <xs:element name="GleichstellungTarifart" type="husstDV:GleichstellungTarifart_Type"/>
+  <xs:element name="Gleichstellung" type="husstDV:Gleichstellung_Type"/>
+  <xs:element name="Streckenvias" type="husstDV:Streckenvias_Type"/>
+
+
   <xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
 
   <!--Wurzel -->
@@ -5423,6 +5863,8 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
       <xs:element ref="husstDV:DefVertriebswege"/>
       <xs:element ref="husstDV:DefZahlungsarten"/>
       <xs:element ref="husstDV:Relationszuordnungen"/>
+      <xs:element ref="husstDV:DefStreckenart"/>
+      <xs:element ref="husstDV:DefStreckencodetyp"/>      
       <xs:element ref="husstDV:Bearbeitung"/>
       <xs:element ref="husstDV:Bediengebiete"/>
       <xs:element ref="husstDV:DefErmittlungseinheit"/>
@@ -5439,12 +5881,16 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
       <xs:element ref="husstDV:DefTarifpunkttypen"/>
       <xs:element ref="husstDV:DefWaehrungen"/>
       <xs:element ref="husstDV:Feiertage"/>
+      <xs:element ref="husstDV:Gleichstellung"/>
+      <xs:element ref="husstDV:GleichstellungTarifart"/>
+      <xs:element ref="husstDV:Gleichstellungstyp"/>
       <xs:element ref="husstDV:GueltigkeitszeitRegeln"/>
       <xs:element ref="husstDV:Interpretationen"/>
       <xs:element ref="husstDV:Kalender"/>
       <xs:element ref="husstDV:Linien"/>
       <xs:element ref="husstDV:Mwst"/>
       <xs:element ref="husstDV:Nachbarhaltestellen"/>
+      <xs:element ref="husstDV:OrtspunktStreckencode"/>
       <xs:element ref="husstDV:Ortspunkte"/>
       <xs:element ref="husstDV:OrtspunkteKA"/>
       <xs:element ref="husstDV:OrtspunkteTG"/>
@@ -5462,6 +5908,10 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
       <xs:element ref="husstDV:Sortengruppen"/>
       <xs:element ref="husstDV:SortengruppenElemente"/>
       <xs:element ref="husstDV:SortengruppenErmittlungen"/>
+      <xs:element ref="husstDV:Strecke"/>
+      <xs:element ref="husstDV:Streckencode"/>
+      <xs:element ref="husstDV:Streckenvias"/>
+      <xs:element ref="husstDV:Streckenzuordnung"/>
       <xs:element ref="husstDV:TagesartMerkmalElemente"/>
       <xs:element ref="husstDV:Tagesarten"/>
       <xs:element ref="husstDV:TagesmerkmalElemente"/>
