@@ -1370,7 +1370,7 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       <xs:element name="ID_Via" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Nummer der Viatexte für diese Verbindung
+            Nummer der Viatexte für diese Verbindung. Verweis auf Vias.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -5502,10 +5502,10 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Streckenvia" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Via" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Nummer des Viaanzeigetextes für diese Strecke.
+            Nummer der Viatexte für diese Strecke. Verweis auf Vias.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -5726,36 +5726,6 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="Streckenvias_Type">    
-  	<xs:annotation>
-      <xs:documentation>
-        Viaanzeigetext für eine Strecke.
-      </xs:documentation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Streckenvia"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Tarifstrecken"/>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:sequence>
-      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckenvia" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Anzeigetext" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
-        <xs:annotation>
-          <xs:documentation>
-            Schlüssel des Tarifgebers für diese Viainformation.
-          </xs:documentation>
-        </xs:annotation>
-      </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <!--Ende Tabellen -->
 
   <!--Allgemein -->
@@ -5849,9 +5819,7 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
   <xs:element name="Gleichstellungstyp" type="husstDV:Gleichstellungstyp_Type"/>
   <xs:element name="GleichstellungTarifart" type="husstDV:GleichstellungTarifart_Type"/>
   <xs:element name="Gleichstellung" type="husstDV:Gleichstellung_Type"/>
-  <xs:element name="Streckenvias" type="husstDV:Streckenvias_Type"/>
-
-
+  
   <xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
 
   <!--Wurzel -->
@@ -5917,7 +5885,6 @@ Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre M
       <xs:element ref="husstDV:SortengruppenErmittlungen"/>
       <xs:element ref="husstDV:Strecke"/>
       <xs:element ref="husstDV:Streckencode"/>
-      <xs:element ref="husstDV:Streckenvias"/>
       <xs:element ref="husstDV:Streckenzuordnung"/>
       <xs:element ref="husstDV:TagesartMerkmalElemente"/>
       <xs:element ref="husstDV:Tagesarten"/>
