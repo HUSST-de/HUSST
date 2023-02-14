@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_2"
-	xmlns:api="http://www.husst.de/Appinfo/3_2"
-	targetNamespace="http://husst.de/Versorgungsdaten/3_2"
+	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_2_0"
+	xmlns:api="http://www.husst.de/Appinfo/3_2_0"
+	targetNamespace="http://husst.de/Versorgungsdaten/3_2_0"
 	elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.2
+      Version: 3.2.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -5043,10 +5043,17 @@ Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type</xs:documentation>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="VersionMajor" type="husstDV:INT4" default="3" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="VersionMinor" type="husstDV:INT4" default="2" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="VersionMajor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="3">
+        <xs:annotation><xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="2">
+        <xs:annotation><xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation></xs:annotation>
+      </xs:element>
+      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="0">
+        <xs:annotation><xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation></xs:annotation>
+      </xs:element>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-02-10" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-02-14" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>

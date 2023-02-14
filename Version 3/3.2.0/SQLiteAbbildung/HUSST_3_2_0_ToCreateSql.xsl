@@ -42,6 +42,8 @@
 		<xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionMajor']/@default"/>
 		<xsl:text>.</xsl:text>
 		<xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionMinor']/@default"/>
+		<xsl:text>.</xsl:text>
+		<xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionPatch']/@default"/>
 		<xsl:text> - </xsl:text>
 		<xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='Status']/@default"/>
 		<xsl:text> vom </xsl:text>
@@ -393,9 +395,10 @@
 		</xsl:for-each>
 		
 		<!-- Versionsinformation schreiben -->
-		<xsl:text>INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum)</xsl:text>
+		<xsl:text>INSERT INTO VersionStruktur (VersionMajor, VersionMinor, VersionPatch, Status, Aenderungsdatum)</xsl:text>
 		<xsl:text> VALUES (</xsl:text><xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionMajor']/@default"/>
 		<xsl:text>, </xsl:text><xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionMinor']/@default"/>
+		<xsl:text>, </xsl:text><xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionPatch']/@default"/>
 		<xsl:text>, "</xsl:text><xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='Status']/@default"/>
 		<xsl:text>", "</xsl:text><xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='Aenderungsdatum']/@default"/>
 		<xsl:text>"); </xsl:text>

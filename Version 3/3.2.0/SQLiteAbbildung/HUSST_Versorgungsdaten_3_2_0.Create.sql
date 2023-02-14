@@ -2,9 +2,9 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-* generiert am 2023-02-10
+* generiert am 2023-02-14
 *
-* HUSST Datenversorgung (V 3.2 - in Arbeit vom 2023-02-10 )
+* HUSST Datenversorgung (V 3.2.0 - in Arbeit vom 2023-02-14 )
 *
 *************************************************************************************/
 
@@ -684,6 +684,7 @@ CREATE TABLE VersionInhalt(
 CREATE TABLE VersionStruktur(
 	VersionMajor                        bigint, 
 	VersionMinor                        bigint, 
+	VersionPatch                        bigint, 
 	Status                              text, 
 	Aenderungsdatum                     datetime, 
 	Aenderungsautor                     text);
@@ -833,4 +834,4 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("V
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wege", 54, "Wege_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wegpositionen", 55, "Wegpositionen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Zusatzsorten", 56, "Zusatzsorten_Type"); 
-INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 2, "in Arbeit", "2023-02-10"); 
+INSERT INTO VersionStruktur (VersionMajor, VersionMinor, VersionPatch, Status, Aenderungsdatum) VALUES (3, 2, 0, "in Arbeit", "2023-02-14"); 

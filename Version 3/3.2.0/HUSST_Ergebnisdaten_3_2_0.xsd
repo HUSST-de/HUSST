@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://husst.de/Ergebnisdaten/3_2" elementFormDefault="qualified" 
+<schema targetNamespace="http://husst.de/Ergebnisdaten/3_2_0" elementFormDefault="qualified" 
 	xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:husst="http://husst.de/Ergebnisdaten/3_2">
+	xmlns:husst="http://husst.de/Ergebnisdaten/3_2_0">
 
 	<annotation>
 		<documentation>
 			HUSST Ergebnisdaten
-			Version: 3.2
+			Version: 3.2.0
 
 			Mehr Informationen:
 			- https://husst.de/
@@ -1541,15 +1541,21 @@
           </documentation>
 				</annotation>
 			</element>
-			<element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="0">
+			<element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="2">
 				<annotation>
 					<documentation>
             Diese Versionsnummer zählt kompatible Anpassungen.
 					</documentation>
 				</annotation>
 			</element>
-			<element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2019-05-10"/>
-			<element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="Klaus Hitschler (krauth technology)"/>
+			<element name="VersionPatch" type="int" maxOccurs="1" minOccurs="1" default="0">
+				<annotation>
+					<documentation>Diese Versionsnummer zählt abwärtskompatible Bugfixes.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2023-02-14"/>
+			<element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="HUSST-Arbeitsgruppe"/>
 		</sequence>
 	</complexType>
 
