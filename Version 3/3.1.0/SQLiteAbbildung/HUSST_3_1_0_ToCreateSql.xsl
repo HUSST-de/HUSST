@@ -9,7 +9,7 @@
   />
     <!-- ===============================================================================
     
-      Erzeugt ein SQL Script um eine leere HUSST_Versorgungsdaten_3_01 Datenbank 
+      Erzeugt ein SQL Script um eine leere HUSST_Versorgungsdaten_3_1_0 Datenbank 
       zu erstellen.
       
       Autor: Horst Neubauer, krauth technology GmbH, Eberbach     
@@ -34,8 +34,8 @@
 
 	<!-- =============================================================================== 
 		globale Variable mit der Version der Husst-DV-Strukturversion
-		Format: V #.# - <status> vom <Änderungsdatum>
-		z.B. "V 3.0 - in Arbeit vom 2019-09-13" 
+		Format: V #.#.# - <status> vom <Änderungsdatum>
+		z.B. "V 3.0.0 - in Arbeit vom 2019-09-13" 
 	=============================================================================== -->	
 	<xsl:variable name="HUSSTversion">
 		<xsl:text>V </xsl:text>

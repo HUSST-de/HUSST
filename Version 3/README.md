@@ -16,7 +16,7 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
-### 3.00 -> 3.01
+### 3.0.0 -> 3.1.0
 Update im Zuge des Husst4Maas Projekts. Es wurden hauptsächlich Ergänzungen vorgenommen, um eine Abbildung von Carsharing-, Maut- und Parktarifen zu ermöglichen.
 
 * PreisstufenErmittlungen_Type hinzugefügt:
