@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://husst.de/Ergebnisdaten/3_00" elementFormDefault="qualified" 
+<schema targetNamespace="http://husst.de/Ergebnisdaten/3_0_0" elementFormDefault="qualified" 
 	xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:husst="http://husst.de/Ergebnisdaten/3_00">
+	xmlns:husst="http://husst.de/Ergebnisdaten/3_0_0">
 
 	<annotation>
 		<documentation>
 			HUSST Ergebnisdaten
-			Version: 3.00
+			Version: 3.0.0
 
 			Mehr Informationen:
 			- https://husst.de/

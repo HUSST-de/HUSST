@@ -4,7 +4,7 @@
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
 * generiert am 2022-01-25
 *
-* HUSST 3_00 (V 3.01 - stabil vom 2021-09-09 )
+* HUSST 3.0.0 (V 3.1.0 - stabil vom 2021-09-09 )
 *
 *************************************************************************************/
 
