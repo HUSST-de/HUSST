@@ -16,9 +16,9 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
   
-### 3.01 -> 3.2.0
+### 3.1.0 -> 3.2.0
 1. semantische Versionierung
-2. Integration zusätzliche Verbindungslogik für Tarife mit streckenbasierter Tarifierung
+2. Integration einer zusätzlichen Verbindungslogik für Tarife mit streckenbasierter Tarifierung
 
 Versorgungsdaten
 - Ortspunkte.ID_RelCode - kein Pflichtfeld mehr
