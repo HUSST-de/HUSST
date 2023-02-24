@@ -33,10 +33,11 @@ Versorgungsdaten
     - Gleichstellungstyp
     - GleichstellungTarifart
     - Gleichstellung
+
 Versorungs- und Ergebnisdaten    
 - VersionStruktur um VersionPatch ergänzt (semantische Versionierung)
     
-### 3.00 -> 3.01
+### 3.0.0 -> 3.1.0
 Update im Zuge des Husst4Maas Projekts. Es wurden hauptsächlich Ergänzungen vorgenommen, um eine Abbildung von Carsharing-, Maut- und Parktarifen zu ermöglichen.
 
 * PreisstufenErmittlungen_Type hinzugefügt:
