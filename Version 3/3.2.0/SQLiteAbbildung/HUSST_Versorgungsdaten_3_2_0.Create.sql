@@ -2,24 +2,22 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-* generiert am 2022-01-25
+* generiert am 2023-02-14
 *
-* HUSST 3_00 (V 3.01 - stabil vom 2021-09-09 )
+* HUSST Datenversorgung (V 3.2.0 - in Arbeit vom 2023-02-14 )
 *
 *************************************************************************************/
 
 CREATE TABLE Bearbeitung(
 	Bearbeitungsdatum                   datetime, 
 	Lieferant                           text, 
-	Kommentar                           text,
-	PRIMARY KEY(Bearbeitungsdatum ASC, Lieferant ASC));
+	Kommentar                           text);
 
 CREATE TABLE Bediengebiete(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Bediengebiet                     bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Bediengebiet ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefBundeslaender(
 	Deaktiviert                         integer, 
@@ -27,68 +25,59 @@ CREATE TABLE DefBundeslaender(
 	ID_Bundesland                       bigint, 
 	Iso                                 text, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Bundesland ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefErmittlungseinheit(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Ermittlungseinheit               bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Ermittlungseinheit ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefFahrgasttypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Fahrgasttyp                      bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Fahrgasttyp ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefKomfortklassen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Komfortklasse                    bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Komfortklasse ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefNachbarhaltestellenbeziehungen(
 	Deaktiviert                         integer, 
 	ID_Nachbarhaltestellenbeziehung     bigint, 
 	ID_Zeitraum                         bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Nachbarhaltestellenbeziehung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefOTPTypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_OTPTyp                           bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_OTPTyp ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefOrtspunkttypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Ortspunkttyp                     bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Ortspunkttyp ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefPreisfindungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Preisfindung                     bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Preisfindung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefPreisquellen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Preisquelle                      bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Preisquelle ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefPreisspaltentypen(
 	Deaktiviert                         integer, 
@@ -96,104 +85,104 @@ CREATE TABLE DefPreisspaltentypen(
 	ID_Preisspaltentyp                  bigint, 
 	Kennung                             text, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Preisspaltentyp ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefRabattklassen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Rabattklasse                     bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Rabattklasse ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefReisetypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Reisetyp                         bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Reisetyp ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefRelationenberechnungsregelungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Relationenberechnungsregelung    bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Relationenberechnungsregelung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefRelationendruckregelungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Relationendruckregelung          bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Relationendruckregelung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefRelationscodegruppentypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Relcodegruppentyp                bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Relcodegruppentyp ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefSortenausgaberegelungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Sortenausgaberegelung            bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Sortenausgaberegelung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefSortendruckregelungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Sortendruckregelung              bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Sortendruckregelung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefSortengruppentypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Sortengruppentyp                 bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Sortengruppentyp ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefSortentypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Sortentyp                        bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Sortentyp ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
+
+CREATE TABLE DefStreckenart(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Streckenart                      bigint, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text);
+
+CREATE TABLE DefStreckencodetyp(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Streckencodetyp                  bigint, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text);
 
 CREATE TABLE DefTarifpunkttypen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Tarifpunkttyp                    bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Tarifpunkttyp ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefVertriebswege(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Vertriebswege                    bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Vertriebswege ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE DefWaehrungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Waehrung                         bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Waehrung ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE DefZahlungsarten(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Zahlungsarten                    bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Zahlungsarten ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE Feiertage(
 	Deaktiviert                         integer, 
@@ -201,9 +190,35 @@ CREATE TABLE Feiertage(
 	ID_Feiertag                         bigint, 
 	ID_Bundesland                       bigint, 
 	Datum                               datetime, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_Feiertag ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Feiertage ON Feiertage(Datum ASC, ID_Bundesland ASC, ID_Zeitraum ASC);
+	Bezeichnung                         text);
+
+CREATE TABLE Gleichstellung(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Gleichstellung                   bigint, 
+	ID_Tarifgebiet                      bigint, 
+	ID_Streckencode                     bigint, 
+	ID_StreckencodeGleichstellung       bigint, 
+	ID_Gleichstellungstyp               bigint, 
+	EntfernungAb                        bigint, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text);
+
+CREATE TABLE GleichstellungTarifart(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Gleichstellungstyp               bigint, 
+	ID_Tarifart                         bigint, 
+	ID_Tarifgebiet                      bigint, 
+	ReferenzExtern                      text);
+
+CREATE TABLE Gleichstellungstyp(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Gleichstellungstyp               bigint, 
+	ID_Tarifgebiet                      bigint, 
+	Bezeichnung                         text, 
+	ReferenzExtern                      text);
 
 CREATE TABLE GueltigkeitszeitRegeln(
 	Deaktiviert                         integer, 
@@ -211,23 +226,20 @@ CREATE TABLE GueltigkeitszeitRegeln(
 	ID_GueltigkeitszeitRegel            bigint, 
 	GueltigkeitszeitRegelNr             bigint, 
 	ID_Tarifgebiet                      bigint, 
-	Param                               text,
-	PRIMARY KEY(ID_GueltigkeitszeitRegel ASC, ID_Zeitraum ASC));
+	Param                               text);
 
 CREATE TABLE Interpretationen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	Interpretationsschluessel           text, 
-	Wert                                text,
-	PRIMARY KEY(Interpretationsschluessel ASC, ID_Zeitraum ASC));
+	Wert                                text);
 
 CREATE TABLE Kalender(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Betriebstag                      datetime, 
 	ID_Betriebstagesart                 bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Betriebstag ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Linien(
 	Deaktiviert                         integer, 
@@ -238,8 +250,7 @@ CREATE TABLE Linien(
 	Bezeichnung                         text, 
 	ID_Konzessionaer                    bigint, 
 	ID_Bediengebiet                     bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Linie ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Mwst(
 	Deaktiviert                         integer, 
@@ -248,8 +259,7 @@ CREATE TABLE Mwst(
 	MwstSatz                            numeric, 
 	Bezeichnung                         text, 
 	ReferenzExtern                      text, 
-	KA_Mwst                             bigint,
-	PRIMARY KEY(ID_Mwst ASC, ID_Zeitraum ASC));
+	KA_Mwst                             bigint);
 
 CREATE TABLE Nachbarhaltestellen(
 	Deaktiviert                         integer, 
@@ -263,9 +273,16 @@ CREATE TABLE Nachbarhaltestellen(
 	ID_Via                              bigint, 
 	ID_Tarifgebiet                      bigint, 
 	ID_Preisstufe                       bigint, 
-	Zahlgrenzen                         bigint,
-	PRIMARY KEY(ID_Nachbarhaltestelle ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Nachbarhaltestellen ON Nachbarhaltestellen(ID_OrtspunktVon ASC, ID_OrtspunktNach ASC, ID_Zeitraum ASC);
+	Zahlgrenzen                         bigint);
+
+CREATE TABLE OrtspunktStreckencode(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Ortspunkt                        bigint, 
+	ID_Tarifgebiet                      bigint, 
+	ID_Streckencode                     bigint, 
+	ID_Streckencodetyp                  bigint, 
+	ReferenzExtern                      text);
 
 CREATE TABLE Ortspunkte(
 	Deaktiviert                         integer, 
@@ -284,9 +301,7 @@ CREATE TABLE Ortspunkte(
 	ID_Bediengebiet                     bigint, 
 	ID_OrtspunktReferenz                bigint, 
 	XKoordWgs84                         real, 
-	YKoordWgs84                         real,
-	PRIMARY KEY(ID_Ortspunkt ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Ortspunkte ON Ortspunkte(Ortsnummer ASC, ID_Ortspunkttyp ASC, ID_Zeitraum ASC);
+	YKoordWgs84                         real);
 
 CREATE TABLE OrtspunkteKA(
 	Deaktiviert                         integer, 
@@ -295,8 +310,7 @@ CREATE TABLE OrtspunkteKA(
 	KA_OrtOrgID                         bigint, 
 	KA_OrtTyp                           bigint, 
 	KA_OrtNummer                        bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Ortspunkt ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE OrtspunkteTG(
 	Deaktiviert                         integer, 
@@ -307,9 +321,7 @@ CREATE TABLE OrtspunkteTG(
 	Bezeichnung                         text, 
 	BezeichnungKurz                     text, 
 	BezeichnungDruck                    text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_OrtspunktTG ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_OrtspunkteTG ON OrtspunkteTG(ID_Ortspunkt ASC, ID_Tarifgebiet ASC, ID_Zeitraum ASC);
+	ReferenzExtern                      text);
 
 CREATE TABLE Preise(
 	Deaktiviert                         integer, 
@@ -335,9 +347,7 @@ CREATE TABLE Preise(
 	KA_Mitnahme1MaxAnzahl               bigint, 
 	KA_Mitnahme2Typ                     bigint, 
 	KA_Mitnahme2MinAnzahl               bigint, 
-	KA_Mitnahme2MaxAnzahl               bigint,
-	PRIMARY KEY(ID_Preis ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Preise ON Preise(ID_Preisstufe ASC, ID_Sorte ASC, ID_Preisspalte ASC, ID_Zeitraum ASC);
+	KA_Mitnahme2MaxAnzahl               bigint);
 
 CREATE TABLE Preisspalten(
 	Deaktiviert                         integer, 
@@ -349,8 +359,7 @@ CREATE TABLE Preisspalten(
 	Bezeichnung                         text, 
 	BezeichnungKurz                     text, 
 	Hinweis                             text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Preisspalte ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Preisstufen(
 	Deaktiviert                         integer, 
@@ -365,20 +374,18 @@ CREATE TABLE Preisstufen(
 	ID_Mwst                             bigint, 
 	UpgradeStopp                        integer, 
 	SortOrder                           bigint, 
-	KA_Preisstufe                       bigint,
-	PRIMARY KEY(ID_Preisstufe ASC, ID_Zeitraum ASC));
+	KA_Preisstufe                       bigint);
 
 CREATE TABLE PreisstufenErmittlungen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_PreisstufenErmittlung            bigint, 
 	ID_Preisstufe                       bigint, 
-	ID_Ermittlungseinheit               , 
+	ID_Ermittlungseinheit               bigint, 
 	Von                                 bigint, 
 	Bis                                 bigint, 
 	Schritt                             bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_PreisstufenErmittlung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
 
 CREATE TABLE Preisstufendirektwahl(
 	Deaktiviert                         integer, 
@@ -391,8 +398,7 @@ CREATE TABLE Preisstufendirektwahl(
 	BezeichnungDruck                    text, 
 	ID_Relation                         bigint, 
 	ID_Vertriebswege                    bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Preisstufendirektwahl ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE RaeumlicheGueltigkeit(
 	Deaktiviert                         integer, 
@@ -401,8 +407,7 @@ CREATE TABLE RaeumlicheGueltigkeit(
 	ID_Tarifpunktmenge                  bigint, 
 	KA_GueltigkeitsraumOriginaer        text, 
 	KA_GueltigkeitsraumAlternativ       text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_RaeumlicheGueltigkeit ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Relationen(
 	Deaktiviert                         integer, 
@@ -415,8 +420,7 @@ CREATE TABLE Relationen(
 	ID_Vertriebswege                    bigint, 
 	ID_Via                              bigint, 
 	ID_Berechnungsregelung              bigint, 
-	ID_Druckregelung                    bigint,
-	PRIMARY KEY(ID_Relation ASC, ID_Zeitraum ASC));
+	ID_Druckregelung                    bigint);
 
 CREATE TABLE Relationscodegruppen(
 	Deaktiviert                         integer, 
@@ -424,15 +428,13 @@ CREATE TABLE Relationscodegruppen(
 	ID_Relcodegruppentyp                bigint, 
 	ID_Relcodegruppe                    bigint, 
 	Gruppennummer                       bigint, 
-	ID_Relcode                          bigint,
-	PRIMARY KEY(ID_Relcodegruppe ASC, ID_Zeitraum ASC));
+	ID_Relcode                          bigint);
 
 CREATE TABLE Relationscodes(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Relcode                          bigint, 
-	ID_Tarifpunkt                       bigint,
-	PRIMARY KEY(ID_Relcode ASC, ID_Zeitraum ASC, ID_Tarifpunkt ASC));
+	ID_Tarifpunkt                       bigint);
 
 CREATE TABLE Relationszuordnungen(
 	Deaktiviert                         integer, 
@@ -440,9 +442,7 @@ CREATE TABLE Relationszuordnungen(
 	ID_Relationszuordung                bigint, 
 	ID_Relation                         bigint, 
 	ID_Teilrelation                     bigint, 
-	Sortorder                           bigint,
-	PRIMARY KEY(ID_Relationszuordung ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Relationszuordnungen ON Relationszuordnungen(ID_Teilrelation ASC, ID_Relation ASC, ID_Relationszuordung ASC, ID_Zeitraum ASC);
+	SortOrder                           bigint);
 
 CREATE TABLE Sorten(
 	Deaktiviert                         integer, 
@@ -473,15 +473,13 @@ CREATE TABLE Sorten(
 	KA_Infotext                         text, 
 	KA_Fahrgasttyp                      bigint, 
 	KA_Verkehrsmittel                   bigint, 
-	KA_Serviceklasse                    bigint,
-	PRIMARY KEY(ID_Sorte ASC, ID_Zeitraum ASC));
+	KA_Serviceklasse                    bigint);
 
 CREATE TABLE SortenTarifarten(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Sorte                            bigint, 
-	ID_Tarifart                         bigint,
-	PRIMARY KEY(ID_Sorte ASC, ID_Tarifart ASC, ID_Zeitraum ASC));
+	ID_Tarifart                         bigint);
 
 CREATE TABLE Sortengruppen(
 	Deaktiviert                         integer, 
@@ -491,8 +489,7 @@ CREATE TABLE Sortengruppen(
 	ID_Bediengebiet                     bigint, 
 	SortOrder                           bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Sortengruppe ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE SortengruppenElemente(
 	Deaktiviert                         integer, 
@@ -501,8 +498,7 @@ CREATE TABLE SortengruppenElemente(
 	ID_Sortengruppe                     bigint, 
 	SortOrder                           bigint, 
 	ID_Sorte                            bigint, 
-	ID_Preisstufe                       bigint,
-	PRIMARY KEY(ID_SortengruppenElement ASC, ID_Zeitraum ASC));
+	ID_Preisstufe                       bigint);
 
 CREATE TABLE SortengruppenErmittlungen(
 	Deaktiviert                         integer, 
@@ -516,8 +512,44 @@ CREATE TABLE SortengruppenErmittlungen(
 	DauerMax                            , 
 	Ueberhang                           , 
 	SortOrder                           bigint, 
-	Bezeichnung                         text,
-	PRIMARY KEY(ID_SortengruppenErmittlung ASC, ID_Zeitraum ASC));
+	Bezeichnung                         text);
+
+CREATE TABLE Strecke(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Strecke                          bigint, 
+	ID_Tarifgebiet                      bigint, 
+	ID_StreckencodeStart                bigint, 
+	ID_StreckencodeZiel                 bigint, 
+	Entfernung                          bigint, 
+	ID_Streckenvia                      bigint, 
+	ID_Streckenart                      bigint, 
+	ReferenzExtern                      text);
+
+CREATE TABLE Streckencode(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Streckencode                     bigint, 
+	ID_Tarifpunkt                       bigint, 
+	ID_Tarifgebiet                      bigint, 
+	ID_Streckencodetyp                  bigint, 
+	ReferenzExtern                      text);
+
+CREATE TABLE Streckenvias(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Streckenvia                      bigint, 
+	ID_Tarifgebiet                      bigint, 
+	Anzeigetext                         text, 
+	ReferenzExtern                      text);
+
+CREATE TABLE Streckenzuordnung(
+	Deaktiviert                         integer, 
+	ID_Zeitraum                         bigint, 
+	ID_Strecke                          bigint, 
+	ID_Teilrelation                     bigint, 
+	ID_Tarifgebiet                      bigint, 
+	ReferenzExtern                      text);
 
 CREATE TABLE TagesartMerkmalElemente(
 	Deaktiviert                         integer, 
@@ -525,16 +557,14 @@ CREATE TABLE TagesartMerkmalElemente(
 	ID_TagesartMerkmalElement           bigint, 
 	ID_Betriebstagesart                 bigint, 
 	ID_TagesmerkmalElement              bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_TagesartMerkmalElement ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Tagesarten(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Betriebstagesart                 bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Betriebstagesart ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE TagesmerkmalElemente(
 	Deaktiviert                         integer, 
@@ -542,25 +572,21 @@ CREATE TABLE TagesmerkmalElemente(
 	ID_TagesmerkmalElement              bigint, 
 	ID_Tagesmerkmal                     bigint, 
 	Bezeichnung                         varchar(250), 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_TagesmerkmalElement ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_TagesmerkmalElemente ON TagesmerkmalElemente(ID_Tagesmerkmal ASC, Bezeichnung ASC, ID_Zeitraum ASC);
+	ReferenzExtern                      text);
 
 CREATE TABLE Tagesmerkmale(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Tagesmerkmal                     bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Tagesmerkmal ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Tarifarten(
 	ID_Zeitraum                         bigint, 
 	ID_Tarifart                         bigint, 
 	Bezeichnung                         text, 
 	ID_Tarifgebiet                      bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Tarifart ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Tarifgebiete(
 	Deaktiviert                         integer, 
@@ -570,8 +596,7 @@ CREATE TABLE Tarifgebiete(
 	Bezeichnung                         text, 
 	Erstellungsdatum                    datetime, 
 	Version                             text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Tarifgebiet ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Tarifpunkte(
 	Deaktiviert                         integer, 
@@ -582,8 +607,7 @@ CREATE TABLE Tarifpunkte(
 	Bezeichnung                         text, 
 	BezeichnungDruck                    text, 
 	ID_TarifpunktReferenz               bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Tarifpunkt ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE TarifpunktmengeElemente(
 	Deaktiviert                         integer, 
@@ -591,15 +615,13 @@ CREATE TABLE TarifpunktmengeElemente(
 	ID_TarifpunktmengeElement           bigint, 
 	ID_Tarifpunktmenge                  bigint, 
 	ID_Tarifpunkt                       bigint, 
-	SortOrder                           bigint,
-	PRIMARY KEY(ID_TarifpunktmengeElement ASC, ID_Zeitraum ASC));
+	SortOrder                           bigint);
 
 CREATE TABLE Tarifpunktmengen(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Tarifpunktmenge                  bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Tarifpunktmenge ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Tarifrelevantepunkte(
 	Deaktiviert                         integer, 
@@ -614,8 +636,7 @@ CREATE TABLE Tarifrelevantepunkte(
 	ID_Ortspunkt                        bigint, 
 	ID_Sortengruppe                     bigint, 
 	Standortwahl_ID_Bediengebiet        bigint, 
-	ID_TarifrelevanterpunktReferenz     bigint,
-	PRIMARY KEY(ID_Tarifrelevanterpunkt ASC, ID_Zeitraum ASC));
+	ID_TarifrelevanterpunktReferenz     bigint);
 
 CREATE TABLE Teilrelationen(
 	Deaktiviert                         integer, 
@@ -637,8 +658,7 @@ CREATE TABLE Teilrelationen(
 	ID_RaeumlicheGueltigkeit            bigint, 
 	ID_RaeumlicheGueltigkeit_Rueck      bigint, 
 	ID_Linie                            bigint, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Teilrelation ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Unternehmen(
 	Deaktiviert                         integer, 
@@ -647,26 +667,24 @@ CREATE TABLE Unternehmen(
 	BezeichnungKurz                     text, 
 	Bezeichnung                         text, 
 	Mandant                             integer, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Unternehmen ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Updateinfo(
 	Updatetime                          datetime, 
 	Filename                            text, 
-	Purpose                             text,
-	PRIMARY KEY(Updatetime ASC, Filename ASC));
+	Purpose                             text);
 
 CREATE TABLE VersionInhalt(
 	DatenversionInhalt                  text, 
 	Testdaten                           integer, 
 	Erstellungsdatum                    datetime, 
 	Lieferant                           text, 
-	Kommentar                           text,
-	PRIMARY KEY(DatenversionInhalt ASC, Erstellungsdatum ASC, Lieferant ASC));
+	Kommentar                           text);
 
 CREATE TABLE VersionStruktur(
 	VersionMajor                        bigint, 
 	VersionMinor                        bigint, 
+	VersionPatch                        bigint, 
 	Status                              text, 
 	Aenderungsdatum                     datetime, 
 	Aenderungsautor                     text);
@@ -678,16 +696,14 @@ CREATE TABLE Vias(
 	Bezeichnung                         text, 
 	BezeichnungDruck                    text, 
 	BezeichnungRueck                    text, 
-	BezeichnungRueckDruck               text,
-	PRIMARY KEY(ID_Via ASC, ID_Zeitraum ASC));
+	BezeichnungRueckDruck               text);
 
 CREATE TABLE Wege(
 	Deaktiviert                         integer, 
 	ID_Zeitraum                         bigint, 
 	ID_Weg                              bigint, 
 	Bezeichnung                         text, 
-	ReferenzExtern                      text,
-	PRIMARY KEY(ID_Weg ASC, ID_Zeitraum ASC));
+	ReferenzExtern                      text);
 
 CREATE TABLE Wegpositionen(
 	Deaktiviert                         integer, 
@@ -698,9 +714,7 @@ CREATE TABLE Wegpositionen(
 	ID_Ortspunkt                        bigint, 
 	ID_Bediengebiet                     bigint, 
 	Entfernung                          bigint, 
-	Fangbereich                         bigint,
-	PRIMARY KEY(ID_Wegposition ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Wegpositionen ON Wegpositionen(ID_Weg ASC, SortOrder ASC, ID_Zeitraum ASC);
+	Fangbereich                         bigint);
 
 CREATE TABLE Zeitraeume(
 	ID_Zeitraum                         bigint, 
@@ -708,14 +722,12 @@ CREATE TABLE Zeitraeume(
 	ZeitraumBis                         datetime, 
 	DatenversionZeitraum                text, 
 	HauptZeitraumNr                     bigint, 
-	SubZeitraumNr                       bigint,
-	PRIMARY KEY(ID_Zeitraum ASC));
+	SubZeitraumNr                       bigint);
 
 CREATE TABLE Zeitraumoptionen(
 	ID_Zeitraum                         bigint, 
 	Option                              varchar(250), 
-	Wert                                text,
-	PRIMARY KEY(Option ASC, ID_Zeitraum ASC));
+	Wert                                text);
 
 CREATE TABLE Zusatzsorten(
 	Deaktiviert                         integer, 
@@ -731,15 +743,12 @@ CREATE TABLE Zusatzsorten(
 	ID_SortengruppeHauptsorten          bigint, 
 	ID_RelcodegruppeStart               bigint, 
 	ID_RelcodegruppeZiel                bigint, 
-	Direktverkauf                       integer,
-	PRIMARY KEY(ID_Zusatzsorte ASC, ID_Zeitraum ASC));
-CREATE UNIQUE INDEX Uix_Zusatzsorten ON Zusatzsorten(ID_Sorte ASC, ZuordnungRelCodeGrp ASC, ID_Zeitraum ASC);
+	Direktverkauf                       integer);
 
 CREATE TABLE DynAttributDef(
 	ID_DynAttributDef                   bigint, 
 	Name                                text, 
-	DynAttributTyp                      text,
-	PRIMARY KEY(ID_DynAttributDef ASC));
+	DynAttributTyp                      text);
 
 CREATE TABLE DynAttributWert(
 	ID_Zeitraum                         bigint, 
@@ -747,20 +756,17 @@ CREATE TABLE DynAttributWert(
 	Tabellennummer                      bigint, 
 	ID_DatensatzRef                     bigint, 
 	Lang                                varchar(2), 
-	Wert                                text,
-	PRIMARY KEY(ID_Zeitraum ASC, ID_DynAttributDef ASC, Tabellennummer ASC, ID_DatensatzRef ASC, Lang ASC));
+	Wert                                text);
 
 CREATE TABLE Sprachtexte(
 	ID_Sprachtext                       text, 
 	Lang                                varchar(2), 
-	Text                                text,
-	PRIMARY KEY(ID_Sprachtext ASC, Lang ASC));
+	Text                                text);
 
 CREATE TABLE Tabelleninfo(
 	Tabellenname                        text, 
 	Tabellennummer                      bigint, 
-	Strukturname                        text,
-	PRIMARY KEY(Tabellennummer ASC));
+	Strukturname                        text);
 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Bediengebiete", 1, "Bediengebiete_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefBundeslaender", 2, "DefBundesland_Type"); 
@@ -781,11 +787,15 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("D
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortendruckregelungen", 16, "DefSortendruckregelung_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortengruppentypen", 17, "DefSortengruppentyp_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefSortentypen", 19, "DefSortentyp_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefStreckenart", 62, "DefStreckenart_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefStreckencodetyp", 63, "DefStreckencodetyp_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefTarifpunkttypen", 20, "DefTarifpunkttyp_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefVertriebswege", 21, "DefVertriebswege_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefWaehrungen", 22, "DefWaehrung_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("DefZahlungsarten", 23, "DefZahlungsarten_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Feiertage", 24, "Feiertage_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Gleichstellung", 70, "Gleichstellung_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Gleichstellungstyp", 68, "Gleichstellungstyp_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("GueltigkeitszeitRegeln", 57, "GueltigkeitszeitRegeln_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Kalender", 25, "Kalender_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Linien", 26, "Linien_Type"); 
@@ -807,6 +817,8 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("S
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("SortengruppenElemente", 58, "SortengruppenElemente_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("SortengruppenErmittlungen", 61, "SortengruppenErmittlungen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Sortengruppen", 41, "Sortengruppen_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Strecke", 66, "Strecke_Type"); 
+INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Streckenvias", 71, "Streckenvias_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("TagesartMerkmalElemente", 43, "TagesartMerkmalElemente_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Tagesarten", 42, "Tagesarten_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("TagesmerkmalElemente", 45, "TagesmerkmalElemente_Type"); 
@@ -822,4 +834,4 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("V
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wege", 54, "Wege_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Wegpositionen", 55, "Wegpositionen_Type"); 
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname) VALUES ("Zusatzsorten", 56, "Zusatzsorten_Type"); 
-INSERT INTO VersionStruktur (VersionMajor, VersionMinor, Status, Aenderungsdatum) VALUES (3, 01, "stabil", "2021-09-09"); 
+INSERT INTO VersionStruktur (VersionMajor, VersionMinor, VersionPatch, Status, Aenderungsdatum) VALUES (3, 2, 0, "in Arbeit", "2023-02-14"); 

@@ -15,7 +15,28 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 * 5000-5999 highQ
 
 ## Changelog
+  
+### 3.1.0 -> 3.2.0
+1. semantische Versionierung
+2. Integration einer zusätzlichen Verbindungslogik für Tarife mit streckenbasierter Tarifierung
 
+Versorgungsdaten
+- Ortspunkte.ID_RelCode - kein Pflichtfeld mehr
+- zusätzliches Husst-Schema: Tarifstrecken
+- Ergänzungen in HUSST_Versorgungsdaten
+    - DefStreckenart
+    - DefStreckencodetyp
+    - OrtspunktStreckencode
+    - Streckencode
+    - Strecke
+    - Streckenzuordnung
+    - Gleichstellungstyp
+    - GleichstellungTarifart
+    - Gleichstellung
+
+Versorungs- und Ergebnisdaten    
+- VersionStruktur um VersionPatch ergänzt (semantische Versionierung)
+    
 ### 3.0.0 -> 3.1.0
 Update im Zuge des Husst4Maas Projekts. Es wurden hauptsächlich Ergänzungen vorgenommen, um eine Abbildung von Carsharing-, Maut- und Parktarifen zu ermöglichen.
 
