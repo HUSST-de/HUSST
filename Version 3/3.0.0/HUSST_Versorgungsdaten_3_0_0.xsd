@@ -1406,8 +1406,8 @@
       <xs:element name="ID_Relationszuordung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Sortorder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+	  <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
 
@@ -1839,8 +1839,14 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 				</xs:annotation>
 			</xs:element>
 			<xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+            <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        Typ der Sorte
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
 				<xs:annotation>
 					<xs:documentation>
 						Schlüssel des Tarifgebers für diese
@@ -1911,15 +1917,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 					<xs:documentation>Hinweis zum Fahrgasttyp (Erwachsener/Kind etc.).	  	
 	  				</xs:documentation>
 				</xs:annotation>
-			</xs:element>
-			<xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-						1=Tageskarte,2=Wochenkarte,3=Monatskarte,4=Halbjahreskarte,5=Jahreskarte,6=Mehrfahrten,0=Einzelkarte,7=Bargutschrift,8=AboEinzahlung,9=EBEEinzahlung
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			
+			</xs:element>			
 			<xs:element name="Mindestpersonenanzahl" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>
@@ -2891,26 +2889,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
         </xs:annotation>
         <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
 	</xs:simpleType>
-	
-	<xs:simpleType name="ID_SortenklasseHUSST_Type">
-    	<xs:annotation>
-			<xs:documentation>Die HUSST definiert ID_Sortenklasse kleiner 1000
-				todo: HUSST ID_Sortenklasse definieren
-			</xs:documentation>
-        </xs:annotation>
-        <xs:restriction base="husstDV:INT4">			
-			<xs:minExclusive value="0"/>
-			<xs:maxExclusive value="0"/>
-		</xs:restriction>
-	</xs:simpleType>
-	
-	<xs:simpleType name="ID_Sortenklasse_Type">
-        <xs:annotation>
-        	<xs:documentation>Die ID_Sortenklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl &gt;= 1000.</xs:documentation>
-        </xs:annotation>
-        <xs:union memberTypes="husstDV:ID_SortenklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
-	</xs:simpleType>
-	
+		
 	<xs:simpleType name="InterpretationsschluesselHUSST_Type">
     	<xs:annotation>
 			<xs:documentation>Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
@@ -3054,38 +3033,6 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
-		</xs:sequence>
-	</xs:complexType>
-
-	<xs:complexType name="DefSortenklasse_Type">
-		<xs:annotation>
-			<xs:appinfo>
-				<api:primekey>
-					<api:field name="ID_Sortenklasse"/>
-					<api:field name="ID_Zeitraum"/>
-				</api:primekey>
-				<api:schema name="Tarif"/>
-			</xs:appinfo>
-		</xs:annotation>
-		<xs:sequence>
-			<xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-			<xs:element name="ID_Sortenklasse" type="husstDV:ID_Sortenklasse_Type" maxOccurs="1" minOccurs="1">
-				<xs:annotation>
-					<xs:documentation>Nummer der Sortenklasse</xs:documentation>
-				</xs:annotation>
-			</xs:element>
-			<xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-			
-			<xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
-				<xs:annotation>
-					<xs:documentation>
-				  		Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
-				  		identifizieren zu können.
-					</xs:documentation>
-				</xs:annotation>
-			</xs:element>
 			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -4357,7 +4304,7 @@ Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.</xs:documen
 			<xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
 			<xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>			
 			<xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="ID_Ortsnummer" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ID_Ortspunkt" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="ID_Sortengruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Verweist auf eine Sortengruppe, die mit dieser
@@ -4726,7 +4673,6 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 	<xs:element name="Wegpositionen" type="husstDV:Wegpositionen_Type"/>
 
 	<!--Hilfs -->
-	<xs:element name="DefSortenklassen" type="husstDV:DefSortenklasse_Type"/>
 	<xs:element name="DefTarifpunkttypen" type="husstDV:DefTarifpunkttyp_Type"/>
 	<xs:element name="DefSortentypen" type="husstDV:DefSortentyp_Type"/>
 	<xs:element name="DefWaehrungen" type="husstDV:DefWaehrung_Type"/>
@@ -4785,7 +4731,6 @@ Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten 
 			<xs:element ref="husstDV:DefRelationendruckregelungen"/>
 			<xs:element ref="husstDV:DefRelationscodegruppentypen"/>
 			<xs:element ref="husstDV:DefSortengruppentypen"/>
-			<xs:element ref="husstDV:DefSortenklassen"/>
 			<xs:element ref="husstDV:DefSortentypen"/>
 			<xs:element ref="husstDV:DefTarifpunkttypen"/>
 			<xs:element ref="husstDV:DefWaehrungen"/>
