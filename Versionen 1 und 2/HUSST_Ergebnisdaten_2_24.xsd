@@ -1,0 +1,2878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.krauth-technology.de/public"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:kts="http://www.krauth-technology.de/public">
+
+
+	<annotation>
+		<documentation>
+			Format der Daten, die von den Verkaufs- und
+			Kontrollgeräten an das
+			Hintergrundsystem zurückgeliefert werden.
+			(c) 2010-2021 krauth technology GmbH, Eberbach
+
+			Änderungen von 2.19 auf
+			2.20
+			Erweiterungen Enumerationen
+			ktPruefBegin und ktPruefAbschluss
+			ergänzt
+			EBE Begründung
+
+			Änderungen von 2.20 auf 2.21
+			Kommentare älterer
+			Änderungen entfernt.
+			ktZahlArt wird um girocard ergänzt.
+			Kommentare und
+			Anwendungsfälle bei ktTransaktion.VorgangsNr und
+			ktTransaktion.BezugsNr erneuert.
+			ktGeraeteTyp entfernt.
+			ktGeraet.Typ wird zu Typ string.
+			ktGeldBehaelterTyp Enum um "Recycler" und "Unbekannt" erweitert.
+			ktZahlArt Enum um "Visa-Electron" erweitert.
+			
+			ktBetriebsart wurde um den Eintrag "Systembetrieb" erweitert. 
+
+			Änderungen von 2.21 auf 2.22
+			Streichung Kommentar: Eine Schicht mit der Markierung Systembetrieb enthält keinen Dienst.
+			AutorisierungsNr in ktZVTBezahlung ergänzt (optionales Textelement)
+			
+			Änderungen von 2.22 auf 2.23
+			ktZahlArt Enum um "ChinaUnionPay" erweitert.
+			
+			Änderungen von 2.23 auf 2.24
+			in ktZahlung das minOccurs von ktUeberweisung von 0 auf 1 korrigiert
+
+		</documentation>
+	</annotation>
+
+	<complexType name="ktWarenkorb">
+		<sequence>
+			<element name="TransaktionsOrt" type="kts:ktTransaktionsOrt"
+				maxOccurs="1" minOccurs="1"></element>
+			<element name="TransaktionListe"
+				type="kts:ktTransaktionsListe" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="ZahlungsListe" type="kts:ktZahlungsListe"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Beleg" type="kts:ktBeleg"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+	</complexType>
+
+
+	<complexType name="ktZahlung">
+		<sequence>
+			<element name="Betrag" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<choice>
+				<element name="Barbezahlung" type="kts:ktBarBezahlung"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="Gutschein" type="kts:ktGutscheinBezahlung"
+					maxOccurs="1" minOccurs="1">
+					<annotation>
+						<documentation>
+							Obsolet: Gutscheine, bei Zahlungsart
+							Gutschein,
+							diese Art der Verrechnung per
+							Gutschein sollte nicht mehr genutzt
+							werden.
+						</documentation>
+					</annotation>
+				</element>
+				<element name="ZVTBezahlung" type="kts:ktZVTBezahlung"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="KABezahlung" type="kts:ktKABezahlung"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="ELVBezahlung" type="kts:ktECLSV"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="ktUeberweisung" type="kts:ktUeberweisung"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="KKOfflineBezahlung"
+					type="kts:ktKKOfflineBezahlung" maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="RestGeldBeleg" type="kts:ktRestGeldBeleg"
+					maxOccurs="1" minOccurs="1">
+				</element>
+				<element name="Rechnungsstellung"
+					type="kts:ktRechnungsstellung" maxOccurs="1" minOccurs="1">
+				</element>
+			</choice>
+
+			<element name="Beleg" type="kts:ktBeleg"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="Zahlart" type="kts:ktZahlArt"
+			use="optional"></attribute>
+	</complexType>
+
+
+	<complexType name="ktFahrtverlauf">
+		<sequence>
+			<element name="NetzVersion" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Diese Information ist obsolet und sollte nicht mehr
+						verwendet werden: eindeutige Kennung der Netzversion
+						(Basisversion)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Aktion" type="kts:ktFahrtVerlaufAktion"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="Linie" type="int" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="FahrtNr" type="int" minOccurs="0"
+				maxOccurs="1">
+			</element>
+			<element name="Messfahrt" type="boolean" minOccurs="0"
+				maxOccurs="1">
+			</element>
+			<element name="OpIdx" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Index der aktuellen bzw. gerade verlassenen
+						Haltestelle (beginnend ab 1 für die erste
+						Haltestelle der Fahrt)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="OpTyp" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Ortspunkttyp (z.B. 1=Hst, 2=Betriebshof)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="OpNr" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Orstpunktnummer</documentation>
+				</annotation>
+			</element>
+			<element name="Tacho" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Wegzählerstand</documentation>
+				</annotation>
+			</element>
+			<element name="Distanz" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Entfernung ab der Haltestelle in Metern
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Geo" type="kts:ktGeo" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="TSoll" type="dateTime" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Sollzeit</documentation>
+				</annotation>
+			</element>
+			<element name="Fahrplanlage" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Fahrplanlage als vorzeichenbehaftete Abweichung
+						in
+						Sekunden
+					</documentation>
+				</annotation>
+			</element>
+			<element name="LeistungArt" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Umlauf" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Wagenumlauf</documentation>
+				</annotation>
+			</element>
+			<element name="Route" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Linienvariante</documentation>
+				</annotation>
+			</element>
+			<element name="ZaehldatenListe" type="kts:ktZaehldatenListe"
+				maxOccurs="1" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="DatenVersion" type="int" use="optional">
+			<annotation>
+				<documentation>
+					Die Datenversion setzt sich aus einem zweigeteilten
+					Inhalt zusammen:
+					(ID_Inhaltsversion &lt;&lt; 8) | ID_Zeitraum wobei
+					0 &lt;
+					ID_Zeitraum &lt; 256
+					gilt.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="ktAusgabeAbschnitt">
+		<sequence>
+			<element name="AbschnittId" type="kts:ktAbschnittId"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="SchachtNr" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Die Papierschachtnummer in die das Papier eingeführt
+						ist. Diese muss eindeutig sein, über alle Drucker, die an den
+						Gerät angeschlossen sind.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="AusgabeArt" type="kts:ktAusgabeArt"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="BelegNr" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>BelegNr = aufgedruckte laufende Fahrscheinnummer,
+						laufende Belegnummer, laufende Kartennummer.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+
+
+
+	<complexType name="ktMeldung">
+		<sequence>
+			<element name="Nr" type="int" minOccurs="1" maxOccurs="1"></element>
+			<element name="MeldModTyp" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Typ des meldunggenerierenden Moduls</documentation>
+				</annotation>
+			</element>
+			<element name="Komponente" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Komponentenbezeichnung</documentation>
+				</annotation>
+			</element>
+			<element name="PhysPosition" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Text" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Meldungstext, Entwicklertext. Dieser Text wird in
+						der Regel vor der Anzeige ersetzt.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Attribut" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Kommagetrennte Attribute die für eine
+						Meldungstextgenerierung benötigt werden:
+
+						Format('User "%1$s" was
+						sleeping between %2$s and %3$s',[Attribute])
+						Für ein einzelnes Attribut ist nach wie vor die Angabe "%s" zulässig.
+
+						So dass auch bei
+						sprachvarianten Anzeigen
+						dynamische Inhalte
+						ausgegeben werden
+						können.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="Klasse" type="kts:ktMeldungsKlasse"
+			use="required"></attribute>
+	</complexType>
+
+	<simpleType name="ktAbAusloeser">
+		<annotation>
+			<documentation></documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="manuell"></enumeration>
+			<enumeration value="automatisch"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="ktAbrDatenmenge">
+		<restriction base="string"></restriction>
+	</simpleType>
+
+	<complexType name="ktTransaktion">
+		<sequence>
+			<element name="Produkt" type="kts:ktProdukt" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="KundenNr" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="VorgangsNr" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Diese Nummer ist obsolet und wird vollständig durch
+						BezugsNr ersetzt.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="BezugsNr" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Die BezugsNr ersetzt vollkommen die vorherige
+						VorgangsNr.
+						Die BezugsNr enthält bei EBE-Vorgängen die
+						EBE-Kontonummer,
+						bei Gutschein-Vorgängen die Gutscheinnummer,
+						bei
+						Bezahlung bzw. Einlösung von Anteilen vorausbezahlter Anteile auf
+						Karten die Kartennummer,
+						bei Stornierungen die Beleg.BelegNr des
+						stornierten Produkts.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="VorgangsZeitpunkt" type="dateTime"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Vorgangsnummer und Vorgangszeitpunkt
+						identifizieren
+						einzeln oder gemeinsam einen
+						Vorgang. Im Speziellen werden diese
+						beiden Werte
+						bei der Erstattung eines Gutscheins genutzt,
+						dann
+						entspricht der Vorgangszeitpunkt dem
+						Zeitpunkt der Ausgabe des
+						eingelösten
+						Gutscheins.
+					</documentation>
+				</annotation>
+			</element>
+			<choice>
+				<element name="KAReferenz" type="kts:ktKAReferenzTyp"
+					maxOccurs="1" minOccurs="0">
+					<annotation>
+						<documentation>
+							Referenz zu einem global eindeutigen Vorgang
+							- diese
+							Information ist auch in den
+							zugehörigen KA Kontrolldaten
+							enthalten.
+						</documentation>
+					</annotation>
+				</element>
+				<element name="Referenz" type="string" maxOccurs="1"
+					minOccurs="0">
+					<annotation>
+						<documentation>
+							Referenz zu einem global eindeutigen Vorgang
+							- diese
+							Information ist auch in den
+							zugehörigen Transaktionsdaten als
+							Eindeutigkeitskennzeichen enthalten.
+						</documentation>
+					</annotation>
+				</element>
+			</choice>
+		</sequence>
+		<attribute name="Typ" type="kts:ktTransTyp" use="required">
+		</attribute>
+		<attribute name="Storno" type="boolean" use="optional"
+			default="false"></attribute>
+	</complexType>
+
+	<simpleType name="ktTransTyp">
+		<annotation>
+			<documentation>Sonderfälle:
+				• Gutscheine werden verkauft
+				• Gutscheine
+				werden erstattet
+
+				• EBE-Einzahlung – der Kunde „kauft“ aus seiner
+				EBE-Schuld mit der
+				„BezugsNr“ einen Anteil, es liegt ein ktTransTyp
+				„Verkauf“ vor. Es
+				gibt einen Preis, es wird ein Beleg gedruckt.
+
+				• Die
+				Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem
+				Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, dass
+				dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle
+				Fälle die „BezugsNr“ (sprich Kartennummer) und je nach Anwendung die
+				Kundennummer beim Verkauf notiert werden.
+				• Die Einlösung eines
+				Wertes entspricht der teilweisen oder
+				vollständigen Erstattung eines
+				Gutscheins mit den gleichen
+				Registrierungen, es können jedoch auch
+				nur Teilwerte „erstattet“
+				werden. (ktTransTyp = Erstattung)
+
+				• Der
+				Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem
+				Verkauf
+				einer Mehrfahrtenkarte auf Papier mit dem einzigen
+				Unterschied, dass
+				die BezugsNr (sprich Kartennummer) und je nach
+				Anwendung die
+				Kundennummer registriert wird. In dem Feld
+				„AnzahlTeile“ kann die
+				Menge der Mehrfahrten, die jedoch schon über
+				die Sorte festgelegt
+				sein sollten, zusätzlich notiert werden.
+				• Das Entwerten eines oder
+				mehrerer „Streifen“ einer elektronischen
+				Mehrfahrtenkarte kann
+				mittels „Registrierung“ erfasst werden. Wieder
+				unterscheidet die
+				ProduktID den Kontext, es gibt keinen Preis, nur
+				eventuell einen
+				Beleg, aber eine „BezugsNr“. In dem Feld
+				„AnzahlTeile“ müssen die
+				Menge der entwerteten „Streifen“ notiert
+				werden.
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Verkauf"></enumeration>
+			<enumeration value="Erstattung"></enumeration>
+			<enumeration value="Registrierung"></enumeration>
+			<enumeration value="Einzahlung"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktProdukt">
+		<annotation>
+			<documentation>Bei der Anwendung von Teilrelationen zur Aufteilung
+				von Fremd- und Eigenleistungen wird wie folgt vorgegangen:
+				Das
+				verkaufte Produkt wird als Hauptprodukt mit der Id und ExtId
+				'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen
+				gemeinsamen Beleg, un N Teilprodukte.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="ProduktId" type="kts:ktProduktId"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Preis" type="kts:ktPreis"
+				maxOccurs="unbounded" minOccurs="0">
+				<annotation>
+					<documentation>
+						Preisinformation zum Produkt, kannauch leer sein
+					</documentation>
+				</annotation>
+			</element>
+
+			<element name="Beleg" type="kts:ktBeleg"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="Fahrschein" type="kts:ktProdFahrschein"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Teilprodukt" type="kts:ktProdukt"
+				maxOccurs="unbounded" minOccurs="0">
+				<annotation>
+					<documentation>
+						Unterprodukte, die mit verkauft wurden
+						(Teilstrecken,City-Cards,...)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="AnzahlTeile" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Hier werden bei Mehrfahrtenkarten die Anzahl der
+						einzelnen Abschnitte bzw. Anteile notiert. Wenn
+						nicht angegeben
+						ist, ist die Anzahl entweder
+						unbekannt oder als Vorgabe 1.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="RestTeile" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Hier können, je nach Kontext 1.) die Anzahl der
+						derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen
+						"Streifen" oder 2.) die Anzahl der derzeit auf der elektronischen
+						Debitkarte befindlichen Wertanteile notiert werden. Die
+						Betrachtung stellt den Zustand VOR der Aktion dar.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+
+	</complexType>
+
+	<complexType name="ktProdFahrschein">
+		<annotation>
+			<documentation>Via = Eine Liste von Tarifpunkten
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="SortenNr" type="int" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="KomfortKlasse" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="RabattKlasse" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="FahrgastTyp" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Diese Option wird zukünftig in einer Verion >=
+						3.0
+						wegfallen. Bitte die Inhalte parallel in
+						'Mitfahrer' kodieren
+
+						Beim
+						Einsatz zusammen mit Kombitickets oder
+						Gruppentickets werden hier
+						die Anzahlen der
+						Beförderungsgruppen (Erwachsene, Kinder, Hunde,
+						Schüler über 14, Schüler unter 14, Halbtax) als
+						Semikolon
+						separierte Liste in dem String
+						abgelegt. Wird für einen Gruppe
+						keine Angaben
+						gemacht, dann ist die Anzahl der Gruppe zu '0'
+						anzunehmen. Angaben für unbekannte Gruppen
+						werden ignoriert.
+						Leerzeichen oder TABs in der
+						Zeichenkette sind zu ignorieren, der
+						Doppelpunkt
+						ist Trenner zwischen Bezeichner und Anzahl.
+						Beispiel für
+						eine Beförderungsgruppe mit 2
+						Erwachsenen und 2 Kindern und einem
+						Fahrrad:
+						"E:3; K:2;F:1;"
+
+						Zum Stand heute sind per Konvention
+						definiert: E
+						: Erwachsene K : Kinder Schüler über 14 Jahre
+						SH;
+						Schüler unter 14 Jahren: SL Schüler unter 14
+						Jahren H : Halbtax R :
+						Ermässigte F : Fahrräder
+					</documentation>
+				</annotation>
+			</element>
+			<element name="PreisQuelle" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Das Element wird in zukünftigen Versionen >= 3.0
+						durch ID_PreisQuelle ersetzt.
+
+						Die Preisquelle rührt aus den
+						Versorgungsdaten
+						"Teilrelationen/ID_Preisquelle", sie ist
+						optional
+						und zeigt auf eine Standardpreisquelle,
+						wenn sie nicht angegeben
+						wird.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ID_PreisQuelle" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Dieses Element ersetzt in zukünftigen Versionen
+						>=
+						3.0 das element PreisQuelle. Die Preisquelle
+						stammt aus den
+						Versorgungsdaten
+						"Teilrelationen/ID_Preisquelle".
+					</documentation>
+				</annotation>
+			</element>
+			<element name="PST" type="int" maxOccurs="1" minOccurs="1">
+				<annotation>
+					<documentation>
+						Dieses Element wird in zukünftigen Versionen >=
+						3.0
+						durch ID_PreisStufe ersetzt. Die Preisstufe
+						ist nur mit dem
+						Tarifgebiet zusammen gültig.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ID_PreisStufe" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Dieses Element ersetzt in zukünftigen Versionen
+						>=
+						3.0 das Element PST. Die Preisstufe ist nur
+						zusammen mit dem
+						Tarifgebiet gültig.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Tarifgebiet" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Die Preisstufe ist nur mit dem Tarifgebiet
+						zusammen
+						gültig. Das Element wird in zukünftigen
+						Versionen >= 3.0 durch
+						ID_TarifGebiet ersetzt.
+
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ID_TarifGebiet" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Die ID_Preisstufe ist nur mit dem ID_Tarifgebiet
+						zusammen gültig. Dieses Element ersetzt in
+						zukünftigen Versionen >=
+						3.0 das Element
+						Tarifgebiet.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Distanz" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Das Element wird in Versionen >= 3.0 durch das
+						Element WegstreckeInMetern ersetzt.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="WegstreckeInMetern" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Dieses Element ersetzt in zukünftigen Versionen
+						>=
+						3.0 das Element Distanz.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ZeitVon" type="dateTime" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="ZeitBis" type="dateTime" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Von" type="kts:ktTransaktionsOrt"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Nach" type="kts:ktTransaktionsOrt"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Via" type="kts:ktTransaktionsOrt"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="VonFahrt" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="VonLinie" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="VonRichtung" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="ID_Relation" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Bezug auf die ID_Relation der Versorgungsdaten -
+						die
+						DatenVersion ist identisch mit der in
+						ktProduktId hinterlegten
+						DatenVersion
+					</documentation>
+				</annotation>
+			</element>
+			<element name="RelationsIDTarifgeber" type="string"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Hier wird die Relations-ID des Tarifgebers,
+						nicht die
+						interne Relations-ID, eingetragen.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Mitfahrer" type="kts:ktMitfahrer"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="Teilrelation" type="kts:ktTeilrelation"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="ZusatzInfo" type="string"
+				maxOccurs="unbounded" minOccurs="0">
+				<annotation>
+					<documentation>Die ZusatzInfo trägt weniger allgemein genutzte
+						Informationen. Damit diese dennoch ihrer Bedeutung nach zugeordnet
+						werden können, wird die Nutzung einer Notation
+						"Schlüsselwort:Wert" vorgeschlagen.
+						Beispiel "ViaText:Br*Xl*Rb".
+						Die Vereinbarungen der zulässigen
+						Schlüsselwörter liegt ausßerhalb
+						dieses Dokumentes.
+
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+
+
+
+	<complexType name="ktPreis">
+		<annotation>
+			<documentation>Wenn keine Preisspalte angegeben ist, wird von der
+				Standardspalte "1" ausgegangen. Ansonsten muss die Nummer der
+				zugehörigen Preisspalte der Datenversorgung angegeben.
+				Die Kennung
+				kann optional die Kennung der Preisspalte enthalten.
+			</documentation>
+		</annotation>
+		<choice>
+			<element name="Betrag" type="kts:ktBetrag" minOccurs="1"
+				maxOccurs="1">
+			</element>
+		</choice>
+		<attribute name="Verrechnung" type="kts:ktPreisVerrechnung"
+			use="required">
+		</attribute>
+		<attribute name="Kennung" type="string" use="optional">
+			<annotation>
+				<documentation>
+					Die Kennung dient dazu, verschiedene
+					Preisebestandteile zu unterscheiden.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="MwSt" type="float" use="optional">
+			<annotation>
+				<documentation>
+					MwSt Prozentsatz
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Preisspalte" type="int" use="optional"></attribute>
+	</complexType>
+
+	<simpleType name="ktWaehrung">
+		<annotation>
+			<documentation>Währungscode nach ISO 4217.</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="CZK"></enumeration>
+			<enumeration value="DKK"></enumeration>
+			<enumeration value="DEM"></enumeration>
+			<enumeration value="PLN"></enumeration>
+			<enumeration value="ZAR"></enumeration>
+			<enumeration value="CHF"></enumeration>
+			<enumeration value="USD"></enumeration>
+			<enumeration value="EUR"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ktPreisVerrechnung">
+		<restriction base="string">
+			<enumeration value="Basispreis"></enumeration>
+			<enumeration value="Abschlag"></enumeration>
+			<enumeration value="Zuschlag"></enumeration>
+			<enumeration value="Information"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+
+
+
+	<complexType name="ktBeleg">
+		<sequence>
+			<element name="BelegNr" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Laufende Aufdrucknummer oder gespeicherte
+						Folgenummer
+					</documentation>
+				</annotation>
+			</element>
+			<element name="AbschnittId" type="kts:ktAbschnittId"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="KartenNr" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Zusatzinfo" type="kts:ktAny"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="Typ" type="kts:ktBelegTyp" use="required"></attribute>
+	</complexType>
+
+	<simpleType name="ktBelegTyp">
+		<annotation>
+			<documentation></documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Papierfahrschein"></enumeration>
+			<enumeration value="Papierbeleg"></enumeration>
+			<enumeration value="ECard"></enumeration>
+			<enumeration value="KACard"></enumeration>
+			<enumeration value="BOBCard"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ktZahlArt">
+		<restriction base="string">
+			<enumeration value="Barverkauf"></enumeration>
+			<enumeration value="Gutschein"></enumeration>
+			<enumeration value="ZKA-Geldkarte"></enumeration>
+			<enumeration value="CashCard"></enumeration>
+			<enumeration value="EC-Cash"></enumeration>
+			<enumeration value="ELV"></enumeration>
+			<enumeration value="Maestro"></enumeration>
+			<enumeration value="P-Card"></enumeration>
+			<enumeration value="Mastercard"></enumeration>
+			<enumeration value="Visa"></enumeration>
+			<enumeration value="Amex"></enumeration>
+			<enumeration value="Diners"></enumeration>
+			<enumeration value="DingCard"></enumeration>
+			<enumeration value="LemgoCard"></enumeration>
+			<enumeration value="Lynx"></enumeration>
+			<enumeration value="Postcard"></enumeration>
+			<enumeration value="undefiniert"></enumeration>
+			<enumeration value="Debitkarte"></enumeration>
+			<enumeration value="Kreditkarte"></enumeration>
+			<enumeration value="unbar"></enumeration>
+			<enumeration value="KA-POB"></enumeration>
+			<enumeration value="KA-PEB"></enumeration>
+			<enumeration value="JCB"></enumeration>
+			<enumeration value="Überweisung"></enumeration>
+			<enumeration value="VPay"></enumeration>
+			<enumeration value="KA-WEB"></enumeration>
+			<enumeration value="Digicash"></enumeration>
+			<enumeration value="FLASHiZ"></enumeration>
+			<enumeration value="SaferPay"></enumeration>
+			<enumeration value="Rechnung"></enumeration>
+			<enumeration value="PayPal"></enumeration>
+			<enumeration value="Adyen"></enumeration>
+			<enumeration value="Zeitmeilen"></enumeration>
+			<enumeration value="Sammelabrechnung"></enumeration>
+			<enumeration value="LogPay"></enumeration>
+			<enumeration value="girocard"></enumeration>
+			<enumeration value="Visa-Electron"></enumeration>
+			<enumeration value="ChinaUnionPay"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktGutscheinBezahlung">
+		<sequence>
+			<element name="GutschId" type="kts:ktProduktId" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Eindeutige Kennung des Gutscheintyps</documentation>
+				</annotation>
+			</element>
+			<element name="Nr" type="string" maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+
+	</complexType>
+
+	<simpleType name="ktFahrtVerlaufAktion">
+		<restriction base="string">
+			<enumeration value="Fahrtbeginn"></enumeration>
+			<enumeration value="Fahrtbeginn mit Fahrgastzaehlung"></enumeration>
+			<enumeration value="Fahrtende"></enumeration>
+			<enumeration value="Fahrzeughalt"></enumeration>
+			<enumeration value="Fahrzeugabfahrt"></enumeration>
+			<enumeration value="Haltestellendurchfahrt"></enumeration>
+			<enumeration value="Tueroeffnung"></enumeration>
+			<enumeration value="Tuerschliessung"></enumeration>
+			<enumeration value="Zwischeninformation periodisch"></enumeration>
+			<enumeration value="Zwischeninformation manuell"></enumeration>
+			<enumeration value="LogischeOrtungEin"></enumeration>
+			<enumeration value="LogischeOrtungAus"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktGeo">
+		<attribute name="Laenge" type="string" use="required"></attribute>
+		<attribute name="Breite" type="string" use="required"></attribute>
+	</complexType>
+
+	<simpleType name="ktAusgabeArt">
+		<annotation>
+			<documentation></documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Fahrschein"></enumeration>
+			<enumeration value="Rollenbeginn"></enumeration>
+			<enumeration value="Rollenende"></enumeration>
+			<enumeration value="Probedruck"></enumeration>
+			<enumeration value="Quittung"></enumeration>
+			<enumeration value="Beleg"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktAbschnittId">
+		<annotation>
+			<documentation>Definiert einen Papierabschnitt mit seiner
+				Startnummer
+				und der Anzahl seiner
+				Barcodeabschnitte. Die Startnummer ist immer
+				die kleinste Nummer des gelesenen
+				Abschnittes, egal in welche
+				Richtung die
+				Nummeriung der Rolle geht.
+			</documentation>
+		</annotation>
+		<attribute name="StartNr" type="int" use="required"></attribute>
+		<attribute name="Anzahl" type="int" use="optional">
+			<annotation>
+				<documentation>Bei eIner Anzahl von '0' ist keine Länge verfügbar.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<simpleType name="ktGeldBehaelterVorgang">
+		<annotation>
+			<documentation>
+				Übergabemeldung dient zur Registrierung von
+				Safebag-Nummern. Dann
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="AnfangsBestand"></enumeration>
+			<enumeration value="EndBestand"></enumeration>
+			<enumeration value="BehaelterZufuehrung"></enumeration>
+			<enumeration value="BehaelterEntnahme"></enumeration>
+			<enumeration value="Bestandsaufnahme"></enumeration>
+			<enumeration value="Befuellung"></enumeration>
+			<enumeration value="Entnahme"></enumeration>
+			<enumeration value="UebergabeMeldung"></enumeration>
+			<enumeration value="EntnahmeMeldung"></enumeration>
+			<enumeration value="Geldabwurf"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+	<complexType name="ktZaehldaten">
+		<attribute name="Kennung" type="int" use="required"></attribute>
+		<attribute name="Einsteiger" type="int" use="optional"></attribute>
+		<attribute name="Aussteiger" type="int" use="optional"></attribute>
+		<attribute name="Fehler" type="int" use="optional"></attribute>
+	</complexType>
+
+
+
+
+
+
+	<complexType name="ktSchichtAbschluss">
+		<annotation>
+			<documentation>Der Datensatz zum Schichtabschluss. Dieser Datensatz
+				muss paarweise mit Schichtbeginn vorkommen.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="Ausloeser" type="kts:ktAbAusloeser"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="Beleg" type="kts:ktBeleg" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+
+	</complexType>
+
+	<complexType name="ktECLSV">
+		<sequence>
+			<element name="BLZ-BIC" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="Konto-IBAN" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="KartenfolgeNr" type="int" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="Kartenart" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>1=ec-Karte Magnetstreifen</documentation>
+				</annotation>
+			</element>
+			<element name="GueltigBis" type="gYearMonth" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Gültigendejahr der Karte</documentation>
+				</annotation>
+			</element>
+			<element name="Unterschrift" type="boolean" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktSchichtSummen">
+		<choice>
+			<element name="KasseListe" type="kts:ktKassenListe"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="BelegKasseListe" type="kts:ktBelegKassenListe"
+				maxOccurs="1" minOccurs="0"></element>
+		</choice>
+	</complexType>
+
+	<complexType name="ktKasse">
+		<choice>
+			<element name="Betrag" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Kassenstand in kleinster Waehrungseinheit (z.B. Cent
+						bzw. Rappen)
+					</documentation>
+				</annotation>
+			</element>
+		</choice>
+		<attribute name="Zahlart" type="kts:ktZahlArt"
+			use="required"></attribute>
+	</complexType>
+
+	<simpleType name="ktKassetyp">
+		<annotation>
+			<documentation></documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="bar"></enumeration>
+			<enumeration value="unbar"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktBelegKasse">
+		<sequence>
+			<element name="Betrag" type="kts:ktBetrag" minOccurs="0"
+				maxOccurs="1">
+				<annotation>
+					<documentation>Hier kann der Gesamtbetrag der vereinnahmten Belege
+						eingetragen werden
+					</documentation>
+				</annotation>
+			</element>
+			<element name="GutschID" type="kts:ktProduktId" minOccurs="0"
+				maxOccurs="1">
+			</element>
+		</sequence>
+		<attribute name="BelegTyp" type="kts:ktBelegKasseTyp"
+			use="required">
+		</attribute>
+		<attribute name="Anzahl" type="int" use="required"></attribute>
+	</complexType>
+
+
+	<simpleType name="ktBelegKasseTyp">
+		<annotation>
+			<documentation></documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Restgeldquittung"></enumeration>
+			<enumeration value="Stornierung"></enumeration>
+			<enumeration value="Gutschein"></enumeration>
+			<enumeration value="Rücknahme"></enumeration>
+			<enumeration value="Chipkarte"></enumeration>
+			<enumeration value="Flugcoupon"></enumeration>
+			<enumeration value="Anfahrtscoupon"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktSchichtListe">
+		<choice>
+			<element name="Schicht" type="kts:ktSchicht" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</choice>
+	</complexType>
+
+
+	<complexType name="ktTransaktionsListe">
+		<sequence>
+			<element name="Transaktion" type="kts:ktTransaktion"
+				minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktZahlungsListe">
+		<sequence>
+			<element name="Zahlung" type="kts:ktZahlung" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="ktZaehldatenListe">
+		<sequence>
+			<element name="Zaehldaten" type="kts:ktZaehldaten"
+				minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktKassenListe">
+		<sequence>
+			<element name="Kasse" type="kts:ktKasse" minOccurs="0"
+				maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktBelegKassenListe">
+		<sequence>
+			<element name="BelegKasse" type="kts:ktBelegKasse"
+				minOccurs="0" maxOccurs="unbounded"></element>
+		</sequence>
+	</complexType>
+
+
+
+	<complexType name="ktDienstAbschluss">
+		<sequence>
+			<element name="VertriebsStelle" type="kts:ktVertriebsStelle"
+				maxOccurs="unbounded" minOccurs="1"></element>
+			<element name="Beleg" type="kts:ktBeleg" minOccurs="0"
+				maxOccurs="unbounded">
+			</element>
+			<element name="KassenListe" type="kts:ktKassenListe"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="BelegKassenListe"
+				type="kts:ktBelegKassenListe" minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="BargeldBilanz" type="kts:ktBargeldBilanz"
+				minOccurs="0" maxOccurs="1">
+			</element>
+
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+	</complexType>
+
+
+	<complexType name="ktGeldBehaelterListe">
+		<sequence>
+			<element name="Vorgang" type="kts:ktGeldBehaelterVorgang"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="GeldBehaelter" type="kts:ktGeldBehaelter"
+				minOccurs="0" maxOccurs="unbounded">
+			</element>
+			<element name="WertBehaelter" type="kts:ktWertBehaelter"
+				maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Beleg" type="kts:ktBeleg"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+	</complexType>
+
+	<complexType name="ktGeldBehaelter">
+		<sequence>
+			<element name="Stueck" type="kts:ktStuecke" minOccurs="0"
+				maxOccurs="unbounded">
+			</element>
+			<element name="Wert" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="Typ" type="kts:ktGeldBehaelterTyp"></attribute>
+		<attribute name="Nr" type="int">
+			<annotation>
+				<documentation>Behälternummer</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="PhysPosition" type="int" use="optional">
+			<annotation>
+				<documentation>Die physikalische Position
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="ktGeraet">
+		<sequence>
+			<element name="Name" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Der Name ist ein beliebiger, sprechender Name des
+						Gerätes. (z.B. Busdrucker-1234).
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Id" type="string" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Eindeutige Kennung eines Bestandteils der
+						Gerätehardware (z.B. die MAC der Netzwerkhardware.) Welche Kennung
+						das ist, muss von
+						der Gerätesoftware entschieden werden. Das
+						Element ist optional.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="Typ" type="string" use="required">
+			<annotation>
+				<documentation>Der Gerätetyp entspricht den Anwendern bekannten
+					Produktnamen der Geräte, z.B. kt0102.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Nr" type="int" use="required">
+			<annotation>
+				<documentation>Die Nummer entspricht der dem Anwender bekannten
+					Gerätenummer.
+					Die Nummer ist nur zusammen mit der Angabe eines
+					Mandanten eindeutig.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Mandant" type="int" use="required">
+			<annotation>
+				<documentation>Die Gerätenummer ist nur zusammen mit einem
+					zugeordneten Mandant eindeutig.
+					Der Standard-Mandant ist '1'.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="ktKomponentenListe">
+		<sequence>
+			<element name="Vorgang" type="kts:ktKomponentenVorgang"></element>
+			<element name="Komponente" type="kts:ktKomponente"
+				minOccurs="0" maxOccurs="unbounded">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktKomponente">
+		<sequence>
+			<element name="Name" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="Version" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Variante" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="SerienNr" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="PhysPosition" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="ErstellZeitPunkt" type="dateTime"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Hersteller" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Komponente" type="kts:ktKomponente"
+				minOccurs="0" maxOccurs="unbounded">
+			</element>
+		</sequence>
+		<attribute name="Klasse" type="kts:ktKomponentenKlasse"
+			use="required">
+		</attribute>
+	</complexType>
+
+	<simpleType name="ktKomponentenKlasse">
+		<restriction base="string">
+			<enumeration value="Software"></enumeration>
+			<enumeration value="Hardware"></enumeration>
+			<enumeration value="Daten"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktStandort">
+		<annotation>
+			<documentation></documentation>
+		</annotation>
+		<sequence>
+			<element name="Name" type="string" minOccurs="0"
+				maxOccurs="1">
+				<annotation>
+					<documentation>Der Name ist ein beliebiger, sprechender Name des
+						Standorts.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="Typ" type="kts:ktStandortTyp">
+			<annotation>
+				<documentation>Mit dem Standorttyp wird die Ausprägung des jeweilgen
+					Standorts unterschieden.
+					Die Standorte eines Types und eines
+					Mandanten sind fortlaufend
+					durchnumeriert.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Nr" type="int">
+			<annotation>
+				<documentation>Nummer des Nutzungsortes des Gerätes zu dem notierten
+					Zeitpunkt.
+					Die Nummer ist dem jeweiligen Anwender bekannt.
+					Das kann
+					eine Fahrzeugnummer sein, oder ein Kiosknummer,
+					eine
+					Haltestellennummer oder eine Bahnhofsnummer abhängig von den
+					Projektvorgaben und definiert vom jeweiligen Mandanten sein.
+					Die
+					Nummer ist nur zusammen mit der Angabe eines Mandanten eindeutig.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Mandant" type="int" use="optional">
+			<annotation>
+				<documentation>Die Standortnummer ist nur zusammen mit einem
+					zugeordneten Mandant eindeutig.
+					Der Standard-Mandant ist '1'.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<simpleType name="ktVerkaufsstelleType">
+		<annotation>
+			<documentation>
+
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="Person"></enumeration>
+			<enumeration value="Geraet"></enumeration>
+			<enumeration value="Fahrzeug"></enumeration>
+			<enumeration value="Verkaufsstelle"></enumeration>
+			<enumeration value="Servicestelle"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktProduktId">
+		<attribute name="Id" type="string" use="required"></attribute>
+		<attribute name="DatenVersion" type="int">
+			<annotation>
+				<documentation>
+					Die Datenversion setzt sich aus einem zweigeteilten
+					Inhalt zusammen:
+					(ID_Inhaltsversion &lt;&lt; 8) | ID_Zeitraum wobei
+					0 &lt;
+					ID_Zeitraum &lt; 256 gilt.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="ExtId" type="string" use="optional"></attribute>
+	</complexType>
+
+	<complexType name="ktBetrag">
+		<attribute name="Waehrung" type="kts:ktWaehrung"
+			use="required"></attribute>
+		<attribute name="Betrag" type="int" use="required"></attribute>
+	</complexType>
+
+	<simpleType name="ktGeldBehaelterTyp">
+		<restriction base="string">
+			<enumeration value="Personenkasse"></enumeration>
+			<enumeration value="Muenzendkasse"></enumeration>
+			<enumeration value="Banknotenendkasse"></enumeration>
+			<enumeration value="Geldwechsler"></enumeration>
+			<enumeration value="Geldspeicher"></enumeration>
+			<enumeration value="Zwischenkasse"></enumeration>
+			<enumeration value="Wertbehaelter"></enumeration>
+			<enumeration value="Handkasse"></enumeration>
+			<enumeration value="Recycler"></enumeration>
+			<enumeration value="Unbekannt"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+
+	<element name="Schichten" type="kts:ktSchichtenListe"></element>
+
+	<complexType name="ktSchicht">
+		<sequence>
+			<element name="Datensatz" type="kts:ktDatensatz"
+				maxOccurs="unbounded" minOccurs="0">
+				<annotation>
+					<documentation>
+						Jede Schicht enthält 2 bis n Datensätze. Für
+						eine
+						ordentliche Schicht sollten mindestens die
+						Datensätze Schichtbeginn
+						und Schichtabschluss
+						enthalten sein.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="SchichtUID" type="string" use="required">
+			<annotation>
+				<documentation>
+					Diese UID ist eine eindeutiger Wert, der (mit
+					höchster Wahrscheinlichkeit) nur EINMALIG für ALLE
+					GERÄTE ZU ALLEN
+					ZEITPUNKTEN AN ALLEN ORTEN existiert
+					(Zeit und Raum-Doppler
+					ausgenommmen ;-). ALLE Daten
+					EINER Schicht eines Gerätes werden mit
+					dieser ID
+					gekennzeichnet. Die Generierungsvorschrift ist
+					beliebig,
+					solange die obigen Bedingungen eingehalten
+					werden. Beispiel: uuidgen
+					unter Linux, uuidgen.exe
+					unter Windows
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Projekt" type="string" use="required">
+			<annotation>
+				<documentation>
+					Dies ist eine vom Projektierer vorgegebene
+					Projektkennzeichnung, z.B. "MENT"
+
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="ktSchichtBeginn">
+		<annotation>
+			<documentation>Der Datensatz zum Schichtbeginn. Dieser Datensatz muss
+				paarweise mit Schichtabschluss vorkommen.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="SchichtNr" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Diese Schichtnummer enstpricht der den Anwendern
+						bekannte Schichtnummer.
+						In der Regel wird nach dieser Nummer
+						ausgewertet und die Nummer wird
+						auf Belege aufgedruckt.
+						Die
+						Schichtnummer ist mindestens für jede Schicht-UUID eindeutig.
+						Die
+						Schichtnummer sollte inkrementierend aufsteigen und nie '0' sein.
+
+						Achtung: Schichtnummer vs. Dienstnummer:
+						Innerhalb einer Schicht
+						können mehrere Dienste auch gleichzeitig ablaufen.
+						Kein Dienst
+						überlappt zeitlich
+						eine Schichtgrenze. Dienste sind in der Regel
+						Personen-(Konten) oder
+						Geräte-(Konten) zugeordnet.
+						Schichten sind
+						nur ein Behälter für Dienste.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Geraet" type="kts:ktGeraet" minOccurs="1"
+				maxOccurs="1">
+				<annotation>
+					<documentation>Dieser Datensatz kennzeichnet das technische Gerät,
+						das die Datensätze dieser Schicht erzeugt.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="EinsatzTyp" type="kts:ktEinsatzTyp"
+				minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>Dieser Datensatz kennzeichnet die Ausprägung der
+						Verwendung des technischen Gerätes.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Betriebsart" type="kts:ktBetriebsart"
+				minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>Dieses Feld markiert die konkrete Nutzung Schicht. 
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Standort" type="kts:ktStandort" minOccurs="0"
+				maxOccurs="1">
+				<annotation>
+					<documentation>Dieses Feld bezeichnet den Standort zum
+						Schichtbeginn.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktPruefBeginn">
+		<sequence>
+			<element name="Kleidung" type="kts:ktPruefkleidung"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>Die vom Prüfer getragene Kleidung</documentation>
+				</annotation>
+			</element>
+			<element name="Pruefart" type="kts:ktPruefart" minOccurs="0"
+				maxOccurs="1">
+				<annotation>
+					<documentation>Die Art der Prüfung</documentation>
+				</annotation>
+			</element>
+			<element name="Pruefer" type="string" minOccurs="0"
+				maxOccurs="unbounded">
+				<annotation>
+					<documentation>Beteiligte Prüfer (Nummer)</documentation>
+				</annotation>
+			</element>
+			<element name="Linie" type="int" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>Liniennummer</documentation>
+				</annotation>
+			</element>
+			<element name="Verkehrsmittel" type="kts:ktVerkehrsmittel"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>Verkehrsmittel</documentation>
+				</annotation>
+			</element>
+			<element name="Einstieg" type="kts:ktTransaktionsOrt"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>Einstiegshaltestelle</documentation>
+				</annotation>
+			</element>
+			<element name="Richtung" type="kts:ktTransaktionsOrt"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>Eine Richtungsangabe</documentation>
+				</annotation>
+			</element>
+			<element name="AnzahlFahrgaeste" type="int" minOccurs="0"
+				maxOccurs="1">
+				<annotation>
+					<documentation>Eine Abschätzung der Anzahl der Fahrgäste bei
+						Einstieg
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="PruefNr" type="int" use="required">
+			<annotation>
+				<documentation></documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<complexType name="ktPruefAbschluss">
+		<sequence>
+			<element name="Ausstieg" type="kts:ktTransaktionsOrt"
+				minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>Ausstiegshaltestelle</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+		<attribute name="PruefNr" type="int" use="required">
+			<annotation>
+				<documentation></documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<simpleType name="ktPruefkleidung">
+		<restriction base="string">
+			<enumeration value="Zivilkleidung"></enumeration>
+			<enumeration value="Dienstkleidung"></enumeration>
+			<enumeration value="Sonstiges"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ktPruefart">
+		<restriction base="string">
+			<enumeration value="Standardprüfung"></enumeration>
+			<enumeration value="Abgangskontrolle"></enumeration>
+			<enumeration value="Sonstiges"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ktVerkehrsmittel">
+		<restriction base="string">
+			<enumeration value="nicht spezifiziert/unbestimmt"></enumeration>
+			<enumeration value="Linienbus im Stadtverkehr"></enumeration>
+			<enumeration value="Metro/U-Bahn/S-Bahn"></enumeration>
+			<enumeration value="Straßenbahn/TRAM"></enumeration>
+			<enumeration value="Schiff"></enumeration>
+			<enumeration value="ICE"></enumeration>
+			<enumeration value="Überlandbus/Regionalbus"></enumeration>
+			<enumeration value="Regionalzug"></enumeration>
+			<enumeration value="IC"></enumeration>
+			<enumeration value="Standseilbahn"></enumeration>
+			<enumeration value="Regionalexpress"></enumeration>
+			<enumeration value="Expressbus"></enumeration>
+			<enumeration value="Flughafenzubringer"></enumeration>
+			<enumeration value="Verbundnahverkehr"></enumeration>
+			<enumeration value="Verbundnahverkehr ohne Kurzstrecke"></enumeration>
+			<enumeration value="SPNV"></enumeration>
+			<enumeration
+				value="Verbundnahverkehr ohne Sonderverkehrsmittel"></enumeration>
+			<enumeration value="Fähre"></enumeration>
+			<enumeration value="Bergbahn"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktDienstBeginn">
+		<sequence>
+			<element name="VertriebsStelle" type="kts:ktVertriebsStelle"
+				minOccurs="1" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Der DienstBeginn kann gleichzeitig auf mehrere
+						Vertriebsstellen bezogen sein.
+						Hiermit besteht beispielsweise die
+						Möglichkeit gleichzeitig auf den
+						Verkäufer und die Verkaufsstelle
+						zu
+						beziehen.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="DienstPlanNr" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Die laufende Bezeichnung des Dienstplans des
+						Gerätebedieners.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required">
+			<annotation>
+				<documentation>Diese Dienstnummer enstpricht der den Anwendern
+					bekannte Dienstnummer.
+					In der Regel wird nach dieser Nummer
+					ausgewertet und die Nummer wird
+					auf Belege aufgedruckt.
+					Die
+					Dienstnummer ist mindestens für jede Schicht eindeutig. Eine
+					Schicht kann viele Dienste enthalten.
+					Die Dienstnummer sollte
+					inkrementierend aufsteigen und nie '0' sein.
+
+					Achtung: Schichtnummer
+					vs. Dienstnummer:
+					Innerhalb einer Schicht können mehrere Dienste
+					auch gleichzeitig ablaufen.
+					Kein Dienst überlappt zeitlich
+					eine
+					Schichtgrenze. Dienste sind in der Regel Personen-(Konten) oder
+					Geräte-(Konten) zugeordnet.
+					Schichten sind nur ein Behälter für
+					Dienste und sonstige Informationen, die
+					keinem Dienst zugeordnet
+					sind.
+
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+
+	<simpleType name="ktBetriebsart">
+		<restriction base="string">
+			<enumeration value="Echtbetrieb"></enumeration>
+			<enumeration value="Testbetrieb"></enumeration>
+			<enumeration value="Schulungsbetrieb"></enumeration>
+			<enumeration value="Systembetrieb"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ktStandortTyp">
+		<restriction base="string">
+			<enumeration value="Fahrzeug"></enumeration>
+			<enumeration value="Ort"></enumeration>
+			<enumeration value="Verkaufsstelle"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktEinsatzTyp">
+		<sequence>
+			<element name="Name" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Der Name ist ein beliebiger, sprechender Name des
+						Einsatztyps (z.B. Vorverkauf, Bereich Hamburg Mitte).
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="Nr" type="int">
+			<annotation>
+				<documentation>Einsatztypen unterscheiden im Gegensatz zu Geräten
+					den jeweiligen Einsatz des Gerätes.
+					So kann ein gleiches technisches
+					Gerät sowohl mobil als auch
+					stationär mit unterschiedlichen
+					Ausprägungen betrieben werden.
+
+					Die Einsatztypennummer entspricht der
+					dem Anwender bekannten
+					Einsatztypennummer.
+					Der Standard-Einsatztyp
+					ist '1'.
+
+					Die Einsatztypennummer ist nur zusammen mit der Angabe
+					eines Mandanten
+					eindeutig.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="Mandant" type="int">
+			<annotation>
+				<documentation>Die Einsatztypennummer ist nur zusammen mit einem
+					zugeordneten Mandant eindeutig.
+					Der Standard-Mandant ist '1'.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+
+	<simpleType name="ktKomponentenVorgang">
+		<restriction base="string">
+			<enumeration value="Entnahme"></enumeration>
+			<enumeration value="Zufuehrung"></enumeration>
+			<enumeration value="Bestandsaufnahme"></enumeration>
+			<enumeration value="Update"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktStuecke">
+		<sequence>
+			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="StueckWert" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="ktKontrollDaten">
+		<sequence>
+			<element name="Typ" maxOccurs="1" minOccurs="1"
+				type="kts:ktKontrollArt">
+			</element>
+			<element name="KontrollDaten" type="kts:ktAny" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Die Inhalte sind noch unklar und wohl auch nach
+						KontrollTyp verschieden.
+					</documentation>
+				</annotation>
+			</element>
+			<choice>
+				<element name="KAReferenz" type="kts:ktKAReferenzTyp"
+					maxOccurs="1" minOccurs="0">
+					<annotation>
+						<documentation>Referenz zu einem global eindeutigen Vorgang -
+							diese Information ist auch in den zugehörigen KA Kontrolldaten
+							enthalten.
+						</documentation>
+					</annotation>
+				</element>
+				<element name="Referenz" type="string" maxOccurs="1"
+					minOccurs="0">
+					<annotation>
+						<documentation>
+							Referenz zu einem global eindeutigen Vorgang -
+							diese Information ist auch
+							in den zugehörigen Transaktionsdaten
+							als
+							Eindeutigkeitskennzeichen enthalten.
+						</documentation>
+					</annotation>
+				</element>
+			</choice>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+	</complexType>
+
+
+	<complexType name="ktVertriebsStelle">
+		<sequence>
+			<element name="Typ" maxOccurs="1" minOccurs="1"
+				type="kts:ktVerkaufsstelleType">
+				<annotation>
+					<documentation>
+						Der Typ qualifiziert die beiden Elemente
+						'Mandant'
+						und 'Nr'.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Mandant" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Der Mandant qualifiziert eindeutig die
+						Zugehörigkeit
+						der 'Nr'.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Nr" type="int" maxOccurs="1" minOccurs="1">
+				<annotation>
+					<documentation>
+						Hier wird, je nach ktVerkaufsstellenType, die
+						Personalnummer, die Verkaufsstellennummer, die
+						Gerätenummer etc.
+						hinterlegt. Die Nummer ist nur
+						in Beziehung zu Mandant und dem Typ
+						eindeutig.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ZusatzInfo" type="string"
+				maxOccurs="unbounded" minOccurs="0">
+				<annotation>
+					<documentation>Hier kann optional eine Kartennummer, eine
+						Modulnummer
+						oder eine weitere bezogene Information transportiert
+						werden.
+						Die Art der Information ist abhängig vom
+						ktVerkaufsstellenType und
+						dem Anwendungskontext.
+						Die ZusatzInfo
+						trägt weniger allgemein genutzte Informationen. Damit
+						diese dennoch
+						ihrer Bedeutung nach zugeordnet werden können, wird
+						die Nutzung
+						einer Notation "Schlüsselwort:Wert" vorgeschlagen.
+						Beispiel
+						"Modulnummer:1234". Die Vereinbarungen der zulässigen
+						Schlüsselwörter liegt ausßerhalb dieses Dokumentes.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktTransaktionsDaten">
+		<sequence>
+			<element name="TransaktionsArt" maxOccurs="1" minOccurs="1"
+				type="kts:ktTransaktionsArt">
+			</element>
+			<element name="TransaktionsDaten" type="kts:ktAny"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<choice>
+				<element name="KAReferenz" type="kts:ktKAReferenzTyp"
+					maxOccurs="1" minOccurs="0">
+					<annotation>
+						<documentation>Referenz zu einem global eindeutigen Vorgang -
+							diese Information ist auch in den zugehörigen KA Kontrolldaten
+							enthalten.
+						</documentation>
+					</annotation>
+				</element>
+				<element name="Referenz" type="string" maxOccurs="1"
+					minOccurs="0">
+					<annotation>
+						<documentation>
+							Referenz zu einem global eindeutigen Vorgang -
+							diese Information ist auch
+							in den zugehörigen Transaktionsdaten
+							als
+							Eindeutigkeitskennzeichen enthalten.
+						</documentation>
+					</annotation>
+				</element>
+			</choice>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktBargeldBilanz">
+		<annotation>
+			<documentation>Für jede vorkommende Währung werden hier die Bilanzen
+				über den Dienst, der bei Automaten gleiche mit der Schicht ist,
+				aufgeführt. Die zugehörigen Bargeld-Einnahmen finden sich in der
+				Kassenliste.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="Anfangsbestand" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="1">
+			</element>
+			<element name="Zuführungen" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="Entnahmen" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="Fehleinnahmen" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="KassenEntnahmen" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="0"></element>
+			<element name="Endbestand" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktEBEErfassung">
+		<sequence>
+			<choice>
+				<element name="VorgangsNr" type="int" maxOccurs="1"
+					minOccurs="1">
+					<annotation>
+						<documentation>
+							Achtung: Zukünftig wird die VorgangsNr
+							entfallen.
+							Die Bedeutung wird durch die BezugsNr
+							übernommen. Bitte nicht mehr
+							für neue
+							Anwendungen verwenden.
+
+							Eine eindeitige nummerische ID
+							dieses
+							EBE-Vorgangs. Bei Nacherfassung muss die ID vom
+							Bediener
+							versorgt werden.
+						</documentation>
+					</annotation>
+				</element>
+				<element name="BezugsNr" type="string" maxOccurs="1"
+					minOccurs="1">
+					<annotation>
+						<documentation>
+							Eine eindeitige ID dieses EBE-Vorgangs, es
+							könnte
+							bei Verkaufsgeräten die UID sein, bei
+							Nacherfassung muss die ID
+							vom Bediener versorgt
+							werden.
+						</documentation>
+					</annotation>
+				</element>
+			</choice>
+			<element name="EBEVorgang" type="kts:ktEBEVorgang"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Beleg" type="kts:ktBeleg"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+			<element name="Merkmale" type="kts:ktEBEMerkmale"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="KundenDaten" type="kts:ktKundenDaten"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Verfolgung" type="kts:ktVerfolgung"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+		<attribute name="DienstNr" type="int" use="required"></attribute>
+	</complexType>
+
+	<complexType name="ktKundenDaten">
+		<sequence>
+			<element name="Fahrgast" type="kts:ktPerson" maxOccurs="1"
+				minOccurs="1"></element>
+			<element name="Erzieher" type="kts:ktPerson" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="ktVerfolgung">
+		<sequence>
+			<element name="Typ" type="kts:ktVerfolgungsTyp"
+				maxOccurs="unbounded" minOccurs="1">
+			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktEBEVorgang">
+		<sequence>
+			<element name="Typ" type="kts:ktVorgangsTyp"
+				maxOccurs="unbounded" minOccurs="1">
+			</element>
+			<element name="Beanstandung" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Entspricht der vorgegebenen Codierung z.B. der
+						Bahn,
+						in der Regel eine zweistellige Ziffer.
+
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Begruendung" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Der Grund der Beanstandung (zB. nicht lesbar,
+						vermutlich verfälscht, Tarif ungültig, ohne Kundenkarte etc.)
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Forderung" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="Referenzbetrag" type="kts:ktBetrag"
+				maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktEBEMerkmale">
+		<sequence>
+			<element name="Ort" type="kts:ktTransaktionsOrt"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+
+						Eine Erfassung des Vorgangsorts.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="VorfallsOrtNotiz" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Eine textuelle Beschreibung des Vorfallsorts.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="KomfortKlasse" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Fahrausweisart" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Wenn ein Fahrausweis vorgezeigt wurde, welcher
+						Art
+					</documentation>
+				</annotation>
+			</element>
+			<element name="FahrausweisNr" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Die Nummer (laufende Nummer) des Fahrausweises
+					</documentation>
+				</annotation>
+			</element>
+			<element name="FahrausweisEingezogen" type="boolean"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Wird auf true gesetzt, wenn der Fahrausweis
+						eingezogen wurde.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="FahrausweisAbholung" type="date" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Bearbeitungsstelle" type="string"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="EinstiegsHaltestelle" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Die IBNR</documentation>
+				</annotation>
+			</element>
+			<element name="EinstiegNotiz" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Eine textuelle Beschreibung zum Einstieg
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ZielHaltestelle" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Die IBNR</documentation>
+				</annotation>
+			</element>
+			<element name="ZielNotiz" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Eine textuelle Beschreibung zum Fahrtziel bzw.
+						Ausstieg
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Codierung" type="kts:ktCodierungTyp"
+				maxOccurs="1" minOccurs="1">
+				<annotation>
+					<documentation>
+						Eine Codierung zur Angabe des Grunds zum
+						EBE-Fall
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Sitzplatz" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Ein Hinweis, wo der EBE-Fall angetroffen wurde
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Verhalten" type="string" maxOccurs="unbounded"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Bemerkungen zu Verhalten des EBE-Falls.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Polizei" type="kts:ktPolizeiType"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Wenn Polizei hinzugezogen wurde, von welchem
+						Revier.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Linie" type="int" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Kurs" type="int" maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Verbundkennung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktZVTBezahlung">
+		<sequence>
+			<element name="KartenHerausgeber" type="kts:ktZahlArt"
+				maxOccurs="1" minOccurs="0"></element>
+			<element name="TerminalId" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="TransaktionsNr" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="Zeitpunkt" type="dateTime" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="AutorisierungsNr" type="string" maxOccurs="1"
+				minOccurs="0">
+                <annotation>
+                	<documentation>Eine Autorisierungsnummer des Zahlungsproviders.</documentation>
+                </annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktKABezahlung">
+		<sequence>
+			<element name="KAZahlart" maxOccurs="1" minOccurs="1"
+				type="kts:ktKAZahlart">
+			</element>
+			<element name="KAReferenz" type="kts:ktKAReferenzTyp"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Referenz zu einem global eindeutigen Vorgang - diese
+						Information ist auch in den zugehörigen KA Kontrolldaten
+						enthalten.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktBarBezahlung">
+		<sequence>
+			<element name="Einnahme" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="1"></element>
+			<element name="Rueckgabe" type="kts:ktBetrag" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktKKOfflineBezahlung">
+		<sequence>
+			<element name="KartenHerausgeber" type="kts:ktZahlArt"
+				maxOccurs="1" minOccurs="0"></element>
+			<element name="KartenNr" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="PruefKennung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="GueltigBis" type="gYearMonth" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="Unterschrift" type="boolean" maxOccurs="1"
+				minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktTransaktionsOrt">
+		<sequence>
+			<element name="DatenVersion" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Die Datenversion setzt sich aus einem
+						zweigeteilten
+						Inhalt zusammen:
+						(ID_Inhaltsversion &lt;&lt; 8) | ID_Zeitraum
+						wobei
+						0 &lt; ID_Zeitraum &lt; 256 gilt. Der
+						Eintrag wurde optional
+						festgelegt, er sollte
+						zukünftig zugunsten des Attributes
+						'DatenVersion' des Elements nicht mehr genutzt
+						werden.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Haltestelle" type="int" minOccurs="0"
+				maxOccurs="1">
+			</element>
+			<element name="TarifPunkt" type="kts:ktTarifPunkt"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="RelationsCode" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="ZusatzInfo" type="string"
+				maxOccurs="unbounded" minOccurs="0">
+				<annotation>
+					<documentation>Die ZusatzInfo trägt weniger allgemein genutzte
+						Informationen. Damit diese dennoch ihrer Bedeutung nach zugeordnet
+						werden können, wird die Nutzung einer Notation
+						"Schlüsselwort:Wert" vorgeschlagen.
+						Beispiel
+						"Verkehrsvertrag:Cuxhaven". Die Vereinbarungen der zulässigen
+						Schlüsselwörter liegt ausßerhalb dieses Dokumentes.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Fahrtnummer" type="int" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Hier wird manchmal der Begriff Fahrtnummer und
+						Zugnummer synonym verwendet.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+		<attribute name="DatenVersion" type="int" use="optional">
+			<annotation>
+				<documentation>Die Datenversion setzt sich aus einem zweigeteilten
+					Inhalt zusammen: (ID_Inhaltsversion &lt;&lt; 8) | ID_Zeitraum wobei
+					0 &lt; ID_Zeitraum &lt; 256 gilt.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+
+	<simpleType name="ktPersonenArt">
+		<restriction base="string"></restriction>
+	</simpleType>
+
+	<complexType name="ktRestGeldBeleg">
+		<sequence>
+			<element name="AusgabeVertriebsStelle"
+				type="kts:ktVertriebsStelle" maxOccurs="1" minOccurs="1"></element>
+			<element name="BelegNr" type="string" maxOccurs="1"
+				minOccurs="1"></element>
+			<element name="AusstellDatum" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="AbschnittId" type="kts:ktAbschnittId"
+				maxOccurs="1" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktSchichtenListe">
+		<sequence>
+			<element name="Version" type="kts:ktVersionStrukturType"
+				maxOccurs="1" minOccurs="1"></element>
+			<element name="Schicht" type="kts:ktSchicht"
+				maxOccurs="unbounded" minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktDatensatz">
+		<choice>
+			<element name="SchichtBeginn" type="kts:ktSchichtBeginn"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="SchichtAbschluss"
+				type="kts:ktSchichtAbschluss" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="PruefBeginn" type="kts:ktPruefBeginn"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="PruefAbschluss" type="kts:ktPruefAbschluss"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="KomponentenListe"
+				type="kts:ktKomponentenListe" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Meldung" type="kts:ktMeldung" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="AusgabeAbschnitt"
+				type="kts:ktAusgabeAbschnitt" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="TransaktionsDaten"
+				type="kts:ktTransaktionsDaten" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Fahrtverlauf" type="kts:ktFahrtverlauf"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="DienstBeginn" type="kts:ktDienstBeginn"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="DienstEnde" type="kts:ktDienstAbschluss"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="KontrollDaten" type="kts:ktKontrollDaten"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="GeldbehaelterListe"
+				type="kts:ktGeldBehaelterListe" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Warenkorb" type="kts:ktWarenkorb"
+				maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="EBEErfassung" type="kts:ktEBEErfassung"
+				maxOccurs="1" minOccurs="1">
+			</element>
+		</choice>
+		<attribute name="Zeitpunkt" type="dateTime" use="required">
+			<annotation>
+				<documentation>Der jeweilge Zeitpunkt der Generierung des
+					Datenatzes.
+				</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="DsNr" type="int" use="required">
+			<annotation>
+				<documentation>Eine fortlaufende ununterbrochene Nummer innerhalb
+					der Schicht. Die '0' sollte ausgenommen werden.
+				</documentation>
+			</annotation>
+		</attribute>
+	</complexType>
+
+	<simpleType name="ktMeldungsKlasse">
+		<restriction base="string">
+			<enumeration value="Debug"></enumeration>
+			<enumeration value="Info"></enumeration>
+			<enumeration value="Warnung"></enumeration>
+			<enumeration value="Fehler"></enumeration>
+			<enumeration value="SchwererFehler"></enumeration>
+		</restriction>
+	</simpleType>
+	<simpleType name="ktTransaktionsArt">
+		<restriction base="string">
+			<enumeration value="KA"></enumeration>
+			<enumeration value="Geldkarte"></enumeration>
+			<enumeration value="BOB"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktAny">
+		<choice>
+			<element name="StringData" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="BinaryData" type="base64Binary" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</choice>
+	</complexType>
+
+
+
+	<simpleType name="ktVorgangsTyp">
+		<restriction base="string">
+			<enumeration value="KeinFS"></enumeration>
+			<enumeration value="UngueltigFS"></enumeration>
+			<enumeration value="TeilungueltigFS"></enumeration>
+			<enumeration value="Betrugsversuch"></enumeration>
+			<enumeration value="Alkohol"></enumeration>
+			<enumeration value="Rauchen"></enumeration>
+			<enumeration value="Sachbeschaedigung"></enumeration>
+			<enumeration value="Verhalten"></enumeration>
+			<enumeration value="Notbremse"></enumeration>
+			<enumeration value="Sonstiges"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+	<simpleType name="ktVerfolgungsTyp">
+		<restriction base="string">
+			<enumeration value="Polizei"></enumeration>
+			<enumeration value="Anonym"></enumeration>
+			<enumeration value="AnnahmeVerweigert"></enumeration>
+			<enumeration value="VerkaufsDefekt"></enumeration>
+			<enumeration value="Umsteiger"></enumeration>
+			<enumeration value="Nacherfassung"></enumeration>
+			<enumeration value="Loeschung"></enumeration>
+			<enumeration value="Kulanz"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="ktKontrollArt">
+		<restriction base="string">
+			<enumeration value="KA-Berechtigung"></enumeration>
+			<enumeration value="DB-Online-Ticket"></enumeration>
+			<enumeration value="BOB-Ticket"></enumeration>
+			<enumeration value="DF-Fahrschein"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktUeberweisung">
+		<sequence>
+			<element name="BLZ-BIC" type="string" maxOccurs="1"
+				minOccurs="1"></element>
+			<element name="Konto-IBAN" type="string" maxOccurs="1"
+				minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+
+
+	<simpleType name="ktKAZahlart">
+		<restriction base="string">
+			<enumeration value="PEP"></enumeration>
+			<enumeration value="POP"></enumeration>
+			<enumeration value="WES"></enumeration>
+		</restriction>
+	</simpleType>
+
+
+	<complexType name="ktTarifPunkt">
+		<sequence>
+			<element name="Gebiet" type="int" maxOccurs="1" minOccurs="1"></element>
+			<element name="Punkt" type="int" maxOccurs="1" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktWertBehaelter">
+		<annotation>
+			<documentation>Hiermit werden Wertbehälter erfasst, z.B. Safebags.
+				Die Nummer entspricht der Nummer des Wertbehälters, die Wertanzahl
+				der Anzahl der werthaltigen Anteile, z.B. die Anzahl der Belege.
+
+				Es
+				werden 2 Behälter unterschieden: 1. Behälter mit Bargeld -> dann
+				muss der Betrag ausgefüllt sein (früher Wert), 2. Behälter mit
+				werthaltigen Belegen -> dann muss die Wertanzahl ausgefüllt sein. 3.
+				Eine Mischform ist auch möglich.
+
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="WertAnzahl" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Wert" type="int" maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Dieser Eintrag sollte nicht mehr verwendet werden.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Betrag" type="kts:ktBetrag"
+				maxOccurs="unbounded" minOccurs="0"></element>
+		</sequence>
+		<attribute name="Kennung" type="string" use="required"></attribute>
+	</complexType>
+
+	<complexType name="ktPerson">
+		<sequence>
+			<element name="Vorname" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Nachname" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Namenszuatz" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="StrasseHausNr" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Postleitzahl" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Länderkennzeichen" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+			<element name="Wohnort" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Staat" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Geschlecht" maxOccurs="1" minOccurs="0">
+				<simpleType>
+					<restriction base="string">
+						<enumeration value="weiblich"></enumeration>
+						<enumeration value="männlich"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="TelefonNr" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Geburtsdatum" type="dateTime" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Staatsangehörigkeit" type="string"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="Legitimtation" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Beschreibung der legitimation, Ausweis,
+						EC-Karte,
+						etc.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="LegitimationNr" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Ausweisnummer</documentation>
+				</annotation>
+			</element>
+			<element name="LegitimationsDatum" type="dateTime"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>
+						Ausstellungsdateum der Legitimation
+
+					</documentation>
+				</annotation>
+			</element>
+			<element name="LegimitationsLand" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Ausstellungsland der Legitimation
+					</documentation>
+				</annotation>
+			</element>
+			<element name="LegitimationBild" type="boolean" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Auf der Legitimation war ein Lichtbild, das
+						Lichtbild wurde dem EBE-Fall zugeordnet
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Bemerkung" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktVersionStrukturType">
+		<annotation>
+			<documentation>Hier müssen Hinweise zur Version des Schemas angegeben
+				werden.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="VersionMajor" type="int" maxOccurs="1"
+				minOccurs="1" default="2">
+				<annotation>
+					<documentation>Diese Versionsnummer muss sich immer bei
+						Inkompatibilitäten zur Vorgängerversion ändern.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="VersionMinor" type="int" maxOccurs="1"
+				minOccurs="1" default="24">
+				<annotation>
+					<documentation>Diese Versionsnummer zählt kompatible Anpassungen.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Aenderungsdatum" type="date" maxOccurs="1"
+				minOccurs="1" default="2023-04-27"></element>
+			<element name="Aenderungsautor" type="string" maxOccurs="1"
+				minOccurs="1" default="Husst Team"></element>
+		</sequence>
+	</complexType>
+
+
+	<simpleType name="ktCodierungTyp">
+		<annotation>
+			<documentation>
+				Die Codierung entspricht der DB-Codierung entsprechend
+				des Dokumentes "Arbeitsblatt1 FN Codierung,
+				Tarifgebiete.doc" vom
+				13.04.2010
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="00"></enumeration>
+			<enumeration value="22"></enumeration>
+			<enumeration value="33"></enumeration>
+			<enumeration value="34"></enumeration>
+			<enumeration value="52"></enumeration>
+			<enumeration value="53"></enumeration>
+			<enumeration value="66"></enumeration>
+			<enumeration value="77"></enumeration>
+			<enumeration value="90"></enumeration>
+			<enumeration value="91"></enumeration>
+			<enumeration value="92"></enumeration>
+			<enumeration value="93"></enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktKAReferenzTyp">
+		<sequence>
+			<element name="SAM_ID_saNummer" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>SAM_ID.saNummer 24 Bit (Beispiel 0x654321), eine, im
+						gesamten Geltungsbereich der Kernapplikation eindeutige
+						SAM-Kartennummer
+					</documentation>
+				</annotation>
+			</element>
+			<element name="samSequenznummer" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>samSequenznummer 32 Bit (Beispiel 0x789ABCDE),
+						eindeutige, fortlaufende Nummer die von einer SAM-Karte generiert
+						wird.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+
+	<complexType name="ktPolizeiType">
+		<sequence>
+			<element name="Dienstnummer" type="string" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="Vorname" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Nachname" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Dienststelle" type="string" maxOccurs="1"
+				minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktMitfahrer">
+		<sequence>
+			<element name="FahrgastTyp" type="kts:ktFahrgastTyp"
+				maxOccurs="1" minOccurs="1"></element>
+			<element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<simpleType name="ktFahrgastTyp">
+		<annotation>
+			<documentation>Siehe Enumeration</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="E">
+				<annotation>
+					<documentation>Erwachsene</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="K">
+				<annotation>
+					<documentation>Kind</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="SL">
+				<annotation>
+					<documentation>Schüler unter 14 Jahren</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="SH">
+				<annotation>
+					<documentation>Schüler über und gleich 14 Jahren</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="H">
+				<annotation>
+					<documentation>Halbtax</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="R">
+				<annotation>
+					<documentation>Ermäßigte</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="F">
+				<annotation>
+					<documentation>Fahrrad</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="Fr">
+				<annotation>
+					<documentation>Freinutzer</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="Hu">
+				<annotation>
+					<documentation>Hund</documentation>
+				</annotation>
+			</enumeration>
+			<enumeration value="G">
+				<annotation>
+					<documentation>Undifferenzierte Gruppe</documentation>
+				</annotation>
+			</enumeration>
+		</restriction>
+	</simpleType>
+
+	<complexType name="ktTeilrelation">
+		<sequence>
+			<element name="SortOrder" type="int" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>Die Sortierungsreihenfolge wird benötigt, um die
+						Richtung der Durchfahrt zu erhalten.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="ID_PreisStufe" type="int" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="ID_TarifGebiet" type="int" maxOccurs="1"
+				minOccurs="1">
+			</element>
+			<element name="WegstreckeInMetern" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Start" type="kts:ktTarifPunkt" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="Ziel" type="kts:ktTarifPunkt" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="RelationIDTarifgeber" type="string"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="ID_PreisQuelle" type="int" maxOccurs="1"
+				minOccurs="0">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ktRechnungsstellung">
+		<annotation>
+			<documentation>Dieses Element trägt nähere Angaben zum nachfolgenden
+				Rechnungsstellungs- oder Verfolgungsprozess.
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="RechnungsRef" type="string" maxOccurs="1"
+				minOccurs="1">
+				<annotation>
+					<documentation>In der Regel eine Rechnungsnummer oder eine
+						generierte Referenz auf eine zu erstellende Rechnung.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="KundenRef" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Eine Referenz auf den Kunden zur Rechnungsstellung,
+						in der Regel eine Kundennummer
+					</documentation>
+				</annotation>
+			</element>
+			<element name="VorgangsZeitpunkt" type="dateTime"
+				maxOccurs="1" minOccurs="0">
+				<annotation>
+					<documentation>Der zum Verkaufszeitpunkt zugehörige Zeitstempel.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="VorgangsRef" type="string" maxOccurs="1"
+				minOccurs="0">
+				<annotation>
+					<documentation>Ein optionaler Bezug auf den dazugehörigen
+						Verkaufsvorgang.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+</schema>
