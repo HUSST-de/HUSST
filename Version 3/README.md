@@ -15,6 +15,9 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 * 5000-5999 highQ
 
 ## Changelog
+
+### 3.2.0 -> 3.3.0
+(Folgt)
   
 ### 3.1.0 -> 3.2.0
 1. semantische Versionierung
