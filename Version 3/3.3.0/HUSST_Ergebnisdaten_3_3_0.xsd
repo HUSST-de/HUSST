@@ -1665,6 +1665,7 @@
 				<element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1"/>
 				<element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1"/>
+				<element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type" maxOccurs="1" minOccurs="1"/>
 			</choice>
 			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
 		</sequence>
@@ -1682,6 +1683,26 @@
       <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1"/>
       <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1"/>
       <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
+    </sequence>
+  </complexType>
+  
+  <complexType name="WebShopBezahlung_Type">
+    <sequence>
+      <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1">
+		<annotation>
+          <documentation>Eindeutige Terminal-ID bei Verwendung eines gesonderten Kartenzahlungsterminals.</documentation>
+        </annotation>
+	  </element>
+      <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1">
+		<annotation>
+          <documentation>Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der durchgeführten Zahlungstransaktion.</documentation>
+        </annotation>
+	  </element>
+      <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="1">
+		<annotation>
+          <documentation>Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister registriert wurde.</documentation>
+        </annotation>
+	  </element>
     </sequence>
   </complexType>
 
