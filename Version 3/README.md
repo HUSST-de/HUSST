@@ -15,7 +15,11 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 * 5000-5999 highQ
 
 ## Changelog
-  
+
+### 3.2.0 -> 3.3.0
+Ergebnisdaten
+- Zusätzlicher Zahlungstyp mit allgemeinen Feldern für die Abbildung von Zahlungsdaten in WebShops
+
 ### 3.1.0 -> 3.2.0
 1. semantische Versionierung
 2. Integration einer zusätzlichen Verbindungslogik für Tarife mit streckenbasierter Tarifierung
