@@ -114,4 +114,9 @@ Ergänzung des Datenschemas Tarif um Strukturen für Strecken basierte Tarife wi
 	<xs:element name="primekey" type="api:primekey_Type"/>
 	<xs:element name="uniquekey" type="api:uniquekey_Type"/>
 	<xs:element name="schema" type="api:schema_Type"/>
+	<xs:element name="remarks" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Feld für Hinweise. Z.B. für zukünfitge Versionen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
 </xs:schema>

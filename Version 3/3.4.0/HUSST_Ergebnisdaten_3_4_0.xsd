@@ -1581,8 +1581,8 @@
       <element name="Nr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>
-            Hier wird, je nach ktVerkaufsstellenType, die
-            Personalnummer, die Verkaufsstellennummer, die
+            Hier wird, je nach Typ der Vertriebsstelle, die
+            Personalnummer, die Vertriebsstellennummer, die
             Gerätenummer etc. hinterlegt. Die Nummer ist nur
             in Beziehung zu Mandant und dem Typ eindeutig.
           </documentation>
@@ -1591,9 +1591,14 @@
       <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </sequence>
   </complexType>
-  
+
   <complexType name="Warenkorb_Type">
 		<sequence>
+      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0">
+        <annotation>
+          <documentation>Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.</documentation>
+        </annotation>
+      </element>
 			<element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
 			<element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
 			<element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
