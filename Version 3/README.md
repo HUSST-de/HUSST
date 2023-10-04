@@ -22,7 +22,7 @@ Versorgungsdaten
 - Definition der Nachbarhaltestellen erweitert, sodass diese nun nutzbar sind.
 - Kleine Verbesserungen der Dokumentation
 
-Egebnisdaten
+Ergebnisdaten
 - Warenkorb hat nun eine optionale ReferenzExtern
 - Kleine Verbesserungen der Dokumentation
 
