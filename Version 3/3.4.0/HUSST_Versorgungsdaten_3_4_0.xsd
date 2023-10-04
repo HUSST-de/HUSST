@@ -1609,13 +1609,13 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
       </xs:element>
       <xs:element name="ID_OrtspunktVon" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation> ID_Ortspunkt, für die eine Nachbbarbeziehung definiert wird (kleinere
+          <xs:documentation> ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (kleinere
             ID des Paares, bei Halbmatrix). </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_OrtspunktNach" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
-          <xs:documentation> ID_Ortspunkt, für die eine Nachbbarbeziehung definiert wird (größere ID
+          <xs:documentation> ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (größere ID
             des Paares, bei Halbmatrix) </xs:documentation>
         </xs:annotation>
       </xs:element>
