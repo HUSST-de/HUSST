@@ -1,0 +1,4 @@
+# Die Codeowners werden automatisch bei PRs zum Review zugewiesen.
+# https://docs.github.com/en/enterprise/2.18/user/github/creating-cloning-and-archiving-repositories/about-code-owners
+
+* @HUSST-de/arbeitsgruppe
