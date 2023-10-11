@@ -1584,7 +1584,7 @@
           <api:field name="ID_Nachbarhaltestellenbeziehung"/>
           <api:field name="ID_Via"/>
           <api:field name="ID_Tarifart"/>
-          <api:field name="Zahlgrenze"/>
+          <api:field name="Zahlgrenzen"/>
           <api:field name="ID_Zahlgrenzentyp"/>
         </api:uniquekey>
         <api:schema name="Angebot"/>
@@ -5131,7 +5131,7 @@
           <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="2">
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="4">
         <xs:annotation>
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
@@ -5141,8 +5141,8 @@
           <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-02-14" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-10-11" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
