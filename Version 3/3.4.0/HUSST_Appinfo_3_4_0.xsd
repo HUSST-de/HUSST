@@ -1,122 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	xmlns:api="http://www.husst.de/Appinfo/3_4_0"
-	targetNamespace="http://www.husst.de/Appinfo/3_4_0" 
-	elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:api="http://www.husst.de/Appinfo/3_4_0"
+           targetNamespace="http://www.husst.de/Appinfo/3_4_0"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
 
-	<xs:annotation>
-		<xs:documentation>
-			HUSST Appinfo
-			Version: 3.4.0
+  <xs:annotation>
+    <xs:documentation>
+      HUSST Appinfo
+      Version: 3.4.0
 
-			Mehr Informationen:
-			- https://husst.de/
-			- https://github.com/HUSST-de/HUSST
+      Mehr Informationen:
+      - https://husst.de/
+      - https://github.com/HUSST-de/HUSST
 
-			Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-		
-			Diese Dokument dient als Ergänzende Definition für Elemente in den XSDs.
-		</xs:documentation>
-	</xs:annotation>
+      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
 
-	<xs:complexType name="field_Type">
-		<xs:annotation>
-			<xs:documentation>Feldname.</xs:documentation>
-		</xs:annotation>
-		<xs:attribute name="name" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>Name des Datenfelds.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
+      Diese Dokument dient als Ergänzende Definition für Elemente in den XSDs.
+    </xs:documentation>
+  </xs:annotation>
 
-	<xs:complexType name="primekey_Type">
-		<xs:annotation>
-			<xs:documentation>Primärschlüssel Definition. Liste von einem oder mehreren Datenfelder, die den Primärschlüssel der Datenmenge bilden.
-			  Für einen Datentyp darf maximal ein Primärschlüssel definiert sein. 
-			  Der Primärschlüssel ist immer eindeutig.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-		  <xs:element name="field" type="api:field_Type" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
+  <xs:complexType name="field_Type">
+    <xs:annotation>
+      <xs:documentation>Feldname.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Name des Datenfelds.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
 
-	<xs:complexType name="uniquekey_Type">
-		<xs:annotation>
-			<xs:documentation>Eindeutigkeitsschlüssel Definition.
-			  Liste von einem oder mehreren Datenfelder, die einen Eindeutigkeitsschlüssel der Datenmenge bilden.
-			  Neben dem häufig technisch definierten Primärschlüssel, kann es ein oder mehrere datenlogische Schlüssel geben,
-			  über denen eine Datenmenge eindeutig sein muss.
-			  Für einen Datentyp dürfen mehrere Eindeutigkeitsschlüssel definiert sein.
-			  Ein Eindeutigkeitsschlüssel darf auch optionale Felder enthalten. Der fehlende Wert ist dann *eine* mögliche
-			  Ausprägung des Wertes.
-			</xs:documentation>
-		</xs:annotation>
-		<xs:sequence>
-		  <xs:element name="field" type="api:field_Type" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-		<xs:attribute name="name" type="xs:string" use="required">
-			<xs:annotation>
-				<xs:documentation>Name des Eindeutigkeitsindexes.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
+  <xs:complexType name="primekey_Type">
+    <xs:annotation>
+      <xs:documentation>Primärschlüssel Definition. Liste von einem oder mehreren Datenfelder, die den Primärschlüssel der Datenmenge bilden.
+        Für einen Datentyp darf maximal ein Primärschlüssel definiert sein.
+        Der Primärschlüssel ist immer eindeutig.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="field" type="api:field_Type" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
 
-	<xs:complexType name="schema_Type">
-		<xs:annotation>
-			<xs:documentation>logisches Daten-Schema, dem die Datenelemente dieses Typs zuzuordnen sind.
-			  Außerdem kann für eine Datenlieferung das Vorhandensein dieses Datentyps verlangt werden.
-			  Ein Datentyp darf mehreren Schemata zugeordnet sein.  
-			</xs:documentation>
-		</xs:annotation>
-		<xs:attribute name="name" type="api:HusstSchema_Type" use="required">
-			<xs:annotation>
-				<xs:documentation>Name des Datenfelds.</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-		<xs:attribute name="nillable" type="xs:boolean" use="required">
-			<xs:annotation>
-				<xs:documentation>Gibt an, ob für ein Schema Datenelemente von diesem
-				  Typ zwingend vorhanden sein müssen. 
-				</xs:documentation>
-			</xs:annotation>
-		</xs:attribute>
-	</xs:complexType>
-	
-	<xs:simpleType name="HusstSchema_Type">
-		<xs:restriction base="xs:string">
-		  <xs:enumeration value="Tarif">
-			<xs:annotation>
-				<xs:documentation>Husst Datenschema Tarif.</xs:documentation>
-			</xs:annotation>
-		  </xs:enumeration>
-		  <xs:enumeration value="Tarifstrecken">
-			<xs:annotation>
-				<xs:documentation>Husst Datenschema Tarifstrecken.
-Ergänzung des Datenschemas Tarif um Strukturen für Strecken basierte Tarife wie z.B. den Deutschlandtarif. 
-				</xs:documentation>
-			</xs:annotation>
-		  </xs:enumeration>
-		  <xs:enumeration value="Basis">
-			<xs:annotation>
-				<xs:documentation>Husst Datenschema Basis.</xs:documentation>
-			</xs:annotation>
-		  </xs:enumeration>
-		  <xs:enumeration value="Angebot">
-			<xs:annotation>
-				<xs:documentation>Husst Datenschema Angebot.</xs:documentation>
-			</xs:annotation>
-		  </xs:enumeration>
-		</xs:restriction>
-	</xs:simpleType>	
-	
-	<xs:element name="primekey" type="api:primekey_Type"/>
-	<xs:element name="uniquekey" type="api:uniquekey_Type"/>
-	<xs:element name="schema" type="api:schema_Type"/>
-	<xs:element name="remarks" type="xs:string">
-		<xs:annotation>
-			<xs:documentation>Feld für Hinweise. Z.B. für zukünfitge Versionen.</xs:documentation>
-		</xs:annotation>
-	</xs:element>
+  <xs:complexType name="uniquekey_Type">
+    <xs:annotation>
+      <xs:documentation>Eindeutigkeitsschlüssel Definition.
+        Liste von einem oder mehreren Datenfelder, die einen Eindeutigkeitsschlüssel der Datenmenge bilden.
+        Neben dem häufig technisch definierten Primärschlüssel, kann es ein oder mehrere datenlogische Schlüssel geben,
+        über denen eine Datenmenge eindeutig sein muss.
+        Für einen Datentyp dürfen mehrere Eindeutigkeitsschlüssel definiert sein.
+        Ein Eindeutigkeitsschlüssel darf auch optionale Felder enthalten. Der fehlende Wert ist dann *eine* mögliche
+        Ausprägung des Wertes.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="field" type="api:field_Type" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Name des Eindeutigkeitsindexes.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="schema_Type">
+    <xs:annotation>
+      <xs:documentation>logisches Daten-Schema, dem die Datenelemente dieses Typs zuzuordnen sind.
+        Außerdem kann für eine Datenlieferung das Vorhandensein dieses Datentyps verlangt werden.
+        Ein Datentyp darf mehreren Schemata zugeordnet sein.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="name" type="api:HusstSchema_Type" use="required">
+      <xs:annotation>
+        <xs:documentation>Name des Datenfelds.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="nillable" type="xs:boolean" use="required">
+      <xs:annotation>
+        <xs:documentation>Gibt an, ob für ein Schema Datenelemente von diesem
+          Typ zwingend vorhanden sein müssen.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:simpleType name="HusstSchema_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Tarif">
+        <xs:annotation>
+          <xs:documentation>Husst Datenschema Tarif.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Tarifstrecken">
+        <xs:annotation>
+          <xs:documentation>Husst Datenschema Tarifstrecken.
+            Ergänzung des Datenschemas Tarif um Strukturen für Strecken basierte Tarife wie z.B. den Deutschlandtarif.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Basis">
+        <xs:annotation>
+          <xs:documentation>Husst Datenschema Basis.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Angebot">
+        <xs:annotation>
+          <xs:documentation>Husst Datenschema Angebot.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="primekey" type="api:primekey_Type"/>
+  <xs:element name="uniquekey" type="api:uniquekey_Type"/>
+  <xs:element name="schema" type="api:schema_Type"/>
+  <xs:element name="remarks" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>Feld für Hinweise. Z.B. für zukünfitge Versionen.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
 </xs:schema>
