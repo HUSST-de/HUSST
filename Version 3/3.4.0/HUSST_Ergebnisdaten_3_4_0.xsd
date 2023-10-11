@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://husst.de/Ergebnisdaten/3_3_0" elementFormDefault="qualified"
+<schema targetNamespace="http://husst.de/Ergebnisdaten/3_4_0" elementFormDefault="qualified"
         xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:husst="http://husst.de/Ergebnisdaten/3_3_0">
+        xmlns:husst="http://husst.de/Ergebnisdaten/3_4_0">
 
   <annotation>
     <documentation>
       HUSST Ergebnisdaten
-      Version: 3.3.0
+      Version: 3.4.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -1589,8 +1589,8 @@
       <element name="Nr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>
-            Hier wird, je nach ktVerkaufsstellenType, die
-            Personalnummer, die Verkaufsstellennummer, die
+            Hier wird, je nach Typ der Vertriebsstelle, die
+            Personalnummer, die Vertriebsstellennummer, die
             Gerätenummer etc. hinterlegt. Die Nummer ist nur
             in Beziehung zu Mandant und dem Typ eindeutig.
           </documentation>
@@ -1602,6 +1602,11 @@
 
   <complexType name="Warenkorb_Type">
     <sequence>
+      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0">
+        <annotation>
+          <documentation>Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.</documentation>
+        </annotation>
+      </element>
       <element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>

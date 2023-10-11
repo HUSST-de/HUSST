@@ -17,6 +17,16 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
+### 3.3.0 -> 3.4.0
+
+Versorgungsdaten
+- Definition der Nachbarhaltestellen erweitert, sodass diese nun nutzbar sind.
+- Kleine Verbesserungen der Dokumentation
+
+Ergebnisdaten
+- Warenkorb hat nun eine optionale ReferenzExtern
+- Kleine Verbesserungen der Dokumentation
+
 ### 3.2.0 -> 3.3.0
 
 Ergebnisdaten

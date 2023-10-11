@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_3_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_3_0"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_3_0"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_4_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_4_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.3.0
+      Version: 3.4.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -133,64 +133,54 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="ID_SortenAttributKlasse_Type">
-    <xs:annotation>
-      <xs:documentation>
-        Definiert die SortenAttributKlasse. Zur Zeit gibt
-        es genau
-        drei SortenAttributKlassen. Das können in Zukunft auch
-        noch
-        mehr werden. 1=Komfortklasse 2=Rabattklasse
-        3=Fahrgasttyp
-      </xs:documentation>
-      <xs:appinfo>
-        <LookUpItem value="1">Komfortklasse</LookUpItem>
-        <LookUpItem value="2">Rabattklasse</LookUpItem>
-        <LookUpItem value="3">Fahrgasttyp</LookUpItem>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="husstDV:INT4">
-      <xs:minInclusive value="1"/>
-      <xs:maxInclusive value="3"/>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="Richtungen_Type">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Hin"/>
-      <xs:enumeration value="Rueck"/>
-    </xs:restriction>
-  </xs:simpleType>
-
   <xs:simpleType name="ZuordnungRelCodeGrp_Type">
     <xs:annotation>
-      <xs:documentation>
-        "S"=StartRelCode,
-        "Z"=ZielRelCode,
-        "R"=StartZielRelCode
-      </xs:documentation>
+      <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:Char">
-      <xs:enumeration value="S"/>
-      <xs:enumeration value="Z"/>
-      <xs:enumeration value="R"/>
+      <xs:enumeration value="S">
+        <xs:annotation>
+          <xs:documentation>StartRelCode</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Z">
+        <xs:annotation>
+          <xs:documentation>ZielRelCode</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="R">
+        <xs:annotation>
+          <xs:documentation>StartZielRelCode</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="ZusSorteAnbindung_Type">
     <xs:annotation>
-      <xs:documentation>
-        "V"=Vorlauf,
-        "N"=Nachlauf,
-        "H"=Hauptlauf,
-        "U"=Richtungsungebunden
-      </xs:documentation>
+      <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:Char">
-      <xs:enumeration value="V"/>
-      <xs:enumeration value="N"/>
-      <xs:enumeration value="H"/>
-      <xs:enumeration value="U"/>
+      <xs:enumeration value="V">
+        <xs:annotation>
+          <xs:documentation>Vorlauf</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="N">
+        <xs:annotation>
+          <xs:documentation>Nachlauf</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="H">
+        <xs:annotation>
+          <xs:documentation>Hauptlauf</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="U">
+        <xs:annotation>
+          <xs:documentation>Richtungsungebunden</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -1572,21 +1562,37 @@
 
   <xs:complexType name="Nachbarhaltestellen_Type">
     <xs:annotation>
-      <xs:documentation>
-        Definition von Haltestellengruppen für
-        Kurzstrecken/Zahlgrenzen
+      <xs:documentation>Zur Definition von Kurzstrecken o.ä..(s. ID_Nachbarhaltestellenbeziehung)
+        Eine Nachbarhaltestellenbeziehung kann über ID_OrtspunktVon und ID_OrtspunktNach erfolgen
+        oder über ID_OrtspunktVon und Zahlgrenze. Es muss entweder ID_OrtspunktNach oder Zahlgrenze
+        gefüllt sein. Wenn beides gefüllt ist, gelten beide Bedingungen zeitgleich. (Es gilt auf der
+        Strecke von ID_OrtspunktVon nach ID_OrtspunktNach, wenn die Zahlgrenze nicht überschritten
+        ist.) Die Nachbarhaltestellen werden in der Verkaufslogik bei der Anzeige der Vias vor die
+        Relationen sortiert.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Nachbarhaltestelle"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:uniquekey name="Uix_Nachbarhaltestellen">
+        <api:uniquekey
+          name="Uix_Nachbarhaltestellen">
           <api:field name="ID_OrtspunktVon"/>
           <api:field name="ID_OrtspunktNach"/>
           <api:field name="ID_Zeitraum"/>
+          <api:field name="ID_Bediengebiet"/>
+          <api:field name="ID_Nachbarhaltestellenbeziehung"/>
+          <api:field name="ID_Via"/>
+          <api:field name="ID_Tarifart"/>
+          <api:field name="Zahlgrenzen"/>
+          <api:field name="ID_Zahlgrenzentyp"/>
         </api:uniquekey>
         <api:schema name="Angebot"/>
+        <api:remarks>
+          In Daisy (Entwicklungsversion) sollte beachtet werden, die Nachbarhaltestellen in Angebot-
+          und Tariftabellen zu trennen.
+          Vorbild: Relationen und Teilrelationen
+        </api:remarks>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1595,50 +1601,35 @@
       <xs:element name="ID_Nachbarhaltestelle" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .
-          </xs:documentation>
+          <xs:documentation>Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Nachbarhaltestellenbeziehung" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Nachbarhaltestellenbeziehung"
+                  type="husstDV:ID_Nachbarhaltestellenbeziehung_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Art der Nachbarbeziehung.
-          </xs:documentation>
+          <xs:documentation>Art der Nachbarbeziehung.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_OrtspunktVon" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Haltestellennummer, für die eine
-            Nachbbarbeziehung
-            definiert wird (kleinere Nummer des Paares,
-            bei
-            Halbmatrix)
+          <xs:documentation>ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (kleinere
+            ID des Paares, bei Halbmatrix).
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_OrtspunktNach" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>
-            Haltestellennummer, für die eine
-            Nachbbarbeziehung
-            definiert wird (größere Nummer
-            des Paares, bei
-            Halbmatrix)
+          <xs:documentation>ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (größere ID
+            des Paares, bei Halbmatrix)
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
       <xs:element name="ID_Via" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>
-            Tarifgebiet, für das eine
-            Nachbarhaltestelle
-            definiert
-            wird
-          </xs:documentation>
+          <xs:documentation>Tarifgebiet, für das eine Nachbarhaltestelle definiert wird.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
@@ -1648,12 +1639,77 @@
       </xs:element>
       <xs:element name="Zahlgrenzen" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Anzahl der Zahlgrenzen</xs:documentation>
+          <xs:documentation>Gibt den Wert an vom Typ des Zahlgrenzentyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Zahlgrenzentyp" type="husstDV:ID_Zahlgrenzentyp_Type" maxOccurs="1"
+                  minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Gibt den Typ an, der die Zahlgrenzen definiert.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded"
+                  minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DefZahlgrenzentyp_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Zahlgrenzentyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarif"/>
+      </xs:appinfo>
+      <xs:documentation>Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden
+        kann. Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Zahlgrenzentyp" type="husstDV:ID_Zahlgrenzentyp_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Zahlgrenze.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:simpleType name="ID_Zahlgrenzentyp_Type">
+    <xs:annotation>
+      <xs:documentation>Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl
+        kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_ZahlgrenzentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="ID_ZahlgrenzentypHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Anzahl Haltestellen</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Tarifkilometer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Radius (Luftlinie)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:complexType name="Preisstufendirektwahl_Type">
     <xs:annotation>
@@ -5075,7 +5131,7 @@
           <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="2">
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="4">
         <xs:annotation>
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
@@ -5085,8 +5141,8 @@
           <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="in Arbeit" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-02-14" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-10-11" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
@@ -5791,6 +5847,7 @@
   <xs:element name="Vias" type="husstDV:Vias_Type"/>
   <xs:element name="Teilrelationen" type="husstDV:Teilrelationen_Type"/>
   <xs:element name="Nachbarhaltestellen" type="husstDV:Nachbarhaltestellen_Type"/>
+  <xs:element name="DefZahlgrenzentyp" type="husstDV:DefZahlgrenzentyp_Type"/>
   <xs:element name="Preisstufendirektwahl" type="husstDV:Preisstufendirektwahl_Type"/>
 
   <!--Produkte -->
@@ -5891,6 +5948,7 @@
       <xs:element ref="husstDV:DefSortentypen"/>
       <xs:element ref="husstDV:DefTarifpunkttypen"/>
       <xs:element ref="husstDV:DefWaehrungen"/>
+      <xs:element ref="husstDV:DefZahlgrenzentyp"/>
       <xs:element ref="husstDV:Feiertage"/>
       <xs:element ref="husstDV:Gleichstellung"/>
       <xs:element ref="husstDV:GleichstellungTarifart"/>
