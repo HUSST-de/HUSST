@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://husst.de/Ergebnisdaten/3_3_0" elementFormDefault="qualified" 
-	xmlns="http://www.w3.org/2001/XMLSchema" 
-	xmlns:husst="http://husst.de/Ergebnisdaten/3_3_0">
+<schema targetNamespace="http://husst.de/Ergebnisdaten/3_3_0" elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:husst="http://husst.de/Ergebnisdaten/3_3_0">
 
-	<annotation>
-		<documentation>
-			HUSST Ergebnisdaten
-			Version: 3.3.0
+  <annotation>
+    <documentation>
+      HUSST Ergebnisdaten
+      Version: 3.3.0
 
-			Mehr Informationen:
-			- https://husst.de/
-			- https://github.com/HUSST-de/HUSST
+      Mehr Informationen:
+      - https://husst.de/
+      - https://github.com/HUSST-de/HUSST
 
-			Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-		</documentation>
-	</annotation>
+      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+    </documentation>
+  </annotation>
 
   <complexType name="Any_Type">
     <choice>
@@ -198,16 +198,16 @@
         <documentation>
           Diese Dienstnummer enstpricht der den Anwendern
           bekannte Dienstnummer.
-          In der Regel wird nach dieser Nummer ausgewertet 
+          In der Regel wird nach dieser Nummer ausgewertet
           und die Nummer wird auf Belege aufgedruckt.
-          Die Dienstnummer ist mindestens für jede Schicht eindeutig. 
+          Die Dienstnummer ist mindestens für jede Schicht eindeutig.
           Eine Schicht kann viele Dienste enthalten.
           Die Dienstnummer sollte inkrementierend aufsteigen und nie '0' sein.
 
           Achtung: Schichtnummer vs. Dienstnummer:
           Innerhalb einer Schicht können mehrere Dienste
           auch gleichzeitig ablaufen.
-          Kein Dienst überlappt zeitlich eine Schichtgrenze. 
+          Kein Dienst überlappt zeitlich eine Schichtgrenze.
           Dienste sind in der Regel Personen-(Konten) oder
           Geräte-(Konten) zugeordnet.
           Schichten sind nur ein Behälter für
@@ -303,7 +303,7 @@
       <element name="FahrausweisEingezogen" type="boolean" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>
-            Wird auf true gesetzt, wenn der Fahrausweis	eingezogen wurde.
+            Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde.
           </documentation>
         </annotation>
       </element>
@@ -370,7 +370,6 @@
   </complexType>
 
 
-
   <complexType name="EBEVorgang_Type">
     <sequence>
       <element name="Typ" type="husst:VorgangsTyp_Type" maxOccurs="unbounded" minOccurs="1"/>
@@ -411,13 +410,13 @@
         <documentation>
           Einsatztypen unterscheiden im Gegensatz zu Geräten den jeweiligen Einsatz des Gerätes.
           So kann ein gleiches technisches Gerät sowohl mobil als auch
-          stationär mit unterschiedlichen	Ausprägungen betrieben werden.
+          stationär mit unterschiedlichen Ausprägungen betrieben werden.
 
           Die Einsatztypennummer entspricht der dem Anwender bekannten Einsatztypennummer.
-          Der Standard-Einsatztyp	ist '1'.
+          Der Standard-Einsatztyp ist '1'.
 
           Die Einsatztypennummer ist nur zusammen mit der Angabe
-          eines Mandanten	eindeutig.
+          eines Mandanten eindeutig.
         </documentation>
       </annotation>
     </attribute>
@@ -434,7 +433,7 @@
 
   <complexType name="Fahrtverlauf_Type">
     <annotation>
-      <documentation>Diese Datensätze beinhalten, abweichend von anderen Datensätzen,  Information aus betrieblichen VDV452 Daten.</documentation>
+      <documentation>Diese Datensätze beinhalten, abweichend von anderen Datensätzen, Information aus betrieblichen VDV452 Daten.</documentation>
     </annotation>
     <sequence>
       <element name="Betrieb" type="husst:INT4" minOccurs="1" maxOccurs="1">
@@ -454,7 +453,7 @@
       <element name="FahrzeugUnr" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>
-            Nummer des Unternehmens, dem das Fahrzeug	gehört. FAHRZEUG.ABK_UNTERNEHMEN
+            Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN
           </documentation>
         </annotation>
       </element>
@@ -626,7 +625,7 @@
           <documentation>
             Eindeutige Kennung eines Bestandteils der
             Gerätehardware (z.B. die MAC der Netzwerkhardware.) Welche Kennung
-            das ist, muss von	der Gerätesoftware entschieden werden. Das
+            das ist, muss von der Gerätesoftware entschieden werden. Das
             Element ist optional.
           </documentation>
         </annotation>
@@ -1035,7 +1034,9 @@
       </element>
       <element name="RestTeile" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die Betrachtung stellt den Zustand VOR der Aktion dar.</documentation>
+          <documentation>Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit
+            auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die Betrachtung stellt den Zustand VOR der Aktion dar.
+          </documentation>
         </annotation>
       </element>
     </sequence>
@@ -1359,7 +1360,9 @@
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert.</documentation>
+        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr
+          geliefert.
+        </documentation>
       </annotation>
     </attribute>
   </complexType>
@@ -1399,7 +1402,9 @@
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert.</documentation>
+        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr
+          geliefert.
+        </documentation>
       </annotation>
     </attribute>
   </complexType>
@@ -1411,7 +1416,8 @@
       <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>
-            Die BezugsNr enthält bei EBE-Vorgängen die EBE-Kontonummer, bei Gutschein-Vorgängen die Gutscheinnummer, bei Bezahlung bzw. Einlösung von Anteilen vorausbezahlter Anteile auf Karten die Kartennummer.
+            Die BezugsNr enthält bei EBE-Vorgängen die EBE-Kontonummer, bei Gutschein-Vorgängen die Gutscheinnummer, bei Bezahlung bzw. Einlösung von Anteilen vorausbezahlter
+            Anteile auf Karten die Kartennummer.
           </documentation>
         </annotation>
       </element>
@@ -1508,7 +1514,9 @@
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert.</documentation>
+        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr
+          geliefert.
+        </documentation>
       </annotation>
     </attribute>
   </complexType>
@@ -1528,36 +1536,36 @@
   </complexType>
 
   <complexType name="VersionStruktur_Type">
-		<annotation>
-			<documentation>
+    <annotation>
+      <documentation>
         Hier müssen Hinweise zur Version des Schemas angegeben werden.
       </documentation>
-		</annotation>
-		<sequence>
-			<element name="VersionMajor" type="int" maxOccurs="1" minOccurs="1" default="3">
-				<annotation>
-					<documentation>
+    </annotation>
+    <sequence>
+      <element name="VersionMajor" type="int" maxOccurs="1" minOccurs="1" default="3">
+        <annotation>
+          <documentation>
             Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.
           </documentation>
-				</annotation>
-			</element>
-			<element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="2">
-				<annotation>
-					<documentation>
+        </annotation>
+      </element>
+      <element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="2">
+        <annotation>
+          <documentation>
             Diese Versionsnummer zählt kompatible Anpassungen.
-					</documentation>
-				</annotation>
-			</element>
-			<element name="VersionPatch" type="int" maxOccurs="1" minOccurs="1" default="0">
-				<annotation>
-					<documentation>Diese Versionsnummer zählt abwärtskompatible Bugfixes.
-					</documentation>
-				</annotation>
-			</element>
-			<element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2023-02-14"/>
-			<element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="HUSST-Arbeitsgruppe"/>
-		</sequence>
-	</complexType>
+          </documentation>
+        </annotation>
+      </element>
+      <element name="VersionPatch" type="int" maxOccurs="1" minOccurs="1" default="0">
+        <annotation>
+          <documentation>Diese Versionsnummer zählt abwärtskompatible Bugfixes.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2023-02-14"/>
+      <element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="HUSST-Arbeitsgruppe"/>
+    </sequence>
+  </complexType>
 
 
   <complexType name="Vertriebsstelle_Type">
@@ -1591,16 +1599,16 @@
       <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </sequence>
   </complexType>
-  
+
   <complexType name="Warenkorb_Type">
-		<sequence>
-			<element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
-			<element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
-			<element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
-		</sequence>
-		<attribute name="DienstNr" type="int" use="required"/>
-	</complexType>
+    <sequence>
+      <element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+    </sequence>
+    <attribute name="DienstNr" type="int" use="required"/>
+  </complexType>
 
   <complexType name="Wertbehaelter_Type">
     <annotation>
@@ -1642,34 +1650,34 @@
       <element name="Zaehldaten" type="husst:Zaehldaten_Type" minOccurs="0" maxOccurs="unbounded"/>
     </sequence>
   </complexType>
-  
-	<complexType name="Zahlung_Type">
-		<sequence>
-			<element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
-			<element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
-			<choice>
-				<element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="Gutschein" type="husst:Gutscheinbezahlung_Type" maxOccurs="1" minOccurs="1">
-					<annotation>
-						<documentation>
-							Obsolet: Gutscheine, bei Zahlungsart
-							Gutschein, diese Art der Verrechnung per
-							Gutschein sollte nicht mehr genutzt werden.
-						</documentation>
-					</annotation>
-				</element>
-				<element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="KABezahlungReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1"/>
-				<element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-			</choice>
-			<element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
-		</sequence>
-	</complexType>
+
+  <complexType name="Zahlung_Type">
+    <sequence>
+      <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
+      <choice>
+        <element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="Gutschein" type="husst:Gutscheinbezahlung_Type" maxOccurs="1" minOccurs="1">
+          <annotation>
+            <documentation>
+              Obsolet: Gutscheine, bei Zahlungsart
+              Gutschein, diese Art der Verrechnung per
+              Gutschein sollte nicht mehr genutzt werden.
+            </documentation>
+          </annotation>
+        </element>
+        <element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="KABezahlungReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+      </choice>
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+    </sequence>
+  </complexType>
 
   <complexType name="Zahlungsliste_Type">
     <sequence>
@@ -1685,28 +1693,28 @@
       <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
     </sequence>
   </complexType>
-  
+
   <complexType name="WebShopBezahlung_Type">
     <sequence>
       <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1">
-		<annotation>
+        <annotation>
           <documentation>Eindeutige Terminal-ID bei Verwendung eines gesonderten Kartenzahlungsterminals.</documentation>
         </annotation>
-	  </element>
+      </element>
       <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1">
-		<annotation>
+        <annotation>
           <documentation>Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der durchgeführten Zahlungstransaktion.</documentation>
         </annotation>
-	  </element>
+      </element>
       <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="1">
-		<annotation>
+        <annotation>
           <documentation>Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister registriert wurde.</documentation>
         </annotation>
-	  </element>
+      </element>
     </sequence>
   </complexType>
 
-  
+
   <simpleType name="Betriebszeit_Type">
     <annotation>
       <documentation>
@@ -1714,20 +1722,20 @@
       </documentation>
     </annotation>
     <restriction base="string">
-      <pattern value="[0-9]{1,2}:[0-9]{1,2}" />
+      <pattern value="[0-9]{1,2}:[0-9]{1,2}"/>
     </restriction>
   </simpleType>
-  
+
   <simpleType name="blobString">
     <restriction base="string">
-      <pattern value="[ -þ€–]*" />
+      <pattern value="[ -þ€–]*"/>
     </restriction>
   </simpleType>
 
   <simpleType name="Char">
     <restriction base="string">
-      <minLength value="1" />
-      <maxLength value="1" />
+      <minLength value="1"/>
+      <maxLength value="1"/>
     </restriction>
   </simpleType>
 
@@ -1744,15 +1752,15 @@
 
   <simpleType name="DateCompact">
     <restriction base="date">
-      <minInclusive value="1990-01-01" />
-      <maxInclusive value="2117-12-31" />
+      <minInclusive value="1990-01-01"/>
+      <maxInclusive value="2117-12-31"/>
     </restriction>
   </simpleType>
 
   <simpleType name="DateTimeCompact">
     <restriction base="dateTime">
-      <minInclusive value="1990-01-01T00:00:00Z" />
-      <maxInclusive value="2117-12-31T23:59:58Z" />
+      <minInclusive value="1990-01-01T00:00:00Z"/>
+      <maxInclusive value="2117-12-31T23:59:58Z"/>
     </restriction>
   </simpleType>
 
@@ -1763,39 +1771,39 @@
       </documentation>
     </annotation>
     <restriction base="decimal">
-      <minInclusive value="0" />
-      <maxInclusive value="100" />
+      <minInclusive value="0"/>
+      <maxInclusive value="100"/>
     </restriction>
   </simpleType>
 
   <simpleType name="INT1">
     <restriction base="unsignedInt">
-      <minInclusive value="0" />
-      <maxInclusive value="255" />
+      <minInclusive value="0"/>
+      <maxInclusive value="255"/>
     </restriction>
   </simpleType>
   <simpleType name="INT2">
     <restriction base="unsignedInt">
-      <minInclusive value="0" />
-      <maxInclusive value="65535" />
+      <minInclusive value="0"/>
+      <maxInclusive value="65535"/>
     </restriction>
   </simpleType>
   <simpleType name="INT3">
     <restriction base="unsignedInt">
-      <minInclusive value="0" />
-      <maxInclusive value="16777215" />
+      <minInclusive value="0"/>
+      <maxInclusive value="16777215"/>
     </restriction>
   </simpleType>
   <simpleType name="INT4">
     <restriction base="unsignedInt">
-      <minInclusive value="0" />
-      <maxInclusive value="4294967295" />
+      <minInclusive value="0"/>
+      <maxInclusive value="4294967295"/>
     </restriction>
   </simpleType>
   <simpleType name="INT8">
     <restriction base="unsignedLong">
-      <minInclusive value="0" />
-      <maxInclusive value="18446744073709551615" />
+      <minInclusive value="0"/>
+      <maxInclusive value="18446744073709551615"/>
     </restriction>
   </simpleType>
 
@@ -1811,7 +1819,7 @@
       <pattern value="[A-Z]{3}"/>
     </restriction>
   </simpleType>
-  
+
 
   <simpleType name="Projektspezifisch_Type">
     <annotation>
@@ -1823,18 +1831,18 @@
   </simpleType>
 
   <simpleType name="ProjektspezifischAnstattKa_Type">
-		<annotation>
-			<documentation>
-				Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann.
-				Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
-			</documentation>
-		</annotation>
-		<restriction base="string">
-			<pattern value="[A-Za-z][A-Za-z0-9_]*"/>
-		</restriction>
-	</simpleType>
-  
-  
+    <annotation>
+      <documentation>
+        Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann.
+        Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <pattern value="[A-Za-z][A-Za-z0-9_]*"/>
+    </restriction>
+  </simpleType>
+
+
   <simpleType name="AusgabeabschnittTyp_Type">
     <annotation>
       <documentation>Beschreibt den Typ eines ausgegebenen Papierdokumentes näher.</documentation>
@@ -1853,17 +1861,17 @@
   </simpleType>
 
   <simpleType name="Ausloeser_Type">
-		<annotation>
-			<documentation></documentation>
-		</annotation>
-		<union memberTypes="husst:AusloeserHUSST_Type husst:Projektspezifisch_Type"/>
-	</simpleType>
-	<simpleType name="AusloeserHUSST_Type">
-		<restriction base="string">
-			<enumeration value="husst.manuell"/>
-			<enumeration value="husst.automatisch"/>
-		</restriction>
-	</simpleType>
+    <annotation>
+      <documentation></documentation>
+    </annotation>
+    <union memberTypes="husst:AusloeserHUSST_Type husst:Projektspezifisch_Type"/>
+  </simpleType>
+  <simpleType name="AusloeserHUSST_Type">
+    <restriction base="string">
+      <enumeration value="husst.manuell"/>
+      <enumeration value="husst.automatisch"/>
+    </restriction>
+  </simpleType>
 
   <simpleType name="BelegkasseTyp_Type">
     <annotation>
@@ -2501,40 +2509,40 @@
       <enumeration value="husst.BOB"/>
     </restriction>
   </simpleType>
-  
-	<simpleType name="TransaktionTyp_Type">
-		<union memberTypes="husst:TransaktionTypHUSST_Type husst:Projektspezifisch_Type"/>
-	</simpleType>
-	<simpleType name="TransaktionTypHUSST_Type">
-		<annotation>
-			<documentation>Sonderfälle:
-				•	Gutscheine werden verkauft
-				•	Gutscheine werden erstattet
 
-				•	EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor. 
-					Es gibt einen Preis, es wird ein Beleg gedruckt.
+  <simpleType name="TransaktionTyp_Type">
+    <union memberTypes="husst:TransaktionTypHUSST_Type husst:Projektspezifisch_Type"/>
+  </simpleType>
+  <simpleType name="TransaktionTypHUSST_Type">
+    <annotation>
+      <documentation>Sonderfälle:
+        • Gutscheine werden verkauft
+        • Gutscheine werden erstattet
 
-				•	Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, 
-					dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) 
-					und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
-				•	Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, 
-					es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
+        • EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor.
+        Es gibt einen Preis, es wird ein Beleg gedruckt.
 
-				•	Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, 
-					dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann 
-					die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
-				•	Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. 
-					Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. 
-					In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden. 
-			</documentation>
-		</annotation>
-		<restriction base="string">
-			<enumeration value="husst.Verkauf"/>
-			<enumeration value="husst.Erstattung"/>
-			<enumeration value="husst.Registrierung"/>
-			<enumeration value="husst.Einzahlung"/>
-		</restriction>
-	</simpleType>
+        • Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist,
+        dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer)
+        und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
+        • Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen,
+        es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
+
+        • Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied,
+        dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann
+        die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
+        • Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden.
+        Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“.
+        In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden.
+      </documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="husst.Verkauf"/>
+      <enumeration value="husst.Erstattung"/>
+      <enumeration value="husst.Registrierung"/>
+      <enumeration value="husst.Einzahlung"/>
+    </restriction>
+  </simpleType>
 
   <complexType name="TransportserviceArt_Type">
     <simpleContent>
@@ -2692,6 +2700,6 @@
     </restriction>
   </simpleType>
 
-  
+
   <element name="Schichten" type="husst:Schichtenliste_Type"/>
 </schema>
