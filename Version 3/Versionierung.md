@@ -4,13 +4,13 @@ In Husst 3 wird "Semantic Versioning" verwendet.
 
 s. https://semver.org/lang/de/
 
-## Mayer Version
+## Major Version
 
-Die 3 ist die Mayer Version. Bis zur Husst 4 bleiben alle Änderungen abwärtskompatibel.
+Die 3 ist die Major Version. Bis zur Husst 4 bleiben alle Änderungen abwärtskompatibel.
 
 ## Minor Version
 
-Die Minor Version immer angepasst, wenn etwas in Husst ergänzt wird
+Die Minor Version immer angepasst, wenn etwas in Husst ergänzt wird.
 
 ## Patch Version
 
