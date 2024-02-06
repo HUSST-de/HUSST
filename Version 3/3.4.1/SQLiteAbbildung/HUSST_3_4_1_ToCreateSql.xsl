@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-                xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_0"
+                xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_1"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:api="http://www.husst.de/Appinfo/3_4_0">
+                xmlns:api="http://www.husst.de/Appinfo/3_4_1">
   <xsl:output method="text" encoding="UTF-8"/>
   <!-- ===============================================================================
   
-    Erzeugt ein SQL Script um eine leere HUSST_Versorgungsdaten_3_4_0 Datenbank 
+    Erzeugt ein SQL Script um eine leere HUSST_Versorgungsdaten_3_4_1 Datenbank 
     zu erstellen.
     
     Autor: Horst Neubauer, krauth technology GmbH, Eberbach
@@ -130,6 +130,16 @@
        verwendeten Definitionsmöglichkeiten. Sie muss erweitert werden, wenn in der 
        Definition noch weitere Möglichkeiten ausgereitzt werden.   
    =============================================================================== -->
+  <xsl:template mode="fieldtypeint" match="*">
+    <!-- liefert integer statt bigint für Integer Felder, nur im Außnahmefall zu verwenden -->
+    <xsl:variable name="type">
+    	<xsl:apply-templates mode="fieldtype" select="."/>
+    </xsl:variable>
+    <xsl:choose>
+    	<xsl:when test="$type='bigint'">integer</xsl:when>
+    	<xsl:otherwise><xsl:value-of select="$type"/></xsl:otherwise>
+    </xsl:choose>        
+  </xsl:template>
   <xsl:template mode="fieldtype" match="*">
     <xsl:variable name="maxLength" select="descendant::xs:maxLength/@value "/>
     <xsl:variable name="type">
@@ -191,9 +201,20 @@
       <xsl:text></xsl:text>
 
       <xsl:value-of select="substring('                                   ',1,35-string-length($fieldname))"/>
-      <xsl:apply-templates mode="fieldtype" select="."/>
-      <xsl:if test="@nillable='false'">
-        <xsl:text>NOT NULL</xsl:text>
+      <xsl:choose>
+      	<xsl:when test="../../xs:annotation/xs:appinfo/api:primekey[api:field/@name=$fieldname]
+      	  and not(../../xs:annotation/xs:appinfo/api:primekey[api:field/@name!=$fieldname])
+      	  and (@nillable='false' or @minOccurs='1')">
+	        <!-- wenn der Primekey aus exakt einem Integer-Feld besteht, dann statt bigint den Feldtyp Integer verwenden -->
+            <!-- dann funktioniert für diese Tabelle der Auto-Increment Mechanismus von SQLite -->
+	        <xsl:apply-templates mode="fieldtypeint" select="."/>
+      	</xsl:when>
+      	<xsl:otherwise>
+        	<xsl:apply-templates mode="fieldtype" select="."/>
+      	</xsl:otherwise>
+      </xsl:choose>
+      <xsl:if test="@nillable='false' or @minOccurs='1'">
+        <xsl:text> NOT NULL</xsl:text>
       </xsl:if>
     </xsl:for-each>
 
@@ -436,13 +457,13 @@
       </xsl:variable>
 
       <xsl:text>INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)</xsl:text>
-      <xsl:text>VALUES ("</xsl:text>
+      <xsl:text>VALUES ('</xsl:text>
       <xsl:value-of select="$tableName"/>
-      <xsl:text>",</xsl:text>
+      <xsl:text>',</xsl:text>
       <xsl:value-of select="$tabellennummer"/>
-      <xsl:text>, "</xsl:text>
+      <xsl:text>, '</xsl:text>
       <xsl:value-of select="$structureName"/>
-      <xsl:text>");</xsl:text>
+      <xsl:text>');</xsl:text>
 
       <xsl:value-of select="$crlf"/>
     </xsl:for-each>
@@ -455,11 +476,11 @@
     <xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionMinor']/@default"/>
     <xsl:text>,</xsl:text>
     <xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='VersionPatch']/@default"/>
-    <xsl:text>, "</xsl:text>
+    <xsl:text>, '</xsl:text>
     <xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='Status']/@default"/>
-    <xsl:text>", "</xsl:text>
+    <xsl:text>', '</xsl:text>
     <xsl:value-of select="//xs:complexType[@name='VersionStruktur_Type']/descendant::xs:element[@name='Aenderungsdatum']/@default"/>
-    <xsl:text>");</xsl:text>
+    <xsl:text>');</xsl:text>
 
     <xsl:value-of select="$crlf"/>
 
@@ -481,7 +502,7 @@
     <xsl:text>* automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank</xsl:text>
     <xsl:value-of select="$crlf"/>
     <xsl:if test="$current_date">
-      <xsl:text>* generiert am</xsl:text>
+      <xsl:text>* generiert am </xsl:text>
       <xsl:value-of select="concat(concat(concat(substring($current_date,1,4),'-'),substring($current_date,5,2),'-'),substring($current_date,7,2))"/>
       <xsl:value-of select="$crlf"/>
     </xsl:if>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_4_0"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_4_0"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_1"
+           xmlns:api="http://www.husst.de/Appinfo/3_4_1"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_4_1"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.4.0
+      Version: 3.4.1
 
       Mehr Informationen:
       - https://husst.de/
@@ -85,10 +85,10 @@
   </xs:simpleType>
 
   <xs:simpleType name="INT4">
-    <xs:restriction base="xs:unsignedInt">
-      <xs:minInclusive value="0"/>
-      <xs:maxInclusive value="4294967295"/>
-    </xs:restriction>
+  	<xs:restriction base="xs:unsignedInt">
+  		<xs:minInclusive value="0" />
+  		<xs:maxInclusive value="4294967295" />
+  	</xs:restriction>
   </xs:simpleType>
 
   <xs:simpleType name="INT8">
@@ -186,8 +186,8 @@
 
   <xs:simpleType name="VersionStatus_Type">
     <xs:restriction base="xs:string">
-      <xs:enumeration value="stabil"/>
-      <xs:enumeration value="in Arbeit"/>
+      <xs:enumeration value="Release"/>
+      <xs:enumeration value="work in progress"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -3763,6 +3763,11 @@
       <xs:enumeration value="25">
         <xs:annotation>
           <xs:documentation>Senior</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="30">
+        <xs:annotation>
+          <xs:documentation>Hund</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
