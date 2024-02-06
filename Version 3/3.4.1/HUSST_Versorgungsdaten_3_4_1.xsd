@@ -188,6 +188,8 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="Release"/>
       <xs:enumeration value="work in progress"/>
+      <xs:enumeration value="stabil"/>
+      <xs:enumeration value="in Arbeit"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -5141,7 +5143,7 @@
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="0">
+      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="1">
         <xs:annotation>
           <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
         </xs:annotation>
