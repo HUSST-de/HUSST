@@ -4,7 +4,7 @@
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
 * generiert am 2024-02-06
 *
-* HUSST Datenversorgung (V3.4.0-Release vom 2023-10-11)
+* HUSST Datenversorgung (V3.4.1-Release vom 2024-02-06)
 *
 *************************************************************************************/
 
@@ -933,4 +933,4 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)VALUES ('Vi
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)VALUES ('Wege',54, 'Wege_Type');
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)VALUES ('Wegpositionen',55, 'Wegpositionen_Type');
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)VALUES ('Zusatzsorten',56, 'Zusatzsorten_Type');
-INSERT INTO VersionStruktur (VersionMajor, VersionMinor, VersionPatch, Status, Aenderungsdatum)VALUES (3,4,0, 'Release', '2023-10-11');
+INSERT INTO VersionStruktur (VersionMajor, VersionMinor, VersionPatch, Status, Aenderungsdatum)VALUES (3,4,1, 'Release', '2024-02-06');

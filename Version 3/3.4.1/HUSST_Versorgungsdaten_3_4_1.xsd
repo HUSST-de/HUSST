@@ -5149,7 +5149,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2023-10-11" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-02-06" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
