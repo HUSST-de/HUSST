@@ -17,6 +17,12 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
+### 3.4.0 -> 3.4.1
+
+Versorgungsdaten
+ - korrigierte SQLite Abbildung
+ - 2 x Enums erweitert
+ 
 ### 3.3.0 -> 3.4.0
 
 Versorgungsdaten
