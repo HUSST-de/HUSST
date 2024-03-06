@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_x"
+           xmlns:api="http://www.husst.de/Appinfo/3_x"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_x"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>
+      HUSST Basis-Versorgungsdaten
+      Version: 3.x
+
+      Mehr Informationen:
+      - https://husst.de/
+      - https://github.com/HUSST-de/HUSST
+
+      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+    </xs:documentation>
+  </xs:annotation>
+
+</xs:schema>
