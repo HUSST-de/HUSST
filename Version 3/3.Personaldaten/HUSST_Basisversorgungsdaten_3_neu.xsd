@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:api="http://www.husst.de/Appinfo/3_Personal"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-	targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-	elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:api="http://www.husst.de/Appinfo/3_Personal" xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://husst.de/Versorgungsdaten/3_Personal" elementFormDefault="qualified" attributeFormDefault="unqualified">
   
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.Personal
+      Version: 3.4.1
 
       Mehr Informationen:
       - https://husst.de/
@@ -145,7 +141,7 @@
         <api:primekey>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -202,7 +198,7 @@
           <api:field name="Option"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -241,7 +237,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -284,7 +280,7 @@
           <api:field name="ID_Betriebstagesart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -357,7 +353,7 @@
           <api:field name="ID_Tagesmerkmal"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -409,7 +405,7 @@
           <api:field name="Bezeichnung"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -462,7 +458,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Intermodal"/>
 
       </xs:appinfo>
     </xs:annotation>
@@ -518,8 +514,8 @@
           <api:field name="Interpretationsschluessel"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Basis"/>
-        <api:schema name="Tarif"/>
+        <api:schema name="Technisch"/>
+        
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -652,7 +648,7 @@
           <api:field name="ID_Waehrung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
       <xs:documentation>Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type</xs:documentation>
     </xs:annotation>
@@ -690,7 +686,7 @@
           <api:field name="Updatetime"/>
           <api:field name="Filename"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -726,7 +722,7 @@
           <api:field name="Erstellungsdatum"/>
           <api:field name="Lieferant"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
 
       </xs:appinfo>
       <xs:documentation>Eine Datenlieferung enthält einen Datensatz VersionInhalt.
@@ -759,7 +755,7 @@
           <api:field name="Bearbeitungsdatum"/>
           <api:field name="Lieferant"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
 
       </xs:appinfo>
     </xs:annotation>
@@ -773,7 +769,7 @@
   <xs:complexType name="VersionStruktur_Type">
     <xs:annotation>
       <xs:appinfo>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -808,7 +804,7 @@
           <api:field name="ID_Bundesland"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -869,7 +865,7 @@
           <api:field name="ID_Bundesland"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -890,7 +886,7 @@
           <api:field name="ID_Unternehmen"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
       <xs:documentation>Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem eine Rolle übernehmen.
         Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre Mandant Eigenschaft angezeigt werden.
@@ -980,7 +976,7 @@
         <api:primekey>
           <api:field name="ID_DynAttributDef"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Intermodal"/>
 
       </xs:appinfo>
     </xs:annotation>
@@ -1106,7 +1102,7 @@
           <api:field name="ID_DatensatzRef"/>
           <api:field name="Lang"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Intermodal"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1193,7 +1189,7 @@
           <api:field name="ID_Sprachtext"/>
           <api:field name="Lang"/>
         </api:primekey>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1264,7 +1260,7 @@
         <index name="Idx_Tabinfoname">
           <field name="Tabellenname"/>
         </index>
-        <api:schema name="Basis"/>
+        <api:schema name="Technisch"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1319,6 +1315,9 @@
         eine Abbildung auf ein relationales Datenbankmodell
         verwendet.
       </xs:documentation>
+      <xs:appinfo>
+        <api:schema name="Technisch"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1"/>
@@ -1328,10 +1327,17 @@
   </xs:complexType>
   
   <xs:complexType name="DynAttributWert_Subtype">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Technisch"/>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="husstDV:blobString">
         <xs:attribute name="lang" type="husstDV:Lang_Type"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  
+  
   </xs:schema>

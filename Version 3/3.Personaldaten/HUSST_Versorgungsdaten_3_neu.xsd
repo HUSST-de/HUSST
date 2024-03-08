@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:api="http://www.husst.de/Appinfo/3_Personal"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-	elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:api="http://www.husst.de/Appinfo/3_Personal" xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://husst.de/Versorgungsdaten/3_Personal" elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:include schemaLocation="./HUSST_Basisversorgungsdaten_3_neu.xsd"/>
   
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.Personal
+      Version: 3.4.1
 
       Mehr Informationen:
       - https://husst.de/
@@ -3864,6 +3860,7 @@
           <api:field name="ID_Vertriebswege"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:schema name="Tarif"/>
         <api:schema name="Angebot"/>
       </xs:appinfo>
       <xs:documentation>

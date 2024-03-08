@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:api="http://www.husst.de/Appinfo/3_Personal"
+	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="./HUSST_Basisversorgungsdaten_3_neu.xsd"/>
+  
+  <xs:annotation>
+    <xs:documentation>
+      HUSST Versorgungsdaten
+      Version: 3.Personal
+
+      Mehr Informationen:
+      - https://husst.de/
+      - https://github.com/HUSST-de/HUSST
+
+      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+    </xs:documentation>
+  </xs:annotation>
+  
+	<xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" nillable="true"/>
+	<xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" nillable="true"/>
+	<xs:element name="Geraet" type="husstDV:Geraet_Type" nillable="true"/>
+	<xs:element name="GeraetEinsatztypen" type="husstDV:GeraetEinsatztypen_Type" nillable="true"/>
+	<xs:element name="IdentobjektTypen" type="husstDV:IdentobjektTypen_Type" nillable="true"/>
+	<xs:element name="Identobjekte" type="husstDV:Identobjekte_Type" nillable="true"/>
+	<xs:element name="PersonalIdentobjekte" type="husstDV:PersonalIdentobjekte_Type" nillable="true"/>
+	<xs:element name="Personal" type="husstDV:Personal_Type" nillable="true"/>
+	<xs:element name="Personaleinsatz" type="husstDV:Personaleinsatz_Type" nillable="true"/>
+
+	<xs:complexType name="Personal_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Personalstammdaten
+			</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_Personal"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<index name="Idx_Pers_Aktiv">
+					<field name="ID_Personal"/>
+					<field name="Aktiv"/>
+				</index>
+				<index name="Idx_Pers_GueltigAb">
+					<field name="GueltigAb"/>
+				</index>
+				<index name="Idx_Pers_GueltigBis">
+					<field name="GueltigBis"/>
+				</index>
+				<schema name="Personal" nillable="false"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Personal" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>PersonalNr</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_Unternehmen" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Arbeitgeber</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_AbrUnternehmen" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Abrechnungs-Unternehmen, bei dem Einnahmen
+						abgeliefert werden müssen
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Passwort" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>kt definiert den HashWert</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Vorname" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Nachname" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Aktiv" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="GueltigAb" type="husstDV:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="GueltigBis" type="husstDV:DateTimeCompact" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Personaleinsatz_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Geräte- und Rollenzuordnung zu Personal
+			</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_Personal"/>
+					<field name="ID_GeraeteTyp"/>
+					<field name="ID_GeraeteEinsatzTyp"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<index name="Idx_PersEin_GTyp">
+					<field name="ID_GeraeteTyp"/>
+					<field name="ID_GeraeteEinsatzTyp"/>
+				</index>
+				<schema name="Personal" nillable="false"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Personal" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>PersonalNr</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_GeraeteTyp" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_GeraeteEinsatzTyp" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="ID_EinsatzArt" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Rolle, die er auf dem Gerätetyp
+						einnimmt
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="IdentobjektTypen_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Auflistung der verschiedenen Objekttypen, die
+				zur Identifizierung einer Person eingesetzt werden
+				Defaultwerte
+				sind:
+				1=Fahrermodul
+				2=Chipkarte
+				3=Schlüssel
+			</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_IdentobjektTyp"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<schema name="Personal" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_IdentobjektTyp" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Nummer des Ident-Objekt Typs
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bezeichner" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Identobjekte_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Ident Objekte zur Identifizierung einer Person.
+				Die ID des Identobjektes ist über alle Objekttypen und Mandanten
+				eindeutig zu halten.
+
+				Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im
+				System eindeutig sein.
+			</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_Identobjekt"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<index name="Idx_IdentObj_Type">
+					<field name="Identobjekt_Schluessel"/>
+					<field name="ID_IdentobjektTyp"/>
+					<field name="ID_Unternehmen"/>
+				</index>
+				<schema name="Personal" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Identobjekt" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>systemweit eindeutige Nummer/Kennung des
+						Ident-Objektes
+						z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel
+						ggf. mit ID_Unternehmen
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_IdentobjektTyp" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Nummer des Ident-Objekt Typs
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_Unternehmen" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Nummer des Unternehmens, dem das Identobjekt
+						zugeorndet ist
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Identobjekt_Schluessel" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Objektspezifische Kennung (z.B. Modulnummer
+						oder Chipkartennummer, etc.)
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bezeichner" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Freier Text, der z.B. zur Anzeige verwendet
+						werden kann.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PersonalIdentobjekte_Type">
+		<xs:annotation>
+			<xs:documentation>
+				PersonalIdentobjekte weist einer Person kein,
+				ein oder mehrere Identobjekte zu.
+				Hinweis: Es handelt sich um
+				eine n:m Beziehung. Auf einen künstlichen Schlüssel wird
+				verzichtet.
+				Die Struktur hat deshalb keinen PrimeKey!
+
+				Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit
+				unterschiedlichen
+				AktivAb, AktivBis Intervallen. Ein Identobjekt
+				darf immer dann zur Identifikation verwendet werden,
+				wenn bei
+				mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt
+				im AktivAb,AktivBis Intervall
+				liegt. Ist AktivAb nicht angegeben,
+				gilt die Zuordnung ab "schon immer", ist AktivBis nicht
+				angegeben
+				gilt die Zuordnung "bis ewig".
+			</xs:documentation>
+			<xs:appinfo>
+				<primkey/>
+				<index name="Idx_IdentObj_Personal">
+					<field name="ID_Identobjekt"/>
+					<field name="ID_Personal"/>
+				</index>
+				<schema name="Personal" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Identobjekt" type="xs:string" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>systemweit eindeutige Nummer/Kennung des
+						Identobjektes
+						z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel
+						ggf. mit ID_Unternehmen
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_Personal" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Personal-Nr</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ausgabedatum" type="husstDV:DateCompact" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Zeitpunkt, zu dem das Identobjekt ausgegeben
+						wurde.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AktivAb" type="husstDV:DateCompact" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Wenn angegeben, definiert AktivAb den Beginn
+						der Verwendbarkeit des Ident-Objektes.
+						Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht
+						erfolgreich am System anmelden können.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AktivBis" type="husstDV:DateCompact" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Wenn angegeben, definiert AktivBis das Ende
+						der Verwendbarkeit des Ident-Objektes.
+						Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht
+						erfolgreich am System anmelden können.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Geraet_Type">
+		<xs:annotation>
+			<xs:documentation>Geräteverwaltung</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_GeraeteTyp"/>
+					<field name="ID_Geraet"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<index name="Idx_GeraeteTyp_Geraet">
+					<field name="ID_Geraet"/>
+				</index>
+				<schema name="Personal" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_Geraet" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>GeräteNr</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_GeraeteTyp" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Info" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="kaKVP" type="husstDV:INT4" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>KA KVP Nr</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="GeraetEinsatztypen_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Zur Kennzeichnung der Tarifverteilung
+			</xs:documentation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_GeraeteEinsatzTyp"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<schema name="Personal" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_GeraeteEinsatzTyp" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Info" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Geraetetypen_Type">
+		<xs:annotation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_GeraeteTyp"/>
+					<field name="ID_Zeitraum"/>
+				</primekey>
+				<schema name="Basis" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_Zeitraum" type="husstDV:INT4" nillable="false" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="ID_GeraeteTyp" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>AKxxxx</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Info</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" nillable="false" maxOccurs="unbounded" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Einsatzarten_Type">
+		<xs:annotation>
+			<xs:appinfo>
+				<primekey>
+					<field name="ID_EinsatzArt"/>
+					<field name="ID_GeraeteTyp"/>
+				</primekey>
+				<schema name="Personal" nillable="true"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="ID_GeraeteTyp" type="xs:string" nillable="false" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>AKxxxx</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ID_EinsatzArt" type="husstDV:INT4" nillable="false" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Bezeichnung" type="xs:string" nillable="true" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Info</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

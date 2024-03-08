@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-           xmlns:api="http://www.husst.de/Appinfo/3_Personal"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-           elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:include schemaLocation="./HUSST_Basisversorgungsdaten_3_neu.xsd"/>
+<xs:schema 
+  xmlns:api="http://www.husst.de/Appinfo/3_Personal"
+  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
@@ -18,6 +18,121 @@
       Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
     </xs:documentation>
   </xs:annotation>
+
+  <xs:simpleType name="DateTimeCompact">
+    <xs:restriction base="xs:dateTime">
+      <xs:minInclusive value="1990-01-01T00:00:00Z"/>
+      <xs:maxInclusive value="2117-12-31T23:59:58Z"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DateCompact">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1990-01-01"/>
+      <xs:maxInclusive value="2117-12-31"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DauerMinuten">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+        In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten empfohlen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:duration"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="UhrzeitMinuten">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+        In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten nach 0 Uhr empfohlen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:time"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="Betriebszeit_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Betriebszeiten dürfen über 24:00 Uhr hinausgehen
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{1,2}:[0-9]{1,2}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="INT1">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="INT2">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="65535"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="INT3">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="16777215"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="INT4">
+  	<xs:restriction base="xs:unsignedInt">
+  		<xs:minInclusive value="0" />
+  		<xs:maxInclusive value="4294967295" />
+  	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="INT8">
+    <xs:restriction base="xs:unsignedLong">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="18446744073709551615"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FLOAT1">
+    <xs:annotation>
+      <xs:documentation>
+        englische Notation beachten, z. B. 19 Euro = 19.00 Euro
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="KoordWgs84_Type">
+    <xs:restriction base="xs:float"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="Char">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="String250">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="blobString">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[ -þ€–]*"/>
+    </xs:restriction>
+  </xs:simpleType>
 
   <xs:simpleType name="ZuordnungRelCodeGrp_Type">
     <xs:annotation>
@@ -41,7 +156,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ZusSorteAnbindung_Type">
     <xs:annotation>
       <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
@@ -69,7 +184,16 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
+  <xs:simpleType name="VersionStatus_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Release"/>
+      <xs:enumeration value="work in progress"/>
+      <xs:enumeration value="stabil"/>
+      <xs:enumeration value="in Arbeit"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="Sammelbeleg_Type">
     <xs:restriction base="xs:string">
       <xs:enumeration value="true">
@@ -92,7 +216,19 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
+  <xs:simpleType name="Lang_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Für diese Datenlieferungen sind nur 2-Zeichen Iso-Codes nach ISO
+        639-1:2002 vorgesehen
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:language">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="ID_RelationenberechnungsregelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -142,7 +278,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Relationenberechnungsregelung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -152,7 +288,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationenberechnungsregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_RelationendruckregelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -186,7 +322,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Relationendruckregelung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -196,7 +332,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_Kundentyp_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -275,7 +411,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_Profil_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -353,7 +489,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_ServiceKlasse_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -383,7 +519,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_TransportmittelKategorie_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -465,7 +601,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_RabattParameter_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -541,9 +677,8 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <!--Allgemein -->
-  
   <xs:complexType name="Tarifgebiete_Type">
     <xs:annotation>
       <xs:documentation>
@@ -578,7 +713,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Tarifpunkte_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -594,7 +729,7 @@
         zugeordnet. Tarifpunkte werden zum Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der
         räumlichen Gültigkeit zu ermöglichen. In vielen Tarifsystemen haben Tarifpunkte Namen wie: Zone
         oder Ring.
-        Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -&gt; Nach-Tarifpunkt -&gt; Preisstufe
+        Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -> Nach-Tarifpunkt -> Preisstufe
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -630,7 +765,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Tarifpunktmengen_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -661,7 +796,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="TarifpunktmengeElemente_Type">
     <xs:annotation>
       <xs:documentation>
@@ -684,7 +819,400 @@
       <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
-  
+
+  <xs:complexType name="Zeitraeume_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Gültigkeitszeitraum
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ZeitraumVon" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ZeitraumBis" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DatenversionZeitraum" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutiger Schlüssel für die Datenmenge, die in dem Zeitraum enthalten ist,
+            bezogen auf die DatenversionInhalt des Elements VersionInhalt.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HauptZeitraumNr" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Alle Zeiträume mit dem gleichen
+            Hauptzeitraum
+            bilden einen gemeinsamen Datenraum, in dem
+            alle Refrenzen ID_xx die
+            gleiche Bedeutung haben und
+            auflösbar sind.
+            Sind zu einem Zeitpunkt
+            mehrere Zeiträume mit unterschiedlichen
+            Hauptzeitraumnummern
+            gültig, hat der mit der höheren
+            Hauptzeitraumnummer Vorrang.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SubZeitraumNr" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Die Subzeitraumnummer ist innerhalb einer
+            Hauptzeitraumnummer ununterbrochen, aufsteigend nummeriert,
+            beginnend mit 1.
+            Bei gleichzeitiger Gültigkeit mehrere Subzeiträume
+            hat die höhere
+            SubZeitraumNr Vorrang vor der kleineren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Zeitraumoptionen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        ordnet einem Zeitraum zusätzliche Optionen zu
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Option"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Option" type="husstDV:String250" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Schlüsselstring der Option</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Wert" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Kalender_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Kalender mit zugeordneten Tagesarten.
+        Ein Betriebstag ist ein Kalendertag, kann aber abweichende Tagesanfang
+        und -ende haben.
+        Tagesanfang und -ende werden nicht explizit im Kalender definiert.
+
+        Benötigt das System für eine Funktionalität eine ID_Tagesart, dann ermittelt
+        es diese aus dem Kalender.
+        Ist für einen konkreten Kalendertag kein Eintrag im Kalender vorhanden,
+        kann das System über
+        geeignete Tagesartmerkmalelemente eine Default Tagesart aufgrund des
+        Wochentages und allgemein berechenbarer
+        Feiertage ermittelt werden.
+
+        Siehe auch Tagesmerkmale_Type, Tagesmerkmalelemente_Type und
+        Tagsartmerkmalelemente_Type.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Betriebstag"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+
+        <api:schema name="Angebot"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Betriebstag" type="husstDV:DateCompact" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Datum des Betriebstages</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Betriebstagesart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tagesart des Betriebstages
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Tagesarten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Eine Tagesart beschreibt den logischen Charakter
+        eines Tages soweit der für das vorliegende System benötigt wird.
+        Einem Kalendertag ist genau eine Tagesart zugeordnet.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Betriebstagesart"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Angebot"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Betriebstagesart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung der Tagesart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Informationen, welche Bedeutung diese
+            Kennung hat.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Tagesmerkmale_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Ein Tagesmerkmal muss so gestaltet sein, dass an jedem
+        Betriebstag (Kalendertag aber ggf. abweichende Start-/Ende Uhrzeit) aus der
+        Liste der Mermalelemente genau ein Element gültig ist.
+
+        Für eine Tagesart können mehrere Elemente aus einer Liste eines
+        Tagesmerkmales definiert sein.
+
+        Beispiele:
+        Tagesmerkmal:"Wochentag=("Mo","Di","Mi","Do","Fr","Sa","So")
+        Tagesmerkmal:"Ferien"=("Ja","Nein")
+
+        Die Husst Schnittstelle definiert ein Default-Tagesmerkmal mit dem
+        vorgegebenen Bezeichner
+        "husstDefaultermittlung"=("Mo","Di","Mi","Do","Fr","Sa","So","Mo/Feiertag","Di/Feiertag","Mi/Feiertag","Do/Feiertag","Fr/Feiertag","Sa/Feiertag","So/Feiertag")
+        Mit diesem Tagesmerkmal können Tagesarten ausgezeichnet werden, die
+        dann gelten sollen,
+        wenn kein Kalendereintrag gefunden wird. Das Vertriebssystem ermittelt
+        dann aufgrund des Wochentages und der
+        allgemein berechenbaren Feiertage (Einige sind natürlich nicht eindeutig
+        ermittelbar) das husstDefault-Tagesmerkmal
+        und sucht eine Tagesart, für die dieses Merkmal gesetzt ist. Maximal
+        vierzehn Tagesarten können darüber
+        unterschieden werden und keine zwei Tagesarten dürfen eines der Merkmale
+        gemeinsam haben).
+
+        Das Tagesmerkmal "husstDefaultermittlung" muss nicht definiert werden.
+        Wenn eine Datenmenge das Merkmal definiert,
+        darf es nur mit der hier definierten Intension verwendet werden.
+
+        Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter.
+        Eine vorgegebene Behandlung oder
+        Auswertung ist über den HUSST-Standard nicht definiert.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Tagesmerkmal"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Angebot"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tagesmerkmal" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bezeichnungen mit dem Prefix "husst" sind reserviert.
+
+            Die Bezeichnung "husstDefaultermittlung" hat eine definiert Bedeutung
+            (Siehe Tagesmerkmale_Type).
+            Ansonsten kann die Bezeichnung frei vergeben werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TagesmerkmalElemente_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Jedes Tagesmerkmal definiert eine Liste mit
+        unterschiedlichen Tagesmerkmal Elementen.
+        Siehe auch Tagesmerkmale_Type.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_TagesmerkmalElement"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:uniquekey name="Uix_TagesmerkmalElemente">
+          <api:field name="ID_Tagesmerkmal"/>
+          <api:field name="Bezeichnung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:uniquekey>
+        <api:schema name="Angebot"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_TagesmerkmalElement" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Tagesmerkmalelements
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Tagesmerkmal" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="husstDV:String250" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutiger Bezeichner des Tagesartmerkmalelements</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TagesartMerkmalElemente_Type">
+    <xs:annotation>
+      <xs:documentation>
+        TagesartMerkmalElemente vernknüpfen eine Tagesart
+        mit einer Menge von Tagesmerkmal-Elementen.
+
+        Damit beschreibt die Datenmenge lediglich formal die Intension der
+        Tagesart.
+        Lediglich für die Elemente des Tagesmerkmals "husstDefaultermittlung" ist
+        eine funktionale Bedeutung definiert (siehe Tagesmerkmale_Type).
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_TagesartMerkmalElement"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+
+        <api:schema name="Angebot"/>
+
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_TagesartMerkmalElement" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Tagesartmerkmalelements
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Betriebstagesart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung der ID_Betriebstagesart
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TagesmerkmalElement" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Tagesmerkmalelements
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!--Relationen -->
+  <xs:complexType name="Interpretationen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Interpretationen definiert, wie die Daten zu
+        interpretieren sind.
+        Dazu werden Parameter mit einem
+        Schluessel und einem Wert eingetragen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Interpretationsschluessel"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+        <api:schema name="Tarif"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Interpretationsschluessel" type="husstDV:Interpretationsschluessel_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Wert" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Relationscodes_Type">
     <xs:annotation>
       <xs:documentation>
@@ -711,7 +1239,7 @@
       <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationscodegruppen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -736,7 +1264,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="RaeumlicheGueltigkeit_Type">
     <xs:annotation>
       <xs:documentation>
@@ -796,7 +1324,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -858,7 +1386,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Vias_Type">
     <xs:annotation>
       <xs:documentation>
@@ -910,7 +1438,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationszuordnungen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -940,7 +1468,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Teilrelationen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1034,7 +1562,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Nachbarhaltestellen_Type">
     <xs:annotation>
       <xs:documentation>Zur Definition von Kurzstrecken o.ä..(s. ID_Nachbarhaltestellenbeziehung)
@@ -1050,7 +1578,8 @@
           <api:field name="ID_Nachbarhaltestelle"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:uniquekey name="Uix_Nachbarhaltestellen">
+        <api:uniquekey
+          name="Uix_Nachbarhaltestellen">
           <api:field name="ID_OrtspunktVon"/>
           <api:field name="ID_OrtspunktNach"/>
           <api:field name="ID_Zeitraum"/>
@@ -1078,7 +1607,8 @@
           <xs:documentation>Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Nachbarhaltestellenbeziehung" type="husstDV:ID_Nachbarhaltestellenbeziehung_Type" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Nachbarhaltestellenbeziehung"
+                  type="husstDV:ID_Nachbarhaltestellenbeziehung_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Art der Nachbarbeziehung.</xs:documentation>
         </xs:annotation>
@@ -1115,15 +1645,17 @@
           <xs:documentation>Gibt den Wert an vom Typ des Zahlgrenzentyps.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Zahlgrenzentyp" type="husstDV:ID_Zahlgrenzentyp_Type" maxOccurs="1" minOccurs="0">
+      <xs:element name="ID_Zahlgrenzentyp" type="husstDV:ID_Zahlgrenzentyp_Type" maxOccurs="1"
+                  minOccurs="0">
         <xs:annotation>
           <xs:documentation>Gibt den Typ an, der die Zahlgrenzen definiert.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded"
+                  minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefZahlgrenzentyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1149,7 +1681,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_Zahlgrenzentyp_Type">
     <xs:annotation>
       <xs:documentation>Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl
@@ -1158,7 +1690,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlgrenzentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_ZahlgrenzentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000</xs:documentation>
@@ -1181,7 +1713,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:complexType name="Preisstufendirektwahl_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1259,9 +1791,8 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!--Produkte -->
-  
   <xs:complexType name="Preisspalten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1321,7 +1852,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Preisstufen_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1373,7 +1904,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="SortenTarifarten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1408,7 +1939,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Sorten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1596,7 +2127,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Zusatzsorten_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1690,7 +2221,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Preise_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1823,7 +2354,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="PreisstufenErmittlungen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1837,14 +2368,14 @@
         wird die Anzahl der Schritte aufgerundet auf ganze Werte mal den Preis gerechnet.
 
         Bsp.: Einheit Minuten, Von 0, Bis 90, Schritt 5, ID_Preisstufe 1
-        =&gt; Wenn 32 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 1 7x berechnet.
+        => Wenn 32 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 1 7x berechnet.
 
         Bsp. 2: Einheit Minuten, Von 90, Bis 180, Schritt 10, ID_Preisstufe 2
-        =&gt; Wenn 117 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 2 3x berechnet.
+        => Wenn 117 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 2 3x berechnet.
         Zusätzlich sind für den Zeitraum von 0 bis 90 Minuten weitere Preisstufen zu ermitteln. (z.B. aus Beispiel 1 die ID_Preisstufe 1 18x)
 
         Bsp. 3: Einheit Kilometer, Von 0, Bis 100, Schritt 100, ID_Preisstufe 3
-        =&gt; Wenn 5 Kilometer berechnet werden sollen, wird der Preis der ID_Preisstufe 3 1x berechnet.
+        => Wenn 5 Kilometer berechnet werden sollen, wird der Preis der ID_Preisstufe 3 1x berechnet.
         So kann ID_Preisstufe 3 allgemein nur 1x berechnet werden, da Schritt = Bis - Von ist.
       </xs:documentation>
 
@@ -1877,7 +2408,7 @@
         <xs:annotation>
           <xs:documentation>
             Schritt darf nicht größer als Bis - Von sein.
-            Schritt muss ein Teiler von Bis - Von sein =&gt; (Bis - Von) Modulo Schritt = 0.
+            Schritt muss ein Teiler von Bis - Von sein => (Bis - Von) Modulo Schritt = 0.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1892,7 +2423,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="SortengruppenErmittlungen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1960,11 +2491,11 @@
             - StartVon = 00:00 Uhr, StartBis = 24:00 Uhr, DauerMax = 144h, SortOrder = 3, ID_Sortengruppe = 3
 
             Bsp 1: Nutzung von 01.01. 15:00 Uhr bis 03.01. 06:00 Uhr, Nutzungsdauer 39h
-            =&gt; ID_Sortengruppe 1 und 2 treten abwechselnd in Kraft, da diese Beiden durch die Sortorder bevorzugt werden
+            => ID_Sortengruppe 1 und 2 treten abwechselnd in Kraft, da diese Beiden durch die Sortorder bevorzugt werden
             und den gesamten Nutzungszeitraum abdecken wird der 3. Datensatz nicht betrachtet.
 
             Bsp 2: Nutzung von 01.01. 15:00 Uhr bis 05.01. 06:00 Uhr, Nutzungsdauer 63h
-            =&gt; ID_Sortengruppe 1 und 2 sind durch DauerMax ausgeschlossen -&gt; ID_Sortengruppe 3 tritt in Kraft
+            => ID_Sortengruppe 1 und 2 sind durch DauerMax ausgeschlossen -> ID_Sortengruppe 3 tritt in Kraft
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -1979,10 +2510,10 @@
             - StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, Ueberhang = 2h, SortOrder = 2, ID_Sortengruppe = 2
 
             Bsp 1: Nutzung von 01.01. 05:00 Uhr bis 01.01. 08:00 Uhr
-            =&gt; ID_Sortengruppe 2 tritt in Kraft, da die 2h nach 07:00 Uhr nicht überschritten wurden.
+            => ID_Sortengruppe 2 tritt in Kraft, da die 2h nach 07:00 Uhr nicht überschritten wurden.
 
             Bsp 2: Nutzung von 01.01. 05:00 Uhr bis 01.01. 10:00 Uhr
-            =&gt; ID_Sortengruppe 2 tritt bis 07:00 Uhr in Kraft, da die 2h überschritten wurden. Ab 07:00 Uhr gilt ID_Sortengruppe 1.
+            => ID_Sortengruppe 2 tritt bis 07:00 Uhr in Kraft, da die 2h überschritten wurden. Ab 07:00 Uhr gilt ID_Sortengruppe 1.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2005,9 +2536,8 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!--Netz -->
-  
   <xs:complexType name="OrtspunkteTG_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2075,7 +2605,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="OrtspunkteKA_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2122,7 +2652,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Ortspunkte_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2220,7 +2750,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Linien_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2267,7 +2797,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Wege_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2301,7 +2831,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Wegpositionen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2350,7 +2880,20 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
+  <!--Hilfstabellen -->
+  <xs:simpleType name="ID_Projektspezifisch_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Frei definierbare IDs für Def-Elemente beginnen mit 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:minInclusive value="1000"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="ID_ProjektspezifischBitfeld_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2361,7 +2904,31 @@
       <xs:minInclusive value="1024"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
+  <xs:simpleType name="ID_WaehrungHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert Waehrungs-ID kleiner 1000
+        Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
+        Außer für den EUR. Hier ist in der HUSST die 999 definiert.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="999"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ID_Waehrung_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_WaehrungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
   <xs:simpleType name="ID_SortentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2482,7 +3049,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2492,7 +3059,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_TarifpunkttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert Tarifpunkttypen kleiner 1000</xs:documentation>
@@ -2530,7 +3097,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Tarifpunkttyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2540,7 +3107,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_TarifpunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_OrtspunkttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert Ortspunkttypen kleiner 1000</xs:documentation>
@@ -2568,7 +3135,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Ortspunkttyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2578,7 +3145,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OrtspunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_OTPTypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2592,7 +3159,7 @@
             Standort
 
             Zu jedem Tarifrelevantenpunkt vom OTPTyp Standort muss es einen eindeutigen Ortspunkt geben. (Über ID_Ortspunkt verwiesen)
-            =&gt; Es darf kein Ortspunkt mit 2 oder mehr verwiesenden Tarifrelevantenpunkten vom OTPTyp Standort geben.
+            => Es darf kein Ortspunkt mit 2 oder mehr verwiesenden Tarifrelevantenpunkten vom OTPTyp Standort geben.
 
             Über diesen Ortspunkt ist der Standort eines Vertriebsgerätes synchronisierbar. Z.B. über seine IBISnr oder ReferenzExtern
           </xs:documentation>
@@ -2610,7 +3177,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_OTPTyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2620,7 +3187,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OTPTypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_PreisquelleHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2632,7 +3199,7 @@
       <xs:maxExclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Preisquelle_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2642,7 +3209,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisquelleHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_PreisspaltentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Preisspaltentyp kleiner 1000</xs:documentation>
@@ -2655,7 +3222,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Preisspaltentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2665,7 +3232,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisspaltentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_RelcodegruppentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Relcodegruppentyp kleiner 1000</xs:documentation>
@@ -2683,7 +3250,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Relcodegruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2693,7 +3260,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelcodegruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_SortengruppentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2751,7 +3318,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortengruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2761,7 +3328,84 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
+  <xs:simpleType name="InterpretationsschluesselHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="husst.Relationen.Matrixtyp">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, wie die Relationenmatrix zu interpretieren ist.
+            mögliche Matrixtypen sind
+            "Vollmatrix" : Jede Verbindung ist in jeder erlaubten Richtung in der Relationenmatrix hinterlegt.
+            "Halbmatrix" : Zu jeder möglichen Verbindung ist nur die Variante ID_RelcodeStart größer gleich ID_RelcodeZiel hinterlegt, die umgekehrte Richtung ist dazu identisch.
+            "erweitert Halbmatrix" : Die Relationen werden im Regelfall mit ID_RelcodeStart größer gleich ID_RelcodeZiel definiert, es kann aber auch die Rückrichtung definiert
+            sein,
+            dann muss das Flag GegenrichtungLiegtVor auf true gesetzt werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="husst.Relationen.Suchstrategie">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, wie die Ermittlung einer Verkaufsverbindung erfolgen soll.
+            Ist der Schlüssel nicht definiert, wird über ID_RelcodeStart und ID_RelcodeZiel in den Relationen nach einer oder mehreren Verbindungen gesucht.
+            mögliche Suchstrategien sind
+            "NbHstSuche + RCSuche" : Suchstrategie für die Relationsermittlung: Nachbarhaltestellensuche zusätzlich zur Relationscodesuche.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="husst.Teilrelationen.Matrixpreisbildung">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, wie die Preisbildung aus den Teilrelationen erfolgen soll.
+            Ist der Schlüssel nicht definiert, wird der Preis anhand der ID_Preisstufe der ersten Teilrelation ermittelt.
+            mögliche Matrixpreisbildungen sind
+            "Anstoß_CH" : Wenn nur eine Teilrelation exisitiert, dann wie beim Standardfall.
+            Sonst: Preisstufenattribute werden von der Preisstufe der ersten Teilrelation verwendet.
+            Der Preis wird nach einer eigenen CH-Logik aus den weiteren Teilrelationen berechnet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InterpretationsschluesselProjektspezifisch_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Für projektspezifische Zwecke oder zum Test
+        können eigene Namen für Interpretationsschluessel verwendet werden.
+
+        Namensregeln:
+        Eigene Namen ..
+        .. dürfen nicht mit 'husst.' beginnen,
+        .. dürfen nicht mit einer Zahl beginnen,
+        .. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten
+        .. müssen mit einem Wort beginnen,
+        .. dürfen mehrere Wörter mit '.' oder '-' trennen,
+        .. dürfen nicht mit einem Punkt enden.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*"/>
+      <!-- 				value="(((h|H)[^(u|U)])|(h|H)(u|U)[^(s|S)]|(h|H)(u|U)(s|S)[^(s|S)]|(h|H)(u|U)(s|S)(s|S)[^(t|T)]|(h|H)(u|U)(s|S)(s|S)(t|T)[^\.]|[a-gi-zA-ZöäüÖÄÜß0-9])((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+" /> -->
+      <!-- Leider untersützt xsd keinen negativen Forcast (?!husst\.), das
+				macht den Ausdruck unnötig kompliziert. <pattern value="(?!husst\.)((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+"/> -->
+
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Interpretationsschluessel_Type">
+    <xs:annotation>
+      <xs:documentation>Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:InterpretationsschluesselHUSST_Type husstDV:InterpretationsschluesselProjektspezifisch_Type"/>
+  </xs:simpleType>
+
   <xs:complexType name="DefTarifpunkttyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2792,7 +3436,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefSortentyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2824,7 +3468,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefSortengruppentyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2845,7 +3489,80 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
+  <xs:complexType name="DefWaehrung_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Waehrung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Tarif"/>
+      </xs:appinfo>
+      <xs:documentation>Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Waehrung" type="husstDV:ID_Waehrung_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            ISO-Kurzbezeichnung z.B. EUR, USD, CHF,...
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Updateinfo_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Dokumentation von Updatevorgängen über der zunächst
+        generierten Datenmenge
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Updatetime"/>
+          <api:field name="Filename"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Updatetime" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Zeitpunkt des Updatevorgangs
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Filename" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filename des Updatescripts oder Bezeichnung des Updatevorgangs
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Purpose" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Hinweis zum Zweck des Updatevorgangs
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Mwst_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2896,7 +3613,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefPreisspaltentyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2944,7 +3661,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefFahrgasttyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2977,7 +3694,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_FahrgasttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3058,7 +3775,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Fahrgasttyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3068,7 +3785,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_FahrgasttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefKomfortklasse_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3101,7 +3818,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_KomfortklasseHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3127,7 +3844,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Komfortklasse_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3137,7 +3854,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_KomfortklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefRabattklasse_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3147,7 +3864,7 @@
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen wird.</xs:documentation>
+      <xs:documentation>Definiert die Rabattklasse, z.B. &quot;BahnCard50 1.Kl.&quot;, auf die in Sorten verweisen wird.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -3174,7 +3891,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_RabattklasseHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3249,7 +3966,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Rabattklasse_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3259,7 +3976,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RabattklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefPreisfindung_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3285,7 +4002,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_PreisfindungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3343,7 +4060,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Preisfindung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3353,7 +4070,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisfindungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefSortenausgaberegelung_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3381,7 +4098,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_SortenausgaberegelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3634,7 +4351,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortenausgaberegelung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3643,7 +4360,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortenausgaberegelungHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefSortendruckregelung_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3669,7 +4386,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_SortendruckregelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3702,7 +4419,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortendruckregelung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3712,7 +4429,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefReisetyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3749,7 +4466,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_ReisetypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3779,7 +4496,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Reisetyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3789,7 +4506,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ReisetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefNachbarhaltestellenbeziehung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3822,7 +4539,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_NachbarhaltestellenbeziehungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3846,7 +4563,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Nachbarhaltestellenbeziehung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3856,7 +4573,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_NachbarhaltestellenbeziehungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefVertriebswege_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3864,6 +4581,7 @@
           <api:field name="ID_Vertriebswege"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:schema name="Tarif"/>
         <api:schema name="Angebot"/>
       </xs:appinfo>
       <xs:documentation>
@@ -3889,7 +4607,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_VertriebswegeHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3904,7 +4622,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Vertriebswege_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3913,7 +4631,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_VertriebswegeHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="Vorverkauf_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3924,7 +4642,7 @@
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="Umschalttag_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3935,7 +4653,7 @@
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="GueltigkeitszeitRegeln_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3961,7 +4679,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefZahlungsarten_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3987,7 +4705,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_Zahlungsarten_Type">
     <xs:annotation>
       <xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
@@ -3995,7 +4713,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlungsartenHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_ZahlungsartenHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4120,7 +4838,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:complexType name="Tarifarten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4156,7 +4874,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefRelationscodegruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4178,7 +4896,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefOrtspunkttyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4200,7 +4918,59 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
+  <xs:complexType name="VersionInhalt_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="DatenversionInhalt"/>
+          <api:field name="Erstellungsdatum"/>
+          <api:field name="Lieferant"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+      <xs:documentation>Eine Datenlieferung enthält einen Datensatz VersionInhalt.
+        Dieser definiert, welche Datenversion die komplette Husstlieferung besitzt.
+        Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unterscheiden.
+        Über die Registrierung Der DatenversionInhalt können Verkaufsdaten ihrer exakten Versorgungsdatenlieferung zugewordnet werden.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+
+      <xs:element name="DatenversionInhalt" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutige Versionskennung für die gesamte Datenlieferung.
+            In der gesamten Datenlieferung darf dieses Element nur einmal vorkommen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Testdaten" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lieferant" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Kommentar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Bearbeitung_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Bearbeitungsdatum"/>
+          <api:field name="Lieferant"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Bearbeitungsdatum" type="husstDV:DateTimeCompact" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lieferant" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Kommentar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="Tarifrelevantepunkte_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4266,7 +5036,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Bediengebiete_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4291,7 +5061,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefOTPTyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4315,7 +5085,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Sortengruppen_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4356,7 +5126,160 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
+  <xs:complexType name="VersionStruktur_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="VersionMajor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="3">
+        <xs:annotation>
+          <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="4">
+        <xs:annotation>
+          <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="1">
+        <xs:annotation>
+          <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-02-06" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DefBundesland_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert einen Gliedstaat (in Deutschland: Bundesland).
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Bundesland"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Iso" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Für Deutschland: die letzten zwei Stellen des ISO
+            3166-2 Codes für Gliedstaaten.
+            DE-BW Baden-Württemberg also: BW
+            DE-BY Bayern also: BY
+            DE-BE Berlin also: BE
+            DE-BB Brandenburg also: BB
+            DE-HB Bremen also: HB
+            DE-HH Hamburg also: HH
+            DE-HE Hessen also: HE
+            DE-MV Mecklenburg-Vorpommern also: MV
+            DE-NI Niedersachsen also: NI
+            DE-NW Nordrhein-Westfalen also: NW
+            DE-RP Rheinland-Pfalz also: RP
+            DE-SL Saarland also: SL
+            DE-SN Sachsen also: SN
+            DE-ST Sachsen-Anhalt also: ST
+            DE-SH Schleswig-Holstein also: SH
+            DE-TH Thüringen also: TH
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Name des Bundeslandes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Feiertage_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Feiertag"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:uniquekey name="Uix_Feiertage">
+          <api:field name="Datum"/>
+          <api:field name="ID_Bundesland"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:uniquekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Feiertag" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Datum" type="husstDV:DateCompact" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Unternehmen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Unternehmen"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+      <xs:documentation>Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem eine Rolle übernehmen.
+        Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre Mandant Eigenschaft angezeigt werden.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Unternehmen" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Mandant" type="xs:boolean" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            True, wenn das Unternehmen als Mandant im System geführt
+            wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" maxOccurs="1" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um Unternehmen über eine nicht numerische
+            Referenz ggf. auch bezogen auf Drittsysteme identifizieren
+            zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:complexType name="DefPreisquelle_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4392,7 +5315,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefRelationenberechnungsregelung_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4416,7 +5339,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefRelationendruckregelung_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4439,7 +5362,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefErmittlungseinheit_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4471,7 +5394,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_ErmittlungseinheitHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4495,7 +5418,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Ermittlungseinheit_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4505,7 +5428,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ErmittlungseinheitHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefStreckenart_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4537,7 +5460,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_StreckenartHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4568,7 +5491,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Streckenart_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4578,7 +5501,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_StreckenartHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefStreckencodetyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4610,7 +5533,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_StreckencodetypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4641,7 +5564,7 @@
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Streckencodetyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4651,7 +5574,7 @@
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_StreckencodetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="Strecke_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4703,7 +5626,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Streckencode_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4741,7 +5664,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="OrtspunktStreckencode_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4778,7 +5701,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Streckenzuordnung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4808,7 +5731,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Gleichstellungstyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4838,7 +5761,7 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="GleichstellungTarifart_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4868,7 +5791,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Gleichstellung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4902,153 +5825,107 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!--Ende Tabellen -->
-  
+
   <!--Allgemein -->
-  
+  <xs:element name="VersionInhalt" type="husstDV:VersionInhalt_Type"/>
+  <xs:element name="Bearbeitung" type="husstDV:Bearbeitung_Type"/>
+  <xs:element name="DefBundeslaender" type="husstDV:DefBundesland_Type"/>
   <xs:element name="Tarifgebiete" type="husstDV:Tarifgebiete_Type"/>
-  
   <xs:element name="Tarifpunkte" type="husstDV:Tarifpunkte_Type"/>
-  
   <xs:element name="TarifpunktmengeElemente" type="husstDV:TarifpunktmengeElemente_Type"/>
-  
   <xs:element name="Tarifpunktmengen" type="husstDV:Tarifpunktmengen_Type"/>
-  
+  <xs:element name="Zeitraeume" type="husstDV:Zeitraeume_Type"/>
+  <xs:element name="Zeitraumoptionen" type="husstDV:Zeitraumoptionen_Type"/>
+  <xs:element name="Kalender" type="husstDV:Kalender_Type"/>
+  <xs:element name="Tagesarten" type="husstDV:Tagesarten_Type"/>
+  <xs:element name="Tagesmerkmale" type="husstDV:Tagesmerkmale_Type"/>
+  <xs:element name="TagesmerkmalElemente" type="husstDV:TagesmerkmalElemente_Type"/>
+  <xs:element name="TagesartMerkmalElemente" type="husstDV:TagesartMerkmalElemente_Type"/>
+  <xs:element name="Feiertage" type="husstDV:Feiertage_Type"/>
+  <xs:element name="Unternehmen" type="husstDV:Unternehmen_Type"/>
+
   <!--Relationen -->
-  
+  <xs:element name="Interpretationen" type="husstDV:Interpretationen_Type"/>
   <xs:element name="RaeumlicheGueltigkeit" type="husstDV:RaeumlicheGueltigkeit_Type"/>
-  
   <xs:element name="Relationscodes" type="husstDV:Relationscodes_Type"/>
-  
   <xs:element name="Relationscodegruppen" type="husstDV:Relationscodegruppen_Type"/>
-  
   <xs:element name="Relationen" type="husstDV:Relationen_Type"/>
-  
   <xs:element name="Vias" type="husstDV:Vias_Type"/>
-  
   <xs:element name="Teilrelationen" type="husstDV:Teilrelationen_Type"/>
-  
   <xs:element name="Nachbarhaltestellen" type="husstDV:Nachbarhaltestellen_Type"/>
-  
   <xs:element name="DefZahlgrenzentyp" type="husstDV:DefZahlgrenzentyp_Type"/>
-  
   <xs:element name="Preisstufendirektwahl" type="husstDV:Preisstufendirektwahl_Type"/>
-  
+
   <!--Produkte -->
-  
   <xs:element name="Preisspalten" type="husstDV:Preisspalten_Type"/>
-  
   <xs:element name="Preisstufen" type="husstDV:Preisstufen_Type"/>
-  
   <xs:element name="SortenTarifarten" type="husstDV:SortenTarifarten_Type"/>
-  
   <xs:element name="Sorten" type="husstDV:Sorten_Type"/>
-  
   <xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type"/>
-  
   <xs:element name="Preise" type="husstDV:Preise_Type"/>
-  
   <xs:element name="GueltigkeitszeitRegeln" type="husstDV:GueltigkeitszeitRegeln_Type"/>
-  
   <xs:element name="PreisstufenErmittlungen" type="husstDV:PreisstufenErmittlungen_Type"/>
-  
   <xs:element name="SortengruppenErmittlungen" type="husstDV:SortengruppenErmittlungen_Type"/>
-  
+
   <!--Netz -->
-  
   <xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type"/>
-  
   <xs:element name="OrtspunkteKA" type="husstDV:OrtspunkteKA_Type"/>
-  
   <xs:element name="Ortspunkte" type="husstDV:Ortspunkte_Type"/>
-  
   <xs:element name="Tarifrelevantepunkte" type="husstDV:Tarifrelevantepunkte_Type"/>
-  
   <xs:element name="Bediengebiete" type="husstDV:Bediengebiete_Type"/>
-  
   <xs:element name="Linien" type="husstDV:Linien_Type"/>
-  
   <xs:element name="Wege" type="husstDV:Wege_Type"/>
-  
   <xs:element name="Wegpositionen" type="husstDV:Wegpositionen_Type"/>
-  
+
   <!--Hilfs -->
-  
   <xs:element name="DefTarifpunkttypen" type="husstDV:DefTarifpunkttyp_Type"/>
-  
   <xs:element name="DefSortentypen" type="husstDV:DefSortentyp_Type"/>
-  
+  <xs:element name="DefWaehrungen" type="husstDV:DefWaehrung_Type"/>
   <xs:element name="Mwst" type="husstDV:Mwst_Type"/>
-  
   <xs:element name="DefPreisspaltentypen" type="husstDV:DefPreisspaltentyp_Type"/>
-  
   <xs:element name="Tarifarten" type="husstDV:Tarifarten_Type"/>
-  
   <xs:element name="DefPreisquellen" type="husstDV:DefPreisquelle_Type"/>
-  
   <xs:element name="DefRelationenberechnungsregelungen" type="husstDV:DefRelationenberechnungsregelung_Type"/>
-  
   <xs:element name="DefRelationendruckregelungen" type="husstDV:DefRelationendruckregelung_Type"/>
-  
   <xs:element name="DefRelationscodegruppentypen" type="husstDV:DefRelationscodegruppentyp_Type"/>
-  
   <xs:element name="DefOrtspunkttypen" type="husstDV:DefOrtspunkttyp_Type"/>
-  
+
   <xs:element name="DefOTPTypen" type="husstDV:DefOTPTyp_Type"/>
-  
   <xs:element name="DefSortengruppentypen" type="husstDV:DefSortengruppentyp_Type"/>
-  
   <xs:element name="Sortengruppen" type="husstDV:Sortengruppen_Type"/>
-  
   <xs:element name="SortengruppenElemente" type="husstDV:SortengruppenElemente_Type"/>
-  
+  <xs:element name="VersionStruktur" type="husstDV:VersionStruktur_Type"/>
   <xs:element name="DefFahrgasttypen" type="husstDV:DefFahrgasttyp_Type"/>
-  
   <xs:element name="DefKomfortklassen" type="husstDV:DefKomfortklasse_Type"/>
-  
   <xs:element name="DefNachbarhaltestellenbeziehungen" type="husstDV:DefNachbarhaltestellenbeziehung_Type"/>
-  
   <xs:element name="DefPreisfindungen" type="husstDV:DefPreisfindung_Type"/>
-  
   <xs:element name="DefRabattklassen" type="husstDV:DefRabattklasse_Type"/>
-  
   <xs:element name="DefReisetypen" type="husstDV:DefReisetyp_Type"/>
-  
   <xs:element name="DefSortenausgaberegelungen" type="husstDV:DefSortenausgaberegelung_Type"/>
-  
   <xs:element name="DefSortendruckregelungen" type="husstDV:DefSortendruckregelung_Type"/>
-  
   <xs:element name="DefVertriebswege" type="husstDV:DefVertriebswege_Type"/>
-  
   <xs:element name="DefZahlungsarten" type="husstDV:DefZahlungsarten_Type"/>
-  
   <xs:element name="DefErmittlungseinheit" type="husstDV:DefErmittlungseinheit_Type"/>
-  
   <xs:element name="Relationszuordnungen" type="husstDV:Relationszuordnungen_Type"/>
-  
+
   <xs:element name="DefStreckenart" type="husstDV:DefStreckenart_Type"/>
-  
   <xs:element name="DefStreckencodetyp" type="husstDV:DefStreckencodetyp_Type"/>
-  
+
   <xs:element name="Strecke" type="husstDV:Strecke_Type"/>
-  
   <xs:element name="Streckencode" type="husstDV:Streckencode_Type"/>
-  
   <xs:element name="OrtspunktStreckencode" type="husstDV:OrtspunktStreckencode_Type"/>
-  
   <xs:element name="Streckenzuordnung" type="husstDV:Streckenzuordnung_Type"/>
-  
   <xs:element name="Gleichstellungstyp" type="husstDV:Gleichstellungstyp_Type"/>
-  
   <xs:element name="GleichstellungTarifart" type="husstDV:GleichstellungTarifart_Type"/>
-  
   <xs:element name="Gleichstellung" type="husstDV:Gleichstellung_Type"/>
-  
+
+  <xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
+
   <!--Wurzel -->
-  
   <xs:element name="OePVTarifDB" type="husstDV:OePVTarifDB_Type"/>
-  
+
   <xs:complexType name="OePVTarifDB_Type">
     <xs:choice maxOccurs="unbounded">
       <xs:element ref="husstDV:DefFahrgasttypen"/>
@@ -5134,7 +6011,395 @@
       <xs:element ref="husstDV:Zusatzsorten"/>
     </xs:choice>
   </xs:complexType>
-  
+
+  <xs:complexType name="DynAttributDef_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definition der dynamischen Attribute, die in dieser
+        Datenmenge verwendet werden.
+
+        Dynamische Attribute ergänzen einen
+        Datentyp um weitere
+        Eigenschaften. Jedem Datensatz kann für seinen
+        eindeutigen Datensatzschlüssel (ID_[Typname]
+        , z.B. ID_Sorte), der
+        Tabellennummer und der ID
+        einer dynamischen Attribut-Definition ein
+        konkreter
+        Wert für diese Eigenschaft hinterlegt werden.
+
+        Da die AttributDef-Struktur ausschließlich der Interpretation der
+        Daten innerhalb der abgeschlossenen Datenlieferung dient, benötigt
+        sie weder eine deaktiviert Kennung noch eine Referenz auf einen
+        spezifischen Zeitraum innerhalb der Datenmenge.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_DynAttributDef"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenznummer der dynamischen Attributdefinition.
+            Die Nummer hat nur innerhalb der Datenmenge eine Bedeutung und kann
+            nicht als persistent vorausgesetzt werden.
+          </xs:documentation>
+          <xs:appinfo>
+
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Interner Name des dynamischen Attributs. Die
+            möglichen Namen dynamischer Attribute werden bei krauth technology
+            zentral verwaltet. Dabei werden, wenn vorhanden, die in der offen
+            Husst-Schnittstelle abgestimmten Definitionen einbezogen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttributTyp" type="husstDV:DynAttributTyp_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Der Datentyp der konkreten Daten die unter der
+            ID_DynAttributDef in der Datenmenge DynAttribut_Type im Feld Wert
+            als String-Information abgelegt ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="DynAttributTyp_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die Werte eines dynamischen Attributes werden als
+        String
+        abgelegt. Wie dieser zu verstehen ist, wird durch den
+        DynAttributTyp definiert.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="int">
+        <xs:annotation>
+          <xs:documentation>vorzeichenbehaftete Ganzzahl</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="bool">
+        <xs:annotation>
+          <xs:documentation>
+            logischer Wert, Wertebereich "0" für false oder
+            "1" für true
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="string">
+        <xs:annotation>
+          <xs:documentation>Zeichenkette</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="datetime">
+        <xs:annotation>
+          <xs:documentation>
+            Zeitpunkt (Datum/Uhrzeit) nach ISO8601 -
+            (Beispiel: 2014-06-10T07:46+02:00, eine Angabe ohne die Abweichung
+            von der UTC-Zeit ist auch zulässig)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="hex">
+        <xs:annotation>
+          <xs:documentation>
+            hexadezimal codierter Datenstring - zulässige
+            Zeichen: '0'-'9', 'a'-'f', 'A'-'F'. Niederwertiges Byte zuerst,
+            höherwertiges Halb-Byte zuerst.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="id_sprachtext">
+        <xs:annotation>
+          <xs:documentation>
+            vorzeichenlose Ganzzahl, Verweis auf
+            ID_Sprachtext in der Tabelle Sprachtexte, einen möglicherweise
+            mehrsprachig hinterlegten Text
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="DynAttributWert_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die Tabelle enthält den Wert eines dynamischen Attributs.
+
+        Die Werte der dynamischen Attribute sind an die ID eines Datensatzes
+        und damit auch an die ID eines konkreten Zeitraumes gekoppelt.
+        Deshalb wird die Eigenschaft ID_Zeitraum benötigt. Bezieht sich ein
+        dynamisches Attribut auf eine Tabellennummer, deren Struktur selbst
+        keine ID_Zeitraum Eigenschaft besitzt (z.B. Inhalt_Type), dann
+        bleibt ID_Zeitraum leer.
+
+        Anders verhält es sich mit der Deaktiviert Eigenschaft. Diese bezieht sich
+        explizit auf den gesamten Datensatz einer Datenstruktur. Formal wäre
+        dies für die DynAttributWert Tabelle verwendbar. Allerdings bildet
+        ein Eintrag in der DynAttributWert Tabelle nur ein Attribut
+        innerhalb eines Datensatzes einer anderen Struktur ab. Diese andere
+        Struktur besitzt den Deaktiviert Mechanismus für ihren Datensatz und
+        damit auch für alle dynamischen Attribute, die an diesem Datensatz
+        hängen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Zeitraum"/>
+          <api:field name="ID_DynAttributDef"/>
+          <api:field name="Tabellennummer"/>
+          <api:field name="ID_DatensatzRef"/>
+          <api:field name="Lang"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenznummer der dynamischen Attributdefinition.
+            Die Nummer hat nur innerhalb der Datenmenge eine Bedeutung und kann
+            nicht als persistent vorausgesetzt werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Tabellennummer" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutige Nummer der referenzierten
+            Datenstruktur. Neben dem eindeutigen Namen jedes
+            Datentyps (z.B. Tarifgebiet für
+            Tarifgebiet_Type) der aus dem Typnamen
+            regelbasiert abgeleitet wird, erhält jeder Typ
+            eine eindeutige Tabellennummer. Damit muss nicht
+            bei jeder Datenmenge eine numerische ID für
+            jeden Datentyp abgelegt werden. Andererseits
+            kann bei Referenzen wie DynAttributWert die
+            Tabellennummer viel effizienter als
+            Schlüsselwert verwendet werden, als ein
+            entsprechender Name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_DatensatzRef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutiger Datensatzschlüssel (ID_[Typname])
+            des Datensatzes, für den dieses dynamische
+            Attribut definiert ist. Der Datensatz ist in der
+            Datenstruktur zu finden, die mit Tabellennummer
+            eindeutig beschrieben ist und ist zusammen mit
+            ID_Zeitraum eindeutig zu ermitteln.
+
+            Warnung! Datenstrukturen, die keine eindeutige
+            Datensatz-ID mitführen, können keine dynamischen
+            Attribute haben (z.B. Teilrelationen_Type).
+            Zuvor müssten diese Strukturen um ein
+            ID_[Typname])-Feld erweitert werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Lang" type="husstDV:Lang_Type" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>optionale Sprachkennung des Wertes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Wert" type="husstDV:blobString" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Sprachtexte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Für sprachalternative Texte wird statt ihres Textes eine
+        ID_Sprachtext als Verweis auf die neue Tabelle
+        Sprachtexte hinterlegt. Über ID_Sprachtext und der genau
+        zwei Zeichen langen Sprachkennung kann dann der Text in
+        der Tabelle Sprachtexte ermittelt werden.
+
+        Sprachtexte_Type bietet die Möglichkeit, identische Text-Bundle über die gleiche
+        Menge an Sprachkennungen nur einmal in der Datenbank abzulegen und
+        damit das Datenvolumen der Gesamtdatenmenge zu reduzieren. Würde der
+        eigentliche Text selbst noch über eine weitere Referenzstufe sprach-
+        und bedeutungslos in einer Texttabelle hinterlegt, wäre die
+        Einsparung vermutlich einfacher zu realisieren und in der Summer
+        vermutlich größer.
+
+        Sprachtexte sind innerhalb des Datenpaketes
+        allgemeingültig definiert und sind nicht über eine
+        ID_Zeitraum-Eigenschaft versioniert. Ihre IDs sind nicht
+        persistent denn sie haben nur innerhalb des Datenpaketes
+        eine referenzierende Bedeutung.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Sprachtext"/>
+          <api:field name="Lang"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Sprachtext" type="xs:string" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutiger Schlüssel für den logischen Inhalt
+            des Textes der unter dieser Nummer ggf. in verschiedenen Sprachen
+            abgelegt ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Lang" type="husstDV:Lang_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Sprache, für die der Text abgelegt ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Text" type="xs:string" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Tabelleninfo_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Erweitertert die XML-Sturktur um Informationen über
+        die Abbildung der Daten in ein relationales Datenmodell.
+        Im Wesentlichen dokumentiert die Struktur zur Zeit die fest definierte
+        Beziehung zwischen dem Tabellen-Namen und der persistenten und
+        eindeutigen numerischen Abbildung als Tabellennummer.
+        Außerdem stellt sie den Bezug zum Namen der Xml-Datenstruktur her.
+        Falls künftig noch weitere Strukturinformationen benötigt werden, ist an
+        die Erweiterung des Tabelleninfo_Type zu denken.
+
+        Damit wird die in
+        &lt;xs:annotation&gt;&lt;appinfo&gt;&lt;tablenumber&gt;...
+        definierte Tabellennummer für nachfolgende Prozesse in jeder
+        Datenmenge hinterlegt.
+
+        Die numerische Abbildung einer Struktur wird als Schlüsselelement für
+        den Zugriff auf Datenstrukturen benötigt, deren Elemente sich auf
+        mehrere Elternstrukturen beziehen können.
+        Damit wird es möglichen, diese Beziehung in relationen DBMS performant
+        implementieren zu können. Wegen der spezifischen Verwendung für
+        relationen DBMS wird bewusst der Begriff Tabellennummer verwendet,
+        der ansonsten in der XML-Repräsentation der Daten als Fremdkörper
+        wirkt.
+        Beispiel für die Verwendung ist der DynAttributWert_Type bei dem die
+        Tabellennummer als Attribut im Primärschlüssel der Struktur
+        vorkommt.
+
+        Tabellennummern_Type ist eine Metainformationsstruktur.
+        Für die XML-Repräsentanz der Daten spielt sie keine Rolle und muss dort
+        auch nicht eingetragen werden. In der XML-Dartstellung werden die
+        referenzierten Daten nicht getrennt von ihrer Hauptinformation
+        abgelegt sondern bilden noch eine Einheit.
+        Für die Umwandlung in eine DB-Struktur, die diese Tabellennummern
+        benutzt, ist dagegen zwingend vorgeschrieben, mindestens die
+        Tabellennummern zu dokumentieren, die in den Daten verwendet werden.
+        Die komplette Auflistung der Tabellenmmnern einer Struktur wird für
+        DB-Repräsentationen empfohlen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Tabellennummer"/>
+        </api:primekey>
+        <index name="Idx_Tabinfoname">
+          <field name="Tabellenname"/>
+        </index>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Tabellenname" type="xs:string" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name der Tabelle in einer relationen DB
+            Abbildung dieser Datenstruktur. Zum Beispiel
+            'Sorten' für die Elemente der Sorten_Type
+            Struktur. Er entspricht dem Xml-Attribut "name" der Element-Definition der
+            Struktur in der XML-Datenmenge. Zum Beispiel
+            &lt;xs:element name="Sorten"
+            type="husstDV:Sorten_Type" nillable="true" /&gt;
+            oder auch
+            &lt;xs:element name="SortenTarifarten"
+            type="husstDV:SortenTarifarten_Type" nillable="true" /&gt;
+
+            Die Schreibweise des Names entspricht dem Elementname, der in der
+            Xml-Datenmenge verwendet wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Tabellennummer" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Persistente und eindeutigen numerische
+            Abbildung. Die Tabellennnummer wird in dieser
+            Struktur als
+            &lt;xs:annotation&gt;&lt;appinfo&gt;&lt;tablenumber
+            hinterlegt und gilt als Teil der
+            Strukturdefinition.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Strukturname" type="xs:string" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Name der Xml-Datenstruktur, die von dieser
+            Tabelle abgebildet wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DynAttribut_Subtype">
+    <xs:annotation>
+      <xs:documentation>
+        Der Subtyp DynAttribut_Subtype dient der Definition von
+        dynamischen Attributen als mögliche Erweiterung für die
+        Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für
+        eine Abbildung auf ein relationales Datenbankmodell
+        verwendet.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Wert" type="husstDV:DynAttributWert_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="dtyp" type="husstDV:DynAttributTyp_Type"/>
+  </xs:complexType>
+
+  <xs:complexType name="DynAttributWert_Subtype">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="husstDV:blobString">
+        <xs:attribute name="lang" type="husstDV:Lang_Type"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
   <xs:complexType name="SortengruppenElemente_Type">
     <xs:annotation>
       <xs:documentation>Sorten/Preisstufen Einträge einer Sortengruppe.</xs:documentation>
@@ -5170,4 +6435,11 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  </xs:schema>
+
+  <xs:annotation id="Kopiervorlage">
+    <xs:appinfo>
+      <api:schema name="Basis"/>
+    </xs:appinfo>
+  </xs:annotation>
+
+</xs:schema>
