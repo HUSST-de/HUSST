@@ -1795,8 +1795,10 @@
   <xs:complexType name="Preisspalten_Type">
     <xs:annotation>
       <xs:documentation>
-        Preiszusätze für die Preisfindung
-        (bspw. Rabattierungen)
+        Die Preisspalte definiert die Währung der zugeordneten Preise und ermöglicht Preisvarianten.
+        Verschiedene Preisspalten für die gleiche Sorte, Währung und Preisstufe
+        ermöglichen die Bereitstellung alternativer Preise (z.B. Barzahlung vs. Bezahlung mit Kundenkarte)
+        oder den Ausweis von spezifischen Preisanteilen (z.B. Preisanteil Aufgabenträger).
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -1822,8 +1824,8 @@
       <xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Kennung (Nr) zur systematischen
-            Interpretation (dflt=0)
+            Definiert den Verwendungszweck oder die Herkunft einer Preisspalte.
+            HUSST Standard=1
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -5730,7 +5732,7 @@
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>
-            NE-Haltespunkt
+            NE-Haltepunkt
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
