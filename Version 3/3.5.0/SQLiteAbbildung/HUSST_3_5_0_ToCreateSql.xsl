@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-                xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_1"
+                xmlns:husstDV="http://husst.de/Versorgungsdaten/3_5_0"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:api="http://www.husst.de/Appinfo/3_4_1">
+                xmlns:api="http://www.husst.de/Appinfo/3_5_0">
   <xsl:output method="text" encoding="UTF-8"/>
   <!-- ===============================================================================
   
-    Erzeugt ein SQL Script um eine leere HUSST_Versorgungsdaten_3_4_1 Datenbank 
+    Erzeugt ein SQL Script um eine leere HUSST_Versorgungsdaten_3_5_0 Datenbank 
     zu erstellen.
     
     Autor: Horst Neubauer, krauth technology GmbH, Eberbach

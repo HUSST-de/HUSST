@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:api="http://www.husst.de/Appinfo/3_4_1"
-           targetNamespace="http://www.husst.de/Appinfo/3_4_1"
+           xmlns:api="http://husst.de/Appinfo/3_5_0"
+           targetNamespace="http://husst.de/Appinfo/3_5_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Appinfo
-      Version: 3.4.1
+      Version: 3.5.0
 
       Mehr Informationen:
       - https://husst.de/

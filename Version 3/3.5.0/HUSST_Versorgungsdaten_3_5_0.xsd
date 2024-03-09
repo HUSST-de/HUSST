@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_1"
-           xmlns:api="http://www.husst.de/Appinfo/3_4_1"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_4_1"
-           elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:api="http://husst.de/Appinfo/3_5_0"
+  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_5_0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://husst.de/Versorgungsdaten/3_5_0"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.4.1
+      Version: 3.5.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -86,8 +86,8 @@
 
   <xs:simpleType name="INT4">
   	<xs:restriction base="xs:unsignedInt">
-  		<xs:minInclusive value="0" />
-  		<xs:maxInclusive value="4294967295" />
+  		<xs:minInclusive value="0"/>
+  		<xs:maxInclusive value="4294967295"/>
   	</xs:restriction>
   </xs:simpleType>
 
@@ -2612,7 +2612,7 @@
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_Ortspunkt"/>
+          <api:field name="ID_OrtspunktKA"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Angebot"/>
@@ -2621,13 +2621,22 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_OrtspunktKA" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
+      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenz zum Ortspunkt, den der OrtspunktKA um VDV KA Eigenschaften ergänzt.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="KA_OrtOrgID" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="KA_OrtTyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2694,7 +2703,7 @@
       </xs:element>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="IBISnr" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -3287,6 +3296,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>
+            Verkaufssortengruppe Kombi
+            Diese Sortengruppen fassen Sorten zusammen, die in Kombination angeboten werden können.
+            Die Auswahlsorte soll SortOrder 1 haben.
+            Beispiel:
+            Einfache Fahrt 2. Klasse + Hundeticket + Fahrrad
+            bzw.
+            Hin- und Rückfahrt 2. Klasse + Hundeticket Hin-/Rück + Fahrrad
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation>
@@ -3767,7 +3790,19 @@
           <xs:documentation>Senior</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="30">
+      <xs:enumeration value="64">
+        <xs:annotation>
+          <xs:documentation>ermäßigt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="65">
+        <xs:annotation>
+          <xs:documentation>Fahrrad</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="66">
         <xs:annotation>
           <xs:documentation>Hund</xs:documentation>
         </xs:annotation>
@@ -3822,7 +3857,7 @@
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Komfortklasse kleiner 1000
-        angelehnt an VDV-KA ServiceKlasse
+        angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255)
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3840,7 +3875,12 @@
         <xs:annotation>
           <xs:documentation>2. Klasse</xs:documentation>
         </xs:annotation>
-      </xs:enumeration>
+      </xs:enumeration>      
+      <xs:enumeration value="300">
+        <xs:annotation>
+          <xs:documentation>Übergang von der 2. zur 1. Klasse</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>      
     </xs:restriction>
   </xs:simpleType>
 
@@ -3863,7 +3903,7 @@
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert die Rabattklasse, z.B. &quot;BahnCard50 1.Kl.&quot;, auf die in Sorten verweisen wird.</xs:documentation>
+      <xs:documentation>Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen wird.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -5006,7 +5046,7 @@
       <xs:element name="Bezeichnung" type="xs:string" maxOccurs="1" minOccurs="1"/>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Ortspunkt" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Sortengruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
@@ -5170,7 +5210,7 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Iso" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5213,6 +5253,139 @@
     </xs:sequence>
   </xs:complexType>
 
+  <xs:simpleType name="ID_BundeslandHUSST_Type">
+        <xs:annotation>
+          <xs:documentation>
+            Die HUSST definiert ID_Bundesland kleiner 1000.
+            Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+            analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) 
+            bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind. 
+            
+            Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
+            https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
+            
+            Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) 
+            verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
+             - siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
+          </xs:documentation>
+        </xs:annotation>
+      
+        <xs:restriction base="husstDV:INT4">
+          <xs:enumeration value="0">
+            <xs:annotation>
+              <xs:documentation>unbekannt</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="1">
+            <xs:annotation>
+              <xs:documentation>Schleswig-Holstein (SH)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="2">
+            <xs:annotation>
+              <xs:documentation>Hamburg (HH)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="3">
+            <xs:annotation>
+              <xs:documentation>Niedersachsen (NI)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="4">
+            <xs:annotation>
+              <xs:documentation>Bremen (HB)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="5">
+            <xs:annotation>
+              <xs:documentation>Nordrhein-Westfalen (NW)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="6">
+            <xs:annotation>
+              <xs:documentation>Hessen (HE)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="7">
+            <xs:annotation>
+              <xs:documentation>Rheinland-Pfalz (RP)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="8">
+            <xs:annotation>
+              <xs:documentation>Baden-Württemberg (BW)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="9">
+            <xs:annotation>
+              <xs:documentation>Bayern (BY)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="10">
+            <xs:annotation>
+              <xs:documentation>Saarland (SL)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="11">
+            <xs:annotation>
+              <xs:documentation>Berlin (BE)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="12">
+            <xs:annotation>
+              <xs:documentation>Brandenburg (BB)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="13">
+            <xs:annotation>
+              <xs:documentation>Mecklenburg-Vorpommern (MV)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="14">
+            <xs:annotation>
+              <xs:documentation>Sachsen (SN)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="15">
+            <xs:annotation>
+              <xs:documentation>Sachsen-Anhalt (ST)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        
+          <xs:enumeration value="16">
+            <xs:annotation>
+              <xs:documentation>Thüringen (TH)</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      
+
+  <xs:simpleType name="ID_Bundesland_Type">
+        <xs:annotation>
+          <xs:documentation>
+            Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+            Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+          </xs:documentation>
+        </xs:annotation>
+      <xs:union memberTypes="husstDV:ID_BundeslandHUSST_Type husstDV:ID_Projektspezifisch_Type"/></xs:simpleType>
+      
+
   <xs:complexType name="Feiertage_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -5232,7 +5405,7 @@
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Feiertag" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Datum" type="husstDV:DateCompact" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
@@ -5543,7 +5716,7 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>
-            HAST Hauptanstoßbahnhof
+            AST Anstoßbahnhof
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -5601,6 +5774,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Via" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -6041,7 +6215,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_DynAttributDef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Referenznummer der dynamischen Attributdefinition.
@@ -6167,7 +6341,7 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_DynAttributDef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Referenznummer der dynamischen Attributdefinition.
