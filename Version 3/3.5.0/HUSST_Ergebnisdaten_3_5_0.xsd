@@ -251,7 +251,7 @@
       <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>
-            Eine eindeitige ID dieses EBE-Vorgangs, es
+            Eine eindeutige ID dieses EBE-Vorgangs, es
             könnte bei Verkaufsgeräten die UID sein, bei
             Nacherfassung muss die ID vom Bediener
             versorgt werden.
