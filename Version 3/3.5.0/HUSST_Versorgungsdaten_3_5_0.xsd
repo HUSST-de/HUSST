@@ -5180,18 +5180,18 @@
           <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="4">
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="5">
         <xs:annotation>
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="1">
+      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="0">
         <xs:annotation>
           <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-02-06" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-03-08" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
