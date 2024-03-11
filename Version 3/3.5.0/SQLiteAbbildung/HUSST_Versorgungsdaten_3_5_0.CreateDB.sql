@@ -364,6 +364,7 @@ KA_OrtTyp                          bigint,
 KA_OrtNummer                       bigint,
 ReferenzExtern                     text,
 PRIMARY KEY(ID_OrtspunktKA ASC,ID_Zeitraum ASC));
+CREATE UNIQUE INDEX Uix_OrtspunkteKA ON OrtspunkteKA(ID_Ortspunkt ASC,KA_OrtOrgID ASC,ID_Zeitraum ASC);
 
 CREATE TABLE OrtspunkteTG(
 Deaktiviert                        integer,

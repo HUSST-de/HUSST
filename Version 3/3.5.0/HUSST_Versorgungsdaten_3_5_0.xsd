@@ -2617,6 +2617,11 @@
           <api:field name="ID_OrtspunktKA"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:uniquekey name="Uix_OrtspunkteKA">
+          <api:field name="ID_Ortspunkt"/>
+          <api:field name="KA_OrtOrgID"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:uniquekey>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
