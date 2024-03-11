@@ -116,7 +116,7 @@
   <xs:element name="schema" type="api:schema_Type"/>
   <xs:element name="remarks" type="xs:string">
     <xs:annotation>
-      <xs:documentation>Feld für Hinweise. Z.B. für zukünfitge Versionen.</xs:documentation>
+      <xs:documentation>Feld für Hinweise. Z.B. für zukünftige Versionen.</xs:documentation>
     </xs:annotation>
   </xs:element>
 </xs:schema>
