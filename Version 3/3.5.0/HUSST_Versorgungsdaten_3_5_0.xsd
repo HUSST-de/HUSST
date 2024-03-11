@@ -5261,136 +5261,137 @@
   </xs:complexType>
 
   <xs:simpleType name="ID_BundeslandHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Bundesland kleiner 1000.
+        Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+        analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) 
+        bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind. 
+        
+        Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
+        https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
+        
+        Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) 
+        verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
+         - siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
+      </xs:documentation>
+    </xs:annotation>
+  
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="0">
         <xs:annotation>
-          <xs:documentation>
-            Die HUSST definiert ID_Bundesland kleiner 1000.
-            Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
-            analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) 
-            bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind. 
-            
-            Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
-            https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
-            
-            Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) 
-            verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
-             - siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
-          </xs:documentation>
+          <xs:documentation>unbekannt</xs:documentation>
         </xs:annotation>
-      
-        <xs:restriction base="husstDV:INT4">
-          <xs:enumeration value="0">
-            <xs:annotation>
-              <xs:documentation>unbekannt</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="1">
-            <xs:annotation>
-              <xs:documentation>Schleswig-Holstein (SH)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="2">
-            <xs:annotation>
-              <xs:documentation>Hamburg (HH)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="3">
-            <xs:annotation>
-              <xs:documentation>Niedersachsen (NI)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="4">
-            <xs:annotation>
-              <xs:documentation>Bremen (HB)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="5">
-            <xs:annotation>
-              <xs:documentation>Nordrhein-Westfalen (NW)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="6">
-            <xs:annotation>
-              <xs:documentation>Hessen (HE)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="7">
-            <xs:annotation>
-              <xs:documentation>Rheinland-Pfalz (RP)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="8">
-            <xs:annotation>
-              <xs:documentation>Baden-Württemberg (BW)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="9">
-            <xs:annotation>
-              <xs:documentation>Bayern (BY)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="10">
-            <xs:annotation>
-              <xs:documentation>Saarland (SL)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="11">
-            <xs:annotation>
-              <xs:documentation>Berlin (BE)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="12">
-            <xs:annotation>
-              <xs:documentation>Brandenburg (BB)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="13">
-            <xs:annotation>
-              <xs:documentation>Mecklenburg-Vorpommern (MV)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="14">
-            <xs:annotation>
-              <xs:documentation>Sachsen (SN)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="15">
-            <xs:annotation>
-              <xs:documentation>Sachsen-Anhalt (ST)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        
-          <xs:enumeration value="16">
-            <xs:annotation>
-              <xs:documentation>Thüringen (TH)</xs:documentation>
-            </xs:annotation>
-          </xs:enumeration>
-        </xs:restriction>
-      </xs:simpleType>
+      </xs:enumeration>
+    
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Schleswig-Holstein (SH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Hamburg (HH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Niedersachsen (NI)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Bremen (HB)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>Nordrhein-Westfalen (NW)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>Hessen (HE)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation>Rheinland-Pfalz (RP)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>Baden-Württemberg (BW)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Bayern (BY)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>Saarland (SL)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation>Berlin (BE)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>Brandenburg (BB)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation>Mecklenburg-Vorpommern (MV)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation>Sachsen (SN)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="15">
+        <xs:annotation>
+          <xs:documentation>Sachsen-Anhalt (ST)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation>Thüringen (TH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
       
 
   <xs:simpleType name="ID_Bundesland_Type">
-        <xs:annotation>
-          <xs:documentation>
-            Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
-            Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
-          </xs:documentation>
-        </xs:annotation>
-      <xs:union memberTypes="husstDV:ID_BundeslandHUSST_Type husstDV:ID_Projektspezifisch_Type"/></xs:simpleType>
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_BundeslandHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
       
 
   <xs:complexType name="Feiertage_Type">
