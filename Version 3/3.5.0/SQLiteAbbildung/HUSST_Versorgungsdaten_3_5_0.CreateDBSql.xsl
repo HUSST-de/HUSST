@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
+<xsl:stylesheet version="2.0"
                 xmlns:api="http://husst.de/Appinfo/3_5_0"
+                xmlns:hfn="husst.de/functions"
                 xmlns:husstDV="http://husst.de/Versorgungsdaten/3_5_0"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -16,15 +17,31 @@
   =============================================================================== -->
 
   <!-- ===============================================================================
-    globaler Parameter mit dem aktuellen Datum des Aufrufs der Transformation
+    globale Parameter 
+    
+    aktuelles Datum des Aufrufs der Transformation
+    ***********************************************
+    Name:  current_date
+    Value: ${current_date}       // Beispiel 		
     wird erwartet im Format YYYYMMDD 
-
+    
+    
+    optionale Elemente
+    ******************
+    Name:   optionals
+    Value:  ''              // Default
+    Leerzeichen separierte Liste von optionalen Elementen
+    definiert, welche optionalen Elemente in das Sql-Script generiert werden
+    Zur Zeit nur 
+    'husstEnum': Initial alle husst-Enumerationswerte in die Def-Tabellen eintragen 
+    
     in Eclipse z.B. in der Run Configuration
     In Transformation Parameters einen Parameter hinzufügen (Add Parameter)
-    Name: current_date
-    Value: ${current_date} 		
+    
   =============================================================================== -->
   <xsl:param name="current_date"/>
+  <xsl:param name="optionals" select="''"/>
+
 
   <!-- ===============================================================================
     globale Variable für die Ausgabe eines Zeilenumbruchs 
@@ -483,7 +500,74 @@
     <xsl:text>');</xsl:text>
 
     <xsl:value-of select="$crlf"/>
+    
+  </xsl:template>
 
+  <!-- Liefert den Definitionstyp der Tabelle zu einem Enumerations *HUSST_Type -->
+  <xsl:function name="hfn:EnumTableType">
+    <xsl:param name="node" />
+    <xsl:variable name="value">
+      <xsl:variable name="typename" select="concat('husstDV:', substring-before($node/@name,'HUSST_Type'), '_Type')"/>
+      
+      <xsl:value-of select="$node/parent::xs:*/xs:complexType[xs:*/xs:element[@type=$typename]/@name=xs:annotation/xs:appinfo/api:primekey/api:field/@name]/@name"/>
+    </xsl:variable>
+    <xsl:sequence select="$value"/>
+  </xsl:function>
+
+  <!-- Liefert die Tabelle zu einem Enumerations *HUSST_Type -->
+  <xsl:function name="hfn:EnumTable">
+    <xsl:param name="node" />
+    <xsl:variable name="value">
+      <xsl:value-of select="$node/parent::xs:*/xs:element[@type=concat('husstDV:',hfn:EnumTableType($node))]/@name"/>
+    </xsl:variable>
+    <xsl:sequence select="$value"/>
+  </xsl:function>
+
+  <!-- *HUSST_Type Enumerationen -->
+  <xsl:template match="xs:simpleType[contains(@name,'HUSST_Type') and xs:restriction/xs:enumeration
+  and parent::xs:*/xs:complexType[@name=hfn:EnumTableType(current())]/xs:*/xs:element[@name='Bezeichnung'] 
+  ]" mode="initialvalues">
+   <xsl:value-of select="concat('INSERT INTO ', hfn:EnumTable(.), '(', $crlf)"></xsl:value-of>
+    <xsl:variable name="tabletype" select="hfn:EnumTableType(.)"/>
+   
+    <xsl:for-each select="parent::xs:*/xs:complexType[@name=$tabletype]/xs:*/xs:element[@minOccurs='1' or @name='Bezeichnung' or @name='Iso']">
+      <xsl:if test="position()>1">, </xsl:if>
+      <xsl:value-of select="@name"/>
+    </xsl:for-each>
+    <xsl:value-of select="concat(') VALUES', $crlf, '  (')"/>
+    
+
+    <xsl:for-each select="xs:restriction/xs:enumeration">
+      <xsl:sort select="concat(substring('0000000000', 1, 10- string-length(@value) ), @value)" />
+      <xsl:variable name="idValue" select="@value"/>
+      <xsl:variable name="bezValue" select="normalize-space(xs:annotation/xs:documentation)"/>
+      <xsl:variable name="idZrValue" select="1"/>
+
+      <!-- Sonderfall: Iso-Feld bei den Bundesländern -->
+      <xsl:variable name="isoValue" select="substring-after(substring-before(xs:annotation/xs:documentation, ')' ), '(')"/>
+
+
+      <xsl:if test="position()>1"><xsl:value-of select="concat(')', $crlf, ', (')"/></xsl:if>
+      <xsl:for-each select="ancestor::xs:schema/xs:complexType[@name=$tabletype]/xs:*/xs:element[@minOccurs='1' or @name='Bezeichnung' or @name='Iso']">
+        <xsl:if test="position()>1">, </xsl:if>
+        <xsl:choose>
+          <xsl:when test="@name='Bezeichnung'">'<xsl:value-of select="$bezValue"/>'</xsl:when>
+          <xsl:when test="@name='ID_Zeitraum'"> <xsl:value-of select="$idZrValue"/></xsl:when>
+          <xsl:when test="@name='Iso'"        >'<xsl:value-of select="$isoValue"/>'</xsl:when>
+          <xsl:otherwise                      > <xsl:value-of select="$idValue"/></xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+    </xsl:for-each>
+    
+    <xsl:value-of select="concat(')', $crlf, ';', $crlf)"/>
+  </xsl:template>
+
+
+  <xsl:template match="*" mode="initialvalues" />
+
+  <xsl:template mode="initialvaluesDefaultzeitraum" match="xs:schema" >
+    <xsl:text>INSERT INTO Zeitraeume(ID_Zeitraum, DatenversionZeitraum, HauptZeitraumNr, SubZeitraumNr) VALUES (1, 'husst.initial', 1, 1);</xsl:text>
+    <xsl:value-of select="$crlf"/>
   </xsl:template>
 
   <!-- ===============================================================================
@@ -536,6 +620,23 @@
 
     <!-- Initialwerte -->
     <xsl:apply-templates mode="initialvalues" select="current()"/>
+
+    <xsl:value-of select="$crlf"/>
+
+    <xsl:if test="$optionals &gt; '' ">
+      <xsl:value-of select="concat('-- otionals: ', $optionals, $crlf)"/>
+    </xsl:if>
+
+    <xsl:if test="contains($optionals, 'husstEnum')">
+      <xsl:apply-templates mode="initialvaluesDefaultzeitraum" select="current()"/>
+  
+      <xsl:for-each select="xs:simpleType">
+        <xsl:sort select="@name" />
+        <xsl:apply-templates mode="initialvalues" select="."/>
+      </xsl:for-each>
+      <xsl:value-of select="$crlf"/>
+    </xsl:if>
+    
   </xsl:template>
 
   <!-- Defaultverhalten - nichts kopieren -->

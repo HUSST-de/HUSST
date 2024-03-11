@@ -932,3 +932,254 @@ INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)VALUES ('We
 INSERT INTO Tabelleninfo (Tabellenname, Tabellennummer, Strukturname)VALUES ('Zusatzsorten',56, 'Zusatzsorten_Type');
 INSERT INTO VersionStruktur (VersionMajor, VersionMinor, VersionPatch, Status, Aenderungsdatum)VALUES (3,5,0, 'Release', '2024-03-08');
 
+-- otionals: husstEnum
+INSERT INTO Zeitraeume(ID_Zeitraum, DatenversionZeitraum, HauptZeitraumNr, SubZeitraumNr) VALUES (1, 'husst.initial', 1, 1);
+INSERT INTO DefBundeslaender(
+ID_Zeitraum, ID_Bundesland, Iso, Bezeichnung) VALUES
+  (1, 0, '', 'unbekannt')
+, (1, 1, 'SH', 'Schleswig-Holstein (SH)')
+, (1, 2, 'HH', 'Hamburg (HH)')
+, (1, 3, 'NI', 'Niedersachsen (NI)')
+, (1, 4, 'HB', 'Bremen (HB)')
+, (1, 5, 'NW', 'Nordrhein-Westfalen (NW)')
+, (1, 6, 'HE', 'Hessen (HE)')
+, (1, 7, 'RP', 'Rheinland-Pfalz (RP)')
+, (1, 8, 'BW', 'Baden-Württemberg (BW)')
+, (1, 9, 'BY', 'Bayern (BY)')
+, (1, 10, 'SL', 'Saarland (SL)')
+, (1, 11, 'BE', 'Berlin (BE)')
+, (1, 12, 'BB', 'Brandenburg (BB)')
+, (1, 13, 'MV', 'Mecklenburg-Vorpommern (MV)')
+, (1, 14, 'SN', 'Sachsen (SN)')
+, (1, 15, 'ST', 'Sachsen-Anhalt (ST)')
+, (1, 16, 'TH', 'Thüringen (TH)')
+;
+INSERT INTO DefErmittlungseinheit(
+ID_Zeitraum, ID_Ermittlungseinheit, Bezeichnung) VALUES
+  (1, 1, 'Minuten')
+, (1, 2, 'Kilometer')
+;
+INSERT INTO DefFahrgasttypen(
+ID_Zeitraum, ID_Fahrgasttyp, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+, (1, 1, 'Erwachsener')
+, (1, 2, 'Kind')
+, (1, 3, 'Student')
+, (1, 5, 'Behinderter')
+, (1, 6, 'Sehbehinderter')
+, (1, 7, 'Hörgeschädigter')
+, (1, 8, 'Arbeitsloser/Sozialhilfeempfänger')
+, (1, 9, 'Personal')
+, (1, 10, 'Militärangehöriger')
+, (1, 19, 'Schüler')
+, (1, 20, 'Azubi')
+, (1, 25, 'Senior')
+, (1, 64, 'ermäßigt')
+, (1, 65, 'Fahrrad')
+, (1, 66, 'Hund')
+;
+INSERT INTO DefKomfortklassen(
+ID_Zeitraum, ID_Komfortklasse, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+, (1, 1, '1. Klasse')
+, (1, 2, '2. Klasse')
+, (1, 300, 'Übergang von der 2. zur 1. Klasse')
+;
+INSERT INTO DefNachbarhaltestellenbeziehungen(
+ID_Nachbarhaltestellenbeziehung, ID_Zeitraum, Bezeichnung) VALUES
+  (0, 1, 'nicht spezifiziert/unbestimmt')
+, (1, 1, 'Kurzstrecke')
+;
+INSERT INTO DefOTPTypen(
+ID_Zeitraum, ID_OTPTyp, Bezeichnung) VALUES
+  (1, 1, 'Standort Zu jedem Tarifrelevantenpunkt vom OTPTyp Standort muss es einen eindeutigen Ortspunkt geben. (Über ID_Ortspunkt verwiesen) => Es darf kein Ortspunkt mit 2 oder mehr verwiesenden Tarifrelevantenpunkten vom OTPTyp Standort geben. Über diesen Ortspunkt ist der Standort eines Vertriebsgerätes synchronisierbar. Z.B. über seine IBISnr oder ReferenzExtern')
+, (1, 2, 'Startpunkt')
+, (1, 3, 'Zielpunkt')
+;
+INSERT INTO DefOrtspunkttypen(
+ID_Zeitraum, ID_Ortspunkttyp, Bezeichnung) VALUES
+  (1, 1, 'Haltestelle')
+, (1, 2, 'Betriebshof')
+, (1, 3, 'Zone/Wabe/Ring')
+, (1, 5, 'Gemeinde')
+;
+INSERT INTO DefPreisfindungen(
+ID_Zeitraum, ID_Preisfindung, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+, (1, 1, 'Festpreis')
+, (1, 2, 'Relationsbezogen')
+, (1, 6, 'Relationsbezogen mit Preisstufenupgrade')
+, (1, 257, 'Festpreis mit freier Preiseingabe')
+, (1, 258, 'Relationsbezogen mit freier Preiseingabe')
+, (1, 262, 'Relationsbezogen mit Preisstufenupgrade und freier Preiseingabe')
+;
+INSERT INTO DefPreisspaltentypen(
+ID_Zeitraum, ID_Preisspaltentyp, Bezeichnung) VALUES
+  (1, 1, 'Standard / Standardpreisspalte für den allgemeinen Verkauf')
+;
+INSERT INTO DefRabattklassen(
+ID_Zeitraum, ID_Rabattklasse, Bezeichnung) VALUES
+  (1, 0, 'Keine Ermäßigung')
+, (1, 1, 'prozentuale Ermäßigung Level-1 (z.B. Bahncard 25)')
+, (1, 2, 'prozentuale Ermäßigung18 Level-2 (z.B. Bahncard 50)')
+, (1, 3, 'prozentuale Ermäßigung Level-3')
+, (1, 4, 'prozentuale Ermäßigung Level-4')
+, (1, 5, 'prozentuale Ermäßigung Level-5')
+, (1, 6, 'Ermäßigung auf Basis gefahrener Kilometer')
+, (1, 46, 'Ermäßigung des Ticketkaufs mit KA-Bezahlberechtigung um 25%')
+;
+INSERT INTO DefReisetypen(
+ID_Zeitraum, ID_Reisetyp, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+, (1, 1, 'Standard (passend zum Sortentyp)')
+, (1, 2, 'Hin- und Rückfahrt')
+, (1, 3, 'Rundreise')
+;
+INSERT INTO DefRelationenberechnungsregelungen(
+ID_Zeitraum, ID_Relationenberechnungsregelung, Bezeichnung) VALUES
+  (1, 1, 'Standard. Alle Teilrelationen sind gleichwertig und haben verschiedene Tarifarten und oder Tarifgebiete. Die gewählte Sorte entscheidet, welche Teilrelation genutzt wird.')
+, (1, 2, 'Sortorder1 Die Teilrelation mit Sortorder 1 muss bepreist werden, die anderen Teilrelationen werden zusätzlich registriert. Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.')
+, (1, 3, 'AdditionPreise Die Preise aller Teilrelationen werden addiert, es werden alle Teilrelationen registriert. Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen. Für die Bepreisung muss eine Sortengruppe zur Verfügung stehen, in der jeweils eine Sorte zu mindestens einer Teilrelation passt.')
+, (1, 4, 'AdditionPreisstufen Die gewählte Sorte entscheidet über ihre Tarifart(en), welche Teilrelation(en) für die Preisfindung und die Registrierung verwendet werden. Nicht passende Teilrelationen werden ignoriert. Damit ist sichergestellt, dass alle verwendeten Teilrelationen aus einem Tarifgebiet stammen. Die Preisstufen der Teilrelationen werden addiert und dazu der Preis der Sorte ermittelt, alle diese Teilrelationen werden registriert.')
+;
+INSERT INTO DefRelationendruckregelungen(
+ID_Zeitraum, ID_Relationendruckregelung, Bezeichnung) VALUES
+  (1, 1, 'Ein. Es wird ein Ticket gedruckt.')
+, (1, 2, 'Alle Es wird ein Ticket pro Telrelation gedruckt.')
+, (1, 3, 'Tarifgebiet. Alle Teilrelationen eines Tarifgebietes werden mit je einem Ticket gedruckt.')
+;
+INSERT INTO DefRelationscodegruppentypen(
+ID_Zeitraum, ID_Relcodegruppentyp, Bezeichnung) VALUES
+  (1, 1, 'Magnet')
+, (1, 2, 'Startort')
+;
+INSERT INTO DefSortenausgaberegelungen(
+ID_Zeitraum, ID_Sortenausgaberegelung, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+, (1, 1, 'Papierfahrschein')
+, (1, 2, 'EFS (z.B. Chipkarte)')
+, (1, 3, 'Papierfahrschein / EFS (z.B. Chipkarte)')
+, (1, 4, 'Handy Ticket')
+, (1, 5, 'Papierfahrschein / Handy Ticket')
+, (1, 6, 'EFS (z.B. Chipkarte) / Handy Ticket')
+, (1, 7, 'Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket')
+, (1, 8, 'Papierfahrschein mit Barcode')
+, (1, 9, 'Papierfahrschein / Papierfahrschein mit Barcode')
+, (1, 10, 'EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode')
+, (1, 11, 'Papierfahrschein / EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode')
+, (1, 12, 'Handy Ticket / Papierfahrschein mit Barcode')
+, (1, 13, 'Papierfahrschein / Handy Ticket / Papierfahrschein mit Barcode')
+, (1, 14, 'EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode')
+, (1, 15, 'Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode')
+, (1, 16, 'EFS und Papierfahrschein [mit Barcode]')
+, (1, 17, 'Papierfahrschein / EFS und Papierfahrschein [mit Barcode]')
+, (1, 18, 'EFS (z.B. Chipkarte) / EFS und Papierfahrschein [mit Barcode]')
+, (1, 19, 'Papierfahrschein / EFS (z.B. Chipkarte) / EFS und Papierfahrschein [mit Barcode]')
+, (1, 20, 'Handy Ticket / EFS und Papierfahrschein [mit Barcode]')
+, (1, 21, 'Papierfahrschein / Handy Ticket / EFS und Papierfahrschein [mit Barcode]')
+, (1, 22, 'EFS (z.B. Chipkarte) / Handy Ticket / EFS und Papierfahrschein [mit Barcode]')
+, (1, 23, 'Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket / EFS und Papierfahrschein [mit Barcode]')
+, (1, 24, 'Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+, (1, 25, 'Papierfahrschein / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+, (1, 26, 'EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+, (1, 27, 'Papierfahrschein / EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode /')
+, (1, 28, 'Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+, (1, 29, 'Papierfahrschein / Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+, (1, 30, 'EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+, (1, 31, 'Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]')
+;
+INSERT INTO DefSortendruckregelungen(
+ID_Zeitraum, ID_Sortendruckregelung, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+, (1, 1, 'Druck über Layout')
+, (1, 2, 'Vorrangiger Druck über ein zum Verkaufszeitpunkt zugeordnetes Hauptprodukt, sonst über Layout.')
+, (1, 3, 'Druck eines 2. Fahrscheins mit einer Druckinformation "2. Druck" die im Layout ausgewertet werden kann.')
+;
+INSERT INTO DefSortengruppentypen(
+ID_Zeitraum, ID_Sortengruppentyp, Bezeichnung) VALUES
+  (1, 1, 'Verkaufssortengruppe Relation Diese Sortengruppen werden beim Verkauf über eine Start-/ Zielwahl angeboten.')
+, (1, 2, 'Verkaufssortengruppe Festpreis Diese Sortengruppen werden beim Verkauf ohne Relationsauswahl angeboten.')
+, (1, 3, 'Verkaufssortengruppe Kombi Diese Sortengruppen fassen Sorten zusammen, die in Kombination angeboten werden können. Die Auswahlsorte soll SortOrder 1 haben. Beispiel: Einfache Fahrt 2. Klasse + Hundeticket + Fahrrad bzw. Hin- und Rückfahrt 2. Klasse + Hundeticket Hin-/Rück + Fahrrad')
+, (1, 11, 'Hauptsorten zu Zusatzsorten Unter dem Sortengruppentyp werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind. In den Zusatzsorten wird im Attribut "ID_SortengruppeHauptsorten" auf die Sortengruppe von diesem Typ verwiesen.')
+, (1, 21, 'Gruppenfahrschein Ist für Gruppenfahrscheine, bei denen zusammen unterschiedlich Ausprägungen auf ein Ticket gedruckt werden. Bsp.: Ein Fahrschein mit x Erwachsenen und y Kindern. Es werden die Auswahlsorte und die Ausprägungen in eine Gruppe zusammengefasst. Die Auswahlsorte soll Sortorder 1 haben.')
+, (1, 31, 'SortengruppenErmittlung Ist für Referenzen vom SortengruppenErmittlungen_Type. (s. SortengruppenErmittlungen_Type)')
+;
+INSERT INTO DefSortentypen(
+ID_Zeitraum, ID_Sortentyp, Bezeichnung) VALUES
+  (1, 1, 'Einzelkarte')
+, (1, 2, 'Mehrfahrten')
+, (1, 3, 'Zähler')
+, (1, 11, 'Tageskarte')
+, (1, 12, 'Wochenkarte')
+, (1, 13, 'Monatskarte')
+, (1, 14, 'Halbjahreskarte')
+, (1, 15, 'Jahreskarte')
+, (1, 21, 'Artikel')
+, (1, 22, 'Gutschein (Verkauf)')
+, (1, 23, 'Gutschein (Annahme)')
+, (1, 24, 'Gutschein (Restwert)')
+, (1, 31, 'Verkäufer Einzahlung')
+, (1, 32, 'Abo Einzahlung')
+, (1, 33, 'EBE Einzahlung')
+, (1, 39, 'Sonstige Einzahlung')
+, (1, 41, 'Pfand (z.B. für Kundendatenträger)')
+, (1, 42, 'Kaution')
+, (1, 991, 'Fehleinnahme')
+, (1, 992, 'Bargutschrift (Überzahlung / Restgeldquittung etc.)')
+, (1, 999, 'Sonstige')
+;
+INSERT INTO DefStreckenart(
+ID_Zeitraum, ID_Streckenart, Bezeichnung) VALUES
+  (1, 1, 'keine Sonderverkaufslogik')
+, (1, 2, 'Strecke nur kombiniert mit ID_Streckenart=1 verkaufbar')
+, (1, 3, 'nur als Einzelstrecke verkaufbar')
+;
+INSERT INTO DefStreckencodetyp(
+ID_Zeitraum, ID_Streckencodetyp, Bezeichnung) VALUES
+  (1, 1, 'AST Anstoßbahnhof')
+, (1, 2, 'NAST Nichtanstoßbahnhof')
+, (1, 3, 'NE-Haltepunkt')
+;
+INSERT INTO DefTarifpunkttypen(
+ID_Zeitraum, ID_Tarifpunkttyp, Bezeichnung) VALUES
+  (1, 1, 'Tarifhaltestelle (falls jede Hst ein eigener Tarifpunkt bildet)')
+, (1, 2, 'Zone / Wabe / Ring (unmittelbar einer Tarifhaltestelle zugeordnet)')
+, (1, 3, 'Überzone / Wabentyp (faßt Tarifpunkte vom Typ 2 oder 1 zusammen)')
+, (1, 4, 'Region (faßt Überzonen zu Regionen zusammen)')
+, (1, 5, 'Ortsteil (in seiner Funktion als Tarifpunkt)')
+, (1, 6, 'Ort (faßt Ortsteile zusammen)')
+;
+INSERT INTO DefVertriebswege(
+ID_Zeitraum, ID_Vertriebswege, Bezeichnung) VALUES
+  (1, 0, 'nicht spezifiziert/unbestimmt')
+;
+INSERT INTO DefWaehrungen(
+ID_Zeitraum, ID_Waehrung, Bezeichnung) VALUES
+  (1, 999, 'EUR')
+;
+INSERT INTO DefZahlgrenzentyp(
+ID_Zeitraum, ID_Zahlgrenzentyp, Bezeichnung) VALUES
+  (1, 1, 'Anzahl Haltestellen')
+, (1, 2, 'Tarifkilometer')
+, (1, 3, 'Radius (Luftlinie)')
+;
+INSERT INTO DefZahlungsarten(
+ID_Zeitraum, ID_Zahlungsarten, Bezeichnung) VALUES
+  (1, 0, 'Keine')
+, (1, 1, 'Barzahlung')
+, (1, 2, 'Kartenzahlung (Schließt alle Arten der Kartenzahlung ein, die das System unterstützt)')
+, (1, 3, 'Barzahlung / Kartenzahlung')
+, (1, 4, 'KA-Zahlung (POB, PEB und WEB)')
+, (1, 5, 'Barzahlung / KA-Zahlung')
+, (1, 6, 'Kartenzahlung / KA-Zahlung')
+, (1, 7, 'Barzahlung / Kartenzahlung / KA-Zahlung')
+, (1, 8, 'Rechnung')
+, (1, 9, 'Barzahlung / Rechnung')
+, (1, 10, 'Kartenzahlung / Rechnung')
+, (1, 11, 'Barzahlung / Kartenzahlung / Rechnung')
+, (1, 12, 'KA-Zahlung / Rechnung')
+, (1, 13, 'Barzahlung / KA-Zahlung / Rechnung')
+, (1, 14, 'Kartenzahlung / KA-Zahlung / Rechnung')
+, (1, 15, 'Barzahlung / Kartenzahlung / KA-Zahlung / Rechnung')
+;
+

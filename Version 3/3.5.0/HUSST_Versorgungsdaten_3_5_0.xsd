@@ -2931,6 +2931,11 @@
     <xs:restriction base="husstDV:INT4">
       <xs:minInclusive value="0"/>
       <xs:maxInclusive value="999"/>
+      <xs:enumeration value="999">
+        <xs:annotation>
+          <xs:documentation>EUR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -4378,7 +4383,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="13">
+      <xs:enumeration value="29">
         <xs:annotation>
           <xs:documentation>
             Papierfahrschein / Handy Ticket /
