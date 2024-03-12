@@ -17,6 +17,26 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
+### 3.4.1 -> 3.5.0
+Änderungsdatum: 8. März 2024
+
+Versorgungsdaten
+ - OrtspunkteKA erhalten ID_OrtspunktKA als neues Primarykey Field, zusätzlichen Uix
+ - Strecke_Type: SortOrder ergänzt #58
+ - Enumerationserweiterungen (tlw. Korrekturen)
+   - ID_KomfortklasseHUSST_Type ergänzt um Übergang 2. in 1. Klasse #54
+   - ID_FahrgasttypHUSST_Type ergänzt um ermäßigt, Fahrrad, Hund (in 3.4.1. mit anderer Nummer eingeführt) #55
+   - ID_SortengruppentypHUSST_Type ergänzt Verkaufssortengruppe Kombi #56
+   - ID_Bundesland mit dem Amtlichen Regionalschlüssel (ARS) festgelegt #57
+   - Enumeration aller Währungen ersetzt bisherige Min-/Max- Restriktion
+ - DefStreckencodetyp_Type: HAST in AST umbenennen #59
+ - div. kleinere Korrekturen 
+
+Außerdem
+ - Vereinheitlichung der Husst - Namespaces (ohne www.)
+ - SQLiteAbbildung - Dateinamen systematisiert
+ - zusätzlich erweiterte SQLite Abbildung mit allen Husst definierten Enumerationen 
+
 ### 3.4.0 -> 3.4.1
 
 Versorgungsdaten
