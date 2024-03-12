@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<husstDV:OePVTarifDB xmlns:husstDV="http://husst.de/Versorgungsdaten/3_5_0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://husst.de/Versorgungsdaten/3_5_0 HUSST_Versorgungsdaten_3_5_0.xsd ">
+  <husstDV:DefFahrgasttypen>
+    <husstDV:ID_Zeitraum>0</husstDV:ID_Zeitraum>
+    <husstDV:ID_Fahrgasttyp>0</husstDV:ID_Fahrgasttyp>
+  </husstDV:DefFahrgasttypen>
+  
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>208</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>280</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>999</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>208</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>710</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>756</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>1756</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>203</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>348</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+  <husstDV:DefWaehrungen>
+    <husstDV:ID_Zeitraum>1</husstDV:ID_Zeitraum>
+    <husstDV:ID_Waehrung>985</husstDV:ID_Waehrung>    
+  </husstDV:DefWaehrungen>
+</husstDV:OePVTarifDB>
+

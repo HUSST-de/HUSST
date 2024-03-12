@@ -2,7 +2,7 @@
 * HUSST Versorgungsdaten
 *
 * automatisch generiertes SQL Script zur Erzeugung einer leeren HUSST DV Datenbank
-* generiert am 2024-03-11
+* generiert am 2024-03-12
 *
 * HUSST Datenversorgung (V3.5.0-Release vom 2024-03-08)
 *
