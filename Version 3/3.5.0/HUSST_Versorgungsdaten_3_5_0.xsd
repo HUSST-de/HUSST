@@ -4371,7 +4371,10 @@
         <xs:annotation>
           <xs:documentation>
             Verkaufssortengruppe Relation
-            Diese Sortengruppen werden beim Verkauf über eine Start-/ Zielwahl angeboten.
+            Mit der "Verkaufssortengruppe Relation"
+            werden alle Sorten zusammengefasst, die aufgrund von Serviceklasse, Rabattklasse und Fahrgasttyp
+            untereinander austauschbar sind und deren Preisstufe über eine Reisewegauswahl 
+            (i.d.R. Relation) ermittelt wird. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
