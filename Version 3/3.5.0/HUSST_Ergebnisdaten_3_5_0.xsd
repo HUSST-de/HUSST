@@ -1549,7 +1549,7 @@
           </documentation>
         </annotation>
       </element>
-      <element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="2">
+      <element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="5">
         <annotation>
           <documentation>
             Diese Versionsnummer zählt kompatible Anpassungen.
@@ -1562,7 +1562,7 @@
           </documentation>
         </annotation>
       </element>
-      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2023-02-14"/>
+      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2024-02-08"/>
       <element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="HUSST-Arbeitsgruppe"/>
     </sequence>
   </complexType>
