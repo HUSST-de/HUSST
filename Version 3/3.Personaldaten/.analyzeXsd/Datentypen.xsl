@@ -4,8 +4,8 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
   				xmlns:ktx="http://www.krauth-technology.de/ktXsdKtTools/1.0"
-           	    xmlns:husstDV="http://husst.de/Versorgungsdaten/3_4_1"
-                xmlns:api="http://www.husst.de/Appinfo/3_4_1"
+           	    xmlns:husstDV="http://husst.de/Versorgungsdaten/3_5_0"
+                xmlns:api="http://www.husst.de/Appinfo/3_5_0"
                 xmlns:exsl="http://exslt.org/common"  
                 extension-element-prefixes = "exsl">
                 

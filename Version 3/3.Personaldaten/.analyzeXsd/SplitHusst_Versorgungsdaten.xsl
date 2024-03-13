@@ -3,7 +3,7 @@
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:kt="http://www.krauth-technology.de/ktXmlDelphiDatenbindung/1.0"
-	xmlns:dcb="http://www.krauth-technology.de/DelphiCodeBinding/1.0"
+  xmlns:dcb="http://www.krauth-technology.de/DelphiCodeBinding/1.0"
   xmlns:ktDelphiXml="http://www.krauth-technology.de/ktDelphiXml/1.0"
   xmlns:ktx="http://www.krauth-technology.de/ktXsdKtTools/1.0"
   xmlns:exsl="http://exslt.org/common"  
@@ -14,38 +14,38 @@
   xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
 
   >
-  	<xsl:output method="xml" version="1.0" encoding="UTF-8"/>
-	<xs:annotation>
-		<xs:documentation>
-			2024-03-06 hneubauer(Husst-AG)
-			
-			Teilt die bisherige Husst_Datenversorgung.xsd in mehrere Dateien auf, pro Aufruf wird eine neue .xsd erzeugt.
-			
-			der Parameter xsd steuert, welche Datei erzeugt wird:
-			
-			xsd=Basis      - HUSST_Basisversorgungsdaten.xsd
-			    (default)
-			    
-			xsd=Versorgung - HUSST_Versorgungsdaten.xsd
-			
-		</xs:documentation>
-	</xs:annotation>
-	
-	<!-- Ziel-Xsd -->
-	<xsl:param name="xsd">Basis</xsl:param>
-	
+    <xsl:output method="xml" version="1.0" encoding="UTF-8"/>
+  <xs:annotation>
+    <xs:documentation>
+      2024-03-06 hneubauer(Husst-AG)
+      
+      Teilt die bisherige Husst_Datenversorgung.xsd in mehrere Dateien auf, pro Aufruf wird eine neue .xsd erzeugt.
+      
+      der Parameter xsd steuert, welche Datei erzeugt wird:
+      
+      xsd=Basis      - HUSST_Basisversorgungsdaten.xsd
+          (default)
+          
+      xsd=Versorgung - HUSST_Versorgungsdaten.xsd
+      
+    </xs:documentation>
+  </xs:annotation>
+  
+  <!-- Ziel-Xsd -->
+  <xsl:param name="xsd">Basis</xsl:param>
+  
 
-	<xsl:variable name="xsdFilename">
-		<xsl:choose>
-			<xsl:when test="$xsd='Basis'">HUSST_Basisversorgungsdaten.xsd</xsl:when>
-			<xsl:when test="$xsd='Versorgung'">HUSST_Versorgungsdaten.xsd</xsl:when>
-			<xsl:when test="$xsd='Personal'">HUSST_Personaldaten.xsd</xsl:when>
-			<xsl:otherwise>unbenutzt.xsd</xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
+  <xsl:variable name="xsdFilename">
+    <xsl:choose>
+      <xsl:when test="$xsd='Basis'">HUSST_Basisversorgungsdaten.xsd</xsl:when>
+      <xsl:when test="$xsd='Versorgung'">HUSST_Versorgungsdaten.xsd</xsl:when>
+      <xsl:when test="$xsd='Personal'">HUSST_Personaldaten.xsd</xsl:when>
+      <xsl:otherwise>unbenutzt.xsd</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
 
-	<xsl:variable name="datentyp">
-		<xsl:variable name="DatentypenCsv">
+  <xsl:variable name="datentyp">
+    <xsl:variable name="DatentypenCsv">
 "Xsd-Schema";"Husst-Schemataliste";"Datentyp";"SchemaNeu"
 "HUSST_Basisversorgungsdaten.xsd";"Basis";"DauerMinuten";"Intermodal"
 "HUSST_Basisversorgungsdaten.xsd";"Basis";"DefBundesland_Type";"Intermodal"
@@ -56,6 +56,8 @@
 "HUSST_Basisversorgungsdaten.xsd";"Basis";"DynAttributWert_Type";"Intermodal"
 "unbenutzt";"";"INT3";""
 "HUSST_Basisversorgungsdaten.xsd";"Basis";"Feiertage_Type";"Intermodal"
+"HUSST_Basisversorgungsdaten.xsd";"Basis";"ID_Bundesland_Type";"Intermodal"
+"HUSST_Basisversorgungsdaten.xsd";"Basis";"ID_BundeslandHUSST_Type";"Intermodal"
 "HUSST_Basisversorgungsdaten.xsd";"Basis,Tarif";"ID_Waehrung_Type";"Intermodal"
 "HUSST_Basisversorgungsdaten.xsd";"Basis,Tarif";"ID_WaehrungHUSST_Type";"Intermodal"
 "HUSST_Basisversorgungsdaten.xsd";"Basis";"Kalender_Type";"Intermodal"
@@ -228,212 +230,215 @@
 "HUSST_Personaldaten.xsd";"Personal";"Personaleinsatz_Type";""
 "HUSST_Personaldaten.xsd";"Personal";"Standort_Type";""
 "HUSST_Personaldaten.xsd";"Personal";"Geraetetypen_Type";""
-		</xsl:variable>
-		
-		<xsl:variable name="list">
-			<!-- in Zeilen zerlegen -->
-			<xsl:for-each select="tokenize($DatentypenCsv,'\n')">
-				<!--  Zeile in Felder zerlegen -->
-				<!--  und je Zeile ein xml-Element ezeugen -->
-				<type>
-				<xsl:for-each select="tokenize(.,';')">
-					<xsl:choose>
-						<xsl:when test="position()=1"><xsdFilename><xsl:value-of select='ktx:strip(.)'/></xsdFilename></xsl:when>
-						<xsl:when test="position()=2"><schemalist><xsl:value-of select='ktx:strip(.)'/></schemalist></xsl:when>
-						<xsl:when test="position()=3"><name><xsl:value-of select='ktx:strip(.)'/></name></xsl:when>
-						<xsl:when test="position()=4"><schemaneu><xsl:value-of select='ktx:strip(.)'/></schemaneu></xsl:when>
-					</xsl:choose>				
-				</xsl:for-each>
-				</type>
-			</xsl:for-each>
-		</xsl:variable>		
-		
-		<xsl:apply-templates select="exsl:node-set($list)" mode="copy"/>
-	</xsl:variable>
+    </xsl:variable>
+    
+    <xsl:variable name="list">
+      <!-- in Zeilen zerlegen -->
+      <xsl:for-each select="tokenize($DatentypenCsv,'\n')">
+        <!--  Zeile in Felder zerlegen -->
+        <!--  und je Zeile ein xml-Element ezeugen -->
+        <type>
+        <xsl:for-each select="tokenize(.,';')">
+          <xsl:choose>
+            <xsl:when test="position()=1"><xsdFilename><xsl:value-of select='ktx:strip(.)'/></xsdFilename></xsl:when>
+            <xsl:when test="position()=2"><schemalist><xsl:value-of select='ktx:strip(.)'/></schemalist></xsl:when>
+            <xsl:when test="position()=3"><name><xsl:value-of select='ktx:strip(.)'/></name></xsl:when>
+            <xsl:when test="position()=4"><schemaneu><xsl:value-of select='ktx:strip(.)'/></schemaneu></xsl:when>
+          </xsl:choose>        
+        </xsl:for-each>
+        </type>
+      </xsl:for-each>
+    </xsl:variable>    
+    
+    <xsl:apply-templates select="exsl:node-set($list)" mode="copy"/>
+  </xsl:variable>
 
-	<xsl:variable name="xsdDt">
-		<xsl:apply-templates select="$datentyp/type[xsdFilename=$xsdFilename]" mode="copy"/>
-	</xsl:variable>
-	
-
-   <!-- ==================================================
-   	Variable $eh
-	einfaches Hochkomma
-   =================================================== -->
- 	<xsl:variable name="eh">
- 		<xsl:text>'</xsl:text>
- 	</xsl:variable>
+  <xsl:variable name="xsdDt">
+    <xsl:apply-templates select="$datentyp/type[xsdFilename=$xsdFilename]" mode="copy"/>
+  </xsl:variable>
+  
 
    <!-- ==================================================
-   	Variable $dh
-	doppeltes Hochkomma
+     Variable $eh
+  einfaches Hochkomma
    =================================================== -->
- 	<xsl:variable name="dh">
- 		<xsl:text>"</xsl:text>
- 	</xsl:variable>
+   <xsl:variable name="eh">
+     <xsl:text>'</xsl:text>
+   </xsl:variable>
 
    <!-- ==================================================
-   	Variable $crlf
-	Windows Zeilenschaltung
+     Variable $dh
+  doppeltes Hochkomma
    =================================================== -->
- 	<xsl:variable name="crlf">
- 		<xsl:text>&#x0D;&#x0A;</xsl:text>
- 	</xsl:variable>
+   <xsl:variable name="dh">
+     <xsl:text>"</xsl:text>
+   </xsl:variable>
 
-	<xsl:function name="ktx:strip">
-		<xsl:param name="node"/>
-		<xsl:variable name="value">
-			<xsl:value-of select="substring-before(substring($node, 2), $dh)"/>
-		</xsl:variable>
+   <!-- ==================================================
+     Variable $crlf
+  Windows Zeilenschaltung
+   =================================================== -->
+   <xsl:variable name="crlf">
+     <xsl:text>&#x0D;&#x0A;</xsl:text>
+   </xsl:variable>
 
-		<xsl:sequence select="$value"/>
-	</xsl:function>
+  <xsl:function name="ktx:strip">
+    <xsl:param name="node"/>
+    <xsl:variable name="value">
+      <xsl:value-of select="substring-before(substring($node, 2), $dh)"/>
+    </xsl:variable>
 
-	<xsl:template name="newline0">
-			<xsl:text>
+    <xsl:sequence select="$value"/>
+  </xsl:function>
+
+  <xsl:template name="newline0">
+      <xsl:text>
 </xsl:text>
-  	</xsl:template>
-	<xsl:template name="newline">
-			<xsl:text>
+    </xsl:template>
+  <xsl:template name="newline">
+      <xsl:text>
   </xsl:text>
-  	</xsl:template>
+    </xsl:template>
 
-	<xsl:template match="/xs:schema">
-		<xsl:call-template name="newline0"/>
-		<xsl:copy>
-			<xsl:apply-templates select="@*"/>
+  <xsl:template match="/xs:schema">
+    <xsl:call-template name="newline0"/>
+    <xsl:copy>
+      <xsl:apply-templates select="@*"/>
 
-			<xsl:attribute name="targetNamespace">http://husst.de/Versorgungsdaten/3_Personal</xsl:attribute>
-			<xsl:attribute name="elementFormDefault">qualified</xsl:attribute>
-			<xsl:attribute name="attributeFormDefault">unqualified</xsl:attribute>
+      <xsl:attribute name="targetNamespace">http://husst.de/Versorgungsdaten/3_Personal</xsl:attribute>
+      <xsl:attribute name="elementFormDefault">qualified</xsl:attribute>
+      <xsl:attribute name="attributeFormDefault">unqualified</xsl:attribute>
 <!--            targetNamespace="http://husst.de/Versorgungsdaten/3_4_1" -->
 <!--            elementFormDefault="qualified" attributeFormDefault="unqualified"> -->
-	
+  
+      <xsl:call-template name="newline"/>
+      <xsl:comment select="$xsd"/>
+      <xsl:call-template name="newline"/>
 
-			<xsl:call-template name="newline"/>
-			<xsl:if test="not($xsd='Basis')">
-				<xsl:element name="xs:include">
-					<xsl:attribute name="schemaLocation">./HUSST_Basisversorgungsdaten_3_neu.xsd</xsl:attribute>
-				</xsl:element>
-				<xsl:call-template name="newline"/>
-			</xsl:if>
-			
-			<xsl:apply-templates/>
+      <xsl:call-template name="newline"/>
+      <xsl:if test="not($xsd='Basis')">
+        <xsl:element name="xs:include">
+          <xsl:attribute name="schemaLocation">./HUSST_DvBasis_3_Personal.xsd</xsl:attribute>
+        </xsl:element>
+        <xsl:call-template name="newline"/>
+      </xsl:if>
+      
+      <xsl:apply-templates/>
 
-<!-- 			<xsl:apply-templates select="$datentyp" mode="copy"/> -->
-		</xsl:copy>
-	</xsl:template>
+<!--       <xsl:apply-templates select="$datentyp" mode="copy"/> -->
+    </xsl:copy>
+  </xsl:template>
 
-<!-- 	<xsl:template match="/xs:schema/comment()[following-sibling::xs:simpleType[1][@name=$xsdDt/type/name] -->
-<!-- 		or 	following-sibling::xs:complexType[1][@name=$xsdDt/type/name] -->
-<!-- 	]"> -->
-	<xsl:template match="/xs:schema/comment()[(following-sibling::xs:simpleType|following-sibling::xs:complexType)[1][@name=$xsdDt/type/name]]"> 
-		<xsl:call-template name="newline"/>
-		<xsl:apply-templates select="." mode="copy"/>
-		<xsl:call-template name="newline"/>
-	</xsl:template>
+<!--   <xsl:template match="/xs:schema/comment()[following-sibling::xs:simpleType[1][@name=$xsdDt/type/name] -->
+<!--     or   following-sibling::xs:complexType[1][@name=$xsdDt/type/name] -->
+<!--   ]"> -->
+  <xsl:template match="/xs:schema/comment()[(following-sibling::xs:simpleType|following-sibling::xs:complexType)[1][@name=$xsdDt/type/name]]"> 
+    <xsl:call-template name="newline"/>
+    <xsl:apply-templates select="." mode="copy"/>
+    <xsl:call-template name="newline"/>
+  </xsl:template>
 
-	<xsl:template name="schemaneu">
-		<xsl:element name="api:schema">
-			<xsl:attribute name="name"><xsl:value-of select="$xsdDt/type[name=current()/ancestor::xs:complexType/@name]/schemaneu"/></xsl:attribute>
-		</xsl:element>			
-	</xsl:template>
+  <xsl:template name="schemaneu">
+    <xsl:element name="api:schema">
+      <xsl:attribute name="name"><xsl:value-of select="$xsdDt/type[name=current()/ancestor::xs:complexType/@name]/schemaneu"/></xsl:attribute>
+    </xsl:element>      
+  </xsl:template>
 
-	<xsl:template match="/xs:schema/xs:annotation">
-		<xsl:call-template name="newline"/>
-		<xsl:apply-templates select="." mode="copy"/>
-		<xsl:call-template name="newline"/>
-	</xsl:template>
- 	  
-	<xsl:template match="api:schema[
- 	  ancestor::xs:complexType[@name=$xsdDt/type[schemaneu!='']/name]]"
- 	  mode="copy">
-		<xsl:choose>
-			<xsl:when test="not(preceding-sibling::api:schema)">
-				<xsl:element name="api:schema">
-					<xsl:attribute name="name"><xsl:value-of select="$xsdDt/type[name=current()/ancestor::xs:complexType/@name]/schemaneu"/></xsl:attribute>
-				</xsl:element>			
-			</xsl:when>
-		</xsl:choose>
-	</xsl:template>
+  <xsl:template match="/xs:schema/xs:annotation">
+    <xsl:call-template name="newline"/>
+    <xsl:apply-templates select="." mode="copy"/>
+    <xsl:call-template name="newline"/>
+  </xsl:template>
+     
+  <xsl:template match="api:schema[
+     ancestor::xs:complexType[@name=$xsdDt/type[schemaneu!='']/name]]"
+     mode="copy">
+    <xsl:choose>
+      <xsl:when test="not(preceding-sibling::api:schema)">
+        <xsl:element name="api:schema">
+          <xsl:attribute name="name"><xsl:value-of select="$xsdDt/type[name=current()/ancestor::xs:complexType/@name]/schemaneu"/></xsl:attribute>
+        </xsl:element>      
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
 
-	<xsl:template match="api:annotation[not(api:schema) and 
- 	  ancestor::xs:complexType[@name=$xsdDt/type[schemaneu!='']/name]]" mode="copy">
-		<xsl:choose>
-			<xsl:when test="not(preceding-sibling::api:schema)">
-				<xsl:element name="api:schema">
-					<xsl:attribute name="name"><xsl:value-of select="$xsdDt/type[name=current()/ancestor::xs:complexType/@name]/schemaneu"/></xsl:attribute>
-				</xsl:element>			
-			</xsl:when>
-		</xsl:choose>
-	</xsl:template>
+  <xsl:template match="api:annotation[not(api:schema) and 
+     ancestor::xs:complexType[@name=$xsdDt/type[schemaneu!='']/name]]" mode="copy">
+    <xsl:choose>
+      <xsl:when test="not(preceding-sibling::api:schema)">
+        <xsl:element name="api:schema">
+          <xsl:attribute name="name"><xsl:value-of select="$xsdDt/type[name=current()/ancestor::xs:complexType/@name]/schemaneu"/></xsl:attribute>
+        </xsl:element>      
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
 
 
-		<xsl:param name="schemaneu"/>
+  <xsl:param name="schemaneu"/>
 
-	<xsl:template match="xs:annotation[@id='Kopiervorlage' and parent::xs:schema]" mode="copy"/>
-	<xsl:template match="@id['Kopiervorlage']" mode="copy"/>
-	<xsl:template match="@id['Kopiervorlage']" mode="copyvorlage"/>
+  <xsl:template match="xs:annotation[@id='Kopiervorlage' and parent::xs:schema]" mode="copy"/>
+  <xsl:template match="@id['Kopiervorlage']" mode="copy"/>
+  <xsl:template match="@id['Kopiervorlage']" mode="copyvorlage"/>
 
-	<xsl:template match="xs:simpleType[not(xs:annotation)]" mode="deactivateDcopy">
-		<xsl:copy>
-			<xsl:apply-templates select="@*" mode="copy"/>
-			<xsl:call-template name="newline" />
-			<xsl:apply-templates select="//xs:annotation[@id='Kopiervorlage']" mode="copytemplate">
-				<xsl:with-param name="schemaneu" select="$xsdDt/type[name=current()/@name]/schemaneu"/> 
-			</xsl:apply-templates>
-			<xsl:call-template name="newline" />
-			<xsl:apply-templates select="*" mode="copy"/>
-		</xsl:copy>	
-	</xsl:template>
+  <xsl:template match="xs:simpleType[not(xs:annotation)]" mode="deactivateDcopy">
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="copy"/>
+      <xsl:call-template name="newline" />
+      <xsl:apply-templates select="//xs:annotation[@id='Kopiervorlage']" mode="copytemplate">
+        <xsl:with-param name="schemaneu" select="$xsdDt/type[name=current()/@name]/schemaneu"/> 
+      </xsl:apply-templates>
+      <xsl:call-template name="newline" />
+      <xsl:apply-templates select="*" mode="copy"/>
+    </xsl:copy>  
+  </xsl:template>
 
-	<xsl:template match="/xs:schema/xs:element[substring-after(@type,':')=$xsdDt/type/name]">
-		<xsl:call-template name="newline"/>
-		<xsl:apply-templates select="." mode="copy"/>
-		<xsl:call-template name="newline"/>
-	</xsl:template>
+  <xsl:template match="/xs:schema/xs:element[substring-after(@type,':')=$xsdDt/type/name]">
+    <xsl:call-template name="newline"/>
+    <xsl:apply-templates select="." mode="copy"/>
+    <xsl:call-template name="newline"/>
+  </xsl:template>
 
-	<xsl:template match="/xs:schema/xs:simpleType[@name=$xsdDt/type/name]">
-		<xsl:call-template name="newline"/>
-		<xsl:apply-templates select="." mode="copy"/>
-		<xsl:call-template name="newline"/>
-	</xsl:template>
+  <xsl:template match="/xs:schema/xs:simpleType[@name=$xsdDt/type/name]">
+    <xsl:call-template name="newline"/>
+    <xsl:apply-templates select="." mode="copy"/>
+    <xsl:call-template name="newline"/>
+  </xsl:template>
 
-	<xsl:template match="/xs:schema/xs:complexType[@name=$xsdDt/type/name]">
-		<xsl:call-template name="newline"/>
-		<xsl:apply-templates select="." mode="copy"/>
-		<xsl:call-template name="newline"/>
-	</xsl:template>
-	
-	<xsl:template match="@*|node()">
-		<xsl:apply-templates select="@*"/>
-		<xsl:apply-templates/>
-	</xsl:template>
+  <xsl:template match="/xs:schema/xs:complexType[@name=$xsdDt/type/name]">
+    <xsl:call-template name="newline"/>
+    <xsl:apply-templates select="." mode="copy"/>
+    <xsl:call-template name="newline"/>
+  </xsl:template>
+  
+  <xsl:template match="@*|node()">
+    <xsl:apply-templates select="@*"/>
+    <xsl:apply-templates/>
+  </xsl:template>
 
-	<!-- standard copy template -->
-	<xsl:template match="@*|node()" mode="copy">
-		<xsl:copy>
-			<xsl:apply-templates select="@*" mode="copy"/>
-			<xsl:apply-templates mode="copy"/>
-		</xsl:copy>
-	</xsl:template>
-	
-	<xsl:template match="@*|node()" mode="copytemplate">
-		<xsl:param name="schemaneu"/>
-		<xsl:copy>
-			<xsl:apply-templates select="@*" mode="copytemplate">
-				<xsl:with-param name="schemaneu" select="$schemaneu" />
-			</xsl:apply-templates>
-			<xsl:apply-templates select="*" mode="copytemplate">
-				<xsl:with-param name="schemaneu" select="$schemaneu" />
-			</xsl:apply-templates>
-		</xsl:copy>
-	</xsl:template>	
-	<xsl:template match="@name[parent::api:schema]" mode="copyvorlage">
-		<xsl:param name="schemaneu"/>
-		<xsl:copy>
-		  <xsl:value-of select="$schemaneu"/>
-		</xsl:copy>
-		
-	</xsl:template>
+  <!-- standard copy template -->
+  <xsl:template match="@*|node()" mode="copy">
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="copy"/>
+      <xsl:apply-templates mode="copy"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <xsl:template match="@*|node()" mode="copytemplate">
+    <xsl:param name="schemaneu"/>
+    <xsl:copy>
+      <xsl:apply-templates select="@*" mode="copytemplate">
+        <xsl:with-param name="schemaneu" select="$schemaneu" />
+      </xsl:apply-templates>
+      <xsl:apply-templates select="*" mode="copytemplate">
+        <xsl:with-param name="schemaneu" select="$schemaneu" />
+      </xsl:apply-templates>
+    </xsl:copy>
+  </xsl:template>  
+  <xsl:template match="@name[parent::api:schema]" mode="copyvorlage">
+    <xsl:param name="schemaneu"/>
+    <xsl:copy>
+      <xsl:value-of select="$schemaneu"/>
+    </xsl:copy>
+    
+  </xsl:template>
 </xsl:stylesheet>

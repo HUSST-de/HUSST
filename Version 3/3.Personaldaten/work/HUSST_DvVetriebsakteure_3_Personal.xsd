@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:api="http://www.husst.de/Appinfo/3_Personal"
-	xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-	elementFormDefault="qualified" attributeFormDefault="unqualified">
-
-  <xs:include schemaLocation="./HUSST_Basisversorgungsdaten_3_neu.xsd"/>
+<xs:schema
+  xmlns:api="http://www.husst.de/Appinfo/3_Personal"
+  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+  <!--Personal-->
+  
+  <xs:include schemaLocation="./HUSST_DvBasis_3_Personal.xsd"/>
   
   <xs:complexType name="IdentobjektTypen_Type">
     <xs:annotation>
@@ -411,4 +414,4 @@
   <xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" nillable="true"/>
   
   <xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" nillable="true"/>
-  </xs:schema>
+</xs:schema>

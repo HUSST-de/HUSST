@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:api="http://www.husst.de/Appinfo/3_Personal" xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://husst.de/Versorgungsdaten/3_Personal" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:include schemaLocation="./HUSST_Basisversorgungsdaten_3_neu.xsd"/>
+<xs:schema
+  xmlns:api="http://husst.de/Appinfo/3_Personal"
+  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
+  <!--Versorgung-->
+  
+  <xs:include schemaLocation="./HUSST_DvBasis_3_Personal.xsd"/>
   
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten
-      Version: 3.4.1
+      Version: 3_Personal
 
       Mehr Informationen:
       - https://husst.de/
@@ -1261,8 +1269,10 @@
   <xs:complexType name="Preisspalten_Type">
     <xs:annotation>
       <xs:documentation>
-        Preiszusätze für die Preisfindung
-        (bspw. Rabattierungen)
+        Die Preisspalte definiert die Währung der zugeordneten Preise und ermöglicht Preisvarianten.
+        Verschiedene Preisspalten für die gleiche Sorte, Währung und Preisstufe
+        ermöglichen die Bereitstellung alternativer Preise (z.B. Barzahlung vs. Bezahlung mit Kundenkarte)
+        oder den Ausweis von spezifischen Preisanteilen (z.B. Preisanteil Aufgabenträger).
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -1288,8 +1298,8 @@
       <xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Kennung (Nr) zur systematischen
-            Interpretation (dflt=0)
+            Definiert den Verwendungszweck oder die Herkunft einer Preisspalte.
+            HUSST Standard=1
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2079,22 +2089,36 @@
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_Ortspunkt"/>
+          <api:field name="ID_OrtspunktKA"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:uniquekey name="Uix_OrtspunkteKA">
+          <api:field name="ID_Ortspunkt"/>
+          <api:field name="KA_OrtOrgID"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:uniquekey>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_OrtspunktKA" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      
+      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenz zum Ortspunkt, den der OrtspunktKA um VDV KA Eigenschaften ergänzt.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      
       <xs:element name="KA_OrtOrgID" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="KA_OrtTyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2161,7 +2185,7 @@
       </xs:element>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="IBISnr" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2705,7 +2729,10 @@
         <xs:annotation>
           <xs:documentation>
             Verkaufssortengruppe Relation
-            Diese Sortengruppen werden beim Verkauf über eine Start-/ Zielwahl angeboten.
+            Mit der "Verkaufssortengruppe Relation"
+            werden alle Sorten zusammengefasst, die aufgrund von Serviceklasse, Rabattklasse und Fahrgasttyp
+            untereinander austauschbar sind und deren Preisstufe über eine Reisewegauswahl 
+            (i.d.R. Relation) ermittelt wird. 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -2717,6 +2744,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>
+            Verkaufssortengruppe Kombi
+            Diese Sortengruppen fassen Sorten zusammen, die in Kombination angeboten werden können.
+            Die Auswahlsorte soll SortOrder 1 haben.
+            Beispiel:
+            Einfache Fahrt 2. Klasse + Hundeticket + Fahrrad
+            bzw.
+            Hin- und Rückfahrt 2. Klasse + Hundeticket Hin-/Rück + Fahrrad
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation>
@@ -3047,7 +3088,19 @@
           <xs:documentation>Senior</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="30">
+      <xs:enumeration value="64">
+        <xs:annotation>
+          <xs:documentation>ermäßigt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="65">
+        <xs:annotation>
+          <xs:documentation>Fahrrad</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      
+      <xs:enumeration value="66">
         <xs:annotation>
           <xs:documentation>Hund</xs:documentation>
         </xs:annotation>
@@ -3102,7 +3155,7 @@
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Komfortklasse kleiner 1000
-        angelehnt an VDV-KA ServiceKlasse
+        angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255)
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3120,7 +3173,12 @@
         <xs:annotation>
           <xs:documentation>2. Klasse</xs:documentation>
         </xs:annotation>
-      </xs:enumeration>
+      </xs:enumeration>      
+      <xs:enumeration value="300">
+        <xs:annotation>
+          <xs:documentation>Übergang von der 2. zur 1. Klasse</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>      
     </xs:restriction>
   </xs:simpleType>
   
@@ -3611,7 +3669,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="13">
+      <xs:enumeration value="29">
         <xs:annotation>
           <xs:documentation>
             Papierfahrschein / Handy Ticket /
@@ -4234,7 +4292,7 @@
       <xs:element name="Bezeichnung" type="xs:string" maxOccurs="1" minOccurs="1"/>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Ortspunkt" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Sortengruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
         <xs:annotation>
@@ -4618,7 +4676,7 @@
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>
-            HAST Hauptanstoßbahnhof
+            AST Anstoßbahnhof
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -4632,7 +4690,7 @@
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>
-            NE-Haltespunkt
+            NE-Haltepunkt
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -4676,6 +4734,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Via" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5167,4 +5226,4 @@
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  </xs:schema>
+</xs:schema>
