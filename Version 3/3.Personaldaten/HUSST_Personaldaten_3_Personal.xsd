@@ -19,17 +19,39 @@
     </xs:documentation>
   </xs:annotation>
   
-  <xs:complexType name="Hauptknoten_Type">
+  <xs:element name="husstPersonal" type="husstDV:husstPersonal_Type"></xs:element>
+  
+  <xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" />
+  <xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" />
+  <xs:element name="Geraet" type="husstDV:Geraet_Type" />
+  <xs:element name="GeraetEinsatztypen" type="husstDV:GeraetEinsatztypen_Type" />
+  <xs:element name="IdentobjektTypen" type="husstDV:IdentobjektTypen_Type" />
+  <xs:element name="Identobjekte" type="husstDV:Identobjekte_Type" />
+  <xs:element name="PersonalIdentobjekte" type="husstDV:PersonalIdentobjekte_Type" />
+  <xs:element name="Personal" type="husstDV:Personal_Type" />
+  <xs:element name="Personaleinsatz" type="husstDV:Personaleinsatz_Type" />
+
+
+  <xs:complexType name="husstPersonal_Type">
     <xs:choice maxOccurs="unbounded">
-    <xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" />
-    <xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" />
-    <xs:element name="Geraet" type="husstDV:Geraet_Type" />
-    <xs:element name="GeraetEinsatztypen" type="husstDV:GeraetEinsatztypen_Type" />
-    <xs:element name="IdentobjektTypen" type="husstDV:IdentobjektTypen_Type" />
-    <xs:element name="Identobjekte" type="husstDV:Identobjekte_Type" />
-    <xs:element name="PersonalIdentobjekte" type="husstDV:PersonalIdentobjekte_Type" />
-    <xs:element name="Personal" type="husstDV:Personal_Type" />
-    <xs:element name="Personaleinsatz" type="husstDV:Personaleinsatz_Type" />
+      <xs:element ref="husstDV:Bearbeitung" />
+      <xs:element ref="husstDV:Interpretationen" />
+      <xs:element ref="husstDV:Unternehmen" />
+      <xs:element ref="husstDV:Updateinfo" />
+      <xs:element ref="husstDV:VersionInhalt" />
+      <xs:element ref="husstDV:VersionStruktur" />
+      <xs:element ref="husstDV:Zeitraeume" />
+      <xs:element ref="husstDV:Zeitraumoptionen" />
+  
+      <xs:element ref="husstDV:Einsatzarten" />
+      <xs:element ref="husstDV:Geraetetypen"/>
+      <xs:element ref="husstDV:Geraet" />
+      <xs:element ref="husstDV:GeraetEinsatztypen" />
+      <xs:element ref="husstDV:IdentobjektTypen" />
+      <xs:element ref="husstDV:Identobjekte" />
+      <xs:element ref="husstDV:PersonalIdentobjekte" />
+      <xs:element ref="husstDV:Personal" />
+      <xs:element ref="husstDV:Personaleinsatz" />
     </xs:choice>
   </xs:complexType>
 
@@ -97,7 +119,15 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_GeraeteTyp" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_GeraeteEinsatzTyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_GeraeteEinsatzTyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>      
+          
+          DEPRECATED
+      
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ID_EinsatzArt" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -264,7 +294,11 @@
 
   <xs:complexType name="GeraetEinsatztypen_Type">
     <xs:annotation>
-      <xs:documentation>Zur Kennzeichnung der Tarifverteilung</xs:documentation>
+      <xs:documentation>
+      DEPRECATED
+      
+      Zur Kennzeichnung der Tarifverteilung
+      </xs:documentation>
       <xs:appinfo>
         <primekey>
           <field name="ID_GeraeteEinsatzTyp"/>
@@ -278,7 +312,13 @@
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_GeraeteEinsatzTyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Info" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenz zu einem extern definierten Element.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
@@ -296,10 +336,13 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_GeraeteTyp" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_GeraeteTyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>Info</xs:documentation>
+          <xs:documentation>
+            Referenz zu einem extern definierten Element.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
@@ -309,23 +352,31 @@
   <xs:complexType name="Einsatzarten_Type">
     <xs:annotation>
       <xs:appinfo>
-        <primekey>
-          <field name="ID_EinsatzArt"/>
-          <field name="ID_GeraeteTyp"/>
-        </primekey>
-        <schema name="Personal" />
+        <api:primekey>
+          <api:field name="ID_EinsatzArt" />
+          <api:field name="ID_Zeitraum" />
+        </api:primekey>
+        <api:schema name="Personal" />
       </xs:appinfo>
+      <xs:documentation>Personaleinsatz Beschreibung
+- Verkäufer
+- Kontrolleur
+- Zugbegleiter</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_GeraeteTyp" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_EinsatzArt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>Info</xs:documentation>
+          <xs:documentation>
+            Referenz zu einem extern definierten Element.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
+      <xs:element name="ID_GeraeteTyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
-
 </xs:schema>
