@@ -8,7 +8,7 @@
 
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten
+      HUSST Versorgungsdaten - Schemata: Tarif, Angebot (verwendet Basisversorgungsdaten)
       Version: 3.4.1
 
       Mehr Informationen:

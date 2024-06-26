@@ -8,7 +8,7 @@
   
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten
+      HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)
       Version: 3.Personal
 
       Mehr Informationen:

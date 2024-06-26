@@ -7,7 +7,7 @@
 
   <xs:annotation>
     <xs:documentation>
-      HUSST Basis-Versorgungsdaten
+      HUSST Versorgungsdaten - Schema: Basis
       Version: 3.x
 
       Mehr Informationen:
@@ -242,7 +242,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -285,7 +285,7 @@
           <api:field name="ID_Betriebstagesart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -358,7 +358,7 @@
           <api:field name="ID_Tagesmerkmal"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -410,7 +410,7 @@
           <api:field name="Bezeichnung"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -463,7 +463,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
 
       </xs:appinfo>
     </xs:annotation>
@@ -520,7 +520,6 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Basis"/>
-        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
