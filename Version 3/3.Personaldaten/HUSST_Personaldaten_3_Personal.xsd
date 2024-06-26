@@ -210,7 +210,7 @@
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_PersonalIdentobjekte"/>
+          <api:field name="ID_PersonalIdentobjekt"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Personal" />
@@ -219,7 +219,7 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_PersonalIdentobjekte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PersonalIdentobjekt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Identobjekt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Personal" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="GueltigAb" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
