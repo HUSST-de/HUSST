@@ -22,12 +22,11 @@
   <xs:element name="husstPersonal" type="husstDV:husstPersonal_Type"></xs:element>
   
   <xs:element name="DefIdentobjekttyp" type="husstDV:DefIdentobjekttyp_Type" />
-  <xs:element name="DefID_PasswortHashtyp" type="husstDV:DefID_PasswortHashtyp_Type" />
+  <xs:element name="DefPasswortHashtyp" type="husstDV:DefPasswortHashtyp_Type" />
   <xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" />
   <xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" />
   <xs:element name="Geraet" type="husstDV:Geraet_Type" />
   <xs:element name="GeraeteEinsatztypen" type="husstDV:GeraeteEinsatztypen_Type" />
-  <xs:element name="ID_Identobjektyp" type="husstDV:ID_Identobjekttyp_Type" />
   <xs:element name="Identobjekte" type="husstDV:Identobjekte_Type" />
   <xs:element name="PersonalIdentobjekte" type="husstDV:PersonalIdentobjekte_Type" />
   <xs:element name="Personal" type="husstDV:Personal_Type" />
@@ -46,12 +45,11 @@
       <xs:element ref="husstDV:Zeitraumoptionen" />
   
       <xs:element ref="husstDV:DefIdentobjekttyp" />
-      <xs:element ref="husstDV:DefID_PasswortHashtyp"/>
+      <xs:element ref="husstDV:DefPasswortHashtyp"/>
       <xs:element ref="husstDV:Einsatzarten" />
       <xs:element ref="husstDV:Geraetetypen"/>
       <xs:element ref="husstDV:Geraet" />
       <xs:element ref="husstDV:GeraeteEinsatztypen" />
-      <xs:element ref="husstDV:ID_Identobjekttyp" />
       <xs:element ref="husstDV:Identobjekte" />
       <xs:element ref="husstDV:PersonalIdentobjekte" />
       <xs:element ref="husstDV:Personal" />
@@ -387,7 +385,7 @@
     </xs:sequence>
   </xs:complexType>
   
-  <xs:complexType name="DefID_PasswortHashtyp_Type">
+  <xs:complexType name="DefPasswortHashtyp_Type">
     <xs:annotation>
       <xs:appinfo>
         <api:primekey>
