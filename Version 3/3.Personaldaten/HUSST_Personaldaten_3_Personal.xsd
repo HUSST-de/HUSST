@@ -21,13 +21,13 @@
   
   <xs:element name="husstPersonal" type="husstDV:husstPersonal_Type"></xs:element>
   
-  <xs:element name="DefIdentobjektTyp" type="husstDV:DefIdentobjektTyp_Type" />
+  <xs:element name="DefIdentobjekttyp" type="husstDV:DefIdentobjekttyp_Type" />
   <xs:element name="DefID_PasswortHashtyp" type="husstDV:DefID_PasswortHashtyp_Type" />
   <xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" />
   <xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" />
   <xs:element name="Geraet" type="husstDV:Geraet_Type" />
   <xs:element name="GeraeteEinsatztypen" type="husstDV:GeraeteEinsatztypen_Type" />
-  <xs:element name="ID_IdentobjektTyp" type="husstDV:ID_Identobjekttyp_Type" />
+  <xs:element name="ID_Identobjektyp" type="husstDV:ID_Identobjekttyp_Type" />
   <xs:element name="Identobjekte" type="husstDV:Identobjekte_Type" />
   <xs:element name="PersonalIdentobjekte" type="husstDV:PersonalIdentobjekte_Type" />
   <xs:element name="Personal" type="husstDV:Personal_Type" />
@@ -45,13 +45,13 @@
       <xs:element ref="husstDV:Zeitraeume" />
       <xs:element ref="husstDV:Zeitraumoptionen" />
   
-      <xs:element ref="husstDV:DefIdentobjektTyp" />
+      <xs:element ref="husstDV:DefIdentobjekttyp" />
       <xs:element ref="husstDV:DefID_PasswortHashtyp"/>
       <xs:element ref="husstDV:Einsatzarten" />
       <xs:element ref="husstDV:Geraetetypen"/>
       <xs:element ref="husstDV:Geraet" />
       <xs:element ref="husstDV:GeraeteEinsatztypen" />
-      <xs:element ref="husstDV:ID_IdentobjektTyp" />
+      <xs:element ref="husstDV:ID_Identobjekttyp" />
       <xs:element ref="husstDV:Identobjekte" />
       <xs:element ref="husstDV:PersonalIdentobjekte" />
       <xs:element ref="husstDV:Personal" />
@@ -129,7 +129,7 @@
       <xs:element name="ID_Personaleinsatz" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Personal" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Geraetetyp" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_GeraeteEinsatzTyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_GeraeteEinsatztyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_EinsatzArt" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -145,11 +145,11 @@
   <xs:simpleType name="ID_Identobjekttyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_IdentobjektTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
     </xs:annotation>
-    <xs:union memberTypes="husstDV:ID_IdentobjektTypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+    <xs:union memberTypes="husstDV:ID_IdentobjekttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
 
   <xs:complexType name="Identobjekte_Type">
@@ -174,7 +174,7 @@
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Identobjekt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_IdentobjektTyp" type="husstDV:ID_Identobjekttyp_Type" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Identobjekttyp" type="husstDV:ID_Identobjekttyp_Type" minOccurs="1" maxOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -353,16 +353,16 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_GeraeteTyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Geraetetyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   
-  <xs:complexType name="DefIdentobjektTyp_Type">
+  <xs:complexType name="DefIdentobjekttyp_Type">
     <xs:annotation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_IdentobjektTyp"/>
+          <api:field name="ID_Identobjekttyp"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Personal"/>
@@ -416,10 +416,10 @@
     </xs:sequence>
   </xs:complexType>
 
-   <xs:simpleType name="ID_IdentobjektTypHUSST_Type">
+   <xs:simpleType name="ID_IdentobjekttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_IdentobjektTypen kleiner 1000
+        Die HUSST definiert ID_Identobjekttypen kleiner 1000
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
