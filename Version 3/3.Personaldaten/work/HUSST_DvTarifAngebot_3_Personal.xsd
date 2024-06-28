@@ -2628,6 +2628,12 @@
           <xs:documentation>Zielpunkt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <!-- technische Runde 2024-06-19 - Erweiterung für das nächste Release -->
+<!--       <xs:enumeration value="4"> -->
+<!--         <xs:annotation> -->
+<!--           <xs:documentation>Viapunkt</xs:documentation> -->
+<!--         </xs:annotation> -->
+<!--       </xs:enumeration> -->
     </xs:restriction>
   </xs:simpleType>
   
