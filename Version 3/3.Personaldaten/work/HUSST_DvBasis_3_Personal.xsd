@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema
-  xmlns:api="http://husst.de/Appinfo/3_Personal"
-  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-  elementFormDefault="qualified"
-  attributeFormDefault="unqualified">
-  <!--Basis-->
-  
-  
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_x"
+           xmlns:api="http://www.husst.de/Appinfo/3_x"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_x"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten
-      Version: 3_Personal
+      HUSST Versorgungsdaten - Schema: Basis
+      Version: 3.x
 
       Mehr Informationen:
       - https://husst.de/
@@ -245,7 +241,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -288,7 +284,7 @@
           <api:field name="ID_Betriebstagesart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -361,7 +357,7 @@
           <api:field name="ID_Tagesmerkmal"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -413,7 +409,7 @@
           <api:field name="Bezeichnung"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -466,7 +462,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
 
       </xs:appinfo>
     </xs:annotation>
@@ -523,7 +519,6 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Basis"/>
-        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1736,7 +1731,7 @@
           <api:field name="ID_Waehrung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Tarif"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
       <xs:documentation>Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type</xs:documentation>
     </xs:annotation>
