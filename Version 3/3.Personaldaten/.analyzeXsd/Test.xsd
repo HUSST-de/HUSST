@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:api="http://husst.de/Appinfo/3_Personal" xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://husst.de/Versorgungsdaten/3_Personal" elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:include schemaLocation="./HUSST_Basisversorgungsdaten_3_neu.xsd"/>
