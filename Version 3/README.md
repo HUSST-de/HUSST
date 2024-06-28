@@ -17,6 +17,20 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
+### 3.5.0 -> 3.6.0
+Änderungsdatum: 28. Juni 2024
+Umsetzung der Modularisierung der Versorgungsdaten in 
+  * DvBasis
+  * DvTarifAngebot
+  * DvVertrieb 
+    - enthält jetzt wieder die Personaldatentypen++ aus der 2.x Version
+    - Angepasst an die neue 3.x Logik
+
+Die Anpassungen sind abwärtskompatibel innerhalb der Version 3.
+
+Außerdem  
+  * Enumeration ID_OTPTypHUSST_Type um Value=4 ergänzt 
+
 ### 3.4.1 -> 3.5.0
 Änderungsdatum: 8. März 2024
 
