@@ -23,8 +23,8 @@ In der anschließenden Diskussion wurde mehrheitlich gewünscht, dass die besteh
 |HUSST_DvBasisEnumerationen.xsd|HUSST_VersorgungsdatenBasisEnumerationen.xsd| | | Enumerationstypen: ```ID_<Datentyp>HUSST_Type```|
 |HUSST_DvTarifAngebot.xsd|HUSST_VersorgungsdatenTarifAngebot.xsd|HUSST_TarifAngebotsversorgungsdaten.xsd|HUSST_Versorgungsdaten.xsd <i>(referenziert HUSST_Basisversorgungsdaten.xsd)</i>| <ul><li>Tarif</li> <li>Streckentarif</li> <li>Angebot</li></ul>|
 |HUSST_DvTarifAngebotEnumerationen.xsd|HUSST_VersorgungsdatenTarifAngebotEnumerationen.xsd| | | Enumerationstypen: ```ID_<Datentyp>HUSST_Type``` |
-|HUSST_DvVetriebsakteure.xsd|HUSST_VersorgungsdatenVetriebsakteure.xsd|HUSST_Vetriebsstellenversorgungsdaten.xsd|HUSST_Personaldaten.xsd <i>(referenziert HUSST_Basisversorgungsdaten.xsd)</i>| <ul><li>Personal</li> <li>Identifikation</li> <li>Geräte</li></ul>|
-|HUSST_DvVetriebsakteureEnumerationen.xsd|HUSST_VersorgungsdatenVetriebsakteureEnumerationen.xsd| | | Enumerationstypen: ```ID_<Datentyp>HUSST_Type``` |
+|HUSST_DvVetrieb.xsd|HUSST_VersorgungsdatenVetriebsakteure.xsd|HUSST_Vetriebsstellenversorgungsdaten.xsd|HUSST_Personaldaten.xsd <i>(referenziert HUSST_Basisversorgungsdaten.xsd)</i>| <ul><li>Personal</li> <li>Identifikation</li> <li>Geräte</li></ul>|
+|HUSST_DvVetriebEnumerationen.xsd|HUSST_VersorgungsdatenVetriebsakteureEnumerationen.xsd| | | Enumerationstypen: ```ID_<Datentyp>HUSST_Type``` |
 
 
 Hinweis:
