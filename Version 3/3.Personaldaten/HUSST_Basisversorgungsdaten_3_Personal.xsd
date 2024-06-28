@@ -17,7 +17,6 @@
       Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
     </xs:documentation>
   </xs:annotation>
-
   
   <xs:simpleType name="DateTimeCompact">
     <xs:restriction base="xs:dateTime">
@@ -549,12 +548,1092 @@
       <xs:documentation>
         Die HUSST definiert Waehrungs-ID kleiner 1000
         Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
-        Außer für den EUR. Hier ist in der HUSST die 999 definiert.
+        Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
-      <xs:minInclusive value="0"/>
-      <xs:maxInclusive value="999"/>
+      <!-- ISO 4217 Standard definiert eigentlich 978 für den EUR, 
+           aus historischen Gründen verwendet die HUSST aber die 999 
+      -->
+      <xs:enumeration value="999">
+        <xs:annotation>
+          <xs:documentation>EUR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- auch wenn sie keine aktive Währung mehr ist, 
+           wird die D-Mark aus historischen Gründen noch weiter unterstützt.
+        -->
+      <xs:enumeration value="280">
+        <xs:annotation>
+          <xs:documentation>DEM</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- ab hier (mit Ausnahme des EUR und XXX) 
+           ISO 4217 Standard "list-one.xls" - Stand 1. Januar 2024
+           Quelle: https://www.six-group.com/en/products-services/financial-information/data-standards.html
+      -->
+      <!-- UAE Dirham -->
+      <xs:enumeration value="784">
+        <xs:annotation>
+          <xs:documentation>AED</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Afghani -->
+      <xs:enumeration value="971">
+        <xs:annotation>
+          <xs:documentation>AFN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lek -->
+      <xs:enumeration value="008">
+        <xs:annotation>
+          <xs:documentation>ALL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Armenian Dram -->
+      <xs:enumeration value="051">
+        <xs:annotation>
+          <xs:documentation>AMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Netherlands Antillean Guilder -->
+      <xs:enumeration value="532">
+        <xs:annotation>
+          <xs:documentation>ANG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kwanza -->
+      <xs:enumeration value="973">
+        <xs:annotation>
+          <xs:documentation>AOA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Argentine Peso -->
+      <xs:enumeration value="032">
+        <xs:annotation>
+          <xs:documentation>ARS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Australian Dollar -->
+      <xs:enumeration value="036">
+        <xs:annotation>
+          <xs:documentation>AUD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Aruban Florin -->
+      <xs:enumeration value="533">
+        <xs:annotation>
+          <xs:documentation>AWG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Azerbaijan Manat -->
+      <xs:enumeration value="944">
+        <xs:annotation>
+          <xs:documentation>AZN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Convertible Mark -->
+      <xs:enumeration value="977">
+        <xs:annotation>
+          <xs:documentation>BAM</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Barbados Dollar -->
+      <xs:enumeration value="052">
+        <xs:annotation>
+          <xs:documentation>BBD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Taka -->
+      <xs:enumeration value="050">
+        <xs:annotation>
+          <xs:documentation>BDT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bulgarian Lev -->
+      <xs:enumeration value="975">
+        <xs:annotation>
+          <xs:documentation>BGN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bahraini Dinar -->
+      <xs:enumeration value="048">
+        <xs:annotation>
+          <xs:documentation>BHD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Burundi Franc -->
+      <xs:enumeration value="108">
+        <xs:annotation>
+          <xs:documentation>BIF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bermudian Dollar -->
+      <xs:enumeration value="060">
+        <xs:annotation>
+          <xs:documentation>BMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Brunei Dollar -->
+      <xs:enumeration value="096">
+        <xs:annotation>
+          <xs:documentation>BND</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Boliviano -->
+      <xs:enumeration value="068">
+        <xs:annotation>
+          <xs:documentation>BOB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mvdol -->
+      <xs:enumeration value="984">
+        <xs:annotation>
+          <xs:documentation>BOV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Brazilian Real -->
+      <xs:enumeration value="986">
+        <xs:annotation>
+          <xs:documentation>BRL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bahamian Dollar -->
+      <xs:enumeration value="044">
+        <xs:annotation>
+          <xs:documentation>BSD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ngultrum -->
+      <xs:enumeration value="064">
+        <xs:annotation>
+          <xs:documentation>BTN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pula -->
+      <xs:enumeration value="072">
+        <xs:annotation>
+          <xs:documentation>BWP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Belarusian Ruble -->
+      <xs:enumeration value="933">
+        <xs:annotation>
+          <xs:documentation>BYN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Belize Dollar -->
+      <xs:enumeration value="084">
+        <xs:annotation>
+          <xs:documentation>BZD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Canadian Dollar -->
+      <xs:enumeration value="124">
+        <xs:annotation>
+          <xs:documentation>CAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Congolese Franc -->
+      <xs:enumeration value="976">
+        <xs:annotation>
+          <xs:documentation>CDF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- WIR Euro -->
+      <xs:enumeration value="947">
+        <xs:annotation>
+          <xs:documentation>CHE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Swiss Franc -->
+      <xs:enumeration value="756">
+        <xs:annotation>
+          <xs:documentation>CHF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- WIR Franc -->
+      <xs:enumeration value="948">
+        <xs:annotation>
+          <xs:documentation>CHW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Unidad de Fomento -->
+      <xs:enumeration value="990">
+        <xs:annotation>
+          <xs:documentation>CLF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Chilean Peso -->
+      <xs:enumeration value="152">
+        <xs:annotation>
+          <xs:documentation>CLP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Yuan Renminbi -->
+      <xs:enumeration value="156">
+        <xs:annotation>
+          <xs:documentation>CNY</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Colombian Peso -->
+      <xs:enumeration value="170">
+        <xs:annotation>
+          <xs:documentation>COP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Unidad de Valor Real -->
+      <xs:enumeration value="970">
+        <xs:annotation>
+          <xs:documentation>COU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Costa Rican Colon -->
+      <xs:enumeration value="188">
+        <xs:annotation>
+          <xs:documentation>CRC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Peso Convertible -->
+      <xs:enumeration value="931">
+        <xs:annotation>
+          <xs:documentation>CUC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cuban Peso -->
+      <xs:enumeration value="192">
+        <xs:annotation>
+          <xs:documentation>CUP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cabo Verde Escudo -->
+      <xs:enumeration value="132">
+        <xs:annotation>
+          <xs:documentation>CVE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Czech Koruna -->
+      <xs:enumeration value="203">
+        <xs:annotation>
+          <xs:documentation>CZK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Djibouti Franc -->
+      <xs:enumeration value="262">
+        <xs:annotation>
+          <xs:documentation>DJF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Danish Krone -->
+      <xs:enumeration value="208">
+        <xs:annotation>
+          <xs:documentation>DKK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dominican Peso -->
+      <xs:enumeration value="214">
+        <xs:annotation>
+          <xs:documentation>DOP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Algerian Dinar -->
+      <xs:enumeration value="012">
+        <xs:annotation>
+          <xs:documentation>DZD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Egyptian Pound -->
+      <xs:enumeration value="818">
+        <xs:annotation>
+          <xs:documentation>EGP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Nakfa -->
+      <xs:enumeration value="232">
+        <xs:annotation>
+          <xs:documentation>ERN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ethiopian Birr -->
+      <xs:enumeration value="230">
+        <xs:annotation>
+          <xs:documentation>ETB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Fiji Dollar -->
+      <xs:enumeration value="242">
+        <xs:annotation>
+          <xs:documentation>FJD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Falkland Islands Pound -->
+      <xs:enumeration value="238">
+        <xs:annotation>
+          <xs:documentation>FKP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pound Sterling -->
+      <xs:enumeration value="826">
+        <xs:annotation>
+          <xs:documentation>GBP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lari -->
+      <xs:enumeration value="981">
+        <xs:annotation>
+          <xs:documentation>GEL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ghana Cedi -->
+      <xs:enumeration value="936">
+        <xs:annotation>
+          <xs:documentation>GHS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Gibraltar Pound -->
+      <xs:enumeration value="292">
+        <xs:annotation>
+          <xs:documentation>GIP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dalasi -->
+      <xs:enumeration value="270">
+        <xs:annotation>
+          <xs:documentation>GMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Guinean Franc -->
+      <xs:enumeration value="324">
+        <xs:annotation>
+          <xs:documentation>GNF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Quetzal -->
+      <xs:enumeration value="320">
+        <xs:annotation>
+          <xs:documentation>GTQ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Guyana Dollar -->
+      <xs:enumeration value="328">
+        <xs:annotation>
+          <xs:documentation>GYD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Hong Kong Dollar -->
+      <xs:enumeration value="344">
+        <xs:annotation>
+          <xs:documentation>HKD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lempira -->
+      <xs:enumeration value="340">
+        <xs:annotation>
+          <xs:documentation>HNL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Gourde -->
+      <xs:enumeration value="332">
+        <xs:annotation>
+          <xs:documentation>HTG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Forint -->
+      <xs:enumeration value="348">
+        <xs:annotation>
+          <xs:documentation>HUF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rupiah -->
+      <xs:enumeration value="360">
+        <xs:annotation>
+          <xs:documentation>IDR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- New Israeli Sheqel -->
+      <xs:enumeration value="376">
+        <xs:annotation>
+          <xs:documentation>ILS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Indian Rupee -->
+      <xs:enumeration value="356">
+        <xs:annotation>
+          <xs:documentation>INR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Iraqi Dinar -->
+      <xs:enumeration value="368">
+        <xs:annotation>
+          <xs:documentation>IQD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Iranian Rial -->
+      <xs:enumeration value="364">
+        <xs:annotation>
+          <xs:documentation>IRR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Iceland Krona -->
+      <xs:enumeration value="352">
+        <xs:annotation>
+          <xs:documentation>ISK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Jamaican Dollar -->
+      <xs:enumeration value="388">
+        <xs:annotation>
+          <xs:documentation>JMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Jordanian Dinar -->
+      <xs:enumeration value="400">
+        <xs:annotation>
+          <xs:documentation>JOD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Yen -->
+      <xs:enumeration value="392">
+        <xs:annotation>
+          <xs:documentation>JPY</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kenyan Shilling -->
+      <xs:enumeration value="404">
+        <xs:annotation>
+          <xs:documentation>KES</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Som -->
+      <xs:enumeration value="417">
+        <xs:annotation>
+          <xs:documentation>KGS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Riel -->
+      <xs:enumeration value="116">
+        <xs:annotation>
+          <xs:documentation>KHR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Comorian Franc  -->
+      <xs:enumeration value="174">
+        <xs:annotation>
+          <xs:documentation>KMF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- North Korean Won -->
+      <xs:enumeration value="408">
+        <xs:annotation>
+          <xs:documentation>KPW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Won -->
+      <xs:enumeration value="410">
+        <xs:annotation>
+          <xs:documentation>KRW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kuwaiti Dinar -->
+      <xs:enumeration value="414">
+        <xs:annotation>
+          <xs:documentation>KWD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cayman Islands Dollar -->
+      <xs:enumeration value="136">
+        <xs:annotation>
+          <xs:documentation>KYD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tenge -->
+      <xs:enumeration value="398">
+        <xs:annotation>
+          <xs:documentation>KZT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lao Kip -->
+      <xs:enumeration value="418">
+        <xs:annotation>
+          <xs:documentation>LAK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lebanese Pound -->
+      <xs:enumeration value="422">
+        <xs:annotation>
+          <xs:documentation>LBP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sri Lanka Rupee -->
+      <xs:enumeration value="144">
+        <xs:annotation>
+          <xs:documentation>LKR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Liberian Dollar -->
+      <xs:enumeration value="430">
+        <xs:annotation>
+          <xs:documentation>LRD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Loti -->
+      <xs:enumeration value="426">
+        <xs:annotation>
+          <xs:documentation>LSL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Libyan Dinar -->
+      <xs:enumeration value="434">
+        <xs:annotation>
+          <xs:documentation>LYD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Moroccan Dirham -->
+      <xs:enumeration value="504">
+        <xs:annotation>
+          <xs:documentation>MAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Moldovan Leu -->
+      <xs:enumeration value="498">
+        <xs:annotation>
+          <xs:documentation>MDL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Malagasy Ariary -->
+      <xs:enumeration value="969">
+        <xs:annotation>
+          <xs:documentation>MGA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Denar -->
+      <xs:enumeration value="807">
+        <xs:annotation>
+          <xs:documentation>MKD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kyat -->
+      <xs:enumeration value="104">
+        <xs:annotation>
+          <xs:documentation>MMK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tugrik -->
+      <xs:enumeration value="496">
+        <xs:annotation>
+          <xs:documentation>MNT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pataca -->
+      <xs:enumeration value="446">
+        <xs:annotation>
+          <xs:documentation>MOP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ouguiya -->
+      <xs:enumeration value="929">
+        <xs:annotation>
+          <xs:documentation>MRU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mauritius Rupee -->
+      <xs:enumeration value="480">
+        <xs:annotation>
+          <xs:documentation>MUR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rufiyaa -->
+      <xs:enumeration value="462">
+        <xs:annotation>
+          <xs:documentation>MVR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Malawi Kwacha -->
+      <xs:enumeration value="454">
+        <xs:annotation>
+          <xs:documentation>MWK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mexican Peso -->
+      <xs:enumeration value="484">
+        <xs:annotation>
+          <xs:documentation>MXN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mexican Unidad de Inversion (UDI) -->
+      <xs:enumeration value="979">
+        <xs:annotation>
+          <xs:documentation>MXV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Malaysian Ringgit -->
+      <xs:enumeration value="458">
+        <xs:annotation>
+          <xs:documentation>MYR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mozambique Metical -->
+      <xs:enumeration value="943">
+        <xs:annotation>
+          <xs:documentation>MZN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Namibia Dollar -->
+      <xs:enumeration value="516">
+        <xs:annotation>
+          <xs:documentation>NAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Naira -->
+      <xs:enumeration value="566">
+        <xs:annotation>
+          <xs:documentation>NGN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cordoba Oro -->
+      <xs:enumeration value="558">
+        <xs:annotation>
+          <xs:documentation>NIO</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Norwegian Krone -->
+      <xs:enumeration value="578">
+        <xs:annotation>
+          <xs:documentation>NOK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Nepalese Rupee -->
+      <xs:enumeration value="524">
+        <xs:annotation>
+          <xs:documentation>NPR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- New Zealand Dollar -->
+      <xs:enumeration value="554">
+        <xs:annotation>
+          <xs:documentation>NZD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rial Omani -->
+      <xs:enumeration value="512">
+        <xs:annotation>
+          <xs:documentation>OMR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Balboa -->
+      <xs:enumeration value="590">
+        <xs:annotation>
+          <xs:documentation>PAB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sol -->
+      <xs:enumeration value="604">
+        <xs:annotation>
+          <xs:documentation>PEN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kina -->
+      <xs:enumeration value="598">
+        <xs:annotation>
+          <xs:documentation>PGK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Philippine Peso -->
+      <xs:enumeration value="608">
+        <xs:annotation>
+          <xs:documentation>PHP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pakistan Rupee -->
+      <xs:enumeration value="586">
+        <xs:annotation>
+          <xs:documentation>PKR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Zloty -->
+      <xs:enumeration value="985">
+        <xs:annotation>
+          <xs:documentation>PLN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Guarani -->
+      <xs:enumeration value="600">
+        <xs:annotation>
+          <xs:documentation>PYG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Qatari Rial -->
+      <xs:enumeration value="634">
+        <xs:annotation>
+          <xs:documentation>QAR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Romanian Leu -->
+      <xs:enumeration value="946">
+        <xs:annotation>
+          <xs:documentation>RON</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Serbian Dinar -->
+      <xs:enumeration value="941">
+        <xs:annotation>
+          <xs:documentation>RSD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Russian Ruble -->
+      <xs:enumeration value="643">
+        <xs:annotation>
+          <xs:documentation>RUB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rwanda Franc -->
+      <xs:enumeration value="646">
+        <xs:annotation>
+          <xs:documentation>RWF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Saudi Riyal -->
+      <xs:enumeration value="682">
+        <xs:annotation>
+          <xs:documentation>SAR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Solomon Islands Dollar -->
+      <xs:enumeration value="090">
+        <xs:annotation>
+          <xs:documentation>SBD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Seychelles Rupee -->
+      <xs:enumeration value="690">
+        <xs:annotation>
+          <xs:documentation>SCR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sudanese Pound -->
+      <xs:enumeration value="938">
+        <xs:annotation>
+          <xs:documentation>SDG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Swedish Krona -->
+      <xs:enumeration value="752">
+        <xs:annotation>
+          <xs:documentation>SEK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Singapore Dollar -->
+      <xs:enumeration value="702">
+        <xs:annotation>
+          <xs:documentation>SGD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Saint Helena Pound -->
+      <xs:enumeration value="654">
+        <xs:annotation>
+          <xs:documentation>SHP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Leone -->
+      <xs:enumeration value="925">
+        <xs:annotation>
+          <xs:documentation>SLE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Somali Shilling -->
+      <xs:enumeration value="706">
+        <xs:annotation>
+          <xs:documentation>SOS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Surinam Dollar -->
+      <xs:enumeration value="968">
+        <xs:annotation>
+          <xs:documentation>SRD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- South Sudanese Pound -->
+      <xs:enumeration value="728">
+        <xs:annotation>
+          <xs:documentation>SSP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dobra -->
+      <xs:enumeration value="930">
+        <xs:annotation>
+          <xs:documentation>STN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- El Salvador Colon -->
+      <xs:enumeration value="222">
+        <xs:annotation>
+          <xs:documentation>SVC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Syrian Pound -->
+      <xs:enumeration value="760">
+        <xs:annotation>
+          <xs:documentation>SYP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lilangeni -->
+      <xs:enumeration value="748">
+        <xs:annotation>
+          <xs:documentation>SZL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Baht -->
+      <xs:enumeration value="764">
+        <xs:annotation>
+          <xs:documentation>THB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Somoni -->
+      <xs:enumeration value="972">
+        <xs:annotation>
+          <xs:documentation>TJS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Turkmenistan New Manat -->
+      <xs:enumeration value="934">
+        <xs:annotation>
+          <xs:documentation>TMT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tunisian Dinar -->
+      <xs:enumeration value="788">
+        <xs:annotation>
+          <xs:documentation>TND</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pa’anga -->
+      <xs:enumeration value="776">
+        <xs:annotation>
+          <xs:documentation>TOP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Turkish Lira -->
+      <xs:enumeration value="949">
+        <xs:annotation>
+          <xs:documentation>TRY</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Trinidad and Tobago Dollar -->
+      <xs:enumeration value="780">
+        <xs:annotation>
+          <xs:documentation>TTD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- New Taiwan Dollar -->
+      <xs:enumeration value="901">
+        <xs:annotation>
+          <xs:documentation>TWD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tanzanian Shilling -->
+      <xs:enumeration value="834">
+        <xs:annotation>
+          <xs:documentation>TZS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Hryvnia -->
+      <xs:enumeration value="980">
+        <xs:annotation>
+          <xs:documentation>UAH</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Uganda Shilling -->
+      <xs:enumeration value="800">
+        <xs:annotation>
+          <xs:documentation>UGX</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- US Dollar -->
+      <xs:enumeration value="840">
+        <xs:annotation>
+          <xs:documentation>USD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- US Dollar (Next day) -->
+      <xs:enumeration value="997">
+        <xs:annotation>
+          <xs:documentation>USN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Uruguay Peso en Unidades Indexadas (UI) -->
+      <xs:enumeration value="940">
+        <xs:annotation>
+          <xs:documentation>UYI</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Peso Uruguayo -->
+      <xs:enumeration value="858">
+        <xs:annotation>
+          <xs:documentation>UYU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Unidad Previsional -->
+      <xs:enumeration value="927">
+        <xs:annotation>
+          <xs:documentation>UYW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Uzbekistan Sum -->
+      <xs:enumeration value="860">
+        <xs:annotation>
+          <xs:documentation>UZS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bolívar Soberano -->
+      <xs:enumeration value="926">
+        <xs:annotation>
+          <xs:documentation>VED</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bolívar Soberano -->
+      <xs:enumeration value="928">
+        <xs:annotation>
+          <xs:documentation>VES</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dong -->
+      <xs:enumeration value="704">
+        <xs:annotation>
+          <xs:documentation>VND</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Vatu -->
+      <xs:enumeration value="548">
+        <xs:annotation>
+          <xs:documentation>VUV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tala -->
+      <xs:enumeration value="882">
+        <xs:annotation>
+          <xs:documentation>WST</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- CFA Franc BEAC -->
+      <xs:enumeration value="950">
+        <xs:annotation>
+          <xs:documentation>XAF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Silver -->
+      <xs:enumeration value="961">
+        <xs:annotation>
+          <xs:documentation>XAG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Gold -->
+      <xs:enumeration value="959">
+        <xs:annotation>
+          <xs:documentation>XAU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Composite Unit (EURCO) -->
+      <xs:enumeration value="955">
+        <xs:annotation>
+          <xs:documentation>XBA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Monetary Unit (E.M.U.-6) -->
+      <xs:enumeration value="956">
+        <xs:annotation>
+          <xs:documentation>XBB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Unit of Account 9 (E.U.A.-9) -->
+      <xs:enumeration value="957">
+        <xs:annotation>
+          <xs:documentation>XBC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Unit of Account 17 (E.U.A.-17) -->
+      <xs:enumeration value="958">
+        <xs:annotation>
+          <xs:documentation>XBD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- East Caribbean Dollar -->
+      <xs:enumeration value="951">
+        <xs:annotation>
+          <xs:documentation>XCD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- SDR (Special Drawing Right) -->
+      <xs:enumeration value="960">
+        <xs:annotation>
+          <xs:documentation>XDR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- CFA Franc BCEAO -->
+      <xs:enumeration value="952">
+        <xs:annotation>
+          <xs:documentation>XOF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Palladium -->
+      <xs:enumeration value="964">
+        <xs:annotation>
+          <xs:documentation>XPD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- CFP Franc -->
+      <xs:enumeration value="953">
+        <xs:annotation>
+          <xs:documentation>XPF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Platinum -->
+      <xs:enumeration value="962">
+        <xs:annotation>
+          <xs:documentation>XPT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sucre -->
+      <xs:enumeration value="994">
+        <xs:annotation>
+          <xs:documentation>XSU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Codes specifically reserved for testing purposes -->
+      <xs:enumeration value="963">
+        <xs:annotation>
+          <xs:documentation>XTS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- ADB Unit of Account -->
+      <xs:enumeration value="965">
+        <xs:annotation>
+          <xs:documentation>XUA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Yemeni Rial -->
+      <xs:enumeration value="886">
+        <xs:annotation>
+          <xs:documentation>YER</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rand -->
+      <xs:enumeration value="710">
+        <xs:annotation>
+          <xs:documentation>ZAR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Zambian Kwacha -->
+      <xs:enumeration value="967">
+        <xs:annotation>
+          <xs:documentation>ZMW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Zimbabwe Dollar -->
+      <xs:enumeration value="932">
+        <xs:annotation>
+          <xs:documentation>ZWL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   
@@ -782,18 +1861,18 @@
           <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="4">
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="5">
         <xs:annotation>
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="1">
+      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="0">
         <xs:annotation>
           <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-02-06" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-03-08" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
@@ -814,7 +1893,7 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Iso" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -857,6 +1936,138 @@
     </xs:sequence>
   </xs:complexType>
   
+  <xs:simpleType name="ID_BundeslandHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Bundesland kleiner 1000.
+        Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+        analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) 
+        bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind. 
+        
+        Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
+        https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
+        
+        Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) 
+        verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
+         - siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
+      </xs:documentation>
+    </xs:annotation>
+  
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>unbekannt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Schleswig-Holstein (SH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Hamburg (HH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Niedersachsen (NI)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Bremen (HB)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>Nordrhein-Westfalen (NW)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>Hessen (HE)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation>Rheinland-Pfalz (RP)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>Baden-Württemberg (BW)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Bayern (BY)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>Saarland (SL)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation>Berlin (BE)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>Brandenburg (BB)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation>Mecklenburg-Vorpommern (MV)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation>Sachsen (SN)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="15">
+        <xs:annotation>
+          <xs:documentation>Sachsen-Anhalt (ST)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation>Thüringen (TH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ID_Bundesland_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_BundeslandHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+  
   <xs:complexType name="Feiertage_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -876,7 +2087,7 @@
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Feiertag" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Bundesland" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Datum" type="husstDV:DateCompact" maxOccurs="1" minOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
@@ -985,7 +2196,7 @@
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_DynAttributDef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Referenznummer der dynamischen Attributdefinition.
@@ -1111,7 +2322,7 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_DynAttributDef" type="xs:integer" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_DynAttributDef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Referenznummer der dynamischen Attributdefinition.
@@ -1319,6 +2530,9 @@
         eine Abbildung auf ein relationales Datenbankmodell
         verwendet.
       </xs:documentation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1"/>
@@ -1328,6 +2542,11 @@
   </xs:complexType>
   
   <xs:complexType name="DynAttributWert_Subtype">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:simpleContent>
       <xs:extension base="husstDV:blobString">
         <xs:attribute name="lang" type="husstDV:Lang_Type"/>
@@ -1335,5 +2554,3 @@
     </xs:simpleContent>
   </xs:complexType>
 </xs:schema>
-  
-  
