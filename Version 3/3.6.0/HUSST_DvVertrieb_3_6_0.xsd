@@ -103,7 +103,7 @@
   <xs:simpleType name="ID_PasswortHashtyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
     </xs:annotation>
