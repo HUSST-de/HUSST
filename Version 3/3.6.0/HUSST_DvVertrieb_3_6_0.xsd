@@ -62,8 +62,8 @@
       <xs:documentation>Personalstammdaten</xs:documentation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_Zeitraum"/>
           <api:field name="ID_Personal"/>
+          <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Personal"/>
       </xs:appinfo>
@@ -202,10 +202,10 @@
         Die Struktur hat deshalb keinen PrimeKey!
 
         Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen
-        AktivAb, AktivBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,
+        GueltigAb, GueltigBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,
         wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt
-        im AktivAb,AktivBis Intervall liegt. Ist AktivAb nicht angegeben,
-        gilt die Zuordnung ab "schon immer", ist AktivBis nicht angegeben
+        im GueltigAb,GueltigBis Intervall liegt. Ist GueltigAb nicht angegeben,
+        gilt die Zuordnung ab "schon immer", ist GueltigBis nicht angegeben
         gilt die Zuordnung "bis ewig".
       </xs:documentation>
       <xs:appinfo>
