@@ -225,7 +225,7 @@
       <xs:element name="GueltigAb" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Wenn angegeben, definiert AktivAb den Beginn der Verwendbarkeit des Ident-Objektes.
+            Wenn angegeben, definiert GueltigAb den Beginn der Verwendbarkeit des Ident-Objektes.
             Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
           </xs:documentation>
         </xs:annotation>
