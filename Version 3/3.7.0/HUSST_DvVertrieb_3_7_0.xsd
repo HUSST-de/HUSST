@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_6_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_6_0"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_6_0"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_7_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_7_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_7_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:include schemaLocation="./HUSST_DvBasis_3_6_0.xsd"/>
+  <xs:include schemaLocation="./HUSST_DvBasis_3_7_0.xsd"/>
   
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)
-      Version: 3.6.0
+      Version: 3.7.0
 
       Mehr Informationen:
       - https://husst.de/

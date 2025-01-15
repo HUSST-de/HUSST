@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_6_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_6_0"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_6_0"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_7_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_7_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_7_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten - Schema: Basis
-      Version: 3.6.0
+      Version: 3.7.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -1861,7 +1861,7 @@
           <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="6">
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="7">
         <xs:annotation>
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
@@ -1872,7 +1872,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-06-28" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2025-01-15" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
@@ -2311,10 +2311,10 @@
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_Zeitraum"/>
           <api:field name="ID_DynAttributDef"/>
-          <api:field name="Tabellennummer"/>
           <api:field name="ID_DatensatzRef"/>
+          <api:field name="Tabellennummer"/>
+          <api:field name="ID_Zeitraum"/>
           <api:field name="Lang"/>
         </api:primekey>
         <api:schema name="Basis"/>

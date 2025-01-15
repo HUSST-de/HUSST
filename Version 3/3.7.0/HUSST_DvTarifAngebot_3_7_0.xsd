@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_6_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_6_0"
-           targetNamespace="http://husst.de/Versorgungsdaten/3_6_0"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_7_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_7_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_7_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
-  <xs:include schemaLocation="./HUSST_DvBasis_3_6_0.xsd"/>
+  <xs:include schemaLocation="./HUSST_DvBasis_3_7_0.xsd"/>
 
   <xs:annotation>
     <xs:documentation>
       HUSST Versorgungsdaten - Schemata: Tarif, Angebot (verwendet Basisversorgungsdaten)
-      Version: 3.6.0
+      Version: 3.7.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -852,6 +852,15 @@
         <xs:annotation>
           <xs:documentation>
             Regelt die Verwendung konkurrierender Teilrelationen für den Ausdruck von Tickets.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TarifartStrecke" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Die ID_TarifartStrecke ermöglicht oder verhindert eine parallele Suche in den Streckentarifen.
+             * das Vertriebsgerät muss parallel in der Streckenlogik suchen, wenn ID_TarifartStrecke gesetzt ist,
+             * das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.            
           </xs:documentation>
         </xs:annotation>
       </xs:element>
