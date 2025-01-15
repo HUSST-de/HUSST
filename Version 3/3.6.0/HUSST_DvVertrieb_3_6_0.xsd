@@ -87,7 +87,7 @@
         <xs:annotation>
           <xs:documentation>
             Gehashtes Passwort. 
-            Wenn Angegeben ist ID_PasswortHashtyp zwingen anzugeben
+            Wenn angegeben, ist ID_PasswortHashtyp zwingen anzugeben
           </xs:documentation>
         </xs:annotation>
       </xs:element>
