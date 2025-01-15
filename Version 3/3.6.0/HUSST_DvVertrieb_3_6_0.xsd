@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_6_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_6_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_6_0"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="./HUSST_DvBasis_3_6_0.xsd"/>
+  
+  <xs:annotation>
+    <xs:documentation>
+      HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)
+      Version: 3.6.0
+
+      Mehr Informationen:
+      - https://husst.de/
+      - https://github.com/HUSST-de/HUSST
+
+      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+    </xs:documentation>
+  </xs:annotation>
+  
+  <xs:element name="husstPersonal" type="husstDV:husstPersonal_Type"></xs:element>
+  
+  <xs:element name="DefIdentobjekttyp" type="husstDV:DefIdentobjekttyp_Type" />
+  <xs:element name="DefPasswortHashtyp" type="husstDV:DefPasswortHashtyp_Type" />
+  <xs:element name="Einsatzarten" type="husstDV:Einsatzarten_Type" />
+  <xs:element name="Geraetetypen" type="husstDV:Geraetetypen_Type" />
+  <xs:element name="Geraet" type="husstDV:Geraet_Type" />
+  <xs:element name="GeraeteEinsatztypen" type="husstDV:GeraeteEinsatztypen_Type" />
+  <xs:element name="Identobjekte" type="husstDV:Identobjekte_Type" />
+  <xs:element name="PersonalIdentobjekte" type="husstDV:PersonalIdentobjekte_Type" />
+  <xs:element name="Personal" type="husstDV:Personal_Type" />
+  <xs:element name="Personaleinsatz" type="husstDV:Personaleinsatz_Type" />
+
+
+  <xs:complexType name="husstPersonal_Type">
+    <xs:choice maxOccurs="unbounded">
+      <xs:element ref="husstDV:Bearbeitung" />
+      <xs:element ref="husstDV:Interpretationen" />
+      <xs:element ref="husstDV:Unternehmen" />
+      <xs:element ref="husstDV:Updateinfo" />
+      <xs:element ref="husstDV:VersionInhalt" />
+      <xs:element ref="husstDV:VersionStruktur" />
+      <xs:element ref="husstDV:Zeitraeume" />
+      <xs:element ref="husstDV:Zeitraumoptionen" />
+  
+      <xs:element ref="husstDV:DefIdentobjekttyp" />
+      <xs:element ref="husstDV:DefPasswortHashtyp"/>
+      <xs:element ref="husstDV:Einsatzarten" />
+      <xs:element ref="husstDV:Geraetetypen"/>
+      <xs:element ref="husstDV:Geraet" />
+      <xs:element ref="husstDV:GeraeteEinsatztypen" />
+      <xs:element ref="husstDV:Identobjekte" />
+      <xs:element ref="husstDV:PersonalIdentobjekte" />
+      <xs:element ref="husstDV:Personal" />
+      <xs:element ref="husstDV:Personaleinsatz" />
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="Personal_Type">
+    <xs:annotation>
+      <xs:documentation>Personalstammdaten</xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Personal"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Personal" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Unternehmen" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_AbrUnternehmen" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Abrechnungs-Unternehmen, bei dem Einnahmen abgeliefert werden müssen</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_PasswortHashtyp" type="husstDV:ID_PasswortHashtyp_Type" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Definiert die Art des Passworthashes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Passwort" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Gehashtes Passwort. 
+            Wenn angegeben, ist ID_PasswortHashtyp zwingen anzugeben
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Vorname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Nachname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GueltigAb" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GueltigBis" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ID_PasswortHashtyp_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_PasswortHashtypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
+  <xs:complexType name="Personaleinsatz_Type">
+    <xs:annotation>
+      <xs:documentation>Geräte- und Rollenzuordnung zu Personal</xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Personaleinsatz"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Personaleinsatz" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Personal" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Geraetetyp" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_GeraeteEinsatztyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_EinsatzArt" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Rolle, die er auf dem Gerätetyp einnimmt
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ID_Identobjekttyp_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_IdentobjekttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+
+  <xs:complexType name="Identobjekte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Ident Objekte zur Identifizierung einer Person.
+        Die ID des Identobjektes ist über alle Objekttypen und Mandanten
+        eindeutig zu halten.
+
+        Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im
+        System eindeutig sein.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Identobjekt"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Identobjekt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Identobjekttyp" type="husstDV:ID_Identobjekttyp_Type" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Freier Text, der z.B. zur Anzeige verwendet werden kann.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Unternehmen" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Systemweit eindeutige Nummer/Kennung des Ident-Objektes
+            z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel
+            ggf. mit ID_Unternehmen
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PersonalIdentobjekte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        PersonalIdentobjekte weist einer Person kein, ein oder mehrere Identobjekte zu.
+        Hinweis: Es handelt sich um eine n:m Beziehung. Auf einen künstlichen Schlüssel wird verzichtet.
+        Die Struktur hat deshalb keinen PrimeKey!
+
+        Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen
+        GueltigAb, GueltigBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,
+        wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt
+        im GueltigAb,GueltigBis Intervall liegt. Ist GueltigAb nicht angegeben,
+        gilt die Zuordnung ab "schon immer", ist GueltigBis nicht angegeben
+        gilt die Zuordnung "bis ewig".
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_PersonalIdentobjekt"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_PersonalIdentobjekt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Identobjekt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Personal" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="GueltigAb" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Wenn angegeben, definiert GueltigAb den Beginn der Verwendbarkeit des Ident-Objektes.
+            Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="GueltigBis" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Wenn angegeben, definiert GueltigBis das Ende der Verwendbarkeit des Ident-Objektes.
+            Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Geraet_Type">
+    <xs:annotation>
+      <xs:documentation>Geräteverwaltung</xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Geraet"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Geraet" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Geraetetyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_KvpOrgID" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>KA KVP Nr</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Unternehmen" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GeraeteEinsatztypen_Type">
+    <xs:annotation>
+      <xs:documentation>Zur Differenzierung der Datenverteilung</xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_GeraeteEinsatztyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal" />
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_GeraeteEinsatztyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Geraetetypen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Geraetetyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Geraetetyp" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1" />
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenz zu einem extern definierten Element.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Einsatzarten_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_EinsatzArt"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal" />
+      </xs:appinfo>
+      <xs:documentation>Personaleinsatz Beschreibung
+- Verkäufer
+- Kontrolleur
+- Zugbegleiter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_EinsatzArt" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenz zu einem extern definierten Element.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Geraetetyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DefIdentobjekttyp_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Identobjekttyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal"/>
+      </xs:appinfo>
+      <xs:documentation>Definiert einen Identifikationstyp zur Anmeldung.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Identobjekttyp" type="husstDV:ID_Identobjekttyp_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DefPasswortHashtyp_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_PasswortHashtyp"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Personal"/>
+      </xs:appinfo>
+      <xs:documentation>Definiert einen Hashtyp zum vergleichen von Passwörtern.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_PasswortHashtyp" type="husstDV:ID_PasswortHashtyp_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+   <xs:simpleType name="ID_IdentobjekttypHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Identobjekttypen kleiner 1000
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>nicht spezifiziert/unbestimmt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Fahrermodul</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Chipkarte</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Schlüssel</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Anmeldecode</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+   <xs:simpleType name="ID_PasswortHashtypHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert PasswortHashTypen kleiner 1000
+
+        Die Verfahren 1 bis 4 entsprechen der Empfehlung
+        https://en.wikipedia.org/wiki/Key_derivation_function
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>Klartext</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>argon2id</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>scrypt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>bcrypt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>PBKDF2</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

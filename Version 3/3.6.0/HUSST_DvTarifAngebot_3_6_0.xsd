@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema
-  xmlns:api="http://husst.de/Appinfo/3_Personal"
-  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-  elementFormDefault="qualified"
-  attributeFormDefault="unqualified">
-  <!--Versorgung-->
-  
-  <xs:include schemaLocation="./HUSST_DvBasis_3_Personal.xsd"/>
-  
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_6_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_6_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_6_0"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="./HUSST_DvBasis_3_6_0.xsd"/>
+
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten
-      Version: 3_Personal
+      HUSST Versorgungsdaten - Schemata: Tarif, Angebot (verwendet Basisversorgungsdaten)
+      Version: 3.6.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -22,7 +18,7 @@
       Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
     </xs:documentation>
   </xs:annotation>
-  
+
   <xs:simpleType name="ZuordnungRelCodeGrp_Type">
     <xs:annotation>
       <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
@@ -2628,6 +2624,11 @@
           <xs:documentation>Zielpunkt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Viapunkt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   
@@ -3918,7 +3919,6 @@
           <api:field name="ID_Vertriebswege"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Tarif"/>
         <api:schema name="Angebot"/>
       </xs:appinfo>
       <xs:documentation>

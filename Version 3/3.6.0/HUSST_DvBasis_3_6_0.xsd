@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema
-  xmlns:api="http://husst.de/Appinfo/3_Personal"
-  xmlns:husstDV="http://husst.de/Versorgungsdaten/3_Personal"
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  targetNamespace="http://husst.de/Versorgungsdaten/3_Personal"
-  elementFormDefault="qualified"
-  attributeFormDefault="unqualified">
-  <!--Basis-->
-  
-  
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_6_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_6_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_6_0"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten
-      Version: 3_Personal
+      HUSST Versorgungsdaten - Schema: Basis
+      Version: 3.6.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -245,7 +241,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -288,7 +284,7 @@
           <api:field name="ID_Betriebstagesart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -361,7 +357,7 @@
           <api:field name="ID_Tagesmerkmal"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -413,7 +409,7 @@
           <api:field name="Bezeichnung"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -466,7 +462,7 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
 
-        <api:schema name="Angebot"/>
+        <api:schema name="Basis"/>
 
       </xs:appinfo>
     </xs:annotation>
@@ -523,7 +519,6 @@
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Basis"/>
-        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -1736,7 +1731,7 @@
           <api:field name="ID_Waehrung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Tarif"/>
+        <api:schema name="Basis"/>
       </xs:appinfo>
       <xs:documentation>Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type</xs:documentation>
     </xs:annotation>
@@ -1866,7 +1861,7 @@
           <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="5">
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="6">
         <xs:annotation>
           <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
         </xs:annotation>
@@ -1877,7 +1872,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-03-08" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2024-06-28" maxOccurs="1" minOccurs="0"/>
       <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>

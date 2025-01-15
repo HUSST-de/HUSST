@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema targetNamespace="http://husst.de/Ergebnisdaten/3_4_0" elementFormDefault="qualified"
+<schema targetNamespace="http://husst.de/Ergebnisdaten/3_6_0" elementFormDefault="qualified"
         xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:husst="http://husst.de/Ergebnisdaten/3_4_0">
+        xmlns:husst="http://husst.de/Ergebnisdaten/3_6_0">
 
   <annotation>
     <documentation>
       HUSST Ergebnisdaten
-      Version: 3.4.0
+      Version: 3.6.0
 
       Mehr Informationen:
       - https://husst.de/
@@ -251,7 +251,7 @@
       <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>
-            Eine eindeitige ID dieses EBE-Vorgangs, es
+            Eine eindeutige ID dieses EBE-Vorgangs, es
             könnte bei Verkaufsgeräten die UID sein, bei
             Nacherfassung muss die ID vom Bediener
             versorgt werden.
@@ -1549,7 +1549,7 @@
           </documentation>
         </annotation>
       </element>
-      <element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="2">
+      <element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="6">
         <annotation>
           <documentation>
             Diese Versionsnummer zählt kompatible Anpassungen.
@@ -1562,7 +1562,7 @@
           </documentation>
         </annotation>
       </element>
-      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2023-02-14"/>
+      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2024-06-28"/>
       <element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="HUSST-Arbeitsgruppe"/>
     </sequence>
   </complexType>
@@ -2704,7 +2704,6 @@
       <enumeration value="husst.Sonstiges"/>
     </restriction>
   </simpleType>
-
 
   <element name="Schichten" type="husst:Schichtenliste_Type"/>
 </schema>
