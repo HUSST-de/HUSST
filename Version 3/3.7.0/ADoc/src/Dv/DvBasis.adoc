@@ -1,0 +1,1108 @@
+=== Basis Elemente 
+[[Bearbeitung_Type]]
+==== Bearbeitung
+
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Bearbeitungsdatum|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |Lieferant|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Kommentar|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[DefBundesland_Type]]
+==== DefBundeslaender
+
+
+[small]#Definiert einen Gliedstaat (in Deutschland: Bundesland).# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Bundesland|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<ID_Bundesland_Type,ID_Bundesland>>
+| |Iso|
+
+[small]#Für Deutschland: die letzten zwei Stellen des ISO# +
+[small]#3166-2 Codes für Gliedstaaten.# +
+[small]#DE-BW Baden-Württemberg also: BW# +
+[small]#DE-BY Bayern also: BY# +
+[small]#DE-BE Berlin also: BE# +
+[small]#DE-BB Brandenburg also: BB# +
+[small]#DE-HB Bremen also: HB# +
+[small]#DE-HH Hamburg also: HH# +
+[small]#DE-HE Hessen also: HE# +
+[small]#DE-MV Mecklenburg-Vorpommern also: MV# +
+[small]#DE-NI Niedersachsen also: NI# +
+[small]#DE-NW Nordrhein-Westfalen also: NW# +
+[small]#DE-RP Rheinland-Pfalz also: RP# +
+[small]#DE-SL Saarland also: SL# +
+[small]#DE-SN Sachsen also: SN# +
+[small]#DE-ST Sachsen-Anhalt also: ST# +
+[small]#DE-SH Schleswig-Holstein also: SH# +
+[small]#DE-TH Thüringen also: TH# +
+
+| |Bezeichnung|
+[small]#Name des Bundeslandes# +
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[DefWaehrung_Type]]
+==== DefWaehrungen
+
+[small]#Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type# +
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Waehrung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<ID_Waehrung_Type,ID_Waehrung>>
+| |Bezeichnung|
+
+[small]#ISO-Kurzbezeichnung z.B. EUR, USD, CHF,...# +
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Feiertage_Type]]
+==== Feiertage
+
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Feiertag|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Bundesland|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<ID_Bundesland_Type,ID_Bundesland>>
+|★ |Datum|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Interpretationen_Type]]
+==== Interpretationen
+
+
+[small]#Interpretationen definiert, wie die Daten zu# +
+[small]#interpretieren sind.# +
+[small]#Dazu werden Parameter mit einem# +
+[small]#Schluessel und einem Wert eingetragen.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |Interpretationsschluessel|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<Interpretationsschluessel_Type,Interpretationsschluessel>>
+| |Wert|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Kalender_Type]]
+==== Kalender
+
+
+[small]#Kalender mit zugeordneten Tagesarten.# +
+[small]#Ein Betriebstag ist ein Kalendertag, kann aber abweichende Tagesanfang# +
+[small]#und -ende haben.# +
+[small]#Tagesanfang und -ende werden nicht explizit im Kalender definiert.# +
+
+[small]#Benötigt das System für eine Funktionalität eine ID_Tagesart, dann ermittelt# +
+[small]#es diese aus dem Kalender.# +
+[small]#Ist für einen konkreten Kalendertag kein Eintrag im Kalender vorhanden,# +
+[small]#kann das System über# +
+[small]#geeignete Tagesartmerkmalelemente eine Default Tagesart aufgrund des# +
+[small]#Wochentages und allgemein berechenbarer# +
+[small]#Feiertage ermittelt werden.# +
+
+[small]#Siehe auch Tagesmerkmale_Type, Tagesmerkmalelemente_Type und# +
+[small]#Tagsartmerkmalelemente_Type.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Betriebstag|
+[small]#Datum des Betriebstages# +
+|★ |ID_Betriebstagesart|
+
+[small]#Tagesart des Betriebstages# +
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[TagesartMerkmalElemente_Type]]
+==== TagesartMerkmalElemente
+
+
+[small]#TagesartMerkmalElemente vernknüpfen eine Tagesart# +
+[small]#mit einer Menge von Tagesmerkmal-Elementen.# +
+
+[small]#Damit beschreibt die Datenmenge lediglich formal die Intension der# +
+[small]#Tagesart.# +
+[small]#Lediglich für die Elemente des Tagesmerkmals "husstDefaultermittlung" ist# +
+[small]#eine funktionale Bedeutung definiert (siehe Tagesmerkmale_Type).# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_TagesartMerkmalElement|
+
+[small]#Kennung des Tagesartmerkmalelements# +
+
+|★ |ID_Betriebstagesart|
+
+[small]#Kennung der ID_Betriebstagesart# +
+
+|★ |ID_TagesmerkmalElement|
+
+[small]#Kennung des Tagesmerkmalelements# +
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Tagesarten_Type]]
+==== Tagesarten
+
+
+[small]#Eine Tagesart beschreibt den logischen Charakter# +
+[small]#eines Tages soweit der für das vorliegende System benötigt wird.# +
+[small]#Einem Kalendertag ist genau eine Tagesart zugeordnet.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Betriebstagesart|
+[small]#Kennung der Tagesart# +
+| |Bezeichnung|
+
+[small]#Informationen, welche Bedeutung diese# +
+[small]#Kennung hat.# +
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[TagesmerkmalElemente_Type]]
+==== TagesmerkmalElemente
+
+
+[small]#Jedes Tagesmerkmal definiert eine Liste mit# +
+[small]#unterschiedlichen Tagesmerkmal Elementen.# +
+[small]#Siehe auch Tagesmerkmale_Type.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_TagesmerkmalElement|
+
+[small]#Kennung des Tagesmerkmalelements# +
+
+|★ |ID_Tagesmerkmal|
+[small]#Kennung des Tagesmerkmals# +
+|★ |Bezeichnung|
+[small]#Eindeutiger Bezeichner des Tagesartmerkmalelements# +
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Tagesmerkmale_Type]]
+==== Tagesmerkmale
+
+
+[small]#Ein Tagesmerkmal muss so gestaltet sein, dass an jedem# +
+[small]#Betriebstag (Kalendertag aber ggf. abweichende Start-/Ende Uhrzeit) aus der# +
+[small]#Liste der Mermalelemente genau ein Element gültig ist.# +
+
+[small]#Für eine Tagesart können mehrere Elemente aus einer Liste eines# +
+[small]#Tagesmerkmales definiert sein.# +
+
+[small]#Beispiele:# +
+[small]#Tagesmerkmal:"Wochentag=("Mo","Di","Mi","Do","Fr","Sa","So")# +
+[small]#Tagesmerkmal:"Ferien"=("Ja","Nein")# +
+
+[small]#Die Husst Schnittstelle definiert ein Default-Tagesmerkmal mit dem# +
+[small]#vorgegebenen Bezeichner# +
+[small]#"husstDefaultermittlung"=("Mo","Di","Mi","Do","Fr","Sa","So","Mo/Feiertag","Di/Feiertag","Mi/Feiertag","Do/Feiertag","Fr/Feiertag","Sa/Feiertag","So/Feiertag")# +
+[small]#Mit diesem Tagesmerkmal können Tagesarten ausgezeichnet werden, die# +
+[small]#dann gelten sollen,# +
+[small]#wenn kein Kalendereintrag gefunden wird. Das Vertriebssystem ermittelt# +
+[small]#dann aufgrund des Wochentages und der# +
+[small]#allgemein berechenbaren Feiertage (Einige sind natürlich nicht eindeutig# +
+[small]#ermittelbar) das husstDefault-Tagesmerkmal# +
+[small]#und sucht eine Tagesart, für die dieses Merkmal gesetzt ist. Maximal# +
+[small]#vierzehn Tagesarten können darüber# +
+[small]#unterschieden werden und keine zwei Tagesarten dürfen eines der Merkmale# +
+[small]#gemeinsam haben).# +
+
+[small]#Das Tagesmerkmal "husstDefaultermittlung" muss nicht definiert werden.# +
+[small]#Wenn eine Datenmenge das Merkmal definiert,# +
+[small]#darf es nur mit der hier definierten Intension verwendet werden.# +
+
+[small]#Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter.# +
+[small]#Eine vorgegebene Behandlung oder# +
+[small]#Auswertung ist über den HUSST-Standard nicht definiert.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Tagesmerkmal|
+[small]#Kennung des Tagesmerkmals# +
+| |Bezeichnung|
+
+[small]#Bezeichnungen mit dem Prefix "husst" sind reserviert.# +
+
+[small]#Die Bezeichnung "husstDefaultermittlung" hat eine definiert Bedeutung# +
+[small]#(Siehe Tagesmerkmale_Type).# +
+[small]#Ansonsten kann die Bezeichnung frei vergeben werden.# +
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Unternehmen_Type]]
+==== Unternehmen
+
+[small]#Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem eine Rolle übernehmen.# +
+[small]#Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre Mandant Eigenschaft angezeigt werden.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Unternehmen|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |BezeichnungKurz|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Mandant|
+
+[small]#True, wenn das Unternehmen als Mandant im System geführt# +
+[small]#wird.# +
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um Unternehmen über eine nicht numerische# +
+[small]#Referenz ggf. auch bezogen auf Drittsysteme identifizieren# +
+[small]#zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Updateinfo_Type]]
+==== Updateinfo
+
+
+[small]#Dokumentation von Updatevorgängen über der zunächst# +
+[small]#generierten Datenmenge# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Updatetime|
+
+[small]#Zeitpunkt des Updatevorgangs# +
+
+|★ |Filename|
+
+[small]#Filename des Updatescripts oder Bezeichnung des Updatevorgangs# +
+
+| |Purpose|
+
+[small]#Hinweis zum Zweck des Updatevorgangs# +
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[VersionInhalt_Type]]
+==== VersionInhalt
+
+[small]#Eine Datenlieferung enthält einen Datensatz VersionInhalt.# +
+[small]#Dieser definiert, welche Datenversion die komplette Husstlieferung besitzt.# +
+[small]#Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unterscheiden.# +
+[small]#Über die Registrierung Der DatenversionInhalt können Verkaufsdaten ihrer exakten Versorgungsdatenlieferung zugewordnet werden.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |DatenversionInhalt|
+
+[small]#Eindeutige Versionskennung für die gesamte Datenlieferung.# +
+[small]#In der gesamten Datenlieferung darf dieses Element nur einmal vorkommen.# +
+
+| |Testdaten|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |Erstellungsdatum|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |Lieferant|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Kommentar|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[VersionStruktur_Type]]
+==== VersionStruktur
+
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |VersionMajor|
+[small]#VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.# +
+|★ |VersionMinor|
+[small]#VersionMinor zählt kompatible Anpassungen.# +
+|★ |VersionPatch|
+[small]#VersionPatch zählt abwärtskompatible Bugfixes.# +
+| |Status|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<VersionStatus_Type,VersionStatus>>
+| |Aenderungsdatum|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Aenderungsautor|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Zeitraeume_Type]]
+==== Zeitraeume
+
+
+[small]#Gültigkeitszeitraum# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |ID_Zeitraum|
+
+| |ZeitraumVon|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ZeitraumBis|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |DatenversionZeitraum|
+
+[small]#Eindeutiger Schlüssel für die Datenmenge, die in dem Zeitraum enthalten ist,# +
+[small]#bezogen auf die DatenversionInhalt des Elements VersionInhalt.# +
+
+|★ |HauptZeitraumNr|
+
+[small]#Alle Zeiträume mit dem gleichen# +
+[small]#Hauptzeitraum# +
+[small]#bilden einen gemeinsamen Datenraum, in dem# +
+[small]#alle Refrenzen ID_xx die# +
+[small]#gleiche Bedeutung haben und# +
+[small]#auflösbar sind.# +
+[small]#Sind zu einem Zeitpunkt# +
+[small]#mehrere Zeiträume mit unterschiedlichen# +
+[small]#Hauptzeitraumnummern# +
+[small]#gültig, hat der mit der höheren# +
+[small]#Hauptzeitraumnummer Vorrang.# +
+
+|★ |SubZeitraumNr|
+
+[small]#Die Subzeitraumnummer ist innerhalb einer# +
+[small]#Hauptzeitraumnummer ununterbrochen, aufsteigend nummeriert,# +
+[small]#beginnend mit 1.# +
+[small]#Bei gleichzeitiger Gültigkeit mehrere Subzeiträume# +
+[small]#hat die höhere# +
+[small]#SubZeitraumNr Vorrang vor der kleineren.# +
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Zeitraumoptionen_Type]]
+==== Zeitraumoptionen
+
+
+[small]#ordnet einem Zeitraum zusätzliche Optionen zu# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |ID_Zeitraum|
+
+|★ |Option|
+[small]#Schlüsselstring der Option# +
+| |Wert|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+=== Basis Enumerationen 
+[[DynAttributTyp_Type]]
+
+==== DynAttributTyp
+
+[small]#Die Werte eines dynamischen Attributes werden als# +
+[small]#String# +
+[small]#abgelegt. Wie dieser zu verstehen ist, wird durch den# +
+[small]#DynAttributTyp definiert.# +
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|int|
+[small]#vorzeichenbehaftete Ganzzahl# +
+|bool|
+
+[small]#logischer Wert, Wertebereich "0" für false oder# +
+[small]#"1" für true# +
+
+|string|
+[small]#Zeichenkette# +
+|datetime|
+
+[small]#Zeitpunkt (Datum/Uhrzeit) nach ISO8601 -# +
+[small]#(Beispiel: 2014-06-10T07:46+02:00, eine Angabe ohne die Abweichung# +
+[small]#von der UTC-Zeit ist auch zulässig)# +
+
+|hex|
+
+[small]#hexadezimal codierter Datenstring - zulässige# +
+[small]#Zeichen: '0'-'9', 'a'-'f', 'A'-'F'. Niederwertiges Byte zuerst,# +
+[small]#höherwertiges Halb-Byte zuerst.# +
+
+|id_sprachtext|
+
+[small]#vorzeichenlose Ganzzahl, Verweis auf# +
+[small]#ID_Sprachtext in der Tabelle Sprachtexte, einen möglicherweise# +
+[small]#mehrsprachig hinterlegten Text# +
+
+|=======================
+[[ID_BundeslandHUSST_Type]]
+[[ID_Bundesland_Type]]
+==== ID_Bundesland
+
+[small]#Die HUSST definiert ID_Bundesland kleiner 1000.# +
+[small]#Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern# +
+[small]#analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS)# +
+[small]#bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind.# +
+
+[small]#Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023# +
+[small]#https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html# +
+
+[small]#Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK))# +
+[small]#verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)# +
+[small]#* siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.# +
+
+
+[small]#Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
+[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|0|
+[small]#unbekannt# +
+|1|
+[small]#Schleswig-Holstein (SH)# +
+|2|
+[small]#Hamburg (HH)# +
+|3|
+[small]#Niedersachsen (NI)# +
+|4|
+[small]#Bremen (HB)# +
+|5|
+[small]#Nordrhein-Westfalen (NW)# +
+|6|
+[small]#Hessen (HE)# +
+|7|
+[small]#Rheinland-Pfalz (RP)# +
+|8|
+[small]#Baden-Württemberg (BW)# +
+|9|
+[small]#Bayern (BY)# +
+|10|
+[small]#Saarland (SL)# +
+|11|
+[small]#Berlin (BE)# +
+|12|
+[small]#Brandenburg (BB)# +
+|13|
+[small]#Mecklenburg-Vorpommern (MV)# +
+|14|
+[small]#Sachsen (SN)# +
+|15|
+[small]#Sachsen-Anhalt (ST)# +
+|16|
+[small]#Thüringen (TH)# +
+|=======================
+[[ID_WaehrungHUSST_Type]]
+[[ID_Waehrung_Type]]
+==== ID_Waehrung
+
+[small]#Die HUSST definiert Waehrungs-ID kleiner 1000# +
+[small]#Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.# +
+[small]#Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).# +
+
+
+[small]#Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
+[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|999|
+[small]#EUR# +
+|280|
+[small]#DEM# +
+|784|
+[small]#AED# +
+|971|
+[small]#AFN# +
+|008|
+[small]#ALL# +
+|051|
+[small]#AMD# +
+|532|
+[small]#ANG# +
+|973|
+[small]#AOA# +
+|032|
+[small]#ARS# +
+|036|
+[small]#AUD# +
+|533|
+[small]#AWG# +
+|944|
+[small]#AZN# +
+|977|
+[small]#BAM# +
+|052|
+[small]#BBD# +
+|050|
+[small]#BDT# +
+|975|
+[small]#BGN# +
+|048|
+[small]#BHD# +
+|108|
+[small]#BIF# +
+|060|
+[small]#BMD# +
+|096|
+[small]#BND# +
+|068|
+[small]#BOB# +
+|984|
+[small]#BOV# +
+|986|
+[small]#BRL# +
+|044|
+[small]#BSD# +
+|064|
+[small]#BTN# +
+|072|
+[small]#BWP# +
+|933|
+[small]#BYN# +
+|084|
+[small]#BZD# +
+|124|
+[small]#CAD# +
+|976|
+[small]#CDF# +
+|947|
+[small]#CHE# +
+|756|
+[small]#CHF# +
+|948|
+[small]#CHW# +
+|990|
+[small]#CLF# +
+|152|
+[small]#CLP# +
+|156|
+[small]#CNY# +
+|170|
+[small]#COP# +
+|970|
+[small]#COU# +
+|188|
+[small]#CRC# +
+|931|
+[small]#CUC# +
+|192|
+[small]#CUP# +
+|132|
+[small]#CVE# +
+|203|
+[small]#CZK# +
+|262|
+[small]#DJF# +
+|208|
+[small]#DKK# +
+|214|
+[small]#DOP# +
+|012|
+[small]#DZD# +
+|818|
+[small]#EGP# +
+|232|
+[small]#ERN# +
+|230|
+[small]#ETB# +
+|242|
+[small]#FJD# +
+|238|
+[small]#FKP# +
+|826|
+[small]#GBP# +
+|981|
+[small]#GEL# +
+|936|
+[small]#GHS# +
+|292|
+[small]#GIP# +
+|270|
+[small]#GMD# +
+|324|
+[small]#GNF# +
+|320|
+[small]#GTQ# +
+|328|
+[small]#GYD# +
+|344|
+[small]#HKD# +
+|340|
+[small]#HNL# +
+|332|
+[small]#HTG# +
+|348|
+[small]#HUF# +
+|360|
+[small]#IDR# +
+|376|
+[small]#ILS# +
+|356|
+[small]#INR# +
+|368|
+[small]#IQD# +
+|364|
+[small]#IRR# +
+|352|
+[small]#ISK# +
+|388|
+[small]#JMD# +
+|400|
+[small]#JOD# +
+|392|
+[small]#JPY# +
+|404|
+[small]#KES# +
+|417|
+[small]#KGS# +
+|116|
+[small]#KHR# +
+|174|
+[small]#KMF# +
+|408|
+[small]#KPW# +
+|410|
+[small]#KRW# +
+|414|
+[small]#KWD# +
+|136|
+[small]#KYD# +
+|398|
+[small]#KZT# +
+|418|
+[small]#LAK# +
+|422|
+[small]#LBP# +
+|144|
+[small]#LKR# +
+|430|
+[small]#LRD# +
+|426|
+[small]#LSL# +
+|434|
+[small]#LYD# +
+|504|
+[small]#MAD# +
+|498|
+[small]#MDL# +
+|969|
+[small]#MGA# +
+|807|
+[small]#MKD# +
+|104|
+[small]#MMK# +
+|496|
+[small]#MNT# +
+|446|
+[small]#MOP# +
+|929|
+[small]#MRU# +
+|480|
+[small]#MUR# +
+|462|
+[small]#MVR# +
+|454|
+[small]#MWK# +
+|484|
+[small]#MXN# +
+|979|
+[small]#MXV# +
+|458|
+[small]#MYR# +
+|943|
+[small]#MZN# +
+|516|
+[small]#NAD# +
+|566|
+[small]#NGN# +
+|558|
+[small]#NIO# +
+|578|
+[small]#NOK# +
+|524|
+[small]#NPR# +
+|554|
+[small]#NZD# +
+|512|
+[small]#OMR# +
+|590|
+[small]#PAB# +
+|604|
+[small]#PEN# +
+|598|
+[small]#PGK# +
+|608|
+[small]#PHP# +
+|586|
+[small]#PKR# +
+|985|
+[small]#PLN# +
+|600|
+[small]#PYG# +
+|634|
+[small]#QAR# +
+|946|
+[small]#RON# +
+|941|
+[small]#RSD# +
+|643|
+[small]#RUB# +
+|646|
+[small]#RWF# +
+|682|
+[small]#SAR# +
+|090|
+[small]#SBD# +
+|690|
+[small]#SCR# +
+|938|
+[small]#SDG# +
+|752|
+[small]#SEK# +
+|702|
+[small]#SGD# +
+|654|
+[small]#SHP# +
+|925|
+[small]#SLE# +
+|706|
+[small]#SOS# +
+|968|
+[small]#SRD# +
+|728|
+[small]#SSP# +
+|930|
+[small]#STN# +
+|222|
+[small]#SVC# +
+|760|
+[small]#SYP# +
+|748|
+[small]#SZL# +
+|764|
+[small]#THB# +
+|972|
+[small]#TJS# +
+|934|
+[small]#TMT# +
+|788|
+[small]#TND# +
+|776|
+[small]#TOP# +
+|949|
+[small]#TRY# +
+|780|
+[small]#TTD# +
+|901|
+[small]#TWD# +
+|834|
+[small]#TZS# +
+|980|
+[small]#UAH# +
+|800|
+[small]#UGX# +
+|840|
+[small]#USD# +
+|997|
+[small]#USN# +
+|940|
+[small]#UYI# +
+|858|
+[small]#UYU# +
+|927|
+[small]#UYW# +
+|860|
+[small]#UZS# +
+|926|
+[small]#VED# +
+|928|
+[small]#VES# +
+|704|
+[small]#VND# +
+|548|
+[small]#VUV# +
+|882|
+[small]#WST# +
+|950|
+[small]#XAF# +
+|961|
+[small]#XAG# +
+|959|
+[small]#XAU# +
+|955|
+[small]#XBA# +
+|956|
+[small]#XBB# +
+|957|
+[small]#XBC# +
+|958|
+[small]#XBD# +
+|951|
+[small]#XCD# +
+|960|
+[small]#XDR# +
+|952|
+[small]#XOF# +
+|964|
+[small]#XPD# +
+|953|
+[small]#XPF# +
+|962|
+[small]#XPT# +
+|994|
+[small]#XSU# +
+|963|
+[small]#XTS# +
+|965|
+[small]#XUA# +
+|886|
+[small]#YER# +
+|710|
+[small]#ZAR# +
+|967|
+[small]#ZMW# +
+|932|
+[small]#ZWL# +
+|=======================
+[[InterpretationsschluesselHUSST_Type]]
+[[Interpretationsschluessel_Type]]
+==== Interpretationsschluessel
+
+[small]#Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.# +
+
+[small]#Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.# +
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|husst.Relationen.Matrixtyp|
+
+[small]#Definiert, wie die Relationenmatrix zu interpretieren ist.# +
+[small]#mögliche Matrixtypen sind# +
+[small]#"Vollmatrix" : Jede Verbindung ist in jeder erlaubten Richtung in der Relationenmatrix hinterlegt.# +
+[small]#"Halbmatrix" : Zu jeder möglichen Verbindung ist nur die Variante ID_RelcodeStart größer gleich ID_RelcodeZiel hinterlegt, die umgekehrte Richtung ist dazu identisch.# +
+[small]#"erweitert Halbmatrix" : Die Relationen werden im Regelfall mit ID_RelcodeStart größer gleich ID_RelcodeZiel definiert, es kann aber auch die Rückrichtung definiert# +
+[small]#sein,# +
+[small]#dann muss das Flag GegenrichtungLiegtVor auf true gesetzt werden.# +
+
+|husst.Relationen.Suchstrategie|
+
+[small]#Definiert, wie die Ermittlung einer Verkaufsverbindung erfolgen soll.# +
+[small]#Ist der Schlüssel nicht definiert, wird über ID_RelcodeStart und ID_RelcodeZiel in den Relationen nach einer oder mehreren Verbindungen gesucht.# +
+[small]#mögliche Suchstrategien sind# +
+[small]#"NbHstSuche + RCSuche" : Suchstrategie für die Relationsermittlung: Nachbarhaltestellensuche zusätzlich zur Relationscodesuche.# +
+
+|husst.Teilrelationen.Matrixpreisbildung|
+
+[small]#Definiert, wie die Preisbildung aus den Teilrelationen erfolgen soll.# +
+[small]#Ist der Schlüssel nicht definiert, wird der Preis anhand der ID_Preisstufe der ersten Teilrelation ermittelt.# +
+[small]#mögliche Matrixpreisbildungen sind# +
+[small]#"Anstoß_CH" : Wenn nur eine Teilrelation exisitiert, dann wie beim Standardfall.# +
+[small]#Sonst: Preisstufenattribute werden von der Preisstufe der ersten Teilrelation verwendet.# +
+[small]#Der Preis wird nach einer eigenen CH-Logik aus den weiteren Teilrelationen berechnet.# +
+
+|=======================
+[[VersionStatus_Type]]
+
+==== VersionStatus
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|Release|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|work in progress|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|stabil|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|in Arbeit|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+=== Basis Definitionsstand
+
+
+[small]#HUSST Versorgungsdaten - Schema: Basis# +
+[small]#Version: 3.7.0# +
+
+[small]#Mehr Informationen:# +
+[small]#* https://husst.de/# +
+[small]#* https://github.com/HUSST-de/HUSST# +
+
+[small]#Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)# +

@@ -1,0 +1,490 @@
+=== Vertrieb Elemente 
+[[DefIdentobjekttyp_Type]]
+==== DefIdentobjekttyp
+
+[small]#Definiert einen Identifikationstyp zur Anmeldung.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Identobjekttyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[DefPasswortHashtyp_Type]]
+==== DefPasswortHashtyp
+
+[small]#Definiert einen Hashtyp zum vergleichen von Passwörtern.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_PasswortHashtyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Einsatzarten_Type]]
+==== Einsatzarten
+
+[small]#Personaleinsatz Beschreibung# +
+[small]#* Verkäufer# +
+[small]#* Kontrolleur# +
+[small]#* Zugbegleiter# +
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_EinsatzArt|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+
+[small]#Referenz zu einem extern definierten Element.# +
+
+| |ID_Geraetetyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Geraet_Type]]
+==== Geraet
+
+[small]#Geräteverwaltung# +
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Geraet|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Geraetetyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |KA_KvpOrgID|
+[small]#KA KVP Nr# +
+| |ID_Unternehmen|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+
+[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
+[small]#identifizieren zu können.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[GeraeteEinsatztypen_Type]]
+==== GeraeteEinsatztypen
+
+[small]#Zur Differenzierung der Datenverteilung# +
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_GeraeteEinsatztyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Geraetetypen_Type]]
+==== Geraetetypen
+
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Geraetetyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Bezeichnung|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+
+[small]#Referenz zu einem extern definierten Element.# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Identobjekte_Type]]
+==== Identobjekte
+
+
+[small]#Ident Objekte zur Identifizierung einer Person.# +
+[small]#Die ID des Identobjektes ist über alle Objekttypen und Mandanten# +
+[small]#eindeutig zu halten.# +
+
+[small]#Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im# +
+[small]#System eindeutig sein.# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Identobjekt|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Identobjekttyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+siehe auch: <<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
+| |Bezeichnung|
+
+[small]#Freier Text, der z.B. zur Anzeige verwendet werden kann.# +
+
+| |ID_Unternehmen|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+
+[small]#Systemweit eindeutige Nummer/Kennung des Ident-Objektes# +
+[small]#z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel# +
+[small]#ggf. mit ID_Unternehmen# +
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Personal_Type]]
+==== Personal
+
+[small]#Personalstammdaten# +
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Personal|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ID_Unternehmen|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ID_AbrUnternehmen|
+[small]#Abrechnungs-Unternehmen, bei dem Einnahmen abgeliefert werden müssen# +
+| |ID_PasswortHashtyp|
+[small]#Definiert die Art des Passworthashes# +
+siehe auch: <<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
+| |Passwort|
+
+[small]#Gehashtes Passwort.# +
+[small]#Wenn angegeben, ist ID_PasswortHashtyp zwingen anzugeben# +
+
+| |Vorname|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |Nachname|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |GueltigAb|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |GueltigBis|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |ReferenzExtern|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[PersonalIdentobjekte_Type]]
+==== PersonalIdentobjekte
+
+
+[small]#PersonalIdentobjekte weist einer Person kein, ein oder mehrere Identobjekte zu.# +
+[small]#Hinweis: Es handelt sich um eine n:m Beziehung. Auf einen künstlichen Schlüssel wird verzichtet.# +
+[small]#Die Struktur hat deshalb keinen PrimeKey!# +
+
+[small]#Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen# +
+[small]#GueltigAb, GueltigBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,# +
+[small]#wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt# +
+[small]#im GueltigAb,GueltigBis Intervall liegt. Ist GueltigAb nicht angegeben,# +
+[small]#gilt die Zuordnung ab "schon immer", ist GueltigBis nicht angegeben# +
+[small]#gilt die Zuordnung "bis ewig".# +
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_PersonalIdentobjekt|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Identobjekt|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Personal|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |GueltigAb|
+
+[small]#Wenn angegeben, definiert GueltigAb den Beginn der Verwendbarkeit des Ident-Objektes.# +
+[small]#Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.# +
+
+| |GueltigBis|
+
+[small]#Wenn angegeben, definiert GueltigBis das Ende der Verwendbarkeit des Ident-Objektes.# +
+[small]#Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.# +
+
+| |ReferenzExtern|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[Personaleinsatz_Type]]
+==== Personaleinsatz
+
+[small]#Geräte- und Rollenzuordnung zu Personal# +
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Deaktiviert|
+
+|★ |ID_Zeitraum|
+
+|★ |ID_Personaleinsatz|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Personal|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_Geraetetyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_GeraeteEinsatztyp|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|★ |ID_EinsatzArt|
+
+[small]#Rolle, die er auf dem Gerätetyp einnimmt# +
+
+| |ReferenzExtern|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| |DynAttribut|
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+[[husstPersonal_Type]]
+==== husstPersonal
+
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+| ||
+IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+
+|=======================
+[small]#  ★  Pflichtelemente#
+
+=== Vertrieb Enumerationen 
+[[ID_IdentobjekttypHUSST_Type]]
+[[ID_Identobjekttyp_Type]]
+==== ID_Identobjekttyp
+
+[small]#Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
+[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+
+[small]#Die HUSST definiert ID_Identobjekttypen kleiner 1000# +
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|0|
+[small]#nicht spezifiziert/unbestimmt# +
+|1|
+[small]#Fahrermodul# +
+|2|
+[small]#Chipkarte# +
+|3|
+[small]#Schlüssel# +
+|4|
+[small]#Anmeldecode# +
+|=======================
+[[ID_PasswortHashtypHUSST_Type]]
+[[ID_PasswortHashtyp_Type]]
+==== ID_PasswortHashtyp
+
+[small]#Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
+[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+
+[small]#Die HUSST definiert PasswortHashTypen kleiner 1000# +
+
+[small]#Die Verfahren 1 bis 4 entsprechen der Empfehlung# +
+[small]#https://en.wikipedia.org/wiki/Key_derivation_function# +
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|0|
+[small]#Klartext# +
+|1|
+[small]#argon2id# +
+|2|
+[small]#scrypt# +
+|3|
+[small]#bcrypt# +
+|4|
+[small]#PBKDF2# +
+|=======================
+=== Vertrieb Definitionsstand
+
+
+[small]#HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)# +
+[small]#Version: 3.7.0# +
+
+[small]#Mehr Informationen:# +
+[small]#* https://husst.de/# +
+[small]#* https://github.com/HUSST-de/HUSST# +
+
+[small]#Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)# +

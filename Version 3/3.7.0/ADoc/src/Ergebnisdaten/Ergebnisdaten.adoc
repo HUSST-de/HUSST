@@ -1,0 +1,7 @@
+== Ergebnisdaten
+
+////
+Dieser Text wird automatisch generiert.
+////
+
+{lorem}
