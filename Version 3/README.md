@@ -17,6 +17,12 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
+### 3.6.0 -> 3.7.0
+Änderungsdatum: 15. Januar 2025
+Parallele Suche in Verbund- und Streckentarifen ermöglichen / unterbinden
+* DvTarifAngebot
+   * Relationen_Type ergänzt um ID_TarifartStrecke (optional)
+
 ### 3.5.0 -> 3.6.0
 Änderungsdatum: 28. Juni 2024
 Umsetzung der Modularisierung der Versorgungsdaten in 
