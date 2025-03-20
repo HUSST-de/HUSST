@@ -22,6 +22,7 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 Parallele Suche in Verbund- und Streckentarifen ermöglichen / unterbinden
 * DvTarifAngebot
    * Relationen_Type ergänzt um ID_TarifartStrecke (optional)
+   * ID_StreckenartHUSST_Type ergänzt um 4 - Unterprivilegierte Strecke
 
 ### 3.5.0 -> 3.6.0
 Änderungsdatum: 28. Juni 2024

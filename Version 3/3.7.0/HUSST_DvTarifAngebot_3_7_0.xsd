@@ -4630,6 +4630,15 @@
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>
+            Unterprivilegierte Strecke 
+            * wird bei der Ermittlung des kürzesten Weges ignoriert,
+            * ist auf konkreten Wunsch zu berücksichtigen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
   
