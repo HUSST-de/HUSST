@@ -4635,7 +4635,7 @@
           <xs:documentation>
             Unterprivilegierte Strecke 
             * wird bei der Ermittlung des kürzesten Weges ignoriert,
-            * ist auf konkreten Wusch zu berücksichtigen.
+            * ist auf konkreten Wunsch zu berücksichtigen.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
