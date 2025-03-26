@@ -1,0 +1,165 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>12.5</version>  <!-- oder deine Version -->
+        </dependency>
+    </dependencies>
+    
+    <properties>
+        <schema.ver>3.7.0</schema.ver>
+        <schema.ver_>3_7_0</schema.ver_>
+        <schema.basis>Basis</schema.basis>
+        <schema.tarif>TarifAngebot</schema.tarif>
+        <schema.vertrieb>Vertrieb</schema.vertrieb>
+        <schema.ergebnis>Ergebnisdaten</schema.ergebnis>        
+    </properties>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>set-schema-ver-underscore</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- Erstelle eine Datei mit dem Originalwert -->
+                                <echo file="schema_version.txt">${schema.ver}</echo>
+                                
+                                <!-- Ersetze '.' durch '_' in der Datei -->
+                                <replaceregexp match="\." replace="_" byline="true" flags="g">
+                                    <fileset file="schema_version.txt"/>
+                                </replaceregexp>
+                                
+                                <!-- Lese die Datei zurück in die Property -->
+                                <loadfile property="schema.ver.underscore" srcFile="schema_version.txt"/>
+                                
+                                <!-- Debug-Output -->
+                                <echo message="Schema Version (modifiziert): ${schema.ver.underscore}"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>transform-basis</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>net.sf.saxon.Transform</mainClass>
+                            <arguments>
+                                <argument>-s:${project.basedir}/Version 3/${schema.ver}/HUSST_Dv${schema.basis}_${schema.ver_}.xsd</argument>
+                                <argument>-xsl:${project.basedir}/Version 3/${schema.ver}/ADoc/src/xsl/DvToADoc.xsl</argument>
+                                <argument>-o:${project.basedir}/Version 3/${schema.ver}/ADoc/src/dv/Dv${schema.basis}.adoc</argument>
+                                <argument>einstiegsebene=3</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Neue Execution für die zweite XSD-Datei -->
+                    <execution>
+                        <id>transform-tarif</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>net.sf.saxon.Transform</mainClass>
+                            <arguments>
+                                <argument>-s:${project.basedir}/Version 3/${schema.ver}/HUSST_Dv${schema.tarif}_${schema.ver_}.xsd</argument>
+                                <argument>-xsl:${project.basedir}/Version 3/${schema.ver}/ADoc/src/xsl/DvToADoc.xsl</argument>
+                                <argument>-o:${project.basedir}/Version 3/${schema.ver}/ADoc/src/dv/Dv${schema.tarif}.adoc</argument>
+                                <argument>einstiegsebene=3</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Neue Execution für die dritte XSD-Datei -->
+                    <execution>
+                        <id>transform-vertrieb</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>net.sf.saxon.Transform</mainClass>
+                            <arguments>
+                                <argument>-s:${project.basedir}/Version 3/${schema.ver}/HUSST_Dv${schema.vertrieb}_${schema.ver_}.xsd</argument>
+                                <argument>-xsl:${project.basedir}/Version 3/${schema.ver}/ADoc/src/xsl/DvToADoc.xsl</argument>
+                                <argument>-o:${project.basedir}/Version 3/${schema.ver}/ADoc/src/dv/Dv${schema.vertrieb}.adoc</argument>
+                                <argument>einstiegsebene=3</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Neue Execution für die vierte XSD-Datei -->
+                    <execution>
+                        <id>transform-ergebnis</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <mainClass>net.sf.saxon.Transform</mainClass>
+                            <arguments>
+                                <argument>-s:${project.basedir}/Version 3/${schema.ver}/HUSST_${schema.ergebnis}_${schema.ver_}.xsd</argument>
+                                <argument>-xsl:${project.basedir}/Version 3/${schema.ver}/ADoc/src/xsl/DvToADoc.xsl</argument>
+                                <argument>-o:${project.basedir}/Version 3/${schema.ver}/ADoc/src/Ergebnisdaten/${schema.ergebnis}.adoc</argument>
+                                <argument>einstiegsebene=3</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <!-- Neue Execution für Asciidoctor -->
+                    <execution>
+                        <id>generate-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>ruby</executable>
+                            <arguments>
+                                <argument>-S</argument>
+                                <argument>asciidoctor</argument>
+                                <argument>-B</argument>
+                                <argument>"${project.basedir}/Version 3/${schema.ver}/ADoc/src/"</argument>
+                                <argument>-o</argument>
+                                <argument>${project.basedir}/Version 3/${schema.ver}/ADoc/src/Index.html</argument>
+                                <argument>${project.basedir}/Version 3/${schema.ver}/ADoc/src/Main.adoc</argument>
+                                <argument>-a</argument>
+                                <argument>toc=left</argument>
+                                <argument>-a</argument>
+                                <argument>toc-title=Inhalt</argument>
+                                <argument>-a</argument>
+                                <argument>toclevels=5</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <groupId>husst.de</groupId>
+    <name>Husst-Technische-Doku</name>
+    <artifactId>Doc</artifactId>
+</project>

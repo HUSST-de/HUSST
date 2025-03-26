@@ -1,6 +1,6 @@
-@REM @echo off
 @REM 
-@echo on
+@echo off
+@REM @echo on
 @REM generiert die technische Dokumentation aus den .xsd Dateien
 @REM via Ascii-Doc
 @REM 
@@ -13,13 +13,23 @@ REM == Start: Hauptroutine =============================================
   call :Setup
 
   @echo --- transformiere die DV Xsds zu AsciiDoc ---
-  @rem 
+  @rem   
   call :DvTransXsd Basis
-  @rem 
+  @rem   
   call :DvTransXsd TarifAngebot
-  @rem 
+  @rem   
   call :DvTransXsd Vertrieb
   
+  @echo on
+  @rem call asciidoctor -o IndexStandard.html                           Main.adoc
+
+  call asciidoctor -o Index.html Main.adoc
+
+  REM call asciidoctor-pdf -o IndexStandard.pdf                         Main.adoc
+
+
+  @rem call asciidoctor -o Index.html         -a stylesheet=husst.css   Main.adoc
+  @echo off
   
 :EarlyExit
   call :TearDown
@@ -31,6 +41,8 @@ REM wandelt eine Husst_DvXxx.xsd in eine DvXxx.adoc Dokumentation
 REM %1 = Dv Schema: Basis, TarifAngebot, Vertrieb
 :DvTransXsd
   set "Schema=%~1"
+  
+  @echo transformiere %dirXsd%\HUSST_Dv%Schema%_%verHusst_%.xsd --^>%dirDocDv%\Dv%Schema%.adoc
   
   @rem 
   %cmdJava% %cmdSaxTrans% -s:%dirXsd%\HUSST_Dv%Schema%_%verHusst_%.xsd  -xsl:%fnXsl% -o:%dirDocDv%\Dv%Schema%.adoc einstiegsebene=3 schema=%Schema% verHusst=%verHusst%
@@ -59,6 +71,6 @@ goto :eof
 goto :eof
 
 :TearDown
-  REM UrsprÃ¼ngliche Codepage wiederherstellen
+  REM Ursprüngliche Codepage wiederherstellen
   chcp %OldCP% >nul
 goto :eof

@@ -8,9 +8,9 @@ Autor: {Author}
 
 include::Einführung.adoc[]
 
-include::Dv\Datenversorgung.adoc[]
+include::Dv\BereichDatenversorgung.adoc[]
 
-include::Ergebnisdaten\Ergebnisdaten.adoc[]
+include::Ergebnisdaten\BereichErgebnisdaten.adoc[]
 
 include::Meta\Schlagworte.adoc[]
 

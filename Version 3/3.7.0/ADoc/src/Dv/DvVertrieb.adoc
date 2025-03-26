@@ -1,490 +1,690 @@
-=== Vertrieb Elemente 
+
+
+=== Vertrieb Rootelemente
+
+[[husstPersonal_Type]]
+==== husstPersonal
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Bearbeitung|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Interpretationen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Unternehmen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Updateinfo|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |VersionInhalt|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |VersionStruktur|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Zeitraeume|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Zeitraumoptionen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |DefIdentobjekttyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefIdentobjekttyp_Type,DefIdentobjekttyp>>
+| |DefPasswortHashtyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefPasswortHashtyp_Type,DefPasswortHashtyp>>
+| |Einsatzarten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Einsatzarten_Type,Einsatzarten>>
+| |Geraetetypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Geraetetypen_Type,Geraetetypen>>
+| |Geraet|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Geraet_Type,Geraet>>
+| |GeraeteEinsatztypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<GeraeteEinsatztypen_Type,GeraeteEinsatztypen>>
+| |Identobjekte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Identobjekte_Type,Identobjekte>>
+| |PersonalIdentobjekte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<PersonalIdentobjekte_Type,PersonalIdentobjekte>>
+| |Personal|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Personal_Type,Personal>>
+| |Personaleinsatz|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Personaleinsatz_Type,Personaleinsatz>>
+|=======================
+
+
+=== Vertrieb Elemente
+
+
 [[DefIdentobjekttyp_Type]]
 ==== DefIdentobjekttyp
 
-[small]#Definiert einen Identifikationstyp zur Anmeldung.# +
+Definiert einen Identifikationstyp zur Anmeldung.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Identobjekttyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
+
+Datentyp: <<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefPasswortHashtyp_Type]]
 ==== DefPasswortHashtyp
 
-[small]#Definiert einen Hashtyp zum vergleichen von Passwörtern.# +
+Definiert einen Hashtyp zum vergleichen von Passwörtern.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_PasswortHashtyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
+
+Datentyp: <<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Einsatzarten_Type]]
 ==== Einsatzarten
 
-[small]#Personaleinsatz Beschreibung# +
-[small]#* Verkäufer# +
-[small]#* Kontrolleur# +
-[small]#* Zugbegleiter# +
+Personaleinsatz Beschreibung
+
+* Verkäufer
+
+* Kontrolleur
+
+* Zugbegleiter
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_EinsatzArt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Referenz zu einem extern definierten Element.# +
+Referenz zu einem extern definierten Element.
 
+
+Datentyp: string
 | |ID_Geraetetyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Geraet_Type]]
 ==== Geraet
 
-[small]#Geräteverwaltung# +
+Geräteverwaltung
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Geraet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Geraetetyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |KA_KvpOrgID|
-[small]#KA KVP Nr# +
-| |ID_Unternehmen|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+KA KVP Nr
 
+Datentyp: <<INT4,INT4>>
+| |ID_Unternehmen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[GeraeteEinsatztypen_Type]]
 ==== GeraeteEinsatztypen
 
-[small]#Zur Differenzierung der Datenverteilung# +
+Zur Differenzierung der Datenverteilung
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_GeraeteEinsatztyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Geraetetypen_Type]]
 ==== Geraetetypen
 
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+IMPORTANT: [red]#_todo: Doku_#
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Geraetetyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Referenz zu einem extern definierten Element.# +
+Referenz zu einem extern definierten Element.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Identobjekte_Type]]
 ==== Identobjekte
 
 
-[small]#Ident Objekte zur Identifizierung einer Person.# +
-[small]#Die ID des Identobjektes ist über alle Objekttypen und Mandanten# +
-[small]#eindeutig zu halten.# +
+Ident Objekte zur Identifizierung einer Person. Die ID des Identobjektes ist über alle Objekttypen und Mandanten eindeutig zu halten.
 
-[small]#Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im# +
-[small]#System eindeutig sein.# +
+Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im System eindeutig sein.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Identobjekt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Identobjekttyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
+
+Datentyp: <<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
 | |Bezeichnung|
 
-[small]#Freier Text, der z.B. zur Anzeige verwendet werden kann.# +
+Freier Text, der z.B. zur Anzeige verwendet werden kann.
 
+
+Datentyp: string
 | |ID_Unternehmen|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Systemweit eindeutige Nummer/Kennung des Ident-Objektes# +
-[small]#z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel# +
-[small]#ggf. mit ID_Unternehmen# +
+Systemweit eindeutige Nummer/Kennung des Ident-Objektes z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel ggf. mit ID_Unternehmen
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Personal_Type]]
 ==== Personal
 
-[small]#Personalstammdaten# +
+Personalstammdaten
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Personal|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Unternehmen|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_AbrUnternehmen|
-[small]#Abrechnungs-Unternehmen, bei dem Einnahmen abgeliefert werden müssen# +
+Abrechnungs-Unternehmen, bei dem Einnahmen abgeliefert werden müssen
+
+Datentyp: <<INT4,INT4>>
 | |ID_PasswortHashtyp|
-[small]#Definiert die Art des Passworthashes# +
-siehe auch: <<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
+Definiert die Art des Passworthashes
+
+Datentyp: <<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
 | |Passwort|
 
-[small]#Gehashtes Passwort.# +
-[small]#Wenn angegeben, ist ID_PasswortHashtyp zwingen anzugeben# +
+Gehashtes Passwort.  Wenn angegeben, ist ID_PasswortHashtyp zwingen anzugeben
 
+
+Datentyp: string
 | |Vorname|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |Nachname|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |GueltigAb|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DateTimeCompact,DateTimeCompact>>
 | |GueltigBis|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DateTimeCompact,DateTimeCompact>>
 | |ReferenzExtern|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[PersonalIdentobjekte_Type]]
 ==== PersonalIdentobjekte
 
 
-[small]#PersonalIdentobjekte weist einer Person kein, ein oder mehrere Identobjekte zu.# +
-[small]#Hinweis: Es handelt sich um eine n:m Beziehung. Auf einen künstlichen Schlüssel wird verzichtet.# +
-[small]#Die Struktur hat deshalb keinen PrimeKey!# +
+PersonalIdentobjekte weist einer Person kein, ein oder mehrere Identobjekte zu. Hinweis: Es handelt sich um eine n:m Beziehung. Auf einen künstlichen Schlüssel wird verzichtet. Die Struktur hat deshalb keinen PrimeKey!
 
-[small]#Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen# +
-[small]#GueltigAb, GueltigBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,# +
-[small]#wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt# +
-[small]#im GueltigAb,GueltigBis Intervall liegt. Ist GueltigAb nicht angegeben,# +
-[small]#gilt die Zuordnung ab "schon immer", ist GueltigBis nicht angegeben# +
-[small]#gilt die Zuordnung "bis ewig".# +
+Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen GueltigAb, GueltigBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden, wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt im GueltigAb,GueltigBis Intervall liegt. Ist GueltigAb nicht angegeben, gilt die Zuordnung ab "schon immer", ist GueltigBis nicht angegeben gilt die Zuordnung "bis ewig".
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_PersonalIdentobjekt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Identobjekt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Personal|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |GueltigAb|
 
-[small]#Wenn angegeben, definiert GueltigAb den Beginn der Verwendbarkeit des Ident-Objektes.# +
-[small]#Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.# +
+Wenn angegeben, definiert GueltigAb den Beginn der Verwendbarkeit des Ident-Objektes. Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
 
+
+Datentyp: <<DateTimeCompact,DateTimeCompact>>
 | |GueltigBis|
 
-[small]#Wenn angegeben, definiert GueltigBis das Ende der Verwendbarkeit des Ident-Objektes.# +
-[small]#Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.# +
+Wenn angegeben, definiert GueltigBis das Ende der Verwendbarkeit des Ident-Objektes. Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
 
+
+Datentyp: <<DateTimeCompact,DateTimeCompact>>
 | |ReferenzExtern|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Personaleinsatz_Type]]
 ==== Personaleinsatz
 
-[small]#Geräte- und Rollenzuordnung zu Personal# +
+Geräte- und Rollenzuordnung zu Personal
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Personaleinsatz|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Personal|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Geraetetyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 |★ |ID_GeraeteEinsatztyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_EinsatzArt|
 
-[small]#Rolle, die er auf dem Gerätetyp einnimmt# +
+Rolle, die er auf dem Gerätetyp einnimmt
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
-
-[[husstPersonal_Type]]
-==== husstPersonal
-
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-[options="header" cols="2%,20%,78%"]
-|=======================
-| |Eigenschaft|Beschreibung
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-|=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 === Vertrieb Enumerationen 
+
+
 [[ID_IdentobjekttypHUSST_Type]]
+
 [[ID_Identobjekttyp_Type]]
+
 ==== ID_Identobjekttyp
 
-[small]#Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0 
 
-
-[small]#Die HUSST definiert ID_Identobjekttypen kleiner 1000# +
+Die HUSST definiert ID_Identobjekttypen kleiner 1000
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Fahrermodul# +
+Fahrermodul
 |2|
-[small]#Chipkarte# +
+Chipkarte
 |3|
-[small]#Schlüssel# +
+Schlüssel
 |4|
-[small]#Anmeldecode# +
+Anmeldecode
 |=======================
+
+
+Verwendet in:
+
+* <<DefIdentobjekttyp_Type,DefIdentobjekttyp>>
+* <<Identobjekte_Type,Identobjekte>>
+
+
 [[ID_PasswortHashtypHUSST_Type]]
+
 [[ID_PasswortHashtyp_Type]]
+
 ==== ID_PasswortHashtyp
 
-[small]#Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0 
 
+Die HUSST definiert PasswortHashTypen kleiner 1000
 
-[small]#Die HUSST definiert PasswortHashTypen kleiner 1000# +
-
-[small]#Die Verfahren 1 bis 4 entsprechen der Empfehlung# +
-[small]#https://en.wikipedia.org/wiki/Key_derivation_function# +
+Die Verfahren 1 bis 4 entsprechen der Empfehlung https://en.wikipedia.org/wiki/Key_derivation_function
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#Klartext# +
+Klartext
 |1|
-[small]#argon2id# +
+argon2id
 |2|
-[small]#scrypt# +
+scrypt
 |3|
-[small]#bcrypt# +
+bcrypt
 |4|
-[small]#PBKDF2# +
+PBKDF2
 |=======================
+
+
+Verwendet in:
+
+* <<DefPasswortHashtyp_Type,DefPasswortHashtyp>>
+* <<Personal_Type,Personal>>
+
+
+
 === Vertrieb Definitionsstand
 
 
-[small]#HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)# +
-[small]#Version: 3.7.0# +
+HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten) Version: 3.7.0
 
-[small]#Mehr Informationen:# +
-[small]#* https://husst.de/# +
-[small]#* https://github.com/HUSST-de/HUSST# +
+Mehr Informationen:
 
-[small]#Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)# +
+* https://husst.de/
+
+* https://github.com/HUSST-de/HUSST
+
+Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)

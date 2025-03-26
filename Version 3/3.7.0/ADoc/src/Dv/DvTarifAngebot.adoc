@@ -1,4077 +1,5262 @@
-=== TarifAngebot Elemente 
+
+
+=== TarifAngebot Rootelemente
+
+[[OePVTarifDB_Type]]
+==== OePVTarifDB
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |DefFahrgasttypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefFahrgasttyp_Type,DefFahrgasttyp>>
+| |DefKomfortklassen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefKomfortklasse_Type,DefKomfortklasse>>
+| |DefNachbarhaltestellenbeziehungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefNachbarhaltestellenbeziehung_Type,DefNachbarhaltestellenbeziehung>>
+| |DefPreisfindungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefPreisfindung_Type,DefPreisfindung>>
+| |DefRabattklassen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefRabattklasse_Type,DefRabattklasse>>
+| |DefReisetypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefReisetyp_Type,DefReisetyp>>
+| |DefSortenausgaberegelungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefSortenausgaberegelung_Type,DefSortenausgaberegelung>>
+| |DefSortendruckregelungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefSortendruckregelung_Type,DefSortendruckregelung>>
+| |DefVertriebswege|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefVertriebswege_Type,DefVertriebswege>>
+| |DefZahlungsarten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefZahlungsarten_Type,DefZahlungsarten>>
+| |Relationszuordnungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Relationszuordnungen_Type,Relationszuordnungen>>
+| |DefStreckenart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefStreckenart_Type,DefStreckenart>>
+| |DefStreckencodetyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefStreckencodetyp_Type,DefStreckencodetyp>>
+| |Bearbeitung|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Bediengebiete|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Bediengebiete_Type,Bediengebiete>>
+| |DefErmittlungseinheit|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefErmittlungseinheit_Type,DefErmittlungseinheit>>
+| |DefBundeslaender|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |DefOTPTypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefOTPTyp_Type,DefOTPTyp>>
+| |DefOrtspunkttypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefOrtspunkttyp_Type,DefOrtspunkttyp>>
+| |DefPreisquellen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefPreisquelle_Type,DefPreisquelle>>
+| |DefPreisspaltentypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefPreisspaltentyp_Type,DefPreisspaltentyp>>
+| |DefRelationenberechnungsregelungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefRelationenberechnungsregelung_Type,DefRelationenberechnungsregelung>>
+| |DefRelationendruckregelungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefRelationendruckregelung_Type,DefRelationendruckregelung>>
+| |DefRelationscodegruppentypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefRelationscodegruppentyp_Type,DefRelationscodegruppentyp>>
+| |DefSortengruppentypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefSortengruppentyp_Type,DefSortengruppentyp>>
+| |DefSortentypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefSortentyp_Type,DefSortentyp>>
+| |DefTarifpunkttypen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefTarifpunkttyp_Type,DefTarifpunkttyp>>
+| |DefWaehrungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |DefZahlgrenzentyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DefZahlgrenzentyp_Type,DefZahlgrenzentyp>>
+| |Feiertage|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Gleichstellung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Gleichstellung_Type,Gleichstellung>>
+| |GleichstellungTarifart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<GleichstellungTarifart_Type,GleichstellungTarifart>>
+| |Gleichstellungstyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Gleichstellungstyp_Type,Gleichstellungstyp>>
+| |GueltigkeitszeitRegeln|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<GueltigkeitszeitRegeln_Type,GueltigkeitszeitRegeln>>
+| |Interpretationen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Kalender|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Linien|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Linien_Type,Linien>>
+| |Mwst|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Mwst_Type,Mwst>>
+| |Nachbarhaltestellen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Nachbarhaltestellen_Type,Nachbarhaltestellen>>
+| |OrtspunktStreckencode|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<OrtspunktStreckencode_Type,OrtspunktStreckencode>>
+| |Ortspunkte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Ortspunkte_Type,Ortspunkte>>
+| |OrtspunkteKA|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<OrtspunkteKA_Type,OrtspunkteKA>>
+| |OrtspunkteTG|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<OrtspunkteTG_Type,OrtspunkteTG>>
+| |Preise|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Preise_Type,Preise>>
+| |Preisspalten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Preisspalten_Type,Preisspalten>>
+| |Preisstufen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Preisstufen_Type,Preisstufen>>
+| |PreisstufenErmittlungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<PreisstufenErmittlungen_Type,PreisstufenErmittlungen>>
+| |Preisstufendirektwahl|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Preisstufendirektwahl_Type,Preisstufendirektwahl>>
+| |RaeumlicheGueltigkeit|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<RaeumlicheGueltigkeit_Type,RaeumlicheGueltigkeit>>
+| |Relationen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Relationen_Type,Relationen>>
+| |Relationscodegruppen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Relationscodegruppen_Type,Relationscodegruppen>>
+| |Relationscodes|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Relationscodes_Type,Relationscodes>>
+| |Sorten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Sorten_Type,Sorten>>
+| |SortenTarifarten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<SortenTarifarten_Type,SortenTarifarten>>
+| |Sortengruppen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Sortengruppen_Type,Sortengruppen>>
+| |SortengruppenElemente|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<SortengruppenElemente_Type,SortengruppenElemente>>
+| |SortengruppenErmittlungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
+| |Strecke|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Strecke_Type,Strecke>>
+| |Streckencode|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Streckencode_Type,Streckencode>>
+| |Streckenzuordnung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Streckenzuordnung_Type,Streckenzuordnung>>
+| |TagesartMerkmalElemente|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Tagesarten|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |TagesmerkmalElemente|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Tagesmerkmale|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Tarifarten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifarten_Type,Tarifarten>>
+| |Tarifgebiete|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifgebiete_Type,Tarifgebiete>>
+| |Tarifpunkte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifpunkte_Type,Tarifpunkte>>
+| |TarifpunktmengeElemente|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<TarifpunktmengeElemente_Type,TarifpunktmengeElemente>>
+| |Tarifpunktmengen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifpunktmengen_Type,Tarifpunktmengen>>
+| |Tarifrelevantepunkte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+| |Teilrelationen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Teilrelationen_Type,Teilrelationen>>
+| |Unternehmen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Updateinfo|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |VersionInhalt|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |VersionStruktur|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Vias|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Vias_Type,Vias>>
+| |Wege|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Wege_Type,Wege>>
+| |Wegpositionen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Wegpositionen_Type,Wegpositionen>>
+| |Zeitraeume|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Zeitraumoptionen|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |Zusatzsorten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Zusatzsorten_Type,Zusatzsorten>>
+|=======================
+
+
+=== TarifAngebot Elemente
+
+
 [[Bediengebiete_Type]]
 ==== Bediengebiete
 
 
-[small]#Bediengebiete erlauben die Defintion von Sichten# +
-[small]#auf Auswahlelemente (Tarifrelevante Punkte, Haltestellen, etc.).# +
-[small]#Damit ist die Möglichkeit zur Filterung von Start/Zielauswahlen# +
-[small]#in verschiedenen Umfeldern möglich.# +
+Bediengebiete erlauben die Defintion von Sichten auf Auswahlelemente (Tarifrelevante Punkte, Haltestellen, etc.). Damit ist die Möglichkeit zur Filterung von Start/Zielauswahlen in verschiedenen Umfeldern möglich.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Bediengebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefErmittlungseinheit_Type]]
 ==== DefErmittlungseinheit
 
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+IMPORTANT: [red]#_todo: Doku_#
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Ermittlungseinheit|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Ermittlungseinheit|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
 | |Bezeichnung|
-[small]#Bezeichnung der Ermittlungseinheit# +
+Bezeichnung der Ermittlungseinheit
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefFahrgasttyp_Type]]
 ==== DefFahrgasttypen
 
-[small]#Der Fahrgasttyp bezeichnet die tarifrele-vante Kategorie eines Fahrgastes z.B. Kind, Erwachsener, Rentner usw.# +
+Der Fahrgasttyp bezeichnet die tarifrele-vante Kategorie eines Fahrgastes z.B. Kind, Erwachsener, Rentner usw.
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Fahrgasttyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Fahrgasttyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
 | |Bezeichnung|
-[small]#Bezeichnung des Fahrgasttyps# +
+Bezeichnung des Fahrgasttyps
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefKomfortklasse_Type]]
 ==== DefKomfortklassen
 
-[small]#Definiert die Komfortklasse für deren Benutzung die Fahrscheinsorte berechtigt (z.B. 1 für 1. Klasse, 2 für 2. Klasse)# +
+Definiert die Komfortklasse für deren Benutzung die Fahrscheinsorte berechtigt (z.B. 1 für 1. Klasse, 2 für 2. Klasse)
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Komfortklasse|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Komfortklasse|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
 | |Bezeichnung|
-[small]#Bezeichnung der Komfortklasse.# +
+Bezeichnung der Komfortklasse.
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefNachbarhaltestellenbeziehung_Type]]
 ==== DefNachbarhaltestellenbeziehungen
 
 
-[small]#Art einer Nachbarhaltestellenbeziehung.# +
+Art einer Nachbarhaltestellenbeziehung.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Nachbarhaltestellenbeziehung|
 
-[small]#Art der Nachbarbeziehung.# +
+Art der Nachbarbeziehung.
 
-siehe auch: <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
+
+Datentyp: <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Bezeichnung der Art der Nachbarbeziehung.# +
+Bezeichnung der Art der Nachbarbeziehung.
 
+
+Datentyp: string
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefOTPTyp_Type]]
 ==== DefOTPTypen
 
-[small]#Definiert den Verwendungszweck eines Typs von Tarifrelevantenpunkten# +
-[small]#(OTP steht für Orte und Tarifrelevante Punkte).# +
-[small]#Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type# +
+Definiert den Verwendungszweck eines Typs von Tarifrelevantenpunkten (OTP steht für Orte und Tarifrelevante Punkte). Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_OTPTyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_OTPTyp_Type,ID_OTPTyp>>
+
+Datentyp: <<ID_OTPTyp_Type,ID_OTPTyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefOrtspunkttyp_Type]]
 ==== DefOrtspunkttypen
 
 
-[small]#Definiert die Bedeutung eines Ortspunktes.# +
+Definiert die Bedeutung eines Ortspunktes.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ortspunkttyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
+
+Datentyp: <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefPreisfindung_Type]]
 ==== DefPreisfindungen
 
-[small]#Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc.# +
-[small]#Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.# +
+Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc. Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisfindung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Preisfindung_Type,ID_Preisfindung>>
+
+Datentyp: <<ID_Preisfindung_Type,ID_Preisfindung>>
 | |Bezeichnung|
-[small]#Bezeichnung des Preisfindungs# +
-| |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+Bezeichnung des Preisfindungs
 
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefPreisquelle_Type]]
 ==== DefPreisquellen
 
-[small]#Definiert eine Quellenangabe die einer Teilrelation zugeordnet werden kann. Quellenangaben dienen im wesentlichen der späteren Ausgabezuscheidung.# +
+Definiert eine Quellenangabe die einer Teilrelation zugeordnet werden kann. Quellenangaben dienen im wesentlichen der späteren Ausgabezuscheidung.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Preisquelle|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Preisquelle_Type,ID_Preisquelle>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Preisquelle|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Preisquelle_Type,ID_Preisquelle>>
 | |Bezeichnung|
 
-[small]#Bezeichnung der Preisquelle z.B.# +
-[small]#NE-Blatt-Nummer# +
+Bezeichnung der Preisquelle z.B. NE-Blatt-Nummer
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefPreisspaltentyp_Type]]
 ==== DefPreisspaltentypen
 
 
-[small]#Definiert den Verwendungszweck oder die Herkunft einer Preisspalte.# +
+Definiert den Verwendungszweck oder die Herkunft einer Preisspalte.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Preisspaltentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Preisspaltentyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
 | |Kennung|
 
-[small]#Zur eindeutigen Identifikation des Preisspaltentyps.# +
+Zur eindeutigen Identifikation des Preisspaltentyps.
 
+
+Datentyp: string
 | |Bezeichnung|
 
-[small]#Zur Anzeige des Preispalten-Typs.# +
+Zur Anzeige des Preispalten-Typs.
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Zur externen Synchronisation des Preisspaltentyps.# +
+Zur externen Synchronisation des Preisspaltentyps.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefRabattklasse_Type]]
 ==== DefRabattklassen
 
-[small]#Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen wird.# +
+Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen wird.
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Rabattklasse|
-[small]#Eindeutige ID der Rabattklassse# +
-siehe auch: <<ID_Rabattklasse_Type,ID_Rabattklasse>>
+Eindeutige ID der Rabattklassse
+
+Datentyp: <<ID_Rabattklasse_Type,ID_Rabattklasse>>
 | |Bezeichnung|
-[small]#Bezeichnung der Rabattklasse.# +
+Bezeichnung der Rabattklasse.
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefReisetyp_Type]]
 ==== DefReisetypen
 
-[small]#Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...), auf den in Sorten verwiesen wird.# +
+Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...), auf den in Sorten verwiesen wird.
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Reisetyp|
-[small]#Eindeutige ID des Reisetyps# +
-siehe auch: <<ID_Reisetyp_Type,ID_Reisetyp>>
+Eindeutige ID des Reisetyps
+
+Datentyp: <<ID_Reisetyp_Type,ID_Reisetyp>>
 | |Bezeichnung|
-[small]#Bezeichnung des Reisetyps# +
+Bezeichnung des Reisetyps
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefRelationenberechnungsregelung_Type]]
 ==== DefRelationenberechnungsregelungen
 
 
-[small]#Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu verarbeiten sind.# +
-[small]#Diese Regelung kann dabei Auswirkungen auf den Preis haben.# +
-[small]#Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.# +
+Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu verarbeiten sind. Diese Regelung kann dabei Auswirkungen auf den Preis haben. Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relationenberechnungsregelung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
+
+Datentyp: <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefRelationendruckregelung_Type]]
 ==== DefRelationendruckregelungen
 
 
-[small]#Die Druckregelung bestimmt, wie die Werte der Teilrelationen zu drucken sind.# +
-[small]#Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.# +
+Die Druckregelung bestimmt, wie die Werte der Teilrelationen zu drucken sind. Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relationendruckregelung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
+
+Datentyp: <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefRelationscodegruppentyp_Type]]
 ==== DefRelationscodegruppentypen
 
 
-[small]#bspw. als Magneten für Citytarif# +
+bspw. als Magneten für Citytarif
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relcodegruppentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
+
+Datentyp: <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefSortenausgaberegelung_Type]]
 ==== DefSortenausgaberegelungen
 
 
-[small]#Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden darf.# +
-[small]#Bsp. Papierfahrschein oder eTicket.# +
-[small]#Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabemethoden erlaubt sein können.# +
+Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden darf. Bsp. Papierfahrschein oder eTicket. Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabemethoden erlaubt sein können.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortenausgaberegelung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
+
+Datentyp: <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
 | |Bezeichnung|
-[small]#Bezeichnung des Sortenausgaberegelungs# +
-| |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+Bezeichnung des Sortenausgaberegelungs
 
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefSortendruckregelung_Type]]
 ==== DefSortendruckregelungen
 
-[small]#Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird.# +
-[small]#Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vordefinierter Wert 1).# +
+Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird. Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vordefinierter Wert 1).
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortendruckregelung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
+
+Datentyp: <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
 | |Bezeichnung|
-[small]#Bezeichnung des Sortendruckregelungs# +
-| |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+Bezeichnung des Sortendruckregelungs
 
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefSortengruppentyp_Type]]
 ==== DefSortengruppentypen
 
-[small]#Definiert den Verwendungszweck eines Typs von Sortengruppen. Siehe auch ID_Sortengruppentyp_Type bzw. ID_SortengruppentypHUSST_Type.# +
+Definiert den Verwendungszweck eines Typs von Sortengruppen. Siehe auch ID_Sortengruppentyp_Type bzw. ID_SortengruppentypHUSST_Type.
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortengruppentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
+
+Datentyp: <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefSortentyp_Type]]
 ==== DefSortentypen
 
 
-[small]#Die vordefinierten Sortentypen stellen eine grobe Klassizifzierung der Sorte dar.# +
-[small]#Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.# +
+Die vordefinierten Sortentypen stellen eine grobe Klassizifzierung der Sorte dar. Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Sortentyp_Type,ID_Sortentyp>>
+
+Datentyp: <<ID_Sortentyp_Type,ID_Sortentyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefStreckenart_Type]]
 ==== DefStreckenart
 
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+IMPORTANT: [red]#_todo: Doku_#
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Streckenart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Streckenart_Type,ID_Streckenart>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Streckenart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Streckenart_Type,ID_Streckenart>>
 | |Bezeichnung|
-[small]#Bezeichnung der Streckenart# +
+Bezeichnung der Streckenart
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefStreckencodetyp_Type]]
 ==== DefStreckencodetyp
 
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+IMPORTANT: [red]#_todo: Doku_#
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Streckencodetyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
-siehe auch: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
+Datentyp: <<INT4,INT4>>
+|★ |ID_Streckencodetyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
 | |Bezeichnung|
-[small]#Bezeichnung der Streckencodetyp# +
+Bezeichnung der Streckencodetyp
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefTarifpunkttyp_Type]]
 ==== DefTarifpunkttypen
 
-[small]#Definiert die Art eines Tarifpunktes (Tarifhaltestelle, Zone/Wabe/Ring, Überzone/Wabentyp etc..) siehe ID_Tarifpunkttyp_Type bzw.# +
-[small]#ID_TarifpunkttypHusst_Type# +
+Definiert die Art eines Tarifpunktes (Tarifhaltestelle, Zone/Wabe/Ring, Überzone/Wabentyp etc..) siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifpunkttyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
+
+Datentyp: <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefVertriebswege_Type]]
 ==== DefVertriebswege
 
 
-[small]#Die Vertriebswege kommen bei verschiedenen Typen als Attribut vor. In erster Linie werden sie# +
-[small]#dazu verwendet, die Datenmenge für verschiedene Verkaufsgeräte zu reduzieren, indem# +
-[small]#Elemente, die der entsprechenden Vertriebstechnik nicht zugeordnet sind, auch nicht mit den# +
-[small]#Herstellerunabhängige Standardschnittstelle# +
-[small]#"Datenaustausch in ÖPV-Vertriebssystemen" 2010-2012 Seite 37 von 178# +
-[small]#Daten versorgt werden. Teilweise haben die Vertriebswege aber auch steuernden Charakter auf# +
-[small]#den Verkaufsgeräten. Z.B. kann mit den Vertriebswegen festgelegt sein, dass eine bestimmte# +
-[small]#Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.# +
+Die Vertriebswege kommen bei verschiedenen Typen als Attribut vor. In erster Linie werden sie dazu verwendet, die Datenmenge für verschiedene Verkaufsgeräte zu reduzieren, indem Elemente, die der entsprechenden Vertriebstechnik nicht zugeordnet sind, auch nicht mit den Herstellerunabhängige Standardschnittstelle "Datenaustausch in ÖPV-Vertriebssystemen" 2010-2012 Seite 37 von 178 Daten versorgt werden. Teilweise haben die Vertriebswege aber auch steuernden Charakter auf den Verkaufsgeräten. Z.B. kann mit den Vertriebswegen festgelegt sein, dass eine bestimmte Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Vertriebswege|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+
+Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |Bezeichnung|
-[small]#Bezeichnung der Vertriebswege.# +
-| |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+Bezeichnung der Vertriebswege.
 
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefZahlgrenzentyp_Type]]
 ==== DefZahlgrenzentyp
 
-[small]#Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden# +
-[small]#kann. Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.# +
+Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann. Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Zahlgrenzentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
+
+Datentyp: <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
 | |Bezeichnung|
-[small]#Bezeichnung der Zahlgrenze.# +
-| |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+Bezeichnung der Zahlgrenze.
 
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[DefZahlungsarten_Type]]
 ==== DefZahlungsarten
 
-[small]#Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann.# +
-[small]#Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.# +
+Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann. Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Zahlungsarten|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
+
+Datentyp: <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
 | |Bezeichnung|
-[small]#Bezeichnung der Zahlungsarten.# +
-| |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+Bezeichnung der Zahlungsarten.
 
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Gleichstellung_Type]]
 ==== Gleichstellung
 
 
-[small]#Tarifliche Gleichstellung eines Starts oder eines Ziels einer Strecke ab einer definierten Gesamtentfernung.# +
+Tarifliche Gleichstellung eines Starts oder eines Ziels einer Strecke ab einer definierten Gesamtentfernung.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Gleichstellung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Streckencode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_StreckencodeGleichstellung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Gleichstellungstyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |EntfernungAb|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diese Gleichstellung.# +
+Schlüssel des Tarifgebers für diese Gleichstellung.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[GleichstellungTarifart_Type]]
 ==== GleichstellungTarifart
 
 
-[small]#einen Gelichstellungstyp einer Tarifart zu.# +
+einen Gelichstellungstyp einer Tarifart zu.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Gleichstellungstyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diese Gleichstellungstyp-Tarifart Zuordnung.# +
+Schlüssel des Tarifgebers für diese Gleichstellungstyp-Tarifart Zuordnung.
 
+
+Datentyp: string
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Gleichstellungstyp_Type]]
 ==== Gleichstellungstyp
 
 
-[small]#Die Art der Gleichstellung.# +
+Die Art der Gleichstellung.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Gleichstellungstyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diesen Gleichstellungstyp.# +
+Schlüssel des Tarifgebers für diesen Gleichstellungstyp.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[GueltigkeitszeitRegeln_Type]]
 ==== GueltigkeitszeitRegeln
 
 
-[small]#Definiert eine zeitliche Gültigkeit. Darin enthalten sein kann auch die Vorverkaufbarkeit# +
-[small]#(Regel zum möglichen Gültigkeitsbeginn) und die Umschaltung auf einen neuen Default-Gültigkeitsbeginn.# +
-[small]#Der Datentyp wird noch weiter ausgebaut und in einer eigenen HUSST-Definition konkretisiert.# +
+Definiert eine zeitliche Gültigkeit. Darin enthalten sein kann auch die Vorverkaufbarkeit (Regel zum möglichen Gültigkeitsbeginn) und die Umschaltung auf einen neuen Default-Gültigkeitsbeginn. Der Datentyp wird noch weiter ausgebaut und in einer eigenen HUSST-Definition konkretisiert.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_GueltigkeitszeitRegel|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |GueltigkeitszeitRegelNr|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Param|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Linien_Type]]
 ==== Linien
 
-[small]#Abbildung von Linien mit Zuordnung zum Fahrtverlauf. Dabei kann für die Hin- und Rückrichtung ein gesonderter Fahrtverlauf angegeben werden.# +
+Abbildung von Linien mit Zuordnung zum Fahrtverlauf. Dabei kann für die Hin- und Rückrichtung ein gesonderter Fahrtverlauf angegeben werden.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Linie|
-[small]#Liniennummer# +
+Liniennummer
+
+Datentyp: <<INT4,INT4>>
 | |ID_Weg_Hin|
-[small]#Linienhauptweg# +
+Linienhauptweg
+
+Datentyp: <<INT4,INT4>>
 | |ID_Weg_Rueck|
 
-[small]#Linienhauptweg Rückrichtung# +
+Linienhauptweg Rückrichtung
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ID_Konzessionaer|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Bediengebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Mwst_Type]]
 ==== Mwst
 
-[small]#Definition aller Mehrwertsteuersätze zur jeweiligen Referenzierung in Preisstufen, Sorten und Preisen# +
+Definition aller Mehrwertsteuersätze zur jeweiligen Referenzierung in Preisstufen, Sorten und Preisen
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Mwst|
 
-[small]#Kennung des Mehrwertsteuersatzes# +
+Kennung des Mehrwertsteuersatzes
 
+
+Datentyp: <<INT4,INT4>>
 | |MwstSatz|
 
-[small]#Prozentzahl des Mehrwertsteuersatzes# +
+Prozentzahl des Mehrwertsteuersatzes
 
+
+Datentyp: <<FLOAT1,FLOAT1>>
 | |Bezeichnung|
 
-[small]#Info zum MwSt.-Satz; bspw. ermäßigter Steuersatz# +
-[small]#etc.# +
+Info zum MwSt.-Satz; bspw. ermäßigter Steuersatz etc.
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte# +
-[small]#Mehrwertsteuerdatensätze über eine nicht numerische Referenz# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Mehrwertsteuerdatensätze über eine nicht numerische Referenz identifizieren zu können.
 
+
+Datentyp: string
 | |KA_Mwst|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Nachbarhaltestellen_Type]]
 ==== Nachbarhaltestellen
 
-[small]#Zur Definition von Kurzstrecken o.ä..(s. ID_Nachbarhaltestellenbeziehung)# +
-[small]#Eine Nachbarhaltestellenbeziehung kann über ID_OrtspunktVon und ID_OrtspunktNach erfolgen# +
-[small]#oder über ID_OrtspunktVon und Zahlgrenze. Es muss entweder ID_OrtspunktNach oder Zahlgrenze# +
-[small]#gefüllt sein. Wenn beides gefüllt ist, gelten beide Bedingungen zeitgleich. (Es gilt auf der# +
-[small]#Strecke von ID_OrtspunktVon nach ID_OrtspunktNach, wenn die Zahlgrenze nicht überschritten# +
-[small]#ist.) Die Nachbarhaltestellen werden in der Verkaufslogik bei der Anzeige der Vias vor die# +
-[small]#Relationen sortiert.# +
+Zur Definition von Kurzstrecken o.ä..(s. ID_Nachbarhaltestellenbeziehung) Eine Nachbarhaltestellenbeziehung kann über ID_OrtspunktVon und ID_OrtspunktNach erfolgen oder über ID_OrtspunktVon und Zahlgrenze. Es muss entweder ID_OrtspunktNach oder Zahlgrenze gefüllt sein. Wenn beides gefüllt ist, gelten beide Bedingungen zeitgleich. (Es gilt auf der Strecke von ID_OrtspunktVon nach ID_OrtspunktNach, wenn die Zahlgrenze nicht überschritten ist.) Die Nachbarhaltestellen werden in der Verkaufslogik bei der Anzeige der Vias vor die Relationen sortiert.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Nachbarhaltestelle|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Bediengebiet|
-[small]#Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .# +
+Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .
+
+Datentyp: <<INT4,INT4>>
 | |ID_Nachbarhaltestellenbeziehung|
-[small]#Art der Nachbarbeziehung.# +
-siehe auch: <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
+Art der Nachbarbeziehung.
+
+Datentyp: <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
 |★ |ID_OrtspunktVon|
-[small]#ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (kleinere# +
-[small]#ID des Paares, bei Halbmatrix).# +
+ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (kleinere ID des Paares, bei Halbmatrix).
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_OrtspunktNach|
-[small]#ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (größere ID# +
-[small]#des Paares, bei Halbmatrix)# +
+ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (größere ID des Paares, bei Halbmatrix)
 
+
+Datentyp: <<INT4,INT4>>
 | |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Via|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Tarifart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Tarifgebiet|
-[small]#Tarifgebiet, für das eine Nachbarhaltestelle definiert wird.# +
+Tarifgebiet, für das eine Nachbarhaltestelle definiert wird.
+
+Datentyp: <<INT4,INT4>>
 | |ID_Preisstufe|
-[small]#Zuordnung Preisstufe# +
+Zuordnung Preisstufe
+
+Datentyp: <<INT4,INT4>>
 | |Zahlgrenzen|
-[small]#Gibt den Wert an vom Typ des Zahlgrenzentyps.# +
+Gibt den Wert an vom Typ des Zahlgrenzentyps.
+
+Datentyp: <<INT4,INT4>>
 | |ID_Zahlgrenzentyp|
-[small]#Gibt den Typ an, der die Zahlgrenzen definiert.# +
-siehe auch: <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
+Gibt den Typ an, der die Zahlgrenzen definiert.
+
+Datentyp: <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
-
-[[OePVTarifDB_Type]]
-==== OePVTarifDB
-
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-[options="header" cols="2%,20%,78%"]
-|=======================
-| |Eigenschaft|Beschreibung
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-| ||
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
-
-|=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[OrtspunktStreckencode_Type]]
 ==== OrtspunktStreckencode
 
 
-[small]#Ordnet einen Ortspunkt einem Streckencode in einem Tarifgebiet zu.# +
+Ordnet einen Ortspunkt einem Streckencode in einem Tarifgebiet zu.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ortspunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Streckencode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Streckencodetyp|
 
-[small]#Typ dieses Streckencodes (dieses Haltepunktes).# +
+Typ dieses Streckencodes (dieses Haltepunktes).
 
-siehe auch: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
+
+Datentyp: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diese Ortspunkt-Streckencode Zuordnung.# +
+Schlüssel des Tarifgebers für diese Ortspunkt-Streckencode Zuordnung.
 
+
+Datentyp: string
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Ortspunkte_Type]]
 ==== Ortspunkte
 
 
-[small]#Haltestellen mit Zonen/Relationscode Zuordnung# +
+Haltestellen mit Zonen/Relationscode Zuordnung
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
-[small]#Eindeutige Datensatz-ID innerhalb der ID_Zeitraum# +
+Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ortspunkttyp|
-[small]#Bspw. Betriebshof# +
-siehe auch: <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
+Bspw. Betriebshof
+
+Datentyp: <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
 |★ |Ortsnummer|
 
-[small]#Bundeseinheitliche HST Nummer# +
+Bundeseinheitliche HST Nummer
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Relcode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |IBISnr|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ID_Bundesland|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<ID_Bundesland_Type,ID_Bundesland>>
 | |Gemeindekennziffer|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |Bezeichnung|
 
-[small]#Bezeichnung des Ortspunktes (z.B. für die# +
-[small]#Anzeige)# +
+Bezeichnung des Ortspunktes (z.B. für die Anzeige)
 
+
+Datentyp: string
 | |BezeichnungKurz|
 
-[small]#Kurzbezeichnung des Ortspunktes (z.B. für# +
-[small]#zusammengesetzte# +
-[small]#Via-Information, wenn das Attribut leer ist, wird# +
-[small]#Bezeichnung verwendet)# +
+Kurzbezeichnung des Ortspunktes (z.B. für zusammengesetzte Via-Information, wenn das Attribut leer ist, wird Bezeichnung verwendet)
 
+
+Datentyp: string
 | |BezeichnungDruck|
 
-[small]#Bezeichnung des Ortspunktes für den Ausdruck# +
-[small]#(wenn das# +
-[small]#Attribut leer ist, wird Bezeichnung verwendet)# +
+Bezeichnung des Ortspunktes für den Ausdruck (wenn das Attribut leer ist, wird Bezeichnung verwendet)
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Tarifgeberspez. Nr., bspw. für Aufdruck# +
+Tarifgeberspez. Nr., bspw. für Aufdruck
 
+
+Datentyp: string
 | |ID_Bediengebiet|
 
-[small]#Bestimmt das Bediengebiet, das einzustellen ist, wenn dieser Ortspunkt als Standort ermittelt wird.# +
+Bestimmt das Bediengebiet, das einzustellen ist, wenn dieser Ortspunkt als Standort ermittelt wird.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_OrtspunktReferenz|
 
-[small]#Referenziert einen übergeordneten Ortspunkt# +
+Referenziert einen übergeordneten Ortspunkt
 
+
+Datentyp: <<INT4,INT4>>
 | |XKoordWgs84|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<KoordWgs84_Type,KoordWgs84>>
 | |YKoordWgs84|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<KoordWgs84_Type,KoordWgs84>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[OrtspunkteKA_Type]]
 ==== OrtspunkteKA
 
 
-[small]#KA-Attribute der Ortspunkte# +
+KA-Attribute der Ortspunkte
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_OrtspunktKA|
 
-[small]#Eindeutige Datensatz-ID innerhalb der ID_Zeitraum# +
+Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
-[small]#Referenz zum Ortspunkt, den der OrtspunktKA um VDV KA Eigenschaften ergänzt.# +
+Referenz zum Ortspunkt, den der OrtspunktKA um VDV KA Eigenschaften ergänzt.
 
+
+Datentyp: <<INT4,INT4>>
 | |KA_OrtOrgID|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |KA_OrtTyp|
-[small]#KA Ortstyp# +
+KA Ortstyp
+
+Datentyp: <<INT4,INT4>>
 | |KA_OrtNummer|
-[small]#KA Ortnummer# +
+KA Ortnummer
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[OrtspunkteTG_Type]]
 ==== OrtspunkteTG
 
 
-[small]#tarifgebietspezifische-Attribute der Ortspunkte# +
+tarifgebietspezifische-Attribute der Ortspunkte
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_OrtspunktTG|
 
-[small]#Eindeutige Datensatz-ID innerhalb der ID_Zeitraum# +
+Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
-[small]#Referenz zum Ortspunkt, den der OrtspunktTG tarifgebietspezifisch ergänzt oder überschreibt.# +
+Referenz zum Ortspunkt, den der OrtspunktTG tarifgebietspezifisch ergänzt oder überschreibt.
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Ortsbezeichnung# +
+Ortsbezeichnung
 
+
+Datentyp: string
 | |BezeichnungKurz|
 
-[small]#Kurzbezeichnung des Orts# +
+Kurzbezeichnung des Orts
 
+
+Datentyp: string
 | |BezeichnungDruck|
 
-[small]#Bezeichnung des Orts für den Ausdruck# +
+Bezeichnung des Orts für den Ausdruck
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Tarifgeberspez. Nr., bspw. für Aufdruck# +
+Tarifgeberspez. Nr., bspw. für Aufdruck
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Preise_Type]]
 ==== Preise
 
-[small]#Preise aller Sorten, abhängig von Zeitraum und Tarifgebiet, ggf. auch von Preisstufe, und Preisspalte# +
+Preise aller Sorten, abhängig von Zeitraum und Tarifgebiet, ggf. auch von Preisstufe, und Preisspalte
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preis|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sorte|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
-[small]#Die ID_Tarifgebiet bleibt als retundante Information erhalten.# +
-[small]#Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.# +
+Die ID_Tarifgebiet bleibt als retundante Information erhalten. Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisstufe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisspalte|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#bisher: TarifgeberProduktNr# +
-[small]#Schlüssel des Tarifgebers# +
+bisher: TarifgeberProduktNr Schlüssel des Tarifgebers
 
+
+Datentyp: string
 | |Preis|
 
-[small]#Preis in kleinster Währungseinheit (z.b. Cent)# +
+Preis in kleinster Währungseinheit (z.b. Cent)
 
+
+Datentyp: <<INT4,INT4>>
 | |PreisstufenbezeichnungKurz|
 
-[small]#optional: abweichende Preisstufenkurzbezeichnung# +
-[small]#für Anzeige und Druck# +
+optional: abweichende Preisstufenkurzbezeichnung für Anzeige und Druck
 
+
+Datentyp: string
 | |Preisstufenbezeichnung|
 
-[small]#optional: abweichende Preisstufenbezeichnung# +
-[small]#für Anzeige und Druck# +
+optional: abweichende Preisstufenbezeichnung für Anzeige und Druck
 
+
+Datentyp: string
 | |ID_Mwst|
 
-[small]#optional: abweichende Mehrwertsteuerkennung# +
+optional: abweichende Mehrwertsteuerkennung
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_PreisstufeReferenz|
 
-[small]#optional# +
-[small]#Referenz auf die tatsächlich zu verwendende Preisstufe für# +
-[small]#Druck# +
-[small]#Anzeige# +
-[small]#Registrierung# +
-[small]#Gültigkeitsberechnung# +
+optional Referenz auf die tatsächlich zu verwendende Preisstufe für Druck Anzeige Registrierung Gültigkeitsberechnung
 
-[small]#Verwendung:# +
-[small]#Wenn eine Tarifverbindung eine ID_Preisstufe x liefert, und die# +
-[small]#Tarifbestimmungen definieren, dass# +
-[small]#für dieses Sorte statt der ID_Preisstufe x ein Fahrschein mit der# +
-[small]#Preisstufe y verkauft werden soll,# +
-[small]#wird in ID_PreisstufeReferenz ein Verweis auf Preisstufe y# +
-[small]#eingetragen.# +
+Verwendung: Wenn eine Tarifverbindung eine ID_Preisstufe x liefert, und die Tarifbestimmungen definieren, dass für dieses Sorte statt der ID_Preisstufe x ein Fahrschein mit der Preisstufe y verkauft werden soll, wird in ID_PreisstufeReferenz ein Verweis auf Preisstufe y eingetragen.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_GueltigkeitszeitRegel|
 
-[small]#Definiert die zeitliche Gültigkeit des Produktes.# +
+Definiert die zeitliche Gültigkeit des Produktes.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_RaeumlicheGueltigkeit|
 
-[small]#Verweis auf eine Definition für die räumliche Gültigkeit.# +
+Verweis auf eine Definition für die räumliche Gültigkeit.
 
+
+Datentyp: <<INT4,INT4>>
 | |KA_ProdOrgID|
 
-[small]#KA Produkt Organisationsnummer# +
+KA Produkt Organisationsnummer
 
+
+Datentyp: <<INT2,INT2>>
 | |KA_ProdNr|
-[small]#KA Produkt# +
+KA Produkt
+
+Datentyp: <<INT2,INT2>>
 | |KA_Rabatttyp|
-[small]#KA Rabatttyp# +
-siehe auch: <<KA_RabattParameter_CODE_Type,KA_RabattParameter_CODE>>
+KA Rabatttyp
+
+Datentyp: <<KA_RabattParameter_CODE_Type,KA_RabattParameter_CODE>>
 | |KA_Mitnahme1Typ|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<KA_Profil_CODE_Type,KA_Profil_CODE>>
+
+Datentyp: <<KA_Profil_CODE_Type,KA_Profil_CODE>>
 | |KA_Mitnahme1MinAnzahl|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT1,INT1>>
 | |KA_Mitnahme1MaxAnzahl|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT1,INT1>>
 | |KA_Mitnahme2Typ|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<KA_Profil_CODE_Type,KA_Profil_CODE>>
+
+Datentyp: <<KA_Profil_CODE_Type,KA_Profil_CODE>>
 | |KA_Mitnahme2MinAnzahl|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT1,INT1>>
 | |KA_Mitnahme2MaxAnzahl|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT1,INT1>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Preisspalten_Type]]
 ==== Preisspalten
 
 
-[small]#Die Preisspalte definiert die Währung der zugeordneten Preise und ermöglicht Preisvarianten.# +
-[small]#Verschiedene Preisspalten für die gleiche Sorte, Währung und Preisstufe# +
-[small]#ermöglichen die Bereitstellung alternativer Preise (z.B. Barzahlung vs. Bezahlung mit Kundenkarte)# +
-[small]#oder den Ausweis von spezifischen Preisanteilen (z.B. Preisanteil Aufgabenträger).# +
+Die Preisspalte definiert die Währung der zugeordneten Preise und ermöglicht Preisvarianten. Verschiedene Preisspalten für die gleiche Sorte, Währung und Preisstufe ermöglichen die Bereitstellung alternativer Preise (z.B. Barzahlung vs. Bezahlung mit Kundenkarte) oder den Ausweis von spezifischen Preisanteilen (z.B. Preisanteil Aufgabenträger).
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Preisspalte|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
+Datentyp: <<INT4,INT4>>
+|★ |ID_Preisspalte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Waehrung|
 
-[small]#ISO-Kennung (dezimal) der Währung -# +
-[small]#außer EUR=999# +
+ISO-Kennung (dezimal) der Währung - außer EUR=999
 
+
+Datentyp: <<ID_Waehrung_Type,ID_Waehrung>>
 | |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Preisspaltentyp|
 
-[small]#Definiert den Verwendungszweck oder die Herkunft einer Preisspalte.# +
-[small]#HUSST Standard=1# +
+Definiert den Verwendungszweck oder die Herkunft einer Preisspalte. HUSST Standard=1
 
-siehe auch: <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
+
+Datentyp: <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
 | |Bezeichnung|
 
-[small]#Spaltenüberschrift# +
+Spaltenüberschrift
 
+
+Datentyp: string
 | |BezeichnungKurz|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |Hinweis|
-[small]#Info zur Preisspalte# +
+Info zur Preisspalte
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Preisstufen_Type]]
 ==== Preisstufen
 
-[small]#Definition der Preisstufen pro Tarifgebiet und Zeitraum# +
+Definition der Preisstufen pro Tarifgebiet und Zeitraum
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisstufe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Preisstufennummer|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |BezeichnungKurz|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |WegstreckeInMetern|
 
-[small]#durschnittliche Wegstrecke in Meter für# +
-[small]#PKM (Personen-Kilometer)# +
-[small]#Berechnung# +
+durschnittliche Wegstrecke in Meter für PKM (Personen-Kilometer) Berechnung
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Mwst|
 
-[small]#Nummer des Mehrwertsteuersatzes# +
+Nummer des Mehrwertsteuersatzes
 
+
+Datentyp: <<INT4,INT4>>
 | |UpgradeStopp|
 
-[small]#Ein Preisupgrade kann bis zu einschließlich# +
-[small]#dieser Preisstufe erfolgen.# +
-[small]#Es können mehrere Stopps eingebaut sein.# +
+Ein Preisupgrade kann bis zu einschließlich dieser Preisstufe erfolgen. Es können mehrere Stopps eingebaut sein.
 
+
+Datentyp: boolean
 | |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |KA_Preisstufe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT1,INT1>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[PreisstufenErmittlungen_Type]]
 ==== PreisstufenErmittlungen
 
 
-[small]#Die PreisstufenErmittlungen dienen dazu, die zu berechenden Preisstufen für eine Sorte zu ermitteln.# +
-[small]#Dabei orientiert sich die PreisstufenErmittlung an einer variablen Ermittlungseinheit (z.B. Minuten / Kilometer).# +
-[small]#Die PreisstufenErmittlung ist eine alternative zur Ermittlung der Preisstufe über eine Teilrelation.# +
-[small]#Die PreisstufenErmittlung hat hauptsächlich im Zusammenhang mit der SortengruppenErmittlung im MaaS-Bereich eine Relevanz.# +
-[small]#Die ermittelte Preisstufe muss ggf. mehrfach berechnet werden.# +
+Die PreisstufenErmittlungen dienen dazu, die zu berechenden Preisstufen für eine Sorte zu ermitteln. Dabei orientiert sich die PreisstufenErmittlung an einer variablen Ermittlungseinheit (z.B. Minuten / Kilometer). Die PreisstufenErmittlung ist eine alternative zur Ermittlung der Preisstufe über eine Teilrelation. Die PreisstufenErmittlung hat hauptsächlich im Zusammenhang mit der SortengruppenErmittlung im MaaS-Bereich eine Relevanz. Die ermittelte Preisstufe muss ggf. mehrfach berechnet werden.
 
-[small]#Wenn die Menge an Ermittlungseinheiten in dem Rahmen von "Von" und "Bis" liegt,# +
-[small]#wird die Anzahl der Schritte aufgerundet auf ganze Werte mal den Preis gerechnet.# +
+Wenn die Menge an Ermittlungseinheiten in dem Rahmen von "Von" und "Bis" liegt, wird die Anzahl der Schritte aufgerundet auf ganze Werte mal den Preis gerechnet.
 
-[small]#Bsp.: Einheit Minuten, Von 0, Bis 90, Schritt 5, ID_Preisstufe 1# +
-[small]#=> Wenn 32 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 1 7x berechnet.# +
+Bsp.: Einheit Minuten, Von 0, Bis 90, Schritt 5, ID_Preisstufe 1 => Wenn 32 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 1 7x berechnet.
 
-[small]#Bsp. 2: Einheit Minuten, Von 90, Bis 180, Schritt 10, ID_Preisstufe 2# +
-[small]#=> Wenn 117 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 2 3x berechnet.# +
-[small]#Zusätzlich sind für den Zeitraum von 0 bis 90 Minuten weitere Preisstufen zu ermitteln. (z.B. aus Beispiel 1 die ID_Preisstufe 1 18x)# +
+Bsp. 2: Einheit Minuten, Von 90, Bis 180, Schritt 10, ID_Preisstufe 2 => Wenn 117 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 2 3x berechnet. Zusätzlich sind für den Zeitraum von 0 bis 90 Minuten weitere Preisstufen zu ermitteln. (z.B. aus Beispiel 1 die ID_Preisstufe 1 18x)
 
-[small]#Bsp. 3: Einheit Kilometer, Von 0, Bis 100, Schritt 100, ID_Preisstufe 3# +
-[small]#=> Wenn 5 Kilometer berechnet werden sollen, wird der Preis der ID_Preisstufe 3 1x berechnet.# +
-[small]#So kann ID_Preisstufe 3 allgemein nur 1x berechnet werden, da Schritt = Bis - Von ist.# +
+Bsp. 3: Einheit Kilometer, Von 0, Bis 100, Schritt 100, ID_Preisstufe 3 => Wenn 5 Kilometer berechnet werden sollen, wird der Preis der ID_Preisstufe 3 1x berechnet. So kann ID_Preisstufe 3 allgemein nur 1x berechnet werden, da Schritt = Bis - Von ist.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_PreisstufenErmittlung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisstufe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Ermittlungseinheit|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
+
+Datentyp: <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
 |★ |Von|
-[small]#Incl.# +
+Incl.
+
+Datentyp: <<INT4,INT4>>
 | |Bis|
-[small]#Excl.# +
+Excl.
+
+Datentyp: <<INT4,INT4>>
 |★ |Schritt|
 
-[small]#Schritt darf nicht größer als Bis - Von sein.# +
-[small]#Schritt muss ein Teiler von Bis - Von sein => (Bis - Von) Modulo Schritt = 0.# +
+Schritt darf nicht größer als Bis - Von sein. Schritt muss ein Teiler von Bis - Von sein => (Bis - Von) Modulo Schritt = 0.
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.# +
+Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Preisstufendirektwahl_Type]]
 ==== Preisstufendirektwahl
 
 
-[small]#Definition von Haltestellengruppen für# +
-[small]#Kurzstrecken/Zahlgrenzen# +
+Definition von Haltestellengruppen für Kurzstrecken/Zahlgrenzen
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Preisstufendirektwahl|
 
-[small]#Datensatz-Schlüssel - eindeutig innheralb der ID_Zeitraum# +
+Datensatz-Schlüssel - eindeutig innheralb der ID_Zeitraum
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |Direktwahlschluessel|
 
-[small]#Schlüsselwert, über den die Pst-Direktwahl# +
-[small]#gefunden wird. Projektspezifisch definiert.# +
+Schlüsselwert, über den die Pst-Direktwahl gefunden wird. Projektspezifisch definiert.
 
+
+Datentyp: string
 |★ |ID_Tarifart|
 
-[small]#Tarifart (0=Allgemein, 1=Bartarif, 2=Zeittarif)# +
+Tarifart (0=Allgemein, 1=Bartarif, 2=Zeittarif)
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisstufe|
-[small]#Zuordnung Preisstufe# +
+Zuordnung Preisstufe
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Text zur Anzeige der Preisstufendirektwahl# +
+Text zur Anzeige der Preisstufendirektwahl
 
+
+Datentyp: string
 | |BezeichnungDruck|
 
-[small]#Drucktext# +
+Drucktext
 
+
+Datentyp: string
 | |ID_Relation|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Vertriebswege|
 
-[small]#Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.# +
+Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
 
-siehe auch: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+
+Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[RaeumlicheGueltigkeit_Type]]
 ==== RaeumlicheGueltigkeit
 
 
-[small]#Definition der räumlichen Gültigkeit# +
+Definition der räumlichen Gültigkeit
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_RaeumlicheGueltigkeit|
 
-[small]#Eindeutige Datensatz-ID innerhalb eines Zeitraumes# +
+Eindeutige Datensatz-ID innerhalb eines Zeitraumes
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Tarifpunktmenge|
 
-[small]#Referenz auf eine Tarifpunktmenge.# +
+Referenz auf eine Tarifpunktmenge.
 
+
+Datentyp: <<INT4,INT4>>
 | |KA_GueltigkeitsraumOriginaer|
 
-[small]#Die originäre räumliche Gültigkeit auf einem KA Ticket.# +
-[small]#Wird als ganzes TLV abgebildet, beginnend mit dem TAG 'DC'# +
+Die originäre räumliche Gültigkeit auf einem KA Ticket. Wird als ganzes TLV abgebildet, beginnend mit dem TAG 'DC'
 
+
+Datentyp: <<blobString,blobString>>
 | |KA_GueltigkeitsraumAlternativ|
 
-[small]#Die alternative räumliche Gültigkeit auf einem KA Ticket.# +
-[small]#Wird als ganzes TLV abgebildet, beginnend mit dem TAG 'D9'# +
+Die alternative räumliche Gültigkeit auf einem KA Ticket. Wird als ganzes TLV abgebildet, beginnend mit dem TAG 'D9'
 
+
+Datentyp: <<blobString,blobString>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Relationen_Type]]
 ==== Relationen
 
 
-[small]#Relation auf Relationscode Ebene# +
+Relation auf Relationscode Ebene
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relation|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_RelcodeStart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_RelcodeZiel|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |SortOrder|
 
-[small]#Variantenzählung - Bestimmt die Reihenfolge der# +
-[small]#Vias in# +
-[small]#der Auswahl# +
+Variantenzählung - Bestimmt die Reihenfolge der Vias in der Auswahl
 
+
+Datentyp: <<INT4,INT4>>
 | |GegenrichtungLiegtVor|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: boolean
 | |ID_Vertriebswege|
 
-[small]#Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.# +
+Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
 
-siehe auch: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+
+Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |ID_Via|
 
-[small]#Nummer der Viatexte für diese Verbindung. Verweis auf Vias.# +
+Nummer der Viatexte für diese Verbindung. Verweis auf Vias.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Berechnungsregelung|
 
-[small]#Regelt die Verwendung konkurrierender Teilrelationen (gleiche ID_Tarifgebiet, ID_Tarifart) zur Preisberechnung und Registrierung.# +
+Regelt die Verwendung konkurrierender Teilrelationen (gleiche ID_Tarifgebiet, ID_Tarifart) zur Preisberechnung und Registrierung.
 
-siehe auch: <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
+
+Datentyp: <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
 | |ID_Druckregelung|
 
-[small]#Regelt die Verwendung konkurrierender Teilrelationen für den Ausdruck von Tickets.# +
+Regelt die Verwendung konkurrierender Teilrelationen für den Ausdruck von Tickets.
 
-siehe auch: <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
+
+Datentyp: <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
 | |ID_TarifartStrecke|
 
-[small]#Die ID_TarifartStrecke ermöglicht oder verhindert eine parallele Suche in den Streckentarifen.# +
-[small]#* das Vertriebsgerät muss parallel in der Streckenlogik suchen, wenn ID_TarifartStrecke gesetzt ist,# +
-[small]#* das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.# +
+Die ID_TarifartStrecke ermöglicht oder verhindert eine parallele Suche in den Streckentarifen.
 
+* das Vertriebsgerät muss parallel in der Streckenlogik suchen, wenn ID_TarifartStrecke gesetzt ist,
+
+* das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.            
+
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Relationscodegruppen_Type]]
 ==== Relationscodegruppen
 
 
-[small]#Zusammenfassung von Relationscodes bspw. für City Option# +
-[small]#unter einer Gruppennummer innerhalb eines ID_Relcodegruppentyps# +
+Zusammenfassung von Relationscodes bspw. für City Option unter einer Gruppennummer innerhalb eines ID_Relcodegruppentyps
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relcodegruppentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
+
+Datentyp: <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
 |★ |ID_Relcodegruppe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |Gruppennummer|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relcode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Relationscodes_Type]]
 ==== Relationscodes
 
 
-[small]#Relationscodes fassen Tarifpunkte mehrerer# +
-[small]#Tarifgeber zusammen. Damit können# +
-[small]#einzelnen Orten/Haltestellen# +
-[small]#unterschiedlich viele Tarifpunkte# +
-[small]#unterschiedlicher Tarifgeber# +
-[small]#zugeordnet werden# +
+Relationscodes fassen Tarifpunkte mehrerer Tarifgeber zusammen. Damit können einzelnen Orten/Haltestellen unterschiedlich viele Tarifpunkte unterschiedlicher Tarifgeber zugeordnet werden
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relcode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Relationszuordnungen_Type]]
 ==== Relationszuordnungen
 
 
-[small]#Verknüpft Relationen und Teilrelationen# +
+Verknüpft Relationen und Teilrelationen
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relationszuordung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Relation|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Teilrelation|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Sorten_Type]]
 ==== Sorten
 
 
-[small]#Artikel/Produkte/Fahrscheintypen# +
+Artikel/Produkte/Fahrscheintypen
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sorte|
 
-[small]#Nummer der Sorte, eindeutig über alle# +
-[small]#Tarifgebiete und Tarifversionen# +
+Nummer der Sorte, eindeutig über alle Tarifgebiete und Tarifversionen
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortentyp|
 
-[small]#Typ der Sorte# +
+Typ der Sorte
 
-siehe auch: <<ID_Sortentyp_Type,ID_Sortentyp>>
+
+Datentyp: <<ID_Sortentyp_Type,ID_Sortentyp>>
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diese Sorte# +
+Schlüssel des Tarifgebers für diese Sorte
 
+
+Datentyp: string
 | |BezeichnungKurz|
 
-[small]#Verwendung: Identifikation / optional Druck# +
+Verwendung: Identifikation / optional Druck
 
+
+Datentyp: string
 | |Bezeichnung|
 
-[small]#Verwendung: Identifikation / optional Druck# +
+Verwendung: Identifikation / optional Druck
 
+
+Datentyp: string
 | |ID_Ausgaberegelung|
 
-[small]#Hinweis zur Ausgabe der Sorte (Papierfahrschein / Elektronischer Fahrausweis etc.)# +
+Hinweis zur Ausgabe der Sorte (Papierfahrschein / Elektronischer Fahrausweis etc.)
 
-siehe auch: <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
+
+Datentyp: <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
 | |ID_Druckregelung|
 
-[small]#Steuert die Fahrscheinausgabe auf verschiedene Medien.# +
+Steuert die Fahrscheinausgabe auf verschiedene Medien.
 
-siehe auch: <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
+
+Datentyp: <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
 | |Layout|
 
-[small]#Layoutdefinition für den Ausdruck des Produktes# +
+Layoutdefinition für den Ausdruck des Produktes
 
+
+Datentyp: <<blobString,blobString>>
 | |ID_Vertriebswege|
 
-[small]#Schränkt die Verwendung der Sorte auf die angegebenen Vertriebswege ein.# +
+Schränkt die Verwendung der Sorte auf die angegebenen Vertriebswege ein.
 
-siehe auch: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+
+Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |ID_Mwst|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Zahlungsarten|
 
-[small]#Schränkt die Verwendung der Sorte auf die angegebenen Zahlungsarten ein.# +
+Schränkt die Verwendung der Sorte auf die angegebenen Zahlungsarten ein.
 
-siehe auch: <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
+
+Datentyp: <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
 | |ID_Komfortklasse|
 
-[small]#Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).# +
+Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).
 
-siehe auch: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
+
+Datentyp: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
 | |ID_Rabattklasse|
 
-[small]#Hinweis zur Rabattklasse (BC25/BC50 ect.).# +
+Hinweis zur Rabattklasse (BC25/BC50 ect.).
 
-siehe auch: <<ID_Rabattklasse_Type,ID_Rabattklasse>>
+
+Datentyp: <<ID_Rabattklasse_Type,ID_Rabattklasse>>
 | |ID_Fahrgasttyp|
 
-[small]#Hinweis zum Fahrgasttyp (Erwachsener/Kind etc.).# +
+Hinweis zum Fahrgasttyp (Erwachsener/Kind etc.).
 
-siehe auch: <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
+
+Datentyp: <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
 | |Mindestpersonenanzahl|
 
-[small]#Ab wievielen Personen darf der Fahrschein# +
-[small]#verkauft werden# +
+Ab wievielen Personen darf der Fahrschein verkauft werden
 
+
+Datentyp: <<INT4,INT4>>
 | |Hoechstpersonenanzahl|
 
-[small]#Bis zu wievielen Personen darf der Fahrschein# +
-[small]#maximal verkauft werden# +
+Bis zu wievielen Personen darf der Fahrschein maximal verkauft werden
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_GueltigkeitszeitRegel|
 
-[small]#Definiert die zeitliche Gültigkeit des Produktes.# +
+Definiert die zeitliche Gültigkeit des Produktes.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Preisfindung|
 
-[small]#Hinweis zur Preisfindung.# +
+Hinweis zur Preisfindung.
 
-siehe auch: <<ID_Preisfindung_Type,ID_Preisfindung>>
+
+Datentyp: <<ID_Preisfindung_Type,ID_Preisfindung>>
 | |ID_Reisetyp|
-[small]#Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...)# +
-siehe auch: <<ID_Reisetyp_Type,ID_Reisetyp>>
+Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...)
+
+Datentyp: <<ID_Reisetyp_Type,ID_Reisetyp>>
 | |BezeichnungDruck|
 
-[small]#Drucktext Verwendung ist abhängig von der Layoutdefinition# +
+Drucktext Verwendung ist abhängig von der Layoutdefinition
 
+
+Datentyp: string
 | |KA_ProdOrgID|
 
-[small]#KA Produkt Organisationsnummer# +
+KA Produkt Organisationsnummer
 
+
+Datentyp: <<INT2,INT2>>
 | |KA_ProdNr|
-[small]#KA Produkt# +
-| |KA_Infotext|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+KA Produkt
 
+Datentyp: <<INT2,INT2>>
+| |KA_Infotext|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
 | |KA_Fahrgasttyp|
-[small]#KA Fahrgasttyp# +
-siehe auch: <<KA_Kundentyp_CODE_Type,KA_Kundentyp_CODE>>
+KA Fahrgasttyp
+
+Datentyp: <<KA_Kundentyp_CODE_Type,KA_Kundentyp_CODE>>
 | |KA_Verkehrsmittel|
 
-[small]#KA Verkehrsmittel# +
+KA Verkehrsmittel
 
-siehe auch: <<KA_TransportmittelKategorie_CODE_Type,KA_TransportmittelKategorie_CODE>>
+
+Datentyp: <<KA_TransportmittelKategorie_CODE_Type,KA_TransportmittelKategorie_CODE>>
 | |KA_Serviceklasse|
 
-[small]#KA Serviceklasse# +
+KA Serviceklasse
 
-siehe auch: <<KA_ServiceKlasse_CODE_Type,KA_ServiceKlasse_CODE>>
+
+Datentyp: <<KA_ServiceKlasse_CODE_Type,KA_ServiceKlasse_CODE>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[SortenTarifarten_Type]]
 ==== SortenTarifarten
 
 
-[small]#N:M Zuordnung - Sorte / Tarifart# +
+N:M Zuordnung - Sorte / Tarifart
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sorte|
 
-[small]#Nummer der Sorte, eindeutig über alle Tarifgebiete# +
-[small]#innerhalb des ID_Zeitraum bzw. des Haupt-ID_Zeitraum# +
+Nummer der Sorte, eindeutig über alle Tarifgebiete innerhalb des ID_Zeitraum bzw. des Haupt-ID_Zeitraum
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifart|
 
-[small]#Tarifart (siehe Hilfstabelle Tarifart)# +
+Tarifart (siehe Hilfstabelle Tarifart)
 
+
+Datentyp: <<INT4,INT4>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Sortengruppen_Type]]
 ==== Sortengruppen
 
 
-[small]#Sortengruppen können Sorten für unterschiedliche Anwendungsfälle gruppieren.# +
-[small]#Der Anwendungsfall wird über den Sortengruppentyp unterschieden werden.# +
-[small]#Seine Bedeutung ist projektspezifisch zu konkretisiern.# +
-[small]#Den zugeordneten Sorten können auch Preisstufen zugeordnet sein.# +
+Sortengruppen können Sorten für unterschiedliche Anwendungsfälle gruppieren. Der Anwendungsfall wird über den Sortengruppentyp unterschieden werden. Seine Bedeutung ist projektspezifisch zu konkretisiern. Den zugeordneten Sorten können auch Preisstufen zugeordnet sein.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortengruppe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortengruppentyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
+
+Datentyp: <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
 |★ |ID_Bediengebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
-[small]#Info# +
+Info
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Externer Schlüssel für die Sortengruppe.# +
+Externer Schlüssel für die Sortengruppe.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[SortengruppenElemente_Type]]
 ==== SortengruppenElemente
 
-[small]#Sorten/Preisstufen Einträge einer Sortengruppe.# +
+Sorten/Preisstufen Einträge einer Sortengruppe.
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
-|★ |ID_SortengruppenElement|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
+Datentyp: boolean
+|★ |ID_SortengruppenElement|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortengruppe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sorte|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Preisstufe|
 
-[small]#ID_Preisstufe ist optional. Wenn die Preisstufe# +
-[small]#angegeben ist, wird der Produkt als Festpreis# +
-[small]#verkauft. Ansonsten# +
-[small]#muss die Preisstufe aufgrund weiterer# +
-[small]#Einschränkungen (z.b. Auswahl# +
-[small]#einer Relation) ermittelt bzw.# +
-[small]#festgelegt werden.# +
+ID_Preisstufe ist optional. Wenn die Preisstufe angegeben ist, wird der Produkt als Festpreis verkauft. Ansonsten muss die Preisstufe aufgrund weiterer Einschränkungen (z.b. Auswahl einer Relation) ermittelt bzw. festgelegt werden.
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[SortengruppenErmittlungen_Type]]
 ==== SortengruppenErmittlungen
 
 
-[small]#Die SortengruppenErmittlungen definieren Regeln zur Stukturierung von Tarifen in beliebig kleine Zeitperioden innerhalb eines Zeitraums.# +
-[small]#Eine Zeitperiode wird dabei durch StartVon und -Bis Uhrzeit und der Tagesart definiert. DauerMax und der Überhang verfeinern diese Definition.# +
+Die SortengruppenErmittlungen definieren Regeln zur Stukturierung von Tarifen in beliebig kleine Zeitperioden innerhalb eines Zeitraums. Eine Zeitperiode wird dabei durch StartVon und -Bis Uhrzeit und der Tagesart definiert. DauerMax und der Überhang verfeinern diese Definition.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_SortengruppenErmittlung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sortengruppe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Tarifpunktmenge|
 
-[small]#Wenn gesetzt, definiert die Tarifpunktmenge zusätzlich zur zeitlichen eine räumliche Einschränkung.# +
+Wenn gesetzt, definiert die Tarifpunktmenge zusätzlich zur zeitlichen eine räumliche Einschränkung.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_TagesartVon|
 
-[small]#Wenn gesetzt, gilt diese Regel nur an den bestimmten Tagen.# +
-[small]#Die gesetzte Tagesart gilt für die Uhrzeit StartVon.# +
-[small]#Wenn nicht gesetzt gilt die Regel an allen Tagen.# +
+Wenn gesetzt, gilt diese Regel nur an den bestimmten Tagen. Die gesetzte Tagesart gilt für die Uhrzeit StartVon. Wenn nicht gesetzt gilt die Regel an allen Tagen.
 
+
+Datentyp: <<INT4,INT4>>
 |★ |StartVon|
 
-[small]#Gibt eine Uhrzeit von dem an diese Zeitperiode gilt. Diese ist inklusiv zu betrachten.# +
-[small]#Wenn StartVon und StartBis irrelevant sind, kann hier 00:00 Uhr eingetragen werden.# +
+Gibt eine Uhrzeit von dem an diese Zeitperiode gilt. Diese ist inklusiv zu betrachten. Wenn StartVon und StartBis irrelevant sind, kann hier 00:00 Uhr eingetragen werden.
 
+
+Datentyp: <<UhrzeitMinuten,UhrzeitMinuten>>
 |★ |StartBis|
 
-[small]#Gibt eine Uhrzeit an der an diese Zeitperiode endet. Diese ist exklusiv zu betrachten.# +
-[small]#Wenn StartBis kleiner ist als StartVon, dann ist StartBis am darauffolgenden Tag von StartVon.# +
-[small]#Wenn StartVon und StartBis irrelevant sind, kann hier 24:00 Uhr eingetragen werden.# +
+Gibt eine Uhrzeit an der an diese Zeitperiode endet. Diese ist exklusiv zu betrachten. Wenn StartBis kleiner ist als StartVon, dann ist StartBis am darauffolgenden Tag von StartVon. Wenn StartVon und StartBis irrelevant sind, kann hier 24:00 Uhr eingetragen werden.
 
+
+Datentyp: <<UhrzeitMinuten,UhrzeitMinuten>>
 |★ |DauerMax|
 
-[small]#DauerMax definiert die maximale Nutzungsdauer für die diese Zeitperiode gewählt werden kann.# +
-[small]#Diese Dauer bezieht sich auf die Gesamtnutzung, auch wenn diese sich durch mehrere Zeitperioden zieht.# +
-[small]#Diese Dauer ist inklusiv zu betrachten.# +
+DauerMax definiert die maximale Nutzungsdauer für die diese Zeitperiode gewählt werden kann. Diese Dauer bezieht sich auf die Gesamtnutzung, auch wenn diese sich durch mehrere Zeitperioden zieht. Diese Dauer ist inklusiv zu betrachten.
 
-[small]#Bsp. Daten für Bsp. 1 und 2# +
-[small]#* StartVon = 07:00 Uhr, StartBis = 17:00 Uhr, DauerMax = 48h, SortOrder = 1, ID_Sortengruppe = 1# +
-[small]#* StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, DauerMax = 48h, SortOrder = 2, ID_Sortengruppe = 2# +
-[small]#* StartVon = 00:00 Uhr, StartBis = 24:00 Uhr, DauerMax = 144h, SortOrder = 3, ID_Sortengruppe = 3# +
+Bsp. Daten für Bsp. 1 und 2
 
-[small]#Bsp 1: Nutzung von 01.01. 15:00 Uhr bis 03.01. 06:00 Uhr, Nutzungsdauer 39h# +
-[small]#=> ID_Sortengruppe 1 und 2 treten abwechselnd in Kraft, da diese Beiden durch die Sortorder bevorzugt werden# +
-[small]#und den gesamten Nutzungszeitraum abdecken wird der 3. Datensatz nicht betrachtet.# +
+* StartVon = 07:00 Uhr, StartBis = 17:00 Uhr, DauerMax = 48h, SortOrder = 1, ID_Sortengruppe = 1
 
-[small]#Bsp 2: Nutzung von 01.01. 15:00 Uhr bis 05.01. 06:00 Uhr, Nutzungsdauer 63h# +
-[small]#=> ID_Sortengruppe 1 und 2 sind durch DauerMax ausgeschlossen -> ID_Sortengruppe 3 tritt in Kraft# +
+* StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, DauerMax = 48h, SortOrder = 2, ID_Sortengruppe = 2
 
+* StartVon = 00:00 Uhr, StartBis = 24:00 Uhr, DauerMax = 144h, SortOrder = 3, ID_Sortengruppe = 3
+
+Bsp 1: Nutzung von 01.01. 15:00 Uhr bis 03.01. 06:00 Uhr, Nutzungsdauer 39h => ID_Sortengruppe 1 und 2 treten abwechselnd in Kraft, da diese Beiden durch die Sortorder bevorzugt werden und den gesamten Nutzungszeitraum abdecken wird der 3. Datensatz nicht betrachtet.
+
+Bsp 2: Nutzung von 01.01. 15:00 Uhr bis 05.01. 06:00 Uhr, Nutzungsdauer 63h => ID_Sortengruppe 1 und 2 sind durch DauerMax ausgeschlossen -> ID_Sortengruppe 3 tritt in Kraft
+
+
+Datentyp: <<DauerMinuten,DauerMinuten>>
 | |Ueberhang|
 
-[small]#Der Überhang definiert eine Toleranz-Zeitspanne für die die Nutzung der Zeitperiode überschritten werden darf# +
-[small]#ohne in eine neue Zeitperiode zu kommen.# +
+Der Überhang definiert eine Toleranz-Zeitspanne für die die Nutzung der Zeitperiode überschritten werden darf ohne in eine neue Zeitperiode zu kommen.
 
-[small]#Bsp. Daten für Bsp. 1 und 2# +
-[small]#* StartVon = 07:00 Uhr, StartBis = 17:00 Uhr, Ueberhang = 2h, SortOrder = 1, ID_Sortengruppe = 1# +
-[small]#* StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, Ueberhang = 2h, SortOrder = 2, ID_Sortengruppe = 2# +
+Bsp. Daten für Bsp. 1 und 2
 
-[small]#Bsp 1: Nutzung von 01.01. 05:00 Uhr bis 01.01. 08:00 Uhr# +
-[small]#=> ID_Sortengruppe 2 tritt in Kraft, da die 2h nach 07:00 Uhr nicht überschritten wurden.# +
+* StartVon = 07:00 Uhr, StartBis = 17:00 Uhr, Ueberhang = 2h, SortOrder = 1, ID_Sortengruppe = 1
 
-[small]#Bsp 2: Nutzung von 01.01. 05:00 Uhr bis 01.01. 10:00 Uhr# +
-[small]#=> ID_Sortengruppe 2 tritt bis 07:00 Uhr in Kraft, da die 2h überschritten wurden. Ab 07:00 Uhr gilt ID_Sortengruppe 1.# +
+* StartVon = 17:00 Uhr, StartBis = 07:00 Uhr, Ueberhang = 2h, SortOrder = 2, ID_Sortengruppe = 2
 
+Bsp 1: Nutzung von 01.01. 05:00 Uhr bis 01.01. 08:00 Uhr => ID_Sortengruppe 2 tritt in Kraft, da die 2h nach 07:00 Uhr nicht überschritten wurden.
+
+Bsp 2: Nutzung von 01.01. 05:00 Uhr bis 01.01. 10:00 Uhr => ID_Sortengruppe 2 tritt bis 07:00 Uhr in Kraft, da die 2h überschritten wurden. Ab 07:00 Uhr gilt ID_Sortengruppe 1.
+
+
+Datentyp: <<DauerMinuten,DauerMinuten>>
 | |SortOrder|
 
-[small]#Definiert aufsteigend die Reihenfolge, in der die Regeln ausgewertet werden.# +
-[small]#Es gelten immer die Regeln, die als Erstes die komplette Nutzungsperiode abdecken.# +
+Definiert aufsteigend die Reihenfolge, in der die Regeln ausgewertet werden. Es gelten immer die Regeln, die als Erstes die komplette Nutzungsperiode abdecken.
 
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.# +
+Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Strecke_Type]]
 ==== Strecke
 
 
-[small]#Strecke eines Streckentarifs.# +
+Strecke eines Streckentarifs.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Strecke|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_StreckencodeStart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_StreckencodeZiel|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |Entfernung|
 
-[small]#Entfernungswert der Strecke zur Tarifberechnung.# +
+Entfernungswert der Strecke zur Tarifberechnung.
 
+
+Datentyp: <<INT4,INT4>>
 | |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Via|
 
-[small]#Nummer der Viatexte für diese Strecke. Verweis auf Vias.# +
+Nummer der Viatexte für diese Strecke. Verweis auf Vias.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Streckenart|
 
-[small]#Definiert Verkaufbarkeitseinschränkungen dieser Strecke.# +
+Definiert Verkaufbarkeitseinschränkungen dieser Strecke.
 
-siehe auch: <<ID_Streckenart_Type,ID_Streckenart>>
+
+Datentyp: <<ID_Streckenart_Type,ID_Streckenart>>
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diese Strecke# +
+Schlüssel des Tarifgebers für diese Strecke
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Streckencode_Type]]
 ==== Streckencode
 
 
-[small]#Analog zum Relationscode kombiniert ein ID_Streckencode zu einem oder mehreren ID_Tarifpunkten.# +
-[small]#Anders als Relationscodes sind Streckencodes aber Tarifgebiethomogen.# +
+Analog zum Relationscode kombiniert ein ID_Streckencode zu einem oder mehreren ID_Tarifpunkten. Anders als Relationscodes sind Streckencodes aber Tarifgebiethomogen.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Streckencode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Streckencodetyp|
 
-[small]#Typ dieses Streckencodes (dieses Haltepunktes).# +
+Typ dieses Streckencodes (dieses Haltepunktes).
 
-siehe auch: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
+
+Datentyp: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diesen Streckencode.# +
+Schlüssel des Tarifgebers für diesen Streckencode.
 
+
+Datentyp: string
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Streckenzuordnung_Type]]
 ==== Streckenzuordnung
 
 
-[small]#Ordnet eine Strecke einem oder mehreren Teilrelationen zu.# +
+Ordnet eine Strecke einem oder mehreren Teilrelationen zu.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Strecke|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Teilrelation|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Schlüssel des Tarifgebers für diese Strecke-Teilrelations Zuordnung.# +
+Schlüssel des Tarifgebers für diese Strecke-Teilrelations Zuordnung.
 
+
+Datentyp: string
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Tarifarten_Type]]
 ==== Tarifarten
 
 
-[small]#Gruppierungs- (Sorten via SortenTarifarten) und# +
-[small]#Differenzierungsattribut (Teilrelationen,# +
-[small]#Preisstufendirektwahlen).# +
-[small]#Damit lassen sich z.B. eigene# +
-[small]#Relationen für ganze Gruppen von# +
-[small]#Fahrscheinensorten vom# +
-[small]#allgemeinen Fall abtrennen# +
-[small]#(Bartarif/Zeittarif).# +
+Gruppierungs- (Sorten via SortenTarifarten) und Differenzierungsattribut (Teilrelationen, Preisstufendirektwahlen). Damit lassen sich z.B. eigene Relationen für ganze Gruppen von Fahrscheinensorten vom allgemeinen Fall abtrennen (Bartarif/Zeittarif).
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |ID_Zeitraum|
 
-|★ |ID_Tarifart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
+Datentyp: <<INT4,INT4>>
+|★ |ID_Tarifart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Zum Beispiel: 0=Allgemein, 1=Bartarif, 2=Zeittarif# +
+Zum Beispiel: 0=Allgemein, 1=Bartarif, 2=Zeittarif
 
+
+Datentyp: string
 | |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Tarifgebiete_Type]]
 ==== Tarifgebiete
 
 
-[small]#Tarifgebiet ist eine logische Einheit, die alle# +
-[small]#Tarifelemente eines Tarifgebers# +
-[small]#zusammenfasst# +
+Tarifgebiet ist eine logische Einheit, die alle Tarifelemente eines Tarifgebers zusammenfasst
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |BezeichnungKurz|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |Erstellungsdatum|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DateTimeCompact,DateTimeCompact>>
 | |Version|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Tarifpunkte_Type]]
 ==== Tarifpunkte
 
-[small]#Ein Tarifpunkt dient der Zusammenfassung (ein oder) mehrerer Haltestellen aus Tarifsicht (weil Fahrten zu# +
-[small]#diesen bzw. von diesen Haltestellen immer zum gleichen Preis führen). Ein Tarifpunkt hat eine# +
-[small]#Nummer und ggf. auch einen Namen. Außerdem ist ein Tarifpunkt genau einem Tarifgebiet# +
-[small]#zugeordnet. Tarifpunkte werden zum Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der# +
-[small]#räumlichen Gültigkeit zu ermöglichen. In vielen Tarifsystemen haben Tarifpunkte Namen wie: Zone# +
-[small]#oder Ring.# +
-[small]#Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -> Nach-Tarifpunkt -> Preisstufe# +
+Ein Tarifpunkt dient der Zusammenfassung (ein oder) mehrerer Haltestellen aus Tarifsicht (weil Fahrten zu diesen bzw. von diesen Haltestellen immer zum gleichen Preis führen). Ein Tarifpunkt hat eine Nummer und ggf. auch einen Namen. Außerdem ist ein Tarifpunkt genau einem Tarifgebiet zugeordnet. Tarifpunkte werden zum Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der räumlichen Gültigkeit zu ermöglichen. In vielen Tarifsystemen haben Tarifpunkte Namen wie: Zone oder Ring. Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -> Nach-Tarifpunkt -> Preisstufe
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Tarifpunkttyp|
 
-[small]#1=Zone/Wabe/Ring/Tarifpunkt# +
-[small]#2=Wabentyp# +
-[small]#(Zusammenfassung mehrere Elemente von Typ 1)# +
-[small]#3=Tarifhaltestelle# +
-[small]#4=Ortsteil (in seiner Funktion als Tarifpunkt)# +
-[small]#5=Ort# +
-[small]#(Zusammenfassung mehrere Ortsteile)# +
+1=Zone/Wabe/Ring/Tarifpunkt 2=Wabentyp (Zusammenfassung mehrere Elemente von Typ 1) 3=Tarifhaltestelle 4=Ortsteil (in seiner Funktion als Tarifpunkt) 5=Ort (Zusammenfassung mehrere Ortsteile)
 
-siehe auch: <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
+
+Datentyp: <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
 | |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |BezeichnungDruck|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ID_TarifpunktReferenz|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[TarifpunktmengeElemente_Type]]
 ==== TarifpunktmengeElemente
 
 
-[small]#Eintrag in einer geordneten Menge von Tarifpunkten.# +
+Eintrag in einer geordneten Menge von Tarifpunkten.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_TarifpunktmengeElement|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifpunktmenge|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Tarifpunktmengen_Type]]
 ==== Tarifpunktmengen
 
-[small]#Eine Tarifpunktmenge umfasst die Menge der ihr zugeordneten Tarifpunkte in Form von TarifpunktmengeElementen.# +
-[small]#Über eine Tarifpunktmenge können somit bspw. alle Zonen eines Fahrtverlaufs oder alle erlaubten Zonen zu einer ausgewählten Verbindung abgebildet werden.# +
+Eine Tarifpunktmenge umfasst die Menge der ihr zugeordneten Tarifpunkte in Form von TarifpunktmengeElementen. Über eine Tarifpunktmenge können somit bspw. alle Zonen eines Fahrtverlaufs oder alle erlaubten Zonen zu einer ausgewählten Verbindung abgebildet werden.
 
-[small]#RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifpunktmengen verweisen.# +
+RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifpunktmengen verweisen.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Tarifpunktmenge|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
+Datentyp: <<INT4,INT4>>
+|★ |ID_Tarifpunktmenge|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Tarifrelevantepunkte_Type]]
 ==== Tarifrelevantepunkte
 
 
-[small]#OTP - Orte und tarifrelevante Punkte. Unabhhänig# +
-[small]#von konkreten# +
-[small]#Haltestellen bieten tarifrelevante Punkte die# +
-[small]#Möglichkeit, dem# +
-[small]#Bediener Reiseziele anzubieten, zu denen einen# +
-[small]#Verkauf erfolgen# +
-[small]#soll. Jedem OTP ist genau ein Relationscode# +
-[small]#zugeordnet, über den# +
-[small]#Relationen gesucht werden.# +
+OTP - Orte und tarifrelevante Punkte. Unabhhänig von konkreten Haltestellen bieten tarifrelevante Punkte die Möglichkeit, dem Bediener Reiseziele anzubieten, zu denen einen Verkauf erfolgen soll. Jedem OTP ist genau ein Relationscode zugeordnet, über den Relationen gesucht werden.
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifrelevanterpunkt|
 
-[small]#Eindeutiger DS-Index innerhalb der ID_Zeitraum# +
+Eindeutiger DS-Index innerhalb der ID_Zeitraum
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_OTPTyp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_OTPTyp_Type,ID_OTPTyp>>
+
+Datentyp: <<ID_OTPTyp_Type,ID_OTPTyp>>
 |★ |ID_Bediengebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 |★ |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Relcode|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Bundesland|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<ID_Bundesland_Type,ID_Bundesland>>
 | |ID_Ortspunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Sortengruppe|
 
-[small]#Verweist auf eine Sortengruppe, die mit dieser# +
-[small]#Zielauswahl direkt verkauft wird (Festpreis, keine Relation)# +
+Verweist auf eine Sortengruppe, die mit dieser Zielauswahl direkt verkauft wird (Festpreis, keine Relation)
 
+
+Datentyp: <<INT4,INT4>>
 | |Standortwahl_ID_Bediengebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_TarifrelevanterpunktReferenz|
 
-[small]#Über ID_TarifrelevanterpunktReferenz kann eine baumartige# +
-[small]#Auswahlstruktur definiert werden. Blätter und Knoten# +
-[small]#referenzieren über ID_TarifrelevanterpunktReferenz# +
-[small]#einen Elternknoten im selben Zeitraum.# +
-[small]#Die Bildung von Referenzbäumen ist# +
-[small]#optional. SortOrder definiert# +
-[small]#die Sortierung aller Kindknoten eines Elternknotens.# +
-[small]#Innerhalb der gleichen SortOrder# +
-[small]#werden die Knoten alphabetisch sortiert.# +
+Über ID_TarifrelevanterpunktReferenz kann eine baumartige Auswahlstruktur definiert werden. Blätter und Knoten referenzieren über ID_TarifrelevanterpunktReferenz einen Elternknoten im selben Zeitraum. Die Bildung von Referenzbäumen ist optional. SortOrder definiert die Sortierung aller Kindknoten eines Elternknotens. Innerhalb der gleichen SortOrder werden die Knoten alphabetisch sortiert.
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Teilrelationen_Type]]
 ==== Teilrelationen
 
 
-[small]#Relation (und Teilrelation) auf Tarifpunkt Ebene# +
+Relation (und Teilrelation) auf Tarifpunkt Ebene
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Teilrelation|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Tarifart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_TarifpunktStart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |TarifpunktbezeichnungStart|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 |★ |ID_TarifpunktZiel|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |TarifpunktbezeichnungZiel|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 |★ |ID_Tarifgebiet|
 
-[small]#Die ID_Tarifgebiet bleibt als retundante Information erhalten.# +
-[small]#Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.# +
+Die ID_Tarifgebiet bleibt als retundante Information erhalten. Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Preisstufe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Preisquelle|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ID_Preisquelle_Type,ID_Preisquelle>>
+
+Datentyp: <<ID_Preisquelle_Type,ID_Preisquelle>>
 | |ID_Komfortklasse|
 
-[small]#Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).# +
+Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).
 
-siehe auch: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
+
+Datentyp: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
 | |AlternativePreisGruppe|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |EinnahmeAufteilung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: string
 | |ViabezeichnungDruck|
 
-[small]#alternativer Via-Drucktext, hat Vorrang vor dem# +
-[small]#Drucktext des Via-Datensatzes# +
+alternativer Via-Drucktext, hat Vorrang vor dem Drucktext des Via-Datensatzes
 
+
+Datentyp: string
 | |ViabezeichnungRueckDruck|
 
-[small]#alternativer Via-Drucktext für den umgekehrte# +
-[small]#Streckenverlauf, hat Vorrang vor dem# +
-[small]#Drucktext_Rueck des# +
-[small]#Via-Datensatzes. Wenn# +
-[small]#ViaDrucktext_Rueck leer ist, aber# +
-[small]#ViaDrucktext# +
-[small]#gefüllt hat ViaDrucktext Vorrang vor# +
-[small]#Drucktext_Rueck# +
-[small]#bzw. Drucktext des# +
-[small]#Via-Datensatzes.# +
+alternativer Via-Drucktext für den umgekehrte Streckenverlauf, hat Vorrang vor dem Drucktext_Rueck des Via-Datensatzes. Wenn ViaDrucktext_Rueck leer ist, aber ViaDrucktext gefüllt hat ViaDrucktext Vorrang vor Drucktext_Rueck bzw. Drucktext des Via-Datensatzes.
 
+
+Datentyp: string
 | |ID_RaeumlicheGueltigkeit|
 
-[small]#Verweis auf eine Definition für die räumliche# +
-[small]#Gültigkeit.# +
+Verweis auf eine Definition für die räumliche Gültigkeit.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_RaeumlicheGueltigkeit_Rueck|
 
-[small]#Optionale Referenz auf eine Tarifpunktmenge für den Rückweg.# +
+Optionale Referenz auf eine Tarifpunktmenge für den Rückweg.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Linie|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ReferenzExtern|
 
-[small]#Referenz der zugrunde liegenden Information zu# +
-[small]#einer Datenmenge des Tarifgebers.# +
+Referenz der zugrunde liegenden Information zu einer Datenmenge des Tarifgebers.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Vias_Type]]
 ==== Vias
 
 
-[small]#Gesamt Relationsinformation# +
+Gesamt Relationsinformation
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Via|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
+Datentyp: <<INT4,INT4>>
+|★ |ID_Via|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
 | |Bezeichnung|
 
-[small]#Text zur Auswahl der Variante, Teilstrecken# +
-[small]#mit '*' getrennt# +
+Text zur Auswahl der Variante, Teilstrecken mit '*' getrennt
 
+
+Datentyp: string
 | |BezeichnungDruck|
 
-[small]#Drucktext, Teilstrecken mit '*' getrennt# +
+Drucktext, Teilstrecken mit '*' getrennt
 
+
+Datentyp: string
 | |BezeichnungRueck|
 
-[small]#Text zur Auswahl der Variante in der# +
-[small]#Rückrichtung, Teilstrecken mit '*' getrennt# +
+Text zur Auswahl der Variante in der Rückrichtung, Teilstrecken mit '*' getrennt
 
+
+Datentyp: string
 | |BezeichnungRueckDruck|
 
-[small]#Drucktext in der Rückrichtung,# +
-[small]#Teilstrecken mit '*' getrennt# +
+Drucktext in der Rückrichtung, Teilstrecken mit '*' getrennt
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Wege_Type]]
 ==== Wege
 
 
-[small]#Fahrtnummer, Kursnummer# +
+Fahrtnummer, Kursnummer
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
-|★ |ID_Weg|
-[small]#Eindeutige Nummer des Weges.# +
-| |Bezeichnung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
 
+Datentyp: <<INT4,INT4>>
+|★ |ID_Weg|
+Eindeutige Nummer des Weges.
+
+Datentyp: <<INT4,INT4>>
+| |Bezeichnung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
 | |ReferenzExtern|
 
-[small]#Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel# +
-[small]#identifizieren zu können.# +
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
+
+Datentyp: string
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Wegpositionen_Type]]
 ==== Wegpositionen
 
 
-[small]#Ortsposition innerhalb der Fahrt# +
+Ortsposition innerhalb der Fahrt
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Wegposition|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Weg|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |SortOrder|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Ortspunkt|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Bediengebiet|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 | |Entfernung|
 
-[small]#Entfernung vom vorhergehenden Ortspunkt in Metern# +
+Entfernung vom vorhergehenden Ortspunkt in Metern
 
+
+Datentyp: <<INT4,INT4>>
 | |Fangbereich|
 
-[small]#optionaler Fangbereich der Wegposition in Metern# +
-[small]#für eine# +
-[small]#GPS Ortung - überschreibt eine entsprechende Angabe bei# +
-[small]#der# +
-[small]#Ortspunktdefinition# +
+optionaler Fangbereich der Wegposition in Metern für eine GPS Ortung - überschreibt eine entsprechende Angabe bei der Ortspunktdefinition
 
+
+Datentyp: <<INT4,INT4>>
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 [[Zusatzsorten_Type]]
 ==== Zusatzsorten
 
-[small]#Zusatzsorten sind Anschluss- und Anstossprodukte, die in Abhängigkeit von Preisstufe, bereits gewählter Sorte und Relation angeboten werden# +
+Zusatzsorten sind Anschluss- und Anstossprodukte, die in Abhängigkeit von Preisstufe, bereits gewählter Sorte und Relation angeboten werden
 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
 
+
+Datentyp: boolean
 |★ |ID_Zeitraum|
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Zusatzsorte|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ID_Sorte|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<INT4,INT4>>
 |★ |ZuordnungRelCodeGrp|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ZuordnungRelCodeGrp_Type,ZuordnungRelCodeGrp>>
+
+Datentyp: <<ZuordnungRelCodeGrp_Type,ZuordnungRelCodeGrp>>
 | |Anbindung|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
-siehe auch: <<ZusSorteAnbindung_Type,ZusSorteAnbindung>>
+
+Datentyp: <<ZusSorteAnbindung_Type,ZusSorteAnbindung>>
 | |Zusatzsortentyp|
 
-[small]#(Bedeutung projektspezifisch.# +
-[small]#MENT:1=Flächenanstoß, 2=Zusatzanstoß, 3=Streckenanstoß)# +
+(Bedeutung projektspezifisch. MENT:1=Flächenanstoß, 2=Zusatzanstoß, 3=Streckenanstoß)
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_Preisstufe|
 
-[small]#Fremdschlüssel zur Produktbildung - wenn angegeben,# +
-[small]#wird diese Preisstufe fest zur Preisbestimmung verwendet.# +
-[small]#Die Angabe hat Vorrang vor ID_PreisstufenGrenze.# +
+Fremdschlüssel zur Produktbildung - wenn angegeben, wird diese Preisstufe fest zur Preisbestimmung verwendet. Die Angabe hat Vorrang vor ID_PreisstufenGrenze.
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_PreisstufeGrenze|
 
-[small]#wenn nicht vorhanden (und ID_Preisstufe nicht vorhanden) -# +
-[small]#alle Preisstufen möglich sonst alle Preisstufen mit# +
-[small]#ID_Preisstufe kleiner gleich ID_PreisstufeGrenze# +
+wenn nicht vorhanden (und ID_Preisstufe nicht vorhanden) - alle Preisstufen möglich sonst alle Preisstufen mit ID_Preisstufe kleiner gleich ID_PreisstufeGrenze
 
+
+Datentyp: <<INT4,INT4>>
 | |Hinweistext|
 
-[small]#z.B. für Zusatzinfo auf Quittungsausdruck – nicht# +
-[small]#bei Direktverkauf!# +
+z.B. für Zusatzinfo auf Quittungsausdruck – nicht bei Direktverkauf!
 
+
+Datentyp: string
 | |ID_SortengruppeHauptsorten|
 
-[small]#Verweis auf SortenGruppe mit erlaubten Hauptsorten# +
+Verweis auf SortenGruppe mit erlaubten Hauptsorten
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_RelcodegruppeStart|
 
-[small]#Verweis auf RelCodeGruppe die erlaubte# +
-[small]#RelCode_Start der Hauptrelation gruppiert = Vorlauf# +
+Verweis auf RelCodeGruppe die erlaubte RelCode_Start der Hauptrelation gruppiert = Vorlauf
 
+
+Datentyp: <<INT4,INT4>>
 | |ID_RelcodegruppeZiel|
 
-[small]#Verweis auf RelCodeGruppe die erlaubte# +
-[small]#RelCode_Ziel der Hauptrelation gruppiert = Nachlauf# +
+Verweis auf RelCodeGruppe die erlaubte RelCode_Ziel der Hauptrelation gruppiert = Nachlauf
 
+
+Datentyp: <<INT4,INT4>>
 | |Direktverkauf|
 
-[small]#False="immer mit Hauptsorte",# +
-[small]#True="Direktverkauf ohne Hauptsorte, falls Verkaufsort in# +
-[small]#Gruppierung durch VerkaufsRelCode enthalten"# +
+False="immer mit Hauptsorte", True="Direktverkauf ohne Hauptsorte, falls Verkaufsort in Gruppierung durch VerkaufsRelCode enthalten"
 
+
+Datentyp: boolean
 | |DynAttribut|
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+[red]#_todo: Doku_#
 
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
-[small]#  ★  Pflichtelemente#
+  ★  Pflichtelemente
 
 === TarifAngebot Enumerationen 
+
+
 [[ID_ErmittlungseinheitHUSST_Type]]
+
 [[ID_Ermittlungseinheit_Type]]
+
 ==== ID_Ermittlungseinheit
 
-[small]#Die HUSST definiert ID_Ermittlungseinheit kleiner 1000# +
+Die HUSST definiert ID_Ermittlungseinheit kleiner 1000 
 
-
-[small]#Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#Minuten# +
+Minuten
 
 |2|
 
-[small]#Kilometer# +
+Kilometer
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefErmittlungseinheit_Type,DefErmittlungseinheit>>
+* <<PreisstufenErmittlungen_Type,PreisstufenErmittlungen>>
+
+
 [[ID_FahrgasttypHUSST_Type]]
+
 [[ID_Fahrgasttyp_Type]]
+
 ==== ID_Fahrgasttyp
 
-[small]#Die HUSST definiert ID_Fahrgasttyp kleiner 1000# +
-[small]#angelehnt an VDV-KA Kundentyp# +
+Die HUSST definiert ID_Fahrgasttyp kleiner 1000 angelehnt an VDV-KA Kundentyp 
 
-
-[small]#Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Erwachsener# +
+Erwachsener
 |2|
-[small]#Kind# +
+Kind
 |3|
-[small]#Student# +
+Student
 |5|
-[small]#Behinderter# +
+Behinderter
 |6|
-[small]#Sehbehinderter# +
+Sehbehinderter
 |7|
-[small]#Hörgeschädigter# +
+Hörgeschädigter
 |8|
-[small]#Arbeitsloser/Sozialhilfeempfänger# +
+Arbeitsloser/Sozialhilfeempfänger
 |9|
-[small]#Personal# +
+Personal
 |10|
-[small]#Militärangehöriger# +
+Militärangehöriger
 |19|
-[small]#Schüler# +
+Schüler
 |20|
-[small]#Azubi# +
+Azubi
 |25|
-[small]#Senior# +
+Senior
 |64|
-[small]#ermäßigt# +
+ermäßigt
 |65|
-[small]#Fahrrad# +
+Fahrrad
 |66|
-[small]#Hund# +
+Hund
 |=======================
+
+
+Verwendet in:
+
+* <<DefFahrgasttyp_Type,DefFahrgasttyp>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_KomfortklasseHUSST_Type]]
+
 [[ID_Komfortklasse_Type]]
+
 ==== ID_Komfortklasse
 
-[small]#Die HUSST definiert ID_Komfortklasse kleiner 1000# +
-[small]#angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255)# +
+Die HUSST definiert ID_Komfortklasse kleiner 1000 angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255) 
 
-
-[small]#Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#1. Klasse# +
+1. Klasse
 |2|
-[small]#2. Klasse# +
+2. Klasse
 |300|
-[small]#Übergang von der 2. zur 1. Klasse# +
+Übergang von der 2. zur 1. Klasse
 |=======================
+
+
+Verwendet in:
+
+* <<DefKomfortklasse_Type,DefKomfortklasse>>
+* <<Sorten_Type,Sorten>>
+* <<Teilrelationen_Type,Teilrelationen>>
+
+
 [[ID_NachbarhaltestellenbeziehungHUSST_Type]]
+
 [[ID_Nachbarhaltestellenbeziehung_Type]]
+
 ==== ID_Nachbarhaltestellenbeziehung
 
-[small]#Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000# +
+Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000 
 
-
-[small]#Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
 
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 
 |1|
 
-[small]#Kurzstrecke# +
+Kurzstrecke
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefNachbarhaltestellenbeziehung_Type,DefNachbarhaltestellenbeziehung>>
+* <<Nachbarhaltestellen_Type,Nachbarhaltestellen>>
+
+
 [[ID_OTPTypHUSST_Type]]
+
 [[ID_OTPTyp_Type]]
+
 ==== ID_OTPTyp
 
-[small]#Die HUSST definiert OTPTypen kleiner 1000# +
+Die HUSST definiert OTPTypen kleiner 1000 
 
-
-[small]#Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#Standort# +
+Standort
 
-[small]#Zu jedem Tarifrelevantenpunkt vom OTPTyp Standort muss es einen eindeutigen Ortspunkt geben. (Über ID_Ortspunkt verwiesen)# +
-[small]#=> Es darf kein Ortspunkt mit 2 oder mehr verwiesenden Tarifrelevantenpunkten vom OTPTyp Standort geben.# +
+Zu jedem Tarifrelevantenpunkt vom OTPTyp Standort muss es einen eindeutigen Ortspunkt geben. (Über ID_Ortspunkt verwiesen) => Es darf kein Ortspunkt mit 2 oder mehr verwiesenden Tarifrelevantenpunkten vom OTPTyp Standort geben.
 
-[small]#Über diesen Ortspunkt ist der Standort eines Vertriebsgerätes synchronisierbar. Z.B. über seine IBISnr oder ReferenzExtern# +
+Über diesen Ortspunkt ist der Standort eines Vertriebsgerätes synchronisierbar. Z.B. über seine IBISnr oder ReferenzExtern
 
 |2|
-[small]#Startpunkt# +
+Startpunkt
 |3|
-[small]#Zielpunkt# +
+Zielpunkt
 |4|
-[small]#Viapunkt# +
+Viapunkt
 |=======================
-[[ID_OrtspunkttypHUSST_Type]]
-[[ID_Ortspunkttyp_Type]]
-==== ID_Ortspunkttyp
-[small]#Die HUSST definiert Ortspunkttypen kleiner 1000# +
 
-[small]#Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+Verwendet in:
+
+* <<DefOTPTyp_Type,DefOTPTyp>>
+* <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+
+
+[[ID_OrtspunkttypHUSST_Type]]
+
+[[ID_Ortspunkttyp_Type]]
+
+==== ID_Ortspunkttyp
+Die HUSST definiert Ortspunkttypen kleiner 1000
+
+Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
-[small]#Haltestelle# +
+Haltestelle
 |2|
-[small]#Betriebshof# +
+Betriebshof
 |3|
-[small]#Zone/Wabe/Ring# +
+Zone/Wabe/Ring
 |5|
-[small]#Gemeinde# +
+Gemeinde
 |=======================
+
+
+Verwendet in:
+
+* <<DefOrtspunkttyp_Type,DefOrtspunkttyp>>
+* <<Ortspunkte_Type,Ortspunkte>>
+
+
 [[ID_PreisfindungHUSST_Type]]
+
 [[ID_Preisfindung_Type]]
+
 ==== ID_Preisfindung
 
-[small]#Die HUSST definiert ID_Preisfindung kleiner 1000# +
-[small]#Bit 0=Festpreis# +
-[small]#Bit 1=Relationsbezogen (nicht mit Bit 0 kombinierbar)# +
-[small]#Bit 2=Preisstufenupgrade (nur mit Bit 1 kombinierbar)# +
-[small]#Bit 8=Freie Preiseingabe (mit allen kombinierbar)# +
+Die HUSST definiert ID_Preisfindung kleiner 1000 Bit 0=Festpreis Bit 1=Relationsbezogen (nicht mit Bit 0 kombinierbar) Bit 2=Preisstufenupgrade (nur mit Bit 1 kombinierbar) Bit 8=Freie Preiseingabe (mit allen kombinierbar) 
 
-
-[small]#Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Festpreis# +
+Festpreis
 |2|
-[small]#Relationsbezogen# +
+Relationsbezogen
 |6|
 
-[small]#Relationsbezogen mit Preisstufenupgrade# +
+Relationsbezogen mit Preisstufenupgrade
 
 |257|
 
-[small]#Festpreis mit freier Preiseingabe# +
+Festpreis mit freier Preiseingabe
 
 |258|
 
-[small]#Relationsbezogen mit freier Preiseingabe# +
+Relationsbezogen mit freier Preiseingabe
 
 |262|
 
-[small]#Relationsbezogen mit Preisstufenupgrade und# +
-[small]#freier Preiseingabe# +
+Relationsbezogen mit Preisstufenupgrade und freier Preiseingabe
 
 |=======================
-[[ID_PreisspaltentypHUSST_Type]]
-[[ID_Preisspaltentyp_Type]]
-==== ID_Preisspaltentyp
-[small]#Die HUSST definiert ID_Preisspaltentyp kleiner 1000# +
 
-[small]#Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+Verwendet in:
+
+* <<DefPreisfindung_Type,DefPreisfindung>>
+* <<Sorten_Type,Sorten>>
+
+
+[[ID_PreisspaltentypHUSST_Type]]
+
+[[ID_Preisspaltentyp_Type]]
+
+==== ID_Preisspaltentyp
+Die HUSST definiert ID_Preisspaltentyp kleiner 1000
+
+Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
-[small]#Standard / Standardpreisspalte für den allgemeinen Verkauf# +
+Standard / Standardpreisspalte für den allgemeinen Verkauf
 |=======================
+
+
+Verwendet in:
+
+* <<DefPreisspaltentyp_Type,DefPreisspaltentyp>>
+* <<Preisspalten_Type,Preisspalten>>
+
+
 [[ID_RabattklasseHUSST_Type]]
+
 [[ID_Rabattklasse_Type]]
+
 ==== ID_Rabattklasse
 
-[small]#Die HUSST definiert ID_Rabattklasse kleiner 1000# +
-[small]#angelehnt an VDV-KA RabattParameter# +
+Die HUSST definiert ID_Rabattklasse kleiner 1000 angelehnt an VDV-KA RabattParameter 
 
-
-[small]#Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#Keine Ermäßigung# +
+Keine Ermäßigung
 |1|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-1# +
-[small]#(z.B. Bahncard 25)# +
+prozentuale Ermäßigung Level-1 (z.B. Bahncard 25)
 
 |2|
 
-[small]#prozentuale Ermäßigung18# +
-[small]#Level-2# +
-[small]#(z.B. Bahncard 50)# +
+prozentuale Ermäßigung18 Level-2 (z.B. Bahncard 50)
 
 |3|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-3# +
+prozentuale Ermäßigung Level-3
 
 |4|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-4# +
+prozentuale Ermäßigung Level-4
 
 |5|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-5# +
+prozentuale Ermäßigung Level-5
 
 |6|
 
-[small]#Ermäßigung auf Basis# +
-[small]#gefahrener Kilometer# +
+Ermäßigung auf Basis gefahrener Kilometer
 
 |46|
 
-[small]#Ermäßigung des# +
-[small]#Ticketkaufs mit# +
-[small]#KA-Bezahlberechtigung um 25%# +
+Ermäßigung des Ticketkaufs mit KA-Bezahlberechtigung um 25%
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefRabattklasse_Type,DefRabattklasse>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_ReisetypHUSST_Type]]
+
 [[ID_Reisetyp_Type]]
+
 ==== ID_Reisetyp
 
-[small]#Die HUSST definiert ID_Reisetyp kleiner 1000# +
+Die HUSST definiert ID_Reisetyp kleiner 1000 
 
-
-[small]#Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Standard (passend zum Sortentyp)# +
+Standard (passend zum Sortentyp)
 |2|
-[small]#Hin- und Rückfahrt# +
+Hin- und Rückfahrt
 |3|
-[small]#Rundreise# +
+Rundreise
 |=======================
+
+
+Verwendet in:
+
+* <<DefReisetyp_Type,DefReisetyp>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_RelationenberechnungsregelungHUSST_Type]]
+
 [[ID_Relationenberechnungsregelung_Type]]
+
 ==== ID_Relationenberechnungsregelung
 
-[small]#Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000# +
+Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000 
 
-
-[small]#Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#Standard.# +
-[small]#Alle Teilrelationen sind gleichwertig und haben verschiedene Tarifarten und oder Tarifgebiete.# +
-[small]#Die gewählte Sorte entscheidet, welche Teilrelation genutzt wird.# +
+Standard. Alle Teilrelationen sind gleichwertig und haben verschiedene Tarifarten und oder Tarifgebiete. Die gewählte Sorte entscheidet, welche Teilrelation genutzt wird.
 
 |2|
 
-[small]#Sortorder1# +
-[small]#Die Teilrelation mit Sortorder 1 muss bepreist werden, die anderen Teilrelationen werden zusätzlich registriert.# +
-[small]#Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.# +
+Sortorder1 Die Teilrelation mit Sortorder 1 muss bepreist werden, die anderen Teilrelationen werden zusätzlich registriert. Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.
 
 |3|
 
-[small]#AdditionPreise# +
-[small]#Die Preise aller Teilrelationen werden addiert, es werden alle Teilrelationen registriert.# +
-[small]#Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.# +
-[small]#Für die Bepreisung muss eine Sortengruppe zur Verfügung stehen, in der jeweils eine Sorte zu mindestens einer Teilrelation passt.# +
+AdditionPreise Die Preise aller Teilrelationen werden addiert, es werden alle Teilrelationen registriert. Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen. Für die Bepreisung muss eine Sortengruppe zur Verfügung stehen, in der jeweils eine Sorte zu mindestens einer Teilrelation passt.
 
 |4|
 
-[small]#AdditionPreisstufen# +
-[small]#Die gewählte Sorte entscheidet über ihre Tarifart(en), welche Teilrelation(en) für die Preisfindung und die Registrierung verwendet werden.# +
-[small]#Nicht passende Teilrelationen werden ignoriert.# +
-[small]#Damit ist sichergestellt, dass alle verwendeten Teilrelationen aus einem Tarifgebiet stammen.# +
-[small]#Die Preisstufen der Teilrelationen werden addiert und dazu der Preis der Sorte ermittelt, alle diese Teilrelationen werden# +
-[small]#registriert.# +
+AdditionPreisstufen Die gewählte Sorte entscheidet über ihre Tarifart(en), welche Teilrelation(en) für die Preisfindung und die Registrierung verwendet werden. Nicht passende Teilrelationen werden ignoriert. Damit ist sichergestellt, dass alle verwendeten Teilrelationen aus einem Tarifgebiet stammen. Die Preisstufen der Teilrelationen werden addiert und dazu der Preis der Sorte ermittelt, alle diese Teilrelationen werden registriert.
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefRelationenberechnungsregelung_Type,DefRelationenberechnungsregelung>>
+* <<Relationen_Type,Relationen>>
+
+
 [[ID_RelationendruckregelungHUSST_Type]]
+
 [[ID_Relationendruckregelung_Type]]
+
 ==== ID_Relationendruckregelung
 
-[small]#Die HUSST definiert ID_Relationendruckregelung kleiner 1000# +
+Die HUSST definiert ID_Relationendruckregelung kleiner 1000 
 
-
-[small]#Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#Ein.# +
-[small]#Es wird ein Ticket gedruckt.# +
+Ein. Es wird ein Ticket gedruckt.
 
 |2|
 
-[small]#Alle# +
-[small]#Es wird ein Ticket pro Telrelation gedruckt.# +
+Alle Es wird ein Ticket pro Telrelation gedruckt.
 
 |3|
 
-[small]#Tarifgebiet.# +
-[small]#Alle Teilrelationen eines Tarifgebietes werden mit je einem Ticket gedruckt.# +
+Tarifgebiet. Alle Teilrelationen eines Tarifgebietes werden mit je einem Ticket gedruckt.
 
 |=======================
-[[ID_RelcodegruppentypHUSST_Type]]
-[[ID_Relcodegruppentyp_Type]]
-==== ID_Relcodegruppentyp
-[small]#Die HUSST definiert ID_Relcodegruppentyp kleiner 1000# +
 
-[small]#Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+
+Verwendet in:
+
+* <<DefRelationendruckregelung_Type,DefRelationendruckregelung>>
+* <<Relationen_Type,Relationen>>
+
+
+[[ID_RelcodegruppentypHUSST_Type]]
+
+[[ID_Relcodegruppentyp_Type]]
+
+==== ID_Relcodegruppentyp
+Die HUSST definiert ID_Relcodegruppentyp kleiner 1000
+
+Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
-[small]#Magnet# +
+Magnet
 |2|
-[small]#Startort# +
+Startort
 |=======================
+
+
+Verwendet in:
+
+* <<DefRelationscodegruppentyp_Type,DefRelationscodegruppentyp>>
+* <<Relationscodegruppen_Type,Relationscodegruppen>>
+
+
 [[ID_SortenausgaberegelungHUSST_Type]]
+
 [[ID_Sortenausgaberegelung_Type]]
+
 ==== ID_Sortenausgaberegelung
 
-[small]#Die HUSST definiert ID_Sortenausgaberegelung kleiner 1024# +
-[small]#Die Werte ergeben sich aus allen 32 möglichen Bitkombinationen der ersten 5 Bit.# +
+Die HUSST definiert ID_Sortenausgaberegelung kleiner 1024 Die Werte ergeben sich aus allen 32 möglichen Bitkombinationen der ersten 5 Bit.
 
-[small]#Bit 0=Papierfahrschein# +
-[small]#Bit 1=EFS (z.B. Chipkarte)# +
-[small]#Bit 2=Handy Ticket# +
-[small]#Bit 3=Papierfahrschein mit Barcode# +
-[small]#Bit 4=EFS und Papierfahrschein [mit Barcode]# +
+Bit 0=Papierfahrschein Bit 1=EFS (z.B. Chipkarte) Bit 2=Handy Ticket Bit 3=Papierfahrschein mit Barcode Bit 4=EFS und Papierfahrschein [mit Barcode] 
 
-
-[small]#Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.# +
+Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Papierfahrschein# +
+Papierfahrschein
 |2|
-[small]#EFS (z.B. Chipkarte)# +
+EFS (z.B. Chipkarte)
 |4|
-[small]#Handy Ticket# +
+Handy Ticket
 |8|
-[small]#Papierfahrschein mit Barcode# +
+Papierfahrschein mit Barcode
 |16|
 
-[small]#EFS und Papierfahrschein [mit Barcode]# +
+EFS und Papierfahrschein [mit Barcode]
 
 |3|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte)# +
+Papierfahrschein / EFS (z.B. Chipkarte)
 
 |5|
 
-[small]#Papierfahrschein / Handy Ticket# +
+Papierfahrschein / Handy Ticket
 
 |9|
 
-[small]#Papierfahrschein / Papierfahrschein mit Barcode# +
+Papierfahrschein / Papierfahrschein mit Barcode
 
 |17|
 
-[small]#Papierfahrschein / EFS und Papierfahrschein [mit# +
-[small]#Barcode]# +
+Papierfahrschein / EFS und Papierfahrschein [mit Barcode]
 
 |6|
 
-[small]#EFS (z.B. Chipkarte) / Handy Ticket# +
+EFS (z.B. Chipkarte) / Handy Ticket
 
 |10|
 
-[small]#EFS (z.B. Chipkarte) / Papierfahrschein mit# +
-[small]#Barcode# +
+EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode
 
 |18|
 
-[small]#EFS (z.B. Chipkarte) / EFS und Papierfahrschein# +
-[small]#[mit Barcode]# +
+EFS (z.B. Chipkarte) / EFS und Papierfahrschein [mit Barcode]
 
 |12|
 
-[small]#Handy Ticket / Papierfahrschein mit Barcode# +
+Handy Ticket / Papierfahrschein mit Barcode
 
 |20|
 
-[small]#Handy Ticket / EFS und Papierfahrschein [mit# +
-[small]#Barcode]# +
+Handy Ticket / EFS und Papierfahrschein [mit Barcode]
 
 |24|
 
-[small]#Papierfahrschein mit Barcode / EFS und# +
-[small]#Papierfahrschein [mit Barcode]# +
+Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |7|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) / Handy# +
-[small]#Ticket# +
+Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket
 
 |11|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) /# +
-[small]#Papierfahrschein mit Barcode# +
+Papierfahrschein / EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode
 
 |19|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) / EFS und# +
-[small]#Papierfahrschein [mit Barcode]# +
+Papierfahrschein / EFS (z.B. Chipkarte) / EFS und Papierfahrschein [mit Barcode]
 
 |13|
 
-[small]#Papierfahrschein / Handy Ticket /# +
-[small]#Papierfahrschein mit Barcode# +
+Papierfahrschein / Handy Ticket / Papierfahrschein mit Barcode
 
 |21|
 
-[small]#Papierfahrschein / Handy Ticket / EFS und# +
-[small]#Papierfahrschein [mit Barcode]# +
+Papierfahrschein / Handy Ticket / EFS und Papierfahrschein [mit Barcode]
 
 |25|
 
-[small]#Papierfahrschein / Papierfahrschein mit Barcode /# +
-[small]#EFS und Papierfahrschein [mit Barcode]# +
+Papierfahrschein / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |14|
 
-[small]#EFS (z.B. Chipkarte) / Handy Ticket /# +
-[small]#Papierfahrschein mit Barcode# +
+EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode
 
 |22|
 
-[small]#EFS (z.B. Chipkarte) / Handy Ticket / EFS und# +
-[small]#Papierfahrschein [mit Barcode]# +
+EFS (z.B. Chipkarte) / Handy Ticket / EFS und Papierfahrschein [mit Barcode]
 
 |26|
 
-[small]#EFS (z.B. Chipkarte) / Papierfahrschein mit# +
-[small]#Barcode / EFS und Papierfahrschein [mit Barcode]# +
+EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |28|
 
-[small]#Handy Ticket / Papierfahrschein mit Barcode / EFS# +
-[small]#und Papierfahrschein [mit Barcode]# +
+Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |15|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) / Handy# +
-[small]#Ticket / Papierfahrschein mit Barcode# +
+Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode
 
 |23|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) / Handy# +
-[small]#Ticket / EFS und Papierfahrschein [mit Barcode]# +
+Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket / EFS und Papierfahrschein [mit Barcode]
 
 |27|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) /# +
-[small]#Papierfahrschein mit Barcode /# +
+Papierfahrschein / EFS (z.B. Chipkarte) / Papierfahrschein mit Barcode /
 
 |30|
 
-[small]#EFS (z.B. Chipkarte) / Handy Ticket /# +
-[small]#Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]# +
+EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |29|
 
-[small]#Papierfahrschein / Handy Ticket /# +
-[small]#Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]# +
+Papierfahrschein / Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |31|
 
-[small]#Papierfahrschein / EFS (z.B. Chipkarte) / Handy# +
-[small]#Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein# +
-[small]#[mit Barcode]# +
+Papierfahrschein / EFS (z.B. Chipkarte) / Handy Ticket / Papierfahrschein mit Barcode / EFS und Papierfahrschein [mit Barcode]
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefSortenausgaberegelung_Type,DefSortenausgaberegelung>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_SortendruckregelungHUSST_Type]]
+
 [[ID_Sortendruckregelung_Type]]
+
 ==== ID_Sortendruckregelung
 
-[small]#Die HUSST definiert ID_Sortendruckregelung kleiner 1000# +
+Die HUSST definiert ID_Sortendruckregelung kleiner 1000 
 
-
-[small]#Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Druck über Layout# +
+Druck über Layout
 |2|
-[small]#Vorrangiger Druck über ein zum Verkaufszeitpunkt zugeordnetes Hauptprodukt, sonst über Layout.# +
+Vorrangiger Druck über ein zum Verkaufszeitpunkt zugeordnetes Hauptprodukt, sonst über Layout.
 |3|
 
-[small]#Druck eines 2. Fahrscheins mit einer Druckinformation# +
-[small]#"2. Druck" die im Layout ausgewertet werden kann.# +
+Druck eines 2. Fahrscheins mit einer Druckinformation "2. Druck" die im Layout ausgewertet werden kann.
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefSortendruckregelung_Type,DefSortendruckregelung>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_SortengruppentypHUSST_Type]]
+
 [[ID_Sortengruppentyp_Type]]
+
 ==== ID_Sortengruppentyp
 
-[small]#Die HUSST definiert ID_Sortengruppentyp sind in verschiedene Bereicht geklustert:# +
-[small]#1-10 Verkaufssortengruppe# +
-[small]#11-20 Zusatzsortengruppen# +
-[small]#21-30 Gruppenfahrschein# +
-[small]#31-40 SortengruppenErmittlung-Gruppen# +
+Die HUSST definiert ID_Sortengruppentyp sind in verschiedene Bereicht geklustert: 1-10 Verkaufssortengruppe 11-20 Zusatzsortengruppen 21-30 Gruppenfahrschein 31-40 SortengruppenErmittlung-Gruppen 
 
-
-[small]#Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#Verkaufssortengruppe Relation# +
-[small]#Mit der "Verkaufssortengruppe Relation"# +
-[small]#werden alle Sorten zusammengefasst, die aufgrund von Serviceklasse, Rabattklasse und Fahrgasttyp# +
-[small]#untereinander austauschbar sind und deren Preisstufe über eine Reisewegauswahl# +
-[small]#(i.d.R. Relation) ermittelt wird.# +
+Verkaufssortengruppe Relation Mit der "Verkaufssortengruppe Relation" werden alle Sorten zusammengefasst, die aufgrund von Serviceklasse, Rabattklasse und Fahrgasttyp untereinander austauschbar sind und deren Preisstufe über eine Reisewegauswahl  (i.d.R. Relation) ermittelt wird. 
 
 |2|
 
-[small]#Verkaufssortengruppe Festpreis# +
-[small]#Diese Sortengruppen werden beim Verkauf ohne Relationsauswahl angeboten.# +
+Verkaufssortengruppe Festpreis Diese Sortengruppen werden beim Verkauf ohne Relationsauswahl angeboten.
 
 |3|
 
-[small]#Verkaufssortengruppe Kombi# +
-[small]#Diese Sortengruppen fassen Sorten zusammen, die in Kombination angeboten werden können.# +
-[small]#Die Auswahlsorte soll SortOrder 1 haben.# +
-[small]#Beispiel:# +
-[small]#Einfache Fahrt 2. Klasse + Hundeticket + Fahrrad# +
-[small]#bzw.# +
-[small]#Hin- und Rückfahrt 2. Klasse + Hundeticket Hin-/Rück + Fahrrad# +
+Verkaufssortengruppe Kombi Diese Sortengruppen fassen Sorten zusammen, die in Kombination angeboten werden können. Die Auswahlsorte soll SortOrder 1 haben. Beispiel: Einfache Fahrt 2. Klasse + Hundeticket + Fahrrad bzw. Hin- und Rückfahrt 2. Klasse + Hundeticket Hin-/Rück + Fahrrad
 
 |11|
 
-[small]#Hauptsorten zu Zusatzsorten# +
-[small]#Unter dem Sortengruppentyp werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind.# +
-[small]#In den Zusatzsorten wird im Attribut "ID_SortengruppeHauptsorten" auf die Sortengruppe von diesem Typ verwiesen.# +
+Hauptsorten zu Zusatzsorten Unter dem Sortengruppentyp werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind. In den Zusatzsorten wird im Attribut "ID_SortengruppeHauptsorten" auf die Sortengruppe von diesem Typ verwiesen.
 
 |21|
 
-[small]#Gruppenfahrschein# +
-[small]#Ist für Gruppenfahrscheine, bei denen zusammen unterschiedlich Ausprägungen auf ein Ticket gedruckt werden.# +
-[small]#Bsp.: Ein Fahrschein mit x Erwachsenen und y Kindern.# +
-[small]#Es werden die Auswahlsorte und die Ausprägungen in eine Gruppe zusammengefasst.# +
-[small]#Die Auswahlsorte soll Sortorder 1 haben.# +
+Gruppenfahrschein Ist für Gruppenfahrscheine, bei denen zusammen unterschiedlich Ausprägungen auf ein Ticket gedruckt werden. Bsp.: Ein Fahrschein mit x Erwachsenen und y Kindern. Es werden die Auswahlsorte und die Ausprägungen in eine Gruppe zusammengefasst. Die Auswahlsorte soll Sortorder 1 haben.
 
 |31|
 
-[small]#SortengruppenErmittlung# +
-[small]#Ist für Referenzen vom SortengruppenErmittlungen_Type. (s. SortengruppenErmittlungen_Type)# +
+SortengruppenErmittlung Ist für Referenzen vom SortengruppenErmittlungen_Type. (s. SortengruppenErmittlungen_Type)
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefSortengruppentyp_Type,DefSortengruppentyp>>
+* <<Sortengruppen_Type,Sortengruppen>>
+
+
 [[ID_SortentypHUSST_Type]]
+
 [[ID_Sortentyp_Type]]
+
 ==== ID_Sortentyp
 
-[small]#Die HUSST vordefinierten Sortentypen sind in verschiedene Bereiche geklustert:# +
-[small]#1- 10 Bar# +
-[small]#11- 20 Zeit# +
-[small]#21- 30 Artikel# +
-[small]#31- 40 Einzahlungen# +
-[small]#41- 50 Leihgeld# +
-[small]#991-999 Spezial# +
+Die HUSST vordefinierten Sortentypen sind in verschiedene Bereiche geklustert: 1- 10 Bar 11- 20 Zeit 21- 30 Artikel 31- 40 Einzahlungen 41- 50 Leihgeld 991-999 Spezial 
 
-
-[small]#Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
-[small]#Einzelkarte# +
+Einzelkarte
 |2|
-[small]#Mehrfahrten# +
+Mehrfahrten
 |3|
-[small]#Zähler# +
+Zähler
 |11|
-[small]#Tageskarte# +
+Tageskarte
 |12|
-[small]#Wochenkarte# +
+Wochenkarte
 |13|
-[small]#Monatskarte# +
+Monatskarte
 |14|
-[small]#Halbjahreskarte# +
+Halbjahreskarte
 |15|
-[small]#Jahreskarte# +
+Jahreskarte
 |21|
-[small]#Artikel# +
+Artikel
 |22|
-[small]#Gutschein (Verkauf)# +
+Gutschein (Verkauf)
 |23|
-[small]#Gutschein (Annahme)# +
+Gutschein (Annahme)
 |24|
-[small]#Gutschein (Restwert)# +
+Gutschein (Restwert)
 |31|
-[small]#Verkäufer Einzahlung# +
+Verkäufer Einzahlung
 |32|
-[small]#Abo Einzahlung# +
+Abo Einzahlung
 |33|
-[small]#EBE Einzahlung# +
+EBE Einzahlung
 |39|
-[small]#Sonstige Einzahlung# +
+Sonstige Einzahlung
 |41|
-[small]#Pfand (z.B. für Kundendatenträger)# +
+Pfand (z.B. für Kundendatenträger)
 |42|
-[small]#Kaution# +
+Kaution
 |991|
-[small]#Fehleinnahme# +
+Fehleinnahme
 |992|
-[small]#Bargutschrift (Überzahlung / Restgeldquittung etc.)# +
+Bargutschrift (Überzahlung / Restgeldquittung etc.)
 |999|
-[small]#Sonstige# +
+Sonstige
 |=======================
+
+
+Verwendet in:
+
+* <<DefSortentyp_Type,DefSortentyp>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_StreckenartHUSST_Type]]
+
 [[ID_Streckenart_Type]]
+
 ==== ID_Streckenart
 
-[small]#Die HUSST definiert ID_Streckenart kleiner 1000.# +
+Die HUSST definiert ID_Streckenart kleiner 1000. 
 
-
-[small]#Die ID_Streckenart ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Streckenart ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#keine Sonderverkaufslogik# +
+keine Sonderverkaufslogik
 
 |2|
 
-[small]#Strecke nur kombiniert mit ID_Streckenart=1 verkaufbar# +
+Strecke nur kombiniert mit ID_Streckenart=1 verkaufbar
 
 |3|
 
-[small]#nur als Einzelstrecke verkaufbar# +
+nur als Einzelstrecke verkaufbar
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefStreckenart_Type,DefStreckenart>>
+* <<Strecke_Type,Strecke>>
+
+
 [[ID_StreckencodetypHUSST_Type]]
+
 [[ID_Streckencodetyp_Type]]
+
 ==== ID_Streckencodetyp
 
-[small]#Die HUSST definiert ID_Streckencodetyp kleiner 1000.# +
+Die HUSST definiert ID_Streckencodetyp kleiner 1000. 
 
-
-[small]#Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#AST Anstoßbahnhof# +
+AST Anstoßbahnhof
 
 |2|
 
-[small]#NAST Nichtanstoßbahnhof# +
+NAST Nichtanstoßbahnhof
 
 |3|
 
-[small]#NE-Haltepunkt# +
+NE-Haltepunkt
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefStreckencodetyp_Type,DefStreckencodetyp>>
+* <<OrtspunktStreckencode_Type,OrtspunktStreckencode>>
+* <<Streckencode_Type,Streckencode>>
+
+
 [[ID_TarifpunkttypHUSST_Type]]
-[[ID_Tarifpunkttyp_Type]]
-==== ID_Tarifpunkttyp
-[small]#Die HUSST definiert Tarifpunkttypen kleiner 1000# +
 
-[small]#Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-[small]#Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0# +
+[[ID_Tarifpunkttyp_Type]]
+
+==== ID_Tarifpunkttyp
+Die HUSST definiert Tarifpunkttypen kleiner 1000
+
+Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
-[small]#Tarifhaltestelle (falls jede Hst ein eigener Tarifpunkt bildet)# +
+Tarifhaltestelle (falls jede Hst ein eigener Tarifpunkt bildet)
 |2|
-[small]#Zone / Wabe / Ring (unmittelbar einer Tarifhaltestelle zugeordnet)# +
+Zone / Wabe / Ring (unmittelbar einer Tarifhaltestelle zugeordnet)
 |3|
-[small]#Überzone / Wabentyp (faßt Tarifpunkte vom Typ 2 oder 1 zusammen)# +
+Überzone / Wabentyp (faßt Tarifpunkte vom Typ 2 oder 1 zusammen)
 |4|
-[small]#Region (faßt Überzonen zu Regionen zusammen)# +
+Region (faßt Überzonen zu Regionen zusammen)
 |5|
-[small]#Ortsteil (in seiner Funktion als Tarifpunkt)# +
+Ortsteil (in seiner Funktion als Tarifpunkt)
 |6|
-[small]#Ort (faßt Ortsteile zusammen)# +
+Ort (faßt Ortsteile zusammen)
 |=======================
+
+
+Verwendet in:
+
+* <<DefTarifpunkttyp_Type,DefTarifpunkttyp>>
+* <<Tarifpunkte_Type,Tarifpunkte>>
+
+
 [[ID_VertriebswegeHUSST_Type]]
+
 [[ID_Vertriebswege_Type]]
+
 ==== ID_Vertriebswege
 
-[small]#Die HUSST definiert ID_Vertriebswege kleiner 1024# +
+Die HUSST definiert ID_Vertriebswege kleiner 1024 
 
-
-[small]#Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.# +
+Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |=======================
+
+
+Verwendet in:
+
+* <<DefVertriebswege_Type,DefVertriebswege>>
+* <<Preisstufendirektwahl_Type,Preisstufendirektwahl>>
+* <<Relationen_Type,Relationen>>
+* <<Sorten_Type,Sorten>>
+
+
 [[ID_ZahlgrenzentypHUSST_Type]]
+
 [[ID_Zahlgrenzentyp_Type]]
+
 ==== ID_Zahlgrenzentyp
-[small]#Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl# +
-[small]#kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.# +
-
-[small]#Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000# +
+Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. 
+Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
-[small]#Anzahl Haltestellen# +
+Anzahl Haltestellen
 |2|
-[small]#Tarifkilometer# +
+Tarifkilometer
 |3|
-[small]#Radius (Luftlinie)# +
+Radius (Luftlinie)
 |=======================
+
+
+Verwendet in:
+
+* <<DefZahlgrenzentyp_Type,DefZahlgrenzentyp>>
+* <<Nachbarhaltestellen_Type,Nachbarhaltestellen>>
+
+
 [[ID_ZahlungsartenHUSST_Type]]
+
 [[ID_Zahlungsarten_Type]]
+
 ==== ID_Zahlungsarten
-[small]#Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.# +
+Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024. 
 
-
-[small]#Die HUSST definiert ID_Zahlungsart kleiner 1024# +
+Die HUSST definiert ID_Zahlungsart kleiner 1024
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |1|
 
-[small]#Barzahlung# +
+Barzahlung
 
 |2|
 
-[small]#Kartenzahlung# +
-[small]#(Schließt alle Arten der Kartenzahlung ein, die das System unterstützt)# +
+Kartenzahlung (Schließt alle Arten der Kartenzahlung ein, die das System unterstützt)
 
 |4|
 
-[small]#KA-Zahlung# +
-[small]#(POB, PEB und WEB)# +
+KA-Zahlung (POB, PEB und WEB)
 
 |8|
 
-[small]#Rechnung# +
+Rechnung
 
 |0|
 
-[small]#Keine# +
+Keine
 
 |3|
 
-[small]#Barzahlung / Kartenzahlung# +
+Barzahlung / Kartenzahlung
 
 |5|
 
-[small]#Barzahlung / KA-Zahlung# +
+Barzahlung / KA-Zahlung
 
 |6|
 
-[small]#Kartenzahlung / KA-Zahlung# +
+Kartenzahlung / KA-Zahlung
 
 |7|
 
-[small]#Barzahlung / Kartenzahlung / KA-Zahlung# +
+Barzahlung / Kartenzahlung / KA-Zahlung
 
 |9|
 
-[small]#Barzahlung / Rechnung# +
+Barzahlung / Rechnung
 
 |10|
 
-[small]#Kartenzahlung / Rechnung# +
+Kartenzahlung / Rechnung
 
 |11|
 
-[small]#Barzahlung / Kartenzahlung / Rechnung# +
+Barzahlung / Kartenzahlung / Rechnung
 
 |12|
 
-[small]#KA-Zahlung / Rechnung# +
+KA-Zahlung / Rechnung
 
 |13|
 
-[small]#Barzahlung / KA-Zahlung / Rechnung# +
+Barzahlung / KA-Zahlung / Rechnung
 
 |14|
 
-[small]#Kartenzahlung / KA-Zahlung / Rechnung# +
+Kartenzahlung / KA-Zahlung / Rechnung
 
 |15|
 
-[small]#Barzahlung / Kartenzahlung / KA-Zahlung / Rechnung# +
+Barzahlung / Kartenzahlung / KA-Zahlung / Rechnung
 
 |=======================
+
+
+Verwendet in:
+
+* <<DefZahlungsarten_Type,DefZahlungsarten>>
+* <<Sorten_Type,Sorten>>
+
+
 [[KA_Kundentyp_CODE_Type]]
+
 
 ==== KA_Kundentyp_CODE
 
-[small]#Aus der KA (XML-Schema_KVP_DL_PV.xsd):# +
-[small]#Der Kundentyp_CODE klassifiziert Kunden bzgl.# +
-[small]#typischer tarifrelevanter# +
-[small]#Kundengruppen des OePV.# +
-[small]#BOM 6-38# +
+Aus der KA (XML-Schema_KVP_DL_PV.xsd): Der Kundentyp_CODE klassifiziert Kunden bzgl. typischer tarifrelevanter Kundengruppen des OePV. BOM 6-38
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Erwachsener# +
+Erwachsener
 |2|
-[small]#Kind# +
+Kind
 |3|
-[small]#Student# +
+Student
 |5|
-[small]#Behinderter# +
+Behinderter
 |6|
-[small]#Sehbehinderter# +
+Sehbehinderter
 |7|
-[small]#Hörgeschädigter# +
+Hörgeschädigter
 |8|
-[small]#Arbeitsloser/Sozialhilfeempfänger# +
+Arbeitsloser/Sozialhilfeempfänger
 |9|
-[small]#Personal# +
+Personal
 |10|
-[small]#Militärangehöriger# +
+Militärangehöriger
 |19|
-[small]#Schüler# +
+Schüler
 |20|
-[small]#Azubi# +
+Azubi
 |25|
-[small]#Senior# +
+Senior
 |=======================
+
+
+Verwendet in:
+
+* <<Sorten_Type,Sorten>>
+
+
 [[KA_Profil_CODE_Type]]
+
 
 ==== KA_Profil_CODE
 
-[small]#Aus der KA (XML-Schema_KVP_DL_PV.xsd):# +
-[small]#Typ: klassifiziert Kunden, Objekte, etc. bzgl.# +
-[small]#tarifrelevanter Gruppen# +
-[small]#des OePV BOM 6_45# +
+Aus der KA (XML-Schema_KVP_DL_PV.xsd): Typ: klassifiziert Kunden, Objekte, etc. bzgl. tarifrelevanter Gruppen des OePV BOM 6_45
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Erwachsener# +
+Erwachsener
 |2|
-[small]#Kind# +
+Kind
 |3|
-[small]#Student# +
+Student
 |5|
-[small]#Behinderter# +
+Behinderter
 |6|
-[small]#Sehbehinderter# +
+Sehbehinderter
 |7|
-[small]#Hörgeschädigter# +
+Hörgeschädigter
 |8|
-[small]#Arbeitsloser/Sozialhilfeempfänger# +
+Arbeitsloser/Sozialhilfeempfänger
 |9|
-[small]#Personal# +
+Personal
 |10|
-[small]#Militärangehöriger# +
+Militärangehöriger
 |19|
-[small]#Schüler# +
+Schüler
 |20|
-[small]#Azubi# +
+Azubi
 |25|
-[small]#Senior# +
+Senior
 |=======================
+
+
+Verwendet in:
+
+* <<Preise_Type,Preise>>
+
+
 [[KA_RabattParameter_CODE_Type]]
+
 
 ==== KA_RabattParameter_CODE
 
-[small]#Aus der KA:# +
-[small]#Der RabattParameter_CODE kennzeichnet einen Rabbatierungstyp bzw. Ermäßigungstyp.# +
-[small]#BOM 6-71# +
+Aus der KA: Der RabattParameter_CODE kennzeichnet einen Rabbatierungstyp bzw. Ermäßigungstyp. BOM 6-71
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#Keine Ermäßigung# +
+Keine Ermäßigung
 |1|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-1# +
-[small]#(z.B. Bahncard 25)# +
+prozentuale Ermäßigung Level-1 (z.B. Bahncard 25)
 
 |2|
 
-[small]#prozentuale Ermäßigung18# +
-[small]#Level-2# +
-[small]#(z.B. Bahncard 50)# +
+prozentuale Ermäßigung18 Level-2 (z.B. Bahncard 50)
 
 |3|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-3# +
+prozentuale Ermäßigung Level-3
 
 |4|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-4# +
+prozentuale Ermäßigung Level-4
 
 |5|
 
-[small]#prozentuale Ermäßigung# +
-[small]#Level-5# +
+prozentuale Ermäßigung Level-5
 
 |6|
 
-[small]#Ermäßigung auf Basis# +
-[small]#gefahrener Kilometer# +
+Ermäßigung auf Basis gefahrener Kilometer
 
 |46|
 
-[small]#Ermäßigung des# +
-[small]#Ticketkaufs mit# +
-[small]#KA-Bezahlberechtigung um 25%# +
+Ermäßigung des Ticketkaufs mit KA-Bezahlberechtigung um 25%
 
 |=======================
+
+
+Verwendet in:
+
+* <<Preise_Type,Preise>>
+
+
 [[KA_ServiceKlasse_CODE_Type]]
+
 
 ==== KA_ServiceKlasse_CODE
 
-[small]#Aus der KA (XML-Schema_KVP_DL_PV.xsd):# +
-[small]#Der ServiceKlasse_CODE klassifiziert Servicequalitaeten der# +
-[small]#Transportdienstleistung.# +
-[small]#Haeufigstes Beispiel ist die Unterscheidung in 1. und 2.# +
-[small]#Klasse.# +
-[small]#BOM 6-49# +
+Aus der KA (XML-Schema_KVP_DL_PV.xsd): Der ServiceKlasse_CODE klassifiziert Servicequalitaeten der Transportdienstleistung. Haeufigstes Beispiel ist die Unterscheidung in 1. und 2. Klasse. BOM 6-49
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#1. Klasse# +
+1. Klasse
 |2|
-[small]#2. Klasse# +
+2. Klasse
 |=======================
+
+
+Verwendet in:
+
+* <<Sorten_Type,Sorten>>
+
+
 [[KA_TransportmittelKategorie_CODE_Type]]
+
 
 ==== KA_TransportmittelKategorie_CODE
 
-[small]#Aus der KA (XML-Schema_KVP_DL_PV.xsd):# +
-[small]#Der TransportmittelKategorie_CODE klassifiziert Arten von# +
-[small]#Transportdienstleistungen im Sinne einer Qualitaetsklasse, z.B. "IC/EC", "ICE"# +
-[small]#bei# +
-[small]#der Deutschen Bahn. Diese Kategorien sind# +
-[small]#"marketinggetrieben" mit Auswirkungen auf# +
-[small]#den Preis und daher produktspezifisch.# +
-[small]#BOM 6-60# +
+Aus der KA (XML-Schema_KVP_DL_PV.xsd): Der TransportmittelKategorie_CODE klassifiziert Arten von Transportdienstleistungen im Sinne einer Qualitaetsklasse, z.B. "IC/EC", "ICE" bei der Deutschen Bahn. Diese Kategorien sind "marketinggetrieben" mit Auswirkungen auf den Preis und daher produktspezifisch. BOM 6-60
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |0|
-[small]#nicht spezifiziert/unbestimmt# +
+nicht spezifiziert/unbestimmt
 |1|
-[small]#Linienbus im Stadtverkehr# +
+Linienbus im Stadtverkehr
 |3|
-[small]#Metro/U-Bahn/S-Bahn# +
+Metro/U-Bahn/S-Bahn
 |4|
-[small]#Straßenbahn/TRAM# +
+Straßenbahn/TRAM
 |10|
-[small]#ICE# +
+ICE
 |11|
-[small]#Überlandbus/Regionalbus# +
+Überlandbus/Regionalbus
 |20|
-[small]#IC# +
+IC
 |29|
-[small]#Regionalexpress# +
+Regionalexpress
 |30|
-[small]#Expressbus# +
+Expressbus
 |31|
-[small]#Flughafenzubringer# +
+Flughafenzubringer
 |32|
-[small]#Verbundnahverkehr# +
+Verbundnahverkehr
 |33|
-[small]#Verbundnahverkehr ohne Kurzstrecke# +
+Verbundnahverkehr ohne Kurzstrecke
 |34|
-[small]#SPNV# +
+SPNV
 |=======================
+
+
+Verwendet in:
+
+* <<Sorten_Type,Sorten>>
+
+
 [[Sammelbeleg_Type]]
 
+
 ==== Sammelbeleg
-IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#
+IMPORTANT: [red]#_todo: Doku_#
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |true|
-[small]#ein Fahrschein für n Personen# +
+ein Fahrschein für n Personen
 |false|
-[small]#n Fahrscheine für n Personen# +
+n Fahrscheine für n Personen
 |auswahl|
 
-[small]#Bediener entscheidet, ob ein oder n Fahrscheine# +
-[small]#gedruckt werden, bei n>1# +
+Bediener entscheidet, ob ein oder n Fahrscheine gedruckt werden, bei n>1 Personen
 
 |=======================
+
 [[ZuordnungRelCodeGrp_Type]]
 
+
 ==== ZuordnungRelCodeGrp
-[small]#s. Verwendung in den ZusatzSorten_Type# +
+teste diese Verwendung {nbsp}s. Verwendung in den ZusatzSorten_Type {nbsp}s. weiter Verwendungen
+
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |S|
-[small]#StartRelCode# +
+StartRelCode
 |Z|
-[small]#ZielRelCode# +
+ZielRelCode
 |R|
-[small]#StartZielRelCode# +
+StartZielRelCode
 |=======================
+
+
+Verwendet in:
+
+* <<Zusatzsorten_Type,Zusatzsorten>>
+
+
 [[ZusSorteAnbindung_Type]]
 
+
 ==== ZusSorteAnbindung
-[small]#s. Verwendung in den ZusatzSorten_Type# +
+{nbsp}s. Verwendung in den ZusatzSorten_Type
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |V|
-[small]#Vorlauf# +
+Vorlauf
 |N|
-[small]#Nachlauf# +
+Nachlauf
 |H|
-[small]#Hauptlauf# +
+Hauptlauf
 |U|
-[small]#Richtungsungebunden# +
+Richtungsungebunden
 |=======================
+
+
+Verwendet in:
+
+* <<Zusatzsorten_Type,Zusatzsorten>>
+
+
+
+=== TarifAngebot Datentypen 
+
+
+[[ID_PreisquelleHUSST_Type]]
+
+[[ID_Preisquelle_Type]]
+
+==== ID_Preisquelle
+
+Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert. 
+
+Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+
+
+Verwendet in:
+
+* <<DefPreisquelle_Type,DefPreisquelle>>
+* <<Teilrelationen_Type,Teilrelationen>>
+
+
+[[Umschalttag_Type]]
+
+
+==== Umschalttag
+
+Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist. Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert. todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
+
+[[Vorverkauf_Type]]
+
+
+==== Vorverkauf
+
+Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist. Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert. todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
+
+
 === TarifAngebot Definitionsstand
 
 
-[small]#HUSST Versorgungsdaten - Schemata: Tarif, Angebot (verwendet Basisversorgungsdaten)# +
-[small]#Version: 3.7.0# +
+HUSST Versorgungsdaten - Schemata: Tarif, Angebot (verwendet Basisversorgungsdaten) Version: 3.7.0
 
-[small]#Mehr Informationen:# +
-[small]#* https://husst.de/# +
-[small]#* https://github.com/HUSST-de/HUSST# +
+Mehr Informationen:
 
-[small]#Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)# +
+* https://husst.de/
+
+* https://github.com/HUSST-de/HUSST
+
+Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)

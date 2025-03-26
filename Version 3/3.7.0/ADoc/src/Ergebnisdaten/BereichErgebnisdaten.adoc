@@ -1,0 +1,9 @@
+== Bereich Ergebnisdaten
+
+////
+Dieser Text wird automatisch generiert.
+////
+
+include::ErgebnisEinführung.adoc[]
+
+include::Ergebnisdaten.adoc[]

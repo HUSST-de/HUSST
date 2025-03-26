@@ -17,11 +17,21 @@
 
       Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
     </xs:documentation>
+    <xs:appinfo>
+    	<api:schema name="Tarif"/>
+    	<api:schema name="Angebot"/>
+    </xs:appinfo>
   </xs:annotation>
 
   <xs:simpleType name="ZuordnungRelCodeGrp_Type">
     <xs:annotation>
-      <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
+      <xs:documentation>teste diese Verwendung
+      s. Verwendung in den ZusatzSorten_Type
+s. weiter Verwendungen
+      </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:Char">
       <xs:enumeration value="S">
@@ -45,6 +55,9 @@
   <xs:simpleType name="ZusSorteAnbindung_Type">
     <xs:annotation>
       <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
+       <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:Char">
       <xs:enumeration value="V">
@@ -71,6 +84,11 @@
   </xs:simpleType>
   
   <xs:simpleType name="Sammelbeleg_Type">
+  	<xs:annotation>
+  		<xs:appinfo>
+  		  <api:schema name="Angebot"/>
+  		</xs:appinfo>
+  	</xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="true">
         <xs:annotation>
@@ -86,7 +104,7 @@
         <xs:annotation>
           <xs:documentation>
             Bediener entscheidet, ob ein oder n Fahrscheine
-            gedruckt werden, bei n&gt;1
+            gedruckt werden, bei n&gt;1 Personen
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
@@ -98,6 +116,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -149,6 +170,9 @@
         Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationenberechnungsregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -158,6 +182,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Relationendruckregelung kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -193,6 +220,9 @@
         Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -206,6 +236,9 @@
         Kundengruppen des OePV.
         BOM 6-38
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
@@ -284,6 +317,9 @@
         tarifrelevanter Gruppen
         des OePV BOM 6_45
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
@@ -364,6 +400,9 @@
         Klasse.
         BOM 6-49
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
@@ -396,6 +435,9 @@
         den Preis und daher produktspezifisch.
         BOM 6-60
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
@@ -473,6 +515,9 @@
         Der RabattParameter_CODE kennzeichnet einen Rabbatierungstyp bzw. Ermäßigungstyp.
         BOM 6-71
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
       <xs:enumeration value="0">
@@ -1164,6 +1209,9 @@
       <xs:documentation>Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl
         kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlgrenzentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -1171,6 +1219,9 @@
   <xs:simpleType name="ID_ZahlgrenzentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000</xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2376,17 +2427,6 @@
     </xs:sequence>
   </xs:complexType>
   
-  <xs:simpleType name="ID_ProjektspezifischBitfeld_Type">
-    <xs:annotation>
-      <xs:documentation>
-        Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnen mit 1024
-      </xs:documentation>
-    </xs:annotation>
-    <xs:restriction base="husstDV:INT4">
-      <xs:minInclusive value="1024"/>
-    </xs:restriction>
-  </xs:simpleType>
-  
   <xs:simpleType name="ID_SortentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2398,6 +2438,9 @@
         41- 50 Leihgeld
         991-999 Spezial
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2514,6 +2557,9 @@
         Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2521,6 +2567,9 @@
   <xs:simpleType name="ID_TarifpunkttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert Tarifpunkttypen kleiner 1000</xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2562,6 +2611,9 @@
         Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_TarifpunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2569,6 +2621,9 @@
   <xs:simpleType name="ID_OrtspunkttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert Ortspunkttypen kleiner 1000</xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Angebot"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2600,6 +2655,9 @@
         Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Angebot"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OrtspunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2609,6 +2667,9 @@
       <xs:documentation>
         Die HUSST definiert OTPTypen kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Angebot"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2647,6 +2708,9 @@
         Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Angebot"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OTPTypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2656,6 +2720,9 @@
       <xs:documentation>
         Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:minExclusive value="0"/>
@@ -2669,6 +2736,9 @@
         Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisquelleHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2676,6 +2746,9 @@
   <xs:simpleType name="ID_PreisspaltentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Preisspaltentyp kleiner 1000</xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2692,6 +2765,9 @@
         Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisspaltentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2699,6 +2775,9 @@
   <xs:simpleType name="ID_RelcodegruppentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Relcodegruppentyp kleiner 1000</xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2720,6 +2799,9 @@
         Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelcodegruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -2733,6 +2815,9 @@
         21-30 Gruppenfahrschein
         31-40 SortengruppenErmittlung-Gruppen
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -2805,6 +2890,9 @@
         Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3031,6 +3119,9 @@
         Die HUSST definiert ID_Fahrgasttyp kleiner 1000
         angelehnt an VDV-KA Kundentyp
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3124,6 +3215,9 @@
         Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_FahrgasttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3167,6 +3261,9 @@
         Die HUSST definiert ID_Komfortklasse kleiner 1000
         angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255)
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3198,6 +3295,9 @@
         Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_KomfortklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3245,6 +3345,9 @@
         Die HUSST definiert ID_Rabattklasse kleiner 1000
         angelehnt an VDV-KA RabattParameter
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3320,6 +3423,9 @@
         Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RabattklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3359,6 +3465,9 @@
         Bit 2=Preisstufenupgrade (nur mit Bit 1 kombinierbar)
         Bit 8=Freie Preiseingabe (mit allen kombinierbar)
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3414,6 +3523,9 @@
         Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisfindungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3458,6 +3570,9 @@
         Bit 3=Papierfahrschein mit Barcode
         Bit 4=EFS und Papierfahrschein [mit Barcode]
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3704,6 +3819,9 @@
       <xs:documentation>
         Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortenausgaberegelungHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
@@ -3739,6 +3857,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Sortendruckregelung kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3773,6 +3894,9 @@
         Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3819,6 +3943,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Reisetyp kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3850,6 +3977,9 @@
         Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ReisetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3892,6 +4022,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3917,6 +4050,9 @@
         Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_NachbarhaltestellenbeziehungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -3959,6 +4095,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Vertriebswege kleiner 1024
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="0">
@@ -3974,6 +4113,9 @@
       <xs:documentation>
         Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_VertriebswegeHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
@@ -3985,6 +4127,9 @@
         Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.
         todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
       </xs:documentation>
+       <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
@@ -3996,6 +4141,9 @@
         Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.
         todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
@@ -4056,6 +4204,9 @@
     <xs:annotation>
       <xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlungsartenHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
@@ -4065,6 +4216,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Zahlungsart kleiner 1024
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -4541,6 +4695,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Ermittlungseinheit kleiner 1000
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -4566,6 +4723,9 @@
         Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ErmittlungseinheitHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -4607,6 +4767,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Streckenart kleiner 1000.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -4639,6 +4802,9 @@
         Die ID_Streckenart ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_StreckenartHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -4680,6 +4846,9 @@
       <xs:documentation>
         Die HUSST definiert ID_Streckencodetyp kleiner 1000.
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
@@ -4712,6 +4881,9 @@
         Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+      	<api:schema name="Tarif"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_StreckencodetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -5115,6 +5287,14 @@
   <xs:element name="OePVTarifDB" type="husstDV:OePVTarifDB_Type"/>
   
   <xs:complexType name="OePVTarifDB_Type">
+  	<xs:annotation>
+  		<xs:documentation>
+  		</xs:documentation>
+  		<xs:appinfo>
+        <api:schema name="Tarif"/>
+        <api:schema name="Angebot"/>
+  		</xs:appinfo>
+  	</xs:annotation>
     <xs:choice maxOccurs="unbounded">
       <xs:element ref="husstDV:DefFahrgasttypen"/>
       <xs:element ref="husstDV:DefKomfortklassen"/>

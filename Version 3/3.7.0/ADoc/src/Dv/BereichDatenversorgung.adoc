@@ -1,4 +1,4 @@
-== Datenversorgung
+== Bereich Datenversorgung
 
 ////
 Dieser Text wird automatisch generiert.
@@ -6,8 +6,8 @@ Dieser Text wird automatisch generiert.
 
 include::DvEinführung.adoc[]
 
-include::DvBasis.adoc[]
-
 include::DvTarifAngebot.adoc[]
 
 include::DvVertrieb.adoc[]
+
+include::DvBasis.adoc[]

@@ -1,7 +1,3082 @@
-== Ergebnisdaten
 
-////
-Dieser Text wird automatisch generiert.
-////
 
-{lorem}
+=== Ergebnis Rootelemente
+
+[[Schichtenliste_Type]]
+==== Schichten
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Version|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<VersionStruktur_Type,VersionStruktur>>
+| |Schicht|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Schicht_Type,Schicht>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+=== Ergebnis Elemente
+
+
+[[Any_Type]]
+==== Any_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |StringData|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |BinaryData|
+[red]#_todo: Doku_#
+
+
+Datentyp: base64Binary
+|=======================
+
+
+Verwendet in:
+
+* <<Kontrolldaten_Type,Kontrolldaten>>
+* <<Transaktionsdaten_Type,Transaktionsdaten>>
+
+[[Ausgabeabschnitt_Type]]
+==== Ausgabeabschnitt_Type
+
+
+Definiert einen Papierabschnitt mit seiner Startnummer und der Anzahl seiner Barcodeabschnitte oder Abschnittzähler. Die Startnummer ist immer die kleinste Nummer des gelesenen Abschnittes, egal in welche Richtung die Nummerierung der Rolle geht.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |StartNr|
+Startnummer des Abschnittzählers, z.B. Barcode oder anfängliche Rollennummer.
+
+Datentyp: int
+| |Anzahl|
+Anzahl der Abschnittzähler, z.B. Barcodes
+
+Datentyp: int
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Beleg_Type,Beleg>>
+* <<Datensatz_Type,Datensatz>>
+
+[[Barbezahlung_Type]]
+==== Barbezahlung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Einnahme|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Rueckgabe|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Bargeldbilanz_Type]]
+==== Bargeldbilanz_Type
+
+
+Für jede vorkommende Währung werden hier die Bilanzen über den Dienst, der bei Automaten gleiche mit der Schicht ist, aufgeführt. Die zugehörigen Bargeld-Einnahmen finden sich in der Kassenliste.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Anfangsbestand|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Zufuehrungen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Entnahmen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Fehleinnahmen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Kassenentnahmen|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|★ |Endbestand|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Dienstende_Type,Dienstende>>
+
+[[Beleg_Type]]
+==== Beleg_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |BelegNr|
+
+Laufende Aufdrucknummer auf einem Papierdokument oder gespeicherte Folgenummer
+
+
+Datentyp: int
+| |Abschnitt|
+Zugehörige, unveränderliche Dokumentmerkmale. (Abschnittzähler oder rückseitiger Barcode)
+
+Datentyp: <<Ausgabeabschnitt_Type,Ausgabeabschnitt>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Dienstende_Type,Dienstende>>
+* <<EBEErfassung_Type,EBEErfassung>>
+* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+* <<Produkt_Type,Produkt>>
+* <<Restgeldbeleg_Type,Restgeldbeleg>>
+* <<Schichtabschluss_Type,Schichtabschluss>>
+* <<Warenkorb_Type,Warenkorb>>
+* <<Zahlung_Type,Zahlung>>
+
+[[Belegkasse_Type]]
+==== Belegkasse_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Betrag|
+
+Hier kann der Gesamtbetrag der vereinnahmten Belege eingetragen werden
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Gutschrift|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifprodukt_Type,Tarifprodukt>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+
+
+Verwendet in:
+
+* <<Belegkassenliste_Type,Belegkassenliste>>
+
+[[Belegkassenliste_Type]]
+==== Belegkassenliste_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |BelegKasse|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Belegkasse_Type,Belegkasse>>
+|=======================
+
+
+Verwendet in:
+
+* <<Dienstende_Type,Dienstende>>
+* <<Schichtsummen_Type,Schichtsummen>>
+
+[[Betrag_Type]]
+==== Betrag_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Waehrung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Waehrung_Type,Waehrung>>
+| |Betrag|
+
+Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent)
+
+
+Datentyp: int
+|=======================
+
+
+Verwendet in:
+
+* <<Barbezahlung_Type,Barbezahlung>>
+* <<Bargeldbilanz_Type,Bargeldbilanz>>
+* <<Belegkasse_Type,Belegkasse>>
+* <<EBEVorgang_Type,EBEVorgang>>
+* <<Geldbehaelter_Type,Geldbehaelter>>
+* <<Kasse_Type,Kasse>>
+* <<Preis_Type,Preis>>
+* <<Stuecke_Type,Stuecke>>
+* <<Wertbehaelter_Type,Wertbehaelter>>
+* <<Zahlung_Type,Zahlung>>
+
+[[BezahlArt_Type]]
+==== BezahlArt_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in:
+
+* <<KKOfflineBezahlung_Type,KKOfflineBezahlung>>
+* <<Kasse_Type,Kasse>>
+* <<ZVTBezahlung_Type,ZVTBezahlung>>
+* <<Zahlung_Type,Zahlung>>
+
+[[Datensatz_Type]]
+==== Datensatz_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Schichtbeginn|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Schichtbeginn_Type,Schichtbeginn>>
+|★ |Schichtabschluss|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Schichtabschluss_Type,Schichtabschluss>>
+|★ |Pruefbeginn|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Pruefbeginn_Type,Pruefbeginn>>
+|★ |Pruefabschluss|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Pruefabschluss_Type,Pruefabschluss>>
+|★ |Komponentenliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Komponentenliste_Type,Komponentenliste>>
+|★ |Meldung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Meldung_Type,Meldung>>
+|★ |Ausgabeabschnitt|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Ausgabeabschnitt_Type,Ausgabeabschnitt>>
+|★ |Transaktionsdaten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsdaten_Type,Transaktionsdaten>>
+|★ |Fahrtverlauf|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Fahrtverlauf_Type,Fahrtverlauf>>
+|★ |Dienstbeginn|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Dienstbeginn_Type,Dienstbeginn>>
+|★ |Dienstende|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Dienstende_Type,Dienstende>>
+|★ |Kontrolldaten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Kontrolldaten_Type,Kontrolldaten>>
+|★ |Geldbehaelterliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+|★ |Warenkorb|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Warenkorb_Type,Warenkorb>>
+|★ |EBEErfassung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<EBEErfassung_Type,EBEErfassung>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Schicht_Type,Schicht>>
+
+[[Dienstbeginn_Type]]
+==== Dienstbeginn_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Vertriebsstelle|
+
+Der Dienstbeginn kann gleichzeitig auf mehrere Vertriebsstellen bezogen sein. Hiermit besteht beispielsweise die Möglichkeit geichzeitig auf den Verkäufer und die Verkaufsstelle zu beziehen.
+
+
+Datentyp: <<Vertriebsstelle_Type,Vertriebsstelle>>
+| |DienstPlanNr|
+
+Die laufende Bezeichnung des Dienstplans des Gerätebedieners.
+
+
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Dienstende_Type]]
+==== Dienstende_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Vertriebsstelle|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Vertriebsstelle_Type,Vertriebsstelle>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+|★ |Kassenliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Kassenliste_Type,Kassenliste>>
+|★ |Belegkassenliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Belegkassenliste_Type,Belegkassenliste>>
+| |Bargeldbilanz|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Bargeldbilanz_Type,Bargeldbilanz>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[DynAttribut_Subtype]]
+==== DynAttribut_Subtype
+
+
+Der Subtyp DynAttribut_Subtype dient der Definition von dynamischen Attributen als mögliche Erweiterung für die Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für eine Abbildung auf ein relationales Datenbankmodell verwendet.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Name|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Wert|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Ausgabeabschnitt_Type,Ausgabeabschnitt>>
+* <<Beleg_Type,Beleg>>
+* <<Belegkasse_Type,Belegkasse>>
+* <<Dienstbeginn_Type,Dienstbeginn>>
+* <<Dienstende_Type,Dienstende>>
+* <<EBEErfassung_Type,EBEErfassung>>
+* <<EBEMerkmale_Type,EBEMerkmale>>
+* <<Fahrtverlauf_Type,Fahrtverlauf>>
+* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+* <<Kontrolldaten_Type,Kontrolldaten>>
+* <<Kundendaten_Type,Kundendaten>>
+* <<ProdFahrschein_Type,ProdFahrschein>>
+* <<Pruefabschluss_Type,Pruefabschluss>>
+* <<Pruefbeginn_Type,Pruefbeginn>>
+* <<Schichtabschluss_Type,Schichtabschluss>>
+* <<Schichtbeginn_Type,Schichtbeginn>>
+* <<Teilrelation_Type,Teilrelation>>
+* <<Transaktion_Type,Transaktion>>
+* <<Transaktionsdaten_Type,Transaktionsdaten>>
+* <<Transaktionsort_Type,Transaktionsort>>
+* <<Vertriebsstelle_Type,Vertriebsstelle>>
+
+[[EBEErfassung_Type]]
+==== EBEErfassung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |BezugsNr|
+
+Eine eindeutige ID dieses EBE-Vorgangs, es könnte bei Verkaufsgeräten die UID sein, bei Nacherfassung muss die ID vom Bediener versorgt werden.
+
+
+Datentyp: string
+|★ |EBEVorgang|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<EBEVorgang_Type,EBEVorgang>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+|★ |Merkmale|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<EBEMerkmale_Type,EBEMerkmale>>
+| |Kundendaten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Kundendaten_Type,Kundendaten>>
+|★ |Verfolgung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Verfolgung_Type,Verfolgung>>
+| |Bemerkung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[EBEMerkmale_Type]]
+==== EBEMerkmale_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Ort|
+
+Eine Erfassung des Vorgangsorts.
+
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |VorfallsOrtNotiz|
+
+Eine textuelle Beschreibung des Vorfallsorts.
+
+
+Datentyp: string
+| |KomfortKlasse|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |Fahrausweisart|
+
+Wenn ein Fahrausweis vorgezeigt wurde, welcher Art
+
+
+Datentyp: string
+| |FahrausweisNr|
+
+Die Nummer (laufende Nummer) des Fahrausweises
+
+
+Datentyp: int
+| |FahrausweisEingezogen|
+
+Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde.
+
+
+Datentyp: boolean
+| |FahrausweisAbholung|
+[red]#_todo: Doku_#
+
+
+Datentyp: date
+| |Bearbeitungsstelle|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |EinstiegsHaltestelle|
+Die IBNR
+
+Datentyp: int
+| |EinstiegNotiz|
+
+Eine textuelle Beschreibung zum Einstieg
+
+
+Datentyp: string
+| |ZielHaltestelle|
+Die IBNR
+
+Datentyp: int
+| |ZielNotiz|
+
+Eine textuelle Beschreibung zum Fahrtziel bzw. Ausstieg
+
+
+Datentyp: string
+|★ |Codierung|
+
+Eine Codierung zur Angabe des Grunds zum EBE-Fall
+
+
+Datentyp: <<Codierung_Type,Codierung>>
+| |Sitzplatz|
+
+Ein Hinweis, wo der EBE-Fall angetroffen wurde
+
+
+Datentyp: string
+| |Verhalten|
+
+Bemerkungen zu Verhalten des EBE-Falls.
+
+
+Datentyp: string
+| |Polizei|
+
+Wenn Polizei hinzugezogen wurde, von welchem Revier.
+
+
+Datentyp: <<Polizei_Type,Polizei>>
+| |Bemerkung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Linie|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |Kurs|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |Verbundkennung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<EBEErfassung_Type,EBEErfassung>>
+
+[[EBEVorgang_Type]]
+==== EBEVorgang_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Typ|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<VorgangsTyp_Type,VorgangsTyp>>
+|★ |Beanstandung|
+
+Entspricht der vorgegebenen Codierung z.B. der Bahn, in der Regel eine zweistellige Ziffer.
+
+
+Datentyp: string
+|★ |Begruendung|
+
+Der Grund der Beanstandung (zB. nicht lesbar, vermutlich verfälscht, Tarif ungültig, ohne Kundenkarte etc.)
+
+
+Datentyp: string
+| |Bemerkung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Forderung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |Referenzbetrag|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<EBEErfassung_Type,EBEErfassung>>
+
+[[EinsatzTyp_Type]]
+==== EinsatzTyp_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Name|
+
+Der Name ist ein beliebiger, sprechender Name des Einsatztyps (z.B. Vorverkauf, Bereich Hamburg Mitte).
+
+
+Datentyp: string
+|=======================
+[[Fahrtverlauf_Type]]
+==== Fahrtverlauf_Type
+
+Diese Datensätze beinhalten, abweichend von anderen Datensätzen, Information aus betrieblichen VDV452 Daten.
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Betrieb|
+
+REC_FRT.BETRIEB aus VDV bei Mandantensystemen, sonst 0.
+
+
+Datentyp: <<INT4,INT4>>
+|★ |FahrzeugNr|
+
+Nach VDV FAHRZEUG.FZG_NR
+
+
+Datentyp: <<INT4,INT4>>
+| |FahrzeugUnr|
+
+Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN
+
+
+Datentyp: <<INT4,INT4>>
+| |FahrerNr|
+Nch VDV: PERSONAL.FAHRER_NR
+
+Datentyp: <<INT4,INT4>>
+| |FahrerUnr|
+
+Nach VDV: PERSONAL.ABK_UNTERNEHMEN -> TEILNEHMER.UNTERNEHMEN
+
+
+Datentyp: <<INT4,INT4>>
+|★ |FahrtID|
+
+Fahrtnummer der Fahrt laut VDV REC_FRT.FRT_ID
+
+
+Datentyp: <<INT4,INT4>>
+| |Fahrt|
+Optionale Kennung der Fahrt als Text.
+
+Datentyp: string
+| |LinieID|
+
+Nach VDV: Aus der Tabelle REC_LID.LI_NR
+
+
+Datentyp: <<INT4,INT4>>
+| |Linie|
+Optionale Linieninformation als Text. Optional REC_LID.LIDNAME oder REC_LID.LI_KUERZEL
+
+Datentyp: string
+| |Richtung|
+
+Nach VDV: REC_LID.LI_RI_NR
+
+
+Datentyp: int
+| |FahrplanLage|
+
+Fahrplanlage in Sekunden, negative Werte für Verfrühung.
+
+
+Datentyp: int
+| |OrtTyp|
+Nach VDV: REC_ORT.ONR_TYP_NR
+
+Datentyp: <<INT4,INT4>>
+| |OrtNr|
+
+Haltepunktnummer nach VDV: REC_ORT.ORT_NR
+
+
+Datentyp: <<INT4,INT4>>
+| |HpEntfernung|
+
+Entfernung zum Haltepunkt in Metern, 0 = Haltepunkt, positiv: vor Haltepunkt
+
+
+Datentyp: int
+| |TuerOffen|
+
+false: Alle Türen sind am HP geschlossen. true: mindestens eine Türe ist offen.
+
+
+Datentyp: boolean
+| |HaltepunktDurch|
+
+false: Fahrzeug hat am Haltepunkt gehalten. true: der Haltepunkt wurde durchfahren.
+
+
+Datentyp: boolean
+| |Haltezeit|
+
+Haltezeit am Haltepunkt in Sekunden.
+
+
+Datentyp: <<INT4,INT4>>
+| |HaltestelleBedarf|
+
+Gibt an, ob die Haltestelle eine reguläre oder eine Bedarfshaltestelle ist. false= reguläre Haltestelle, true = Bedarfshaltestelle
+
+
+Datentyp: boolean
+| |TachoStand|
+Tachostand in Metern.
+
+Datentyp: <<INT4,INT4>>
+| |Koordinate|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<KoordWgs84_Type,KoordWgs84>>
+| |ZaehldatenListe|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Zaehldatenliste_Type,Zaehldatenliste>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Geldbehaelter_Type]]
+==== Geldbehaelter_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Stueck|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Stuecke_Type,Stuecke>>
+| |Wert|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|=======================
+
+
+Verwendet in:
+
+* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+
+[[Geldbehaelterliste_Type]]
+==== Geldbehaelterliste_Type
+
+notiert die Geldwerte oder sonstige Werte (Gutscheine, Stornierungsbelege, ...) bezogen auf einen Vorgangszeitpunkt
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Vorgang|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<GeldBehaeltervorgang_Type,GeldBehaeltervorgang>>
+| |Geldbehaelter|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Geldbehaelter_Type,Geldbehaelter>>
+| |Wertbehaelter|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Wertbehaelter_Type,Wertbehaelter>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Geraet_Type]]
+==== Geraet_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Name|
+
+Der Name ist ein beliebiger, sprechender Name des Gerätes. (z.B. Busdrucker-1234).
+
+
+Datentyp: string
+| |Id|
+
+Eindeutige Kennung eines Bestandteils der Gerätehardware (z.B. die MAC der Netzwerkhardware.) Welche Kennung das ist, muss von der Gerätesoftware entschieden werden. Das Element ist optional.
+
+
+Datentyp: string
+|=======================
+
+
+Verwendet in:
+
+* <<Schichtbeginn_Type,Schichtbeginn>>
+
+[[Gutscheinbezahlung_Type]]
+==== Gutscheinbezahlung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |GutschId|
+Eindeutige Kennung des Gutscheintyps
+
+Datentyp: <<Tarifprodukt_Type,Tarifprodukt>>
+| |Nr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[KAReferenz_Type]]
+==== KAReferenz_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |SamNummer|
+
+SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im gesamten Geltungsbereich der Kernapplikation eindeutige SAM-Kartennummer
+
+
+Datentyp: <<INT3,INT3>>
+|★ |SamSequenznummer|
+
+samSequenznummer 32 Bit (Beispiel 0x789ABCDE), eindeutige, fortlaufende Nummer die von einer SAM-Karte generiert wird.
+
+
+Datentyp: <<INT4,INT4>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Kontrolldaten_Type,Kontrolldaten>>
+* <<Transaktion_Type,Transaktion>>
+* <<Transaktionsdaten_Type,Transaktionsdaten>>
+* <<Zahlung_Type,Zahlung>>
+
+[[KKOfflineBezahlung_Type]]
+==== KKOfflineBezahlung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Kartenherausgeber|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<BezahlArt_Type,BezahlArt>>
+|★ |KartenNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Pruefkennung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |GueltigBis|
+[red]#_todo: Doku_#
+
+
+Datentyp: gYearMonth
+|★ |Unterschrift|
+[red]#_todo: Doku_#
+
+
+Datentyp: boolean
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Kasse_Type]]
+==== Kasse_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Betrag|
+
+Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.)
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|★ |Zahlart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<BezahlArt_Type,BezahlArt>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Kassenliste_Type,Kassenliste>>
+
+[[Kassenliste_Type]]
+==== Kassenliste_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Kasse|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Kasse_Type,Kasse>>
+|=======================
+
+
+Verwendet in:
+
+* <<Dienstende_Type,Dienstende>>
+* <<Schichtsummen_Type,Schichtsummen>>
+
+[[Komponente_Type]]
+==== Komponente_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Name|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Version|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Variante|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |SerienNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |PhysPosition|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |ErstellZeitPunkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: dateTime
+| |Hersteller|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Komponente|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Komponente_Type,Komponente>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Komponente_Type,Komponente>>
+* <<Komponentenliste_Type,Komponentenliste>>
+
+[[Komponentenliste_Type]]
+==== Komponentenliste_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Vorgang|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<KomponentenVorgang_Type,KomponentenVorgang>>
+| |Komponente|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Komponente_Type,Komponente>>
+|=======================
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Kontrolldaten_Type]]
+==== Kontrolldaten_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Typ|
+Kontrollmeldungen beliebiger Art z. B. Chipkartenkontrolle für KA-Berechtigung, DB-Online-Ticket, BOB-Ticket, DF-Fahrschein, ...
+
+Datentyp: string
+|★ |Kontrolldaten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Any_Type,Any>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[KundenTyp_Type]]
+==== KundenTyp_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in:
+
+* <<Mitnahme_Type,Mitnahme>>
+
+[[Kundendaten_Type]]
+==== Kundendaten_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Fahrgast|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Person_Type,Person>>
+| |Erzieher|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Person_Type,Person>>
+| |Bemerkung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<EBEErfassung_Type,EBEErfassung>>
+
+[[Lastschrift_Type]]
+==== Lastschrift_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |BLZ-BIC|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |Konto-IBAN|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |KartenfolgeNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+|★ |Kartenart|
+1=ec-Karte Magnetstreifen
+
+Datentyp: int
+|★ |GueltigBis|
+Gültigendejahr der Karte
+
+Datentyp: gYearMonth
+|★ |Unterschrift|
+[red]#_todo: Doku_#
+
+
+Datentyp: boolean
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Meldung_Type]]
+==== Meldung_Type
+
+
+Dieser Datensatz dient der Aufnahme von Textmeldungen beliebiger Art.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Nr|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+|★ |MeldModTyp|
+Typ des meldunggenerierenden Moduls
+
+Datentyp: string
+| |Komponente|
+Komponentenbezeichnung
+
+Datentyp: string
+| |PhysPosition|
+Eine unterscheidende, physikalische Position, wenn mehrere gleiche Komponenten Meldungen emmitieren.
+
+Datentyp: int
+|★ |Text|
+
+Meldungstext, Entwicklertext. Dieser Text wird in der Regel vor der Anzeige ersetzt.
+
+
+Datentyp: string
+| |Attribut|
+
+Kommagetrennte Attribute die für eine Meldungstextgenerierung benötigt werden:
+
+Format('User "%s" was sleeping between %s and %s',[Attribute])
+
+So dass auch bei sprachvarianten Anzeigen dynamische Inhalte ausgegeben werden können.
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Mitnahme_Type]]
+==== Mitnahme_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Fahrgasttyp|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<KundenTyp_Type,KundenTyp>>
+|★ |Anzahl|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<ProdFahrschein_Type,ProdFahrschein>>
+
+[[OrtsTyp_Type]]
+==== OrtsTyp_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in:
+
+* <<Standort_Type,Standort>>
+* <<Vertriebsstelle_Type,Vertriebsstelle>>
+
+[[Ortspunkt_Type]]
+==== Ortspunkt_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |ID_Ortspunkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |ReferenzExtern|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+
+
+Verwendet in:
+
+* <<Transaktionsort_Type,Transaktionsort>>
+
+[[Person_Type]]
+==== Person_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Vorname|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Nachname|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Namenszuatz|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |StrasseHausNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Postleitzahl|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Laenderkennzeichen|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Wohnort|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Staat|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Geschlecht|
+[red]#_todo: Doku_#
+
+
+Datentyp: 
+| |TelefonNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Geburtsdatum|
+[red]#_todo: Doku_#
+
+
+Datentyp: dateTime
+| |Staatsangehoerigkeit|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Legitimtation|
+
+Beschreibung der legitimation, Ausweis, EC-Karte, etc.
+
+
+Datentyp: string
+| |LegitimationNr|
+Ausweisnummer
+
+Datentyp: string
+| |LegitimationsDatum|
+
+Ausstellungsdateum der Legitimation
+
+
+Datentyp: dateTime
+| |LegimitationsLand|
+
+Ausstellungsland der Legitimation
+
+
+Datentyp: string
+| |LegitimationBild|
+
+Auf der Legitimation war ein Lichtbild, das Lichtbild wurde dem EBE-Fall zugeordnet
+
+
+Datentyp: boolean
+| |Bemerkung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+
+
+Verwendet in:
+
+* <<Kundendaten_Type,Kundendaten>>
+
+[[Polizei_Type]]
+==== Polizei_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Dienstnummer|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Vorname|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Nachname|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Dienststelle|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<EBEMerkmale_Type,EBEMerkmale>>
+
+[[Preis_Type]]
+==== Preis_Type
+
+
+Wenn keine Preisspalte angegeben ist, wird von der Standardspalte "1" ausgegangen. Ansonsten muss die Nummer der zugehörigen Preisspalte der Datenversorgung angegeben. Die Kennung kann optional die Kennung der Preisspalte enthalten.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Betrag|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+| |ID_Mwst|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+|★ |MwstSatz|
+
+Wert zwischen 0 und 100
+
+
+Datentyp: <<FLOAT1,FLOAT1>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Produkt_Type,Produkt>>
+
+[[ProdFahrschein_Type]]
+==== ProdFahrschein_Type
+
+
+Via = Eine Liste von Tarifpunkten
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |ZeitVon|
+[red]#_todo: Doku_#
+
+
+Datentyp: dateTime
+| |ZeitBis|
+[red]#_todo: Doku_#
+
+
+Datentyp: dateTime
+| |Von|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |Nach|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |Via|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |ID_Relation|
+
+Bezug auf die ID_Relation der Versorgungsdaten - die Datenversion ist identisch mit der in dem Tarifprodukt hinterlegten Datenversion
+
+
+Datentyp: <<INT4,INT4>>
+| |Komfortklasse|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Rabattklasse|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Mitnahme|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Mitnahme_Type,Mitnahme>>
+| |Teilrelation|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Teilrelation_Type,Teilrelation>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Produkt_Type,Produkt>>
+
+[[Produkt_Type]]
+==== Produkt_Type
+
+
+Bei der Anwendung von Teilrelationen zur Aufteilung von Fremd- und Eigenleistungen wird wie folgt vorgegangen: Das verkaufte Produkt wird als Hauptprodukt mit der Id und ExtId 'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen gemeinsamen Beleg, un N Teilprodukte.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Anzahl|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+|★ |Tarifprodukt|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifprodukt_Type,Tarifprodukt>>
+| |Preis|
+
+Preisinformation zum Produkt, kannauch leer sein
+
+
+Datentyp: <<Preis_Type,Preis>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+| |Fahrschein|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<ProdFahrschein_Type,ProdFahrschein>>
+| |Teilprodukt|
+
+Unterprodukte, die mitverkauftwurden (Teilstrecken,City-Cards,...)
+
+
+Datentyp: <<Produkt_Type,Produkt>>
+| |AnzahlTeile|
+
+Hier werden bei Mehrfahrtenkarten die Anzahl der einzelnen Abschnitte bzw. Anteile notiert. Wenn nicht angegeben ist, ist die Anzahl entweder unbekannt oder als Vorgabe 1.
+
+
+Datentyp: int
+| |RestTeile|
+Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die Betrachtung stellt den Zustand VOR der Aktion dar.
+
+
+Datentyp: int
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Produkt_Type,Produkt>>
+* <<Transaktion_Type,Transaktion>>
+
+[[Pruefabschluss_Type]]
+==== Pruefabschluss_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Ausstieg|
+Ausstiegshaltestelle
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Pruefbeginn_Type]]
+==== Pruefbeginn_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Kleidung|
+
+Die vom Prüfer getragene Kleidung
+
+
+Datentyp: <<Pruefkleidung_Type,Pruefkleidung>>
+| |Pruefart|
+Die Art der Prüfung
+
+Datentyp: <<Pruefart_Type,Pruefart>>
+| |Pruefer|
+
+Beteiligte Prüfer (Nummer)
+
+
+Datentyp: string
+| |Linie|
+Liniennummer
+
+Datentyp: int
+| |Verkehrsmittel|
+Verkehrsmittel
+
+Datentyp: <<TransportserviceArt_Type,TransportserviceArt>>
+| |Einstieg|
+Einstiegshaltestelle
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |Richtung|
+Eine Richtungsangabe
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+| |AnzahlFahrgaeste|
+
+Eine Abschätzung der Anzahl der Fahrgäste bei Einstieg
+
+
+Datentyp: int
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Rechnungsstellung_Type]]
+==== Rechnungsstellung_Type
+
+Dieses Element trägt nähere Angaben zum nachfolgenden Rechnungsstellungs- oder verfolgungsprozess.
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |RechnungsRef|
+
+In der Regel eine Rechnungsnummer oder eine generierte Referenz auf eine zu erstellende Rechnung.
+
+
+Datentyp: string
+| |KundenRef|
+
+Eine Referenz auf den Kunden zur Rechnungsstellung, in der Regel eine Kundennummer
+
+
+Datentyp: string
+| |Vorgangszeitpunkt|
+Der zum Verkaufszeitpunkt zugehörige Zeitstempel.
+
+Datentyp: dateTime
+| |VorgangsRef|
+Ein optionaler Bezug auf den dazugehörigen Verkaufsvorgang.
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Restgeldbeleg_Type]]
+==== Restgeldbeleg_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Ausgabevertriebsstelle|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Vertriebsstelle_Type,Vertriebsstelle>>
+| |Kennung|
+Eine eindeutige Kennung zur Identifikation des Restgeldbelegs.
+
+Datentyp: string
+|★ |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+| |Ausstelldatum|
+[red]#_todo: Doku_#
+
+
+Datentyp: dateTime
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Schicht_Type]]
+==== Schicht_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Datensatz|
+
+Jede Schicht enthält 2 bis n Datensätze. Für eine ordentliche Schicht sollten mindestens die Datensätze Schichtbeginn und Schichtabschluss enthalten sein.
+
+
+Datentyp: <<Datensatz_Type,Datensatz>>
+|=======================
+
+
+Verwendet in:
+
+* <<Schichtenliste_Type,Schichtenliste>>
+
+[[Schichtabschluss_Type]]
+==== Schichtabschluss_Type
+
+
+Der Datensatz zum Schichtabschluss. Dieser Datensatz muss paarweise mit Schichtbeginn vorkommen.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Ausloeser|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Ausloeser_Type,Ausloeser>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Schichtbeginn_Type]]
+==== Schichtbeginn_Type
+
+
+Der Datensatz zum Schichtbeginn. Dieser Datensatz muss paarweise mit Schichtabschluss vorkommen.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |SchichtNr|
+
+Diese Schichtnummer enstpricht der den Anwendern bekannte Schichtnummer. In der Regel wird nach dieser Nummer ausgewertet und die Nummer wird auf Belege aufgedruckt. Die Schichtnummer ist mindestens für jede Schicht-UUID eindeutig. Die Schichtnummer sollte inkrementierend aufsteigen und nie '0' sein.
+
+Achtung: Schichtnummer vs. Dienstnummer: Innerhalb einer Schicht können mehrere Dienste auch gleichzeitig ablaufen. Kein Dienst überlappt zeitlich eine Schichtgrenze. Dienste sind in der Regel Personen-(Konten) oder Geräte-(Konten) zugeordnet. Schichten sind nur ein Behälter für Dienste.
+
+
+Datentyp: int
+|★ |Geraet|
+
+Dieser Datensatz kennzeichnet das technische Gerät, das die Datensätze dieser Schicht erzeugt.
+
+
+Datentyp: <<Geraet_Type,Geraet>>
+|★ |Betriebsart|
+
+Dieses Feld unterscheidet die Datensätze dieser Schicht in Echt- und sonstigen Betrieb.
+
+
+Datentyp: <<Betriebsart_Type,Betriebsart>>
+| |Standort|
+
+Dieses Feld bezeichnet den Standort zum Schichtbeginn.
+
+
+Datentyp: <<Standort_Type,Standort>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Schichtsummen_Type]]
+==== Schichtsummen_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Kassenliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Kassenliste_Type,Kassenliste>>
+| |BelegKassenliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Belegkassenliste_Type,Belegkassenliste>>
+|=======================
+[[Standort_Type]]
+==== Standort_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Typ|
+
+Mit dem Typ wird die Ausprägung des jeweilgen Standorts unterschieden. Die Standorte eines Typs und eines Mandanten sind fortlaufend durchnumeriert.
+
+
+Datentyp: <<OrtsTyp_Type,OrtsTyp>>
+| |Name|
+
+Der Name ist ein beliebiger, sprechender Name des Standorts.
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Schichtbeginn_Type,Schichtbeginn>>
+
+[[Stuecke_Type]]
+==== Stuecke_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Anzahl|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+|★ |StueckWert|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Geldbehaelter_Type,Geldbehaelter>>
+
+[[Tarifprodukt_Type]]
+==== Tarifprodukt_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |ID_Tarifgebiet|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |ID_Sorte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |ReferenzExternSorte|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |ID_Preisstufe|
+
+Die Preisstufe ist nur zusammen mit dem Tarifgebiet gültig.
+
+
+Datentyp: <<INT4,INT4>>
+| |ReferenzExternPreisstufe|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |ID_Preis|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |ReferenzExternPreis|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |ID_Preisspalte|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Belegkasse_Type,Belegkasse>>
+* <<Gutscheinbezahlung_Type,Gutscheinbezahlung>>
+* <<Produkt_Type,Produkt>>
+
+[[Tarifpunkt_Type]]
+==== Tarifpunkt_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |ID_Tarifpunkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+|★ |ID_Tarifgebiet|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |ReferenzExtern|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Teilrelation_Type,Teilrelation>>
+* <<Transaktionsort_Type,Transaktionsort>>
+
+[[Teilrelation_Type]]
+==== Teilrelation_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |SortOrder|
+
+Die Sortierungsreihenfolge wird benötigt, um die Richtung der Durchfahrt zu erhalten.
+
+
+Datentyp: int
+|★ |ID_Preisstufe|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |ReferenzExternPreisstufe|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |ID_Tarifgebiet|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |Start|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifpunkt_Type,Tarifpunkt>>
+| |Ziel|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifpunkt_Type,Tarifpunkt>>
+| |ReferenzExternRelation|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |ID_Preisquelle|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<ProdFahrschein_Type,ProdFahrschein>>
+
+[[Transaktion_Type]]
+==== Transaktion_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Produkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Produkt_Type,Produkt>>
+| |KundenNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |BezugsNr|
+
+Die BezugsNr enthält bei EBE-Vorgängen die EBE-Kontonummer, bei Gutschein-Vorgängen die Gutscheinnummer, bei Bezahlung bzw. Einlösung von Anteilen vorausbezahlter Anteile auf Karten die Kartennummer.
+
+
+Datentyp: string
+| |Vorgangszeitpunkt|
+
+Vorgangsnummer und Vorgangszeitpunkt identifizieren einzeln oder gemeinsam einen Vorgang. Im Speziellen werden diese beiden Werte bei der Erstattung eines Gutscheins genutzt, dann entspricht der Vorgangszeitpunkt dem Zeitpunkt der Ausgabe des eingelösten Gutscheins.
+
+
+Datentyp: dateTime
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Transaktionsliste_Type,Transaktionsliste>>
+
+[[Transaktionsdaten_Type]]
+==== Transaktionsdaten_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Transaktionsart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsart_Type,Transaktionsart>>
+|★ |Transaktionsdaten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Any_Type,Any>>
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[Transaktionsliste_Type]]
+==== Transaktionsliste_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Transaktion|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktion_Type,Transaktion>>
+|=======================
+
+
+Verwendet in:
+
+* <<Warenkorb_Type,Warenkorb>>
+
+[[Transaktionsort_Type]]
+==== Transaktionsort_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Ortspunkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Ortspunkt_Type,Ortspunkt>>
+| |Tarifpunkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Tarifpunkt_Type,Tarifpunkt>>
+| |ID_Relcode|
+Dieser Inhalt referenziert den Relationscode des Tarifs
+
+Datentyp: int
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+
+
+Verwendet in:
+
+* <<EBEMerkmale_Type,EBEMerkmale>>
+* <<ProdFahrschein_Type,ProdFahrschein>>
+* <<Pruefabschluss_Type,Pruefabschluss>>
+* <<Pruefbeginn_Type,Pruefbeginn>>
+* <<Warenkorb_Type,Warenkorb>>
+
+[[TransportserviceArt_Type]]
+==== TransportserviceArt_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in:
+
+* <<Pruefbeginn_Type,Pruefbeginn>>
+
+[[Ueberweisung_Type]]
+==== Ueberweisung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |BLZ-BIC|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |Konto-IBAN|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Verfolgung_Type]]
+==== Verfolgung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Typ|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<VerfolgungsTyp_Type,VerfolgungsTyp>>
+| |Bemerkung|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<EBEErfassung_Type,EBEErfassung>>
+
+[[VersionStruktur_Type]]
+==== VersionStruktur_Type
+
+
+Hier müssen Hinweise zur Version des Schemas angegeben werden.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |VersionMajor|
+
+Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.
+
+
+Datentyp: int
+|★ |VersionMinor|
+
+Diese Versionsnummer zählt kompatible Anpassungen.
+
+
+Datentyp: int
+|★ |VersionPatch|
+Diese Versionsnummer zählt abwärtskompatible Bugfixes.
+
+
+Datentyp: int
+|★ |Aenderungsdatum|
+[red]#_todo: Doku_#
+
+
+Datentyp: date
+|★ |Aenderungsautor|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Schichtenliste_Type,Schichtenliste>>
+
+[[Vertriebsstelle_Type]]
+==== Vertriebsstelle_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Typ|
+
+Der Typ qualifiziert die beiden Elemente 'Mandant' und 'Nr'.
+
+
+Datentyp: <<OrtsTyp_Type,OrtsTyp>>
+|★ |Mandant|
+
+Der Mandant qualifiziert eindeutig die Zugehörigkeit der 'Nr'.
+
+
+Datentyp: int
+|★ |Nr|
+
+Hier wird, je nach Typ der Vertriebsstelle, die Personalnummer, die Vertriebsstellennummer, die Gerätenummer etc. hinterlegt. Die Nummer ist nur in Beziehung zu Mandant und dem Typ eindeutig.
+
+
+Datentyp: int
+| |DynAttribut|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Dienstbeginn_Type,Dienstbeginn>>
+* <<Dienstende_Type,Dienstende>>
+* <<Restgeldbeleg_Type,Restgeldbeleg>>
+
+[[Warenkorb_Type]]
+==== Warenkorb_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |ReferenzExtern|
+Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.
+
+Datentyp: string
+|★ |Transaktionsort|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsort_Type,Transaktionsort>>
+|★ |Transaktionliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Transaktionsliste_Type,Transaktionsliste>>
+| |Zahlungsliste|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Zahlungsliste_Type,Zahlungsliste>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Datensatz_Type,Datensatz>>
+
+[[WebShopBezahlung_Type]]
+==== WebShopBezahlung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |TerminalId|
+Eindeutige Terminal-ID bei Verwendung eines gesonderten Kartenzahlungsterminals.
+
+Datentyp: string
+|★ |TransaktionsNr|
+Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der durchgeführten Zahlungstransaktion.
+
+Datentyp: string
+|★ |Zeitpunkt|
+Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister registriert wurde.
+
+Datentyp: dateTime
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Wertbehaelter_Type]]
+==== Wertbehaelter_Type
+
+
+Hiermit werden Wertbehälter erfasst, z.B. Safebags. Die Nummer enstpricht der Nummer des Wertbehälters, die Wertanzahl der Anzahl der werthaltigen Anteile, z.B. die Anzahl der Belege.
+
+Es werden 2 Behälter unterschieden: 1. Behälter mit Bargeld -> dann muss der Betrag ausgefüllt sein (früher Wert), 2. Behälter mit werthaltigen Belegen -> dann muss die Wertanzahl ausgefüllt sein. 3. Eine Mischform ist auch möglich.
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |WertAnzahl|
+[red]#_todo: Doku_#
+
+
+Datentyp: int
+| |Betrag|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|=======================
+
+
+Verwendet in:
+
+* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+
+[[ZVTBezahlung_Type]]
+==== ZVTBezahlung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Kartenherausgeber|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<BezahlArt_Type,BezahlArt>>
+|★ |TerminalId|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+|★ |TransaktionsNr|
+[red]#_todo: Doku_#
+
+
+Datentyp: string
+| |Zeitpunkt|
+[red]#_todo: Doku_#
+
+
+Datentyp: dateTime
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlung_Type,Zahlung>>
+
+[[Zaehldaten_Type]]
+==== Zaehldaten_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Einsteiger|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |Aussteiger|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+| |Fehler|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<INT4,INT4>>
+|=======================
+
+
+Verwendet in:
+
+* <<Zaehldatenliste_Type,Zaehldatenliste>>
+
+[[Zaehldatenliste_Type]]
+==== Zaehldatenliste_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Zaehldaten|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Zaehldaten_Type,Zaehldaten>>
+|=======================
+
+
+Verwendet in:
+
+* <<Fahrtverlauf_Type,Fahrtverlauf>>
+
+[[Zahlung_Type]]
+==== Zahlung_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|★ |Betrag|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Betrag_Type,Betrag>>
+|★ |Zahlart|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<BezahlArt_Type,BezahlArt>>
+| |Beleg|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Beleg_Type,Beleg>>
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in:
+
+* <<Zahlungsliste_Type,Zahlungsliste>>
+
+[[Zahlungsliste_Type]]
+==== Zahlungsliste_Type
+
+IMPORTANT: [red]#_todo: Doku_#
+
+[options="header" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+| |Zahlung|
+[red]#_todo: Doku_#
+
+
+Datentyp: <<Zahlung_Type,Zahlung>>
+|=======================
+
+
+Verwendet in:
+
+* <<Warenkorb_Type,Warenkorb>>
+
+=== technische Enumerationen 
+
+
+[[AusgabeabschnittTypHUSST_Type]]
+
+==== AusgabeabschnittTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+[[AusloeserHUSST_Type]]
+
+==== Ausloeser
+IMPORTANT: [red]#_todo: Doku_#
+
+[[BelegTypHUSST_Type]]
+
+==== BelegTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+[[BelegkasseTypHUSST_Type]]
+
+==== BelegkasseTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+[[BetriebsartHUSST_Type]]
+
+==== Betriebsart
+IMPORTANT: [red]#_todo: Doku_#
+
+[[BezahlArtKa_Type]]
+
+==== BezahlArtKa
+
+Die BezahlArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: PaymentMeansCode
+
+[[GeldBehaeltervorgangHUSST_Type]]
+
+==== GeldBehaeltervorgang
+IMPORTANT: [red]#_todo: Doku_#
+
+[[GeldbehaelterTypHUSST_Type]]
+
+==== GeldbehaelterTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+[[KasseTypHUSST_Type]]
+
+==== KasseTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+[[KomponentenKlasseHUSST_Type]]
+
+==== KomponentenKlasse
+IMPORTANT: [red]#_todo: Doku_#
+
+[[KomponentenVorgangHUSST_Type]]
+
+==== KomponentenVorgang
+IMPORTANT: [red]#_todo: Doku_#
+
+[[KundenTypKa_Type]]
+
+==== KundenTypKa
+
+Der Kundentyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: ProfileCodeIOP
+
+[[MeldungsklasseHUSST_Type]]
+
+==== Meldungsklasse
+IMPORTANT: [red]#_todo: Doku_#
+
+[[OrtsTypKa_Type]]
+
+==== OrtsTypKa
+
+Der OrtsTyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: LocationTypeCode
+
+[[PreisverrechnungHUSST_Type]]
+
+==== Preisverrechnung
+IMPORTANT: [red]#_todo: Doku_#
+
+[[PruefartHUSST_Type]]
+
+==== Pruefart
+IMPORTANT: [red]#_todo: Doku_#
+
+[[PruefkleidungHUSST_Type]]
+
+==== Pruefkleidung
+IMPORTANT: [red]#_todo: Doku_#
+
+[[TransaktionTypHUSST_Type]]
+
+==== TransaktionTyp
+Sonderfälle: • Gutscheine werden verkauft • Gutscheine werden erstattet
+
+• EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt.
+
+• Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach Anwendung die Kundennummer beim Verkauf notiert werden. • Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
+
+• Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden. • Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden.
+
+[[TransaktionsartHUSST_Type]]
+
+==== Transaktionsart
+IMPORTANT: [red]#_todo: Doku_#
+
+[[TransportserviceArtKa_Type]]
+
+==== TransportserviceArtKa
+
+Die TransportserviceArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: TransportTypeCode
+
+[[VerfolgungsTypHUSST_Type]]
+
+==== VerfolgungsTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+[[VorgangsTypHUSST_Type]]
+
+==== VorgangsTyp
+IMPORTANT: [red]#_todo: Doku_#
+
+
+=== technische Datentypen 
+
+
+[[Betriebszeit_Type]]
+
+==== Betriebszeit
+
+Betriebszeiten dürfen über 24:00 Uhr hinausgehen
+
+[[Char]]
+
+==== Char
+IMPORTANT: [red]#_todo: Doku_#
+
+[[Codierung_Type]]
+
+==== Codierung
+
+Die Codierung entspricht der DB-Codierung
+
+
+Verwendet in:
+
+* <<EBEMerkmale_Type,EBEMerkmale>>
+
+
+[[DateCompact]]
+
+==== DateCompact
+IMPORTANT: [red]#_todo: Doku_#
+
+[[DateTimeCompact]]
+
+==== DateTimeCompact
+IMPORTANT: [red]#_todo: Doku_#
+
+[[FLOAT1]]
+
+==== FLOAT1
+
+englische Notation beachten, z. B. 19 Euro = 19.00 Euro
+
+
+Verwendet in:
+
+* <<Preis_Type,Preis>>
+
+
+[[INT1]]
+
+==== INT1
+IMPORTANT: [red]#_todo: Doku_#
+
+[[INT2]]
+
+==== INT2
+IMPORTANT: [red]#_todo: Doku_#
+
+[[INT3]]
+
+==== INT3
+IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in:
+
+* <<KAReferenz_Type,KAReferenz>>
+
+
+[[INT4]]
+
+==== INT4
+IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in:
+
+* <<Fahrtverlauf_Type,Fahrtverlauf>>
+* <<KAReferenz_Type,KAReferenz>>
+* <<Preis_Type,Preis>>
+* <<ProdFahrschein_Type,ProdFahrschein>>
+* <<Tarifprodukt_Type,Tarifprodukt>>
+* <<Teilrelation_Type,Teilrelation>>
+* <<Zaehldaten_Type,Zaehldaten>>
+
+
+[[INT8]]
+
+==== INT8
+IMPORTANT: [red]#_todo: Doku_#
+
+[[KoordWgs84_Type]]
+
+==== KoordWgs84
+IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in:
+
+* <<Fahrtverlauf_Type,Fahrtverlauf>>
+
+
+[[ProjektspezifischAnstattKa_Type]]
+
+==== ProjektspezifischAnstattKa
+
+Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann. Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
+
+[[Projektspezifisch_Type]]
+
+==== Projektspezifisch
+Erlaubt alle Werte, die nicht mit "husst." beginnen.
+[[Waehrung_Type]]
+
+==== Waehrung
+Währungscode nach ISO 4217.
+
+Verwendet in:
+
+* <<Betrag_Type,Betrag>>
+
+
+[[blobString]]
+
+==== blobString
+IMPORTANT: [red]#_todo: Doku_#
+
+
+=== Ergebnis Definitionsstand
+
+
+HUSST Ergebnisdaten Version: 3.7.0
+
+Mehr Informationen:
+
+* https://husst.de/
+
+* https://github.com/HUSST-de/HUSST
+
+Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)

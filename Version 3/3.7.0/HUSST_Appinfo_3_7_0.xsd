@@ -108,6 +108,11 @@
           <xs:documentation>Husst Datenschema Angebot.</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="Vertrieb">
+        <xs:annotation>
+          <xs:documentation>Husst Datenschema Vertrieb.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
 
@@ -119,4 +124,72 @@
       <xs:documentation>Feld für Hinweise. Z.B. für zukünftige Versionen.</xs:documentation>
     </xs:annotation>
   </xs:element>
+
+    <xs:element name="reference" type="xs:string">
+    	<xs:annotation>
+    		<xs:documentation>Verweis auf eine externe Referenz zu dem Strukturelement.
+Das Format für die Referenz kann frei gewählt werden.
+Beispiel:
+VDV-KA:  Kundengruppen des OePV.
+aus XML-Schema_KVP_DL_PV.xsd (BOM 6-38)</xs:documentation>
+	    	<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+	    	</xs:appinfo>
+    	</xs:annotation>
+   	</xs:element>
+
+    <xs:element name="designstatus" type="api:designstatus_Type">
+        <xs:annotation>
+        	<xs:documentation>Definiert den Status eines Strukturelements, solange es noch nicht Teil des Standards ist.
+			</xs:documentation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:attribute name="assignee" type="xs:string">
+        <xs:annotation>
+        	<xs:documentation>Ansprechpartner für das Design / die Dokumentation eines Strukturelements, solange es sich noch in einem
+        	Designstatus befindet. 
+			</xs:documentation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
+        </xs:annotation>
+    </xs:attribute>
+
+	<xs:complexType name="designstatus_Type">
+        <xs:simpleContent>
+	        <xs:extension base="api:designstatus_ENUM">
+                <xs:attribute ref="api:assignee" use="optional"/>
+	        </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+	<xs:simpleType name="designstatus_ENUM">
+		<xs:annotation>
+			<xs:documentation>
+				Enumeration der möglichen designstatus Werte.
+			</xs:documentation>
+		</xs:annotation>
+        <xs:restriction base="xs:string">
+    		<xs:enumeration value="draft">
+    			<xs:annotation>
+    				<xs:documentation>
+    				  Vorschlag
+    				  Das Strukturelement ist ein Vorschlag und noch kein Teil der Standarddefinition.
+    				</xs:documentation>
+    			</xs:annotation>
+    		</xs:enumeration>
+    		<xs:enumeration value="undocumented">
+    			<xs:annotation>
+    				<xs:documentation>
+    				  undokumentiert
+    				  Das Strukturelement ist zwar Teil der Standarddefinition, aber muss noch dokumentiert werden.
+    				</xs:documentation>
+    			</xs:annotation>
+    		</xs:enumeration>
+    	</xs:restriction>
+	</xs:simpleType>
 </xs:schema>

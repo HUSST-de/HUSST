@@ -5,8 +5,8 @@
            targetNamespace="http://husst.de/Versorgungsdaten/3_7_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
-  <xs:annotation>
-    <xs:documentation>
+   <xs:annotation>
+     <xs:documentation>
       HUSST Versorgungsdaten - Schema: Basis
       Version: 3.7.0
 
@@ -16,6 +16,9 @@
 
       Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
     </xs:documentation>
+    <xs:appinfo>
+    	<api:schema name="Basis" />
+    </xs:appinfo>
   </xs:annotation>
   
   <xs:simpleType name="DateTimeCompact">
@@ -24,20 +27,23 @@
       <xs:maxInclusive value="2117-12-31T23:59:58Z"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="DateCompact">
-    <xs:restriction base="xs:date">
+	<xs:restriction base="xs:date">
       <xs:minInclusive value="1990-01-01"/>
       <xs:maxInclusive value="2117-12-31"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="DauerMinuten">
     <xs:annotation>
       <xs:documentation>
         Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
         In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten empfohlen.
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:duration"/>
   </xs:simpleType>
@@ -48,6 +54,9 @@
         Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
         In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten nach 0 Uhr empfohlen.
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:time"/>
   </xs:simpleType>
@@ -93,6 +102,11 @@
   </xs:simpleType>
   
   <xs:simpleType name="KoordWgs84_Type">
+ 	<xs:annotation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
+ 	</xs:annotation>
     <xs:restriction base="xs:float"/>
   </xs:simpleType>
   
@@ -116,6 +130,11 @@
   </xs:simpleType>
   
   <xs:simpleType name="VersionStatus_Type">
+  	<xs:annotation>
+  		<xs:appinfo>
+  			<api:schema name="Basis"/>
+  		</xs:appinfo>
+  	</xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Release"/>
       <xs:enumeration value="work in progress"/>
@@ -537,12 +556,29 @@
         Frei definierbare IDs für Def-Elemente beginnen mit 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:minInclusive value="1000"/>
     </xs:restriction>
   </xs:simpleType>
   
+  <xs:simpleType name="ID_ProjektspezifischBitfeld_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnen mit 1024
+      </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:minInclusive value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+ 
   <xs:simpleType name="ID_WaehrungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -550,6 +586,9 @@
         Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
         Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <!-- ISO 4217 Standard definiert eigentlich 978 für den EUR, 
@@ -1643,6 +1682,9 @@
         Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_WaehrungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
@@ -1652,6 +1694,9 @@
       <xs:documentation>
         Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="husst.Relationen.Matrixtyp">
@@ -1707,6 +1752,9 @@
         .. dürfen mehrere Wörter mit '.' oder '-' trennen,
         .. dürfen nicht mit einem Punkt enden.
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:pattern value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*"/>
@@ -1720,6 +1768,9 @@
   <xs:simpleType name="Interpretationsschluessel_Type">
     <xs:annotation>
       <xs:documentation>Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:InterpretationsschluesselHUSST_Type husstDV:InterpretationsschluesselProjektspezifisch_Type"/>
   </xs:simpleType>
@@ -1951,6 +2002,9 @@
         verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
          - siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
   
     <xs:restriction base="husstDV:INT4">
@@ -2064,6 +2118,9 @@
         Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
+      <xs:appinfo>
+		<api:schema name="Basis"/>
+      </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_BundeslandHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
