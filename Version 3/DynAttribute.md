@@ -35,7 +35,7 @@ Um Dopplungen zu vermeiden, sind im Folgenden die DynAttribute aufgelistet, die 
 | Name                       | Kommentar                         | Typ    | spezifische Werte |
 | -------------------------- | --------------------------------- | ------ | ----------------- |
 | husst.Preisstufe.Drucktext | Ein Drucktext für die Preisstufe. | string |                   |
-| *(NEU)* husst.Preisstufe.Typ.Tarifentfernung | **Wert der von Krauth kommt - Nochmal prüfen ob wir das brauchen** | string |  |
+| *(NEU)* husst.Preisstufe.Typ.Tarifentfernung | Flag, welches kennzeichnet, ob die Preisstufen im Tarifgebiet (tarif)entfernungsbezogen sind ("Kilometertarif") **Wert der von Krauth kommt - Nochmal prüfen ob wir das brauchen** | string |  |
 ## Teilrelationen
 | Name                                 | Kommentar                               | Typ    | spezifische Werte |
 | ------------------------------------ | --------------------------------------- | ------ | ----------------- |
