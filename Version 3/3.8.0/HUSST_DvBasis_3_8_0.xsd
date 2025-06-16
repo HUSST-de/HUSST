@@ -1,0 +1,2556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:husstDV="http://husst.de/Versorgungsdaten/3_8_0"
+           xmlns:api="http://www.husst.de/Appinfo/3_8_0"
+           targetNamespace="http://husst.de/Versorgungsdaten/3_8_0"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:annotation>
+    <xs:documentation>
+      HUSST Versorgungsdaten - Schema: Basis
+      Version: 3.8.0
+
+      Mehr Informationen:
+      - https://husst.de/
+      - https://github.com/HUSST-de/HUSST
+
+      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+    </xs:documentation>
+  </xs:annotation>
+  
+  <xs:simpleType name="DateTimeCompact">
+    <xs:restriction base="xs:dateTime">
+      <xs:minInclusive value="1990-01-01T00:00:00Z"/>
+      <xs:maxInclusive value="2117-12-31T23:59:58Z"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="DateCompact">
+    <xs:restriction base="xs:date">
+      <xs:minInclusive value="1990-01-01"/>
+      <xs:maxInclusive value="2117-12-31"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="DauerMinuten">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+        In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten empfohlen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:duration"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="UhrzeitMinuten">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+        In der Datenbankabbildung wird ein Integer für eine Anzahl an Minuten nach 0 Uhr empfohlen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:time"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="INT1">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="255"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="INT2">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="65535"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="INT4">
+  	<xs:restriction base="xs:unsignedInt">
+  		<xs:minInclusive value="0"/>
+  		<xs:maxInclusive value="4294967295"/>
+  	</xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="INT8">
+    <xs:restriction base="xs:unsignedLong">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="18446744073709551615"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="FLOAT1">
+    <xs:annotation>
+      <xs:documentation>
+        englische Notation beachten, z. B. 19 Euro = 19.00 Euro
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="100"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="KoordWgs84_Type">
+    <xs:restriction base="xs:float"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Char">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="String250">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="250"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="blobString">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[ -þ€–]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="VersionStatus_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Release"/>
+      <xs:enumeration value="work in progress"/>
+      <xs:enumeration value="stabil"/>
+      <xs:enumeration value="in Arbeit"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Lang_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Für diese Datenlieferungen sind nur 2-Zeichen Iso-Codes nach ISO
+        639-1:2002 vorgesehen
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:language">
+      <xs:maxLength value="2"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="Zeitraeume_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Gültigkeitszeitraum
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ZeitraumVon" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ZeitraumBis" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DatenversionZeitraum" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutiger Schlüssel für die Datenmenge, die in dem Zeitraum enthalten ist,
+            bezogen auf die DatenversionInhalt des Elements VersionInhalt.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HauptZeitraumNr" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Alle Zeiträume mit dem gleichen
+            Hauptzeitraum
+            bilden einen gemeinsamen Datenraum, in dem
+            alle Refrenzen ID_xx die
+            gleiche Bedeutung haben und
+            auflösbar sind.
+            Sind zu einem Zeitpunkt
+            mehrere Zeiträume mit unterschiedlichen
+            Hauptzeitraumnummern
+            gültig, hat der mit der höheren
+            Hauptzeitraumnummer Vorrang.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SubZeitraumNr" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Die Subzeitraumnummer ist innerhalb einer
+            Hauptzeitraumnummer ununterbrochen, aufsteigend nummeriert,
+            beginnend mit 1.
+            Bei gleichzeitiger Gültigkeit mehrere Subzeiträume
+            hat die höhere
+            SubZeitraumNr Vorrang vor der kleineren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Zeitraumoptionen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        ordnet einem Zeitraum zusätzliche Optionen zu
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Option"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Option" type="husstDV:String250" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Schlüsselstring der Option</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Wert" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Kalender_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Kalender mit zugeordneten Tagesarten.
+        Ein Betriebstag ist ein Kalendertag, kann aber abweichende Tagesanfang
+        und -ende haben.
+        Tagesanfang und -ende werden nicht explizit im Kalender definiert.
+
+        Benötigt das System für eine Funktionalität eine ID_Tagesart, dann ermittelt
+        es diese aus dem Kalender.
+        Ist für einen konkreten Kalendertag kein Eintrag im Kalender vorhanden,
+        kann das System über
+        geeignete Tagesartmerkmalelemente eine Default Tagesart aufgrund des
+        Wochentages und allgemein berechenbarer
+        Feiertage ermittelt werden.
+
+        Siehe auch Tagesmerkmale_Type, Tagesmerkmalelemente_Type und
+        Tagsartmerkmalelemente_Type.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Betriebstag"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Betriebstag" type="husstDV:DateCompact" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Datum des Betriebstages</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Betriebstagesart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Tagesart des Betriebstages
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Tagesarten_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Eine Tagesart beschreibt den logischen Charakter
+        eines Tages soweit der für das vorliegende System benötigt wird.
+        Einem Kalendertag ist genau eine Tagesart zugeordnet.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Betriebstagesart"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Betriebstagesart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung der Tagesart</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Informationen, welche Bedeutung diese
+            Kennung hat.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Tagesmerkmale_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Ein Tagesmerkmal muss so gestaltet sein, dass an jedem
+        Betriebstag (Kalendertag aber ggf. abweichende Start-/Ende Uhrzeit) aus der
+        Liste der Mermalelemente genau ein Element gültig ist.
+
+        Für eine Tagesart können mehrere Elemente aus einer Liste eines
+        Tagesmerkmales definiert sein.
+
+        Beispiele:
+        Tagesmerkmal:"Wochentag=("Mo","Di","Mi","Do","Fr","Sa","So")
+        Tagesmerkmal:"Ferien"=("Ja","Nein")
+
+        Die Husst Schnittstelle definiert ein Default-Tagesmerkmal mit dem
+        vorgegebenen Bezeichner
+        "husstDefaultermittlung"=("Mo","Di","Mi","Do","Fr","Sa","So","Mo/Feiertag","Di/Feiertag","Mi/Feiertag","Do/Feiertag","Fr/Feiertag","Sa/Feiertag","So/Feiertag")
+        Mit diesem Tagesmerkmal können Tagesarten ausgezeichnet werden, die
+        dann gelten sollen,
+        wenn kein Kalendereintrag gefunden wird. Das Vertriebssystem ermittelt
+        dann aufgrund des Wochentages und der
+        allgemein berechenbaren Feiertage (Einige sind natürlich nicht eindeutig
+        ermittelbar) das husstDefault-Tagesmerkmal
+        und sucht eine Tagesart, für die dieses Merkmal gesetzt ist. Maximal
+        vierzehn Tagesarten können darüber
+        unterschieden werden und keine zwei Tagesarten dürfen eines der Merkmale
+        gemeinsam haben).
+
+        Das Tagesmerkmal "husstDefaultermittlung" muss nicht definiert werden.
+        Wenn eine Datenmenge das Merkmal definiert,
+        darf es nur mit der hier definierten Intension verwendet werden.
+
+        Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter.
+        Eine vorgegebene Behandlung oder
+        Auswertung ist über den HUSST-Standard nicht definiert.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Tagesmerkmal"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tagesmerkmal" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bezeichnungen mit dem Prefix "husst" sind reserviert.
+
+            Die Bezeichnung "husstDefaultermittlung" hat eine definiert Bedeutung
+            (Siehe Tagesmerkmale_Type).
+            Ansonsten kann die Bezeichnung frei vergeben werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="TagesmerkmalElemente_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Jedes Tagesmerkmal definiert eine Liste mit
+        unterschiedlichen Tagesmerkmal Elementen.
+        Siehe auch Tagesmerkmale_Type.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_TagesmerkmalElement"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:uniquekey name="Uix_TagesmerkmalElemente">
+          <api:field name="ID_Tagesmerkmal"/>
+          <api:field name="Bezeichnung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:uniquekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_TagesmerkmalElement" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Tagesmerkmalelements
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Tagesmerkmal" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Kennung des Tagesmerkmals</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="husstDV:String250" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutiger Bezeichner des Tagesartmerkmalelements</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="TagesartMerkmalElemente_Type">
+    <xs:annotation>
+      <xs:documentation>
+        TagesartMerkmalElemente vernknüpfen eine Tagesart
+        mit einer Menge von Tagesmerkmal-Elementen.
+
+        Damit beschreibt die Datenmenge lediglich formal die Intension der
+        Tagesart.
+        Lediglich für die Elemente des Tagesmerkmals "husstDefaultermittlung" ist
+        eine funktionale Bedeutung definiert (siehe Tagesmerkmale_Type).
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_TagesartMerkmalElement"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_TagesartMerkmalElement" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Tagesartmerkmalelements
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Betriebstagesart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung der ID_Betriebstagesart
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_TagesmerkmalElement" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Kennung des Tagesmerkmalelements
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--Relationen -->
+  
+  <xs:complexType name="Interpretationen_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Interpretationen definiert, wie die Daten zu
+        interpretieren sind.
+        Dazu werden Parameter mit einem
+        Schluessel und einem Wert eingetragen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Interpretationsschluessel"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Interpretationsschluessel" type="husstDV:Interpretationsschluessel_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Wert" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--Hilfstabellen -->
+  
+  <xs:simpleType name="ID_Projektspezifisch_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Frei definierbare IDs für Def-Elemente beginnen mit 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <xs:minInclusive value="1000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ID_WaehrungHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert Waehrungs-ID kleiner 1000
+        Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
+        Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="husstDV:INT4">
+      <!-- ISO 4217 Standard definiert eigentlich 978 für den EUR, 
+           aus historischen Gründen verwendet die HUSST aber die 999 
+      -->
+      <xs:enumeration value="999">
+        <xs:annotation>
+          <xs:documentation>EUR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- auch wenn sie keine aktive Währung mehr ist, 
+           wird die D-Mark aus historischen Gründen noch weiter unterstützt.
+        -->
+      <xs:enumeration value="280">
+        <xs:annotation>
+          <xs:documentation>DEM</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- ab hier (mit Ausnahme des EUR und XXX) 
+           ISO 4217 Standard "list-one.xls" - Stand 1. Januar 2024
+           Quelle: https://www.six-group.com/en/products-services/financial-information/data-standards.html
+      -->
+      <!-- UAE Dirham -->
+      <xs:enumeration value="784">
+        <xs:annotation>
+          <xs:documentation>AED</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Afghani -->
+      <xs:enumeration value="971">
+        <xs:annotation>
+          <xs:documentation>AFN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lek -->
+      <xs:enumeration value="008">
+        <xs:annotation>
+          <xs:documentation>ALL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Armenian Dram -->
+      <xs:enumeration value="051">
+        <xs:annotation>
+          <xs:documentation>AMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Netherlands Antillean Guilder -->
+      <xs:enumeration value="532">
+        <xs:annotation>
+          <xs:documentation>ANG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kwanza -->
+      <xs:enumeration value="973">
+        <xs:annotation>
+          <xs:documentation>AOA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Argentine Peso -->
+      <xs:enumeration value="032">
+        <xs:annotation>
+          <xs:documentation>ARS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Australian Dollar -->
+      <xs:enumeration value="036">
+        <xs:annotation>
+          <xs:documentation>AUD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Aruban Florin -->
+      <xs:enumeration value="533">
+        <xs:annotation>
+          <xs:documentation>AWG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Azerbaijan Manat -->
+      <xs:enumeration value="944">
+        <xs:annotation>
+          <xs:documentation>AZN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Convertible Mark -->
+      <xs:enumeration value="977">
+        <xs:annotation>
+          <xs:documentation>BAM</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Barbados Dollar -->
+      <xs:enumeration value="052">
+        <xs:annotation>
+          <xs:documentation>BBD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Taka -->
+      <xs:enumeration value="050">
+        <xs:annotation>
+          <xs:documentation>BDT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bulgarian Lev -->
+      <xs:enumeration value="975">
+        <xs:annotation>
+          <xs:documentation>BGN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bahraini Dinar -->
+      <xs:enumeration value="048">
+        <xs:annotation>
+          <xs:documentation>BHD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Burundi Franc -->
+      <xs:enumeration value="108">
+        <xs:annotation>
+          <xs:documentation>BIF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bermudian Dollar -->
+      <xs:enumeration value="060">
+        <xs:annotation>
+          <xs:documentation>BMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Brunei Dollar -->
+      <xs:enumeration value="096">
+        <xs:annotation>
+          <xs:documentation>BND</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Boliviano -->
+      <xs:enumeration value="068">
+        <xs:annotation>
+          <xs:documentation>BOB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mvdol -->
+      <xs:enumeration value="984">
+        <xs:annotation>
+          <xs:documentation>BOV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Brazilian Real -->
+      <xs:enumeration value="986">
+        <xs:annotation>
+          <xs:documentation>BRL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bahamian Dollar -->
+      <xs:enumeration value="044">
+        <xs:annotation>
+          <xs:documentation>BSD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ngultrum -->
+      <xs:enumeration value="064">
+        <xs:annotation>
+          <xs:documentation>BTN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pula -->
+      <xs:enumeration value="072">
+        <xs:annotation>
+          <xs:documentation>BWP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Belarusian Ruble -->
+      <xs:enumeration value="933">
+        <xs:annotation>
+          <xs:documentation>BYN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Belize Dollar -->
+      <xs:enumeration value="084">
+        <xs:annotation>
+          <xs:documentation>BZD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Canadian Dollar -->
+      <xs:enumeration value="124">
+        <xs:annotation>
+          <xs:documentation>CAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Congolese Franc -->
+      <xs:enumeration value="976">
+        <xs:annotation>
+          <xs:documentation>CDF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- WIR Euro -->
+      <xs:enumeration value="947">
+        <xs:annotation>
+          <xs:documentation>CHE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Swiss Franc -->
+      <xs:enumeration value="756">
+        <xs:annotation>
+          <xs:documentation>CHF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- WIR Franc -->
+      <xs:enumeration value="948">
+        <xs:annotation>
+          <xs:documentation>CHW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Unidad de Fomento -->
+      <xs:enumeration value="990">
+        <xs:annotation>
+          <xs:documentation>CLF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Chilean Peso -->
+      <xs:enumeration value="152">
+        <xs:annotation>
+          <xs:documentation>CLP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Yuan Renminbi -->
+      <xs:enumeration value="156">
+        <xs:annotation>
+          <xs:documentation>CNY</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Colombian Peso -->
+      <xs:enumeration value="170">
+        <xs:annotation>
+          <xs:documentation>COP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Unidad de Valor Real -->
+      <xs:enumeration value="970">
+        <xs:annotation>
+          <xs:documentation>COU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Costa Rican Colon -->
+      <xs:enumeration value="188">
+        <xs:annotation>
+          <xs:documentation>CRC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Peso Convertible -->
+      <xs:enumeration value="931">
+        <xs:annotation>
+          <xs:documentation>CUC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cuban Peso -->
+      <xs:enumeration value="192">
+        <xs:annotation>
+          <xs:documentation>CUP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cabo Verde Escudo -->
+      <xs:enumeration value="132">
+        <xs:annotation>
+          <xs:documentation>CVE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Czech Koruna -->
+      <xs:enumeration value="203">
+        <xs:annotation>
+          <xs:documentation>CZK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Djibouti Franc -->
+      <xs:enumeration value="262">
+        <xs:annotation>
+          <xs:documentation>DJF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Danish Krone -->
+      <xs:enumeration value="208">
+        <xs:annotation>
+          <xs:documentation>DKK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dominican Peso -->
+      <xs:enumeration value="214">
+        <xs:annotation>
+          <xs:documentation>DOP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Algerian Dinar -->
+      <xs:enumeration value="012">
+        <xs:annotation>
+          <xs:documentation>DZD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Egyptian Pound -->
+      <xs:enumeration value="818">
+        <xs:annotation>
+          <xs:documentation>EGP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Nakfa -->
+      <xs:enumeration value="232">
+        <xs:annotation>
+          <xs:documentation>ERN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ethiopian Birr -->
+      <xs:enumeration value="230">
+        <xs:annotation>
+          <xs:documentation>ETB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Fiji Dollar -->
+      <xs:enumeration value="242">
+        <xs:annotation>
+          <xs:documentation>FJD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Falkland Islands Pound -->
+      <xs:enumeration value="238">
+        <xs:annotation>
+          <xs:documentation>FKP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pound Sterling -->
+      <xs:enumeration value="826">
+        <xs:annotation>
+          <xs:documentation>GBP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lari -->
+      <xs:enumeration value="981">
+        <xs:annotation>
+          <xs:documentation>GEL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ghana Cedi -->
+      <xs:enumeration value="936">
+        <xs:annotation>
+          <xs:documentation>GHS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Gibraltar Pound -->
+      <xs:enumeration value="292">
+        <xs:annotation>
+          <xs:documentation>GIP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dalasi -->
+      <xs:enumeration value="270">
+        <xs:annotation>
+          <xs:documentation>GMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Guinean Franc -->
+      <xs:enumeration value="324">
+        <xs:annotation>
+          <xs:documentation>GNF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Quetzal -->
+      <xs:enumeration value="320">
+        <xs:annotation>
+          <xs:documentation>GTQ</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Guyana Dollar -->
+      <xs:enumeration value="328">
+        <xs:annotation>
+          <xs:documentation>GYD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Hong Kong Dollar -->
+      <xs:enumeration value="344">
+        <xs:annotation>
+          <xs:documentation>HKD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lempira -->
+      <xs:enumeration value="340">
+        <xs:annotation>
+          <xs:documentation>HNL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Gourde -->
+      <xs:enumeration value="332">
+        <xs:annotation>
+          <xs:documentation>HTG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Forint -->
+      <xs:enumeration value="348">
+        <xs:annotation>
+          <xs:documentation>HUF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rupiah -->
+      <xs:enumeration value="360">
+        <xs:annotation>
+          <xs:documentation>IDR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- New Israeli Sheqel -->
+      <xs:enumeration value="376">
+        <xs:annotation>
+          <xs:documentation>ILS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Indian Rupee -->
+      <xs:enumeration value="356">
+        <xs:annotation>
+          <xs:documentation>INR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Iraqi Dinar -->
+      <xs:enumeration value="368">
+        <xs:annotation>
+          <xs:documentation>IQD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Iranian Rial -->
+      <xs:enumeration value="364">
+        <xs:annotation>
+          <xs:documentation>IRR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Iceland Krona -->
+      <xs:enumeration value="352">
+        <xs:annotation>
+          <xs:documentation>ISK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Jamaican Dollar -->
+      <xs:enumeration value="388">
+        <xs:annotation>
+          <xs:documentation>JMD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Jordanian Dinar -->
+      <xs:enumeration value="400">
+        <xs:annotation>
+          <xs:documentation>JOD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Yen -->
+      <xs:enumeration value="392">
+        <xs:annotation>
+          <xs:documentation>JPY</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kenyan Shilling -->
+      <xs:enumeration value="404">
+        <xs:annotation>
+          <xs:documentation>KES</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Som -->
+      <xs:enumeration value="417">
+        <xs:annotation>
+          <xs:documentation>KGS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Riel -->
+      <xs:enumeration value="116">
+        <xs:annotation>
+          <xs:documentation>KHR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Comorian Franc  -->
+      <xs:enumeration value="174">
+        <xs:annotation>
+          <xs:documentation>KMF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- North Korean Won -->
+      <xs:enumeration value="408">
+        <xs:annotation>
+          <xs:documentation>KPW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Won -->
+      <xs:enumeration value="410">
+        <xs:annotation>
+          <xs:documentation>KRW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kuwaiti Dinar -->
+      <xs:enumeration value="414">
+        <xs:annotation>
+          <xs:documentation>KWD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cayman Islands Dollar -->
+      <xs:enumeration value="136">
+        <xs:annotation>
+          <xs:documentation>KYD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tenge -->
+      <xs:enumeration value="398">
+        <xs:annotation>
+          <xs:documentation>KZT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lao Kip -->
+      <xs:enumeration value="418">
+        <xs:annotation>
+          <xs:documentation>LAK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lebanese Pound -->
+      <xs:enumeration value="422">
+        <xs:annotation>
+          <xs:documentation>LBP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sri Lanka Rupee -->
+      <xs:enumeration value="144">
+        <xs:annotation>
+          <xs:documentation>LKR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Liberian Dollar -->
+      <xs:enumeration value="430">
+        <xs:annotation>
+          <xs:documentation>LRD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Loti -->
+      <xs:enumeration value="426">
+        <xs:annotation>
+          <xs:documentation>LSL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Libyan Dinar -->
+      <xs:enumeration value="434">
+        <xs:annotation>
+          <xs:documentation>LYD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Moroccan Dirham -->
+      <xs:enumeration value="504">
+        <xs:annotation>
+          <xs:documentation>MAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Moldovan Leu -->
+      <xs:enumeration value="498">
+        <xs:annotation>
+          <xs:documentation>MDL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Malagasy Ariary -->
+      <xs:enumeration value="969">
+        <xs:annotation>
+          <xs:documentation>MGA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Denar -->
+      <xs:enumeration value="807">
+        <xs:annotation>
+          <xs:documentation>MKD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kyat -->
+      <xs:enumeration value="104">
+        <xs:annotation>
+          <xs:documentation>MMK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tugrik -->
+      <xs:enumeration value="496">
+        <xs:annotation>
+          <xs:documentation>MNT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pataca -->
+      <xs:enumeration value="446">
+        <xs:annotation>
+          <xs:documentation>MOP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Ouguiya -->
+      <xs:enumeration value="929">
+        <xs:annotation>
+          <xs:documentation>MRU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mauritius Rupee -->
+      <xs:enumeration value="480">
+        <xs:annotation>
+          <xs:documentation>MUR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rufiyaa -->
+      <xs:enumeration value="462">
+        <xs:annotation>
+          <xs:documentation>MVR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Malawi Kwacha -->
+      <xs:enumeration value="454">
+        <xs:annotation>
+          <xs:documentation>MWK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mexican Peso -->
+      <xs:enumeration value="484">
+        <xs:annotation>
+          <xs:documentation>MXN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mexican Unidad de Inversion (UDI) -->
+      <xs:enumeration value="979">
+        <xs:annotation>
+          <xs:documentation>MXV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Malaysian Ringgit -->
+      <xs:enumeration value="458">
+        <xs:annotation>
+          <xs:documentation>MYR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Mozambique Metical -->
+      <xs:enumeration value="943">
+        <xs:annotation>
+          <xs:documentation>MZN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Namibia Dollar -->
+      <xs:enumeration value="516">
+        <xs:annotation>
+          <xs:documentation>NAD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Naira -->
+      <xs:enumeration value="566">
+        <xs:annotation>
+          <xs:documentation>NGN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Cordoba Oro -->
+      <xs:enumeration value="558">
+        <xs:annotation>
+          <xs:documentation>NIO</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Norwegian Krone -->
+      <xs:enumeration value="578">
+        <xs:annotation>
+          <xs:documentation>NOK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Nepalese Rupee -->
+      <xs:enumeration value="524">
+        <xs:annotation>
+          <xs:documentation>NPR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- New Zealand Dollar -->
+      <xs:enumeration value="554">
+        <xs:annotation>
+          <xs:documentation>NZD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rial Omani -->
+      <xs:enumeration value="512">
+        <xs:annotation>
+          <xs:documentation>OMR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Balboa -->
+      <xs:enumeration value="590">
+        <xs:annotation>
+          <xs:documentation>PAB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sol -->
+      <xs:enumeration value="604">
+        <xs:annotation>
+          <xs:documentation>PEN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Kina -->
+      <xs:enumeration value="598">
+        <xs:annotation>
+          <xs:documentation>PGK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Philippine Peso -->
+      <xs:enumeration value="608">
+        <xs:annotation>
+          <xs:documentation>PHP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pakistan Rupee -->
+      <xs:enumeration value="586">
+        <xs:annotation>
+          <xs:documentation>PKR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Zloty -->
+      <xs:enumeration value="985">
+        <xs:annotation>
+          <xs:documentation>PLN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Guarani -->
+      <xs:enumeration value="600">
+        <xs:annotation>
+          <xs:documentation>PYG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Qatari Rial -->
+      <xs:enumeration value="634">
+        <xs:annotation>
+          <xs:documentation>QAR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Romanian Leu -->
+      <xs:enumeration value="946">
+        <xs:annotation>
+          <xs:documentation>RON</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Serbian Dinar -->
+      <xs:enumeration value="941">
+        <xs:annotation>
+          <xs:documentation>RSD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Russian Ruble -->
+      <xs:enumeration value="643">
+        <xs:annotation>
+          <xs:documentation>RUB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rwanda Franc -->
+      <xs:enumeration value="646">
+        <xs:annotation>
+          <xs:documentation>RWF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Saudi Riyal -->
+      <xs:enumeration value="682">
+        <xs:annotation>
+          <xs:documentation>SAR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Solomon Islands Dollar -->
+      <xs:enumeration value="090">
+        <xs:annotation>
+          <xs:documentation>SBD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Seychelles Rupee -->
+      <xs:enumeration value="690">
+        <xs:annotation>
+          <xs:documentation>SCR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sudanese Pound -->
+      <xs:enumeration value="938">
+        <xs:annotation>
+          <xs:documentation>SDG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Swedish Krona -->
+      <xs:enumeration value="752">
+        <xs:annotation>
+          <xs:documentation>SEK</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Singapore Dollar -->
+      <xs:enumeration value="702">
+        <xs:annotation>
+          <xs:documentation>SGD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Saint Helena Pound -->
+      <xs:enumeration value="654">
+        <xs:annotation>
+          <xs:documentation>SHP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Leone -->
+      <xs:enumeration value="925">
+        <xs:annotation>
+          <xs:documentation>SLE</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Somali Shilling -->
+      <xs:enumeration value="706">
+        <xs:annotation>
+          <xs:documentation>SOS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Surinam Dollar -->
+      <xs:enumeration value="968">
+        <xs:annotation>
+          <xs:documentation>SRD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- South Sudanese Pound -->
+      <xs:enumeration value="728">
+        <xs:annotation>
+          <xs:documentation>SSP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dobra -->
+      <xs:enumeration value="930">
+        <xs:annotation>
+          <xs:documentation>STN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- El Salvador Colon -->
+      <xs:enumeration value="222">
+        <xs:annotation>
+          <xs:documentation>SVC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Syrian Pound -->
+      <xs:enumeration value="760">
+        <xs:annotation>
+          <xs:documentation>SYP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Lilangeni -->
+      <xs:enumeration value="748">
+        <xs:annotation>
+          <xs:documentation>SZL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Baht -->
+      <xs:enumeration value="764">
+        <xs:annotation>
+          <xs:documentation>THB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Somoni -->
+      <xs:enumeration value="972">
+        <xs:annotation>
+          <xs:documentation>TJS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Turkmenistan New Manat -->
+      <xs:enumeration value="934">
+        <xs:annotation>
+          <xs:documentation>TMT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tunisian Dinar -->
+      <xs:enumeration value="788">
+        <xs:annotation>
+          <xs:documentation>TND</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Pa’anga -->
+      <xs:enumeration value="776">
+        <xs:annotation>
+          <xs:documentation>TOP</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Turkish Lira -->
+      <xs:enumeration value="949">
+        <xs:annotation>
+          <xs:documentation>TRY</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Trinidad and Tobago Dollar -->
+      <xs:enumeration value="780">
+        <xs:annotation>
+          <xs:documentation>TTD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- New Taiwan Dollar -->
+      <xs:enumeration value="901">
+        <xs:annotation>
+          <xs:documentation>TWD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tanzanian Shilling -->
+      <xs:enumeration value="834">
+        <xs:annotation>
+          <xs:documentation>TZS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Hryvnia -->
+      <xs:enumeration value="980">
+        <xs:annotation>
+          <xs:documentation>UAH</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Uganda Shilling -->
+      <xs:enumeration value="800">
+        <xs:annotation>
+          <xs:documentation>UGX</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- US Dollar -->
+      <xs:enumeration value="840">
+        <xs:annotation>
+          <xs:documentation>USD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- US Dollar (Next day) -->
+      <xs:enumeration value="997">
+        <xs:annotation>
+          <xs:documentation>USN</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Uruguay Peso en Unidades Indexadas (UI) -->
+      <xs:enumeration value="940">
+        <xs:annotation>
+          <xs:documentation>UYI</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Peso Uruguayo -->
+      <xs:enumeration value="858">
+        <xs:annotation>
+          <xs:documentation>UYU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Unidad Previsional -->
+      <xs:enumeration value="927">
+        <xs:annotation>
+          <xs:documentation>UYW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Uzbekistan Sum -->
+      <xs:enumeration value="860">
+        <xs:annotation>
+          <xs:documentation>UZS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bolívar Soberano -->
+      <xs:enumeration value="926">
+        <xs:annotation>
+          <xs:documentation>VED</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bolívar Soberano -->
+      <xs:enumeration value="928">
+        <xs:annotation>
+          <xs:documentation>VES</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Dong -->
+      <xs:enumeration value="704">
+        <xs:annotation>
+          <xs:documentation>VND</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Vatu -->
+      <xs:enumeration value="548">
+        <xs:annotation>
+          <xs:documentation>VUV</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Tala -->
+      <xs:enumeration value="882">
+        <xs:annotation>
+          <xs:documentation>WST</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- CFA Franc BEAC -->
+      <xs:enumeration value="950">
+        <xs:annotation>
+          <xs:documentation>XAF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Silver -->
+      <xs:enumeration value="961">
+        <xs:annotation>
+          <xs:documentation>XAG</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Gold -->
+      <xs:enumeration value="959">
+        <xs:annotation>
+          <xs:documentation>XAU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Composite Unit (EURCO) -->
+      <xs:enumeration value="955">
+        <xs:annotation>
+          <xs:documentation>XBA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Monetary Unit (E.M.U.-6) -->
+      <xs:enumeration value="956">
+        <xs:annotation>
+          <xs:documentation>XBB</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Unit of Account 9 (E.U.A.-9) -->
+      <xs:enumeration value="957">
+        <xs:annotation>
+          <xs:documentation>XBC</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Bond Markets Unit European Unit of Account 17 (E.U.A.-17) -->
+      <xs:enumeration value="958">
+        <xs:annotation>
+          <xs:documentation>XBD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- East Caribbean Dollar -->
+      <xs:enumeration value="951">
+        <xs:annotation>
+          <xs:documentation>XCD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- SDR (Special Drawing Right) -->
+      <xs:enumeration value="960">
+        <xs:annotation>
+          <xs:documentation>XDR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- CFA Franc BCEAO -->
+      <xs:enumeration value="952">
+        <xs:annotation>
+          <xs:documentation>XOF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Palladium -->
+      <xs:enumeration value="964">
+        <xs:annotation>
+          <xs:documentation>XPD</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- CFP Franc -->
+      <xs:enumeration value="953">
+        <xs:annotation>
+          <xs:documentation>XPF</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Platinum -->
+      <xs:enumeration value="962">
+        <xs:annotation>
+          <xs:documentation>XPT</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Sucre -->
+      <xs:enumeration value="994">
+        <xs:annotation>
+          <xs:documentation>XSU</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Codes specifically reserved for testing purposes -->
+      <xs:enumeration value="963">
+        <xs:annotation>
+          <xs:documentation>XTS</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- ADB Unit of Account -->
+      <xs:enumeration value="965">
+        <xs:annotation>
+          <xs:documentation>XUA</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Yemeni Rial -->
+      <xs:enumeration value="886">
+        <xs:annotation>
+          <xs:documentation>YER</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Rand -->
+      <xs:enumeration value="710">
+        <xs:annotation>
+          <xs:documentation>ZAR</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Zambian Kwacha -->
+      <xs:enumeration value="967">
+        <xs:annotation>
+          <xs:documentation>ZMW</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <!-- Zimbabwe Dollar -->
+      <xs:enumeration value="932">
+        <xs:annotation>
+          <xs:documentation>ZWL</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ID_Waehrung_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_WaehrungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+  
+  <xs:simpleType name="InterpretationsschluesselHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="husst.Relationen.Matrixtyp">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, wie die Relationenmatrix zu interpretieren ist.
+            mögliche Matrixtypen sind
+            "Vollmatrix" : Jede Verbindung ist in jeder erlaubten Richtung in der Relationenmatrix hinterlegt.
+            "Halbmatrix" : Zu jeder möglichen Verbindung ist nur die Variante ID_RelcodeStart größer gleich ID_RelcodeZiel hinterlegt, die umgekehrte Richtung ist dazu identisch.
+            "erweitert Halbmatrix" : Die Relationen werden im Regelfall mit ID_RelcodeStart größer gleich ID_RelcodeZiel definiert, es kann aber auch die Rückrichtung definiert
+            sein,
+            dann muss das Flag GegenrichtungLiegtVor auf true gesetzt werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="husst.Relationen.Suchstrategie">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, wie die Ermittlung einer Verkaufsverbindung erfolgen soll.
+            Ist der Schlüssel nicht definiert, wird über ID_RelcodeStart und ID_RelcodeZiel in den Relationen nach einer oder mehreren Verbindungen gesucht.
+            mögliche Suchstrategien sind
+            "NbHstSuche + RCSuche" : Suchstrategie für die Relationsermittlung: Nachbarhaltestellensuche zusätzlich zur Relationscodesuche.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="husst.Teilrelationen.Matrixpreisbildung">
+        <xs:annotation>
+          <xs:documentation>
+            Definiert, wie die Preisbildung aus den Teilrelationen erfolgen soll.
+            Ist der Schlüssel nicht definiert, wird der Preis anhand der ID_Preisstufe der ersten Teilrelation ermittelt.
+            mögliche Matrixpreisbildungen sind
+            "Anstoß_CH" : Wenn nur eine Teilrelation exisitiert, dann wie beim Standardfall.
+            Sonst: Preisstufenattribute werden von der Preisstufe der ersten Teilrelation verwendet.
+            Der Preis wird nach einer eigenen CH-Logik aus den weiteren Teilrelationen berechnet.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="InterpretationsschluesselProjektspezifisch_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Für projektspezifische Zwecke oder zum Test
+        können eigene Namen für Interpretationsschluessel verwendet werden.
+
+        Namensregeln:
+        Eigene Namen ..
+        .. dürfen nicht mit 'husst.' beginnen,
+        .. dürfen nicht mit einer Zahl beginnen,
+        .. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten
+        .. müssen mit einem Wort beginnen,
+        .. dürfen mehrere Wörter mit '.' oder '-' trennen,
+        .. dürfen nicht mit einem Punkt enden.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*"/>
+      <!-- 				value="(((h|H)[^(u|U)])|(h|H)(u|U)[^(s|S)]|(h|H)(u|U)(s|S)[^(s|S)]|(h|H)(u|U)(s|S)(s|S)[^(t|T)]|(h|H)(u|U)(s|S)(s|S)(t|T)[^\.]|[a-gi-zA-ZöäüÖÄÜß0-9])((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+" /> -->
+      <!-- Leider untersützt xsd keinen negativen Forcast (?!husst\.), das
+				macht den Ausdruck unnötig kompliziert. <pattern value="(?!husst\.)((\w*[a-zA-ZöäüÖÄÜß]\w*)+([\-\.]))*(\w*[a-zA-ZöäüÖÄÜß]\w*)+"/> -->
+
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="Interpretationsschluessel_Type">
+    <xs:annotation>
+      <xs:documentation>Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:InterpretationsschluesselHUSST_Type husstDV:InterpretationsschluesselProjektspezifisch_Type"/>
+  </xs:simpleType>
+  
+  <xs:complexType name="DefWaehrung_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Waehrung"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+      <xs:documentation>Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Waehrung" type="husstDV:ID_Waehrung_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            ISO-Kurzbezeichnung z.B. EUR, USD, CHF,...
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Updateinfo_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Dokumentation von Updatevorgängen über der zunächst
+        generierten Datenmenge
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Updatetime"/>
+          <api:field name="Filename"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Updatetime" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Zeitpunkt des Updatevorgangs
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Filename" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Filename des Updatescripts oder Bezeichnung des Updatevorgangs
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Purpose" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Hinweis zum Zweck des Updatevorgangs
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="VersionInhalt_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="DatenversionInhalt"/>
+          <api:field name="Erstellungsdatum"/>
+          <api:field name="Lieferant"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+      <xs:documentation>Eine Datenlieferung enthält einen Datensatz VersionInhalt.
+        Dieser definiert, welche Datenversion die komplette Husstlieferung besitzt.
+        Dieses ist eine Metainformation um diese Lieferung einfach von anderen zu unterscheiden.
+        Über die Registrierung Der DatenversionInhalt können Verkaufsdaten ihrer exakten Versorgungsdatenlieferung zugewordnet werden.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+
+      <xs:element name="DatenversionInhalt" type="xs:string" minOccurs="1" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutige Versionskennung für die gesamte Datenlieferung.
+            In der gesamten Datenlieferung darf dieses Element nur einmal vorkommen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Testdaten" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lieferant" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Kommentar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Bearbeitung_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Bearbeitungsdatum"/>
+          <api:field name="Lieferant"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Bearbeitungsdatum" type="husstDV:DateTimeCompact" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Lieferant" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Kommentar" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="VersionStruktur_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="VersionMajor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="3">
+        <xs:annotation>
+          <xs:documentation>VersionMajor muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VersionMinor" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="7">
+        <xs:annotation>
+          <xs:documentation>VersionMinor zählt kompatible Anpassungen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="VersionPatch" type="husstDV:INT4" maxOccurs="1" minOccurs="1" default="0">
+        <xs:annotation>
+          <xs:documentation>VersionPatch zählt abwärtskompatible Bugfixes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Status" type="husstDV:VersionStatus_Type" default="Release" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Aenderungsdatum" type="husstDV:DateCompact" default="2025-01-15" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="Aenderungsautor" type="xs:string" default="HUSST-Arbeitsgruppe" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DefBundesland_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert einen Gliedstaat (in Deutschland: Bundesland).
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Bundesland"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Iso" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Für Deutschland: die letzten zwei Stellen des ISO
+            3166-2 Codes für Gliedstaaten.
+            DE-BW Baden-Württemberg also: BW
+            DE-BY Bayern also: BY
+            DE-BE Berlin also: BE
+            DE-BB Brandenburg also: BB
+            DE-HB Bremen also: HB
+            DE-HH Hamburg also: HH
+            DE-HE Hessen also: HE
+            DE-MV Mecklenburg-Vorpommern also: MV
+            DE-NI Niedersachsen also: NI
+            DE-NW Nordrhein-Westfalen also: NW
+            DE-RP Rheinland-Pfalz also: RP
+            DE-SL Saarland also: SL
+            DE-SN Sachsen also: SN
+            DE-ST Sachsen-Anhalt also: ST
+            DE-SH Schleswig-Holstein also: SH
+            DE-TH Thüringen also: TH
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Name des Bundeslandes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+            identifizieren zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="ID_BundeslandHUSST_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die HUSST definiert ID_Bundesland kleiner 1000.
+        Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+        analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) 
+        bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind. 
+        
+        Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
+        https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
+        
+        Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) 
+        verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
+         - siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
+      </xs:documentation>
+    </xs:annotation>
+  
+    <xs:restriction base="husstDV:INT4">
+      <xs:enumeration value="0">
+        <xs:annotation>
+          <xs:documentation>unbekannt</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="1">
+        <xs:annotation>
+          <xs:documentation>Schleswig-Holstein (SH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="2">
+        <xs:annotation>
+          <xs:documentation>Hamburg (HH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="3">
+        <xs:annotation>
+          <xs:documentation>Niedersachsen (NI)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="4">
+        <xs:annotation>
+          <xs:documentation>Bremen (HB)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="5">
+        <xs:annotation>
+          <xs:documentation>Nordrhein-Westfalen (NW)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="6">
+        <xs:annotation>
+          <xs:documentation>Hessen (HE)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="7">
+        <xs:annotation>
+          <xs:documentation>Rheinland-Pfalz (RP)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="8">
+        <xs:annotation>
+          <xs:documentation>Baden-Württemberg (BW)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="9">
+        <xs:annotation>
+          <xs:documentation>Bayern (BY)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="10">
+        <xs:annotation>
+          <xs:documentation>Saarland (SL)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="11">
+        <xs:annotation>
+          <xs:documentation>Berlin (BE)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="12">
+        <xs:annotation>
+          <xs:documentation>Brandenburg (BB)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="13">
+        <xs:annotation>
+          <xs:documentation>Mecklenburg-Vorpommern (MV)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="14">
+        <xs:annotation>
+          <xs:documentation>Sachsen (SN)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="15">
+        <xs:annotation>
+          <xs:documentation>Sachsen-Anhalt (ST)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    
+      <xs:enumeration value="16">
+        <xs:annotation>
+          <xs:documentation>Thüringen (TH)</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="ID_Bundesland_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+      </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="husstDV:ID_BundeslandHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
+  </xs:simpleType>
+  
+  <xs:complexType name="Feiertage_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Feiertag"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:uniquekey name="Uix_Feiertage">
+          <api:field name="Datum"/>
+          <api:field name="ID_Bundesland"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:uniquekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Feiertag" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Datum" type="husstDV:DateCompact" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Unternehmen_Type">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Unternehmen"/>
+          <api:field name="ID_Zeitraum"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+      <xs:documentation>Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem eine Rolle übernehmen.
+        Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre Mandant Eigenschaft angezeigt werden.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Unternehmen" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Mandant" type="xs:boolean" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            True, wenn das Unternehmen als Mandant im System geführt
+            wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ReferenzExtern" maxOccurs="1" minOccurs="0" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Dient als Referenz um Unternehmen über eine nicht numerische
+            Referenz ggf. auch bezogen auf Drittsysteme identifizieren
+            zu können.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="VersionInhalt" type="husstDV:VersionInhalt_Type"/>
+  
+  <xs:element name="Bearbeitung" type="husstDV:Bearbeitung_Type"/>
+  
+  <xs:element name="DefBundeslaender" type="husstDV:DefBundesland_Type"/>
+  
+  <xs:element name="Zeitraeume" type="husstDV:Zeitraeume_Type"/>
+  
+  <xs:element name="Zeitraumoptionen" type="husstDV:Zeitraumoptionen_Type"/>
+  
+  <xs:element name="Kalender" type="husstDV:Kalender_Type"/>
+  
+  <xs:element name="Tagesarten" type="husstDV:Tagesarten_Type"/>
+  
+  <xs:element name="Tagesmerkmale" type="husstDV:Tagesmerkmale_Type"/>
+  
+  <xs:element name="TagesmerkmalElemente" type="husstDV:TagesmerkmalElemente_Type"/>
+  
+  <xs:element name="TagesartMerkmalElemente" type="husstDV:TagesartMerkmalElemente_Type"/>
+  
+  <xs:element name="Feiertage" type="husstDV:Feiertage_Type"/>
+  
+  <xs:element name="Unternehmen" type="husstDV:Unternehmen_Type"/>
+  
+  <xs:element name="Interpretationen" type="husstDV:Interpretationen_Type"/>
+  
+  <xs:element name="DefWaehrungen" type="husstDV:DefWaehrung_Type"/>
+  
+  <xs:element name="VersionStruktur" type="husstDV:VersionStruktur_Type"/>
+  
+  <xs:element name="Updateinfo" type="husstDV:Updateinfo_Type"/>
+  
+  <xs:complexType name="DynAttributDef_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definition der dynamischen Attribute, die in dieser
+        Datenmenge verwendet werden.
+
+        Dynamische Attribute ergänzen einen
+        Datentyp um weitere
+        Eigenschaften. Jedem Datensatz kann für seinen
+        eindeutigen Datensatzschlüssel (ID_[Typname]
+        , z.B. ID_Sorte), der
+        Tabellennummer und der ID
+        einer dynamischen Attribut-Definition ein
+        konkreter
+        Wert für diese Eigenschaft hinterlegt werden.
+
+        Da die AttributDef-Struktur ausschließlich der Interpretation der
+        Daten innerhalb der abgeschlossenen Datenlieferung dient, benötigt
+        sie weder eine deaktiviert Kennung noch eine Referenz auf einen
+        spezifischen Zeitraum innerhalb der Datenmenge.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_DynAttributDef"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_DynAttributDef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenznummer der dynamischen Attributdefinition.
+            Die Nummer hat nur innerhalb der Datenmenge eine Bedeutung und kann
+            nicht als persistent vorausgesetzt werden.
+          </xs:documentation>
+          <xs:appinfo>
+
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Interner Name des dynamischen Attributs. Die
+            möglichen Namen dynamischer Attribute werden bei krauth technology
+            zentral verwaltet. Dabei werden, wenn vorhanden, die in der offen
+            Husst-Schnittstelle abgestimmten Definitionen einbezogen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttributTyp" type="husstDV:DynAttributTyp_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Der Datentyp der konkreten Daten die unter der
+            ID_DynAttributDef in der Datenmenge DynAttribut_Type im Feld Wert
+            als String-Information abgelegt ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:simpleType name="DynAttributTyp_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die Werte eines dynamischen Attributes werden als
+        String
+        abgelegt. Wie dieser zu verstehen ist, wird durch den
+        DynAttributTyp definiert.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="int">
+        <xs:annotation>
+          <xs:documentation>vorzeichenbehaftete Ganzzahl</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="bool">
+        <xs:annotation>
+          <xs:documentation>
+            logischer Wert, Wertebereich "0" für false oder
+            "1" für true
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="string">
+        <xs:annotation>
+          <xs:documentation>Zeichenkette</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="datetime">
+        <xs:annotation>
+          <xs:documentation>
+            Zeitpunkt (Datum/Uhrzeit) nach ISO8601 -
+            (Beispiel: 2014-06-10T07:46+02:00, eine Angabe ohne die Abweichung
+            von der UTC-Zeit ist auch zulässig)
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="hex">
+        <xs:annotation>
+          <xs:documentation>
+            hexadezimal codierter Datenstring - zulässige
+            Zeichen: '0'-'9', 'a'-'f', 'A'-'F'. Niederwertiges Byte zuerst,
+            höherwertiges Halb-Byte zuerst.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="id_sprachtext">
+        <xs:annotation>
+          <xs:documentation>
+            vorzeichenlose Ganzzahl, Verweis auf
+            ID_Sprachtext in der Tabelle Sprachtexte, einen möglicherweise
+            mehrsprachig hinterlegten Text
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="DynAttributWert_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Die Tabelle enthält den Wert eines dynamischen Attributs.
+
+        Die Werte der dynamischen Attribute sind an die ID eines Datensatzes
+        und damit auch an die ID eines konkreten Zeitraumes gekoppelt.
+        Deshalb wird die Eigenschaft ID_Zeitraum benötigt. Bezieht sich ein
+        dynamisches Attribut auf eine Tabellennummer, deren Struktur selbst
+        keine ID_Zeitraum Eigenschaft besitzt (z.B. Inhalt_Type), dann
+        bleibt ID_Zeitraum leer.
+
+        Anders verhält es sich mit der Deaktiviert Eigenschaft. Diese bezieht sich
+        explizit auf den gesamten Datensatz einer Datenstruktur. Formal wäre
+        dies für die DynAttributWert Tabelle verwendbar. Allerdings bildet
+        ein Eintrag in der DynAttributWert Tabelle nur ein Attribut
+        innerhalb eines Datensatzes einer anderen Struktur ab. Diese andere
+        Struktur besitzt den Deaktiviert Mechanismus für ihren Datensatz und
+        damit auch für alle dynamischen Attribute, die an diesem Datensatz
+        hängen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_DynAttributDef"/>
+          <api:field name="ID_DatensatzRef"/>
+          <api:field name="Tabellennummer"/>
+          <api:field name="ID_Zeitraum"/>
+          <api:field name="Lang"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_DynAttributDef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Referenznummer der dynamischen Attributdefinition.
+            Die Nummer hat nur innerhalb der Datenmenge eine Bedeutung und kann
+            nicht als persistent vorausgesetzt werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Tabellennummer" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutige Nummer der referenzierten
+            Datenstruktur. Neben dem eindeutigen Namen jedes
+            Datentyps (z.B. Tarifgebiet für
+            Tarifgebiet_Type) der aus dem Typnamen
+            regelbasiert abgeleitet wird, erhält jeder Typ
+            eine eindeutige Tabellennummer. Damit muss nicht
+            bei jeder Datenmenge eine numerische ID für
+            jeden Datentyp abgelegt werden. Andererseits
+            kann bei Referenzen wie DynAttributWert die
+            Tabellennummer viel effizienter als
+            Schlüsselwert verwendet werden, als ein
+            entsprechender Name.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_DatensatzRef" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutiger Datensatzschlüssel (ID_[Typname])
+            des Datensatzes, für den dieses dynamische
+            Attribut definiert ist. Der Datensatz ist in der
+            Datenstruktur zu finden, die mit Tabellennummer
+            eindeutig beschrieben ist und ist zusammen mit
+            ID_Zeitraum eindeutig zu ermitteln.
+
+            Warnung! Datenstrukturen, die keine eindeutige
+            Datensatz-ID mitführen, können keine dynamischen
+            Attribute haben (z.B. Teilrelationen_Type).
+            Zuvor müssten diese Strukturen um ein
+            ID_[Typname])-Feld erweitert werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Lang" type="husstDV:Lang_Type" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>optionale Sprachkennung des Wertes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Wert" type="husstDV:blobString" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Sprachtexte_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Für sprachalternative Texte wird statt ihres Textes eine
+        ID_Sprachtext als Verweis auf die neue Tabelle
+        Sprachtexte hinterlegt. Über ID_Sprachtext und der genau
+        zwei Zeichen langen Sprachkennung kann dann der Text in
+        der Tabelle Sprachtexte ermittelt werden.
+
+        Sprachtexte_Type bietet die Möglichkeit, identische Text-Bundle über die gleiche
+        Menge an Sprachkennungen nur einmal in der Datenbank abzulegen und
+        damit das Datenvolumen der Gesamtdatenmenge zu reduzieren. Würde der
+        eigentliche Text selbst noch über eine weitere Referenzstufe sprach-
+        und bedeutungslos in einer Texttabelle hinterlegt, wäre die
+        Einsparung vermutlich einfacher zu realisieren und in der Summer
+        vermutlich größer.
+
+        Sprachtexte sind innerhalb des Datenpaketes
+        allgemeingültig definiert und sind nicht über eine
+        ID_Zeitraum-Eigenschaft versioniert. Ihre IDs sind nicht
+        persistent denn sie haben nur innerhalb des Datenpaketes
+        eine referenzierende Bedeutung.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Sprachtext"/>
+          <api:field name="Lang"/>
+        </api:primekey>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ID_Sprachtext" type="xs:string" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Eindeutiger Schlüssel für den logischen Inhalt
+            des Textes der unter dieser Nummer ggf. in verschiedenen Sprachen
+            abgelegt ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Lang" type="husstDV:Lang_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Sprache, für die der Text abgelegt ist.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Text" type="xs:string" maxOccurs="1" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="Tabelleninfo_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Erweitertert die XML-Sturktur um Informationen über
+        die Abbildung der Daten in ein relationales Datenmodell.
+        Im Wesentlichen dokumentiert die Struktur zur Zeit die fest definierte
+        Beziehung zwischen dem Tabellen-Namen und der persistenten und
+        eindeutigen numerischen Abbildung als Tabellennummer.
+        Außerdem stellt sie den Bezug zum Namen der Xml-Datenstruktur her.
+        Falls künftig noch weitere Strukturinformationen benötigt werden, ist an
+        die Erweiterung des Tabelleninfo_Type zu denken.
+
+        Damit wird die in
+        &lt;xs:annotation&gt;&lt;appinfo&gt;&lt;tablenumber&gt;...
+        definierte Tabellennummer für nachfolgende Prozesse in jeder
+        Datenmenge hinterlegt.
+
+        Die numerische Abbildung einer Struktur wird als Schlüsselelement für
+        den Zugriff auf Datenstrukturen benötigt, deren Elemente sich auf
+        mehrere Elternstrukturen beziehen können.
+        Damit wird es möglichen, diese Beziehung in relationen DBMS performant
+        implementieren zu können. Wegen der spezifischen Verwendung für
+        relationen DBMS wird bewusst der Begriff Tabellennummer verwendet,
+        der ansonsten in der XML-Repräsentation der Daten als Fremdkörper
+        wirkt.
+        Beispiel für die Verwendung ist der DynAttributWert_Type bei dem die
+        Tabellennummer als Attribut im Primärschlüssel der Struktur
+        vorkommt.
+
+        Tabellennummern_Type ist eine Metainformationsstruktur.
+        Für die XML-Repräsentanz der Daten spielt sie keine Rolle und muss dort
+        auch nicht eingetragen werden. In der XML-Dartstellung werden die
+        referenzierten Daten nicht getrennt von ihrer Hauptinformation
+        abgelegt sondern bilden noch eine Einheit.
+        Für die Umwandlung in eine DB-Struktur, die diese Tabellennummern
+        benutzt, ist dagegen zwingend vorgeschrieben, mindestens die
+        Tabellennummern zu dokumentieren, die in den Daten verwendet werden.
+        Die komplette Auflistung der Tabellenmmnern einer Struktur wird für
+        DB-Repräsentationen empfohlen.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="Tabellennummer"/>
+        </api:primekey>
+        <index name="Idx_Tabinfoname">
+          <field name="Tabellenname"/>
+        </index>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Tabellenname" type="xs:string" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Name der Tabelle in einer relationen DB
+            Abbildung dieser Datenstruktur. Zum Beispiel
+            'Sorten' für die Elemente der Sorten_Type
+            Struktur. Er entspricht dem Xml-Attribut "name" der Element-Definition der
+            Struktur in der XML-Datenmenge. Zum Beispiel
+            &lt;xs:element name="Sorten"
+            type="husstDV:Sorten_Type" nillable="true" /&gt;
+            oder auch
+            &lt;xs:element name="SortenTarifarten"
+            type="husstDV:SortenTarifarten_Type" nillable="true" /&gt;
+
+            Die Schreibweise des Names entspricht dem Elementname, der in der
+            Xml-Datenmenge verwendet wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Tabellennummer" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Persistente und eindeutigen numerische
+            Abbildung. Die Tabellennnummer wird in dieser
+            Struktur als
+            &lt;xs:annotation&gt;&lt;appinfo&gt;&lt;tablenumber
+            hinterlegt und gilt als Teil der
+            Strukturdefinition.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Strukturname" type="xs:string" maxOccurs="1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Name der Xml-Datenstruktur, die von dieser
+            Tabelle abgebildet wird.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="DynAttribut_Subtype">
+    <xs:annotation>
+      <xs:documentation>
+        Der Subtyp DynAttribut_Subtype dient der Definition von
+        dynamischen Attributen als mögliche Erweiterung für die
+        Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für
+        eine Abbildung auf ein relationales Datenbankmodell
+        verwendet.
+      </xs:documentation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="Wert" type="husstDV:DynAttributWert_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="dtyp" type="husstDV:DynAttributTyp_Type"/>
+  </xs:complexType>
+  
+  <xs:complexType name="DynAttributWert_Subtype">
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Basis"/>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:extension base="husstDV:blobString">
+        <xs:attribute name="lang" type="husstDV:Lang_Type"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+</xs:schema>
