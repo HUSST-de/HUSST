@@ -4998,7 +4998,7 @@
       <xs:element name="ID_StreckencodeVerlauf" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="IstViapunkt" type="xs:boolean" maxOccurs="1" minOccurs="1">
-      <xs:annotation>
+        <xs:annotation>
           <xs:documentation>
             Gibt an, ob der Streckencode eine Relevanz bei der Streckensuche hat.
           </xs:documentation>
