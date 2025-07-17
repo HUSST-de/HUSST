@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:husstDV="http://husst.de/Versorgungsdaten/3_7_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_7_0"
+           xmlns:api="http://husst.de/Appinfo/3_7_0"
            targetNamespace="http://husst.de/Versorgungsdaten/3_7_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
 
@@ -22,6 +22,16 @@
   </xs:annotation>
   
   <xs:simpleType name="DateTimeCompact">
+  	<xs:annotation>
+  		<xs:documentation>
+  			Datum und Urzeit nach dem ISO 8601 Standard, z.B.:
+  			* 2025-03-26T22:40:47.
+  			
+  			
+  			Der gültige Bereich ist eingeschränkt:
+  			* 1990-01-01T00:00:00Z - 2117-12-31T23:59:58Z
+  		</xs:documentation>
+  	</xs:annotation>
     <xs:restriction base="xs:dateTime">
       <xs:minInclusive value="1990-01-01T00:00:00Z"/>
       <xs:maxInclusive value="2117-12-31T23:59:58Z"/>

@@ -72,36 +72,36 @@
 	<!-- ======================================================================
 		 die gesamte Xsd 
 	= =  ================================================================== = = -->
-	<xsl:template match="xs:schema">
-		
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="concat('nsHusst:', $nsHusst)" />
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="concat('uriHusst:', $uriHusst)" />
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="concat('schema:', $schema)" />
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="concat('root:', $root/@name)" />
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="concat('elemente:', count(xs:complexType[not(@name=api:strip-ns($root/@type))]))" />
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="concat('enumDomain:', count($enumDomain), ' simpleDomain:', count($simpleDomain), ' enumTech:', count($enumTech), ' simpleTech:', count($simpleTech))" />
-        <xsl:text>&#13;&#10;</xsl:text>
-        <xsl:text>&#13;&#10;</xsl:text>
-	</xsl:template>
+<!-- 	<xsl:template match="xs:schema"> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 		<xsl:value-of select="concat('nsHusst:', $nsHusst)" /> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 		<xsl:value-of select="concat('uriHusst:', $uriHusst)" /> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 		<xsl:value-of select="concat('schema:', $schema)" /> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 		<xsl:value-of select="concat('root:', $root/@name)" /> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 		<xsl:value-of select="concat('elemente:', count(xs:complexType[not(@name=api:strip-ns($root/@type))]))" /> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 		<xsl:value-of select="concat('enumDomain:', count($enumDomain), ' simpleDomain:', count($simpleDomain), ' enumTech:', count($enumTech), ' simpleTech:', count($simpleTech))" /> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!-- 	</xsl:template> -->
 	
-	<xsl:template match="xs:schema[$nsHusst='husstDV' or $nsHusst='husst']">
+	<xsl:template match="xs:schema">
+<!-- 	<xsl:template match="xs:schema[$nsHusst='husstDV' or $nsHusst='husst']"> -->
 		<!-- Root Element(e) -->
 		<xsl:if test="count($root)>0">
        		<xsl:text>&#13;&#10;</xsl:text>
 	        <xsl:text>&#13;&#10;</xsl:text>
-			<xsl:value-of select="api:header(0, concat($schema, if (count($root) > 1) then ' Rootelement' else ' Rootelemente' ))" />
+			<xsl:value-of select="api:header(0, concat($schema, if (count($root) > 1) then ' Rootelemente' else ' Rootelement' ))" />
 	        <xsl:text>&#13;&#10;</xsl:text>
        		<xsl:for-each select="$root">
 				<xsl:apply-templates select="self::xs:*"/>
@@ -214,7 +214,6 @@
 		<xsl:text>| |Eigenschaft|Beschreibung</xsl:text>
 		<xsl:text>&#13;&#10;</xsl:text>
 
-
 		<xsl:apply-templates select="xs:*/xs:element" />
 		<xsl:text>|=======================</xsl:text>
 		<xsl:text>&#13;&#10;</xsl:text>
@@ -224,21 +223,7 @@
 			<xsl:text>&#13;&#10;</xsl:text>
 		</xsl:if>
 
-        <xsl:variable name="references" select="$schemata//xs:element[api:strip-ns(@type) = current()/@name]/ancestor::xs:complexType"/>
-		<xsl:if test="count($references) &gt; 0">
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>Verwendet in:</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-           	<xsl:for-each select="$references">
-           		<xsl:sort select="@name"/>
-				<xsl:text>&#13;&#10;</xsl:text>
-				<xsl:text>* </xsl:text>
-				<xsl:value-of select="api:linkAnchor(@name)"/>
-           	</xsl:for-each>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-        </xsl:if>
+        <xsl:call-template name="references"><xsl:with-param name="typeNames" select="@name"/></xsl:call-template>
 	</xsl:template>
 	<xsl:template match="xs:element" >
 		<xsl:value-of select="concat('|', if (@minOccurs > 0) then '★&#160;|' else ' |', @name, api:strip-ns(@ref), '|' )" />
@@ -275,9 +260,6 @@
 		<xsl:value-of select="api:setAnchor( api:strip-ns( @name ) )"/>
 		<xsl:text>&#13;&#10;</xsl:text>
 		<xsl:text>&#13;&#10;</xsl:text>
-<!-- 		<xsl:value-of select="concat('[green]#@NAME=',@name)"/> -->
-<!-- 		<xsl:text>&#13;&#10;</xsl:text> -->
-<!-- 		<xsl:text>&#13;&#10;</xsl:text> -->
 		<xsl:if test="(count(../xs:simpleType[contains(xs:union/@memberTypes, current()/@name)]/@name) = 1) and contains(@name, 'HUSST')">
 			<xsl:value-of select="api:setAnchor( ../xs:simpleType[contains(xs:union/@memberTypes, current()/@name)]/@name)"/>
 			<xsl:text>&#13;&#10;</xsl:text>
@@ -314,21 +296,7 @@
 		</xsl:if>
 
 		<xsl:variable name="typeNames" select="@name|ancestor::xs:schema/xs:simpleType[xs:union/contains(@memberTypes, current()/@name)]/@name" />
-        <xsl:variable name="references" select="$schemata//xs:element[api:strip-ns(@type) = $typeNames]/ancestor::xs:complexType"/>
-		<xsl:if test="count($references) &gt; 0">
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>Verwendet in:</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-           	<xsl:for-each select="$references">
-           		<xsl:sort select="@name"/>
-				<xsl:text>&#13;&#10;</xsl:text>
-				<xsl:text>* </xsl:text>
-				<xsl:value-of select="api:linkAnchor(@name)"/>
-           	</xsl:for-each>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-        </xsl:if>
+        <xsl:call-template name="references"><xsl:with-param name="typeNames" select="$typeNames"/></xsl:call-template>
 	</xsl:template>
 		
 	<xsl:template match="xs:enumeration" >
@@ -338,27 +306,10 @@
 		<xsl:value-of select="api:docu(xs:annotation/xs:documentation, 2)"/> 
 		<xsl:text>&#13;&#10;</xsl:text>
 
-        <xsl:variable name="references" select="$schemata//xs:element[api:strip-ns(@type) = current()/@name]/ancestor::xs:complexType"/>
-		<xsl:if test="count($references) &gt; 0">
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>Verwendet in:</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-           	<xsl:for-each select="$references">
-           		<xsl:sort select="@name"/>
-				<xsl:text>&#13;&#10;</xsl:text>
-				<xsl:text>* </xsl:text>
-				<xsl:value-of select="api:linkAnchor(@name)"/>
-           	</xsl:for-each>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-        </xsl:if>
+        <xsl:call-template name="references"><xsl:with-param name="typeNames" select="@name"/></xsl:call-template>
 	</xsl:template>
 	
 	<xsl:template match="xs:simpleType|xs:complexType">
-<!-- 		<xsl:text>&#13;&#10;</xsl:text> -->
-<!-- 		<xsl:text>[green]#NACKTER TYPE#</xsl:text> -->
-<!-- 		<xsl:text>&#13;&#10;</xsl:text> -->
 		<xsl:value-of select="api:setAnchor( api:strip-ns( @name ) )"/>
 		<xsl:text>&#13;&#10;</xsl:text>
 		<xsl:text>&#13;&#10;</xsl:text>
@@ -366,23 +317,41 @@
 		<xsl:value-of select="api:docu(xs:annotation/xs:documentation)"/> 	
 
 
-        <xsl:variable name="references" select="$schemata//xs:element[api:strip-ns(@type) = current()/@name]/ancestor::xs:complexType"/>
-		<xsl:if test="count($references) &gt; 0">
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>Verwendet in:</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-           	<xsl:for-each select="$references">
-           		<xsl:sort select="@name"/>
-				<xsl:text>&#13;&#10;</xsl:text>
-				<xsl:text>* </xsl:text>
-				<xsl:value-of select="api:linkAnchor(@name)"/>
-           	</xsl:for-each>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-        </xsl:if>
+        <xsl:call-template name="references"><xsl:with-param name="typeNames" select="@name"/></xsl:call-template>
 	</xsl:template>
 	
+	
+	<xsl:template name="references">
+		<xsl:param name="typeNames"/>
+		
+        <xsl:variable name="references" select="
+          $schemata//xs:element[api:strip-ns(@type) = $typeNames]/ancestor::xs:complexType
+         |$schemata//xs:complexType[xs:*/xs:element/api:strip-ns(@ref)=$schemata//xs:element[api:strip-ns(@type)=$typeNames]/@name]
+        "/>
+		
+		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:text>Verwendet in:</xsl:text>
+		<xsl:choose>
+			<xsl:when test="(count($references) = 0)">
+				<xsl:text> ohne Verwendung</xsl:text>
+				
+			</xsl:when>
+			<xsl:when test="(count($references) > 30)">
+				<xsl:value-of select="concat(' ', count($references), ' Elementen')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>&#13;&#10;</xsl:text>
+	           	<xsl:for-each select="$references">
+	           		<xsl:sort select="@name"/>
+           			<xsl:value-of select="if (position()=1) then ' ' else ', ' "/>
+					<xsl:value-of select="api:linkAnchor(@name)"/>
+	           	</xsl:for-each>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:text>&#13;&#10;</xsl:text>
+	</xsl:template>
 
 	<!-- ======================================================================
 	     function api:header( ebene : xs:integer; text (: xs:integer) ) (: xs:string)
