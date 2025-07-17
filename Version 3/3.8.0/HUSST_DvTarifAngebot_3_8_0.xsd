@@ -864,13 +864,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_StreckencodeVerlauf" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Streckenverlauf" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Die ID_StreckencodeVerlauf ermöglicht das matchen von einer Relation zu einer festgelegten Verbindung in Streckentarifen.
-             * wenn ID_TarifartStrecke nicht gesetzt ist, dann hat ID_StreckencodeVerlauf keine Auswirkung,
-             * das Vertriebsgerät muss die durch den StreckencodeVerlauf definierte Strecke parallel in der Streckenlogik suchen, wenn ID_StreckencodeVerlauf gesetzt ist,
-             * das Vertriebsgerät muss parallel in der normalen Streckenlogik (kürzester Weg) suchen, wenn ID_StreckencodeVerlauf nicht gesetzt ist.
+            Die ID_Streckenverlauf ermöglicht das Matchen von einer Relation zu einer festgelegten Verbindung in Streckentarifen.
+             * wenn ID_TarifartStrecke nicht gesetzt ist, dann hat ID_Streckenverlauf keine Auswirkung,
+             * das Vertriebsgerät muss die durch den Streckenverlauf definierte Strecke parallel in der Streckenlogik suchen, wenn ID_Streckenverlauf gesetzt ist,
+             * das Vertriebsgerät muss parallel in der normalen Streckenlogik (kürzester Weg) suchen, wenn ID_Streckenverlauf nicht gesetzt ist.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -4978,15 +4978,15 @@
     </xs:sequence>
   </xs:complexType>
   
-  <xs:complexType name="StreckencodeVerlauf_Type">
+  <xs:complexType name="Streckenverlauf_Type">
     <xs:annotation>
       <xs:documentation>
-        Ein richtungsgebundener Verlauf von Streckencodes, welcher eine Verbindung über verschiedene Streckencodes als Vias darstellt.
+        Ein richtungsgebundener Verlauf von Strecken, welcher eine Verbindung über mehrere explizit definierte Brechpunkte darstellt.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
-          <api:field name="ID_Streckencode"/>
-          <api:field name="ID_StreckencodeVerlauf"/>
+          <api:field name="ID_Strecke"/>
+          <api:field name="ID_Streckenverlauf"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarifstrecken"/>
@@ -4995,19 +4995,19 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_StreckencodeVerlauf" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="IstViapunkt" type="xs:boolean" maxOccurs="1" minOccurs="1">
+      <xs:element name="ID_Streckenverlauf" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="IstStartBrechpunkt" type="xs:boolean" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Gibt an, ob der Streckencode eine Relevanz bei der Streckensuche hat.
+            Gibt an, ob der Start-Streckencode der Strecke ein expliziter Brechpunkt ist und damit maßgeblich den Verlauf bestimmt.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Reihenfolge der Streckencodes in der sie durchfahren werden.
+            Reihenfolge der Strecken in der sie durchfahren werden.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -5155,7 +5155,8 @@
   <xs:element name="GleichstellungTarifart" type="husstDV:GleichstellungTarifart_Type"/>
   
   <xs:element name="Gleichstellung" type="husstDV:Gleichstellung_Type"/>
-  
+
+  <xs:element name="Streckenverlauf" type="husstDV:Streckenverlauf_Type"/>
   <!--Wurzel -->
   
   <xs:element name="OePVTarifDB" type="husstDV:OePVTarifDB_Type"/>
@@ -5221,6 +5222,7 @@
       <xs:element ref="husstDV:SortengruppenErmittlungen"/>
       <xs:element ref="husstDV:Strecke"/>
       <xs:element ref="husstDV:Streckencode"/>
+      <xs:element ref="husstDV:Streckenverlauf"/>
       <xs:element ref="husstDV:Streckenzuordnung"/>
       <xs:element ref="husstDV:TagesartMerkmalElemente"/>
       <xs:element ref="husstDV:Tagesarten"/>
