@@ -7,6 +7,7 @@
 @REM Voraussetzung:
 @REM   Java               im Pfad erreichbar
 @REM   saxon-he-12.5.jar  im CLASSPATH erreichbar - Quelle: https://github.com/Saxonica/Saxon-HE
+@REM   sed.exe            im Pfad erreichbar      - Quelle: https://gnuwin32.sourceforge.net/packages/sed.htm
 @REM 
 REM == Start: Hauptroutine =============================================
   setlocal enabledelayedexpansion
@@ -23,7 +24,10 @@ REM == Start: Hauptroutine =============================================
   @echo on
   @rem call asciidoctor -o IndexStandard.html                           Main.adoc
 
-  call asciidoctor -o Index.html Main.adoc
+  call asciidoctor -o "%fnOut%" Main.adoc
+  sed -r -f Xsl\AppendScript.sed <"%fnOut%" 1> "%fnOut%.tmp"
+  mv -f "%fnOut%.tmp" "%fnOut%"
+
 
   REM call asciidoctor-pdf -o IndexStandard.pdf                         Main.adoc
 
@@ -60,6 +64,8 @@ goto :eof
   set "cmdJava=java"
   set "cmdSaxTrans=net.sf.saxon.Transform"
   set "fnXsl=Xsl\DvToADoc.xsl"
+  set "dirOut=%dirScript%..\html\"
+  set "fnOut=%dirOut%Main.html"
   REM dirScript = d:\HN\dev\code\git\Husst\Version 3\3.7.0\ADoc\src\
   REM Extrahiere die Versionsnummer aus dem Pfad
   set "dirXsd=..\.."
