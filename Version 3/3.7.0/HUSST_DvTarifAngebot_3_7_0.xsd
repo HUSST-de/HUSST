@@ -759,17 +759,15 @@ s. weiter Verwendungen
   
   <xs:complexType name="Relationscodegruppen_Type">
     <xs:annotation>
-      <xs:documentation>
-        Zusammenfassung von Relationscodes bspw. für City Option
-        unter einer Gruppennummer innerhalb eines ID_Relcodegruppentyps
-      </xs:documentation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Relcodegruppe"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:schema name="Angebot"/>
-      </xs:appinfo>
+    	<xs:documentation>Fasst mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z. B. zur Abbildung einer „City Option“. 
+Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:documentation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Relcodegruppe" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:schema name="Angebot" />
+    	</xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -1091,37 +1089,35 @@ s. weiter Verwendungen
   
   <xs:complexType name="Nachbarhaltestellen_Type">
     <xs:annotation>
-      <xs:documentation>Zur Definition von Kurzstrecken o.ä..(s. ID_Nachbarhaltestellenbeziehung)
-        Eine Nachbarhaltestellenbeziehung kann über ID_OrtspunktVon und ID_OrtspunktNach erfolgen
-        oder über ID_OrtspunktVon und Zahlgrenze. Es muss entweder ID_OrtspunktNach oder Zahlgrenze
-        gefüllt sein. Wenn beides gefüllt ist, gelten beide Bedingungen zeitgleich. (Es gilt auf der
-        Strecke von ID_OrtspunktVon nach ID_OrtspunktNach, wenn die Zahlgrenze nicht überschritten
-        ist.) Die Nachbarhaltestellen werden in der Verkaufslogik bei der Anzeige der Vias vor die
-        Relationen sortiert.
-      </xs:documentation>
-      <xs:appinfo>
-        <api:primekey>
-          <api:field name="ID_Nachbarhaltestelle"/>
-          <api:field name="ID_Zeitraum"/>
-        </api:primekey>
-        <api:uniquekey name="Uix_Nachbarhaltestellen">
-          <api:field name="ID_OrtspunktVon"/>
-          <api:field name="ID_OrtspunktNach"/>
-          <api:field name="ID_Zeitraum"/>
-          <api:field name="ID_Bediengebiet"/>
-          <api:field name="ID_Nachbarhaltestellenbeziehung"/>
-          <api:field name="ID_Via"/>
-          <api:field name="ID_Tarifart"/>
-          <api:field name="Zahlgrenzen"/>
-          <api:field name="ID_Zahlgrenzentyp"/>
-        </api:uniquekey>
-        <api:schema name="Angebot"/>
-        <api:remarks>
-          In Daisy (Entwicklungsversion) sollte beachtet werden, die Nachbarhaltestellen in Angebot-
-          und Tariftabellen zu trennen.
-          Vorbild: Relationen und Teilrelationen
-        </api:remarks>
-      </xs:appinfo>
+    	<xs:documentation>Dient zur Definition von Kurzstreckenbeziehungen.
+Eine Nachbarhaltestellenbeziehung wird entweder durch ID_OrtspunktVon und ID_OrtspunktNach oder durch ID_OrtspunktVon und eine Zahlgrenze beschrieben. 
+Wenn beide — ID_OrtspunktNach und Zahlgrenze — gesetzt sind, müssen beide Bedingungen gleichzeitig erfüllt sein 
+(d. h. die Strecke zwischen den Punkten gilt nur als Nachbarschaft, wenn die Zahlgrenze nicht überschritten wird). 
+
+In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias vor die regulären Relationen sortiert.</xs:documentation>
+    	<xs:appinfo>
+    		<api:primekey>
+    			<api:field name="ID_Nachbarhaltestelle" />
+    			<api:field name="ID_Zeitraum" />
+    		</api:primekey>
+    		<api:uniquekey name="Uix_Nachbarhaltestellen">
+    			<api:field name="ID_OrtspunktVon" />
+    			<api:field name="ID_OrtspunktNach" />
+    			<api:field name="ID_Zeitraum" />
+    			<api:field name="ID_Bediengebiet" />
+    			<api:field name="ID_Nachbarhaltestellenbeziehung" />
+    			<api:field name="ID_Via" />
+    			<api:field name="ID_Tarifart" />
+    			<api:field name="Zahlgrenzen" />
+    			<api:field name="ID_Zahlgrenzentyp" />
+    		</api:uniquekey>
+    		<api:schema name="Angebot" />
+    		<api:remarks>
+    			In Daisy (Entwicklungsversion) sollte beachtet werden,
+    			die Nachbarhaltestellen in Angebot- und Tariftabellen zu
+    			trennen. Vorbild: Relationen und Teilrelationen
+    		</api:remarks>
+    	</xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -1244,9 +1240,7 @@ s. weiter Verwendungen
   
   <xs:complexType name="Preisstufendirektwahl_Type">
     <xs:annotation>
-      <xs:documentation>
-        Definition von Haltestellengruppen für
-        Kurzstrecken/Zahlgrenzen
+      <xs:documentation>tbd
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -1673,8 +1667,7 @@ s. weiter Verwendungen
         </api:uniquekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Zusatzsorten sind Anschluss- und Anstossprodukte, die in Abhängigkeit von Preisstufe, bereits gewählter Sorte und Relation angeboten werden
-      </xs:documentation>
+      <xs:documentation>Zusatzsorten umfassen Anschluss- oder Anstoßprodukte, die abhängig von Relation, Preisstufe und bereits gewählter Sorte angeboten werden.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
