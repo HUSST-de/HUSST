@@ -5,5 +5,8 @@ Dieser Text wird nicht automatisch generiert sondern ist
 direkt editiert.
 ////
 
-[small]#Das ist die Einführung zur Husst Dokumentation...
-{lorem}#
+Willkommen in der offiziellen technischen HUSST Dokumentation. Hier findest du alle Informationen, die du benötigst, um HUSST zu verstehen und zu nutzen. Diese Dokumentation ist in verschiedene Bereiche unterteilt, die jeweils spezifische Aspekte von HUSST abdecken.
+
+HUSST ist im Kern eine Spezifikation eines Datenmodells - die Platform kann beliebig gewählt werden (Sqlite, XML, usw.), wobei zur Definition des Standards XSD verwendet wird.
+
+Die Dokumentation ist in 3 Abschnitte aufgeteilt: Datenversorgung, Ergebnisdaten und Schlagworte. In jedem Abschnitt werden definierte Objekte, Deren Eigenschaften sowie Abhängigkeiten zu anderen HUSST Objekten erklärt.abdecken

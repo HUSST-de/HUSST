@@ -1,17 +1,21 @@
-= Husst Dokumentation
+include::.asciidoctorconfig.adoc[]
 
-technische 	Dokumentation V {Revision}
+
+= HUSST Dokumentation v3.7.0
+// :stylesheet: toc-custom.css
+// :linkcss:
+
+Technische Dokumentation V {Revision}
 
 vom {Date}
 
-Autor: {Author}
 
 include::Einführung.adoc[]
 
-include::Dv\BereichDatenversorgung.adoc[]
+include::Dv/BereichDatenversorgung.adoc[]
 
-include::Ergebnisdaten\BereichErgebnisdaten.adoc[]
+include::Ergebnisdaten/BereichErgebnisdaten.adoc[]
 
-include::Meta\Schlagworte.adoc[]
+include::Meta/Schlagworte.adoc[]
 
-// include::Anhang\Anhänge.adoc[]
+// include::Anhang/Anhänge.adoc[]
