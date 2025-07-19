@@ -4985,6 +4985,7 @@
           <api:field name="ID_Streckenverlauf"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
+        <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -5048,6 +5049,7 @@
           * wenn ID_TarifartStrecke an der Relation nicht gesetzt ist, dann hat diese Zuordnung  keine Auswirkung,
           * das Vertriebsgerät muss die durch die Streckenverläufe definierten Verbindungen parallel in der Streckenlogik suchen,
           * das Vertriebsgerät muss parallel in der normalen Streckenlogik (kürzester Weg) suchen, wenn kein Streckenverlauf zu der Relation zugewiesen ist.
+        Optional kann ein alternativer Rückweg im Streckentarif zugeordnet sein.  
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -5061,8 +5063,9 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckenverlauf" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckenverlauf" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckenverlauf_Rueck" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
   
