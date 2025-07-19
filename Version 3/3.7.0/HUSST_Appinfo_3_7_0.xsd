@@ -19,7 +19,7 @@
     </xs:documentation>
   </xs:annotation>
 
-  <xs:complexType name="field_Type">
+  <xs:complexType name="field_Type" mixed="true">
     <xs:annotation>
       <xs:documentation>Feldname.</xs:documentation>
     </xs:annotation>
@@ -41,6 +41,32 @@
       <xs:element name="field" type="api:field_Type" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
+
+<xs:complexType name="example_Type" mixed="true">
+  <xs:annotation>
+    <xs:documentation>
+      Freies Beispiel zur Verwendung eines Typs oder eines Elements einer Datenstruktur.
+      In dem Beispiel können Text und Xml Elemente frei gemischt werden.
+    </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+    <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+  </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fieldexample_Type" mixed="true">
+  <xs:annotation>
+    <xs:documentation>
+	  Strukturiertes Beispiel zur Verwendung eines Typs oder eines Elements einer Datenstruktur.
+      Besteht aus einer Liste von Feldern, die exemplarische Werte für ein konkretes Beispiel enthalten.
+	  Vor der Liste und nach jedem Feld können Erklärungstexte eingestreut werden.
+	  Bei der Erzeugung der Dokumentation können diese Beispiele strukturiert formatiert werden. 
+    </xs:documentation>
+  </xs:annotation>
+  <xs:sequence>
+    <xs:element name="field" type="api:field_Type" minOccurs="1" maxOccurs="unbounded"/>
+  </xs:sequence>
+</xs:complexType>
 
   <xs:complexType name="uniquekey_Type">
     <xs:annotation>
@@ -119,11 +145,36 @@
   <xs:element name="primekey" type="api:primekey_Type"/>
   <xs:element name="uniquekey" type="api:uniquekey_Type"/>
   <xs:element name="schema" type="api:schema_Type"/>
-  <xs:element name="remarks" type="xs:string">
-    <xs:annotation>
-      <xs:documentation>Feld für Hinweise. Z.B. für zukünftige Versionen.</xs:documentation>
-    </xs:annotation>
-  </xs:element>
+	<xs:element name="remarks" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Feld für Hinweise. Z.B. für zukünftige Versionen.</xs:documentation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
+    	</xs:annotation>
+	</xs:element>
+	<xs:element name="example" type="api:example_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Beispielhafte Darstellung zur Veranschaulichung eines Typs oder Elements.
+				Wird typischerweise innerhalb von xs:appinfo verwendet.
+			</xs:documentation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="fieldexample" type="api:fieldexample_Type">
+		<xs:annotation>
+			<xs:documentation>
+				Strukturierte Beispieldaten mit konkreten Feldwerten zur Dokumentation von Typen.
+				Unterstützt erklärenden Freitext und mehrere Felder.
+			</xs:documentation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
+		</xs:annotation>
+	</xs:element>
 
     <xs:element name="reference" type="xs:string">
     	<xs:annotation>
@@ -160,6 +211,11 @@ aus XML-Schema_KVP_DL_PV.xsd (BOM 6-38)</xs:documentation>
     </xs:attribute>
 
 	<xs:complexType name="designstatus_Type">
+        <xs:annotation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
+        </xs:annotation>
         <xs:simpleContent>
 	        <xs:extension base="api:designstatus_ENUM">
                 <xs:attribute ref="api:assignee" use="optional"/>
@@ -172,6 +228,9 @@ aus XML-Schema_KVP_DL_PV.xsd (BOM 6-38)</xs:documentation>
 			<xs:documentation>
 				Enumeration der möglichen designstatus Werte.
 			</xs:documentation>
+			<xs:appinfo>
+				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
+			</xs:appinfo>
 		</xs:annotation>
         <xs:restriction base="xs:string">
     		<xs:enumeration value="draft">
