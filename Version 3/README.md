@@ -17,7 +17,7 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
-### 3.7.0 -> 3.8.0
+### 3.7.0 -> 3.8.0 - work in progress
 Änderungsdatum: 17. Juli 2025
 Matching von Verbund- und Streckenverbindungen 
 * DvTarifAngebot
