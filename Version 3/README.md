@@ -18,11 +18,12 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 ## Changelog
 
 ### 3.7.0 -> 3.8.0
-Änderungsdatum: 17. Juli 2025
+Änderungsdatum: 21. Juli 2025
 Matching von Verbund- und Streckenverbindungen 
 * DvTarifAngebot
-   * Ergänzung Streckenverlauf_Type 
-   * Relationen_Type ergänzt um ID_Streckenverlauf (optional)
+   * Ergänzung Streckenverlauf_Type und die Zuordnungen 
+     - zu Strecken (StreckenverlaufStrecke_Type) 
+     - zu Relationen (StreckenverlaufRelation_Type)
 
 ### 3.6.0 -> 3.7.0
 Änderungsdatum: 15. Januar 2025
