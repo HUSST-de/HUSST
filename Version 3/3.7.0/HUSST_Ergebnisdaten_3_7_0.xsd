@@ -155,7 +155,7 @@
 	    <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1"/>
-	  <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1"/>
     </choice>
     <attribute name="Zeitpunkt" type="dateTime" use="required">
       <annotation>
@@ -1687,6 +1687,7 @@
             Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.
           </documentation>
         </annotation>	  
+      </element>
       <element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
