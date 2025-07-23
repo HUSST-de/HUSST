@@ -6,7 +6,8 @@ Status: Vorschläge
 
 | Element     | Datentyp     | Doku|Beschreibung                          |
 |--------------|--------------|-----|----------------------------------|
-| `designstatus` | `designstatus_Type` |nein| Status eines Strukturelements, solange es noch nicht Teil des Standards ist - das Element erscheint nicht in der offiziellen Dokumentation |
+| `since` | `husstversion_Type` |ja| Angabe einer Husst-Version |
+| `changed` | `husstversionlist_Type` |ja| Angabe einer Liste von Husst-Versionen |
 | `remarks`    | `string` |nein| interne Hinweise zu einem Strukturelement - der Text erscheint nicht in der offiziellen Dokumentation|
 | `reference`    | `string` |ja| Verweis auf eine externe Referenz zu einem Strukturelement|
 | `example`    | `example_Type` |ja| Freitextbeispiel                      |

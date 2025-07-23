@@ -142,15 +142,30 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:element name="primekey" type="api:primekey_Type"/>
-  <xs:element name="uniquekey" type="api:uniquekey_Type"/>
-  <xs:element name="schema" type="api:schema_Type"/>
+  <xs:element name="primekey" type="api:primekey_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert die Felder, über die ein Element dieses Typs in der gesamten Datenmenge eindeutig identifiziert werden kann.
+        Das Feld "Deaktiviert" wird implizit ergänzt. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="uniquekey" type="api:uniquekey_Type">
+    <xs:annotation>
+      <xs:documentation>
+        Definiert Felder, über die zusammen sich alle Elemente dieses Typs unterscheiden müssen.  
+        Das Feld "deaktiviert" wird implizit ergänzt. 
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="schema" type="api:schema_Type">
+    <xs:annotation>
+      <xs:documentation>Husst-Schema, dem ein Husst-Datentyp zugeordnet ist.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
 	<xs:element name="remarks" type="xs:string">
 		<xs:annotation>
-			<xs:documentation>Feld für Hinweise. Z.B. für zukünftige Versionen.</xs:documentation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
+			<xs:documentation>Interne Hinweise zu einem Strukturelement - der Text erscheint nicht in der offiziellen Dokumentation.</xs:documentation>
     	</xs:annotation>
 	</xs:element>
 	<xs:element name="example" type="api:example_Type">
@@ -159,9 +174,6 @@
 				Beispielhafte Darstellung zur Veranschaulichung eines Typs oder Elements.
 				Wird typischerweise innerhalb von xs:appinfo verwendet.
 			</xs:documentation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
 		</xs:annotation>
 	</xs:element>
 	<xs:element name="fieldexample" type="api:fieldexample_Type">
@@ -170,9 +182,6 @@
 				Strukturierte Beispieldaten mit konkreten Feldwerten zur Dokumentation von Typen.
 				Unterstützt erklärenden Freitext und mehrere Felder.
 			</xs:documentation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
 		</xs:annotation>
 	</xs:element>
 
@@ -183,72 +192,49 @@ Das Format für die Referenz kann frei gewählt werden.
 Beispiel:
 VDV-KA:  Kundengruppen des OePV.
 aus XML-Schema_KVP_DL_PV.xsd (BOM 6-38)</xs:documentation>
-	    	<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-	    	</xs:appinfo>
     	</xs:annotation>
    	</xs:element>
 
-    <xs:element name="designstatus" type="api:designstatus_Type">
-        <xs:annotation>
-        	<xs:documentation>Definiert den Status eines Strukturelements, solange es noch nicht Teil des Standards ist.
-			</xs:documentation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
-        </xs:annotation>
+    <xs:element name="since" type="api:husstversion_Type">
+    	<xs:annotation>
+    		<xs:documentation>Angabe einer Husst-Version</xs:documentation>
+    		<xs:appinfo>
+    			<api:example>
+     3.0.0
+oder 3.4
+oder 3.7.0.1
+    			</api:example>
+    		</xs:appinfo>
+    	</xs:annotation>
     </xs:element>
-    
-    <xs:attribute name="assignee" type="xs:string">
-        <xs:annotation>
-        	<xs:documentation>Ansprechpartner für das Design / die Dokumentation eines Strukturelements, solange es sich noch in einem
-        	Designstatus befindet. 
-			</xs:documentation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
-        </xs:annotation>
-    </xs:attribute>
 
-	<xs:complexType name="designstatus_Type">
-        <xs:annotation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
-        </xs:annotation>
-        <xs:simpleContent>
-	        <xs:extension base="api:designstatus_ENUM">
-                <xs:attribute ref="api:assignee" use="optional"/>
-	        </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-
-	<xs:simpleType name="designstatus_ENUM">
-		<xs:annotation>
-			<xs:documentation>
-				Enumeration der möglichen designstatus Werte.
-			</xs:documentation>
-			<xs:appinfo>
-				<api:designstatus assignee="Neubauer(kt)">draft</api:designstatus>
-			</xs:appinfo>
-		</xs:annotation>
-        <xs:restriction base="xs:string">
-    		<xs:enumeration value="draft">
-    			<xs:annotation>
-    				<xs:documentation>
-    				  Vorschlag
-    				  Das Strukturelement ist ein Vorschlag und noch kein Teil der Standarddefinition.
-    				</xs:documentation>
-    			</xs:annotation>
-    		</xs:enumeration>
-    		<xs:enumeration value="undocumented">
-    			<xs:annotation>
-    				<xs:documentation>
-    				  undokumentiert
-    				  Das Strukturelement ist zwar Teil der Standarddefinition, aber muss noch dokumentiert werden.
-    				</xs:documentation>
-    			</xs:annotation>
-    		</xs:enumeration>
+    <xs:simpleType name="husstversion_Type">
+    	<xs:annotation>
+    		<xs:documentation>Format einer Husst-Version, mindestens Haupt- und Neberversionsnummer</xs:documentation>
+    	</xs:annotation>
+    	<xs:restriction base="xs:string">
+    		<xs:pattern value="\d+\.\d+(\.\d+(\.\d+)?)?"></xs:pattern>
     	</xs:restriction>
-	</xs:simpleType>
+    </xs:simpleType>
+    <xs:simpleType name="husstversionlist_Type">
+    	<xs:annotation>
+    		<xs:documentation>Liste von Husst-Versionen, mindestens eine</xs:documentation>
+    	</xs:annotation>
+    	<xs:restriction base="xs:string">
+    		<xs:pattern value="\d+\.\d+(\.\d+(\.\d+)?)?(,\d+\.\d+(\.\d+(\.\d+)?)?)*"></xs:pattern>
+    	</xs:restriction>
+    </xs:simpleType>
+
+    <xs:element name="changed" type="api:husstversionlist_Type">
+    	<xs:annotation>
+    		<xs:documentation>Angabe einer Liste von Husst-Versionen</xs:documentation>
+    		<xs:appinfo>
+    			<api:example>
+3.0.0,3.4,3.7.0.1
+oder
+3.4
+    			</api:example>
+    		</xs:appinfo>
+    	</xs:annotation>
+   	</xs:element>
 </xs:schema>
