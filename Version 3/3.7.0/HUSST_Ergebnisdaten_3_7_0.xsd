@@ -79,6 +79,11 @@
   </complexType>
 
   <complexType name="Beleg_Type">
+    <annotation>
+      <documentation>
+        Enthält Informationen über den ausgegebenen Beleg
+      </documentation>
+    </annotation>
     <sequence>
       <element name="BelegNr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
@@ -137,31 +142,8 @@
   <complexType name="Datensatz_Type">
     <choice>
       <element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1"/>
-		<annotation>
-			<documentation>
-			Der Schichtbeginn definiert den genauen Zeitpunkt, wann
-			das Verkaufsgerät die Verkaufsbereitschaft erreicht hat.
-			Der Datensatz zum Schichtbeginn. Dieser Datensatz muss
-			paarweise mit Schichtabschluss vorkommen.
-			</documentation>
-		</annotation>
-	  </element>
-      <element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1"/>
-		<annotation>
-			<documentation>
-			Der Datensatz zum Schichtabschluss. Dieser Datensatz
-			muss paarweise mit Schichtbeginn vorkommen.
-			Es ist der letzte Datensatz einer Schicht.
-			Hier wird angegeben, wie der Schichtabschluss ausgelöst 
-			wurde. Hintergrund hierbei ist die Möglichkeit 
-			im personalbedienten Verkauf unterscheiden zu können, 
-			ob eine Schicht explizit durch den Nutzer eines 
-			Verkaufsgerätes (manuell) oder implizit durch 
-			das Gerät selbst (automatisch) durchgeführt wurde.
-			</documentation>
-		</annotation>	  
-      </element>
-	  <element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1"/> 
+	    <element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Pruefabschluss" type="husst:Pruefabschluss_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Komponentenliste" type="husst:Komponentenliste_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Meldung" type="husst:Meldung_Type" maxOccurs="1" minOccurs="1"/>
@@ -169,44 +151,10 @@
       <element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Dienstbeginn" type="husst:Dienstbeginn_Type" maxOccurs="1" minOccurs="1"/>
-		<annotation>
-			<documentation>
-			Der Dienstbeginn entspricht in den meisten Fällen 
-			dem Schichtbeginn, bekommt allerdings einen 
-			eigenen Datensatz.
-			Der Dienstbeginn kann gleichzeitig auf mehrere
-            Vertriebsstellen bezogen sein. Hiermit besteht
-            beispielsweise die Möglichkeit geichzeitig auf
-            den Verkäufer und die Verkaufsstelle zu
-            beziehen.
-			</documentation>
-		</annotation>
-      </element>
-	  <element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1"/>
-		<annotation>
-			<documentation>
-			Das Dienstende ist entsprechend dem 
-			Dienstbeginn der zweitletzte Datensatz 
-			einer Schicht. In dem Dienstende
-			werden die Summen aller Zahlungen 
-			gruppiert nach Zahlungsart aufsummiert, 
-			sodass am Ende der Schichteinarbeitung 
-			gegen diese Summen gegengeprüft werden kann.
-			</documentation>
-		</annotation>
-      </element>
-	  <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1"/>
+	    <element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1"/>
+	    <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1"/>
-        <annotation>
-          <documentation>Der Warenkorb bildet die eigentliche Datenstruktur, 
-		  die dafür verantwortlich ist, Verkäufe mittels der HUSST zu 
-		  übermitteln. Dabei beinhaltet die Warenkorbstruktur die 
-		  Möglichkeit einen Verkaufsvorgang mit mehreren Produkten 
-		  und/oder mehreren Zahlungsarten abzubilden.
-		  Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.</documentation>
-        </annotation>	  
-      </element>
 	  <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1"/>
     </choice>
     <attribute name="Zeitpunkt" type="dateTime" use="required">
@@ -228,8 +176,19 @@
   </complexType>
 
   <complexType name="Dienstbeginn_Type">
+		<annotation>
+			<documentation>
+      Der Dienst Identifiziert den Verkäufer - oder 
+      verallgemeinert die Vertriebsstelle.
+			Der Dienstbeginn kann gleichzeitig auf mehrere
+      Vertriebsstellen bezogen sein. Hiermit besteht
+      beispielsweise die Möglichkeit geichzeitig auf
+      den Verkäufer und die Verkaufsstelle zu
+      beziehen.
+			</documentation>
+		</annotation>
     <sequence>
-      <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" minOccurs="1" maxOccurs="unbounded">
+      <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" minOccurs="1" maxOccurs="unbounded"/>
       <element name="DienstPlanNr" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>
@@ -266,6 +225,14 @@
   </complexType>
 
   <complexType name="Dienstende_Type">
+		<annotation>
+			<documentation>
+        Das Dienstende beendet einen begonnenen Dienst.
+        Zur Kontrolle beinhaltet der Datensatz die 
+        Summe aller Geldbeträge, aufgeteilt nach Bezahlart,
+        aufgelistet.
+			</documentation>
+		</annotation>
     <sequence>
       <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="unbounded" minOccurs="1"/>
       <element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded"/>
@@ -329,7 +296,6 @@
         <annotation>
           <documentation>
             Eine textuelle Beschreibung des Vorfallsorts.
-			Ortspunkt gem. Vorgabe in den Versorgungsdaten
           </documentation>
         </annotation>
       </element>
@@ -1013,7 +979,7 @@
   <complexType name="ProdFahrschein_Type">
     <annotation>
       <documentation>
-        Via = Eine Liste von Tarifpunkten
+        Beschreibt die räumliche und zeitliche Gültigkeit	des verkauften Produkts.
       </documentation>
     </annotation>
     <sequence>
@@ -1043,8 +1009,8 @@
     <annotation>
       <documentation>
         Eine Datenstruktur, die die tariflichen Merkmale des verkauften 
-		Produkts beschreibt.
-		Bei der Anwendung von Teilrelationen zur Aufteilung
+		    Produkts beschreibt.
+		    Bei der Anwendung von Teilrelationen zur Aufteilung
         von Fremd- und Eigenleistungen wird wie folgt vorgegangen:
         Das
         verkaufte Produkt wird als Hauptprodukt mit der Id und ExtId
@@ -1055,12 +1021,6 @@
     <sequence>
       <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
       <element name="Tarifprodukt" type="husst:Tarifprodukt_Type" maxOccurs="1" minOccurs="1"/>
-		<annotation>
-          <documentation>
-            Eine Datenstruktur, die die tariflichen Merkmale des 
-			verkauften Produkts beschreibt.
-          </documentation>
-        </annotation>
       <element name="Preis" type="husst:Preis_Type" maxOccurs="unbounded" minOccurs="0">
         <annotation>
           <documentation>
@@ -1069,18 +1029,7 @@
         </annotation>
       </element>
       <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
-		<annotation>
-          <documentation>
-            Enthält Informationen über den ausgegebenen Beleg
-          </documentation>
-        </annotation>
       <element name="Fahrschein" type="husst:ProdFahrschein_Type" maxOccurs="1" minOccurs="0"/>
-		<annotation>
-          <documentation>
-            Beschreibt die räumliche und zeitliche Gültigkeit 
-			des verkauften Produkts.
-          </documentation>
-        </annotation>
       <element name="Teilprodukt" type="husst:Produkt_Type" maxOccurs="unbounded" minOccurs="0">
         <annotation>
           <documentation>
@@ -1231,11 +1180,10 @@
         <annotation>
           <documentation>
             Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für
-            eine
-            ordentliche Schicht sollten mindestens die
-            Datensätze Schichtbeginn
-            und Schichtabschluss
-            enthalten sein.
+            eine ordentliche Schicht sollten mindestens die
+            Datensätze Schichtbeginn und Schichtabschluss
+            enthalten sein. Allerdings können diese Datensätze 
+            auch auf mehrere xml-Dateien aufgeteilt werden.
           </documentation>
         </annotation>
       </element>
@@ -1263,6 +1211,18 @@
   </complexType>
 
   <complexType name="Schichtabschluss_Type">
+		<annotation>
+			<documentation>
+			Der Datensatz zum Schichtabschluss. 
+			Es ist der letzte Datensatz einer Schicht.
+			Hier wird angegeben, wie der Schichtabschluss ausgelöst 
+			wurde. Hintergrund hierbei ist die Möglichkeit 
+			im personalbedienten Verkauf unterscheiden zu können, 
+			ob eine Schicht explizit durch den Nutzer eines 
+			Verkaufsgerätes (manuell) oder implizit durch 
+			das Gerät selbst (automatisch) durchgeführt wurde.
+			</documentation>
+		</annotation>	     
     <sequence>
       <element name="Ausloeser" type="husst:Ausloeser_Type" minOccurs="1" maxOccurs="1"/>
       <element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded"/>
@@ -1271,6 +1231,14 @@
   </complexType>
 
   <complexType name="Schichtbeginn_Type">
+		<annotation>
+			<documentation>
+      Der Datensatz zum Schichtbeginn.
+			Der Schichtbeginn beinhaltet die Identifikation des
+      Verkaufgerätes  und definiert den genauen Zeitpunkt, wann
+			das Verkaufsgerät die Verkaufsbereitschaft erreicht hat.        
+			</documentation>
+		</annotation>
     <sequence>
       <element name="SchichtNr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
@@ -1392,53 +1360,62 @@
   </complexType>
 
   <complexType name="Tarifprodukt_Type">
+    <annotation>
+      <documentation>
+        Eine Datenstruktur, die die tariflichen Merkmale des 
+        verkauften Produkts beschreibt.
+      </documentation>
+    </annotation>
     <sequence>
-      <element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1"/>
-	    <annotation>
+      <element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1">
+        <annotation>
           <documentation>
-            Enthält die Nummer des Tarifgebiets aus der 
-			zugrundeliegenden Tarifdatenbank (Versorgungsdaten).
+            Enthält die ID des Tarifgebiets aus der 
+            zugrundeliegenden Tarifdatenbank (Versorgungsdaten).
           </documentation>
         </annotation>
       </element>
-	  <element name="ID_Sorte" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
-		<annotation>
+      <element name="ID_Sorte" type="husst:INT4" maxOccurs="1" minOccurs="0">
+        <annotation>
           <documentation>
             Enthält die in den Versorgungsdaten festgelegte ID der Sorte.
           </documentation>
         </annotation>
       </element>
-	  <element name="ReferenzExternSorte" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="ReferenzExternSorte" type="string" maxOccurs="1" minOccurs="0"/>
       <element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>
-            Enthält die Nummer der Preisstufe/Variante des 
-			verkauften Produkts. 
-			Die Preisstufe ist nur zusammen mit dem Tarifgebiet gültig.
+            Enthält die ID der Preisstufe des 
+            verkauften Produkts. 
+            Die Preisstufe ist nur zusammen mit dem Tarifgebiet gültig.
           </documentation>
         </annotation>
       </element>
       <element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0"/>
       <element name="ID_Preis" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
       <element name="ReferenzExternPreis" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="ID_Preisspalte" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
-		<annotation>
+      <element name="ID_Preisspalte" type="husst:INT4" maxOccurs="1" minOccurs="0">
+        <annotation>
           <documentation>
-            Bietet weitere Unterscheidungsmöglichkeiten, die nicht 
-			über die Preisstufe abgebildet werden können
+            Enthält die ID der Preisspalte des verkauften Produkts. 
+            Die Preisspalte ist nur zusammen mit der Preisstufe und dem Tarifgebiet gültig.
           </documentation>
         </annotation>
 	  </element>
     </sequence>
     <attribute name="DatenversionInhalt" type="string" use="required">
       <annotation>
-        <documentation>Der Inhalt von "DatenversionInhalt" der Tabelle VersionInhalt der Versorgung</documentation>
+        <documentation>
+          Der Inhalt von "DatenversionInhalt" der Tabelle VersionInhalt der Versorgung
+        </documentation>
       </annotation>
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr
-          geliefert.
+        <documentation>
+          Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt
+          gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert.
         </documentation>
       </annotation>
     </attribute>
@@ -1447,15 +1424,15 @@
   <complexType name="Tarifpunkt_Type">
     <sequence>
       <element name="ID_Tarifpunkt" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="ID_Tarifgebiet" type="int" maxOccurs="1" minOccurs="1"/>
+      <element name="ID_Tarifgebiet" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>
             Enthält die Nummer des Tarifgebiets aus der 
-			zugrundeliegenden Tarifdatenbank (Versorgungsdaten).
+			      zugrundeliegenden Tarifdatenbank (Versorgungsdaten).
           </documentation>
         </annotation>
       </element>
-	  <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
     </sequence>
   </complexType>
 
@@ -1496,27 +1473,22 @@
   <complexType name="Transaktion_Type">
     <sequence>
       <element name="Produkt" type="husst:Produkt_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="KundenNr" type="string" maxOccurs="1" minOccurs="0"/>
-		  <annotation>
-			  <documentation>
-				Über die KundenNr kann bei personalisierter 
-				Nutzung / Kauf der Bezug zu einem im 
-				Backend hinter-legten Kundendatensatz 
-				hergestellt werden.
-			  </documentation>
-			</annotation>
+      <element name="KundenNr" type="string" maxOccurs="1" minOccurs="0">
+        <annotation>
+          <documentation>
+            Über die KundenNr kann bei personalisierter 
+            Nutzung / Kauf der Bezug zu einem im 
+            Backend hinterlegten Kundendatensatz 
+            hergestellt werden.
+          </documentation>
+        </annotation>
       </element>
-	  <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="0">
+      <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>
             Die BezugsNr findet unterschiedlich Verwendung 
-			und ist zwischen den Austauschpartnern der 
-			Schnittstelle zu vereinbaren. 
-			Die BezugsNr enthält bei EBE-Vorgängen die 
-			EBE-Kontonummer, bei Gutschein-Vorgängen die 
-			Gutscheinnummer, bei Bezahlung bzw. Einlösung 
-			von Anteilen vorausbezahlter Anteile auf 
-			Karten die Kartennummer. 
+            und ist zwischen den Austauschpartnern der 
+            Schnittstelle zu vereinbaren. 
           </documentation>
         </annotation>
       </element>
@@ -1700,8 +1672,21 @@
   </complexType>
 
   <complexType name="Warenkorb_Type">
+    <annotation>
+      <documentation>
+        Der Warenkorb bildet die Datenstruktur zum Übermitteln von Verkäufen. 
+        Dabei beinhaltet die Warenkorbstruktur die 
+        Möglichkeit einen Verkaufsvorgang mit mehreren Produkten 
+        und/oder mehreren Zahlungsarten abzubilden.
+      </documentation>
+    </annotation>	  
     <sequence>
       <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0">
+        <annotation>
+          <documentation>
+            Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.
+          </documentation>
+        </annotation>	  
       <element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
