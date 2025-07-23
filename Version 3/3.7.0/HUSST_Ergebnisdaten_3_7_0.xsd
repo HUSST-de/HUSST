@@ -140,6 +140,18 @@
   </complexType>
 
   <complexType name="Datensatz_Type">
+    <annotation>
+      <documentation>
+        Der Datensatztyp ist der Hauptdatenträger der Ergebnisdaten.
+        Er enthält einen der unten genannten Datentypen zusammen mit
+        einem Zeitpunkt und einer pro Schicht eindeutigen Datensatznummer.
+        Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für
+        eine ordentliche Schicht sollten mindestens die
+        Datensätze Schichtbeginn und Schichtabschluss
+        enthalten sein. Allerdings können diese Datensätze 
+        auch auf mehrere xml-Dateien aufgeteilt werden.
+      </documentation>
+    </annotation>
     <choice>
       <element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1"/> 
@@ -1176,17 +1188,7 @@
 
   <complexType name="Schicht_Type">
     <sequence>
-      <element name="Datensatz" type="husst:Datensatz_Type" maxOccurs="unbounded" minOccurs="0">
-        <annotation>
-          <documentation>
-            Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für
-            eine ordentliche Schicht sollten mindestens die
-            Datensätze Schichtbeginn und Schichtabschluss
-            enthalten sein. Allerdings können diese Datensätze 
-            auch auf mehrere xml-Dateien aufgeteilt werden.
-          </documentation>
-        </annotation>
-      </element>
+      <element name="Datensatz" type="husst:Datensatz_Type" maxOccurs="unbounded" minOccurs="0"/>
     </sequence>
     <attribute name="SchichtUID" type="string" use="required">
       <annotation>
