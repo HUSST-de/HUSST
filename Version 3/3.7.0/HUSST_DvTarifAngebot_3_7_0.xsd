@@ -1167,7 +1167,8 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:element>
       <xs:element name="ID_Zahlgrenzentyp" type="husstDV:ID_Zahlgrenzentyp_Type" maxOccurs="1" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Gibt den Typ an, der die Zahlgrenzen definiert.</xs:documentation>
+          <xs:documentation>
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
@@ -1176,16 +1177,28 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   
   <xs:complexType name="DefZahlgrenzentyp_Type">
     <xs:annotation>
+      <xs:documentation>
+        Definiert die möglichen Typen von Zahlgrenzen, die zur Beschreibung von Nachbarhaltestellenbeziehungen verwendet werden. 
+        Eine Zahlgrenze legt fest, unter welchen Bedingungen zwei Ortspunkte als benachbart gelten – z. B. anhand der Anzahl von Haltestellen, der Entfernung in Kilometern oder der Luftlinie.
+
+        Die hier definierten Typen werden in Kombination mit konkreten Grenzwerten genutzt, um Kurzstreckenbeziehungen tariflich einzugrenzen.
+
+        Werte kleiner 1000 sind durch HUSST standardisiert; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
+      </xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Zahlgrenzentyp"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:fieldexample>
+          Dieses (unvollständige) Beispiel zeigt eine Nachbarhaltestellenbeziehung, bei der jede Haltestellen als benachbart zur Von-Haltestelle gilt, wenn die Entfernung in Tarifkilometern unterhalb einer definierten Grenze liegt.
+          <api:field name="ID_OrtspunktVon">4711</api:field>
+          <api:field name="ID_Zahlgrenzentyp">2</api:field>
+          <api:field name="Zahlgrenze">3</api:field>
+          Alle Haltestellen gelten als benachbart, wenn die tarifliche Entfernung zur Haltestelle `4711` ≤ 3 Kilometer beträgt.
+        </api:fieldexample>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden
-        kann. Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
-      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -1240,7 +1253,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   
   <xs:complexType name="Preisstufendirektwahl_Type">
     <xs:annotation>
-      <xs:documentation>tbd
+      <xs:documentation>
+        Dient der direkten Auswahl einer Preisstufe ohne Relationsermittlung.
+        Ermöglicht schnellen Verkauf z. B. im Linienverkehr.
+        Der Schluesselwert ist projektspezifisch und kann auch komplexe Logiken abbilden.
+        Zusätzlich kann über den Schlüsselbegriff auf eine Angebotsrelation verwiesen werden.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -1882,33 +1899,29 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   <xs:complexType name="PreisstufenErmittlungen_Type">
     <xs:annotation>
       <xs:documentation>
-        Die PreisstufenErmittlungen dienen dazu, die zu berechenden Preisstufen für eine Sorte zu ermitteln.
-        Dabei orientiert sich die PreisstufenErmittlung an einer variablen Ermittlungseinheit (z.B. Minuten / Kilometer).
-        Die PreisstufenErmittlung ist eine alternative zur Ermittlung der Preisstufe über eine Teilrelation.
-        Die PreisstufenErmittlung hat hauptsächlich im Zusammenhang mit der SortengruppenErmittlung im MaaS-Bereich eine Relevanz.
-        Die ermittelte Preisstufe muss ggf. mehrfach berechnet werden.
+        Die PreisstufenErmittlungen definieren Regeln zur Berechnung der Preisstufe einer Sorte auf Basis einer variablen Ermittlungseinheit (z. B. Minuten oder Kilometer). 
+        Sie stellen eine Alternative zur Preisstufenermittlung über Teilrelationen dar und kommen insbesondere im Kontext von SortengruppenErmittlungen (z. B. im MaaS-Umfeld) zum Einsatz.
 
-        Wenn die Menge an Ermittlungseinheiten in dem Rahmen von "Von" und "Bis" liegt,
-        wird die Anzahl der Schritte aufgerundet auf ganze Werte mal den Preis gerechnet.
+        Die Berechnung erfolgt schrittweise: Liegt die ermittelte Menge der Einheiten im Bereich „Von“ bis „Bis“, wird die Anzahl der Schritte aufgerundet und mit dem Preis der zugeordneten Preisstufe multipliziert.
 
-        Bsp.: Einheit Minuten, Von 0, Bis 90, Schritt 5, ID_Preisstufe 1
-        =&gt; Wenn 32 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 1 7x berechnet.
-
-        Bsp. 2: Einheit Minuten, Von 90, Bis 180, Schritt 10, ID_Preisstufe 2
-        =&gt; Wenn 117 Minuten berechnet werden sollen, wird der Preis der ID_Preisstufe 2 3x berechnet.
-        Zusätzlich sind für den Zeitraum von 0 bis 90 Minuten weitere Preisstufen zu ermitteln. (z.B. aus Beispiel 1 die ID_Preisstufe 1 18x)
-
-        Bsp. 3: Einheit Kilometer, Von 0, Bis 100, Schritt 100, ID_Preisstufe 3
-        =&gt; Wenn 5 Kilometer berechnet werden sollen, wird der Preis der ID_Preisstufe 3 1x berechnet.
-        So kann ID_Preisstufe 3 allgemein nur 1x berechnet werden, da Schritt = Bis - Von ist.
+        Hinweis:
+        - Der Schrittwert darf nicht größer als (Bis – Von) sein.
+        - (Bis – Von) muss durch Schritt ohne Rest teilbar sein.
+        - Die Regel kann optional eine Beschreibung enthalten, die nicht für Vertriebsgeräte bestimmt ist.
       </xs:documentation>
-
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_PreisstufenErmittlung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-
+        <api:example>
+          Einheit: Minuten, Von: 0, Bis: 90, Schritt: 5, Preisstufe: 1<br/>
+          → Bei 32 Minuten: 7 Schritte → 7 × Preis von Preisstufe 1<br/><br/>
+          Einheit: Minuten, Von: 90, Bis: 180, Schritt: 10, Preisstufe: 2<br/>
+          → Bei 117 Minuten: 3 Schritte → 3 × Preis von Preisstufe 2<br/><br/>
+          Einheit: Kilometer, Von: 0, Bis: 100, Schritt: 100, Preisstufe: 3<br/>
+          → Bei 5 km: 1 Schritt → 1 × Preis von Preisstufe 3
+        </api:example>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -3980,13 +3993,21 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   <xs:complexType name="DefNachbarhaltestellenbeziehung_Type">
     <xs:annotation>
       <xs:documentation>
-        Art einer Nachbarhaltestellenbeziehung.
+        Definiert die möglichen Verwendungszwecke von Nachbarhaltestellenbeziehungen innerhalb der Datenversorgung. 
+        Eine Nachbarhaltestellenbeziehung ordnet einem Ortspunkt (z. B. einer Haltestelle) eine Menge benachbarter Ortspunkte zu. 
+        Über die hier definierte ID_Nachbarhaltestellenbeziehung kann zwischen verschiedenen Arten solcher Beziehungen unterschieden werden – etwa für unterschiedliche tarifliche oder betriebliche Zwecke. 
+        Die HUSST reserviert Werte kleiner 1000 für standardisierte Typen; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Nachbarhaltestellenbeziehung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:fieldexample>
+        	<api:field name="ID_Nachbarhaltestellenbeziehng">1</api:field>
+        	<api:field name="Bezeichnung">Kurzstreckenbeziehung</api:field>
+        	Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
+        </api:fieldexample>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
@@ -4371,7 +4392,10 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   <xs:complexType name="DefRelationscodegruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
-        bspw. als Magneten für Citytarif
+        Definiert die möglichen Typen von Relationscodegruppen innerhalb der Datenversorgung. 
+        Relationscodegruppen fassen mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z. B. zur Abbildung von Startortgruppen oder City-Optionen. 
+        Über die ID_Relcodegruppentyp kann der Verwendungszweck einer Gruppe systematisch klassifiziert werden. 
+        Werte kleiner 1000 sind durch HUSST reserviert; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -4392,16 +4416,25 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   
   <xs:complexType name="DefOrtspunkttyp_Type">
     <xs:annotation>
+      <xs:documentation>
+        Definiert die möglichen Typen von Ortspunkten innerhalb der Datenversorgung. 
+        Ortspunkte repräsentieren geographische Bezugspunkte wie Haltestellen, Betriebshöfe oder Zonen. 
+        Über die ID_Ortspunkttyp kann ihre jeweilige Funktion im System klassifiziert werden. 
+        Die hier definierten Typen werden in den Ortspunktdaten verwendet, um deren Rolle eindeutig zu kennzeichnen. 
+        Werte kleiner 1000 sind durch HUSST standardisiert; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
+      </xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Ortspunkttyp"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-        <api:schema name="Angebot"/>
+        <api:fieldexample>
+          <api:field name="ID_Ortspunkttyp">1</api:field>
+          <api:field name="Bezeichnung">Haltestelle</api:field>
+          An einer Haltestelle können Fahrgäste in ein ÖPNV-Fahrzeug (Bus, Zug, ..) einsteigen oder daraus aussteigen.
+        </api:fieldexample>
+        <api:schema name="Angebot"/>        
       </xs:appinfo>
-      <xs:documentation>
-        Definiert die Bedeutung eines Ortspunktes.
-      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -4513,9 +4546,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         <api:schema name="Angebot"/>
 
       </xs:appinfo>
-      <xs:documentation>Definiert den Verwendungszweck eines Typs von Tarifrelevantenpunkten
-        (OTP steht für Orte und Tarifrelevante Punkte).
-        Siehe auch ID_OTPTyp_Type bzw. ID_OTPTypHUSST_Type
+      <xs:documentation>
+        Definiert die möglichen Verwendungszwecke tarifrelevanter Punkte (OTP – Orte und Tarifrelevante Punkte) innerhalb der Datenversorgung. 
+        Jeder OTP-Typ wird über eine numerische ID_OTPTyp identifiziert und mit einer sprechenden Bezeichnung versehen. 
+        Diese Typisierung ermöglicht eine differenzierte Gruppierung und Interpretation tarifrelevanter Punkte, z. B. als Start-, Ziel- oder Viapunkt. 
+        Die HUSST reserviert Werte kleiner 1000 für standardisierte Typen; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -4577,7 +4612,12 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert eine Quellenangabe die einer Teilrelation zugeordnet werden kann. Quellenangaben dienen im wesentlichen der späteren Ausgabezuscheidung.
+      <xs:documentation>
+        Definiert mögliche Quellenangaben, die einer Teilrelation zugeordnet werden können. 
+        Eine Preisquelle beschreibt den Ursprung oder die Herkunft der tariflichen Bewertung einer Verbindung – z. B. zur Unterscheidung verschiedener Berechnungsgrundlagen oder zur späteren Ausgabezuordnung. 
+        Jede Quelle wird über eine ID_Preisquelle identifiziert und mit einer Bezeichnung versehen. 
+        Werte kleiner 1000 sind durch HUSST reserviert; aktuell sind keine Standardwerte definiert. 
+        Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -5291,6 +5331,9 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
   <xs:complexType name="OePVTarifDB_Type">
   	<xs:annotation>
   		<xs:documentation>
+  Enthält die vollständige Tarif- und Angebotsdatenbank für den öffentlichen Personennahverkehr (ÖPNV) gemäß HUSST-Standard. 
+  Diese Struktur bildet die zentrale Wurzel für alle tarifrelevanten Definitionen, Relationen, Sorten und Preisstufen.
+  		
   		</xs:documentation>
   		<xs:appinfo>
         <api:schema name="Tarif"/>
