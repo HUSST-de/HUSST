@@ -6,8 +6,8 @@ Status: Vorschläge
 
 | Element     | Datentyp     | Doku|Beschreibung                          |
 |--------------|--------------|-----|----------------------------------|
-| `since` | `husstversion_Type` |ja| Angabe einer Husst-Version |
-| `changed` | `husstversionlist_Type` |ja| Angabe einer Liste von Husst-Versionen |
+| `since` | `husstversion_Type` |ja| Husst-Version, in der ein Element/Datentyp eingeführt wurde (vor 3.7 unvollständig) |
+| `changed` | `husstversionlist_Type` |ja| Husst-Versionen, in denen ein Element/Datentyp geändert wurde (vor 3.7 unvollständig) |
 | `remarks`    | `string` |nein| interne Hinweise zu einem Strukturelement - der Text erscheint nicht in der offiziellen Dokumentation|
 | `reference`    | `string` |ja| Verweis auf eine externe Referenz zu einem Strukturelement|
 | `example`    | `example_Type` |ja| Freitextbeispiel                      |
@@ -16,8 +16,8 @@ Status: Vorschläge
 ### Beispiele
 
 #### since und changed
-api:since: Angabe einer Husst-Version
-api:changed: Angabe einer Liste von Husst-Versionen |
+api:since: Husst-Version, in der ein Element/Datentyp eingeführt wurde (vor 3.7 unvollständig)
+api:changed: Husst-Versionen, in denen ein Element/Datentyp geändert wurde (vor 3.7 unvollständig)
 ```xml
   <xs:simpleType name="ID_StreckenartHUSST_Type">
     <xs:annotation>
@@ -98,9 +98,9 @@ Strukturiertes Beispiel mit Feldwerten
       </xs:documentation>
       <xs:appinfo>
         <api:fieldexample>
-            Beispiel für eine Definition von Kurzstrecken Nachbarhaltestellen
-        	<api:field name="ID_Nachbarhaltestellenbeziehng">1</api:field>
-        	<api:field name="Bezeichnung">Kurzstreckenbeziehung</api:field>
-        	Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
+          Beispiel für eine Definition von Kurzstrecken Nachbarhaltestellen
+          <api:field name="ID_Nachbarhaltestellenbeziehng">1</api:field>
+          <api:field name="Bezeichnung">Kurzstreckenbeziehung</api:field>
+          Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
         </api:fieldexample>
 ```

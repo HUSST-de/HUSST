@@ -197,7 +197,7 @@ aus XML-Schema_KVP_DL_PV.xsd (BOM 6-38)</xs:documentation>
 
     <xs:element name="since" type="api:husstversion_Type">
     	<xs:annotation>
-    		<xs:documentation>Angabe einer Husst-Version</xs:documentation>
+    		<xs:documentation>Husst-Version, in der ein Element/Datentyp eingeführt wurde (vor 3.7 unvollständig)</xs:documentation>
     		<xs:appinfo>
     			<api:example>
      3.0.0
@@ -210,7 +210,7 @@ oder 3.7.0.1
 
     <xs:simpleType name="husstversion_Type">
     	<xs:annotation>
-    		<xs:documentation>Format einer Husst-Version, mindestens Haupt- und Neberversionsnummer</xs:documentation>
+    		<xs:documentation>Angabe einer Husst-Version, mindestens Haupt- und Neberversionsnummer</xs:documentation>
     	</xs:annotation>
     	<xs:restriction base="xs:string">
     		<xs:pattern value="\d+\.\d+(\.\d+(\.\d+)?)?"></xs:pattern>
@@ -227,7 +227,7 @@ oder 3.7.0.1
 
     <xs:element name="changed" type="api:husstversionlist_Type">
     	<xs:annotation>
-    		<xs:documentation>Angabe einer Liste von Husst-Versionen</xs:documentation>
+    		<xs:documentation>Husst-Versionen, in denen ein Element/Datentyp geändert wurde (vor 3.7 unvollständig)</xs:documentation>
     		<xs:appinfo>
     			<api:example>
 3.0.0,3.4,3.7.0.1
