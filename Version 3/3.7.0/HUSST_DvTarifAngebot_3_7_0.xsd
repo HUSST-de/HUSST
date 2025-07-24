@@ -905,6 +905,9 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
              * das Vertriebsgerät muss parallel in der Streckenlogik suchen, wenn ID_TarifartStrecke gesetzt ist,
              * das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.            
           </xs:documentation>
+          <xs:appinfo>
+          	<api:since>3.7</api:since>
+          </xs:appinfo>
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
@@ -3126,6 +3129,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         angelehnt an VDV-KA Kundentyp
       </xs:documentation>
       <xs:appinfo>
+      	<api:reference>VDV KA HD-BOM: KundenTyp_CODE (lehnt an: EN 1545: ProfileCodeIOP)</api:reference>
       	<api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -4004,6 +4008,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:fieldexample>
+            Beispiel für eine Definition von Kurzstrecken Nachbarhaltestellen
         	<api:field name="ID_Nachbarhaltestellenbeziehng">1</api:field>
         	<api:field name="Bezeichnung">Kurzstreckenbeziehung</api:field>
         	Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
@@ -4801,6 +4806,8 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Die HUSST definiert ID_Streckenart kleiner 1000.
       </xs:documentation>
       <xs:appinfo>
+      	<api:since>3.2</api:since>
+      	<api:changed>3.7</api:changed>
       	<api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -4833,6 +4840,9 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
             * wird bei der Ermittlung des kürzesten Weges ignoriert,
             * ist auf konkreten Wunsch zu berücksichtigen.
           </xs:documentation>
+          <xs:appinfo>
+          	<api:since>3.7</api:since>
+          </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
