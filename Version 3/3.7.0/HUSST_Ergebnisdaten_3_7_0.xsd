@@ -1293,6 +1293,12 @@
   </complexType>
 
   <complexType name="Schichtenliste_Type">
+    <annotation>
+      <documentation>
+        Rootelement der Ergebnisdaten. Umfasst die Liste aller Schichten 
+        und die Informationen, mit welcher HUSST-Version das xml erstellt wurde.
+      </documentation>
+    </annotation>
     <sequence>
       <element name="Version" type="husst:VersionStruktur_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Schicht" type="husst:Schicht_Type" maxOccurs="unbounded" minOccurs="0"/>
