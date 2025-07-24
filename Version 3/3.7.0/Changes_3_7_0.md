@@ -17,6 +17,7 @@ Status: Vorschläge
 
 #### since und changed
 api:since: Husst-Version, in der ein Element/Datentyp eingeführt wurde (vor 3.7 unvollständig)
+
 api:changed: Husst-Versionen, in denen ein Element/Datentyp geändert wurde (vor 3.7 unvollständig)
 ```xml
   <xs:simpleType name="ID_StreckenartHUSST_Type">
