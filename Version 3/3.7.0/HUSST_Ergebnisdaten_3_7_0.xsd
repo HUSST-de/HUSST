@@ -17,9 +17,9 @@
   </annotation>
 
   <complexType name="Any_Type">
-    <choice>
-      <element name="StringData" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="BinaryData" type="base64Binary" maxOccurs="1" minOccurs="0"/>
+    <choice maxOccurs="1" minOccurs="0">
+      <element name="StringData" type="string"/>
+      <element name="BinaryData" type="base64Binary"/>
     </choice>
   </complexType>
 
@@ -135,22 +135,22 @@
   </complexType>
 
   <complexType name="Datensatz_Type">
-    <choice>
-      <element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Pruefabschluss" type="husst:Pruefabschluss_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Komponentenliste" type="husst:Komponentenliste_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Meldung" type="husst:Meldung_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Ausgabeabschnitt" type="husst:Ausgabeabschnitt_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Dienstbeginn" type="husst:Dienstbeginn_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1"/>
+    <choice maxOccurs="1" minOccurs="1">
+      <element name="Schichtbeginn" type="husst:Schichtbeginn_Type"/>
+      <element name="Schichtabschluss" type="husst:Schichtabschluss_Type"/>
+      <element name="Pruefbeginn" type="husst:Pruefbeginn_Type"/>
+      <element name="Pruefabschluss" type="husst:Pruefabschluss_Type"/>
+      <element name="Komponentenliste" type="husst:Komponentenliste_Type"/>
+      <element name="Meldung" type="husst:Meldung_Type"/>
+      <element name="Ausgabeabschnitt" type="husst:Ausgabeabschnitt_Type"/>
+      <element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type"/>
+      <element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type"/>
+      <element name="Dienstbeginn" type="husst:Dienstbeginn_Type"/>
+      <element name="Dienstende" type="husst:Dienstende_Type"/>
+      <element name="Kontrolldaten" type="husst:Kontrolldaten_Type"/>
+      <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type"/>
+      <element name="Warenkorb" type="husst:Warenkorb_Type"/>
+      <element name="EBEErfassung" type="husst:EBEErfassung_Type"/>
     </choice>
     <attribute name="Zeitpunkt" type="dateTime" use="required">
       <annotation>
@@ -754,8 +754,8 @@
         </annotation>
       </element>
       <element name="Kontrolldaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1"/>
-      <choice>
-        <element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
+      <choice maxOccurs="1" minOccurs="0">
+        <element name="KAReferenz" type="husst:KAReferenz_Type">
           <annotation>
             <documentation>
               Referenz zu einem global eindeutigen Vorgang
@@ -764,7 +764,7 @@
             </documentation>
           </annotation>
         </element>
-        <element name="Referenz" type="string" maxOccurs="1" minOccurs="0">
+        <element name="Referenz" type="string">
           <annotation>
             <documentation>
               Referenz zu einem global eindeutigen Vorgang
@@ -1434,8 +1434,8 @@
           </documentation>
         </annotation>
       </element>
-      <choice>
-        <element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
+      <choice maxOccurs="1" minOccurs="0">
+        <element name="KAReferenz" type="husst:KAReferenz_Type">
           <annotation>
             <documentation>
               Referenz zu einem global eindeutigen Vorgang
@@ -1444,7 +1444,7 @@
             </documentation>
           </annotation>
         </element>
-        <element name="Referenz" type="string" maxOccurs="1" minOccurs="0">
+        <element name="Referenz" type="string">
           <annotation>
             <documentation>
               Referenz zu einem global eindeutigen Vorgang
@@ -1465,8 +1465,8 @@
     <sequence>
       <element name="Transaktionsart" maxOccurs="1" minOccurs="1" type="husst:Transaktionsart_Type"/>
       <element name="Transaktionsdaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1"/>
-      <choice>
-        <element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
+      <choice maxOccurs="1" minOccurs="0">
+        <element name="KAReferenz" type="husst:KAReferenz_Type">
           <annotation>
             <documentation>
               Referenz zu einem global eindeutigen Vorgang
@@ -1475,7 +1475,7 @@
             </documentation>
           </annotation>
         </element>
-        <element name="Referenz" type="string" maxOccurs="1" minOccurs="0">
+        <element name="Referenz" type="string">
           <annotation>
             <documentation>
               Referenz zu einem global eindeutigen Vorgang
@@ -1660,9 +1660,9 @@
     <sequence>
       <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
       <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
-      <choice>
-        <element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Gutschein" type="husst:Gutscheinbezahlung_Type" maxOccurs="1" minOccurs="1">
+      <choice maxOccurs="1" minOccurs="1">
+        <element name="Barbezahlung" type="husst:Barbezahlung_Type"/>
+        <element name="Gutschein" type="husst:Gutscheinbezahlung_Type">
           <annotation>
             <documentation>
               Obsolet: Gutscheine, bei Zahlungsart
@@ -1671,14 +1671,14 @@
             </documentation>
           </annotation>
         </element>
-        <element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="KABezahlungReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type"/>
+        <element name="KABezahlungReferenz" type="husst:KAReferenz_Type"/>
+        <element name="Lastschrift" type="husst:Lastschrift_Type"/>
+        <element name="Ueberweisung_Type" type="husst:Ueberweisung_Type"/>
+        <element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type"/>
+        <element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type"/>
+        <element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type"/>
+        <element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type"/>
       </choice>
       <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
     </sequence>
