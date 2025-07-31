@@ -1454,11 +1454,47 @@
             </documentation>
           </annotation>
         </element>
+        <element name="ReferenzTransaktion" type="husst:ReferenzTransaktion_Type" maxOccurs="1" minOccurs="0">
+          <annotation>
+          <documentation>
+            Das Element ReferenzTransaktion kann genutzt werden, um eindeutig auf eine andere Transaktion zu zeigen.
+            So kann beispielsweise eine Storno-Transaktion auf die Verkaufs-Transaktion zeigen, die storniert wurde.
+          </documentation>
+        </annotation>
+        </element>
       </choice>
       <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </sequence>
     <attribute name="Typ" type="husst:TransaktionTyp_Type" use="required"/>
     <attribute name="Storno" type="boolean" use="optional" default="false"/>
+  </complexType>
+
+  <complexType name="ReferenzTransaktion_Type">
+    <sequence>
+      <element name="SchichtUID" type="string" maxOccurs="1" minOccurs="1">
+        <annotation>
+          <documentation>
+            Die SchichtUID identifiziert die Schicht, in der das referenzierte Produkt enthalten ist.
+            Dies kann beispielsweise relevant sein, wenn eine Stornierung nachträglich im Hintergrundsystem 
+            oder an einem anderen Gerät erfolgt ist.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="WarenkorbBelegNr" type="int" maxOccurs="1" minOccurs="1">
+        <annotation>
+          <documentation>
+            Die WarenkorbBelegNr identifiziert den Warenkorb, auf den referenziert wird.
+          </documentation>
+        </annotation>
+      </element>
+      <element name="ProduktBelegNr" type="int" maxOccurs="1" minOccurs="1">
+        <annotation>
+          <documentation>
+            Die ProduktBelegNr identifiziert das Produkt, auf das referenziert wird.
+          </documentation>
+        </annotation>
+      </element>
+    </sequence>
   </complexType>
 
   <complexType name="Transaktionsdaten_Type">
