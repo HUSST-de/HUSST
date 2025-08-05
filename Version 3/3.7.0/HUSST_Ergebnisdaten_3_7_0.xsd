@@ -1,41 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema targetNamespace="http://husst.de/Ergebnisdaten/3_7_0" elementFormDefault="qualified"
-        xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:husst="http://husst.de/Ergebnisdaten/3_7_0">
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:husst="http://husst.de/Ergebnisdaten/3_7_0">
 
   <annotation>
-    <documentation>
-      HUSST Ergebnisdaten
-      Version: 3.7.0
-
-      Mehr Informationen:
-      - https://husst.de/
-      - https://github.com/HUSST-de/HUSST
-
-      Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
-    </documentation>
+    <documentation> HUSST Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ -
+      https://github.com/HUSST-de/HUSST Lizensiert unter CC BY-SA 4.0
+      (https://creativecommons.org/licenses/by-sa/4.0/) </documentation>
   </annotation>
 
   <complexType name="Any_Type">
     <choice>
-      <element name="StringData" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="BinaryData" type="base64Binary" maxOccurs="1" minOccurs="0"/>
+      <element name="StringData" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="BinaryData" type="base64Binary" maxOccurs="1" minOccurs="0" />
     </choice>
   </complexType>
 
   <complexType name="Ausgabeabschnitt_Type">
     <annotation>
-      <documentation>
-        Definiert einen Papierabschnitt mit seiner Startnummer
-        und der Anzahl seiner Barcodeabschnitte oder Abschnittzähler. Die Startnummer
-        ist immer die kleinste Nummer des gelesenen Abschnittes,
-        egal in welche Richtung die Nummerierung der Rolle geht.
-      </documentation>
+      <documentation> Definiert einen Papierabschnitt mit seiner Startnummer und der Anzahl seiner
+        Barcodeabschnitte oder Abschnittzähler. Die Startnummer ist immer die kleinste Nummer des
+        gelesenen Abschnittes, egal in welche Richtung die Nummerierung der Rolle geht. </documentation>
     </annotation>
     <sequence>
       <element name="StartNr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>Startnummer des Abschnittzählers, z.B. Barcode oder anfängliche Rollennummer.</documentation>
+          <documentation>Startnummer des Abschnittzählers, z.B. Barcode oder anfängliche
+            Rollennummer.</documentation>
         </annotation>
       </element>
       <element name="Anzahl" type="int" maxOccurs="1" minOccurs="0">
@@ -43,7 +34,8 @@
           <documentation>Anzahl der Abschnittzähler, z.B. Barcodes</documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
     <attribute name="Typ" type="husst:AusgabeabschnittTyp_Type" use="required">
       <annotation>
@@ -54,86 +46,77 @@
 
   <complexType name="Barbezahlung_Type">
     <sequence>
-      <element name="Einnahme" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Rueckgabe" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Einnahme" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Rueckgabe" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Bargeldbilanz_Type">
     <annotation>
-      <documentation>
-        Für jede vorkommende Währung werden hier die Bilanzen
-        über den Dienst, der bei Automaten gleiche mit der Schicht ist,
-        aufgeführt. Die zugehörigen Bargeld-Einnahmen finden sich in der
-        Kassenliste.
-      </documentation>
+      <documentation> Für jede vorkommende Währung werden hier die Bilanzen über den Dienst, der bei
+        Automaten gleiche mit der Schicht ist, aufgeführt. Die zugehörigen Bargeld-Einnahmen finden
+        sich in der Kassenliste. </documentation>
     </annotation>
     <sequence>
-      <element name="Anfangsbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1"/>
-      <element name="Zufuehrungen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Entnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Fehleinnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Kassenentnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Endbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1"/>
+      <element name="Anfangsbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1" />
+      <element name="Zufuehrungen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Entnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Fehleinnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Kassenentnahmen" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Endbestand" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Beleg_Type">
     <annotation>
-      <documentation>
-        Enthält Informationen über den ausgegebenen Beleg
-      </documentation>
+      <documentation> Enthält Informationen über den ausgegebenen Beleg </documentation>
     </annotation>
     <sequence>
       <element name="BelegNr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Laufende Aufdrucknummer auf einem Papierdokument oder gespeicherte
-            Folgenummer
-          </documentation>
+          <documentation> Laufende Aufdrucknummer auf einem Papierdokument oder gespeicherte
+            Folgenummer </documentation>
         </annotation>
       </element>
       <element name="Abschnitt" type="husst:Ausgabeabschnitt_Type" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Zugehörige, unveränderliche Dokumentmerkmale. (Abschnittzähler oder rückseitiger Barcode)</documentation>
+          <documentation>Zugehörige, unveränderliche Dokumentmerkmale. (Abschnittzähler oder
+            rückseitiger Barcode)</documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="Typ" type="husst:BelegTyp_Type" use="required"/>
+    <attribute name="Typ" type="husst:BelegTyp_Type" use="required" />
   </complexType>
 
   <complexType name="Belegkasse_Type">
     <sequence>
       <element name="Betrag" type="husst:Betrag_Type" minOccurs="0" maxOccurs="1">
         <annotation>
-          <documentation>
-            Hier kann der Gesamtbetrag der vereinnahmten
-            Belege eingetragen werden
-          </documentation>
+          <documentation> Hier kann der Gesamtbetrag der vereinnahmten Belege eingetragen werden </documentation>
         </annotation>
       </element>
-      <element name="Gutschrift" type="husst:Tarifprodukt_Type" minOccurs="0" maxOccurs="1"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Gutschrift" type="husst:Tarifprodukt_Type" minOccurs="0" maxOccurs="1" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="Typ" type="husst:BelegkasseTyp_Type" use="required"/>
-    <attribute name="Anzahl" type="int" use="required"/>
+    <attribute name="Typ" type="husst:BelegkasseTyp_Type" use="required" />
+    <attribute name="Anzahl" type="int" use="required" />
   </complexType>
 
   <complexType name="Belegkassenliste_Type">
     <sequence>
-      <element name="BelegKasse" type="husst:Belegkasse_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="BelegKasse" type="husst:Belegkasse_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="Betrag_Type">
     <sequence>
-      <element name="Waehrung" type="husst:Waehrung_Type"/>
+      <element name="Waehrung" type="husst:Waehrung_Type" />
       <element name="Betrag" type="int">
         <annotation>
-          <documentation>
-            Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent)
-          </documentation>
+          <documentation> Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent) </documentation>
         </annotation>
       </element>
     </sequence>
@@ -141,142 +124,113 @@
 
   <complexType name="Datensatz_Type">
     <annotation>
-      <documentation>
-        Der Datensatztyp ist der Hauptdatenträger der Ergebnisdaten.
-        Er enthält einen der unten genannten Datentypen zusammen mit
-        einem Zeitpunkt und einer pro Schicht eindeutigen Datensatznummer.
-        Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für
-        eine ordentliche Schicht sollten mindestens die
-        Datensätze Schichtbeginn und Schichtabschluss
-        enthalten sein. Allerdings können diese Datensätze 
-        auch auf mehrere xml-Dateien aufgeteilt werden.
-      </documentation>
+      <documentation> Der Datensatztyp ist der Hauptdatenträger der Ergebnisdaten. Er enthält einen
+        der unten genannten Datentypen zusammen mit einem Zeitpunkt und einer pro Schicht
+        eindeutigen Datensatznummer. Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für eine
+        ordentliche Schicht sollten mindestens die Datensätze Schichtbeginn und Schichtabschluss
+        enthalten sein. Allerdings können diese Datensätze auch auf mehrere xml-Dateien aufgeteilt
+        werden. </documentation>
     </annotation>
     <choice>
-      <element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1" minOccurs="1"/> 
-	    <element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Pruefabschluss" type="husst:Pruefabschluss_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Komponentenliste" type="husst:Komponentenliste_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Meldung" type="husst:Meldung_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Ausgabeabschnitt" type="husst:Ausgabeabschnitt_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Dienstbeginn" type="husst:Dienstbeginn_Type" maxOccurs="1" minOccurs="1"/>
-	    <element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1"/>
-	    <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1"/>
-			<annotation>
-				<documentation>
-				Der Warenkorb bildet die Datenstruktur zum Übermitteln von Verkäufen. 
-				Dabei beinhaltet die Warenkorbstruktur die 
-				Möglichkeit einen Verkaufsvorgang mit mehreren Produkten 
-				und/oder mehreren Zahlungsarten abzubilden.
-				</documentation>
-			</annotation>	
-      <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Schichtbeginn" type="husst:Schichtbeginn_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Schichtabschluss" type="husst:Schichtabschluss_Type" maxOccurs="1"
+        minOccurs="1" />
+      <element name="Pruefbeginn" type="husst:Pruefbeginn_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Pruefabschluss" type="husst:Pruefabschluss_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Komponentenliste" type="husst:Komponentenliste_Type" maxOccurs="1"
+        minOccurs="1" />
+      <element name="Meldung" type="husst:Meldung_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Ausgabeabschnitt" type="husst:Ausgabeabschnitt_Type" maxOccurs="1"
+        minOccurs="1" />
+      <element name="Transaktionsdaten" type="husst:Transaktionsdaten_Type" maxOccurs="1"
+        minOccurs="1" />
+      <element name="Fahrtverlauf" type="husst:Fahrtverlauf_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Dienstbeginn" type="husst:Dienstbeginn_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Dienstende" type="husst:Dienstende_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1"
+        minOccurs="1" />
+      <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1" />
+      <annotation>
+        <documentation> Der Warenkorb bildet die Datenstruktur zum Übermitteln von Verkäufen. Dabei
+          beinhaltet die Warenkorbstruktur die Möglichkeit einen Verkaufsvorgang mit mehreren
+          Produkten und/oder mehreren Zahlungsarten abzubilden. </documentation>
+      </annotation>
+      <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1" />
     </choice>
     <attribute name="Zeitpunkt" type="dateTime" use="required">
       <annotation>
-        <documentation>
-          Der jeweilge Zeitpunkt der Generierung des
-          Datenatzes.
-        </documentation>
+        <documentation> Der jeweilge Zeitpunkt der Generierung des Datenatzes. </documentation>
       </annotation>
     </attribute>
     <attribute name="DsNr" type="int" use="required">
       <annotation>
-        <documentation>
-          Eine fortlaufende ununterbrochene Nummer innerhalb
-          der Schicht. Die '0' sollte ausgenommen werden.
-        </documentation>
+        <documentation> Eine fortlaufende ununterbrochene Nummer innerhalb der Schicht. Die '0'
+          sollte ausgenommen werden. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Dienstbeginn_Type">
-		<annotation>
-			<documentation>
-      Der Dienst Identifiziert den Verkäufer - oder 
-      verallgemeinert die Vertriebsstelle.
-			Der Dienstbeginn kann gleichzeitig auf mehrere
-      Vertriebsstellen bezogen sein. Hiermit besteht
-      beispielsweise die Möglichkeit geichzeitig auf
-      den Verkäufer und die Verkaufsstelle zu
-      beziehen.
-			</documentation>
-		</annotation>
+    <annotation>
+      <documentation> Der Dienst Identifiziert den Verkäufer - oder verallgemeinert die
+        Vertriebsstelle. Der Dienstbeginn kann gleichzeitig auf mehrere Vertriebsstellen bezogen
+        sein. Hiermit besteht beispielsweise die Möglichkeit geichzeitig auf den Verkäufer und die
+        Verkaufsstelle zu beziehen. </documentation>
+    </annotation>
     <sequence>
-      <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" minOccurs="1" maxOccurs="unbounded"/>
+      <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" minOccurs="1"
+        maxOccurs="unbounded" />
       <element name="DienstPlanNr" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Die laufende Bezeichnung des Dienstplans des
-            Gerätebedieners.
-          </documentation>
+          <documentation> Die laufende Bezeichnung des Dienstplans des Gerätebedieners. </documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
     <attribute name="DienstNr" type="int" use="required">
       <annotation>
-        <documentation>
-          Diese Dienstnummer enstpricht der den Anwendern
-          bekannte Dienstnummer.
-          In der Regel wird nach dieser Nummer ausgewertet
-          und die Nummer wird auf Belege aufgedruckt.
-          Die Dienstnummer ist mindestens für jede Schicht eindeutig.
-          Eine Schicht kann viele Dienste enthalten.
-          Die Dienstnummer sollte inkrementierend aufsteigen und nie '0' sein.
-
-          Achtung: Schichtnummer vs. Dienstnummer:
-          Innerhalb einer Schicht können mehrere Dienste
-          auch gleichzeitig ablaufen.
-          Kein Dienst überlappt zeitlich eine Schichtgrenze.
-          Dienste sind in der Regel Personen-(Konten) oder
-          Geräte-(Konten) zugeordnet.
-          Schichten sind nur ein Behälter für
-          Dienste und sonstige Informationen, die
-          keinem Dienst zugeordnet sind.
-        </documentation>
+        <documentation> Diese Dienstnummer enstpricht der den Anwendern bekannte Dienstnummer. In
+          der Regel wird nach dieser Nummer ausgewertet und die Nummer wird auf Belege aufgedruckt.
+          Die Dienstnummer ist mindestens für jede Schicht eindeutig. Eine Schicht kann viele
+          Dienste enthalten. Die Dienstnummer sollte inkrementierend aufsteigen und nie '0' sein.
+          Achtung: Schichtnummer vs. Dienstnummer: Innerhalb einer Schicht können mehrere Dienste
+          auch gleichzeitig ablaufen. Kein Dienst überlappt zeitlich eine Schichtgrenze. Dienste
+          sind in der Regel Personen-(Konten) oder Geräte-(Konten) zugeordnet. Schichten sind nur
+          ein Behälter für Dienste und sonstige Informationen, die keinem Dienst zugeordnet sind. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Dienstende_Type">
-		<annotation>
-			<documentation>
-        Das Dienstende beendet einen begonnenen Dienst.
-        Zur Kontrolle beinhaltet der Datensatz die 
-        Summe aller Geldbeträge, aufgeteilt nach Bezahlart,
-        aufgelistet.
-			</documentation>
-		</annotation>
+    <annotation>
+      <documentation> Das Dienstende beendet einen begonnenen Dienst. Zur Kontrolle beinhaltet der
+        Datensatz die Summe aller Geldbeträge, aufgeteilt nach Bezahlart, aufgelistet. </documentation>
+    </annotation>
     <sequence>
-      <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="unbounded" minOccurs="1"/>
-      <element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded"/>
-      <element name="Kassenliste" type="husst:Kassenliste_Type" minOccurs="1" maxOccurs="1"/>
-      <element name="Belegkassenliste" type="husst:Belegkassenliste_Type" minOccurs="1" maxOccurs="1"/>
-      <element name="Bargeldbilanz" type="husst:Bargeldbilanz_Type" minOccurs="0" maxOccurs="1"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Vertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="unbounded"
+        minOccurs="1" />
+      <element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded" />
+      <element name="Kassenliste" type="husst:Kassenliste_Type" minOccurs="1" maxOccurs="1" />
+      <element name="Belegkassenliste" type="husst:Belegkassenliste_Type" minOccurs="1"
+        maxOccurs="1" />
+      <element name="Bargeldbilanz" type="husst:Bargeldbilanz_Type" minOccurs="0" maxOccurs="1" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
   </complexType>
 
   <complexType name="DynAttribut_Subtype">
     <annotation>
-      <documentation>
-        Der Subtyp DynAttribut_Subtype dient der Definition von
-        dynamischen Attributen als mögliche Erweiterung für die
-        Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für
-        eine Abbildung auf ein relationales Datenbankmodell
-        verwendet.
-      </documentation>
+      <documentation> Der Subtyp DynAttribut_Subtype dient der Definition von dynamischen Attributen
+        als mögliche Erweiterung für die Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für
+        eine Abbildung auf ein relationales Datenbankmodell verwendet. </documentation>
     </annotation>
     <sequence>
-      <element name="Name" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="Wert" type="string" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Name" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="Wert" type="string" maxOccurs="unbounded" minOccurs="0" />
     </sequence>
   </complexType>
 
@@ -284,65 +238,52 @@
     <sequence>
       <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Eine eindeutige ID dieses EBE-Vorgangs, es
-            könnte bei Verkaufsgeräten die UID sein, bei
-            Nacherfassung muss die ID vom Bediener
-            versorgt werden.
-          </documentation>
+          <documentation> Eine eindeutige ID dieses EBE-Vorgangs, es könnte bei Verkaufsgeräten die
+            UID sein, bei Nacherfassung muss die ID vom Bediener versorgt werden. </documentation>
         </annotation>
       </element>
-      <element name="EBEVorgang" type="husst:EBEVorgang_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Merkmale" type="husst:EBEMerkmale_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Kundendaten" type="husst:Kundendaten_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Verfolgung" type="husst:Verfolgung_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="EBEVorgang" type="husst:EBEVorgang_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Merkmale" type="husst:EBEMerkmale_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Kundendaten" type="husst:Kundendaten_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Verfolgung" type="husst:Verfolgung_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
   </complexType>
 
   <complexType name="EBEMerkmale_Type">
     <sequence>
       <element name="Ort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Eine Erfassung des Vorgangsorts.
-          </documentation>
+          <documentation> Eine Erfassung des Vorgangsorts. </documentation>
         </annotation>
       </element>
       <element name="VorfallsOrtNotiz" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Eine textuelle Beschreibung des Vorfallsorts.
-          </documentation>
+          <documentation> Eine textuelle Beschreibung des Vorfallsorts. </documentation>
         </annotation>
       </element>
-      <element name="KomfortKlasse" type="int" maxOccurs="1" minOccurs="0"/>
+      <element name="KomfortKlasse" type="int" maxOccurs="1" minOccurs="0" />
       <element name="Fahrausweisart" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Wenn ein Fahrausweis vorgezeigt wurde, welcher Art
-          </documentation>
+          <documentation> Wenn ein Fahrausweis vorgezeigt wurde, welcher Art </documentation>
         </annotation>
       </element>
       <element name="FahrausweisNr" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Die Nummer (laufende Nummer) des Fahrausweises
-          </documentation>
+          <documentation> Die Nummer (laufende Nummer) des Fahrausweises </documentation>
         </annotation>
       </element>
       <element name="FahrausweisEingezogen" type="boolean" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde.
-          </documentation>
+          <documentation> Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde. </documentation>
         </annotation>
       </element>
-      <element name="FahrausweisAbholung" type="date" maxOccurs="1" minOccurs="0"/>
-      <element name="Bearbeitungsstelle" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="FahrausweisAbholung" type="date" maxOccurs="1" minOccurs="0" />
+      <element name="Bearbeitungsstelle" type="string" maxOccurs="1" minOccurs="0" />
       <element name="EinstiegsHaltestelle" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>Die IBNR</documentation>
@@ -350,9 +291,7 @@
       </element>
       <element name="EinstiegNotiz" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Eine textuelle Beschreibung zum Einstieg
-          </documentation>
+          <documentation> Eine textuelle Beschreibung zum Einstieg </documentation>
         </annotation>
       </element>
       <element name="ZielHaltestelle" type="int" maxOccurs="1" minOccurs="0">
@@ -362,69 +301,57 @@
       </element>
       <element name="ZielNotiz" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Eine textuelle Beschreibung zum Fahrtziel bzw. Ausstieg
-          </documentation>
+          <documentation> Eine textuelle Beschreibung zum Fahrtziel bzw. Ausstieg </documentation>
         </annotation>
       </element>
       <element name="Codierung" type="husst:Codierung_Type" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Eine Codierung zur Angabe des Grunds zum EBE-Fall
-          </documentation>
+          <documentation> Eine Codierung zur Angabe des Grunds zum EBE-Fall </documentation>
         </annotation>
       </element>
       <element name="Sitzplatz" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Ein Hinweis, wo der EBE-Fall angetroffen wurde
-          </documentation>
+          <documentation> Ein Hinweis, wo der EBE-Fall angetroffen wurde </documentation>
         </annotation>
       </element>
       <element name="Verhalten" type="string" maxOccurs="unbounded" minOccurs="0">
         <annotation>
-          <documentation>
-            Bemerkungen zu Verhalten des EBE-Falls.
-          </documentation>
+          <documentation> Bemerkungen zu Verhalten des EBE-Falls. </documentation>
         </annotation>
       </element>
       <element name="Polizei" type="husst:Polizei_Type" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Wenn Polizei hinzugezogen wurde, von welchem Revier.
-          </documentation>
+          <documentation> Wenn Polizei hinzugezogen wurde, von welchem Revier. </documentation>
         </annotation>
       </element>
-      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Linie" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="Kurs" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="Verbundkennung" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Linie" type="int" maxOccurs="1" minOccurs="0" />
+      <element name="Kurs" type="int" maxOccurs="1" minOccurs="0" />
+      <element name="Verbundkennung" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
 
   <complexType name="EBEVorgang_Type">
     <sequence>
-      <element name="Typ" type="husst:VorgangsTyp_Type" maxOccurs="unbounded" minOccurs="1"/>
+      <element name="Typ" type="husst:VorgangsTyp_Type" maxOccurs="unbounded" minOccurs="1" />
       <element name="Beanstandung" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Entspricht der vorgegebenen Codierung z.B. der
-            Bahn, in der Regel eine zweistellige Ziffer.
-          </documentation>
+          <documentation> Entspricht der vorgegebenen Codierung z.B. der Bahn, in der Regel eine
+            zweistellige Ziffer. </documentation>
         </annotation>
       </element>
       <element name="Begruendung" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Der Grund der Beanstandung (zB. nicht lesbar, vermutlich verfälscht, Tarif ungültig, ohne Kundenkarte etc.)
-          </documentation>
+          <documentation> Der Grund der Beanstandung (zB. nicht lesbar, vermutlich verfälscht, Tarif
+            ungültig, ohne Kundenkarte etc.) </documentation>
         </annotation>
       </element>
-      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Forderung" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Referenzbetrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Forderung" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Referenzbetrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
@@ -432,63 +359,47 @@
     <sequence>
       <element name="Name" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Der Name ist ein beliebiger, sprechender Name des
-            Einsatztyps (z.B. Vorverkauf, Bereich Hamburg Mitte).
-          </documentation>
+          <documentation> Der Name ist ein beliebiger, sprechender Name des Einsatztyps (z.B.
+            Vorverkauf, Bereich Hamburg Mitte). </documentation>
         </annotation>
       </element>
     </sequence>
     <attribute name="Nr" type="int">
       <annotation>
-        <documentation>
-          Einsatztypen unterscheiden im Gegensatz zu Geräten den jeweiligen Einsatz des Gerätes.
-          So kann ein gleiches technisches Gerät sowohl mobil als auch
-          stationär mit unterschiedlichen Ausprägungen betrieben werden.
-
-          Die Einsatztypennummer entspricht der dem Anwender bekannten Einsatztypennummer.
-          Der Standard-Einsatztyp ist '1'.
-
-          Die Einsatztypennummer ist nur zusammen mit der Angabe
-          eines Mandanten eindeutig.
-        </documentation>
+        <documentation> Einsatztypen unterscheiden im Gegensatz zu Geräten den jeweiligen Einsatz
+          des Gerätes. So kann ein gleiches technisches Gerät sowohl mobil als auch stationär mit
+          unterschiedlichen Ausprägungen betrieben werden. Die Einsatztypennummer entspricht der dem
+          Anwender bekannten Einsatztypennummer. Der Standard-Einsatztyp ist '1'. Die
+          Einsatztypennummer ist nur zusammen mit der Angabe eines Mandanten eindeutig. </documentation>
       </annotation>
     </attribute>
     <attribute name="Mandant" type="int">
       <annotation>
-        <documentation>
-          Die Einsatztypennummer ist nur zusammen mit einem
-          zugeordneten Mandant eindeutig.
-          Der Standard-Mandant ist '1'.
-        </documentation>
+        <documentation> Die Einsatztypennummer ist nur zusammen mit einem zugeordneten Mandant
+          eindeutig. Der Standard-Mandant ist '1'. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Fahrtverlauf_Type">
     <annotation>
-      <documentation>Diese Datensätze beinhalten, abweichend von anderen Datensätzen, Information aus betrieblichen VDV452 Daten.</documentation>
+      <documentation>Diese Datensätze beinhalten, abweichend von anderen Datensätzen, Information
+        aus betrieblichen VDV452 Daten.</documentation>
     </annotation>
     <sequence>
       <element name="Betrieb" type="husst:INT4" minOccurs="1" maxOccurs="1">
         <annotation>
-          <documentation>
-            REC_FRT.BETRIEB aus VDV bei Mandantensystemen, sonst 0.
-          </documentation>
+          <documentation> REC_FRT.BETRIEB aus VDV bei Mandantensystemen, sonst 0. </documentation>
         </annotation>
       </element>
       <element name="FahrzeugNr" type="husst:INT4" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Nach VDV FAHRZEUG.FZG_NR
-          </documentation>
+          <documentation> Nach VDV FAHRZEUG.FZG_NR </documentation>
         </annotation>
       </element>
       <element name="FahrzeugUnr" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN
-          </documentation>
+          <documentation> Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN </documentation>
         </annotation>
       </element>
       <element name="FahrerNr" type="husst:INT4" maxOccurs="1" minOccurs="0">
@@ -498,16 +409,12 @@
       </element>
       <element name="FahrerUnr" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Nach VDV: PERSONAL.ABK_UNTERNEHMEN -> TEILNEHMER.UNTERNEHMEN
-          </documentation>
+          <documentation> Nach VDV: PERSONAL.ABK_UNTERNEHMEN -> TEILNEHMER.UNTERNEHMEN </documentation>
         </annotation>
       </element>
       <element name="FahrtID" type="husst:INT4" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Fahrtnummer der Fahrt laut VDV REC_FRT.FRT_ID
-          </documentation>
+          <documentation> Fahrtnummer der Fahrt laut VDV REC_FRT.FRT_ID </documentation>
         </annotation>
       </element>
       <element name="Fahrt" type="string" maxOccurs="1" minOccurs="0">
@@ -517,28 +424,23 @@
       </element>
       <element name="LinieID" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Nach VDV: Aus der Tabelle REC_LID.LI_NR
-          </documentation>
+          <documentation> Nach VDV: Aus der Tabelle REC_LID.LI_NR </documentation>
         </annotation>
       </element>
       <element name="Linie" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Optionale Linieninformation als Text. Optional REC_LID.LIDNAME oder REC_LID.LI_KUERZEL</documentation>
+          <documentation>Optionale Linieninformation als Text. Optional REC_LID.LIDNAME oder
+            REC_LID.LI_KUERZEL</documentation>
         </annotation>
       </element>
       <element name="Richtung" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Nach VDV: REC_LID.LI_RI_NR
-          </documentation>
+          <documentation> Nach VDV: REC_LID.LI_RI_NR </documentation>
         </annotation>
       </element>
       <element name="FahrplanLage" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Fahrplanlage in Sekunden, negative Werte für Verfrühung.
-          </documentation>
+          <documentation> Fahrplanlage in Sekunden, negative Werte für Verfrühung. </documentation>
         </annotation>
       </element>
       <element name="OrtTyp" type="husst:INT4" maxOccurs="1" minOccurs="0">
@@ -548,48 +450,36 @@
       </element>
       <element name="OrtNr" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Haltepunktnummer nach VDV: REC_ORT.ORT_NR
-          </documentation>
+          <documentation> Haltepunktnummer nach VDV: REC_ORT.ORT_NR </documentation>
         </annotation>
       </element>
       <element name="HpEntfernung" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Entfernung zum Haltepunkt in Metern, 0 = Haltepunkt, positiv: vor Haltepunkt
-          </documentation>
+          <documentation> Entfernung zum Haltepunkt in Metern, 0 = Haltepunkt, positiv: vor
+            Haltepunkt </documentation>
         </annotation>
       </element>
       <element name="TuerOffen" type="boolean" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            false: Alle Türen sind am HP geschlossen.
-            true: mindestens eine Türe ist offen.
-          </documentation>
+          <documentation> false: Alle Türen sind am HP geschlossen. true: mindestens eine Türe ist
+            offen. </documentation>
         </annotation>
       </element>
       <element name="HaltepunktDurch" type="boolean" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            false: Fahrzeug hat am Haltepunkt gehalten.
-            true: der Haltepunkt wurde durchfahren.
-          </documentation>
+          <documentation> false: Fahrzeug hat am Haltepunkt gehalten. true: der Haltepunkt wurde
+            durchfahren. </documentation>
         </annotation>
       </element>
       <element name="Haltezeit" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Haltezeit am Haltepunkt in Sekunden.
-          </documentation>
+          <documentation> Haltezeit am Haltepunkt in Sekunden. </documentation>
         </annotation>
       </element>
       <element name="HaltestelleBedarf" type="boolean" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Gibt an, ob die Haltestelle eine reguläre oder
-            eine Bedarfshaltestelle ist. false= reguläre
-            Haltestelle, true = Bedarfshaltestelle
-          </documentation>
+          <documentation> Gibt an, ob die Haltestelle eine reguläre oder eine Bedarfshaltestelle
+            ist. false= reguläre Haltestelle, true = Bedarfshaltestelle </documentation>
         </annotation>
       </element>
       <element name="TachoStand" type="husst:INT4" maxOccurs="1" minOccurs="0">
@@ -597,25 +487,24 @@
           <documentation>Tachostand in Metern.</documentation>
         </annotation>
       </element>
-      <element name="Koordinate" type="husst:KoordWgs84_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="ZaehldatenListe" type="husst:Zaehldatenliste_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Koordinate" type="husst:KoordWgs84_Type" maxOccurs="1" minOccurs="0" />
+      <element name="ZaehldatenListe" type="husst:Zaehldatenliste_Type" maxOccurs="1" minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
     <attribute name="Datenversion" type="int" use="required">
       <annotation>
-        <documentation>
-          Versionsnummer des Fahrplans, auf den sich dieser Datensatz bezieht.
-        </documentation>
+        <documentation> Versionsnummer des Fahrplans, auf den sich dieser Datensatz bezieht. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Geldbehaelter_Type">
     <sequence>
-      <element name="Stueck" type="husst:Stuecke_Type" minOccurs="0" maxOccurs="unbounded"/>
-      <element name="Wert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Stueck" type="husst:Stuecke_Type" minOccurs="0" maxOccurs="unbounded" />
+      <element name="Wert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0" />
     </sequence>
-    <attribute name="Typ" type="husst:GeldbehaelterTyp_Type"/>
+    <attribute name="Typ" type="husst:GeldbehaelterTyp_Type" />
     <attribute name="Nr" type="int">
       <annotation>
         <documentation>Behälternummer</documentation>
@@ -623,72 +512,61 @@
     </attribute>
     <attribute name="PhysPosition" type="int" use="optional">
       <annotation>
-        <documentation>
-          Die physikalische Position
-        </documentation>
+        <documentation> Die physikalische Position </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Geldbehaelterliste_Type">
     <annotation>
-      <documentation>notiert die Geldwerte oder sonstige Werte (Gutscheine, Stornierungsbelege, ...) bezogen auf einen Vorgangszeitpunkt</documentation>
+      <documentation>notiert die Geldwerte oder sonstige Werte (Gutscheine, Stornierungsbelege, ...)
+        bezogen auf einen Vorgangszeitpunkt</documentation>
     </annotation>
     <sequence>
-      <element name="Vorgang" type="husst:GeldBehaeltervorgang_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Geldbehaelter" type="husst:Geldbehaelter_Type" minOccurs="0" maxOccurs="unbounded"/>
-      <element name="Wertbehaelter" type="husst:Wertbehaelter_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Vorgang" type="husst:GeldBehaeltervorgang_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Geldbehaelter" type="husst:Geldbehaelter_Type" minOccurs="0"
+        maxOccurs="unbounded" />
+      <element name="Wertbehaelter" type="husst:Wertbehaelter_Type" maxOccurs="unbounded"
+        minOccurs="0" />
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
   </complexType>
 
   <complexType name="Geraet_Type">
     <sequence>
       <element name="Name" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Der Name ist ein beliebiger, sprechender Name des
-            Gerätes. (z.B. Busdrucker-1234).
-          </documentation>
+          <documentation> Der Name ist ein beliebiger, sprechender Name des Gerätes. (z.B.
+            Busdrucker-1234). </documentation>
         </annotation>
       </element>
       <element name="Id" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Eindeutige Kennung eines Bestandteils der
-            Gerätehardware (z.B. die MAC der Netzwerkhardware.) Welche Kennung
-            das ist, muss von der Gerätesoftware entschieden werden. Das
-            Element ist optional.
-          </documentation>
+          <documentation> Eindeutige Kennung eines Bestandteils der Gerätehardware (z.B. die MAC der
+            Netzwerkhardware.) Welche Kennung das ist, muss von der Gerätesoftware entschieden
+            werden. Das Element ist optional. </documentation>
         </annotation>
       </element>
     </sequence>
     <attribute name="Typ" type="string" use="required">
       <annotation>
-        <documentation>
-          Der Gerätetyp entspricht den Anwendern bekannten und vorgegebenen Namen.
-          Die Liste der Gerätetypen kann beliebig erweitert werden.
-        </documentation>
+        <documentation> Der Gerätetyp entspricht den Anwendern bekannten und vorgegebenen Namen. Die
+          Liste der Gerätetypen kann beliebig erweitert werden. </documentation>
       </annotation>
     </attribute>
     <attribute name="Nr" type="int" use="required">
       <annotation>
-        <documentation>
-          Die Nummer entspricht der dem Anwender bekannten Gerätenummer.
-          Die Nummer ist nur zusammen mit der Angabe eines
-          Mandanten eindeutig.
-        </documentation>
+        <documentation> Die Nummer entspricht der dem Anwender bekannten Gerätenummer. Die Nummer
+          ist nur zusammen mit der Angabe eines Mandanten eindeutig. </documentation>
       </annotation>
     </attribute>
     <attribute name="Mandant" type="int" use="required">
       <annotation>
-        <documentation>
-          Die Gerätenummer ist nur zusammen mit einem
-          zugeordneten Mandant eindeutig.
-          Der Standard-Mandant ist '1'.
-        </documentation>
+        <documentation> Die Gerätenummer ist nur zusammen mit einem zugeordneten Mandant eindeutig.
+          Der Standard-Mandant ist '1'. </documentation>
       </annotation>
     </attribute>
   </complexType>
@@ -700,7 +578,7 @@
           <documentation>Eindeutige Kennung des Gutscheintyps</documentation>
         </annotation>
       </element>
-      <element name="Nr" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="Nr" type="string" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
@@ -708,20 +586,14 @@
     <sequence>
       <element name="SamNummer" type="husst:INT3" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im
-            gesamten Geltungsbereich der Kernapplikation eindeutige
-            SAM-Kartennummer
-          </documentation>
+          <documentation> SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im gesamten
+            Geltungsbereich der Kernapplikation eindeutige SAM-Kartennummer </documentation>
         </annotation>
       </element>
       <element name="SamSequenznummer" type="husst:INT4" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            samSequenznummer 32 Bit (Beispiel 0x789ABCDE),
-            eindeutige, fortlaufende Nummer die von einer
-            SAM-Karte generiert wird.
-          </documentation>
+          <documentation> samSequenznummer 32 Bit (Beispiel 0x789ABCDE), eindeutige, fortlaufende
+            Nummer die von einer SAM-Karte generiert wird. </documentation>
         </annotation>
       </element>
     </sequence>
@@ -731,49 +603,47 @@
     <sequence>
       <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.)
-          </documentation>
+          <documentation> Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.) </documentation>
         </annotation>
       </element>
-      <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Kassenliste_Type">
     <sequence>
-      <element name="Kasse" type="husst:Kasse_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="Kasse" type="husst:Kasse_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="KKOfflineBezahlung_Type">
     <sequence>
-      <element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="KartenNr" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="Pruefkennung" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="GueltigBis" type="gYearMonth" maxOccurs="1" minOccurs="1"/>
-      <element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1"/>
+      <element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0" />
+      <element name="KartenNr" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="Pruefkennung" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="GueltigBis" type="gYearMonth" maxOccurs="1" minOccurs="1" />
+      <element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Komponente_Type">
     <sequence>
-      <element name="Name" type="string" minOccurs="1" maxOccurs="1"/>
-      <element name="Version" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Variante" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="SerienNr" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="PhysPosition" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="ErstellZeitPunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
-      <element name="Hersteller" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="Name" type="string" minOccurs="1" maxOccurs="1" />
+      <element name="Version" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Variante" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="SerienNr" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="PhysPosition" type="int" maxOccurs="1" minOccurs="0" />
+      <element name="ErstellZeitPunkt" type="dateTime" maxOccurs="1" minOccurs="0" />
+      <element name="Hersteller" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
-    <attribute name="Klasse" type="husst:KomponentenKlasse_Type" use="required"/>
+    <attribute name="Klasse" type="husst:KomponentenKlasse_Type" use="required" />
   </complexType>
 
   <complexType name="Komponentenliste_Type">
     <sequence>
-      <element name="Vorgang" type="husst:KomponentenVorgang_Type"/>
-      <element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="Vorgang" type="husst:KomponentenVorgang_Type" />
+      <element name="Komponente" type="husst:Komponente_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
@@ -784,50 +654,46 @@
     <sequence>
       <element name="Typ" maxOccurs="1" minOccurs="1" type="string">
         <annotation>
-          <documentation>Kontrollmeldungen beliebiger Art z. B. Chipkartenkontrolle für KA-Berechtigung, DB-Online-Ticket, BOB-Ticket, DF-Fahrschein, ...</documentation>
+          <documentation>Kontrollmeldungen beliebiger Art z. B. Chipkartenkontrolle für
+            KA-Berechtigung, DB-Online-Ticket, BOB-Ticket, DF-Fahrschein, ...</documentation>
         </annotation>
       </element>
-      <element name="Kontrolldaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Kontrolldaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1" />
       <choice>
         <element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
           <annotation>
-            <documentation>
-              Referenz zu einem global eindeutigen Vorgang
-              - diese Information ist auch in den
-              zugehörigen KA Kontrolldaten enthalten.
-            </documentation>
+            <documentation> Referenz zu einem global eindeutigen Vorgang - diese Information ist
+              auch in den zugehörigen KA Kontrolldaten enthalten. </documentation>
           </annotation>
         </element>
         <element name="Referenz" type="string" maxOccurs="1" minOccurs="0">
           <annotation>
-            <documentation>
-              Referenz zu einem global eindeutigen Vorgang
-              - diese Information ist auch in den
-              zugehörigen Transaktionsdaten als
-              Eindeutigkeitskennzeichen enthalten.
-            </documentation>
+            <documentation> Referenz zu einem global eindeutigen Vorgang - diese Information ist
+              auch in den zugehörigen Transaktionsdaten als Eindeutigkeitskennzeichen enthalten. </documentation>
           </annotation>
         </element>
       </choice>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
   </complexType>
 
   <complexType name="Kundendaten_Type">
     <sequence>
-      <element name="Fahrgast" type="husst:Person_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Erzieher" type="husst:Person_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Fahrgast" type="husst:Person_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Erzieher" type="husst:Person_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Lastschrift_Type">
     <sequence>
-      <element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="KartenfolgeNr" type="int" maxOccurs="1" minOccurs="1"/>
+      <element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="KartenfolgeNr" type="int" maxOccurs="1" minOccurs="1" />
       <element name="Kartenart" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>1=ec-Karte Magnetstreifen</documentation>
@@ -838,18 +704,16 @@
           <documentation>Gültigendejahr der Karte</documentation>
         </annotation>
       </element>
-      <element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1"/>
+      <element name="Unterschrift" type="boolean" maxOccurs="1" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Meldung_Type">
     <annotation>
-      <documentation>
-        Dieser Datensatz dient der Aufnahme von Textmeldungen beliebiger Art.
-      </documentation>
+      <documentation> Dieser Datensatz dient der Aufnahme von Textmeldungen beliebiger Art. </documentation>
     </annotation>
     <sequence>
-      <element name="Nr" type="int" minOccurs="1" maxOccurs="1"/>
+      <element name="Nr" type="int" minOccurs="1" maxOccurs="1" />
       <element name="MeldModTyp" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
           <documentation>Typ des meldunggenerierenden Moduls</documentation>
@@ -862,75 +726,65 @@
       </element>
       <element name="PhysPosition" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Eine unterscheidende, physikalische Position, wenn mehrere gleiche Komponenten Meldungen emmitieren.</documentation>
+          <documentation>Eine unterscheidende, physikalische Position, wenn mehrere gleiche
+            Komponenten Meldungen emmitieren.</documentation>
         </annotation>
       </element>
       <element name="Text" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Meldungstext, Entwicklertext. Dieser Text wird in
-            der Regel vor der Anzeige ersetzt.
-          </documentation>
+          <documentation> Meldungstext, Entwicklertext. Dieser Text wird in der Regel vor der
+            Anzeige ersetzt. </documentation>
         </annotation>
       </element>
       <element name="Attribut" type="string" maxOccurs="unbounded" minOccurs="0">
         <annotation>
-          <documentation>
-            Kommagetrennte Attribute die für eine
-            Meldungstextgenerierung benötigt werden:
-
-            Format('User "%s" was sleeping between %s and
-            %s',[Attribute])
-
-            So dass auch bei sprachvarianten Anzeigen
-            dynamische Inhalte ausgegeben werden können.
-          </documentation>
+          <documentation> Kommagetrennte Attribute die für eine Meldungstextgenerierung benötigt
+            werden: Format('User "%s" was sleeping between %s and %s',[Attribute]) So dass auch bei
+            sprachvarianten Anzeigen dynamische Inhalte ausgegeben werden können. </documentation>
         </annotation>
       </element>
     </sequence>
-    <attribute name="Klasse" type="husst:Meldungsklasse_Type" use="required"/>
+    <attribute name="Klasse" type="husst:Meldungsklasse_Type" use="required" />
   </complexType>
 
   <complexType name="Mitnahme_Type">
     <sequence>
-      <element name="Fahrgasttyp" type="husst:KundenTyp_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
+      <element name="Fahrgasttyp" type="husst:KundenTyp_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Ortspunkt_Type">
     <sequence>
-      <element name="ID_Ortspunkt" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="ID_Ortspunkt" type="int" maxOccurs="1" minOccurs="0" />
+      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Person_Type">
     <sequence>
-      <element name="Vorname" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Nachname" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Namenszuatz" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="StrasseHausNr" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Postleitzahl" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Laenderkennzeichen" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Wohnort" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Staat" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="Vorname" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Nachname" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Namenszuatz" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="StrasseHausNr" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Postleitzahl" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Laenderkennzeichen" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Wohnort" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Staat" type="string" maxOccurs="1" minOccurs="0" />
       <element name="Geschlecht" maxOccurs="1" minOccurs="0">
         <simpleType>
           <restriction base="string">
-            <enumeration value="weiblich"/>
-            <enumeration value="maennlich"/>
+            <enumeration value="weiblich" />
+            <enumeration value="maennlich" />
           </restriction>
         </simpleType>
       </element>
-      <element name="TelefonNr" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Geburtsdatum" type="dateTime" maxOccurs="1" minOccurs="0"/>
-      <element name="Staatsangehoerigkeit" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="TelefonNr" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Geburtsdatum" type="dateTime" maxOccurs="1" minOccurs="0" />
+      <element name="Staatsangehoerigkeit" type="string" maxOccurs="1" minOccurs="0" />
       <element name="Legitimtation" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Beschreibung der legitimation, Ausweis, EC-Karte, etc.
-          </documentation>
+          <documentation> Beschreibung der legitimation, Ausweis, EC-Karte, etc. </documentation>
         </annotation>
       </element>
       <element name="LegitimationNr" type="string" maxOccurs="1" minOccurs="0">
@@ -940,139 +794,113 @@
       </element>
       <element name="LegitimationsDatum" type="dateTime" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Ausstellungsdateum der Legitimation
-          </documentation>
+          <documentation> Ausstellungsdateum der Legitimation </documentation>
         </annotation>
       </element>
       <element name="LegimitationsLand" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Ausstellungsland der Legitimation
-          </documentation>
+          <documentation> Ausstellungsland der Legitimation </documentation>
         </annotation>
       </element>
       <element name="LegitimationBild" type="boolean" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Auf der Legitimation war ein Lichtbild, das
-            Lichtbild wurde dem EBE-Fall zugeordnet
-          </documentation>
+          <documentation> Auf der Legitimation war ein Lichtbild, das Lichtbild wurde dem EBE-Fall
+            zugeordnet </documentation>
         </annotation>
       </element>
-      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Polizei_Type">
     <sequence>
-      <element name="Dienstnummer" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="Vorname" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Nachname" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Dienststelle" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="Dienstnummer" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="Vorname" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Nachname" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Dienststelle" type="string" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Preis_Type">
     <annotation>
-      <documentation>
-        Wenn keine Preisspalte angegeben ist, wird von der
-        Standardspalte "1" ausgegangen. Ansonsten muss die Nummer der
-        zugehörigen Preisspalte der Datenversorgung angegeben.
-        Die Kennung kann optional die Kennung der Preisspalte enthalten.
-      </documentation>
+      <documentation> Wenn keine Preisspalte angegeben ist, wird von der Standardspalte "1"
+        ausgegangen. Ansonsten muss die Nummer der zugehörigen Preisspalte der Datenversorgung
+        angegeben. Die Kennung kann optional die Kennung der Preisspalte enthalten. </documentation>
     </annotation>
     <sequence>
-      <element name="Betrag" type="husst:Betrag_Type" minOccurs="1" maxOccurs="1"/>
-      <element name="ID_Mwst" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
+      <element name="Betrag" type="husst:Betrag_Type" minOccurs="1" maxOccurs="1" />
+      <element name="ID_Mwst" type="husst:INT4" maxOccurs="1" minOccurs="0" />
       <element name="MwstSatz" maxOccurs="1" minOccurs="1" type="husst:FLOAT1">
         <annotation>
-          <documentation>
-            Wert zwischen 0 und 100
-          </documentation>
+          <documentation> Wert zwischen 0 und 100 </documentation>
         </annotation>
       </element>
     </sequence>
-    <attribute name="Verrechnung" type="husst:Preisverrechnung_Type" use="required"/>
+    <attribute name="Verrechnung" type="husst:Preisverrechnung_Type" use="required" />
   </complexType>
 
   <complexType name="ProdFahrschein_Type">
     <annotation>
-      <documentation>
-        Beschreibt die räumliche und zeitliche Gültigkeit	des verkauften Produkts.
-      </documentation>
+      <documentation> Beschreibt die räumliche und zeitliche Gültigkeit des verkauften Produkts. </documentation>
     </annotation>
     <sequence>
-      <element name="ZeitVon" type="dateTime" maxOccurs="1" minOccurs="1"/>
-      <element name="ZeitBis" type="dateTime" maxOccurs="1" minOccurs="0"/>
-      <element name="Von" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Nach" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Via" type="husst:Transaktionsort_Type" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="ZeitVon" type="dateTime" maxOccurs="1" minOccurs="1" />
+      <element name="ZeitBis" type="dateTime" maxOccurs="1" minOccurs="0" />
+      <element name="Von" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Nach" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Via" type="husst:Transaktionsort_Type" maxOccurs="unbounded" minOccurs="0" />
       <element name="ID_Relation" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Bezug auf die ID_Relation der Versorgungsdaten -
-            die Datenversion ist identisch mit der in dem
-            Tarifprodukt hinterlegten Datenversion
-          </documentation>
+          <documentation> Bezug auf die ID_Relation der Versorgungsdaten - die Datenversion ist
+            identisch mit der in dem Tarifprodukt hinterlegten Datenversion </documentation>
         </annotation>
       </element>
-      <element name="Komfortklasse" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Rabattklasse" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="Mitnahme" type="husst:Mitnahme_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Teilrelation" type="husst:Teilrelation_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Komfortklasse" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Rabattklasse" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="Mitnahme" type="husst:Mitnahme_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Teilrelation" type="husst:Teilrelation_Type" maxOccurs="unbounded"
+        minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Produkt_Type">
     <annotation>
-      <documentation>
-        Eine Datenstruktur, die die tariflichen Merkmale des verkauften 
-		    Produkts beschreibt.
-		    Bei der Anwendung von Teilrelationen zur Aufteilung
-        von Fremd- und Eigenleistungen wird wie folgt vorgegangen:
-        Das
-        verkaufte Produkt wird als Hauptprodukt mit der Id und ExtId
-        'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen
-        gemeinsamen Beleg, un N Teilprodukte.
-      </documentation>
+      <documentation> Eine Datenstruktur, die die tariflichen Merkmale des verkauften Produkts
+        beschreibt. Bei der Anwendung von Teilrelationen zur Aufteilung von Fremd- und
+        Eigenleistungen wird wie folgt vorgegangen: Das verkaufte Produkt wird als Hauptprodukt mit
+        der Id und ExtId 'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen gemeinsamen
+        Beleg, un N Teilprodukte. </documentation>
     </annotation>
     <sequence>
-      <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
-      <element name="Tarifprodukt" type="husst:Tarifprodukt_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1" />
+      <element name="Tarifprodukt" type="husst:Tarifprodukt_Type" maxOccurs="1" minOccurs="1" />
       <element name="Preis" type="husst:Preis_Type" maxOccurs="unbounded" minOccurs="0">
         <annotation>
-          <documentation>
-            Preisinformation zum Produkt, kannauch leer sein
-          </documentation>
+          <documentation> Preisinformation zum Produkt, kannauch leer sein </documentation>
         </annotation>
       </element>
-      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
-      <element name="Fahrschein" type="husst:ProdFahrschein_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0" />
+      <element name="Fahrschein" type="husst:ProdFahrschein_Type" maxOccurs="1" minOccurs="0" />
       <element name="Teilprodukt" type="husst:Produkt_Type" maxOccurs="unbounded" minOccurs="0">
         <annotation>
-          <documentation>
-            Unterprodukte, die mitverkauftwurden
-            (Teilstrecken,City-Cards,...)
-          </documentation>
+          <documentation> Unterprodukte, die mitverkauftwurden (Teilstrecken,City-Cards,...) </documentation>
         </annotation>
       </element>
       <element name="AnzahlTeile" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Hier werden bei Mehrfahrtenkarten die Anzahl der
-            einzelnen Abschnitte bzw. Anteile notiert. Wenn
-            nicht angegeben ist, ist die Anzahl entweder
-            unbekannt oder als Vorgabe 1.
-          </documentation>
+          <documentation> Hier werden bei Mehrfahrtenkarten die Anzahl der einzelnen Abschnitte bzw.
+            Anteile notiert. Wenn nicht angegeben ist, ist die Anzahl entweder unbekannt oder als
+            Vorgabe 1. </documentation>
         </annotation>
       </element>
       <element name="RestTeile" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit
-            auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die Betrachtung stellt den Zustand VOR der Aktion dar.
-          </documentation>
+          <documentation>Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der
+            elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit
+            auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die
+            Betrachtung stellt den Zustand VOR der Aktion dar. </documentation>
         </annotation>
       </element>
     </sequence>
@@ -1085,9 +913,10 @@
           <documentation>Ausstiegshaltestelle</documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
     <attribute name="PruefNr" type="int" use="required">
       <annotation>
         <documentation></documentation>
@@ -1099,9 +928,7 @@
     <sequence>
       <element name="Kleidung" type="husst:Pruefkleidung_Type" minOccurs="0" maxOccurs="1">
         <annotation>
-          <documentation>
-            Die vom Prüfer getragene Kleidung
-          </documentation>
+          <documentation> Die vom Prüfer getragene Kleidung </documentation>
         </annotation>
       </element>
       <element name="Pruefart" type="husst:Pruefart_Type" minOccurs="0" maxOccurs="1">
@@ -1111,9 +938,7 @@
       </element>
       <element name="Pruefer" type="string" minOccurs="0" maxOccurs="unbounded">
         <annotation>
-          <documentation>
-            Beteiligte Prüfer (Nummer)
-          </documentation>
+          <documentation> Beteiligte Prüfer (Nummer) </documentation>
         </annotation>
       </element>
       <element name="Linie" type="int" minOccurs="0" maxOccurs="1">
@@ -1121,7 +946,8 @@
           <documentation>Liniennummer</documentation>
         </annotation>
       </element>
-      <element name="Verkehrsmittel" type="husst:TransportserviceArt_Type" minOccurs="0" maxOccurs="1">
+      <element name="Verkehrsmittel" type="husst:TransportserviceArt_Type" minOccurs="0"
+        maxOccurs="1">
         <annotation>
           <documentation>Verkehrsmittel</documentation>
         </annotation>
@@ -1138,34 +964,32 @@
       </element>
       <element name="AnzahlFahrgaeste" type="int" minOccurs="0" maxOccurs="1">
         <annotation>
-          <documentation>
-            Eine Abschätzung der Anzahl der Fahrgäste bei Einstieg
-          </documentation>
+          <documentation> Eine Abschätzung der Anzahl der Fahrgäste bei Einstieg </documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
-    <attribute name="PruefNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
+    <attribute name="PruefNr" type="int" use="required" />
   </complexType>
 
   <complexType name="Rechnungsstellung_Type">
     <annotation>
-      <documentation>Dieses Element trägt nähere Angaben zum nachfolgenden Rechnungsstellungs- oder verfolgungsprozess.</documentation>
+      <documentation>Dieses Element trägt nähere Angaben zum nachfolgenden Rechnungsstellungs- oder
+        verfolgungsprozess.</documentation>
     </annotation>
     <sequence>
       <element name="RechnungsRef" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            In der Regel eine Rechnungsnummer oder eine generierte Referenz auf eine zu erstellende Rechnung.
-          </documentation>
+          <documentation> In der Regel eine Rechnungsnummer oder eine generierte Referenz auf eine
+            zu erstellende Rechnung. </documentation>
         </annotation>
       </element>
       <element name="KundenRef" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Eine Referenz auf den Kunden zur Rechnungsstellung, in der Regel eine Kundennummer
-          </documentation>
+          <documentation> Eine Referenz auf den Kunden zur Rechnungsstellung, in der Regel eine
+            Kundennummer </documentation>
         </annotation>
       </element>
       <element name="Vorgangszeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0">
@@ -1183,134 +1007,106 @@
 
   <complexType name="Restgeldbeleg_Type">
     <sequence>
-      <element name="Ausgabevertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Ausgabevertriebsstelle" type="husst:Vertriebsstelle_Type" maxOccurs="1"
+        minOccurs="1" />
       <element name="Kennung" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
           <documentation>Eine eindeutige Kennung zur Identifikation des Restgeldbelegs.</documentation>
         </annotation>
       </element>
-      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Ausstelldatum" type="dateTime" maxOccurs="1" minOccurs="0"/>
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Ausstelldatum" type="dateTime" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Schicht_Type">
     <sequence>
-      <element name="Datensatz" type="husst:Datensatz_Type" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Datensatz" type="husst:Datensatz_Type" maxOccurs="unbounded" minOccurs="0" />
     </sequence>
     <attribute name="SchichtUID" type="string" use="required">
       <annotation>
-        <documentation>
-          Diese UID ist eine eindeutiger Wert, der (mit
-          höchster Wahrscheinlichkeit) nur einmalig für alle
-          Geräte zu allen Zeitpunkten an allen Orten existiert.
-          Alle Daten einer Schicht eines Gerätes werden mit
-          dieser ID gekennzeichnet. Die Generierungsvorschrift ist
-          beliebig, solange die obigen Bedingungen eingehalten werden.
-        </documentation>
+        <documentation> Diese UID ist eine eindeutiger Wert, der (mit höchster Wahrscheinlichkeit)
+          nur einmalig für alle Geräte zu allen Zeitpunkten an allen Orten existiert. Alle Daten
+          einer Schicht eines Gerätes werden mit dieser ID gekennzeichnet. Die
+          Generierungsvorschrift ist beliebig, solange die obigen Bedingungen eingehalten werden. </documentation>
       </annotation>
     </attribute>
     <attribute name="Projekt" type="string" use="optional">
       <annotation>
-        <documentation>
-          Dies ist eine vom Projektierer vorgegebene
-          Projektkennzeichnung, z.B. "MENT"
-        </documentation>
+        <documentation> Dies ist eine vom Projektierer vorgegebene Projektkennzeichnung, z.B. "MENT" </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Schichtabschluss_Type">
-		<annotation>
-			<documentation>
-			Der Datensatz zum Schichtabschluss. 
-			Es ist der letzte Datensatz einer Schicht.
-			Hier wird angegeben, wie der Schichtabschluss ausgelöst 
-			wurde. Hintergrund hierbei ist die Möglichkeit 
-			im personalbedienten Verkauf unterscheiden zu können, 
-			ob eine Schicht explizit durch den Nutzer eines 
-			Verkaufsgerätes (manuell) oder implizit durch 
-			das Gerät selbst (automatisch) durchgeführt wurde.
-			</documentation>
-		</annotation>	     
+    <annotation>
+      <documentation> Der Datensatz zum Schichtabschluss. Es ist der letzte Datensatz einer Schicht.
+        Hier wird angegeben, wie der Schichtabschluss ausgelöst wurde. Hintergrund hierbei ist die
+        Möglichkeit im personalbedienten Verkauf unterscheiden zu können, ob eine Schicht explizit
+        durch den Nutzer eines Verkaufsgerätes (manuell) oder implizit durch das Gerät selbst
+        (automatisch) durchgeführt wurde. </documentation>
+    </annotation>
     <sequence>
-      <element name="Ausloeser" type="husst:Ausloeser_Type" minOccurs="1" maxOccurs="1"/>
-      <element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Ausloeser" type="husst:Ausloeser_Type" minOccurs="1" maxOccurs="1" />
+      <element name="Beleg" type="husst:Beleg_Type" minOccurs="0" maxOccurs="unbounded" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Schichtbeginn_Type">
-		<annotation>
-			<documentation>
-      Der Datensatz zum Schichtbeginn.
-			Der Schichtbeginn beinhaltet die Identifikation des
-      Verkaufgerätes  und definiert den genauen Zeitpunkt, wann
-			das Verkaufsgerät die Verkaufsbereitschaft erreicht hat.        
-			</documentation>
-		</annotation>
+    <annotation>
+      <documentation> Der Datensatz zum Schichtbeginn. Der Schichtbeginn beinhaltet die
+        Identifikation des Verkaufgerätes und definiert den genauen Zeitpunkt, wann das
+        Verkaufsgerät die Verkaufsbereitschaft erreicht hat. </documentation>
+    </annotation>
     <sequence>
       <element name="SchichtNr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Diese Schichtnummer enstpricht der den Anwendern
-            bekannte Schichtnummer. In der Regel wird nach
-            dieser Nummer ausgewertet und die Nummer wird
-            auf Belege aufgedruckt. Die Schichtnummer ist
-            mindestens für jede Schicht-UUID eindeutig. Die
-            Schichtnummer sollte inkrementierend aufsteigen
-            und nie '0' sein.
-
-            Achtung: Schichtnummer vs. Dienstnummer:
-            Innerhalb einer Schicht können mehrere Dienste
-            auch gleichzeitig ablaufen. Kein Dienst
-            überlappt zeitlich eine Schichtgrenze. Dienste
-            sind in der Regel Personen-(Konten) oder
-            Geräte-(Konten) zugeordnet. Schichten sind nur
-            ein Behälter für Dienste.
-          </documentation>
+          <documentation> Diese Schichtnummer enstpricht der den Anwendern bekannte Schichtnummer.
+            In der Regel wird nach dieser Nummer ausgewertet und die Nummer wird auf Belege
+            aufgedruckt. Die Schichtnummer ist mindestens für jede Schicht-UUID eindeutig. Die
+            Schichtnummer sollte inkrementierend aufsteigen und nie '0' sein. Achtung: Schichtnummer
+            vs. Dienstnummer: Innerhalb einer Schicht können mehrere Dienste auch gleichzeitig
+            ablaufen. Kein Dienst überlappt zeitlich eine Schichtgrenze. Dienste sind in der Regel
+            Personen-(Konten) oder Geräte-(Konten) zugeordnet. Schichten sind nur ein Behälter für
+            Dienste. </documentation>
         </annotation>
       </element>
       <element name="Geraet" type="husst:Geraet_Type" minOccurs="1" maxOccurs="1">
         <annotation>
-          <documentation>
-            Dieser Datensatz kennzeichnet das technische
-            Gerät, das die Datensätze dieser Schicht
-            erzeugt.
-          </documentation>
+          <documentation> Dieser Datensatz kennzeichnet das technische Gerät, das die Datensätze
+            dieser Schicht erzeugt. </documentation>
         </annotation>
       </element>
       <element name="Betriebsart" type="husst:Betriebsart_Type" minOccurs="1" maxOccurs="1">
         <annotation>
-          <documentation>
-            Dieses Feld unterscheidet die Datensätze dieser
-            Schicht in Echt- und sonstigen Betrieb.
-          </documentation>
+          <documentation> Dieses Feld unterscheidet die Datensätze dieser Schicht in Echt- und
+            sonstigen Betrieb. </documentation>
         </annotation>
       </element>
       <element name="Standort" type="husst:Standort_Type" minOccurs="0" maxOccurs="1">
         <annotation>
-          <documentation>
-            Dieses Feld bezeichnet den Standort zum
-            Schichtbeginn.
-          </documentation>
+          <documentation> Dieses Feld bezeichnet den Standort zum Schichtbeginn. </documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Schichtenliste_Type">
     <sequence>
-      <element name="Version" type="husst:VersionStruktur_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Schicht" type="husst:Schicht_Type" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Version" type="husst:VersionStruktur_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Schicht" type="husst:Schicht_Type" maxOccurs="unbounded" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Schichtsummen_Type">
     <sequence>
-      <element name="Kassenliste" type="husst:Kassenliste_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="BelegKassenliste" type="husst:Belegkassenliste_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Kassenliste" type="husst:Kassenliste_Type" maxOccurs="1" minOccurs="0" />
+      <element name="BelegKassenliste" type="husst:Belegkassenliste_Type" maxOccurs="1"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
@@ -1321,128 +1117,97 @@
     <sequence>
       <element name="Typ" type="husst:OrtsTyp_Type" minOccurs="1" maxOccurs="1">
         <annotation>
-          <documentation>
-            Mit dem Typ wird die Ausprägung des jeweilgen
-            Standorts unterschieden.
-            Die Standorte eines Typs und eines
-            Mandanten sind fortlaufend
-            durchnumeriert.
-          </documentation>
+          <documentation> Mit dem Typ wird die Ausprägung des jeweilgen Standorts unterschieden. Die
+            Standorte eines Typs und eines Mandanten sind fortlaufend durchnumeriert. </documentation>
         </annotation>
       </element>
       <element name="Name" type="string" minOccurs="0" maxOccurs="1">
         <annotation>
-          <documentation>
-            Der Name ist ein beliebiger, sprechender Name des
-            Standorts.
-          </documentation>
+          <documentation> Der Name ist ein beliebiger, sprechender Name des Standorts. </documentation>
         </annotation>
       </element>
     </sequence>
     <attribute name="Nr" type="int">
       <annotation>
-        <documentation>
-          Nummer des Nutzungsortes des Gerätes zu dem notierten Zeitpunkt.
-          Die Nummer ist dem jeweiligen Anwender bekannt.
-          Das kann eine Fahrzeugnummer sein, oder ein Kiosknummer,
-          eine Haltestellennummer oder eine Bahnhofsnummer abhängig von den
-          Projektvorgaben und definiert vom jeweiligen Mandanten sein.
-          Die Nummer ist nur zusammen mit der Angabe eines Mandanten eindeutig.
-        </documentation>
+        <documentation> Nummer des Nutzungsortes des Gerätes zu dem notierten Zeitpunkt. Die Nummer
+          ist dem jeweiligen Anwender bekannt. Das kann eine Fahrzeugnummer sein, oder ein
+          Kiosknummer, eine Haltestellennummer oder eine Bahnhofsnummer abhängig von den
+          Projektvorgaben und definiert vom jeweiligen Mandanten sein. Die Nummer ist nur zusammen
+          mit der Angabe eines Mandanten eindeutig. </documentation>
       </annotation>
     </attribute>
     <attribute name="Mandant" type="int" use="optional">
       <annotation>
-        <documentation>
-          Die Standortnummer ist nur zusammen mit einem
-          zugeordneten Mandant eindeutig.
-          Der Standard-Mandant ist '1'.
-        </documentation>
+        <documentation> Die Standortnummer ist nur zusammen mit einem zugeordneten Mandant
+          eindeutig. Der Standard-Mandant ist '1'. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Stuecke_Type">
     <sequence>
-      <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1"/>
-      <element name="StueckWert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Anzahl" type="int" maxOccurs="1" minOccurs="1" />
+      <element name="StueckWert" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Tarifprodukt_Type">
     <annotation>
-      <documentation>
-        Eine Datenstruktur, die die tariflichen Merkmale des 
-        verkauften Produkts beschreibt.
-      </documentation>
+      <documentation> Eine Datenstruktur, die die tariflichen Merkmale des verkauften Produkts
+        beschreibt. </documentation>
     </annotation>
     <sequence>
       <element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Enthält die ID des Tarifgebiets aus der 
-            zugrundeliegenden Tarifdatenbank (Versorgungsdaten).
-          </documentation>
+          <documentation> Enthält die ID des Tarifgebiets aus der zugrundeliegenden Tarifdatenbank
+            (Versorgungsdaten). </documentation>
         </annotation>
       </element>
       <element name="ID_Sorte" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Enthält die in den Versorgungsdaten festgelegte ID der Sorte.
-          </documentation>
+          <documentation> Enthält die in den Versorgungsdaten festgelegte ID der Sorte. </documentation>
         </annotation>
       </element>
-      <element name="ReferenzExternSorte" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="ReferenzExternSorte" type="string" maxOccurs="1" minOccurs="0" />
       <element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Enthält die ID der Preisstufe des 
-            verkauften Produkts. 
-            Die Preisstufe ist nur zusammen mit dem Tarifgebiet gültig.
-          </documentation>
+          <documentation> Enthält die ID der Preisstufe des verkauften Produkts. Die Preisstufe ist
+            nur zusammen mit dem Tarifgebiet gültig. </documentation>
         </annotation>
       </element>
-      <element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="ID_Preis" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
-      <element name="ReferenzExternPreis" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="ID_Preis" type="husst:INT4" maxOccurs="1" minOccurs="0" />
+      <element name="ReferenzExternPreis" type="string" maxOccurs="1" minOccurs="0" />
       <element name="ID_Preisspalte" type="husst:INT4" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Enthält die ID der Preisspalte des verkauften Produkts. 
-            Die Preisspalte ist nur zusammen mit der Preisstufe und dem Tarifgebiet gültig.
-          </documentation>
+          <documentation> Enthält die ID der Preisspalte des verkauften Produkts. Die Preisspalte
+            ist nur zusammen mit der Preisstufe und dem Tarifgebiet gültig. </documentation>
         </annotation>
-	  </element>
+      </element>
     </sequence>
     <attribute name="DatenversionInhalt" type="string" use="required">
       <annotation>
-        <documentation>
-          Der Inhalt von "DatenversionInhalt" der Tabelle VersionInhalt der Versorgung
-        </documentation>
+        <documentation> Der Inhalt von "DatenversionInhalt" der Tabelle VersionInhalt der Versorgung </documentation>
       </annotation>
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>
-          Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt
-          gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert.
-        </documentation>
+        <documentation> Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum
+          Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Tarifpunkt_Type">
     <sequence>
-      <element name="ID_Tarifpunkt" type="int" maxOccurs="1" minOccurs="0"/>
+      <element name="ID_Tarifpunkt" type="int" maxOccurs="1" minOccurs="0" />
       <element name="ID_Tarifgebiet" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Enthält die Nummer des Tarifgebiets aus der 
-			      zugrundeliegenden Tarifdatenbank (Versorgungsdaten).
-          </documentation>
+          <documentation> Enthält die Nummer des Tarifgebiets aus der zugrundeliegenden
+            Tarifdatenbank (Versorgungsdaten). </documentation>
         </annotation>
       </element>
-      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
@@ -1450,21 +1215,20 @@
     <sequence>
       <element name="SortOrder" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Die Sortierungsreihenfolge wird benötigt, um die
-            Richtung der Durchfahrt zu erhalten.
-          </documentation>
+          <documentation> Die Sortierungsreihenfolge wird benötigt, um die Richtung der Durchfahrt
+            zu erhalten. </documentation>
         </annotation>
       </element>
-      <element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1"/>
-      <element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1"/>
+      <element name="ID_Preisstufe" type="husst:INT4" maxOccurs="1" minOccurs="1" />
+      <element name="ReferenzExternPreisstufe" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="ID_Tarifgebiet" type="husst:INT4" maxOccurs="1" minOccurs="1" />
 
-      <element name="Start" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Ziel" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="ReferenzExternRelation" type="string" maxOccurs="1" minOccurs="0"/>
-      <element name="ID_Preisquelle" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Start" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Ziel" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0" />
+      <element name="ReferenzExternRelation" type="string" maxOccurs="1" minOccurs="0" />
+      <element name="ID_Preisquelle" type="int" maxOccurs="1" minOccurs="0" />
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
     <attribute name="DatenversionInhalt" type="string" use="required">
       <annotation>
@@ -1473,121 +1237,97 @@
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr
-          geliefert.
-        </documentation>
+        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum
+          Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Transaktion_Type">
     <sequence>
-      <element name="Produkt" type="husst:Produkt_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Produkt" type="husst:Produkt_Type" maxOccurs="1" minOccurs="1" />
       <element name="KundenNr" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Über die KundenNr kann bei personalisierter 
-            Nutzung / Kauf der Bezug zu einem im 
-            Backend hinterlegten Kundendatensatz 
-            hergestellt werden.
-          </documentation>
+          <documentation> Über die KundenNr kann bei personalisierter Nutzung / Kauf der Bezug zu
+            einem im Backend hinterlegten Kundendatensatz hergestellt werden. </documentation>
         </annotation>
       </element>
       <element name="BezugsNr" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Die BezugsNr findet unterschiedlich Verwendung 
-            und ist zwischen den Austauschpartnern der 
-            Schnittstelle zu vereinbaren. 
-          </documentation>
+          <documentation> Die BezugsNr findet unterschiedlich Verwendung und ist zwischen den
+            Austauschpartnern der Schnittstelle zu vereinbaren. </documentation>
         </annotation>
       </element>
       <element name="Vorgangszeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Vorgangsnummer und Vorgangszeitpunkt
-            identifizieren einzeln oder gemeinsam einen
-            Vorgang. Im Speziellen werden diese beiden Werte
-            bei der Erstattung eines Gutscheins genutzt,
-            dann entspricht der Vorgangszeitpunkt dem
-            Zeitpunkt der Ausgabe des eingelösten
-            Gutscheins.
-          </documentation>
+          <documentation> Vorgangsnummer und Vorgangszeitpunkt identifizieren einzeln oder gemeinsam
+            einen Vorgang. Im Speziellen werden diese beiden Werte bei der Erstattung eines
+            Gutscheins genutzt, dann entspricht der Vorgangszeitpunkt dem Zeitpunkt der Ausgabe des
+            eingelösten Gutscheins. </documentation>
         </annotation>
       </element>
       <choice>
         <element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
           <annotation>
-            <documentation>
-              Referenz zu einem global eindeutigen Vorgang
-              - diese Information ist auch in den
-              zugehörigen KA Kontrolldaten enthalten.
-            </documentation>
+            <documentation> Referenz zu einem global eindeutigen Vorgang - diese Information ist
+              auch in den zugehörigen KA Kontrolldaten enthalten. </documentation>
           </annotation>
         </element>
         <element name="Referenz" type="string" maxOccurs="1" minOccurs="0">
           <annotation>
-            <documentation>
-              Referenz zu einem global eindeutigen Vorgang
-              - diese Information ist auch in den
-              zugehörigen Transaktionsdaten als
-              Eindeutigkeitskennzeichen enthalten.
-            </documentation>
+            <documentation> Referenz zu einem global eindeutigen Vorgang - diese Information ist
+              auch in den zugehörigen Transaktionsdaten als Eindeutigkeitskennzeichen enthalten. </documentation>
           </annotation>
         </element>
       </choice>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
-    <attribute name="Typ" type="husst:TransaktionTyp_Type" use="required"/>
-    <attribute name="Storno" type="boolean" use="optional" default="false"/>
+    <attribute name="Typ" type="husst:TransaktionTyp_Type" use="required" />
+    <attribute name="Storno" type="boolean" use="optional" default="false" />
   </complexType>
 
   <complexType name="Transaktionsdaten_Type">
     <sequence>
-      <element name="Transaktionsart" maxOccurs="1" minOccurs="1" type="husst:Transaktionsart_Type"/>
-      <element name="Transaktionsdaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Transaktionsart" maxOccurs="1" minOccurs="1" type="husst:Transaktionsart_Type" />
+      <element name="Transaktionsdaten" type="husst:Any_Type" maxOccurs="1" minOccurs="1" />
       <choice>
         <element name="KAReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="0">
           <annotation>
-            <documentation>
-              Referenz zu einem global eindeutigen Vorgang
-              - diese Information ist auch in den
-              zugehörigen KA Kontrolldaten enthalten.
-            </documentation>
+            <documentation> Referenz zu einem global eindeutigen Vorgang - diese Information ist
+              auch in den zugehörigen KA Kontrolldaten enthalten. </documentation>
           </annotation>
         </element>
         <element name="Referenz" type="string" maxOccurs="1" minOccurs="0">
           <annotation>
-            <documentation>
-              Referenz zu einem global eindeutigen Vorgang
-              - diese Information ist auch in den
-              zugehörigen Kontrolldaten als
-              Eindeutigkeitskennzeichen enthalten.
-            </documentation>
+            <documentation> Referenz zu einem global eindeutigen Vorgang - diese Information ist
+              auch in den zugehörigen Kontrolldaten als Eindeutigkeitskennzeichen enthalten. </documentation>
           </annotation>
         </element>
       </choice>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Transaktionsliste_Type">
     <sequence>
-      <element name="Transaktion" type="husst:Transaktion_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="Transaktion" type="husst:Transaktion_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="Transaktionsort_Type">
     <sequence>
-      <element name="Ortspunkt" type="husst:Ortspunkt_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Tarifpunkt" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0"/>
+      <element name="Ortspunkt" type="husst:Ortspunkt_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Tarifpunkt" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0" />
       <element name="ID_Relcode" type="int" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Ein Relationscode umfasst mehrere Tarifpunkte.
-		  Die ID_Relcode referenziert somit den Relationscode des Tarifs.</documentation>
+          <documentation>Ein Relationscode umfasst mehrere Tarifpunkte. Die ID_Relcode referenziert
+            somit den Relationscode des Tarifs.</documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
     <attribute name="DatenversionInhalt" type="string" use="required">
       <annotation>
@@ -1596,56 +1336,50 @@
     </attribute>
     <attribute name="DatenversionZeitraum" type="string" use="required">
       <annotation>
-        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr
-          geliefert.
-        </documentation>
+        <documentation>Als DatenversionZeitraum wird das Feld "DatenversionZeitraum" des zum
+          Verkaufszeitpunkt gültigen Zeitraum-Eintrages mit der höchsten SubZeitraumNr geliefert. </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Ueberweisung_Type">
     <sequence>
-      <element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1"/>
+      <element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1" />
     </sequence>
   </complexType>
 
   <complexType name="Verfolgung_Type">
     <sequence>
-      <element name="Typ" type="husst:VerfolgungsTyp_Type" maxOccurs="unbounded" minOccurs="1"/>
-      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0"/>
+      <element name="Typ" type="husst:VerfolgungsTyp_Type" maxOccurs="unbounded" minOccurs="1" />
+      <element name="Bemerkung" type="string" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="VersionStruktur_Type">
     <annotation>
-      <documentation>
-        Hier müssen Hinweise zur Version des Schemas angegeben werden.
-      </documentation>
+      <documentation> Hier müssen Hinweise zur Version des Schemas angegeben werden. </documentation>
     </annotation>
     <sequence>
       <element name="VersionMajor" type="int" maxOccurs="1" minOccurs="1" default="3">
         <annotation>
-          <documentation>
-            Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.
-          </documentation>
+          <documentation> Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur
+            Vorgängerversion ändern. </documentation>
         </annotation>
       </element>
       <element name="VersionMinor" type="int" maxOccurs="1" minOccurs="1" default="6">
         <annotation>
-          <documentation>
-            Diese Versionsnummer zählt kompatible Anpassungen.
-          </documentation>
+          <documentation> Diese Versionsnummer zählt kompatible Anpassungen. </documentation>
         </annotation>
       </element>
       <element name="VersionPatch" type="int" maxOccurs="1" minOccurs="1" default="0">
         <annotation>
-          <documentation>Diese Versionsnummer zählt abwärtskompatible Bugfixes.
-          </documentation>
+          <documentation>Diese Versionsnummer zählt abwärtskompatible Bugfixes. </documentation>
         </annotation>
       </element>
-      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2024-06-28"/>
-      <element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1" default="HUSST-Arbeitsgruppe"/>
+      <element name="Aenderungsdatum" type="date" maxOccurs="1" minOccurs="1" default="2024-06-28" />
+      <element name="Aenderungsautor" type="string" maxOccurs="1" minOccurs="1"
+        default="HUSST-Arbeitsgruppe" />
     </sequence>
   </complexType>
 
@@ -1654,132 +1388,117 @@
     <sequence>
       <element name="Typ" maxOccurs="1" minOccurs="1" type="husst:OrtsTyp_Type">
         <annotation>
-          <documentation>
-            Der Typ qualifiziert die beiden Elemente
-            'Mandant' und 'Nr'.
-          </documentation>
+          <documentation> Der Typ qualifiziert die beiden Elemente 'Mandant' und 'Nr'. </documentation>
         </annotation>
       </element>
       <element name="Mandant" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Der Mandant qualifiziert eindeutig die
-            Zugehörigkeit der 'Nr'.
-          </documentation>
+          <documentation> Der Mandant qualifiziert eindeutig die Zugehörigkeit der 'Nr'. </documentation>
         </annotation>
       </element>
       <element name="Nr" type="int" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>
-            Hier wird, je nach Typ der Vertriebsstelle, die
-            Personalnummer, die Vertriebsstellennummer, die
-            Gerätenummer etc. hinterlegt. Die Nummer ist nur
-            in Beziehung zu Mandant und dem Typ eindeutig.
-          </documentation>
+          <documentation> Hier wird, je nach Typ der Vertriebsstelle, die Personalnummer, die
+            Vertriebsstellennummer, die Gerätenummer etc. hinterlegt. Die Nummer ist nur in
+            Beziehung zu Mandant und dem Typ eindeutig. </documentation>
         </annotation>
       </element>
-      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="DynAttribut" type="husst:DynAttribut_Subtype" maxOccurs="unbounded"
+        minOccurs="0" />
     </sequence>
   </complexType>
 
-  <complexType name="Warenkorb_Type">  
+  <complexType name="Warenkorb_Type">
     <sequence>
       <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>
-            Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.
-          </documentation>
-        </annotation>	  
+          <documentation> Definiert optional einen Identifier, um den Warenkorb eindeutig zu
+            referenzieren. </documentation>
+        </annotation>
       </element>
-      <element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Transaktionsort" type="husst:Transaktionsort_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Transaktionliste" type="husst:Transaktionsliste_Type" maxOccurs="1"
+        minOccurs="1" />
+      <element name="Zahlungsliste" type="husst:Zahlungsliste_Type" maxOccurs="1" minOccurs="0" />
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0" />
     </sequence>
-    <attribute name="DienstNr" type="int" use="required"/>
+    <attribute name="DienstNr" type="int" use="required" />
   </complexType>
 
   <complexType name="Wertbehaelter_Type">
     <annotation>
-      <documentation>
-        Hiermit werden Wertbehälter erfasst, z.B. Safebags.
-        Die Nummer enstpricht der Nummer des Wertbehälters, die Wertanzahl
-        der Anzahl der werthaltigen Anteile, z.B. die Anzahl der Belege.
-
-        Es werden 2 Behälter unterschieden:
-        1. Behälter mit Bargeld -> dann muss der Betrag ausgefüllt sein (früher Wert),
-        2. Behälter mit werthaltigen Belegen -> dann muss die Wertanzahl ausgefüllt sein.
-        3. Eine Mischform ist auch möglich.
-      </documentation>
+      <documentation> Hiermit werden Wertbehälter erfasst, z.B. Safebags. Die Nummer enstpricht der
+        Nummer des Wertbehälters, die Wertanzahl der Anzahl der werthaltigen Anteile, z.B. die
+        Anzahl der Belege. Es werden 2 Behälter unterschieden: 1. Behälter mit Bargeld -> dann muss
+        der Betrag ausgefüllt sein (früher Wert), 2. Behälter mit werthaltigen Belegen -> dann muss
+        die Wertanzahl ausgefüllt sein. 3. Eine Mischform ist auch möglich. </documentation>
     </annotation>
     <sequence>
-      <element name="WertAnzahl" type="int" maxOccurs="1" minOccurs="0"/>
-      <element name="Betrag" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="WertAnzahl" type="int" maxOccurs="1" minOccurs="0" />
+      <element name="Betrag" type="husst:Betrag_Type" maxOccurs="unbounded" minOccurs="0" />
     </sequence>
-    <attribute name="Kennung" type="string" use="required"/>
+    <attribute name="Kennung" type="string" use="required" />
   </complexType>
 
   <complexType name="Zaehldaten_Type">
     <sequence>
-      <element name="Einsteiger" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
-      <element name="Aussteiger" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
-      <element name="Fehler" type="husst:INT4" maxOccurs="1" minOccurs="0"/>
+      <element name="Einsteiger" type="husst:INT4" maxOccurs="1" minOccurs="0" />
+      <element name="Aussteiger" type="husst:INT4" maxOccurs="1" minOccurs="0" />
+      <element name="Fehler" type="husst:INT4" maxOccurs="1" minOccurs="0" />
     </sequence>
     <attribute name="Kennung" type="int" use="required">
       <annotation>
-        <documentation>
-          Die spezielle Bezeichnung dieser Zähldatneinheit
-        </documentation>
+        <documentation> Die spezielle Bezeichnung dieser Zähldatneinheit </documentation>
       </annotation>
     </attribute>
   </complexType>
 
   <complexType name="Zaehldatenliste_Type">
     <sequence>
-      <element name="Zaehldaten" type="husst:Zaehldaten_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="Zaehldaten" type="husst:Zaehldaten_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="Zahlung_Type">
     <sequence>
-      <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1"/>
-      <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1"/>
+      <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1" />
+      <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1" />
       <choice>
-        <element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="Barbezahlung" type="husst:Barbezahlung_Type" maxOccurs="1" minOccurs="1" />
         <element name="Gutschein" type="husst:Gutscheinbezahlung_Type" maxOccurs="1" minOccurs="1">
           <annotation>
-            <documentation>
-              Obsolet: Gutscheine, bei Zahlungsart
-              Gutschein, diese Art der Verrechnung per
-              Gutschein sollte nicht mehr genutzt werden.
-            </documentation>
+            <documentation> Obsolet: Gutscheine, bei Zahlungsart Gutschein, diese Art der
+              Verrechnung per Gutschein sollte nicht mehr genutzt werden. </documentation>
           </annotation>
         </element>
-        <element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="KABezahlungReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1" minOccurs="1"/>
-        <element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type" maxOccurs="1" minOccurs="1"/>
+        <element name="ZVTBezahlung" type="husst:ZVTBezahlung_Type" maxOccurs="1" minOccurs="1" />
+        <element name="KABezahlungReferenz" type="husst:KAReferenz_Type" maxOccurs="1" minOccurs="1" />
+        <element name="Lastschrift" type="husst:Lastschrift_Type" maxOccurs="1" minOccurs="1" />
+        <element name="Ueberweisung_Type" type="husst:Ueberweisung_Type" maxOccurs="1" minOccurs="1" />
+        <element name="KKOfflineBezahlung" type="husst:KKOfflineBezahlung_Type" maxOccurs="1"
+          minOccurs="1" />
+        <element name="Restgeldbeleg" type="husst:Restgeldbeleg_Type" maxOccurs="1" minOccurs="1" />
+        <element name="Rechnungsstellung" type="husst:Rechnungsstellung_Type" maxOccurs="1"
+          minOccurs="1" />
+        <element name="WebShopBezahlung" type="husst:WebShopBezahlung_Type" maxOccurs="1"
+          minOccurs="1" />
       </choice>
-      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0"/>
+      <element name="Beleg" type="husst:Beleg_Type" maxOccurs="unbounded" minOccurs="0" />
     </sequence>
   </complexType>
 
   <complexType name="Zahlungsliste_Type">
     <sequence>
-      <element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded"/>
+      <element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="ZVTBezahlung_Type">
     <sequence>
-      <element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0"/>
-      <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1"/>
-      <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0"/>
+      <element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0" />
+      <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1" />
+      <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0" />
     </sequence>
   </complexType>
 
@@ -1787,17 +1506,20 @@
     <sequence>
       <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>Eindeutige Terminal-ID bei Verwendung eines gesonderten Kartenzahlungsterminals.</documentation>
+          <documentation>Eindeutige Terminal-ID bei Verwendung eines gesonderten
+            Kartenzahlungsterminals.</documentation>
         </annotation>
       </element>
       <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der durchgeführten Zahlungstransaktion.</documentation>
+          <documentation>Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der
+            durchgeführten Zahlungstransaktion.</documentation>
         </annotation>
       </element>
       <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="1">
         <annotation>
-          <documentation>Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister registriert wurde.</documentation>
+          <documentation>Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister
+            registriert wurde.</documentation>
         </annotation>
       </element>
     </sequence>
@@ -1806,98 +1528,92 @@
 
   <simpleType name="Betriebszeit_Type">
     <annotation>
-      <documentation>
-        Betriebszeiten dürfen über 24:00 Uhr hinausgehen
-      </documentation>
+      <documentation> Betriebszeiten dürfen über 24:00 Uhr hinausgehen </documentation>
     </annotation>
     <restriction base="string">
-      <pattern value="[0-9]{1,2}:[0-9]{1,2}"/>
+      <pattern value="[0-9]{1,2}:[0-9]{1,2}" />
     </restriction>
   </simpleType>
 
   <simpleType name="blobString">
     <restriction base="string">
-      <pattern value="[ -þ€–]*"/>
+      <pattern value="[ -þ€–]*" />
     </restriction>
   </simpleType>
 
   <simpleType name="Char">
     <restriction base="string">
-      <minLength value="1"/>
-      <maxLength value="1"/>
+      <minLength value="1" />
+      <maxLength value="1" />
     </restriction>
   </simpleType>
 
   <simpleType name="Codierung_Type">
     <annotation>
-      <documentation>
-        Die Codierung entspricht der DB-Codierung
-      </documentation>
+      <documentation> Die Codierung entspricht der DB-Codierung </documentation>
     </annotation>
     <restriction base="string">
-      <pattern value="[1-9a-zA-Z]{2}"/>
+      <pattern value="[1-9a-zA-Z]{2}" />
     </restriction>
   </simpleType>
 
   <simpleType name="DateCompact">
     <restriction base="date">
-      <minInclusive value="1990-01-01"/>
-      <maxInclusive value="2117-12-31"/>
+      <minInclusive value="1990-01-01" />
+      <maxInclusive value="2117-12-31" />
     </restriction>
   </simpleType>
 
   <simpleType name="DateTimeCompact">
     <restriction base="dateTime">
-      <minInclusive value="1990-01-01T00:00:00Z"/>
-      <maxInclusive value="2117-12-31T23:59:58Z"/>
+      <minInclusive value="1990-01-01T00:00:00Z" />
+      <maxInclusive value="2117-12-31T23:59:58Z" />
     </restriction>
   </simpleType>
 
   <simpleType name="FLOAT1">
     <annotation>
-      <documentation>
-        englische Notation beachten, z. B. 19 Euro = 19.00 Euro
-      </documentation>
+      <documentation> englische Notation beachten, z. B. 19 Euro = 19.00 Euro </documentation>
     </annotation>
     <restriction base="decimal">
-      <minInclusive value="0"/>
-      <maxInclusive value="100"/>
+      <minInclusive value="0" />
+      <maxInclusive value="100" />
     </restriction>
   </simpleType>
 
   <simpleType name="INT1">
     <restriction base="unsignedInt">
-      <minInclusive value="0"/>
-      <maxInclusive value="255"/>
+      <minInclusive value="0" />
+      <maxInclusive value="255" />
     </restriction>
   </simpleType>
   <simpleType name="INT2">
     <restriction base="unsignedInt">
-      <minInclusive value="0"/>
-      <maxInclusive value="65535"/>
+      <minInclusive value="0" />
+      <maxInclusive value="65535" />
     </restriction>
   </simpleType>
   <simpleType name="INT3">
     <restriction base="unsignedInt">
-      <minInclusive value="0"/>
-      <maxInclusive value="16777215"/>
+      <minInclusive value="0" />
+      <maxInclusive value="16777215" />
     </restriction>
   </simpleType>
   <simpleType name="INT4">
     <restriction base="unsignedInt">
-      <minInclusive value="0"/>
-      <maxInclusive value="4294967295"/>
+      <minInclusive value="0" />
+      <maxInclusive value="4294967295" />
     </restriction>
   </simpleType>
   <simpleType name="INT8">
     <restriction base="unsignedLong">
-      <minInclusive value="0"/>
-      <maxInclusive value="18446744073709551615"/>
+      <minInclusive value="0" />
+      <maxInclusive value="18446744073709551615" />
     </restriction>
   </simpleType>
 
   <simpleType name="KoordWgs84_Type">
-    <restriction base="float"/>
+    <restriction base="float" />
   </simpleType>
 
   <simpleType name="Waehrung_Type">
@@ -1905,7 +1621,7 @@
       <documentation>Währungscode nach ISO 4217.</documentation>
     </annotation>
     <restriction base="string">
-      <pattern value="[A-Z]{3}"/>
+      <pattern value="[A-Z]{3}" />
     </restriction>
   </simpleType>
 
@@ -1915,19 +1631,19 @@
       <documentation>Erlaubt alle Werte, die nicht mit "husst." beginnen.</documentation>
     </annotation>
     <restriction base="string">
-      <pattern value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*"/>
+      <pattern
+        value="((h[^u])|hu[^s]|hus[^s]|huss[^t]|husst[^\.]|[a-gi-zA-ZöäüÖÄÜß][a-zA-ZöäüÖÄÜß0-9]*)([\-\.][a-zA-ZöäüÖÄÜß0-9]+)*" />
     </restriction>
   </simpleType>
 
   <simpleType name="ProjektspezifischAnstattKa_Type">
     <annotation>
-      <documentation>
-        Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann.
-        Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
-      </documentation>
+      <documentation> Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt
+        werden kann. Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn
+        Buchstaben vorkommen, ist es ein Projektspezifischer Wert. </documentation>
     </annotation>
     <restriction base="string">
-      <pattern value="[A-Za-z][A-Za-z0-9_]*"/>
+      <pattern value="[A-Za-z][A-Za-z0-9_]*" />
     </restriction>
   </simpleType>
 
@@ -1936,16 +1652,16 @@
     <annotation>
       <documentation>Beschreibt den Typ eines ausgegebenen Papierdokumentes näher.</documentation>
     </annotation>
-    <union memberTypes="husst:AusgabeabschnittTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:AusgabeabschnittTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="AusgabeabschnittTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Fahrschein"/>
-      <enumeration value="husst.Rollenbeginn"/>
-      <enumeration value="husst.Rollenende"/>
-      <enumeration value="husst.Probedruck"/>
-      <enumeration value="husst.Quittung"/>
-      <enumeration value="husst.Beleg"/>
+      <enumeration value="husst.Fahrschein" />
+      <enumeration value="husst.Rollenbeginn" />
+      <enumeration value="husst.Rollenende" />
+      <enumeration value="husst.Probedruck" />
+      <enumeration value="husst.Quittung" />
+      <enumeration value="husst.Beleg" />
     </restriction>
   </simpleType>
 
@@ -1953,12 +1669,12 @@
     <annotation>
       <documentation></documentation>
     </annotation>
-    <union memberTypes="husst:AusloeserHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:AusloeserHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="AusloeserHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.manuell"/>
-      <enumeration value="husst.automatisch"/>
+      <enumeration value="husst.manuell" />
+      <enumeration value="husst.automatisch" />
     </restriction>
   </simpleType>
 
@@ -1966,17 +1682,17 @@
     <annotation>
       <documentation></documentation>
     </annotation>
-    <union memberTypes="husst:BelegkasseTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:BelegkasseTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="BelegkasseTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Restgeldquittung"/>
-      <enumeration value="husst.Stornierung"/>
-      <enumeration value="husst.Gutschein"/>
-      <enumeration value="husst.Ruecknahme"/>
-      <enumeration value="husst.Chipkarte"/>
-      <enumeration value="husst.Flugcoupon"/>
-      <enumeration value="husst.Anfahrtscoupon"/>
+      <enumeration value="husst.Restgeldquittung" />
+      <enumeration value="husst.Stornierung" />
+      <enumeration value="husst.Gutschein" />
+      <enumeration value="husst.Ruecknahme" />
+      <enumeration value="husst.Chipkarte" />
+      <enumeration value="husst.Flugcoupon" />
+      <enumeration value="husst.Anfahrtscoupon" />
     </restriction>
   </simpleType>
 
@@ -1984,25 +1700,25 @@
     <annotation>
       <documentation></documentation>
     </annotation>
-    <union memberTypes="husst:BelegTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:BelegTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="BelegTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Papier"/>
-      <enumeration value="husst.ECard"/>
-      <enumeration value="husst.KACard"/>
-      <enumeration value="husst.BOBCard"/>
+      <enumeration value="husst.Papier" />
+      <enumeration value="husst.ECard" />
+      <enumeration value="husst.KACard" />
+      <enumeration value="husst.BOBCard" />
     </restriction>
   </simpleType>
 
   <simpleType name="Betriebsart_Type">
-    <union memberTypes="husst:BetriebsartHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:BetriebsartHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="BetriebsartHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Echtbetrieb"/>
-      <enumeration value="husst.Testbetrieb"/>
-      <enumeration value="husst.Schulungsbetrieb"/>
+      <enumeration value="husst.Echtbetrieb" />
+      <enumeration value="husst.Testbetrieb" />
+      <enumeration value="husst.Schulungsbetrieb" />
     </restriction>
   </simpleType>
 
@@ -2011,23 +1727,19 @@
       <extension base="husst:BezahlArtSimple_Type">
         <attribute name="Bezeichnung" type="string" use="optional">
           <annotation>
-            <documentation>
-              Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
-            </documentation>
+            <documentation> Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit </documentation>
           </annotation>
         </attribute>
       </extension>
     </simpleContent>
   </complexType>
   <simpleType name="BezahlArtSimple_Type">
-    <union memberTypes="husst:BezahlArtKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+    <union memberTypes="husst:BezahlArtKa_Type husst:ProjektspezifischAnstattKa_Type" />
   </simpleType>
   <simpleType name="BezahlArtKa_Type">
     <annotation>
-      <documentation>
-        Die BezahlArt kommt aus der VDV-KA.
-        Die KA-Werte kommen aus dem EN1545: PaymentMeansCode
-      </documentation>
+      <documentation> Die BezahlArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545:
+        PaymentMeansCode </documentation>
     </annotation>
     <restriction base="husst:INT1">
       <enumeration value="0">
@@ -2189,41 +1901,39 @@
   </simpleType>
 
   <simpleType name="GeldbehaelterTyp_Type">
-    <union memberTypes="husst:GeldbehaelterTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:GeldbehaelterTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="GeldbehaelterTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Personenkasse"/>
-      <enumeration value="husst.Muenzendkasse"/>
-      <enumeration value="husst.Banknotenendkasse"/>
-      <enumeration value="husst.Geldwechsler"/>
-      <enumeration value="husst.Geldspeicher"/>
-      <enumeration value="husst.Zwischenkasse"/>
-      <enumeration value="husst.Wertbehaelter"/>
-      <enumeration value="husst.Handkasse"/>
+      <enumeration value="husst.Personenkasse" />
+      <enumeration value="husst.Muenzendkasse" />
+      <enumeration value="husst.Banknotenendkasse" />
+      <enumeration value="husst.Geldwechsler" />
+      <enumeration value="husst.Geldspeicher" />
+      <enumeration value="husst.Zwischenkasse" />
+      <enumeration value="husst.Wertbehaelter" />
+      <enumeration value="husst.Handkasse" />
     </restriction>
   </simpleType>
 
   <simpleType name="GeldBehaeltervorgang_Type">
     <annotation>
-      <documentation>
-        Übergabemeldung dient zur Registrierung von Safebag-Nummern.
-      </documentation>
+      <documentation> Übergabemeldung dient zur Registrierung von Safebag-Nummern. </documentation>
     </annotation>
-    <union memberTypes="husst:GeldBehaeltervorgangHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:GeldBehaeltervorgangHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="GeldBehaeltervorgangHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Anfangsbestand"/>
-      <enumeration value="husst.Endbestand"/>
-      <enumeration value="husst.Behaelterzufuehrung"/>
-      <enumeration value="husst.Behaelterentnahme"/>
-      <enumeration value="husst.Bestandsaufnahme"/>
-      <enumeration value="husst.Befuellung"/>
-      <enumeration value="husst.Entnahme"/>
-      <enumeration value="husst.Uebergabemeldung"/>
-      <enumeration value="husst.Entnahmemeldung"/>
-      <enumeration value="husst.Geldabwurf"/>
+      <enumeration value="husst.Anfangsbestand" />
+      <enumeration value="husst.Endbestand" />
+      <enumeration value="husst.Behaelterzufuehrung" />
+      <enumeration value="husst.Behaelterentnahme" />
+      <enumeration value="husst.Bestandsaufnahme" />
+      <enumeration value="husst.Befuellung" />
+      <enumeration value="husst.Entnahme" />
+      <enumeration value="husst.Uebergabemeldung" />
+      <enumeration value="husst.Entnahmemeldung" />
+      <enumeration value="husst.Geldabwurf" />
     </restriction>
   </simpleType>
 
@@ -2231,35 +1941,35 @@
     <annotation>
       <documentation></documentation>
     </annotation>
-    <union memberTypes="husst:KasseTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:KasseTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="KasseTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.bar"/>
-      <enumeration value="husst.unbar"/>
+      <enumeration value="husst.bar" />
+      <enumeration value="husst.unbar" />
     </restriction>
   </simpleType>
 
   <simpleType name="KomponentenKlasse_Type">
-    <union memberTypes="husst:KomponentenKlasseHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:KomponentenKlasseHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="KomponentenKlasseHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Software"/>
-      <enumeration value="husst.Hardware"/>
-      <enumeration value="husst.Daten"/>
+      <enumeration value="husst.Software" />
+      <enumeration value="husst.Hardware" />
+      <enumeration value="husst.Daten" />
     </restriction>
   </simpleType>
 
   <simpleType name="KomponentenVorgang_Type">
-    <union memberTypes="husst:KomponentenVorgangHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:KomponentenVorgangHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="KomponentenVorgangHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Entnahme"/>
-      <enumeration value="husst.Zufuehrung"/>
-      <enumeration value="husst.Bestandsaufnahme"/>
-      <enumeration value="husst.Update"/>
+      <enumeration value="husst.Entnahme" />
+      <enumeration value="husst.Zufuehrung" />
+      <enumeration value="husst.Bestandsaufnahme" />
+      <enumeration value="husst.Update" />
     </restriction>
   </simpleType>
 
@@ -2268,23 +1978,19 @@
       <extension base="husst:KundenTypSimple_Type">
         <attribute name="Bezeichnung" type="string" use="optional">
           <annotation>
-            <documentation>
-              Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
-            </documentation>
+            <documentation> Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit </documentation>
           </annotation>
         </attribute>
       </extension>
     </simpleContent>
   </complexType>
   <simpleType name="KundenTypSimple_Type">
-    <union memberTypes="husst:KundenTypKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+    <union memberTypes="husst:KundenTypKa_Type husst:ProjektspezifischAnstattKa_Type" />
   </simpleType>
   <simpleType name="KundenTypKa_Type">
     <annotation>
-      <documentation>
-        Der Kundentyp kommt aus der VDV-KA.
-        Die KA-Werte kommen aus dem EN1545: ProfileCodeIOP
-      </documentation>
+      <documentation> Der Kundentyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545:
+        ProfileCodeIOP </documentation>
     </annotation>
     <restriction base="husst:INT1">
       <enumeration value="0">
@@ -2371,15 +2077,15 @@
   </simpleType>
 
   <simpleType name="Meldungsklasse_Type">
-    <union memberTypes="husst:MeldungsklasseHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:MeldungsklasseHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="MeldungsklasseHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Debug"/>
-      <enumeration value="husst.Info"/>
-      <enumeration value="husst.Warnung"/>
-      <enumeration value="husst.Fehler"/>
-      <enumeration value="husst.SchwererFehler"/>
+      <enumeration value="husst.Debug" />
+      <enumeration value="husst.Info" />
+      <enumeration value="husst.Warnung" />
+      <enumeration value="husst.Fehler" />
+      <enumeration value="husst.SchwererFehler" />
     </restriction>
   </simpleType>
 
@@ -2388,23 +2094,19 @@
       <extension base="husst:OrtsTypSimple_Type">
         <attribute name="Bezeichnung" type="string" use="optional">
           <annotation>
-            <documentation>
-              Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
-            </documentation>
+            <documentation> Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit </documentation>
           </annotation>
         </attribute>
       </extension>
     </simpleContent>
   </complexType>
   <simpleType name="OrtsTypSimple_Type">
-    <union memberTypes="husst:OrtsTypKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+    <union memberTypes="husst:OrtsTypKa_Type husst:ProjektspezifischAnstattKa_Type" />
   </simpleType>
   <simpleType name="OrtsTypKa_Type">
     <annotation>
-      <documentation>
-        Der OrtsTyp kommt aus der VDV-KA.
-        Die KA-Werte kommen aus dem EN1545: LocationTypeCode
-      </documentation>
+      <documentation> Der OrtsTyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545:
+        LocationTypeCode </documentation>
     </annotation>
     <restriction base="husst:INT1">
       <enumeration value="0">
@@ -2444,11 +2146,8 @@
       </enumeration>
       <enumeration value="200">
         <annotation>
-          <documentation>
-            Haltestelle allgemein
-            fuer Haltestellen im Fahrplansinne,
-            unabhaengig vom Verkehrsmittel
-          </documentation>
+          <documentation> Haltestelle allgemein fuer Haltestellen im Fahrplansinne, unabhaengig vom
+            Verkehrsmittel </documentation>
         </annotation>
       </enumeration>
       <enumeration value="201">
@@ -2555,81 +2254,79 @@
   </simpleType>
 
   <simpleType name="Preisverrechnung_Type">
-    <union memberTypes="husst:PreisverrechnungHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:PreisverrechnungHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="PreisverrechnungHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Basispreis"/>
-      <enumeration value="husst.Abschlag"/>
-      <enumeration value="husst.Zuschlag"/>
-      <enumeration value="husst.Information"/>
+      <enumeration value="husst.Basispreis" />
+      <enumeration value="husst.Abschlag" />
+      <enumeration value="husst.Zuschlag" />
+      <enumeration value="husst.Information" />
     </restriction>
   </simpleType>
 
   <simpleType name="Pruefart_Type">
-    <union memberTypes="husst:PruefartHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:PruefartHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="PruefartHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Standardpruefung"/>
-      <enumeration value="husst.Abgangskontrolle"/>
-      <enumeration value="husst.Sonstiges"/>
+      <enumeration value="husst.Standardpruefung" />
+      <enumeration value="husst.Abgangskontrolle" />
+      <enumeration value="husst.Sonstiges" />
     </restriction>
   </simpleType>
 
   <simpleType name="Pruefkleidung_Type">
-    <union memberTypes="husst:PruefkleidungHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:PruefkleidungHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="PruefkleidungHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Zivilkleidung"/>
-      <enumeration value="husst.Dienstkleidung"/>
-      <enumeration value="husst.Sonstiges"/>
+      <enumeration value="husst.Zivilkleidung" />
+      <enumeration value="husst.Dienstkleidung" />
+      <enumeration value="husst.Sonstiges" />
     </restriction>
   </simpleType>
 
   <simpleType name="Transaktionsart_Type">
-    <union memberTypes="husst:TransaktionsartHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:TransaktionsartHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="TransaktionsartHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.KA"/>
-      <enumeration value="husst.Geldkarte"/>
-      <enumeration value="husst.BOB"/>
+      <enumeration value="husst.KA" />
+      <enumeration value="husst.Geldkarte" />
+      <enumeration value="husst.BOB" />
     </restriction>
   </simpleType>
 
   <simpleType name="TransaktionTyp_Type">
-    <union memberTypes="husst:TransaktionTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:TransaktionTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="TransaktionTypHUSST_Type">
     <annotation>
-      <documentation>Sonderfälle:
-        • Gutscheine werden verkauft
-        • Gutscheine werden erstattet
-
-        • EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor.
-        Es gibt einen Preis, es wird ein Beleg gedruckt.
-
-        • Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist,
-        dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer)
-        und je nach Anwendung die Kundennummer beim Verkauf notiert werden.
-        • Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen,
-        es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
-
-        • Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied,
-        dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann
-        die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden.
-        • Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden.
-        Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“.
-        In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden.
-      </documentation>
+      <documentation>Sonderfälle: • Gutscheine werden verkauft • Gutscheine werden erstattet •
+        EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es
+        liegt ein ktTransTyp „husst.Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt. •
+        Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines
+        Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst
+        werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach
+        Anwendung die Kundennummer beim Verkauf notiert werden. • Die Einlösung eines Wertes
+        entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen
+        Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp =
+        husst.Erstattung) • Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf
+        einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich
+        Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld
+        „AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt
+        sein sollten, zusätzlich notiert werden. • Das Entwerten eines oder mehrerer „Streifen“
+        einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder
+        unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg,
+        aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“
+        notiert werden. </documentation>
     </annotation>
     <restriction base="string">
-      <enumeration value="husst.Verkauf"/>
-      <enumeration value="husst.Erstattung"/>
-      <enumeration value="husst.Registrierung"/>
-      <enumeration value="husst.Einzahlung"/>
+      <enumeration value="husst.Verkauf" />
+      <enumeration value="husst.Erstattung" />
+      <enumeration value="husst.Registrierung" />
+      <enumeration value="husst.Einzahlung" />
     </restriction>
   </simpleType>
 
@@ -2638,23 +2335,19 @@
       <extension base="husst:TransportserviceArtSimple_Type">
         <attribute name="Bezeichnung" type="string" use="optional">
           <annotation>
-            <documentation>
-              Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit
-            </documentation>
+            <documentation> Die Angabe der Bezeichnung ist optional und dient nur der Leserlichkeit </documentation>
           </annotation>
         </attribute>
       </extension>
     </simpleContent>
   </complexType>
   <simpleType name="TransportserviceArtSimple_Type">
-    <union memberTypes="husst:TransportserviceArtKa_Type husst:ProjektspezifischAnstattKa_Type"/>
+    <union memberTypes="husst:TransportserviceArtKa_Type husst:ProjektspezifischAnstattKa_Type" />
   </simpleType>
   <simpleType name="TransportserviceArtKa_Type">
     <annotation>
-      <documentation>
-        Die TransportserviceArt kommt aus der VDV-KA.
-        Die KA-Werte kommen aus dem EN1545: TransportTypeCode
-      </documentation>
+      <documentation> Die TransportserviceArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem
+        EN1545: TransportTypeCode </documentation>
     </annotation>
     <restriction base="husst:INT1">
       <enumeration value="0">
@@ -2756,38 +2449,38 @@
   </simpleType>
 
   <simpleType name="VerfolgungsTyp_Type">
-    <union memberTypes="husst:VerfolgungsTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:VerfolgungsTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="VerfolgungsTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.Polizei"/>
-      <enumeration value="husst.Anonym"/>
-      <enumeration value="husst.AnnahmeVerweigert"/>
-      <enumeration value="husst.VerkaufsDefekt"/>
-      <enumeration value="husst.Umsteiger"/>
-      <enumeration value="husst.Nacherfassung"/>
-      <enumeration value="husst.Loeschung"/>
-      <enumeration value="husst.Kulanz"/>
+      <enumeration value="husst.Polizei" />
+      <enumeration value="husst.Anonym" />
+      <enumeration value="husst.AnnahmeVerweigert" />
+      <enumeration value="husst.VerkaufsDefekt" />
+      <enumeration value="husst.Umsteiger" />
+      <enumeration value="husst.Nacherfassung" />
+      <enumeration value="husst.Loeschung" />
+      <enumeration value="husst.Kulanz" />
     </restriction>
   </simpleType>
 
   <simpleType name="VorgangsTyp_Type">
-    <union memberTypes="husst:VorgangsTypHUSST_Type husst:Projektspezifisch_Type"/>
+    <union memberTypes="husst:VorgangsTypHUSST_Type husst:Projektspezifisch_Type" />
   </simpleType>
   <simpleType name="VorgangsTypHUSST_Type">
     <restriction base="string">
-      <enumeration value="husst.KeinFS"/>
-      <enumeration value="husst.UngueltigerFS"/>
-      <enumeration value="husst.TeilungueltigerFS"/>
-      <enumeration value="husst.Betrugsversuch"/>
-      <enumeration value="husst.Alkohol"/>
-      <enumeration value="husst.Rauchen"/>
-      <enumeration value="husst.Sachbeschaedigung"/>
-      <enumeration value="husst.Verhalten"/>
-      <enumeration value="husst.Notbremse"/>
-      <enumeration value="husst.Sonstiges"/>
+      <enumeration value="husst.KeinFS" />
+      <enumeration value="husst.UngueltigerFS" />
+      <enumeration value="husst.TeilungueltigerFS" />
+      <enumeration value="husst.Betrugsversuch" />
+      <enumeration value="husst.Alkohol" />
+      <enumeration value="husst.Rauchen" />
+      <enumeration value="husst.Sachbeschaedigung" />
+      <enumeration value="husst.Verhalten" />
+      <enumeration value="husst.Notbremse" />
+      <enumeration value="husst.Sonstiges" />
     </restriction>
   </simpleType>
 
-  <element name="Schichten" type="husst:Schichtenliste_Type"/>
+  <element name="Schichten" type="husst:Schichtenliste_Type" />
 </schema>
