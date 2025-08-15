@@ -18,19 +18,19 @@
       Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
     </xs:documentation>
     <xs:appinfo>
-    	<api:schema name="Tarif"/>
-    	<api:schema name="Angebot"/>
+      <api:schema name="Tarif"/>
+      <api:schema name="Angebot"/>
     </xs:appinfo>
   </xs:annotation>
 
   <xs:simpleType name="ZuordnungRelCodeGrp_Type">
     <xs:annotation>
       <xs:documentation>teste diese Verwendung
-      s. Verwendung in den ZusatzSorten_Type
-s. weiter Verwendungen
+        s. Verwendung in den ZusatzSorten_Type
+        s. weiter Verwendungen
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:Char">
@@ -51,12 +51,12 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ZusSorteAnbindung_Type">
     <xs:annotation>
       <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
-       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+      <xs:appinfo>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:Char">
@@ -82,13 +82,13 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="Sammelbeleg_Type">
-  	<xs:annotation>
-  		<xs:appinfo>
-  		  <api:schema name="Angebot"/>
-  		</xs:appinfo>
-  	</xs:annotation>
+    <xs:annotation>
+      <xs:appinfo>
+        <api:schema name="Angebot"/>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="true">
         <xs:annotation>
@@ -110,14 +110,15 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_RelationenberechnungsregelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000
+        Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -133,7 +134,7 @@ s. weiter Verwendungen
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation>
-            Sortorder1
+            Sortorder1.
             Die Teilrelation mit Sortorder 1 muss bepreist werden, die anderen Teilrelationen werden zusätzlich registriert.
             Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.
           </xs:documentation>
@@ -142,7 +143,7 @@ s. weiter Verwendungen
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>
-            AdditionPreise
+            AdditionPreise.
             Die Preise aller Teilrelationen werden addiert, es werden alle Teilrelationen registriert.
             Die Teilrelationen können aus verschiedenen Tarifgebieten sein und / oder verschiedene Tarifarten aufweisen.
             Für die Bepreisung muss eine Sortengruppe zur Verfügung stehen, in der jeweils eine Sorte zu mindestens einer Teilrelation passt.
@@ -152,7 +153,7 @@ s. weiter Verwendungen
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation>
-            AdditionPreisstufen
+            AdditionPreisstufen.
             Die gewählte Sorte entscheidet über ihre Tarifart(en), welche Teilrelation(en) für die Preisfindung und die Registrierung verwendet werden.
             Nicht passende Teilrelationen werden ignoriert.
             Damit ist sichergestellt, dass alle verwendeten Teilrelationen aus einem Tarifgebiet stammen.
@@ -163,27 +164,28 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Relationenberechnungsregelung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationenberechnungsregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_RelationendruckregelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Relationendruckregelung kleiner 1000
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -213,7 +215,7 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Relationendruckregelung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -221,12 +223,12 @@ s. weiter Verwendungen
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelationendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_Kundentyp_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -237,7 +239,8 @@ s. weiter Verwendungen
         BOM 6-38
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
@@ -308,7 +311,7 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_Profil_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -318,7 +321,8 @@ s. weiter Verwendungen
         des OePV BOM 6_45
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
@@ -389,19 +393,20 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_ServiceKlasse_CODE_Type">
     <xs:annotation>
       <xs:documentation>
         Aus der KA (XML-Schema_KVP_DL_PV.xsd):
-        Der ServiceKlasse_CODE klassifiziert Servicequalitaeten der
+        Der ServiceKlasse_CODE klassifiziert Servicequalitäten der
         Transportdienstleistung.
-        Haeufigstes Beispiel ist die Unterscheidung in 1. und 2.
+        Häufigstes Beispiel ist die Unterscheidung in 1. und 2.
         Klasse.
         BOM 6-49
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
@@ -422,13 +427,13 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_TransportmittelKategorie_CODE_Type">
     <xs:annotation>
       <xs:documentation>
         Aus der KA (XML-Schema_KVP_DL_PV.xsd):
         Der TransportmittelKategorie_CODE klassifiziert Arten von
-        Transportdienstleistungen im Sinne einer Qualitaetsklasse, z.B. "IC/EC", "ICE"
+        Transportdienstleistungen im Sinne einer Qualitätsklasse, z.B. "IC/EC", "ICE"
         bei
         der Deutschen Bahn. Diese Kategorien sind
         "marketinggetrieben" mit Auswirkungen auf
@@ -436,7 +441,8 @@ s. weiter Verwendungen
         BOM 6-60
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
@@ -507,7 +513,7 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="KA_RabattParameter_CODE_Type">
     <xs:annotation>
       <xs:documentation>
@@ -516,7 +522,8 @@ s. weiter Verwendungen
         BOM 6-71
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT1">
@@ -586,9 +593,9 @@ s. weiter Verwendungen
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <!--Allgemein -->
-  
+
   <xs:complexType name="Tarifgebiete_Type">
     <xs:annotation>
       <xs:documentation>
@@ -601,6 +608,7 @@ s. weiter Verwendungen
           <api:field name="ID_Tarifgebiet"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -608,10 +616,35 @@ s. weiter Verwendungen
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Kurzbezeichnung des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Name des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Erstellungsdatum des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Version" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Version des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -621,9 +654,14 @@ s. weiter Verwendungen
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          DynAttribute des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Tarifpunkte_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -675,7 +713,7 @@ s. weiter Verwendungen
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Tarifpunktmengen_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -706,7 +744,7 @@ s. weiter Verwendungen
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="TarifpunktmengeElemente_Type">
     <xs:annotation>
       <xs:documentation>
@@ -729,7 +767,7 @@ s. weiter Verwendungen
       <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationscodes_Type">
     <xs:annotation>
       <xs:documentation>
@@ -746,6 +784,7 @@ s. weiter Verwendungen
           <api:field name="ID_Zeitraum"/>
           <api:field name="ID_Tarifpunkt"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
@@ -753,21 +792,31 @@ s. weiter Verwendungen
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relcode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Relcodes.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des zugeordneten Tarifpunkts.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationscodegruppen_Type">
     <xs:annotation>
-    	<xs:documentation>Fasst mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z. B. zur Abbildung einer „City Option“. 
-Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:documentation>
-    	<xs:appinfo>
-    		<api:primekey>
-    			<api:field name="ID_Relcodegruppe" />
-    			<api:field name="ID_Zeitraum" />
-    		</api:primekey>
-    		<api:schema name="Angebot" />
-    	</xs:appinfo>
+      <xs:documentation>Fasst mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z. B. zur Abbildung einer „City Option“.
+        Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Relcodegruppe" />
+          <api:field name="ID_Zeitraum" />
+        </api:primekey>
+        <api:schema name="Angebot" />
+      </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -779,7 +828,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="RaeumlicheGueltigkeit_Type">
     <xs:annotation>
       <xs:documentation>
@@ -790,6 +839,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
           <api:field name="ID_RaeumlicheGueltigkeit"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -837,9 +887,14 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer räumlichen Gültigkeit.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -850,6 +905,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
           <api:field name="ID_Relation"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
@@ -857,8 +913,23 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID einer Relation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_RelcodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Relcodes vom Startpunkt.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_RelcodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Relocdes vom Zielpunkt.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -870,6 +941,11 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
       </xs:element>
 
       <xs:element name="GegenrichtungLiegtVor" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Gibt an, ob die Relation auch in Gegenrichtung vorliegt.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -902,18 +978,23 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         <xs:annotation>
           <xs:documentation>
             Die ID_TarifartStrecke ermöglicht oder verhindert eine parallele Suche in den Streckentarifen.
-             * das Vertriebsgerät muss parallel in der Streckenlogik suchen, wenn ID_TarifartStrecke gesetzt ist,
-             * das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.            
+            * das Vertriebsgerät muss parallel in der Streckenlogik suchen, wenn ID_TarifartStrecke gesetzt ist,
+            * das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.
           </xs:documentation>
           <xs:appinfo>
-          	<api:since>3.7</api:since>
+            <api:since>3.7</api:since>
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Relation.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Vias_Type">
     <xs:annotation>
       <xs:documentation>
@@ -924,6 +1005,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
           <api:field name="ID_Via"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
@@ -931,6 +1013,11 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Via" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID von einem Via.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -963,9 +1050,14 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einem Via.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Relationszuordnungen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -982,6 +1074,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
           <api:field name="ID_Relationszuordung"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
+        <api:since>3.0</api:since>
         <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
@@ -989,13 +1082,38 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Relationszuordung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Relationszuordnung.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der verknüpften Relation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der verknüpften Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Sortorder der Relationszuordnung.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Relationszuordnung.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Teilrelationen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1006,6 +1124,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
           <api:field name="ID_Teilrelation"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -1013,11 +1132,41 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der Tarifart.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_TarifpunktStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Starttarifpunkts der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="TarifpunktbezeichnungStart" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Bezeichnung des Starttarifpunkts der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_TarifpunktZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Zieltarifpunkts der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="TarifpunktbezeichnungZiel" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Bezeichnung des Zieltarifpunkts der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1027,7 +1176,17 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Preisquelle" type="husstDV:ID_Preisquelle_Type" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der Preisquelle.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1036,7 +1195,17 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         </xs:annotation>
       </xs:element>
       <xs:element name="AlternativePreisGruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eine alternative Preisgruppe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="EinnahmeAufteilung" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Bezeichnung der EinnameAufteilung.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ViabezeichnungDruck" type="xs:string" maxOccurs="1" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
@@ -1054,7 +1223,7 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
             Via-Datensatzes. Wenn
             ViaDrucktext_Rueck leer ist, aber
             ViaDrucktext
-            gefüllt hat ViaDrucktext Vorrang vor
+            gefüllt, hat ViaDrucktext Vorrang vor
             Drucktext_Rueck
             bzw. Drucktext des
             Via-Datensatzes.
@@ -1078,6 +1247,11 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Linie" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der Linie der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ReferenzExtern" type="xs:string" maxOccurs="1" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
@@ -1087,40 +1261,45 @@ Die Gruppierung erfolgt innerhalb eines bestimmten ID_Relcodegruppentyp.</xs:doc
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute der Teilrelation.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Nachbarhaltestellen_Type">
     <xs:annotation>
-    	<xs:documentation>Dient zur Definition von Kurzstreckenbeziehungen.
-Eine Nachbarhaltestellenbeziehung wird entweder durch ID_OrtspunktVon und ID_OrtspunktNach oder durch ID_OrtspunktVon und eine Zahlgrenze beschrieben. 
-Wenn beide — ID_OrtspunktNach und Zahlgrenze — gesetzt sind, müssen beide Bedingungen gleichzeitig erfüllt sein 
-(d. h. die Strecke zwischen den Punkten gilt nur als Nachbarschaft, wenn die Zahlgrenze nicht überschritten wird). 
+      <xs:documentation>Dient zur Definition von Kurzstreckenbeziehungen.
+        Eine Nachbarhaltestellenbeziehung wird entweder durch ID_OrtspunktVon und ID_OrtspunktNach oder durch ID_OrtspunktVon und eine Zahlgrenze beschrieben.
+        Wenn beide — ID_OrtspunktNach und Zahlgrenze — gesetzt sind, müssen beide Bedingungen gleichzeitig erfüllt sein
+        (d. h. die Strecke zwischen den Punkten gilt nur als Nachbarschaft, wenn die Zahlgrenze nicht überschritten wird).
 
-In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias vor die regulären Relationen sortiert.</xs:documentation>
-    	<xs:appinfo>
-    		<api:primekey>
-    			<api:field name="ID_Nachbarhaltestelle" />
-    			<api:field name="ID_Zeitraum" />
-    		</api:primekey>
-    		<api:uniquekey name="Uix_Nachbarhaltestellen">
-    			<api:field name="ID_OrtspunktVon" />
-    			<api:field name="ID_OrtspunktNach" />
-    			<api:field name="ID_Zeitraum" />
-    			<api:field name="ID_Bediengebiet" />
-    			<api:field name="ID_Nachbarhaltestellenbeziehung" />
-    			<api:field name="ID_Via" />
-    			<api:field name="ID_Tarifart" />
-    			<api:field name="Zahlgrenzen" />
-    			<api:field name="ID_Zahlgrenzentyp" />
-    		</api:uniquekey>
-    		<api:schema name="Angebot" />
-    		<api:remarks>
-    			In Daisy (Entwicklungsversion) sollte beachtet werden,
-    			die Nachbarhaltestellen in Angebot- und Tariftabellen zu
-    			trennen. Vorbild: Relationen und Teilrelationen
-    		</api:remarks>
-    	</xs:appinfo>
+        In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias vor die regulären Relationen sortiert.</xs:documentation>
+      <xs:appinfo>
+        <api:primekey>
+          <api:field name="ID_Nachbarhaltestelle" />
+          <api:field name="ID_Zeitraum" />
+        </api:primekey>
+        <api:uniquekey name="Uix_Nachbarhaltestellen">
+          <api:field name="ID_OrtspunktVon" />
+          <api:field name="ID_OrtspunktNach" />
+          <api:field name="ID_Zeitraum" />
+          <api:field name="ID_Bediengebiet" />
+          <api:field name="ID_Nachbarhaltestellenbeziehung" />
+          <api:field name="ID_Via" />
+          <api:field name="ID_Tarifart" />
+          <api:field name="Zahlgrenzen" />
+          <api:field name="ID_Zahlgrenzentyp" />
+        </api:uniquekey>
+        <api:schema name="Angebot" />
+        <api:remarks>
+          In Daisy (Entwicklungsversion) sollte beachtet werden,
+          die Nachbarhaltestellen in Angebot- und Tariftabellen zu
+          trennen. Vorbild: Relationen und Teilrelationen
+        </api:remarks>
+      </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -1177,11 +1356,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefZahlgrenzentyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Definiert die möglichen Typen von Zahlgrenzen, die zur Beschreibung von Nachbarhaltestellenbeziehungen verwendet werden. 
+        Definiert die möglichen Typen von Zahlgrenzen, die zur Beschreibung von Nachbarhaltestellenbeziehungen verwendet werden.
         Eine Zahlgrenze legt fest, unter welchen Bedingungen zwei Ortspunkte als benachbart gelten – z. B. anhand der Anzahl von Haltestellen, der Entfernung in Kilometern oder der Luftlinie.
 
         Die hier definierten Typen werden in Kombination mit konkreten Grenzwerten genutzt, um Kurzstreckenbeziehungen tariflich einzugrenzen.
@@ -1215,24 +1394,24 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_Zahlgrenzentyp_Type">
     <xs:annotation>
       <xs:documentation>Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl
         kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlgrenzentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_ZahlgrenzentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000</xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -1253,7 +1432,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:complexType name="Preisstufendirektwahl_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1333,9 +1512,9 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!--Produkte -->
-  
+
   <xs:complexType name="Preisspalten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1349,6 +1528,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Preisspalte"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -1356,6 +1536,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Preisspalte" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Preisspalte.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Waehrung" type="husstDV:ID_Waehrung_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1365,6 +1550,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1381,6 +1571,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="BezeichnungKurz" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Kurzbezeichnung der Preisspalte.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Hinweis" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Info zur Preisspalte</xs:documentation>
@@ -1395,9 +1590,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Preisspalte.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Preisstufen_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1405,7 +1605,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Preisstufe"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
       <xs:documentation>Definition der Preisstufen pro Tarifgebiet und Zeitraum</xs:documentation>
@@ -1414,11 +1614,41 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID von einer Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID vom Tarifgebiet.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Preisstufennummer" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eine Preisstufennummer.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Kurzbezeichnung der Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Name der Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="WegstreckeInMetern" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1445,11 +1675,26 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Die SortOrder einer Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Preisstufe" type="husstDV:INT1" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          KA_Preisstufe kennzeichnet die Preisstufe im VDVKA-Kontext, zur Bestimmung räumlicher und preislicher Gültigkeit.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="SortenTarifarten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1461,6 +1706,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Tarifart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -1484,7 +1730,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Sorten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -1495,6 +1741,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Sorte"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
@@ -1510,6 +1757,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1567,6 +1819,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Mwst" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Nummer des Mehrwertsteuersatzes.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Zahlungsarten" type="husstDV:ID_Zahlungsarten_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1650,6 +1907,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="KA_Infotext" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Freitextfeld zur Übermittlung zusätzlicher kunden- oder kontrollrelevanter Informationen im VDVKA-Kontext.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Fahrgasttyp" type="husstDV:KA_Kundentyp_CODE_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>KA Fahrgasttyp</xs:documentation>
@@ -1670,9 +1932,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Sorte.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Zusatzsorten_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1765,7 +2032,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Preise_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -1779,6 +2046,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Preisspalte"/>
           <api:field name="ID_Zeitraum"/>
         </api:uniquekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
       <xs:documentation>Preise aller Sorten, abhängig von Zeitraum und Tarifgebiet, ggf. auch von Preisstufe, und Preisspalte</xs:documentation>
@@ -1787,7 +2055,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Preis" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Preises.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Sorte.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1797,7 +2075,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Preisstufe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Preisspalte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Preisspalte.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1890,19 +2178,54 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="KA_Mitnahme1Typ" type="husstDV:KA_Profil_CODE_Type" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Identifizierer für die Mitnahmeart, z.B. Fahrrad, Kind, Hund.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Mitnahme1MinAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Gibt die minimale Anzahl für die Mitnahme1 an.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Mitnahme1MaxAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Gibt die maximale Anzahl für die Mitnahme1 an.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Mitnahme2Typ" type="husstDV:KA_Profil_CODE_Type" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Identifizierer für die Mitnahmeart, z.B. Fahrrad, Kind, Hund.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Mitnahme2MinAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Gibt die minimale Anzahl für die Mitnahme2 an.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="KA_Mitnahme2MaxAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Gibt die maximale Anzahl für die Mitnahme2 an.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einem Preis.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="PreisstufenErmittlungen_Type">
     <xs:annotation>
       <xs:documentation>
-        Die PreisstufenErmittlungen definieren Regeln zur Berechnung der Preisstufe einer Sorte auf Basis einer variablen Ermittlungseinheit (z. B. Minuten oder Kilometer). 
+        Die PreisstufenErmittlungen definieren Regeln zur Berechnung der Preisstufe einer Sorte auf Basis einer variablen Ermittlungseinheit (z. B. Minuten oder Kilometer).
         Sie stellen eine Alternative zur Preisstufenermittlung über Teilrelationen dar und kommen insbesondere im Kontext von SortengruppenErmittlungen (z. B. im MaaS-Umfeld) zum Einsatz.
 
         Die Berechnung erfolgt schrittweise: Liegt die ermittelte Menge der Einheiten im Bereich „Von“ bis „Bis“, wird die Anzahl der Schritte aufgerundet und mit dem Preis der zugeordneten Preisstufe multipliziert.
@@ -1963,7 +2286,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="SortengruppenErmittlungen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2076,9 +2399,9 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!--Netz -->
-  
+
   <xs:complexType name="OrtspunkteTG_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2146,7 +2469,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="OrtspunkteKA_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2175,7 +2498,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2183,7 +2506,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      
+
       <xs:element name="KA_OrtOrgID" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
       <xs:element name="KA_OrtTyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -2207,7 +2530,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Ortspunkte_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2305,7 +2628,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Linien_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2352,7 +2675,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Wege_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2386,7 +2709,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Wegpositionen_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2435,20 +2758,21 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_SortentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST vordefinierten Sortentypen sind in verschiedene Bereiche geklustert:
-        1- 10 Bar
-        11- 20 Zeit
-        21- 30 Artikel
-        31- 40 Einzahlungen
-        41- 50 Leihgeld
-        991-999 Spezial
+        1- 10 Bar.
+        11- 20 Zeit.
+        21- 30 Artikel.
+        31- 40 Einzahlungen.
+        41- 50 Leihgeld.
+        991-999 Spezial.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2559,25 +2883,26 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortentyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Sortentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Sortentyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_TarifpunkttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert Tarifpunkttypen kleiner 1000</xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2613,7 +2938,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Tarifpunkttyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2621,17 +2946,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_TarifpunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_OrtspunkttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert Ortspunkttypen kleiner 1000</xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Angebot"/>
+        <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2657,7 +2982,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Ortspunkttyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2665,19 +2990,19 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Angebot"/>
+        <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OrtspunkttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_OTPTypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert OTPTypen kleiner 1000
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Angebot"/>
+        <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2710,7 +3035,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_OTPTyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2718,19 +3043,19 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Angebot"/>
+        <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_OTPTypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_PreisquelleHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2738,7 +3063,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:maxExclusive value="0"/>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Preisquelle_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2746,17 +3071,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisquelleHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_PreisspaltentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Preisspaltentyp kleiner 1000</xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2767,7 +3092,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Preisspaltentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2775,17 +3100,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisspaltentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_RelcodegruppentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>Die HUSST definiert ID_Relcodegruppentyp kleiner 1000</xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -2801,7 +3126,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Relcodegruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -2809,41 +3134,42 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RelcodegruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_SortengruppentypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Sortengruppentyp sind in verschiedene Bereicht geklustert:
-        1-10 Verkaufssortengruppe
-        11-20 Zusatzsortengruppen
-        21-30 Gruppenfahrschein
-        31-40 SortengruppenErmittlung-Gruppen
+        1-10 Verkaufssortengruppe.
+        11-20 Zusatzsortengruppen.
+        21-30 Gruppenfahrschein.
+        31-40 SortengruppenErmittlung-Gruppen.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <xs:enumeration value="1">
         <xs:annotation>
           <xs:documentation>
-            Verkaufssortengruppe Relation
+            Verkaufssortengruppe Relation.
             Mit der "Verkaufssortengruppe Relation"
             werden alle Sorten zusammengefasst, die aufgrund von Serviceklasse, Rabattklasse und Fahrgasttyp
-            untereinander austauschbar sind und deren Preisstufe über eine Reisewegauswahl 
-            (i.d.R. Relation) ermittelt wird. 
+            untereinander austauschbar sind und deren Preisstufe über eine Reisewegauswahl
+            (i.d.R. Relation) ermittelt wird.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="2">
         <xs:annotation>
           <xs:documentation>
-            Verkaufssortengruppe Festpreis
+            Verkaufssortengruppe Festpreis.
             Diese Sortengruppen werden beim Verkauf ohne Relationsauswahl angeboten.
           </xs:documentation>
         </xs:annotation>
@@ -2851,7 +3177,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:enumeration value="3">
         <xs:annotation>
           <xs:documentation>
-            Verkaufssortengruppe Kombi
+            Verkaufssortengruppe Kombi.
             Diese Sortengruppen fassen Sorten zusammen, die in Kombination angeboten werden können.
             Die Auswahlsorte soll SortOrder 1 haben.
             Beispiel:
@@ -2861,11 +3187,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value="11">
         <xs:annotation>
           <xs:documentation>
-            Hauptsorten zu Zusatzsorten
+            Hauptsorten zu Zusatzsorten.
             Unter dem Sortengruppentyp werden Sorten zusammengefasst, die als Hauptsorte zu einem oder mehreren Zusatzsorten definiert sind.
             In den Zusatzsorten wird im Attribut "ID_SortengruppeHauptsorten" auf die Sortengruppe von diesem Typ verwiesen.
           </xs:documentation>
@@ -2874,7 +3200,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:enumeration value="21">
         <xs:annotation>
           <xs:documentation>
-            Gruppenfahrschein
+            Gruppenfahrschein.
             Ist für Gruppenfahrscheine, bei denen zusammen unterschiedlich Ausprägungen auf ein Ticket gedruckt werden.
             Bsp.: Ein Fahrschein mit x Erwachsenen und y Kindern.
             Es werden die Auswahlsorte und die Ausprägungen in eine Gruppe zusammengefasst.
@@ -2885,27 +3211,28 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:enumeration value="31">
         <xs:annotation>
           <xs:documentation>
-            SortengruppenErmittlung
+            SortengruppenErmittlung.
             Ist für Referenzen vom SortengruppenErmittlungen_Type. (s. SortengruppenErmittlungen_Type)
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortengruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortengruppentypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefTarifpunkttyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -2936,10 +3263,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefSortentyp_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Sortentyp"/>
           <api:field name="ID_Zeitraum"/>
@@ -2949,14 +3277,22 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:documentation>
         Die vordefinierten Sortentypen stellen eine grobe Klassizifzierung der Sorte dar.
         Anhand des Sortentyps kann das Vorgehen des Vertriebssystems gesteuert werden.
+        Siehe auch ID_Sortentyp_Type bzw. ID_SortentypHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-
+      <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID des Sortentyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Sortentyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2965,13 +3301,21 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefSortengruppentyp_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Sortengruppentyp"/>
           <api:field name="ID_Zeitraum"/>
@@ -2979,20 +3323,39 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         <api:schema name="Angebot"/>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert den Verwendungszweck eines Typs von Sortengruppen. Siehe auch ID_Sortengruppentyp_Type bzw. ID_SortengruppentypHUSST_Type.</xs:documentation>
+      <xs:documentation>
+        Definiert den Verwendungszweck eines Typs von Sortengruppen.
+        Siehe auch ID_Sortengruppentyp_Type bzw. ID_SortengruppentypHUSST_Type.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID der Sortengruppentypen.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Sortengruppentyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Mwst_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Mwst"/>
           <api:field name="ID_Zeitraum"/>
@@ -3000,31 +3363,24 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         <api:schema name="Tarif"/>
 
       </xs:appinfo>
-      <xs:documentation>Definition aller Mehrwertsteuersätze zur jeweiligen Referenzierung in Preisstufen, Sorten und Preisen</xs:documentation>
+      <xs:documentation>Definition aller Mehrwertsteuersätze zur jeweiligen Referenzierung in Preisstufen, Sorten und Preisen.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Mwst" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Kennung des Mehrwertsteuersatzes
-          </xs:documentation>
+          <xs:documentation>Eindeutige ID des Mehrwertsteuersatzes.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="MwstSatz" type="husstDV:FLOAT1" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Prozentzahl des Mehrwertsteuersatzes
-          </xs:documentation>
+          <xs:documentation>Prozentzahl des Mehrwertsteuersatzes.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Info zum MwSt.-Satz; bspw. ermäßigter Steuersatz
-            etc.
-          </xs:documentation>
+          <xs:documentation> Info zum MwSt.-Satz; bspw. ermäßigter Steuersatz etc.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" maxOccurs="1" minOccurs="0">
@@ -3037,10 +3393,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="KA_Mwst" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefPreisspaltentyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3088,28 +3451,35 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefFahrgasttyp_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Fahrgasttyp"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Der Fahrgasttyp bezeichnet die tarifrele-vante Kategorie eines Fahrgastes z.B. Kind, Erwachsener, Rentner usw.</xs:documentation>
+      <xs:documentation>
+        Der Fahrgasttyp bezeichnet die tarifrelevante Kategorie eines Fahrgastes z.B. Kind, Erwachsener, Rentner usw.
+        Siehe auch ID_Fahrgasttyp_Type bzw. ID_FahrgasttypHUSST_Type.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Fahrgasttyp" type="husstDV:ID_Fahrgasttyp_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Fahrgasttyp" type="husstDV:ID_Fahrgasttyp_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bezeichnung des Fahrgasttyps</xs:documentation>
+          <xs:documentation>Eindeutige ID des Fahrgasttyps.</xs:documentation>
         </xs:annotation>
       </xs:element>
-
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Fahrgasttyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -3118,10 +3488,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_FahrgasttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3129,8 +3506,9 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         angelehnt an VDV-KA Kundentyp
       </xs:documentation>
       <xs:appinfo>
-      	<api:reference>VDV KA HD-BOM: KundenTyp_CODE (lehnt an: EN 1545: ProfileCodeIOP)</api:reference>
-      	<api:schema name="Tarif"/>
+        <api:reference>VDV KA HD-BOM: KundenTyp_CODE (lehnt an: EN 1545: ProfileCodeIOP)</api:reference>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3204,13 +3582,13 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <xs:documentation>ermäßigt</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value="65">
         <xs:annotation>
           <xs:documentation>Fahrrad</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      
+
       <xs:enumeration value="66">
         <xs:annotation>
           <xs:documentation>Hund</xs:documentation>
@@ -3218,41 +3596,49 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Fahrgasttyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_FahrgasttypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefKomfortklasse_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Komfortklasse"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert die Komfortklasse für deren Benutzung die Fahrscheinsorte berechtigt (z.B. 1 für 1. Klasse, 2 für 2. Klasse)</xs:documentation>
+      <xs:documentation>
+        Definiert die Komfortklasse für deren Benutzung die Fahrscheinsorte berechtigt ist (z.B. 1 für 1. Klasse, 2 für 2. Klasse)
+        Siehe auch ID_Komfortklasse_Type bzw. ID_KomfortklasseHUSST_Type.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID der Komfortklasse.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Bezeichnung der Komfortklasse.</xs:documentation>
         </xs:annotation>
       </xs:element>
-
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -3261,10 +3647,17 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_KomfortklasseHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3272,7 +3665,8 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255)
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3290,45 +3684,50 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         <xs:annotation>
           <xs:documentation>2. Klasse</xs:documentation>
         </xs:annotation>
-      </xs:enumeration>      
+      </xs:enumeration>
       <xs:enumeration value="300">
         <xs:annotation>
           <xs:documentation>Übergang von der 2. zur 1. Klasse</xs:documentation>
         </xs:annotation>
-      </xs:enumeration>      
+      </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Komfortklasse_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Komfortklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Komfortklasse ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_KomfortklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefRabattklasse_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Rabattklasse"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen wird.</xs:documentation>
+      <xs:documentation>
+        Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen wird.
+        Siehe auch ID_Rabattklasse_Type bzw. ID_RabattklasseHUSST_Type.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Rabattklasse" type="husstDV:ID_Rabattklasse_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Eindeutige ID der Rabattklassse</xs:documentation>
+          <xs:documentation>Eindeutige ID der Rabattklassse.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -3345,18 +3744,26 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_RabattklasseHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Rabattklasse kleiner 1000
-        angelehnt an VDV-KA RabattParameter
+        angelehnt an VDV-KA RabattParameter.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3426,46 +3833,60 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Rabattklasse_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Rabattklasse ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Rabattklasse ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_RabattklasseHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefPreisfindung_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Preisfindung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc.
+      <xs:documentation>
+        Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezogen, etc.
         Siehe auch ID_Preisfindung_Type bzw. ID_PreisfindungHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Preisfindung" type="husstDV:ID_Preisfindung_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Preisfindung" type="husstDV:ID_Preisfindung_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bezeichnung des Preisfindungs</xs:documentation>
+          <xs:documentation>Eindeutige ID der Preisfindung.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Preisfindung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_PreisfindungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3476,7 +3897,8 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Bit 8=Freie Preiseingabe (mit allen kombinierbar)
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3526,23 +3948,25 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Preisfindung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Preisfindung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Preisfindung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_PreisfindungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefSortenausgaberegelung_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Sortenausgaberegelung"/>
           <api:field name="ID_Zeitraum"/>
@@ -3553,35 +3977,48 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden darf.
         Bsp. Papierfahrschein oder eTicket.
         Die Werte werden als Bitmaske behandelt, sodass an einer Sorte mehrere Ausgabemethoden erlaubt sein können.
+        Siehe auch ID_Sortenausgaberegelung_Type bzw. ID_SortenausgaberegelungHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Sortenausgaberegelung" type="husstDV:ID_Sortenausgaberegelung_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Sortenausgaberegelung" type="husstDV:ID_Sortenausgaberegelung_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bezeichnung des Sortenausgaberegelungs</xs:documentation>
+          <xs:documentation>Eindeutige ID der Sortenausgaberegelung.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Sortenausgaberegelungs.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_SortenausgaberegelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Sortenausgaberegelung kleiner 1024
+        Die HUSST definiert ID_Sortenausgaberegelung kleiner 1024.
         Die Werte ergeben sich aus allen 32 möglichen Bitkombinationen der ersten 5 Bit.
 
-        Bit 0=Papierfahrschein
-        Bit 1=EFS (z.B. Chipkarte)
-        Bit 2=Handy Ticket
-        Bit 3=Papierfahrschein mit Barcode
-        Bit 4=EFS und Papierfahrschein [mit Barcode]
+        Bit 0=Papierfahrschein.
+        Bit 1=EFS (z.B. Chipkarte).
+        Bit 2=Handy Ticket.
+        Bit 3=Papierfahrschein mit Barcode.
+        Bit 4=EFS und Papierfahrschein [mit Barcode].
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3823,52 +4260,68 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortenausgaberegelung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
+        Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortenausgaberegelungHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefSortendruckregelung_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Sortendruckregelung"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird.
+      <xs:documentation>
+        Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird.
         Defaultmäßig wird das am Preise / an der Sorte definierte Layout verwendet (Vordefinierter Wert 1).
+        Siehe auch ID_Sortendruckregelung_Type bzw. ID_SortendruckregelungHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Sortendruckregelung" type="husstDV:ID_Sortendruckregelung_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Sortendruckregelung" type="husstDV:ID_Sortendruckregelung_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bezeichnung des Sortendruckregelungs</xs:documentation>
+          <xs:documentation>Eindeutige ID der Sortendruckregelung.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Sortendruckregelung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_SortendruckregelungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Sortendruckregelung kleiner 1000
+        Die HUSST definiert ID_Sortendruckregelung kleiner 1000.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3891,26 +4344,27 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         <xs:annotation>
           <xs:documentation>
             Druck eines 2. Fahrscheins mit einer Druckinformation
-            "2. Druck" die im Layout ausgewertet werden kann.
+            "2. Druck", die im Layout ausgewertet werden kann.
           </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Sortendruckregelung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_SortendruckregelungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefReisetyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -3947,14 +4401,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_ReisetypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Reisetyp kleiner 1000
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -3980,7 +4434,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Reisetyp_Type">
     <xs:annotation>
       <xs:documentation>
@@ -3988,18 +4442,18 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ReisetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefNachbarhaltestellenbeziehung_Type">
     <xs:annotation>
       <xs:documentation>
-        Definiert die möglichen Verwendungszwecke von Nachbarhaltestellenbeziehungen innerhalb der Datenversorgung. 
-        Eine Nachbarhaltestellenbeziehung ordnet einem Ortspunkt (z. B. einer Haltestelle) eine Menge benachbarter Ortspunkte zu. 
-        Über die hier definierte ID_Nachbarhaltestellenbeziehung kann zwischen verschiedenen Arten solcher Beziehungen unterschieden werden – etwa für unterschiedliche tarifliche oder betriebliche Zwecke. 
+        Definiert die möglichen Verwendungszwecke von Nachbarhaltestellenbeziehungen innerhalb der Datenversorgung.
+        Eine Nachbarhaltestellenbeziehung ordnet einem Ortspunkt (z. B. einer Haltestelle) eine Menge benachbarter Ortspunkte zu.
+        Über die hier definierte ID_Nachbarhaltestellenbeziehung kann zwischen verschiedenen Arten solcher Beziehungen unterschieden werden – etwa für unterschiedliche tarifliche oder betriebliche Zwecke.
         Die HUSST reserviert Werte kleiner 1000 für standardisierte Typen; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
       <xs:appinfo>
@@ -4008,10 +4462,10 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:fieldexample>
-            Beispiel für eine Definition von Kurzstrecken Nachbarhaltestellen
-        	<api:field name="ID_Nachbarhaltestellenbeziehng">1</api:field>
-        	<api:field name="Bezeichnung">Kurzstreckenbeziehung</api:field>
-        	Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
+          Beispiel für eine Definition von Kurzstrecken Nachbarhaltestellen
+          <api:field name="ID_Nachbarhaltestellenbeziehng">1</api:field>
+          <api:field name="Bezeichnung">Kurzstreckenbeziehung</api:field>
+          Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
         </api:fieldexample>
         <api:schema name="Angebot"/>
       </xs:appinfo>
@@ -4035,14 +4489,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_NachbarhaltestellenbeziehungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -4062,7 +4516,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Nachbarhaltestellenbeziehung_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4070,15 +4524,16 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_NachbarhaltestellenbeziehungHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefVertriebswege_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Vertriebswege"/>
           <api:field name="ID_Zeitraum"/>
@@ -4094,28 +4549,41 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Daten versorgt werden. Teilweise haben die Vertriebswege aber auch steuernden Charakter auf
         den Verkaufsgeräten. Z.B. kann mit den Vertriebswegen festgelegt sein, dass eine bestimmte
         Sorte als elektronischer Fahrschein verkauft werden darf, oder eben nicht.
+        Siehe auch ID_Vertriebswege_Type bzw. ID_VertriebswegeHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID der Vertriebswege.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Bezeichnung der Vertriebswege.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_VertriebswegeHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Vertriebswege kleiner 1024
+        Die HUSST definiert ID_Vertriebswege kleiner 1024.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -4126,19 +4594,20 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Vertriebswege_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Vertriebswege ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
+        Die ID_Vertriebswege ist entweder eine von HUSST vordefinierte Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_VertriebswegeHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="Vorverkauf_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4146,13 +4615,13 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.
         todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
       </xs:documentation>
-       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+      <xs:appinfo>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="Umschalttag_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4161,12 +4630,12 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="GueltigkeitszeitRegeln_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4192,51 +4661,66 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefZahlungsarten_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Zahlungsarten"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann.
+      <xs:documentation>
+        Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann.
         Siehe auch ID_Zahlungsarten_Type bzw. ID_ZahlungsartenHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Zahlungsarten" type="husstDV:ID_Zahlungsarten_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Zahlungsarten" type="husstDV:ID_Zahlungsarten_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID der Zahlungsarten.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Bezeichnung der Zahlungsarten.</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_Zahlungsarten_Type">
     <xs:annotation>
-      <xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierter Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
+      <xs:documentation>Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierte Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ZahlungsartenHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_ZahlungsartenHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Zahlungsart kleiner 1024
+        Die HUSST definiert ID_Zahlungsart kleiner 1024.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.0</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -4357,7 +4841,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:complexType name="Tarifarten_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4375,12 +4859,18 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Tarifart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID der Tarifart.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -4389,17 +4879,32 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ReferenzExtern" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können..
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Tarifart.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefRelationscodegruppentyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Definiert die möglichen Typen von Relationscodegruppen innerhalb der Datenversorgung. 
-        Relationscodegruppen fassen mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z. B. zur Abbildung von Startortgruppen oder City-Optionen. 
-        Über die ID_Relcodegruppentyp kann der Verwendungszweck einer Gruppe systematisch klassifiziert werden. 
+        Definiert die möglichen Typen von Relationscodegruppen innerhalb der Datenversorgung.
+        Relationscodegruppen fassen mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z. B. zur Abbildung von Startortgruppen oder City-Optionen.
+        Über die ID_Relcodegruppentyp kann der Verwendungszweck einer Gruppe systematisch klassifiziert werden.
         Werte kleiner 1000 sind durch HUSST reserviert; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
       <xs:appinfo>
@@ -4418,14 +4923,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefOrtspunkttyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Definiert die möglichen Typen von Ortspunkten innerhalb der Datenversorgung. 
-        Ortspunkte repräsentieren geographische Bezugspunkte wie Haltestellen, Betriebshöfe oder Zonen. 
-        Über die ID_Ortspunkttyp kann ihre jeweilige Funktion im System klassifiziert werden. 
-        Die hier definierten Typen werden in den Ortspunktdaten verwendet, um deren Rolle eindeutig zu kennzeichnen. 
+        Definiert die möglichen Typen von Ortspunkten innerhalb der Datenversorgung.
+        Ortspunkte repräsentieren geographische Bezugspunkte wie Haltestellen, Betriebshöfe oder Zonen.
+        Über die ID_Ortspunkttyp kann ihre jeweilige Funktion im System klassifiziert werden.
+        Die hier definierten Typen werden in den Ortspunktdaten verwendet, um deren Rolle eindeutig zu kennzeichnen.
         Werte kleiner 1000 sind durch HUSST standardisiert; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
       <xs:appinfo>
@@ -4438,7 +4943,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="Bezeichnung">Haltestelle</api:field>
           An einer Haltestelle können Fahrgäste in ein ÖPNV-Fahrzeug (Bus, Zug, ..) einsteigen oder daraus aussteigen.
         </api:fieldexample>
-        <api:schema name="Angebot"/>        
+        <api:schema name="Angebot"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
@@ -4449,7 +4954,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Tarifrelevantepunkte_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4515,7 +5020,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Bediengebiete_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4525,6 +5030,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         in verschiedenen Umfeldern möglich.
       </xs:documentation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Bediengebiet"/>
           <api:field name="ID_Zeitraum"/>
@@ -4535,12 +5041,29 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Bediengebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="ID_Bediengebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID des Bediengebiets.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Bezeichnung des Bediengebiets z.B. Automaten oder Kassen.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefOTPTyp_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4552,9 +5075,9 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
 
       </xs:appinfo>
       <xs:documentation>
-        Definiert die möglichen Verwendungszwecke tarifrelevanter Punkte (OTP – Orte und Tarifrelevante Punkte) innerhalb der Datenversorgung. 
-        Jeder OTP-Typ wird über eine numerische ID_OTPTyp identifiziert und mit einer sprechenden Bezeichnung versehen. 
-        Diese Typisierung ermöglicht eine differenzierte Gruppierung und Interpretation tarifrelevanter Punkte, z. B. als Start-, Ziel- oder Viapunkt. 
+        Definiert die möglichen Verwendungszwecke tarifrelevanter Punkte (OTP – Orte und Tarifrelevante Punkte) innerhalb der Datenversorgung.
+        Jeder OTP-Typ wird über eine numerische ID_OTPTyp identifiziert und mit einer sprechenden Bezeichnung versehen.
+        Diese Typisierung ermöglicht eine differenzierte Gruppierung und Interpretation tarifrelevanter Punkte, z. B. als Start-, Ziel- oder Viapunkt.
         Die HUSST reserviert Werte kleiner 1000 für standardisierte Typen; Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
     </xs:annotation>
@@ -4566,7 +5089,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Sortengruppen_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4574,14 +5097,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Sortengruppe"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
-
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
         <api:schema name="Angebot"/>
       </xs:appinfo>
       <xs:documentation>
         Sortengruppen können Sorten für unterschiedliche Anwendungsfälle gruppieren.
         Der Anwendungsfall wird über den Sortengruppentyp unterschieden werden.
-        Seine Bedeutung ist projektspezifisch zu konkretisiern.
+        Seine Bedeutung ist projektspezifisch zu konkretisieren.
         Den zugeordneten Sorten können auch Preisstufen zugeordnet sein.
       </xs:documentation>
     </xs:annotation>
@@ -4589,12 +5112,34 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID von einer Sortengruppe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Sortengruppentyps.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Bediengebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Sortorder von einer Sortengruppe.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>Info</xs:documentation>
+          <xs:documentation>
+            Name der Sortengruppe.
+          </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -4605,9 +5150,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Sortengruppe.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefPreisquelle_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4618,10 +5168,10 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         <api:schema name="Tarif"/>
       </xs:appinfo>
       <xs:documentation>
-        Definiert mögliche Quellenangaben, die einer Teilrelation zugeordnet werden können. 
-        Eine Preisquelle beschreibt den Ursprung oder die Herkunft der tariflichen Bewertung einer Verbindung – z. B. zur Unterscheidung verschiedener Berechnungsgrundlagen oder zur späteren Ausgabezuordnung. 
-        Jede Quelle wird über eine ID_Preisquelle identifiziert und mit einer Bezeichnung versehen. 
-        Werte kleiner 1000 sind durch HUSST reserviert; aktuell sind keine Standardwerte definiert. 
+        Definiert mögliche Quellenangaben, die einer Teilrelation zugeordnet werden können.
+        Eine Preisquelle beschreibt den Ursprung oder die Herkunft der tariflichen Bewertung einer Verbindung – z. B. zur Unterscheidung verschiedener Berechnungsgrundlagen oder zur späteren Ausgabezuordnung.
+        Jede Quelle wird über eine ID_Preisquelle identifiziert und mit einer Bezeichnung versehen.
+        Werte kleiner 1000 sind durch HUSST reserviert; aktuell sind keine Standardwerte definiert.
         Werte ab 1000 stehen für projektspezifische Erweiterungen zur Verfügung.
       </xs:documentation>
     </xs:annotation>
@@ -4648,10 +5198,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefRelationenberechnungsregelung_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.0</api:since>
         <api:primekey>
           <api:field name="ID_Relationenberechnungsregelung"/>
           <api:field name="ID_Zeitraum"/>
@@ -4662,17 +5213,33 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu verarbeiten sind.
         Diese Regelung kann dabei Auswirkungen auf den Preis haben.
         Die Husst definierten Werte sind genau beschrieben, eigene Werte müssen gut abgestimmt sein.
+        Siehe auch ID_Relationenberechnungsregelung_Type bzw. ID_RelationenberechnungsregelungHUSST_Type.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Relationenberechnungsregelung" type="husstDV:ID_Relationenberechnungsregelung_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="ID_Relationenberechnungsregelung" type="husstDV:ID_Relationenberechnungsregelung_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID der Berechnungsregelung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Berechnungsregelung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefRelationendruckregelung_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4695,7 +5262,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="DefErmittlungseinheit_Type">
     <xs:annotation>
       <xs:appinfo>
@@ -4727,14 +5294,14 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_ErmittlungseinheitHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Ermittlungseinheit kleiner 1000
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -4754,7 +5321,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Ermittlungseinheit_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4762,32 +5329,41 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_ErmittlungseinheitHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefStreckenart_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.2</api:since>
         <api:primekey>
           <api:field name="ID_Streckenart"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
+      <xs:documentation>
+        Definiert eine fachliche Kategorie für Tarifstrecken.
+        Die Streckenart steuert, wie eine Strecke im Verkauf angeboten und priorisiert wird.
+        Siehe auch ID_Streckenart_Type bzw. ID_StreckenartHUSST_Type.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckenart" type="husstDV:ID_Streckenart_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Streckenart" type="husstDV:ID_Streckenart_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bezeichnung der Streckenart</xs:documentation>
+          <xs:documentation>Eindeutige ID der Streckenart.</xs:documentation>
         </xs:annotation>
       </xs:element>
-
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Streckenart.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -4796,19 +5372,26 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_StreckenartHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Streckenart kleiner 1000.
       </xs:documentation>
       <xs:appinfo>
-      	<api:since>3.2</api:since>
-      	<api:changed>3.7</api:changed>
-      	<api:schema name="Tarif"/>
+        <api:since>3.2</api:since>
+        <api:changed>3.7</api:changed>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -4836,18 +5419,18 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:enumeration value="4">
         <xs:annotation>
           <xs:documentation>
-            Unterprivilegierte Strecke 
+            Unterprivilegierte Strecke
             * wird bei der Ermittlung des kürzesten Weges ignoriert,
             * ist auf konkreten Wunsch zu berücksichtigen.
           </xs:documentation>
           <xs:appinfo>
-          	<api:since>3.7</api:since>
+            <api:since>3.7</api:since>
           </xs:appinfo>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Streckenart_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4855,32 +5438,41 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_StreckenartHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="DefStreckencodetyp_Type">
     <xs:annotation>
       <xs:appinfo>
+        <api:since>3.2</api:since>
         <api:primekey>
           <api:field name="ID_Streckencodetyp"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
+      <xs:documentation>
+        Definiert den Typ eines Streckencodes.
+        Er klassifiziert Betriebsstellen für die Strecken-/Relationsermittlung und beeinflusst deren Behandlung.
+        Siehe auch ID_Streckencodetyp_Type bzw. ID_StreckencodetypHUSST_Type.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+      <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bezeichnung der Streckencodetyp</xs:documentation>
+          <xs:documentation>Eindeutige ID des Streckencodetyps.</xs:documentation>
         </xs:annotation>
       </xs:element>
-
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Streckencodetyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -4889,17 +5481,25 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:simpleType name="ID_StreckencodetypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
         Die HUSST definiert ID_Streckencodetyp kleiner 1000.
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.2</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
@@ -4926,20 +5526,21 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:enumeration>
     </xs:restriction>
   </xs:simpleType>
-  
+
   <xs:simpleType name="ID_Streckencodetyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
-      	<api:schema name="Tarif"/>
+        <api:since>3.2</api:since>
+        <api:schema name="Tarif"/>
       </xs:appinfo>
     </xs:annotation>
     <xs:union memberTypes="husstDV:ID_StreckencodetypHUSST_Type husstDV:ID_Projektspezifisch_Type"/>
   </xs:simpleType>
-  
+
   <xs:complexType name="Strecke_Type">
     <xs:annotation>
       <xs:documentation>
@@ -4950,6 +5551,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Strecke"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.2</api:since>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
     </xs:annotation>
@@ -4957,9 +5559,29 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID einer Strecke.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_StreckencodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Streckencodes des Starts.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_StreckencodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Streckencodes des Ziels.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="Entfernung" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -4968,12 +5590,20 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Sortorder der Strecke.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Via" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Nummer der Viatexte für diese Strecke. Verweis auf Vias.
           </xs:documentation>
         </xs:annotation>
+        <xs:appinfo>
+          <api:since>3.5</api:since>
+        </xs:appinfo>
       </xs:element>
       <xs:element name="ID_Streckenart" type="husstDV:ID_Streckenart_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -4990,14 +5620,19 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einer Strecke.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Streckencode_Type">
     <xs:annotation>
       <xs:documentation>
         Analog zum Relationscode kombiniert ein ID_Streckencode zu einem oder mehreren ID_Tarifpunkten.
-        Anders als Relationscodes sind Streckencodes aber Tarifgebiethomogen.
+        Anders als Relationscodes sind Streckencodes aber tarifgebiethomogen.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -5005,6 +5640,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Tarifpunkt"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.2</api:since>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
     </xs:annotation>
@@ -5012,8 +5648,23 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Streckencodes.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Tarifpunkts.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5030,7 +5681,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="OrtspunktStreckencode_Type">
     <xs:annotation>
       <xs:documentation>
@@ -5042,6 +5693,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Tarifgebiet"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.2</api:since>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
     </xs:annotation>
@@ -5049,8 +5701,23 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Ortspunkts.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Tarifgebiets eines Ortspunkts.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Streckencodes.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5067,11 +5734,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Streckenzuordnung_Type">
     <xs:annotation>
       <xs:documentation>
-        Ordnet eine Strecke einem oder mehreren Teilrelationen zu.
+        Ordnet eine Strecke einer oder mehreren Teilrelationen zu.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -5079,6 +5746,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_Teilrelation"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.2</api:since>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
     </xs:annotation>
@@ -5086,8 +5754,23 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID einer Strecke, der eine Teilrelationen zugeordnet wird.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID einer Teilrelation, die der Strecke zugeordnet wird.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID des Tarifgebiets.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5097,43 +5780,63 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Gleichstellungstyp_Type">
     <xs:annotation>
       <xs:documentation>
         Die Art der Gleichstellung.
       </xs:documentation>
       <xs:appinfo>
+        <api:since>3.2</api:since>
         <api:primekey>
           <api:field name="ID_Gleichstellungstyp"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
+      <xs:documentation>
+        Definiert den Typen einer Gleichstellung.
+        Bestimmt, wie Gleichstellungen innerhalb eines Tarifgebiets interpretiert werden.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID des Gleichstellungstyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tarifgebiet, in dem der Gleichstellungstyp gilt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung des Gleichstellungstyps.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
+          <xs:documentation>Schlüssel des Tarifgebers für diesen Gleichstellungstyp.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
           <xs:documentation>
-            Schlüssel des Tarifgebers für diesen Gleichstellungstyp.
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="GleichstellungTarifart_Type">
     <xs:annotation>
-      <xs:documentation>
-        einen Gelichstellungstyp einer Tarifart zu.
-      </xs:documentation>
       <xs:appinfo>
+        <api:since>3.2</api:since>
         <api:primekey>
           <api:field name="ID_Gleichstellungstyp"/>
           <api:field name="ID_Tarifart"/>
@@ -5141,29 +5844,44 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </api:primekey>
         <api:schema name="Tarifstrecken"/>
       </xs:appinfo>
+      <xs:documentation>
+        Verknüpft einen Gleichstellungstyp mit einer Tarifart innerhalb eines Tarifgebiets.
+        Legt fest, für welche Tarifarten eine Gleichstellung angewendet wird.
+      </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Typ der Gleichstellung, auf den sich die Zuordnung bezieht.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tarifart, für die die Gleichstellung gilt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tarifgebiet, innerhalb dessen die Zuordnung wirksam ist.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>
-            Schlüssel des Tarifgebers für diese Gleichstellungstyp-Tarifart Zuordnung.
-          </xs:documentation>
+          <xs:documentation>Schlüssel des Tarifgebers für diese Gleichstellungstyp-Tarifart Zuordnung.</xs:documentation>
         </xs:annotation>
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  
+
   <xs:complexType name="Gleichstellung_Type">
     <xs:annotation>
       <xs:documentation>
-        Tarifliche Gleichstellung eines Starts oder eines Ziels einer Strecke ab einer definierten Gesamtentfernung.
+        Definiert eine tarifliche Gleichstellung zwischen zwei Streckencodes innerhalb eines Tarifgebiets ab einer definierten Gesamtentfernung.
       </xs:documentation>
       <xs:appinfo>
+        <api:since>3.2</api:since>
         <api:primekey>
           <api:field name="ID_Gleichstellung"/>
           <api:field name="ID_Zeitraum"/>
@@ -5174,182 +5892,215 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Gleichstellung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_StreckencodeGleichstellung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="EntfernungAb" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Gleichstellung" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Eindeutige ID der Gleichstellungsregel.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Tarifgebiet, in dem die Gleichstellung gilt.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Streckencode, der ab „EntfernungAb“ dem ID_StreckencodeGleichstellung gleichgestellt wird.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_StreckencodeGleichstellung" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Streckencode, zu dem gleichgestellt wird.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ID_Gleichstellungstyp" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Typ der Gleichstellung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EntfernungAb" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Schwellwert der Gesamtentfernung, ab dem die Gleichstellung greift.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>Bezeichnung der Gleichstellung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
+          <xs:documentation>Schlüssel des Tarifgebers für diese Gleichstellung.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+        <xs:annotation>
           <xs:documentation>
-            Schlüssel des Tarifgebers für diese Gleichstellung.
+            Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+            Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
-  
+
   <!--Ende Tabellen -->
-  
+
   <!--Allgemein -->
-  
+
   <xs:element name="Tarifgebiete" type="husstDV:Tarifgebiete_Type"/>
-  
+
   <xs:element name="Tarifpunkte" type="husstDV:Tarifpunkte_Type"/>
-  
+
   <xs:element name="TarifpunktmengeElemente" type="husstDV:TarifpunktmengeElemente_Type"/>
-  
+
   <xs:element name="Tarifpunktmengen" type="husstDV:Tarifpunktmengen_Type"/>
-  
+
   <!--Relationen -->
-  
+
   <xs:element name="RaeumlicheGueltigkeit" type="husstDV:RaeumlicheGueltigkeit_Type"/>
-  
+
   <xs:element name="Relationscodes" type="husstDV:Relationscodes_Type"/>
-  
+
   <xs:element name="Relationscodegruppen" type="husstDV:Relationscodegruppen_Type"/>
-  
+
   <xs:element name="Relationen" type="husstDV:Relationen_Type"/>
-  
+
   <xs:element name="Vias" type="husstDV:Vias_Type"/>
-  
+
   <xs:element name="Teilrelationen" type="husstDV:Teilrelationen_Type"/>
-  
+
   <xs:element name="Nachbarhaltestellen" type="husstDV:Nachbarhaltestellen_Type"/>
-  
+
   <xs:element name="DefZahlgrenzentyp" type="husstDV:DefZahlgrenzentyp_Type"/>
-  
+
   <xs:element name="Preisstufendirektwahl" type="husstDV:Preisstufendirektwahl_Type"/>
-  
+
   <!--Produkte -->
-  
+
   <xs:element name="Preisspalten" type="husstDV:Preisspalten_Type"/>
-  
+
   <xs:element name="Preisstufen" type="husstDV:Preisstufen_Type"/>
-  
+
   <xs:element name="SortenTarifarten" type="husstDV:SortenTarifarten_Type"/>
-  
+
   <xs:element name="Sorten" type="husstDV:Sorten_Type"/>
-  
+
   <xs:element name="Zusatzsorten" type="husstDV:Zusatzsorten_Type"/>
-  
+
   <xs:element name="Preise" type="husstDV:Preise_Type"/>
-  
+
   <xs:element name="GueltigkeitszeitRegeln" type="husstDV:GueltigkeitszeitRegeln_Type"/>
-  
+
   <xs:element name="PreisstufenErmittlungen" type="husstDV:PreisstufenErmittlungen_Type"/>
-  
+
   <xs:element name="SortengruppenErmittlungen" type="husstDV:SortengruppenErmittlungen_Type"/>
-  
+
   <!--Netz -->
-  
+
   <xs:element name="OrtspunkteTG" type="husstDV:OrtspunkteTG_Type"/>
-  
+
   <xs:element name="OrtspunkteKA" type="husstDV:OrtspunkteKA_Type"/>
-  
+
   <xs:element name="Ortspunkte" type="husstDV:Ortspunkte_Type"/>
-  
+
   <xs:element name="Tarifrelevantepunkte" type="husstDV:Tarifrelevantepunkte_Type"/>
-  
+
   <xs:element name="Bediengebiete" type="husstDV:Bediengebiete_Type"/>
-  
+
   <xs:element name="Linien" type="husstDV:Linien_Type"/>
-  
+
   <xs:element name="Wege" type="husstDV:Wege_Type"/>
-  
+
   <xs:element name="Wegpositionen" type="husstDV:Wegpositionen_Type"/>
-  
+
   <!--Hilfs -->
-  
+
   <xs:element name="DefTarifpunkttypen" type="husstDV:DefTarifpunkttyp_Type"/>
-  
+
   <xs:element name="DefSortentypen" type="husstDV:DefSortentyp_Type"/>
-  
+
   <xs:element name="Mwst" type="husstDV:Mwst_Type"/>
-  
+
   <xs:element name="DefPreisspaltentypen" type="husstDV:DefPreisspaltentyp_Type"/>
-  
+
   <xs:element name="Tarifarten" type="husstDV:Tarifarten_Type"/>
-  
+
   <xs:element name="DefPreisquellen" type="husstDV:DefPreisquelle_Type"/>
-  
+
   <xs:element name="DefRelationenberechnungsregelungen" type="husstDV:DefRelationenberechnungsregelung_Type"/>
-  
+
   <xs:element name="DefRelationendruckregelungen" type="husstDV:DefRelationendruckregelung_Type"/>
-  
+
   <xs:element name="DefRelationscodegruppentypen" type="husstDV:DefRelationscodegruppentyp_Type"/>
-  
+
   <xs:element name="DefOrtspunkttypen" type="husstDV:DefOrtspunkttyp_Type"/>
-  
+
   <xs:element name="DefOTPTypen" type="husstDV:DefOTPTyp_Type"/>
-  
+
   <xs:element name="DefSortengruppentypen" type="husstDV:DefSortengruppentyp_Type"/>
-  
+
   <xs:element name="Sortengruppen" type="husstDV:Sortengruppen_Type"/>
-  
+
   <xs:element name="SortengruppenElemente" type="husstDV:SortengruppenElemente_Type"/>
-  
+
   <xs:element name="DefFahrgasttypen" type="husstDV:DefFahrgasttyp_Type"/>
-  
+
   <xs:element name="DefKomfortklassen" type="husstDV:DefKomfortklasse_Type"/>
-  
+
   <xs:element name="DefNachbarhaltestellenbeziehungen" type="husstDV:DefNachbarhaltestellenbeziehung_Type"/>
-  
+
   <xs:element name="DefPreisfindungen" type="husstDV:DefPreisfindung_Type"/>
-  
+
   <xs:element name="DefRabattklassen" type="husstDV:DefRabattklasse_Type"/>
-  
+
   <xs:element name="DefReisetypen" type="husstDV:DefReisetyp_Type"/>
-  
+
   <xs:element name="DefSortenausgaberegelungen" type="husstDV:DefSortenausgaberegelung_Type"/>
-  
+
   <xs:element name="DefSortendruckregelungen" type="husstDV:DefSortendruckregelung_Type"/>
-  
+
   <xs:element name="DefVertriebswege" type="husstDV:DefVertriebswege_Type"/>
-  
+
   <xs:element name="DefZahlungsarten" type="husstDV:DefZahlungsarten_Type"/>
-  
+
   <xs:element name="DefErmittlungseinheit" type="husstDV:DefErmittlungseinheit_Type"/>
-  
+
   <xs:element name="Relationszuordnungen" type="husstDV:Relationszuordnungen_Type"/>
-  
+
   <xs:element name="DefStreckenart" type="husstDV:DefStreckenart_Type"/>
-  
+
   <xs:element name="DefStreckencodetyp" type="husstDV:DefStreckencodetyp_Type"/>
-  
+
   <xs:element name="Strecke" type="husstDV:Strecke_Type"/>
-  
+
   <xs:element name="Streckencode" type="husstDV:Streckencode_Type"/>
-  
+
   <xs:element name="OrtspunktStreckencode" type="husstDV:OrtspunktStreckencode_Type"/>
-  
+
   <xs:element name="Streckenzuordnung" type="husstDV:Streckenzuordnung_Type"/>
-  
+
   <xs:element name="Gleichstellungstyp" type="husstDV:Gleichstellungstyp_Type"/>
-  
+
   <xs:element name="GleichstellungTarifart" type="husstDV:GleichstellungTarifart_Type"/>
-  
+
   <xs:element name="Gleichstellung" type="husstDV:Gleichstellung_Type"/>
-  
+
   <!--Wurzel -->
-  
+
   <xs:element name="OePVTarifDB" type="husstDV:OePVTarifDB_Type"/>
-  
+
   <xs:complexType name="OePVTarifDB_Type">
-  	<xs:annotation>
-  		<xs:documentation>
-  Enthält die vollständige Tarif- und Angebotsdatenbank für den öffentlichen Personennahverkehr (ÖPNV) gemäß HUSST-Standard. 
-  Diese Struktur bildet die zentrale Wurzel für alle tarifrelevanten Definitionen, Relationen, Sorten und Preisstufen.
-  		
-  		</xs:documentation>
-  		<xs:appinfo>
+    <xs:annotation>
+      <xs:documentation>
+        Enthält die vollständige Tarif- und Angebotsdatenbank für den öffentlichen Personennahverkehr (ÖPNV) gemäß HUSST-Standard.
+        Diese Struktur bildet die zentrale Wurzel für alle tarifrelevanten Definitionen, Relationen, Sorten und Preisstufen.
+
+      </xs:documentation>
+      <xs:appinfo>
         <api:schema name="Tarif"/>
         <api:schema name="Angebot"/>
-  		</xs:appinfo>
-  	</xs:annotation>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:choice maxOccurs="unbounded">
       <xs:element ref="husstDV:DefFahrgasttypen"/>
       <xs:element ref="husstDV:DefKomfortklassen"/>
@@ -5434,7 +6185,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
       <xs:element ref="husstDV:Zusatzsorten"/>
     </xs:choice>
   </xs:complexType>
-  
+
   <xs:complexType name="SortengruppenElemente_Type">
     <xs:annotation>
       <xs:documentation>Sorten/Preisstufen Einträge einer Sortengruppe.</xs:documentation>
@@ -5443,6 +6194,7 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
           <api:field name="ID_SortengruppenElement"/>
           <api:field name="ID_Zeitraum"/>
         </api:primekey>
+        <api:since>3.0</api:since>
         <api:schema name="Tarif"/>
         <api:schema name="Angebot"/>
       </xs:appinfo>
@@ -5450,10 +6202,30 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_SortengruppenElement" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Eindeutige ID des Sortengruppenelements.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der Sortengruppe, zu der die Sorte zugeordnet ist.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          Sortorder des Sortengruppenelements.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:annotation>
+        <xs:documentation>
+          ID der Sorte, die zur Sortengruppe zugeordnet ist.
+        </xs:documentation>
+      </xs:annotation>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5468,6 +6240,11 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
         </xs:annotation>
       </xs:element>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:annotation>
+        <xs:documentation>
+          Dynamische Attribute von einem Sortengruppenelement.
+        </xs:documentation>
+      </xs:annotation>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
