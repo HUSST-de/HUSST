@@ -10,6 +10,9 @@
   </annotation>
 
   <complexType name="Any_Type">
+    <annotation>
+      <documentation> Der Datentyp für Felder, die keinen festen Typen haben. </documentation>
+    </annotation>
     <choice>
       <element name="StringData" type="string" maxOccurs="1" minOccurs="0" />
       <element name="BinaryData" type="base64Binary" maxOccurs="1" minOccurs="0" />
@@ -45,6 +48,9 @@
   </complexType>
 
   <complexType name="Barbezahlung_Type">
+    <annotation>
+      <documentation> Typ um eine Bargeldtransaktion mit Zahlund und Rückgeld abzubilden. </documentation>
+    </annotation>
     <sequence>
       <element name="Einnahme" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1" />
       <element name="Rueckgabe" type="husst:Betrag_Type" maxOccurs="1" minOccurs="0" />
