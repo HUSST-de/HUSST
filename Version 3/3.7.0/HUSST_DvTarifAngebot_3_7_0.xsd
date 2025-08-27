@@ -671,13 +671,13 @@
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Ein Tarifpunkt dient der Zusammenfassung (ein oder) mehrerer Haltestellen aus Tarifsicht (weil Fahrten zu
-        diesen bzw. von diesen Haltestellen immer zum gleichen Preis führen). Ein Tarifpunkt hat eine
-        Nummer und ggf. auch einen Namen. Außerdem ist ein Tarifpunkt genau einem Tarifgebiet
-        zugeordnet. Tarifpunkte werden zum Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der
-        räumlichen Gültigkeit zu ermöglichen. In vielen Tarifsystemen haben Tarifpunkte Namen wie: Zone
-        oder Ring.
-        Tarifpunkte bilden Endpunkte in der Tarifmatrix: Von-Tarifpunk -&gt; Nach-Tarifpunkt -&gt; Preisstufe
+      <xs:documentation>Tarifpunkte bilden Endpunkte in der Tarifmatrix eines Tarifgebietes:
+		Teilrelationen: Von-Tarifpunkt -&gt; Nach-Tarifpunkt -&gt; Preisstufe.
+		Ein Tarifpunkt wird über Relationscodes einer oder mehrerer Haltestellen (Ortstpunkte) zugeordnet.
+		Die Attribute der Tarifpunkte werden verwendet für 
+		- Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der räumlichen Gültigkeit zu ermöglichen.
+		- das Verbuchen des Fahrscheinverkaufs in den Erlösdaten.		
+		Beispiele für Tarifpunkte sind: Zone, Wabe oder Ring.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -688,25 +688,26 @@
       <xs:element name="ID_Tarifpunkttyp" type="husstDV:ID_Tarifpunkttyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            1=Zone/Wabe/Ring/Tarifpunkt
-            2=Wabentyp
-            (Zusammenfassung mehrere Elemente von Typ 1)
-            3=Tarifhaltestelle
-            4=Ortsteil (in seiner Funktion als Tarifpunkt)
-            5=Ort
-            (Zusammenfassung mehrere Ortsteile)
+            Die HUSST definiert Tarifpunkttypen kleiner 1000, siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type
+			Werte über 1000 können Projekt spezifisch vergeben werden.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="BezeichnungDruck" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="BezeichnungDruck" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Zum Druck kann z.B. ein gekürzter Namen des Tarifpunktes definiert werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>	  
       <xs:element name="ID_TarifpunktReferenz" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
-            identifizieren zu können.
+            Die eindeutige Referenz des Tarifpunktes innerhalb des Tarifgebietes.
+			Dieser Wert wird vom Tarifgeber vorgegeben und ist für die Erlösmeldung relevant.
+			Ggf. ist es auch eine zu druckende Tarifpunktnummer.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2405,7 +2406,8 @@
   <xs:complexType name="OrtspunkteTG_Type">
     <xs:annotation>
       <xs:documentation>
-        tarifgebietspezifische-Attribute der Ortspunkte
+        Tarifgebiet spezifische-Attribute der Ortspunkte, die von dem referenzierenden Ortspunkt abweichen.
+		Zu jedem Eintrag in OrtspunkteTG muss auch ein referenzierender Datensatz in Ortstpunkte existieren.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -2473,7 +2475,9 @@
   <xs:complexType name="OrtspunkteKA_Type">
     <xs:annotation>
       <xs:documentation>
-        KA-Attribute der Ortspunkte
+        Ergänzenender Datensatz für KA-Attribute der Ortspunkte.
+		Diese Tabelle ist optional gefüllt, wenn die KA-Attribute benötigt werden.
+		Zu jedem Eintrag in OrtspunkteKA muss auch ein referenzierender Datensatz in Ortstpunkte existieren.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -2534,7 +2538,9 @@
   <xs:complexType name="Ortspunkte_Type">
     <xs:annotation>
       <xs:documentation>
-        Haltestellen mit Zonen/Relationscode Zuordnung
+        Ortspunkte sind Haltestellen, die Tarifgebiet übergreifend definiert sind.
+		Sie sind über Relationscodes den Tarifpunkten der Tarifgebiete zugeordnet.
+		Damit können über die Ortspunkte (wie auch den TarifrelevantenPunkten) Start-Ziel-Suchen erfolgen.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -2561,18 +2567,28 @@
       </xs:element>
       <xs:element name="ID_Ortspunkttyp" type="husstDV:ID_Ortspunkttyp_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
-          <xs:documentation>Bspw. Betriebshof</xs:documentation>
+          <xs:documentation>
+		    Die Ortspunkte können in verschiedene Typen eingeteilt werden
+            z.B. Haltestellen, Betriebshof etc.
+		  </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Ortsnummer" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Bundeseinheitliche HST Nummer
+            Nummer der Haltestelle. Ggf. abhängig vom Ortspunkttyp und Bediengebiet.
           </xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="IBISnr" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="IBISnr" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Technische Nummer der Haltestelle, z.B. eines IBIS-Systems
+			Diese Nummer ist in der Regel Projekt spezifisch.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -2605,7 +2621,7 @@
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            Tarifgeberspez. Nr., bspw. für Aufdruck
+            Tarifgeber spezifisce Nr., bspw. für den Aufdruck
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -3242,16 +3258,23 @@
         </api:primekey>
         <api:schema name="Tarif"/>
       </xs:appinfo>
-      <xs:documentation>Definiert die Art eines Tarifpunktes (Tarifhaltestelle, Zone/Wabe/Ring, Überzone/Wabentyp etc..) siehe ID_Tarifpunkttyp_Type bzw.
-        ID_TarifpunkttypHusst_Type
+      <xs:documentation>Definiert die Art eines Tarifpunktes (Tarifhaltestelle, Zone/Wabe/Ring, Überzone/Wabentyp etc..) 
+	    Die HUSST definiert Tarifpunkttypen kleiner 1000, siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifpunkttyp" type="husstDV:ID_Tarifpunkttyp_Type" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifpunkttyp" type="husstDV:ID_Tarifpunkttyp_Type" maxOccurs="1" minOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Die HUSST definiert Tarifpunkttypen kleiner 1000, siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type
+			Werte über 1000 können Projekt spezifisch vergeben werden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+	  
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
-
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
