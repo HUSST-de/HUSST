@@ -1,6 +1,6 @@
 
 
-=== Vertrieb Rootelemente
+=== Vertrieb Rootelement
 
 [[husstPersonal_Type]]
 ==== husstPersonal
@@ -103,6 +103,10 @@ Datentyp: <<Personaleinsatz_Type,Personaleinsatz>>
 |=======================
 
 
+Verwendet in: ohne Verwendung
+
+
+
 === Vertrieb Elemente
 
 
@@ -146,6 +150,11 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
+
 [[DefPasswortHashtyp_Type]]
 ==== DefPasswortHashtyp
 
@@ -185,6 +194,11 @@ Datentyp: string
 Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
+
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
 
 [[Einsatzarten_Type]]
 ==== Einsatzarten
@@ -235,6 +249,11 @@ Datentyp: <<INT4,INT4>>
 Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
+
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
 
 [[Geraet_Type]]
 ==== Geraet
@@ -289,6 +308,11 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
+
 [[GeraeteEinsatztypen_Type]]
 ==== GeraeteEinsatztypen
 
@@ -326,6 +350,11 @@ Datentyp: string
 Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
+
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
 
 [[Geraetetypen_Type]]
 ==== Geraetetypen
@@ -366,6 +395,11 @@ Datentyp: string
 Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
+
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
 
 [[Identobjekte_Type]]
 ==== Identobjekte
@@ -420,6 +454,11 @@ Datentyp: string
 Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
+
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
 
 [[Personal_Type]]
 ==== Personal
@@ -493,6 +532,11 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
+
 [[PersonalIdentobjekte_Type]]
 ==== PersonalIdentobjekte
 
@@ -552,6 +596,11 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
+
 [[Personaleinsatz_Type]]
 ==== Personaleinsatz
 
@@ -606,6 +655,11 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
+
+
+Verwendet in:
+ <<husstPersonal_Type,husstPersonal>>
+
 === Vertrieb Enumerationen 
 
 
@@ -624,21 +678,39 @@ Die HUSST definiert ID_Identobjekttypen kleiner 1000
 |Wert|Beschreibung
 |0|
 nicht spezifiziert/unbestimmt
+
+
+Verwendet in: ohne Verwendung
+
 |1|
 Fahrermodul
+
+
+Verwendet in: ohne Verwendung
+
 |2|
 Chipkarte
+
+
+Verwendet in: ohne Verwendung
+
 |3|
 Schlüssel
+
+
+Verwendet in: ohne Verwendung
+
 |4|
 Anmeldecode
+
+
+Verwendet in: ohne Verwendung
+
 |=======================
 
 
 Verwendet in:
-
-* <<DefIdentobjekttyp_Type,DefIdentobjekttyp>>
-* <<Identobjekte_Type,Identobjekte>>
+ <<DefIdentobjekttyp_Type,DefIdentobjekttyp>>, <<Identobjekte_Type,Identobjekte>>
 
 
 [[ID_PasswortHashtypHUSST_Type]]
@@ -658,21 +730,39 @@ Die Verfahren 1 bis 4 entsprechen der Empfehlung https://en.wikipedia.org/wiki/K
 |Wert|Beschreibung
 |0|
 Klartext
+
+
+Verwendet in: ohne Verwendung
+
 |1|
 argon2id
+
+
+Verwendet in: ohne Verwendung
+
 |2|
 scrypt
+
+
+Verwendet in: ohne Verwendung
+
 |3|
 bcrypt
+
+
+Verwendet in: ohne Verwendung
+
 |4|
 PBKDF2
+
+
+Verwendet in: ohne Verwendung
+
 |=======================
 
 
 Verwendet in:
-
-* <<DefPasswortHashtyp_Type,DefPasswortHashtyp>>
-* <<Personal_Type,Personal>>
+ <<DefPasswortHashtyp_Type,DefPasswortHashtyp>>, <<Personal_Type,Personal>>
 
 
 

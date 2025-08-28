@@ -1,12 +1,11 @@
 
 
-=== Ergebnis Rootelemente
+=== Ergebnis Rootelement
 
 [[Schichtenliste_Type]]
 ==== Schichten
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Rootelement der Ergebnisdaten. Umfasst die Liste aller Schichten  und die Informationen, mit welcher HUSST-Version das xml erstellt wurde. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -25,14 +24,17 @@ Datentyp: <<Schicht_Type,Schicht>>
 
 
 
+Verwendet in: ohne Verwendung
+
+
+
 === Ergebnis Elemente
 
 
 [[Any_Type]]
 ==== Any_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Der Datentyp für Felder, die keinen festen Typen haben. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -50,16 +52,12 @@ Datentyp: base64Binary
 
 
 Verwendet in:
-
-* <<Kontrolldaten_Type,Kontrolldaten>>
-* <<Transaktionsdaten_Type,Transaktionsdaten>>
+ <<Kontrolldaten_Type,Kontrolldaten>>, <<Transaktionsdaten_Type,Transaktionsdaten>>
 
 [[Ausgabeabschnitt_Type]]
 ==== Ausgabeabschnitt_Type
 
-
-Definiert einen Papierabschnitt mit seiner Startnummer und der Anzahl seiner Barcodeabschnitte oder Abschnittzähler. Die Startnummer ist immer die kleinste Nummer des gelesenen Abschnittes, egal in welche Richtung die Nummerierung der Rolle geht.
-
+Definiert einen Papierabschnitt mit seiner Startnummer und der Anzahl seiner Barcodeabschnitte oder Abschnittzähler. Die Startnummer ist immer die kleinste Nummer des gelesenen Abschnittes, egal in welche Richtung die Nummerierung der Rolle geht. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -82,15 +80,12 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Beleg_Type,Beleg>>
-* <<Datensatz_Type,Datensatz>>
+ <<Beleg_Type,Beleg>>, <<Datensatz_Type,Datensatz>>
 
 [[Barbezahlung_Type]]
 ==== Barbezahlung_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Typ um eine Bargeldtransaktion mit Zahlund und Rückgeld abzubilden. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -110,15 +105,12 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Bargeldbilanz_Type]]
 ==== Bargeldbilanz_Type
 
-
-Für jede vorkommende Währung werden hier die Bilanzen über den Dienst, der bei Automaten gleiche mit der Schicht ist, aufgeführt. Die zugehörigen Bargeld-Einnahmen finden sich in der Kassenliste.
-
+Für jede vorkommende Währung werden hier die Bilanzen über den Dienst, der bei Automaten gleiche mit der Schicht ist, aufgeführt. Die zugehörigen Bargeld-Einnahmen finden sich in der Kassenliste. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -158,21 +150,17 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 
 Verwendet in:
-
-* <<Dienstende_Type,Dienstende>>
+ <<Dienstende_Type,Dienstende>>
 
 [[Beleg_Type]]
 ==== Beleg_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Enthält Informationen über den ausgegebenen Beleg 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |BelegNr|
-
-Laufende Aufdrucknummer auf einem Papierdokument oder gespeicherte Folgenummer
-
+Laufende Aufdrucknummer auf einem Papierdokument oder gespeicherte Folgenummer 
 
 Datentyp: int
 | |Abschnitt|
@@ -190,15 +178,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Dienstende_Type,Dienstende>>
-* <<EBEErfassung_Type,EBEErfassung>>
-* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
-* <<Produkt_Type,Produkt>>
-* <<Restgeldbeleg_Type,Restgeldbeleg>>
-* <<Schichtabschluss_Type,Schichtabschluss>>
-* <<Warenkorb_Type,Warenkorb>>
-* <<Zahlung_Type,Zahlung>>
+ <<Dienstende_Type,Dienstende>>, <<EBEErfassung_Type,EBEErfassung>>, <<Geldbehaelterliste_Type,Geldbehaelterliste>>, <<Produkt_Type,Produkt>>, <<Restgeldbeleg_Type,Restgeldbeleg>>, <<Schichtabschluss_Type,Schichtabschluss>>, <<Warenkorb_Type,Warenkorb>>, <<Zahlung_Type,Zahlung>>
 
 [[Belegkasse_Type]]
 ==== Belegkasse_Type
@@ -209,9 +189,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |Betrag|
-
-Hier kann der Gesamtbetrag der vereinnahmten Belege eingetragen werden
-
+Hier kann der Gesamtbetrag der vereinnahmten Belege eingetragen werden 
 
 Datentyp: <<Betrag_Type,Betrag>>
 | |Gutschrift|
@@ -228,8 +206,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Belegkassenliste_Type,Belegkassenliste>>
+ <<Belegkassenliste_Type,Belegkassenliste>>
 
 [[Belegkassenliste_Type]]
 ==== Belegkassenliste_Type
@@ -248,9 +225,7 @@ Datentyp: <<Belegkasse_Type,Belegkasse>>
 
 
 Verwendet in:
-
-* <<Dienstende_Type,Dienstende>>
-* <<Schichtsummen_Type,Schichtsummen>>
+ <<Dienstende_Type,Dienstende>>, <<Schichtsummen_Type,Schichtsummen>>
 
 [[Betrag_Type]]
 ==== Betrag_Type
@@ -266,26 +241,14 @@ IMPORTANT: [red]#_todo: Doku_#
 
 Datentyp: <<Waehrung_Type,Waehrung>>
 | |Betrag|
-
-Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent)
-
+Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent) 
 
 Datentyp: int
 |=======================
 
 
 Verwendet in:
-
-* <<Barbezahlung_Type,Barbezahlung>>
-* <<Bargeldbilanz_Type,Bargeldbilanz>>
-* <<Belegkasse_Type,Belegkasse>>
-* <<EBEVorgang_Type,EBEVorgang>>
-* <<Geldbehaelter_Type,Geldbehaelter>>
-* <<Kasse_Type,Kasse>>
-* <<Preis_Type,Preis>>
-* <<Stuecke_Type,Stuecke>>
-* <<Wertbehaelter_Type,Wertbehaelter>>
-* <<Zahlung_Type,Zahlung>>
+ <<Barbezahlung_Type,Barbezahlung>>, <<Bargeldbilanz_Type,Bargeldbilanz>>, <<Belegkasse_Type,Belegkasse>>, <<EBEVorgang_Type,EBEVorgang>>, <<Geldbehaelter_Type,Geldbehaelter>>, <<Kasse_Type,Kasse>>, <<Preis_Type,Preis>>, <<Stuecke_Type,Stuecke>>, <<Wertbehaelter_Type,Wertbehaelter>>, <<Zahlung_Type,Zahlung>>
 
 [[BezahlArt_Type]]
 ==== BezahlArt_Type
@@ -299,17 +262,12 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<KKOfflineBezahlung_Type,KKOfflineBezahlung>>
-* <<Kasse_Type,Kasse>>
-* <<ZVTBezahlung_Type,ZVTBezahlung>>
-* <<Zahlung_Type,Zahlung>>
+ <<KKOfflineBezahlung_Type,KKOfflineBezahlung>>, <<Kasse_Type,Kasse>>, <<ZVTBezahlung_Type,ZVTBezahlung>>, <<Zahlung_Type,Zahlung>>
 
 [[Datensatz_Type]]
 ==== Datensatz_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Der Datensatztyp ist der Hauptdatenträger der Ergebnisdaten. Er enthält einen der unten genannten Datentypen zusammen mit einem Zeitpunkt und einer pro Schicht eindeutigen Datensatznummer. Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für eine ordentliche Schicht sollten mindestens die Datensätze Schichtbeginn und Schichtabschluss enthalten sein. Allerdings können diese Datensätze auch auf mehrere xml-Dateien aufgeteilt werden. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -394,27 +352,22 @@ Datentyp: <<EBEErfassung_Type,EBEErfassung>>
 
 
 Verwendet in:
-
-* <<Schicht_Type,Schicht>>
+ <<Schicht_Type,Schicht>>
 
 [[Dienstbeginn_Type]]
 ==== Dienstbeginn_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Der Dienst Identifiziert den Verkäufer - oder verallgemeinert die Vertriebsstelle. Der Dienstbeginn kann gleichzeitig auf mehrere Vertriebsstellen bezogen sein. Hiermit besteht beispielsweise die Möglichkeit geichzeitig auf den Verkäufer und die Verkaufsstelle zu beziehen. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |Vertriebsstelle|
-
-Der Dienstbeginn kann gleichzeitig auf mehrere Vertriebsstellen bezogen sein. Hiermit besteht beispielsweise die Möglichkeit geichzeitig auf den Verkäufer und die Verkaufsstelle zu beziehen.
+[red]#_todo: Doku_#
 
 
 Datentyp: <<Vertriebsstelle_Type,Vertriebsstelle>>
 | |DienstPlanNr|
-
-Die laufende Bezeichnung des Dienstplans des Gerätebedieners.
-
+Die laufende Bezeichnung des Dienstplans des Gerätebedieners. 
 
 Datentyp: string
 | |DynAttribut|
@@ -428,14 +381,12 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Dienstende_Type]]
 ==== Dienstende_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Das Dienstende beendet einen begonnenen Dienst. Zur Kontrolle beinhaltet der Datensatz die Summe aller Geldbeträge, aufgeteilt nach Bezahlart, aufgelistet. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -475,15 +426,12 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[DynAttribut_Subtype]]
 ==== DynAttribut_Subtype
 
-
-Der Subtyp DynAttribut_Subtype dient der Definition von dynamischen Attributen als mögliche Erweiterung für die Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für eine Abbildung auf ein relationales Datenbankmodell verwendet.
-
+Der Subtyp DynAttribut_Subtype dient der Definition von dynamischen Attributen als mögliche Erweiterung für die Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für eine Abbildung auf ein relationales Datenbankmodell verwendet. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -503,28 +451,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Ausgabeabschnitt_Type,Ausgabeabschnitt>>
-* <<Beleg_Type,Beleg>>
-* <<Belegkasse_Type,Belegkasse>>
-* <<Dienstbeginn_Type,Dienstbeginn>>
-* <<Dienstende_Type,Dienstende>>
-* <<EBEErfassung_Type,EBEErfassung>>
-* <<EBEMerkmale_Type,EBEMerkmale>>
-* <<Fahrtverlauf_Type,Fahrtverlauf>>
-* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
-* <<Kontrolldaten_Type,Kontrolldaten>>
-* <<Kundendaten_Type,Kundendaten>>
-* <<ProdFahrschein_Type,ProdFahrschein>>
-* <<Pruefabschluss_Type,Pruefabschluss>>
-* <<Pruefbeginn_Type,Pruefbeginn>>
-* <<Schichtabschluss_Type,Schichtabschluss>>
-* <<Schichtbeginn_Type,Schichtbeginn>>
-* <<Teilrelation_Type,Teilrelation>>
-* <<Transaktion_Type,Transaktion>>
-* <<Transaktionsdaten_Type,Transaktionsdaten>>
-* <<Transaktionsort_Type,Transaktionsort>>
-* <<Vertriebsstelle_Type,Vertriebsstelle>>
+ <<Ausgabeabschnitt_Type,Ausgabeabschnitt>>, <<Beleg_Type,Beleg>>, <<Belegkasse_Type,Belegkasse>>, <<Dienstbeginn_Type,Dienstbeginn>>, <<Dienstende_Type,Dienstende>>, <<EBEErfassung_Type,EBEErfassung>>, <<EBEMerkmale_Type,EBEMerkmale>>, <<Fahrtverlauf_Type,Fahrtverlauf>>, <<Geldbehaelterliste_Type,Geldbehaelterliste>>, <<Kontrolldaten_Type,Kontrolldaten>>, <<Kundendaten_Type,Kundendaten>>, <<ProdFahrschein_Type,ProdFahrschein>>, <<Pruefabschluss_Type,Pruefabschluss>>, <<Pruefbeginn_Type,Pruefbeginn>>, <<Schichtabschluss_Type,Schichtabschluss>>, <<Schichtbeginn_Type,Schichtbeginn>>, <<Teilrelation_Type,Teilrelation>>, <<Transaktion_Type,Transaktion>>, <<Transaktionsdaten_Type,Transaktionsdaten>>, <<Transaktionsort_Type,Transaktionsort>>, <<Vertriebsstelle_Type,Vertriebsstelle>>
 
 [[EBEErfassung_Type]]
 ==== EBEErfassung_Type
@@ -535,9 +462,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |BezugsNr|
-
-Eine eindeutige ID dieses EBE-Vorgangs, es könnte bei Verkaufsgeräten die UID sein, bei Nacherfassung muss die ID vom Bediener versorgt werden.
-
+Eine eindeutige ID dieses EBE-Vorgangs, es könnte bei Verkaufsgeräten die UID sein, bei Nacherfassung muss die ID vom Bediener versorgt werden. 
 
 Datentyp: string
 |★ |EBEVorgang|
@@ -581,8 +506,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[EBEMerkmale_Type]]
 ==== EBEMerkmale_Type
@@ -593,15 +517,11 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |Ort|
-
-Eine Erfassung des Vorgangsorts.
-
+Eine Erfassung des Vorgangsorts. 
 
 Datentyp: <<Transaktionsort_Type,Transaktionsort>>
 | |VorfallsOrtNotiz|
-
-Eine textuelle Beschreibung des Vorfallsorts.
-
+Eine textuelle Beschreibung des Vorfallsorts. 
 
 Datentyp: string
 | |KomfortKlasse|
@@ -610,21 +530,15 @@ Datentyp: string
 
 Datentyp: int
 | |Fahrausweisart|
-
-Wenn ein Fahrausweis vorgezeigt wurde, welcher Art
-
+Wenn ein Fahrausweis vorgezeigt wurde, welcher Art 
 
 Datentyp: string
 | |FahrausweisNr|
-
-Die Nummer (laufende Nummer) des Fahrausweises
-
+Die Nummer (laufende Nummer) des Fahrausweises 
 
 Datentyp: int
 | |FahrausweisEingezogen|
-
-Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde.
-
+Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde. 
 
 Datentyp: boolean
 | |FahrausweisAbholung|
@@ -642,9 +556,7 @@ Die IBNR
 
 Datentyp: int
 | |EinstiegNotiz|
-
-Eine textuelle Beschreibung zum Einstieg
-
+Eine textuelle Beschreibung zum Einstieg 
 
 Datentyp: string
 | |ZielHaltestelle|
@@ -652,33 +564,23 @@ Die IBNR
 
 Datentyp: int
 | |ZielNotiz|
-
-Eine textuelle Beschreibung zum Fahrtziel bzw. Ausstieg
-
+Eine textuelle Beschreibung zum Fahrtziel bzw. Ausstieg 
 
 Datentyp: string
 |★ |Codierung|
-
-Eine Codierung zur Angabe des Grunds zum EBE-Fall
-
+Eine Codierung zur Angabe des Grunds zum EBE-Fall 
 
 Datentyp: <<Codierung_Type,Codierung>>
 | |Sitzplatz|
-
-Ein Hinweis, wo der EBE-Fall angetroffen wurde
-
+Ein Hinweis, wo der EBE-Fall angetroffen wurde 
 
 Datentyp: string
 | |Verhalten|
-
-Bemerkungen zu Verhalten des EBE-Falls.
-
+Bemerkungen zu Verhalten des EBE-Falls. 
 
 Datentyp: string
 | |Polizei|
-
-Wenn Polizei hinzugezogen wurde, von welchem Revier.
-
+Wenn Polizei hinzugezogen wurde, von welchem Revier. 
 
 Datentyp: <<Polizei_Type,Polizei>>
 | |Bemerkung|
@@ -712,8 +614,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<EBEErfassung_Type,EBEErfassung>>
+ <<EBEErfassung_Type,EBEErfassung>>
 
 [[EBEVorgang_Type]]
 ==== EBEVorgang_Type
@@ -729,15 +630,11 @@ IMPORTANT: [red]#_todo: Doku_#
 
 Datentyp: <<VorgangsTyp_Type,VorgangsTyp>>
 |★ |Beanstandung|
-
-Entspricht der vorgegebenen Codierung z.B. der Bahn, in der Regel eine zweistellige Ziffer.
-
+Entspricht der vorgegebenen Codierung z.B. der Bahn, in der Regel eine zweistellige Ziffer. 
 
 Datentyp: string
 |★ |Begruendung|
-
-Der Grund der Beanstandung (zB. nicht lesbar, vermutlich verfälscht, Tarif ungültig, ohne Kundenkarte etc.)
-
+Der Grund der Beanstandung (zB. nicht lesbar, vermutlich verfälscht, Tarif ungültig, ohne Kundenkarte etc.) 
 
 Datentyp: string
 | |Bemerkung|
@@ -761,8 +658,7 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 
 Verwendet in:
-
-* <<EBEErfassung_Type,EBEErfassung>>
+ <<EBEErfassung_Type,EBEErfassung>>
 
 [[EinsatzTyp_Type]]
 ==== EinsatzTyp_Type
@@ -773,12 +669,14 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |Name|
-
-Der Name ist ein beliebiger, sprechender Name des Einsatztyps (z.B. Vorverkauf, Bereich Hamburg Mitte).
-
+Der Name ist ein beliebiger, sprechender Name des Einsatztyps (z.B. Vorverkauf, Bereich Hamburg Mitte). 
 
 Datentyp: string
 |=======================
+
+
+Verwendet in: ohne Verwendung
+
 [[Fahrtverlauf_Type]]
 ==== Fahrtverlauf_Type
 
@@ -787,21 +685,15 @@ Diese Datensätze beinhalten, abweichend von anderen Datensätzen, Information a
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |Betrieb|
-
-REC_FRT.BETRIEB aus VDV bei Mandantensystemen, sonst 0.
-
+REC_FRT.BETRIEB aus VDV bei Mandantensystemen, sonst 0. 
 
 Datentyp: <<INT4,INT4>>
 |★ |FahrzeugNr|
-
-Nach VDV FAHRZEUG.FZG_NR
-
+Nach VDV FAHRZEUG.FZG_NR 
 
 Datentyp: <<INT4,INT4>>
 | |FahrzeugUnr|
-
-Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN
-
+Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN 
 
 Datentyp: <<INT4,INT4>>
 | |FahrerNr|
@@ -809,15 +701,11 @@ Nch VDV: PERSONAL.FAHRER_NR
 
 Datentyp: <<INT4,INT4>>
 | |FahrerUnr|
-
-Nach VDV: PERSONAL.ABK_UNTERNEHMEN -> TEILNEHMER.UNTERNEHMEN
-
+Nach VDV: PERSONAL.ABK_UNTERNEHMEN -> TEILNEHMER.UNTERNEHMEN 
 
 Datentyp: <<INT4,INT4>>
 |★ |FahrtID|
-
-Fahrtnummer der Fahrt laut VDV REC_FRT.FRT_ID
-
+Fahrtnummer der Fahrt laut VDV REC_FRT.FRT_ID 
 
 Datentyp: <<INT4,INT4>>
 | |Fahrt|
@@ -825,9 +713,7 @@ Optionale Kennung der Fahrt als Text.
 
 Datentyp: string
 | |LinieID|
-
-Nach VDV: Aus der Tabelle REC_LID.LI_NR
-
+Nach VDV: Aus der Tabelle REC_LID.LI_NR 
 
 Datentyp: <<INT4,INT4>>
 | |Linie|
@@ -835,15 +721,11 @@ Optionale Linieninformation als Text. Optional REC_LID.LIDNAME oder REC_LID.LI_K
 
 Datentyp: string
 | |Richtung|
-
-Nach VDV: REC_LID.LI_RI_NR
-
+Nach VDV: REC_LID.LI_RI_NR 
 
 Datentyp: int
 | |FahrplanLage|
-
-Fahrplanlage in Sekunden, negative Werte für Verfrühung.
-
+Fahrplanlage in Sekunden, negative Werte für Verfrühung. 
 
 Datentyp: int
 | |OrtTyp|
@@ -851,39 +733,27 @@ Nach VDV: REC_ORT.ONR_TYP_NR
 
 Datentyp: <<INT4,INT4>>
 | |OrtNr|
-
-Haltepunktnummer nach VDV: REC_ORT.ORT_NR
-
+Haltepunktnummer nach VDV: REC_ORT.ORT_NR 
 
 Datentyp: <<INT4,INT4>>
 | |HpEntfernung|
-
-Entfernung zum Haltepunkt in Metern, 0 = Haltepunkt, positiv: vor Haltepunkt
-
+Entfernung zum Haltepunkt in Metern, 0 = Haltepunkt, positiv: vor Haltepunkt 
 
 Datentyp: int
 | |TuerOffen|
-
-false: Alle Türen sind am HP geschlossen. true: mindestens eine Türe ist offen.
-
+false: Alle Türen sind am HP geschlossen. true: mindestens eine Türe ist offen. 
 
 Datentyp: boolean
 | |HaltepunktDurch|
-
-false: Fahrzeug hat am Haltepunkt gehalten. true: der Haltepunkt wurde durchfahren.
-
+false: Fahrzeug hat am Haltepunkt gehalten. true: der Haltepunkt wurde durchfahren. 
 
 Datentyp: boolean
 | |Haltezeit|
-
-Haltezeit am Haltepunkt in Sekunden.
-
+Haltezeit am Haltepunkt in Sekunden. 
 
 Datentyp: <<INT4,INT4>>
 | |HaltestelleBedarf|
-
-Gibt an, ob die Haltestelle eine reguläre oder eine Bedarfshaltestelle ist. false= reguläre Haltestelle, true = Bedarfshaltestelle
-
+Gibt an, ob die Haltestelle eine reguläre oder eine Bedarfshaltestelle ist. false= reguläre Haltestelle, true = Bedarfshaltestelle 
 
 Datentyp: boolean
 | |TachoStand|
@@ -911,8 +781,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Geldbehaelter_Type]]
 ==== Geldbehaelter_Type
@@ -936,8 +805,7 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 
 Verwendet in:
-
-* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+ <<Geldbehaelterliste_Type,Geldbehaelterliste>>
 
 [[Geldbehaelterliste_Type]]
 ==== Geldbehaelterliste_Type
@@ -977,8 +845,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Geraet_Type]]
 ==== Geraet_Type
@@ -989,23 +856,18 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |Name|
-
-Der Name ist ein beliebiger, sprechender Name des Gerätes. (z.B. Busdrucker-1234).
-
+Der Name ist ein beliebiger, sprechender Name des Gerätes. (z.B. Busdrucker-1234). 
 
 Datentyp: string
 | |Id|
-
-Eindeutige Kennung eines Bestandteils der Gerätehardware (z.B. die MAC der Netzwerkhardware.) Welche Kennung das ist, muss von der Gerätesoftware entschieden werden. Das Element ist optional.
-
+Eindeutige Kennung eines Bestandteils der Gerätehardware (z.B. die MAC der Netzwerkhardware.) Welche Kennung das ist, muss von der Gerätesoftware entschieden werden. Das Element ist optional. 
 
 Datentyp: string
 |=======================
 
 
 Verwendet in:
-
-* <<Schichtbeginn_Type,Schichtbeginn>>
+ <<Schichtbeginn_Type,Schichtbeginn>>
 
 [[Gutscheinbezahlung_Type]]
 ==== Gutscheinbezahlung_Type
@@ -1030,8 +892,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[KAReferenz_Type]]
 ==== KAReferenz_Type
@@ -1042,15 +903,11 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |SamNummer|
-
-SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im gesamten Geltungsbereich der Kernapplikation eindeutige SAM-Kartennummer
-
+SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im gesamten Geltungsbereich der Kernapplikation eindeutige SAM-Kartennummer 
 
 Datentyp: <<INT3,INT3>>
 |★ |SamSequenznummer|
-
-samSequenznummer 32 Bit (Beispiel 0x789ABCDE), eindeutige, fortlaufende Nummer die von einer SAM-Karte generiert wird.
-
+samSequenznummer 32 Bit (Beispiel 0x789ABCDE), eindeutige, fortlaufende Nummer die von einer SAM-Karte generiert wird. 
 
 Datentyp: <<INT4,INT4>>
 |=======================
@@ -1059,11 +916,7 @@ Datentyp: <<INT4,INT4>>
 
 
 Verwendet in:
-
-* <<Kontrolldaten_Type,Kontrolldaten>>
-* <<Transaktion_Type,Transaktion>>
-* <<Transaktionsdaten_Type,Transaktionsdaten>>
-* <<Zahlung_Type,Zahlung>>
+ <<Kontrolldaten_Type,Kontrolldaten>>, <<Transaktion_Type,Transaktion>>, <<Transaktionsdaten_Type,Transaktionsdaten>>, <<Zahlung_Type,Zahlung>>
 
 [[KKOfflineBezahlung_Type]]
 ==== KKOfflineBezahlung_Type
@@ -1104,8 +957,7 @@ Datentyp: boolean
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Kasse_Type]]
 ==== Kasse_Type
@@ -1116,9 +968,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |Betrag|
-
-Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.)
-
+Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.) 
 
 Datentyp: <<Betrag_Type,Betrag>>
 |★ |Zahlart|
@@ -1132,8 +982,7 @@ Datentyp: <<BezahlArt_Type,BezahlArt>>
 
 
 Verwendet in:
-
-* <<Kassenliste_Type,Kassenliste>>
+ <<Kassenliste_Type,Kassenliste>>
 
 [[Kassenliste_Type]]
 ==== Kassenliste_Type
@@ -1152,9 +1001,7 @@ Datentyp: <<Kasse_Type,Kasse>>
 
 
 Verwendet in:
-
-* <<Dienstende_Type,Dienstende>>
-* <<Schichtsummen_Type,Schichtsummen>>
+ <<Dienstende_Type,Dienstende>>, <<Schichtsummen_Type,Schichtsummen>>
 
 [[Komponente_Type]]
 ==== Komponente_Type
@@ -1210,9 +1057,7 @@ Datentyp: <<Komponente_Type,Komponente>>
 
 
 Verwendet in:
-
-* <<Komponente_Type,Komponente>>
-* <<Komponentenliste_Type,Komponentenliste>>
+ <<Komponente_Type,Komponente>>, <<Komponentenliste_Type,Komponentenliste>>
 
 [[Komponentenliste_Type]]
 ==== Komponentenliste_Type
@@ -1236,8 +1081,7 @@ Datentyp: <<Komponente_Type,Komponente>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Kontrolldaten_Type]]
 ==== Kontrolldaten_Type
@@ -1267,8 +1111,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[KundenTyp_Type]]
 ==== KundenTyp_Type
@@ -1282,8 +1125,7 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<Mitnahme_Type,Mitnahme>>
+ <<Mitnahme_Type,Mitnahme>>
 
 [[Kundendaten_Type]]
 ==== Kundendaten_Type
@@ -1319,8 +1161,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<EBEErfassung_Type,EBEErfassung>>
+ <<EBEErfassung_Type,EBEErfassung>>
 
 [[Lastschrift_Type]]
 ==== Lastschrift_Type
@@ -1364,15 +1205,12 @@ Datentyp: boolean
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Meldung_Type]]
 ==== Meldung_Type
 
-
-Dieser Datensatz dient der Aufnahme von Textmeldungen beliebiger Art.
-
+Dieser Datensatz dient der Aufnahme von Textmeldungen beliebiger Art. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -1394,19 +1232,11 @@ Eine unterscheidende, physikalische Position, wenn mehrere gleiche Komponenten M
 
 Datentyp: int
 |★ |Text|
-
-Meldungstext, Entwicklertext. Dieser Text wird in der Regel vor der Anzeige ersetzt.
-
+Meldungstext, Entwicklertext. Dieser Text wird in der Regel vor der Anzeige ersetzt. 
 
 Datentyp: string
 | |Attribut|
-
-Kommagetrennte Attribute die für eine Meldungstextgenerierung benötigt werden:
-
-Format('User "%s" was sleeping between %s and %s',[Attribute])
-
-So dass auch bei sprachvarianten Anzeigen dynamische Inhalte ausgegeben werden können.
-
+Kommagetrennte Attribute die für eine Meldungstextgenerierung benötigt werden: Format('User "%s" was sleeping between %s and %s',[Attribute]) So dass auch bei sprachvarianten Anzeigen dynamische Inhalte ausgegeben werden können. 
 
 Datentyp: string
 |=======================
@@ -1415,8 +1245,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Mitnahme_Type]]
 ==== Mitnahme_Type
@@ -1442,8 +1271,7 @@ Datentyp: int
 
 
 Verwendet in:
-
-* <<ProdFahrschein_Type,ProdFahrschein>>
+ <<ProdFahrschein_Type,ProdFahrschein>>
 
 [[OrtsTyp_Type]]
 ==== OrtsTyp_Type
@@ -1457,9 +1285,7 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<Standort_Type,Standort>>
-* <<Vertriebsstelle_Type,Vertriebsstelle>>
+ <<Standort_Type,Standort>>, <<Vertriebsstelle_Type,Vertriebsstelle>>
 
 [[Ortspunkt_Type]]
 ==== Ortspunkt_Type
@@ -1483,8 +1309,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Transaktionsort_Type,Transaktionsort>>
+ <<Transaktionsort_Type,Transaktionsort>>
 
 [[Person_Type]]
 ==== Person_Type
@@ -1555,9 +1380,7 @@ Datentyp: dateTime
 
 Datentyp: string
 | |Legitimtation|
-
-Beschreibung der legitimation, Ausweis, EC-Karte, etc.
-
+Beschreibung der legitimation, Ausweis, EC-Karte, etc. 
 
 Datentyp: string
 | |LegitimationNr|
@@ -1565,21 +1388,15 @@ Ausweisnummer
 
 Datentyp: string
 | |LegitimationsDatum|
-
-Ausstellungsdateum der Legitimation
-
+Ausstellungsdateum der Legitimation 
 
 Datentyp: dateTime
 | |LegimitationsLand|
-
-Ausstellungsland der Legitimation
-
+Ausstellungsland der Legitimation 
 
 Datentyp: string
 | |LegitimationBild|
-
-Auf der Legitimation war ein Lichtbild, das Lichtbild wurde dem EBE-Fall zugeordnet
-
+Auf der Legitimation war ein Lichtbild, das Lichtbild wurde dem EBE-Fall zugeordnet 
 
 Datentyp: boolean
 | |Bemerkung|
@@ -1591,8 +1408,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Kundendaten_Type,Kundendaten>>
+ <<Kundendaten_Type,Kundendaten>>
 
 [[Polizei_Type]]
 ==== Polizei_Type
@@ -1628,15 +1444,12 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<EBEMerkmale_Type,EBEMerkmale>>
+ <<EBEMerkmale_Type,EBEMerkmale>>
 
 [[Preis_Type]]
 ==== Preis_Type
 
-
-Wenn keine Preisspalte angegeben ist, wird von der Standardspalte "1" ausgegangen. Ansonsten muss die Nummer der zugehörigen Preisspalte der Datenversorgung angegeben. Die Kennung kann optional die Kennung der Preisspalte enthalten.
-
+Wenn keine Preisspalte angegeben ist, wird von der Standardspalte "1" ausgegangen. Ansonsten muss die Nummer der zugehörigen Preisspalte der Datenversorgung angegeben. Die Kennung kann optional die Kennung der Preisspalte enthalten. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -1651,9 +1464,7 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 Datentyp: <<INT4,INT4>>
 |★ |MwstSatz|
-
-Wert zwischen 0 und 100
-
+Wert zwischen 0 und 100 
 
 Datentyp: <<FLOAT1,FLOAT1>>
 |=======================
@@ -1662,15 +1473,12 @@ Datentyp: <<FLOAT1,FLOAT1>>
 
 
 Verwendet in:
-
-* <<Produkt_Type,Produkt>>
+ <<Produkt_Type,Produkt>>
 
 [[ProdFahrschein_Type]]
 ==== ProdFahrschein_Type
 
-
-Via = Eine Liste von Tarifpunkten
-
+Beschreibt die räumliche und zeitliche Gültigkeit des verkauften Produkts. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -1700,9 +1508,7 @@ Datentyp: <<Transaktionsort_Type,Transaktionsort>>
 
 Datentyp: <<Transaktionsort_Type,Transaktionsort>>
 | |ID_Relation|
-
-Bezug auf die ID_Relation der Versorgungsdaten - die Datenversion ist identisch mit der in dem Tarifprodukt hinterlegten Datenversion
-
+Bezug auf die ID_Relation der Versorgungsdaten - die Datenversion ist identisch mit der in dem Tarifprodukt hinterlegten Datenversion 
 
 Datentyp: <<INT4,INT4>>
 | |Komfortklasse|
@@ -1736,15 +1542,12 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Produkt_Type,Produkt>>
+ <<Produkt_Type,Produkt>>
 
 [[Produkt_Type]]
 ==== Produkt_Type
 
-
-Bei der Anwendung von Teilrelationen zur Aufteilung von Fremd- und Eigenleistungen wird wie folgt vorgegangen: Das verkaufte Produkt wird als Hauptprodukt mit der Id und ExtId 'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen gemeinsamen Beleg, un N Teilprodukte.
-
+Eine Datenstruktur, die die tariflichen Merkmale des verkauften Produkts beschreibt. Bei der Anwendung von Teilrelationen zur Aufteilung von Fremd- und Eigenleistungen wird wie folgt vorgegangen: Das verkaufte Produkt wird als Hauptprodukt mit der Id und ExtId 'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen gemeinsamen Beleg, un N Teilprodukte. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -1759,9 +1562,7 @@ Datentyp: int
 
 Datentyp: <<Tarifprodukt_Type,Tarifprodukt>>
 | |Preis|
-
-Preisinformation zum Produkt, kannauch leer sein
-
+Preisinformation zum Produkt, kannauch leer sein 
 
 Datentyp: <<Preis_Type,Preis>>
 | |Beleg|
@@ -1775,20 +1576,15 @@ Datentyp: <<Beleg_Type,Beleg>>
 
 Datentyp: <<ProdFahrschein_Type,ProdFahrschein>>
 | |Teilprodukt|
-
-Unterprodukte, die mitverkauftwurden (Teilstrecken,City-Cards,...)
-
+Unterprodukte, die mitverkauftwurden (Teilstrecken,City-Cards,...) 
 
 Datentyp: <<Produkt_Type,Produkt>>
 | |AnzahlTeile|
-
-Hier werden bei Mehrfahrtenkarten die Anzahl der einzelnen Abschnitte bzw. Anteile notiert. Wenn nicht angegeben ist, ist die Anzahl entweder unbekannt oder als Vorgabe 1.
-
+Hier werden bei Mehrfahrtenkarten die Anzahl der einzelnen Abschnitte bzw. Anteile notiert. Wenn nicht angegeben ist, ist die Anzahl entweder unbekannt oder als Vorgabe 1. 
 
 Datentyp: int
 | |RestTeile|
-Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die Betrachtung stellt den Zustand VOR der Aktion dar.
-
+Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die Betrachtung stellt den Zustand VOR der Aktion dar. 
 
 Datentyp: int
 |=======================
@@ -1797,9 +1593,7 @@ Datentyp: int
 
 
 Verwendet in:
-
-* <<Produkt_Type,Produkt>>
-* <<Transaktion_Type,Transaktion>>
+ <<Produkt_Type,Produkt>>, <<Transaktion_Type,Transaktion>>
 
 [[Pruefabschluss_Type]]
 ==== Pruefabschluss_Type
@@ -1822,8 +1616,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Pruefbeginn_Type]]
 ==== Pruefbeginn_Type
@@ -1834,9 +1627,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |Kleidung|
-
-Die vom Prüfer getragene Kleidung
-
+Die vom Prüfer getragene Kleidung 
 
 Datentyp: <<Pruefkleidung_Type,Pruefkleidung>>
 | |Pruefart|
@@ -1844,9 +1635,7 @@ Die Art der Prüfung
 
 Datentyp: <<Pruefart_Type,Pruefart>>
 | |Pruefer|
-
-Beteiligte Prüfer (Nummer)
-
+Beteiligte Prüfer (Nummer) 
 
 Datentyp: string
 | |Linie|
@@ -1866,9 +1655,7 @@ Eine Richtungsangabe
 
 Datentyp: <<Transaktionsort_Type,Transaktionsort>>
 | |AnzahlFahrgaeste|
-
-Eine Abschätzung der Anzahl der Fahrgäste bei Einstieg
-
+Eine Abschätzung der Anzahl der Fahrgäste bei Einstieg 
 
 Datentyp: int
 | |DynAttribut|
@@ -1880,8 +1667,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Rechnungsstellung_Type]]
 ==== Rechnungsstellung_Type
@@ -1891,15 +1677,11 @@ Dieses Element trägt nähere Angaben zum nachfolgenden Rechnungsstellungs- oder
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |RechnungsRef|
-
-In der Regel eine Rechnungsnummer oder eine generierte Referenz auf eine zu erstellende Rechnung.
-
+In der Regel eine Rechnungsnummer oder eine generierte Referenz auf eine zu erstellende Rechnung. 
 
 Datentyp: string
 | |KundenRef|
-
-Eine Referenz auf den Kunden zur Rechnungsstellung, in der Regel eine Kundennummer
-
+Eine Referenz auf den Kunden zur Rechnungsstellung, in der Regel eine Kundennummer 
 
 Datentyp: string
 | |Vorgangszeitpunkt|
@@ -1916,8 +1698,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Restgeldbeleg_Type]]
 ==== Restgeldbeleg_Type
@@ -1952,8 +1733,7 @@ Datentyp: dateTime
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Schicht_Type]]
 ==== Schicht_Type
@@ -1964,8 +1744,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |Datensatz|
-
-Jede Schicht enthält 2 bis n Datensätze. Für eine ordentliche Schicht sollten mindestens die Datensätze Schichtbeginn und Schichtabschluss enthalten sein.
+[red]#_todo: Doku_#
 
 
 Datentyp: <<Datensatz_Type,Datensatz>>
@@ -1973,15 +1752,12 @@ Datentyp: <<Datensatz_Type,Datensatz>>
 
 
 Verwendet in:
-
-* <<Schichtenliste_Type,Schichtenliste>>
+ <<Schichtenliste_Type,Schichtenliste>>
 
 [[Schichtabschluss_Type]]
 ==== Schichtabschluss_Type
 
-
-Der Datensatz zum Schichtabschluss. Dieser Datensatz muss paarweise mit Schichtbeginn vorkommen.
-
+Der Datensatz zum Schichtabschluss. Es ist der letzte Datensatz einer Schicht. Hier wird angegeben, wie der Schichtabschluss ausgelöst wurde. Hintergrund hierbei ist die Möglichkeit im personalbedienten Verkauf unterscheiden zu können, ob eine Schicht explizit durch den Nutzer eines Verkaufsgerätes (manuell) oder implizit durch das Gerät selbst (automatisch) durchgeführt wurde. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -2006,42 +1782,29 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Schichtbeginn_Type]]
 ==== Schichtbeginn_Type
 
-
-Der Datensatz zum Schichtbeginn. Dieser Datensatz muss paarweise mit Schichtabschluss vorkommen.
-
+Der Datensatz zum Schichtbeginn. Der Schichtbeginn beinhaltet die Identifikation des Verkaufgerätes und definiert den genauen Zeitpunkt, wann das Verkaufsgerät die Verkaufsbereitschaft erreicht hat. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |SchichtNr|
-
-Diese Schichtnummer enstpricht der den Anwendern bekannte Schichtnummer. In der Regel wird nach dieser Nummer ausgewertet und die Nummer wird auf Belege aufgedruckt. Die Schichtnummer ist mindestens für jede Schicht-UUID eindeutig. Die Schichtnummer sollte inkrementierend aufsteigen und nie '0' sein.
-
-Achtung: Schichtnummer vs. Dienstnummer: Innerhalb einer Schicht können mehrere Dienste auch gleichzeitig ablaufen. Kein Dienst überlappt zeitlich eine Schichtgrenze. Dienste sind in der Regel Personen-(Konten) oder Geräte-(Konten) zugeordnet. Schichten sind nur ein Behälter für Dienste.
-
+Diese Schichtnummer enstpricht der den Anwendern bekannte Schichtnummer. In der Regel wird nach dieser Nummer ausgewertet und die Nummer wird auf Belege aufgedruckt. Die Schichtnummer ist mindestens für jede Schicht-UUID eindeutig. Die Schichtnummer sollte inkrementierend aufsteigen und nie '0' sein. Achtung: Schichtnummer vs. Dienstnummer: Innerhalb einer Schicht können mehrere Dienste auch gleichzeitig ablaufen. Kein Dienst überlappt zeitlich eine Schichtgrenze. Dienste sind in der Regel Personen-(Konten) oder Geräte-(Konten) zugeordnet. Schichten sind nur ein Behälter für Dienste. 
 
 Datentyp: int
 |★ |Geraet|
-
-Dieser Datensatz kennzeichnet das technische Gerät, das die Datensätze dieser Schicht erzeugt.
-
+Dieser Datensatz kennzeichnet das technische Gerät, das die Datensätze dieser Schicht erzeugt. 
 
 Datentyp: <<Geraet_Type,Geraet>>
 |★ |Betriebsart|
-
-Dieses Feld unterscheidet die Datensätze dieser Schicht in Echt- und sonstigen Betrieb.
-
+Dieses Feld unterscheidet die Datensätze dieser Schicht in Echt- und sonstigen Betrieb. 
 
 Datentyp: <<Betriebsart_Type,Betriebsart>>
 | |Standort|
-
-Dieses Feld bezeichnet den Standort zum Schichtbeginn.
-
+Dieses Feld bezeichnet den Standort zum Schichtbeginn. 
 
 Datentyp: <<Standort_Type,Standort>>
 | |DynAttribut|
@@ -2055,8 +1818,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Schichtsummen_Type]]
 ==== Schichtsummen_Type
@@ -2077,6 +1839,10 @@ Datentyp: <<Kassenliste_Type,Kassenliste>>
 
 Datentyp: <<Belegkassenliste_Type,Belegkassenliste>>
 |=======================
+
+
+Verwendet in: ohne Verwendung
+
 [[Standort_Type]]
 ==== Standort_Type
 
@@ -2086,15 +1852,11 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |Typ|
-
-Mit dem Typ wird die Ausprägung des jeweilgen Standorts unterschieden. Die Standorte eines Typs und eines Mandanten sind fortlaufend durchnumeriert.
-
+Mit dem Typ wird die Ausprägung des jeweilgen Standorts unterschieden. Die Standorte eines Typs und eines Mandanten sind fortlaufend durchnumeriert. 
 
 Datentyp: <<OrtsTyp_Type,OrtsTyp>>
 | |Name|
-
-Der Name ist ein beliebiger, sprechender Name des Standorts.
-
+Der Name ist ein beliebiger, sprechender Name des Standorts. 
 
 Datentyp: string
 |=======================
@@ -2103,8 +1865,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Schichtbeginn_Type,Schichtbeginn>>
+ <<Schichtbeginn_Type,Schichtbeginn>>
 
 [[Stuecke_Type]]
 ==== Stuecke_Type
@@ -2130,25 +1891,21 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 
 Verwendet in:
-
-* <<Geldbehaelter_Type,Geldbehaelter>>
+ <<Geldbehaelter_Type,Geldbehaelter>>
 
 [[Tarifprodukt_Type]]
 ==== Tarifprodukt_Type
 
-IMPORTANT: [red]#_todo: Doku_#
-
+Eine Datenstruktur, die die tariflichen Merkmale des verkauften Produkts beschreibt. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |ID_Tarifgebiet|
-[red]#_todo: Doku_#
-
+Enthält die ID des Tarifgebiets aus der zugrundeliegenden Tarifdatenbank (Versorgungsdaten). 
 
 Datentyp: <<INT4,INT4>>
 | |ID_Sorte|
-[red]#_todo: Doku_#
-
+Enthält die in den Versorgungsdaten festgelegte ID der Sorte. 
 
 Datentyp: <<INT4,INT4>>
 | |ReferenzExternSorte|
@@ -2157,9 +1914,7 @@ Datentyp: <<INT4,INT4>>
 
 Datentyp: string
 |★ |ID_Preisstufe|
-
-Die Preisstufe ist nur zusammen mit dem Tarifgebiet gültig.
-
+Enthält die ID der Preisstufe des verkauften Produkts. Die Preisstufe ist nur zusammen mit dem Tarifgebiet gültig. 
 
 Datentyp: <<INT4,INT4>>
 | |ReferenzExternPreisstufe|
@@ -2178,8 +1933,7 @@ Datentyp: <<INT4,INT4>>
 
 Datentyp: string
 | |ID_Preisspalte|
-[red]#_todo: Doku_#
-
+Enthält die ID der Preisspalte des verkauften Produkts. Die Preisspalte ist nur zusammen mit der Preisstufe und dem Tarifgebiet gültig. 
 
 Datentyp: <<INT4,INT4>>
 |=======================
@@ -2188,10 +1942,7 @@ Datentyp: <<INT4,INT4>>
 
 
 Verwendet in:
-
-* <<Belegkasse_Type,Belegkasse>>
-* <<Gutscheinbezahlung_Type,Gutscheinbezahlung>>
-* <<Produkt_Type,Produkt>>
+ <<Belegkasse_Type,Belegkasse>>, <<Gutscheinbezahlung_Type,Gutscheinbezahlung>>, <<Produkt_Type,Produkt>>
 
 [[Tarifpunkt_Type]]
 ==== Tarifpunkt_Type
@@ -2207,8 +1958,7 @@ IMPORTANT: [red]#_todo: Doku_#
 
 Datentyp: int
 |★ |ID_Tarifgebiet|
-[red]#_todo: Doku_#
-
+Enthält die Nummer des Tarifgebiets aus der zugrundeliegenden Tarifdatenbank (Versorgungsdaten). 
 
 Datentyp: int
 | |ReferenzExtern|
@@ -2222,9 +1972,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Teilrelation_Type,Teilrelation>>
-* <<Transaktionsort_Type,Transaktionsort>>
+ <<Teilrelation_Type,Teilrelation>>, <<Transaktionsort_Type,Transaktionsort>>
 
 [[Teilrelation_Type]]
 ==== Teilrelation_Type
@@ -2235,9 +1983,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |SortOrder|
-
-Die Sortierungsreihenfolge wird benötigt, um die Richtung der Durchfahrt zu erhalten.
-
+Die Sortierungsreihenfolge wird benötigt, um die Richtung der Durchfahrt zu erhalten. 
 
 Datentyp: int
 |★ |ID_Preisstufe|
@@ -2286,8 +2032,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<ProdFahrschein_Type,ProdFahrschein>>
+ <<ProdFahrschein_Type,ProdFahrschein>>
 
 [[Transaktion_Type]]
 ==== Transaktion_Type
@@ -2303,20 +2048,15 @@ IMPORTANT: [red]#_todo: Doku_#
 
 Datentyp: <<Produkt_Type,Produkt>>
 | |KundenNr|
-[red]#_todo: Doku_#
-
+Über die KundenNr kann bei personalisierter Nutzung / Kauf der Bezug zu einem im Backend hinterlegten Kundendatensatz hergestellt werden. 
 
 Datentyp: string
 | |BezugsNr|
-
-Die BezugsNr enthält bei EBE-Vorgängen die EBE-Kontonummer, bei Gutschein-Vorgängen die Gutscheinnummer, bei Bezahlung bzw. Einlösung von Anteilen vorausbezahlter Anteile auf Karten die Kartennummer.
-
+Die BezugsNr findet unterschiedlich Verwendung und ist zwischen den Austauschpartnern der Schnittstelle zu vereinbaren. 
 
 Datentyp: string
 | |Vorgangszeitpunkt|
-
-Vorgangsnummer und Vorgangszeitpunkt identifizieren einzeln oder gemeinsam einen Vorgang. Im Speziellen werden diese beiden Werte bei der Erstattung eines Gutscheins genutzt, dann entspricht der Vorgangszeitpunkt dem Zeitpunkt der Ausgabe des eingelösten Gutscheins.
-
+Vorgangsnummer und Vorgangszeitpunkt identifizieren einzeln oder gemeinsam einen Vorgang. Im Speziellen werden diese beiden Werte bei der Erstattung eines Gutscheins genutzt, dann entspricht der Vorgangszeitpunkt dem Zeitpunkt der Ausgabe des eingelösten Gutscheins. 
 
 Datentyp: dateTime
 | |DynAttribut|
@@ -2330,8 +2070,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Transaktionsliste_Type,Transaktionsliste>>
+ <<Transaktionsliste_Type,Transaktionsliste>>
 
 [[Transaktionsdaten_Type]]
 ==== Transaktionsdaten_Type
@@ -2362,8 +2101,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[Transaktionsliste_Type]]
 ==== Transaktionsliste_Type
@@ -2382,8 +2120,7 @@ Datentyp: <<Transaktion_Type,Transaktion>>
 
 
 Verwendet in:
-
-* <<Warenkorb_Type,Warenkorb>>
+ <<Warenkorb_Type,Warenkorb>>
 
 [[Transaktionsort_Type]]
 ==== Transaktionsort_Type
@@ -2404,7 +2141,7 @@ Datentyp: <<Ortspunkt_Type,Ortspunkt>>
 
 Datentyp: <<Tarifpunkt_Type,Tarifpunkt>>
 | |ID_Relcode|
-Dieser Inhalt referenziert den Relationscode des Tarifs
+Ein Relationscode umfasst mehrere Tarifpunkte. Die ID_Relcode referenziert somit den Relationscode des Tarifs.
 
 Datentyp: int
 | |DynAttribut|
@@ -2416,12 +2153,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<EBEMerkmale_Type,EBEMerkmale>>
-* <<ProdFahrschein_Type,ProdFahrschein>>
-* <<Pruefabschluss_Type,Pruefabschluss>>
-* <<Pruefbeginn_Type,Pruefbeginn>>
-* <<Warenkorb_Type,Warenkorb>>
+ <<EBEMerkmale_Type,EBEMerkmale>>, <<ProdFahrschein_Type,ProdFahrschein>>, <<Pruefabschluss_Type,Pruefabschluss>>, <<Pruefbeginn_Type,Pruefbeginn>>, <<Warenkorb_Type,Warenkorb>>
 
 [[TransportserviceArt_Type]]
 ==== TransportserviceArt_Type
@@ -2435,8 +2167,7 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<Pruefbeginn_Type,Pruefbeginn>>
+ <<Pruefbeginn_Type,Pruefbeginn>>
 
 [[Ueberweisung_Type]]
 ==== Ueberweisung_Type
@@ -2462,8 +2193,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Verfolgung_Type]]
 ==== Verfolgung_Type
@@ -2489,33 +2219,25 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<EBEErfassung_Type,EBEErfassung>>
+ <<EBEErfassung_Type,EBEErfassung>>
 
 [[VersionStruktur_Type]]
 ==== VersionStruktur_Type
 
-
-Hier müssen Hinweise zur Version des Schemas angegeben werden.
-
+Hier müssen Hinweise zur Version des Schemas angegeben werden. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |VersionMajor|
-
-Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern.
-
+Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur Vorgängerversion ändern. 
 
 Datentyp: int
 |★ |VersionMinor|
-
-Diese Versionsnummer zählt kompatible Anpassungen.
-
+Diese Versionsnummer zählt kompatible Anpassungen. 
 
 Datentyp: int
 |★ |VersionPatch|
-Diese Versionsnummer zählt abwärtskompatible Bugfixes.
-
+Diese Versionsnummer zählt abwärtskompatible Bugfixes. 
 
 Datentyp: int
 |★ |Aenderungsdatum|
@@ -2534,8 +2256,7 @@ Datentyp: string
 
 
 Verwendet in:
-
-* <<Schichtenliste_Type,Schichtenliste>>
+ <<Schichtenliste_Type,Schichtenliste>>
 
 [[Vertriebsstelle_Type]]
 ==== Vertriebsstelle_Type
@@ -2546,21 +2267,15 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |Typ|
-
-Der Typ qualifiziert die beiden Elemente 'Mandant' und 'Nr'.
-
+Der Typ qualifiziert die beiden Elemente 'Mandant' und 'Nr'. 
 
 Datentyp: <<OrtsTyp_Type,OrtsTyp>>
 |★ |Mandant|
-
-Der Mandant qualifiziert eindeutig die Zugehörigkeit der 'Nr'.
-
+Der Mandant qualifiziert eindeutig die Zugehörigkeit der 'Nr'. 
 
 Datentyp: int
 |★ |Nr|
-
-Hier wird, je nach Typ der Vertriebsstelle, die Personalnummer, die Vertriebsstellennummer, die Gerätenummer etc. hinterlegt. Die Nummer ist nur in Beziehung zu Mandant und dem Typ eindeutig.
-
+Hier wird, je nach Typ der Vertriebsstelle, die Personalnummer, die Vertriebsstellennummer, die Gerätenummer etc. hinterlegt. Die Nummer ist nur in Beziehung zu Mandant und dem Typ eindeutig. 
 
 Datentyp: int
 | |DynAttribut|
@@ -2574,10 +2289,7 @@ Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
 
 
 Verwendet in:
-
-* <<Dienstbeginn_Type,Dienstbeginn>>
-* <<Dienstende_Type,Dienstende>>
-* <<Restgeldbeleg_Type,Restgeldbeleg>>
+ <<Dienstbeginn_Type,Dienstbeginn>>, <<Dienstende_Type,Dienstende>>, <<Restgeldbeleg_Type,Restgeldbeleg>>
 
 [[Warenkorb_Type]]
 ==== Warenkorb_Type
@@ -2588,7 +2300,7 @@ IMPORTANT: [red]#_todo: Doku_#
 |=======================
 | |Eigenschaft|Beschreibung
 | |ReferenzExtern|
-Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren.
+Definiert optional einen Identifier, um den Warenkorb eindeutig zu referenzieren. 
 
 Datentyp: string
 |★ |Transaktionsort|
@@ -2617,8 +2329,7 @@ Datentyp: <<Beleg_Type,Beleg>>
 
 
 Verwendet in:
-
-* <<Datensatz_Type,Datensatz>>
+ <<Datensatz_Type,Datensatz>>
 
 [[WebShopBezahlung_Type]]
 ==== WebShopBezahlung_Type
@@ -2646,17 +2357,12 @@ Datentyp: dateTime
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Wertbehaelter_Type]]
 ==== Wertbehaelter_Type
 
-
-Hiermit werden Wertbehälter erfasst, z.B. Safebags. Die Nummer enstpricht der Nummer des Wertbehälters, die Wertanzahl der Anzahl der werthaltigen Anteile, z.B. die Anzahl der Belege.
-
-Es werden 2 Behälter unterschieden: 1. Behälter mit Bargeld -> dann muss der Betrag ausgefüllt sein (früher Wert), 2. Behälter mit werthaltigen Belegen -> dann muss die Wertanzahl ausgefüllt sein. 3. Eine Mischform ist auch möglich.
-
+Hiermit werden Wertbehälter erfasst, z.B. Safebags. Die Nummer enstpricht der Nummer des Wertbehälters, die Wertanzahl der Anzahl der werthaltigen Anteile, z.B. die Anzahl der Belege. Es werden 2 Behälter unterschieden: 1. Behälter mit Bargeld -> dann muss der Betrag ausgefüllt sein (früher Wert), 2. Behälter mit werthaltigen Belegen -> dann muss die Wertanzahl ausgefüllt sein. 3. Eine Mischform ist auch möglich. 
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -2674,8 +2380,7 @@ Datentyp: <<Betrag_Type,Betrag>>
 
 
 Verwendet in:
-
-* <<Geldbehaelterliste_Type,Geldbehaelterliste>>
+ <<Geldbehaelterliste_Type,Geldbehaelterliste>>
 
 [[ZVTBezahlung_Type]]
 ==== ZVTBezahlung_Type
@@ -2711,8 +2416,7 @@ Datentyp: dateTime
 
 
 Verwendet in:
-
-* <<Zahlung_Type,Zahlung>>
+ <<Zahlung_Type,Zahlung>>
 
 [[Zaehldaten_Type]]
 ==== Zaehldaten_Type
@@ -2741,8 +2445,7 @@ Datentyp: <<INT4,INT4>>
 
 
 Verwendet in:
-
-* <<Zaehldatenliste_Type,Zaehldatenliste>>
+ <<Zaehldatenliste_Type,Zaehldatenliste>>
 
 [[Zaehldatenliste_Type]]
 ==== Zaehldatenliste_Type
@@ -2761,8 +2464,7 @@ Datentyp: <<Zaehldaten_Type,Zaehldaten>>
 
 
 Verwendet in:
-
-* <<Fahrtverlauf_Type,Fahrtverlauf>>
+ <<Fahrtverlauf_Type,Fahrtverlauf>>
 
 [[Zahlung_Type]]
 ==== Zahlung_Type
@@ -2793,8 +2495,7 @@ Datentyp: <<Beleg_Type,Beleg>>
 
 
 Verwendet in:
-
-* <<Zahlungsliste_Type,Zahlungsliste>>
+ <<Zahlungsliste_Type,Zahlungsliste>>
 
 [[Zahlungsliste_Type]]
 ==== Zahlungsliste_Type
@@ -2813,8 +2514,7 @@ Datentyp: <<Zahlung_Type,Zahlung>>
 
 
 Verwendet in:
-
-* <<Warenkorb_Type,Warenkorb>>
+ <<Warenkorb_Type,Warenkorb>>
 
 === technische Enumerationen 
 
@@ -2824,120 +2524,193 @@ Verwendet in:
 ==== AusgabeabschnittTyp
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[AusloeserHUSST_Type]]
 
 ==== Ausloeser
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[BelegTypHUSST_Type]]
 
 ==== BelegTyp
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[BelegkasseTypHUSST_Type]]
 
 ==== BelegkasseTyp
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[BetriebsartHUSST_Type]]
 
 ==== Betriebsart
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[BezahlArtKa_Type]]
 
 ==== BezahlArtKa
+Die BezahlArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: PaymentMeansCode 
 
-Die BezahlArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: PaymentMeansCode
+Verwendet in: ohne Verwendung
+
 
 [[GeldBehaeltervorgangHUSST_Type]]
 
 ==== GeldBehaeltervorgang
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[GeldbehaelterTypHUSST_Type]]
 
 ==== GeldbehaelterTyp
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[KasseTypHUSST_Type]]
 
 ==== KasseTyp
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[KomponentenKlasseHUSST_Type]]
 
 ==== KomponentenKlasse
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[KomponentenVorgangHUSST_Type]]
 
 ==== KomponentenVorgang
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[KundenTypKa_Type]]
 
 ==== KundenTypKa
+Der Kundentyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: ProfileCodeIOP 
 
-Der Kundentyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: ProfileCodeIOP
+Verwendet in: ohne Verwendung
+
 
 [[MeldungsklasseHUSST_Type]]
 
 ==== Meldungsklasse
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[OrtsTypKa_Type]]
 
 ==== OrtsTypKa
+Der OrtsTyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: LocationTypeCode 
 
-Der OrtsTyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: LocationTypeCode
+Verwendet in: ohne Verwendung
+
 
 [[PreisverrechnungHUSST_Type]]
 
 ==== Preisverrechnung
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[PruefartHUSST_Type]]
 
 ==== Pruefart
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[PruefkleidungHUSST_Type]]
 
 ==== Pruefkleidung
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[TransaktionTypHUSST_Type]]
 
 ==== TransaktionTyp
-Sonderfälle: • Gutscheine werden verkauft • Gutscheine werden erstattet
+Sonderfälle: • Gutscheine werden verkauft • Gutscheine werden erstattet • EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt. • Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach Anwendung die Kundennummer beim Verkauf notiert werden. • Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung) • Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden. • Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden. 
 
-• EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es liegt ein ktTransTyp „husst.Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt.
+Verwendet in: ohne Verwendung
 
-• Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach Anwendung die Kundennummer beim Verkauf notiert werden. • Die Einlösung eines Wertes entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp = husst.Erstattung)
-
-• Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld „AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt sein sollten, zusätzlich notiert werden. • Das Entwerten eines oder mehrerer „Streifen“ einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg, aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“ notiert werden.
 
 [[TransaktionsartHUSST_Type]]
 
 ==== Transaktionsart
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[TransportserviceArtKa_Type]]
 
 ==== TransportserviceArtKa
+Die TransportserviceArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: TransportTypeCode 
 
-Die TransportserviceArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545: TransportTypeCode
+Verwendet in: ohne Verwendung
+
 
 [[VerfolgungsTypHUSST_Type]]
 
 ==== VerfolgungsTyp
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[VorgangsTypHUSST_Type]]
 
 ==== VorgangsTyp
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 
 === technische Datentypen 
@@ -2946,24 +2719,27 @@ IMPORTANT: [red]#_todo: Doku_#
 [[Betriebszeit_Type]]
 
 ==== Betriebszeit
+Betriebszeiten dürfen über 24:00 Uhr hinausgehen 
 
-Betriebszeiten dürfen über 24:00 Uhr hinausgehen
+Verwendet in: ohne Verwendung
+
 
 [[Char]]
 
 ==== Char
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[Codierung_Type]]
 
 ==== Codierung
-
-Die Codierung entspricht der DB-Codierung
-
+Die Codierung entspricht der DB-Codierung 
 
 Verwendet in:
-
-* <<EBEMerkmale_Type,EBEMerkmale>>
+ <<EBEMerkmale_Type,EBEMerkmale>>
 
 
 [[DateCompact]]
@@ -2971,21 +2747,26 @@ Verwendet in:
 ==== DateCompact
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[DateTimeCompact]]
 
 ==== DateTimeCompact
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[FLOAT1]]
 
 ==== FLOAT1
-
-englische Notation beachten, z. B. 19 Euro = 19.00 Euro
-
+englische Notation beachten, z. B. 19 Euro = 19.00 Euro 
 
 Verwendet in:
-
-* <<Preis_Type,Preis>>
+ <<Preis_Type,Preis>>
 
 
 [[INT1]]
@@ -2993,10 +2774,18 @@ Verwendet in:
 ==== INT1
 IMPORTANT: [red]#_todo: Doku_#
 
+
+Verwendet in: ohne Verwendung
+
+
 [[INT2]]
 
 ==== INT2
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[INT3]]
 
@@ -3005,8 +2794,7 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<KAReferenz_Type,KAReferenz>>
+ <<KAReferenz_Type,KAReferenz>>
 
 
 [[INT4]]
@@ -3016,20 +2804,17 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<Fahrtverlauf_Type,Fahrtverlauf>>
-* <<KAReferenz_Type,KAReferenz>>
-* <<Preis_Type,Preis>>
-* <<ProdFahrschein_Type,ProdFahrschein>>
-* <<Tarifprodukt_Type,Tarifprodukt>>
-* <<Teilrelation_Type,Teilrelation>>
-* <<Zaehldaten_Type,Zaehldaten>>
+ <<Fahrtverlauf_Type,Fahrtverlauf>>, <<KAReferenz_Type,KAReferenz>>, <<Preis_Type,Preis>>, <<ProdFahrschein_Type,ProdFahrschein>>, <<Tarifprodukt_Type,Tarifprodukt>>, <<Teilrelation_Type,Teilrelation>>, <<Zaehldaten_Type,Zaehldaten>>
 
 
 [[INT8]]
 
 ==== INT8
 IMPORTANT: [red]#_todo: Doku_#
+
+
+Verwendet in: ohne Verwendung
+
 
 [[KoordWgs84_Type]]
 
@@ -3038,28 +2823,32 @@ IMPORTANT: [red]#_todo: Doku_#
 
 
 Verwendet in:
-
-* <<Fahrtverlauf_Type,Fahrtverlauf>>
+ <<Fahrtverlauf_Type,Fahrtverlauf>>
 
 
 [[ProjektspezifischAnstattKa_Type]]
 
 ==== ProjektspezifischAnstattKa
+Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann. Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert. 
 
-Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt werden kann. Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn Buchstaben vorkommen, ist es ein Projektspezifischer Wert.
+Verwendet in: ohne Verwendung
+
 
 [[Projektspezifisch_Type]]
 
 ==== Projektspezifisch
 Erlaubt alle Werte, die nicht mit "husst." beginnen.
+
+Verwendet in: ohne Verwendung
+
+
 [[Waehrung_Type]]
 
 ==== Waehrung
 Währungscode nach ISO 4217.
 
 Verwendet in:
-
-* <<Betrag_Type,Betrag>>
+ <<Betrag_Type,Betrag>>
 
 
 [[blobString]]
@@ -3068,15 +2857,10 @@ Verwendet in:
 IMPORTANT: [red]#_todo: Doku_#
 
 
+Verwendet in: ohne Verwendung
+
+
+
 === Ergebnis Definitionsstand
 
-
-HUSST Ergebnisdaten Version: 3.7.0
-
-Mehr Informationen:
-
-* https://husst.de/
-
-* https://github.com/HUSST-de/HUSST
-
-Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+HUSST Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ - https://github.com/HUSST-de/HUSST Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/) 

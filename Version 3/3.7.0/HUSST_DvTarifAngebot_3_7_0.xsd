@@ -615,36 +615,41 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Kurzbezeichnung des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Name des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="Erstellungsdatum" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Erstellungsdatum des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="Version" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="Version" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Version des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -653,12 +658,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           DynAttribute des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -792,18 +798,20 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Relcode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Relcode" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Relcodes.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des zugeordneten Tarifpunkts.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -887,12 +895,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer räumlichen Gültigkeit.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -913,24 +922,27 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID einer Relation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_RelcodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_RelcodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Relcodes vom Startpunkt.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_RelcodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_RelcodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Relocdes vom Zielpunkt.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -941,12 +953,13 @@
         </xs:annotation>
       </xs:element>
 
-      <xs:element name="GegenrichtungLiegtVor" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GegenrichtungLiegtVor" type="xs:boolean" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Gibt an, ob die Relation auch in Gegenrichtung vorliegt.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Vertriebswege" type="husstDV:ID_Vertriebswege_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -987,12 +1000,13 @@
           </xs:appinfo>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Relation.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1013,12 +1027,13 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Via" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Via" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID von einem Via.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1050,12 +1065,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einem Via.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1082,36 +1098,41 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Relationszuordung" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Relationszuordung" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Relationszuordnung.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Relation" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der verknüpften Relation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der verknüpften Teilrelation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Sortorder der Relationszuordnung.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Relationszuordnung.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1132,42 +1153,48 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Teilrelation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der Tarifart.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_TarifpunktStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_TarifpunktStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Starttarifpunkts der Teilrelation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="TarifpunktbezeichnungStart" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="TarifpunktbezeichnungStart" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Bezeichnung des Starttarifpunkts der Teilrelation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_TarifpunktZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_TarifpunktZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Zieltarifpunkts der Teilrelation.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="TarifpunktbezeichnungZiel" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="TarifpunktbezeichnungZiel" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Bezeichnung des Zieltarifpunkts der Teilrelation.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1176,18 +1203,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der Preisstufe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Preisquelle" type="husstDV:ID_Preisquelle_Type" maxOccurs="1" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="ID_Preisquelle" type="husstDV:ID_Preisquelle_Type" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           ID der Preisquelle.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Komfortklasse" type="husstDV:ID_Komfortklasse_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1195,18 +1224,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="AlternativePreisGruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="AlternativePreisGruppe" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Eine alternative Preisgruppe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="EinnahmeAufteilung" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="EinnahmeAufteilung" type="xs:string" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Bezeichnung der EinnameAufteilung.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ViabezeichnungDruck" type="xs:string" maxOccurs="1" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
@@ -1247,12 +1278,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Linie" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Linie" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der Linie der Teilrelation.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" maxOccurs="1" minOccurs="0">
         <xs:annotation>
           <xs:documentation>
@@ -1261,12 +1293,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute der Teilrelation.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1536,12 +1569,13 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Preisspalte" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Preisspalte" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Preisspalte.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Waehrung" type="husstDV:ID_Waehrung_Type" maxOccurs="1" minOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1550,12 +1584,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Preisspaltentyp" type="husstDV:ID_Preisspaltentyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1571,12 +1606,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="BezeichnungKurz" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="BezeichnungKurz" type="xs:string" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Kurzbezeichnung der Preisspalte.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="Hinweis" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>Info zur Preisspalte</xs:documentation>
@@ -1590,12 +1626,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Preisspalte.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1614,42 +1651,48 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Preisstufe" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID von einer Preisstufe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID vom Tarifgebiet.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="Preisstufennummer" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="Preisstufennummer" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eine Preisstufennummer.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="BezeichnungKurz" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Kurzbezeichnung der Preisstufe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Name der Preisstufe.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="WegstreckeInMetern" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1675,24 +1718,27 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="SortOrder" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Die SortOrder einer Preisstufe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="KA_Preisstufe" type="husstDV:INT1" maxOccurs="1" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="KA_Preisstufe" type="husstDV:INT1" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           KA_Preisstufe kennzeichnet die Preisstufe im VDVKA-Kontext, zur Bestimmung räumlicher und preislicher Gültigkeit.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Preisstufe.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -1757,12 +1803,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Sortentyp" type="husstDV:ID_Sortentyp_Type" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1819,12 +1866,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Mwst" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Mwst" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Nummer des Mehrwertsteuersatzes.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Zahlungsarten" type="husstDV:ID_Zahlungsarten_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -1907,12 +1955,13 @@
           <xs:documentation>KA Produkt</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="KA_Infotext" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Infotext" type="xs:string" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Freitextfeld zur Übermittlung zusätzlicher kunden- oder kontrollrelevanter Informationen im VDVKA-Kontext.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="KA_Fahrgasttyp" type="husstDV:KA_Kundentyp_CODE_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>KA Fahrgasttyp</xs:documentation>
@@ -1932,12 +1981,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Sorte.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -2055,18 +2105,20 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_Preis" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Preis" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Preises.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Sorte.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2075,18 +2127,20 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Preisstufe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Preisspalte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Preisspalte" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Preisspalte.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2178,48 +2232,55 @@
           <xs:documentation>KA Rabatttyp</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="KA_Mitnahme1Typ" type="husstDV:KA_Profil_CODE_Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="KA_Mitnahme1Typ" type="husstDV:KA_Profil_CODE_Type" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Identifizierer für die Mitnahmeart, z.B. Fahrrad, Kind, Hund.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="KA_Mitnahme1MinAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="KA_Mitnahme1MinAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Gibt die minimale Anzahl für die Mitnahme1 an.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="KA_Mitnahme1MaxAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="KA_Mitnahme1MaxAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Gibt die maximale Anzahl für die Mitnahme1 an.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="KA_Mitnahme2Typ" type="husstDV:KA_Profil_CODE_Type" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="KA_Mitnahme2Typ" type="husstDV:KA_Profil_CODE_Type" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Identifizierer für die Mitnahmeart, z.B. Fahrrad, Kind, Hund.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="KA_Mitnahme2MinAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="KA_Mitnahme2MinAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Gibt die minimale Anzahl für die Mitnahme2 an.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="KA_Mitnahme2MaxAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="KA_Mitnahme2MaxAnzahl" type="husstDV:INT1" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Gibt die maximale Anzahl für die Mitnahme2 an.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">      
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einem Preis.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -4888,12 +4949,13 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Tarifart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID der Tarifart.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -4901,24 +4963,27 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="0"/>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ReferenzExtern" type="xs:string" maxOccurs="1" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="ReferenzExtern" type="xs:string" maxOccurs="1" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können..
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:element>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Tarifart.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -5134,30 +5199,34 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID von einer Sortengruppe.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" minOccurs="1" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Sortengruppentyp" type="husstDV:ID_Sortengruppentyp_Type" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Sortengruppentyps.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Bediengebiet" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Bediengebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Sortorder von einer Sortengruppe.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5172,12 +5241,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Sortengruppe.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -5581,30 +5651,34 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID einer Strecke.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_StreckencodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_StreckencodeStart" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Streckencodes des Starts.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_StreckencodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_StreckencodeZiel" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Streckencodes des Ziels.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="Entfernung" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5612,21 +5686,22 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Sortorder der Strecke.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Via" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Nummer der Viatexte für diese Strecke. Verweis auf Vias.
           </xs:documentation>
+          <xs:appinfo>
+          	<api:since>3.5</api:since>
+          </xs:appinfo>
         </xs:annotation>
-        <xs:appinfo>
-          <api:since>3.5</api:since>
-        </xs:appinfo>
       </xs:element>
       <xs:element name="ID_Streckenart" type="husstDV:ID_Streckenart_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
@@ -5642,12 +5717,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einer Strecke.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -5670,24 +5746,27 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Streckencodes.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifpunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Tarifpunkts.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5723,24 +5802,27 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Ortspunkt" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Ortspunkts.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Tarifgebiets eines Ortspunkts.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Streckencode" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Streckencodes.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Streckencodetyp" type="husstDV:ID_Streckencodetyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -5776,24 +5858,27 @@
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
-      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      <xs:element name="ID_Strecke" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID einer Strecke, der eine Teilrelationen zugeordnet wird.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Teilrelation" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID einer Teilrelation, die der Strecke zugeordnet wird.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" maxOccurs="1" minOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID des Tarifgebiets.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -6224,31 +6309,35 @@
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="ID_SortengruppenElement" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_SortengruppenElement" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Eindeutige ID des Sortengruppenelements.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ID_Sortengruppe" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der Sortengruppe, zu der die Sorte zugeordnet ist.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="SortOrder" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           Sortorder des Sortengruppenelements.
         </xs:documentation>
       </xs:annotation>
-      <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
+      </xs:element>
+      <xs:element name="ID_Sorte" type="husstDV:INT4" minOccurs="1" maxOccurs="1">
       <xs:annotation>
         <xs:documentation>
           ID der Sorte, die zur Sortengruppe zugeordnet ist.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
       <xs:element name="ID_Preisstufe" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -6262,12 +6351,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
       <xs:annotation>
         <xs:documentation>
           Dynamische Attribute von einem Sortengruppenelement.
         </xs:documentation>
       </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 </xs:schema>
