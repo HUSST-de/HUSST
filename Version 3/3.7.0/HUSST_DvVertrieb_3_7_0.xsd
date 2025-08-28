@@ -67,7 +67,7 @@
 
   <xs:complexType name="Personal_Type">
     <xs:annotation>
-      <xs:documentation>Personalstammdaten</xs:documentation>
+      <xs:documentation>Dient zur Übergabe von Personaldaten und Zuordnung zu dem Unternehmen.</xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Personal"/>
@@ -88,7 +88,7 @@
       </xs:element>
       <xs:element name="ID_PasswortHashtyp" type="husstDV:ID_PasswortHashtyp_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
-          <xs:documentation>Definiert die Art des Passworthashes</xs:documentation>
+          <xs:documentation>Gibt den Hashtyp an mit dem das Passwort gehasht wurde.</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element name="Passwort" type="xs:string" minOccurs="0" maxOccurs="1">
@@ -101,8 +101,24 @@
       </xs:element>
       <xs:element name="Vorname" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Nachname" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="GueltigAb" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="GueltigBis" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="GueltigAb" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Da Personal zu jeder Zeit einem Unternehmen ein- und austreten kann, gibt es 
+            zusätzlich zum Zeitraum die Möglichkeit ein Einstiegsdatum anzugeben.
+            Dies dient dazu nicht für jeden Beschäftigungsbeginn einen Zeitraum anlegen zu müssen.
+          </xs:documentation>
+        </xs:annotation>        
+      </xs:element>
+      <xs:element name="GueltigBis" type="husstDV:DateTimeCompact" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Da Personal zu jeder Zeit einem Unternehmen ein- und austreten kann, gibt es 
+            zusätzlich zum Zeitraum die Möglichkeit ein Ausstiegsdatum anzugeben.
+            Dies dient dazu nicht für jeden Beschäftigungsende einen Zeitraum anlegen zu müssen.
+          </xs:documentation>
+        </xs:annotation>        
+      </xs:element>
       <xs:element name="ReferenzExtern" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
@@ -123,7 +139,10 @@
 
   <xs:complexType name="Personaleinsatz_Type">
     <xs:annotation>
-      <xs:documentation>Geräte- und Rollenzuordnung zu Personal</xs:documentation>
+      <xs:documentation>
+        Dient zur Festlegung, welche Geräte und Einsatztypen dem 
+        Persinal zugeordnet werden können.
+      </xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Personaleinsatz"/>
@@ -259,7 +278,7 @@
 
   <xs:complexType name="Geraet_Type">
     <xs:annotation>
-      <xs:documentation>Geräteverwaltung</xs:documentation>
+      <xs:documentation>Die Stammdaten zu einem Gerät mit Zuweisung zu einem Unternehmen.</xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Geraet"/>
@@ -294,7 +313,7 @@
 
   <xs:complexType name="GeraeteEinsatztypen_Type">
     <xs:annotation>
-      <xs:documentation>Zur Differenzierung der Datenverteilung</xs:documentation>
+      <xs:documentation>Einsatzart eines Gerätes, zur Differenzierung der Datenverteilung</xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_GeraeteEinsatztyp"/>
@@ -315,6 +334,11 @@
 
   <xs:complexType name="Geraetetypen_Type">
     <xs:annotation>
+      <xs:documentation>
+        Der Gerätetyp ist Teil des Primärschlüssels eines Gerätes. 
+        Er dient der Unterscheidung, um was für ein Gerät es sich handelt.
+        Zum Beispiel: Verkaufstablett, Kontrollgerät, ...
+      </xs:documentation>
       <xs:appinfo>
         <api:primekey>
           <api:field name="ID_Geraetetyp"/>
@@ -348,10 +372,7 @@
         </api:primekey>
         <api:schema name="Vertrieb" />
       </xs:appinfo>
-      <xs:documentation>Personaleinsatz Beschreibung
-- Verkäufer
-- Kontrolleur
-- Zugbegleiter</xs:documentation>
+      <xs:documentation>Die Beschreibung für einen Personaleinsatz. Zum Beispiel: Verkäufer, Kontrolleur, Zugbegleiter, ...</xs:documentation>
     </xs:annotation>
     <xs:sequence>
       <xs:element name="Deaktiviert" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
@@ -408,7 +429,7 @@
         </api:primekey>
         <api:schema name="Vertrieb"/>
       </xs:appinfo>
-      <xs:documentation>Definiert einen Hashtyp zum vergleichen von Passwörtern.
+      <xs:documentation>Definiert einen Hashtyp mit dem übergebene Passwörter gehasht wurden. Wird zum vergleichen von Passwörtern beötigt.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
