@@ -2125,9 +2125,10 @@
       <xs:element name="ID_Zeitraum" type="husstDV:INT4" maxOccurs="1" minOccurs="1"/>
       <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" maxOccurs="1" minOccurs="1"/>
       <xs:annotation>
-      <xs:documentation>
-        Eindeutige ID des Bundeslands.
-      </xs:documentation>
+	      <xs:documentation>
+	        Eindeutige ID des Bundeslands.
+	      </xs:documentation>
+      </xs:annotation>
       <xs:element name="Iso" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2166,11 +2167,13 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
-      <xs:annotation>
-      <xs:documentation>
-        Dynamische Attribute des Bundeslands.
-      </xs:documentation>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+	      <xs:annotation>
+		      <xs:documentation>
+		        Dynamische Attribute des Bundeslands.
+		      </xs:documentation>
+	      </xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 
