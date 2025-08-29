@@ -1470,6 +1470,9 @@
   </complexType>
 
   <complexType name="Zahlung_Type">
+    <annotation>
+      <documentation>Beinhaltet alle einzelnen Zahlungen.</documentation>
+    </annotation>
     <sequence>
       <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1" />
       <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1" />
@@ -1498,12 +1501,19 @@
   </complexType>
 
   <complexType name="Zahlungsliste_Type">
+    <annotation>
+      <documentation>Beinhaltet alle einzelnen Zahlungen.</documentation>
+    </annotation>
+    <sequence>
     <sequence>
       <element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="ZVTBezahlung_Type">
+    <annotation>
+      <documentation>Zahlungstyp für die Details Kartenzahlungen.</documentation>
+    </annotation>
     <sequence>
       <element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0" />
       <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1" />
@@ -1513,6 +1523,9 @@
   </complexType>
 
   <complexType name="WebShopBezahlung_Type">
+    <annotation>
+      <documentation>Zahlungstyp für die Details einer Onlinezahlungen.</documentation>
+    </annotation>
     <sequence>
       <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
