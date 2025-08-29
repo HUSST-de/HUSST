@@ -4680,7 +4680,14 @@
       <xs:element name="ID_GueltigkeitszeitRegel" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="GueltigkeitszeitRegelNr" type="husstDV:INT4" minOccurs="1" maxOccurs="1"/>
       <xs:element name="ID_Tarifgebiet" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Param" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Param" type="xs:string" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>
+            Hier werden die Regeln als kommagetrennte Liste hinterlegt. Das Format dafür ist 
+            Stickwort, Leerzeichen Wert. Zum Beispiel: 'Dauer H:2' für eine Dauer von zwei Stunden.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:element>        
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
