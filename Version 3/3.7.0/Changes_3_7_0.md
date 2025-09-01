@@ -12,6 +12,7 @@ Status: Vorschläge
 | `reference`    | `string` |ja| Verweis auf eine externe Referenz zu einem Strukturelement|
 | `example`    | `example_Type` |ja| Freitextbeispiel                      |
 | `fieldexample` | `fieldexample_Type` |ja| Strukturiertes Beispiel mit Feldwerten |
+| `nodocuneeded` | `nodocuneeded_Type` |ja| Element benötigt keine Dokumentation |
 
 ### Beispiele
 
@@ -105,3 +106,15 @@ Strukturiertes Beispiel mit Feldwerten
           Listet alle Nachbarhaltestellen zu einer Ausgangshaltestelle, die mit einem Kurzstreckenfahrschein erreicht werden können.
         </api:fieldexample>
 ```
+
+#### nodocuneeded
+Hinweis an die Dokumentationsgenerierung, dass für das Strukturelement keine eine Dokumentation benötigt wird.
+Zum Beispiel weil es schon im Rahmen der übergeordneten Struktur beschrieben wurde. 
+
+
+## HUSST_DvTarifAngebot_3_7_0
+nicht mehr referenzierte Typen entfernt
+
+* Vorverkauf_Type
+* Umschalttag_Type
+* Sammelbeleg_Type

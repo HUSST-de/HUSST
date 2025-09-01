@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
            xmlns:husstDV="http://husst.de/Versorgungsdaten/3_7_0"
-           xmlns:api="http://www.husst.de/Appinfo/3_7_0"
+           xmlns:api="http://husst.de/Appinfo/3_7_0"
            targetNamespace="http://husst.de/Versorgungsdaten/3_7_0"
            elementFormDefault="qualified" attributeFormDefault="unqualified">
   <xs:include schemaLocation="./HUSST_DvBasis_3_7_0.xsd"/>
@@ -25,9 +25,8 @@
 
   <xs:simpleType name="ZuordnungRelCodeGrp_Type">
     <xs:annotation>
-      <xs:documentation>teste diese Verwendung
-        s. Verwendung in den ZusatzSorten_Type
-        s. weiter Verwendungen
+      <xs:documentation>
+        Definiert die Verwendung der Relationscodegruppen-Verweise bei ZusatzSorten.
       </xs:documentation>
       <xs:appinfo>
         <api:schema name="Tarif"/>
@@ -36,17 +35,27 @@
     <xs:restriction base="husstDV:Char">
       <xs:enumeration value="S">
         <xs:annotation>
-          <xs:documentation>StartRelCode</xs:documentation>
+          <xs:documentation>
+          Die ID_RelationscodegruppeStart ist zu berücksichtigen.
+          Zum Beispiel für eine Gruppe von Relationscodes, für die ein besonderes Produkt wie ein City-Ticket angeboten wird, mit dem der Reisende zum Startort gelangen kann.
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Z">
         <xs:annotation>
-          <xs:documentation>ZielRelCode</xs:documentation>
+          <xs:documentation>          
+          Die ID_RelationscodegruppeZiel ist zu berücksichtigen.
+          Zum Beispiel für eine Gruppe von Relationscodes, für die ein besonderes Produkt wie der Eintritt zu einer Attraktion angeboten wird, wenn 
+          diese Relationscodes das Ziel einer Relation sind.
+          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="R">
         <xs:annotation>
-          <xs:documentation>StartZielRelCode</xs:documentation>
+          <xs:documentation>
+          Sowohl ID_RelationscodegruppeStart als auch -Ziel sind zu berücksichtigen.
+          Eine Zusatzsorte wird dann angeboten, wenn Start-Ziel-Relationscodes der Relation in der jeweils passenden Gruppe zu finden sind.   
+		  </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -54,7 +63,9 @@
 
   <xs:simpleType name="ZusSorteAnbindung_Type">
     <xs:annotation>
-      <xs:documentation>s. Verwendung in den ZusatzSorten_Type</xs:documentation>
+      <xs:documentation>
+      Definiert die Art der Anbindung einer Zusatzsorte an das Hauptprodukt.
+      </xs:documentation>
       <xs:appinfo>
         <api:schema name="Tarif"/>
       </xs:appinfo>
@@ -78,34 +89,6 @@
       <xs:enumeration value="U">
         <xs:annotation>
           <xs:documentation>Richtungsungebunden</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-
-  <xs:simpleType name="Sammelbeleg_Type">
-    <xs:annotation>
-      <xs:appinfo>
-        <api:schema name="Angebot"/>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="true">
-        <xs:annotation>
-          <xs:documentation>ein Fahrschein für n Personen</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="false">
-        <xs:annotation>
-          <xs:documentation>n Fahrscheine für n Personen</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="auswahl">
-        <xs:annotation>
-          <xs:documentation>
-            Bediener entscheidet, ob ein oder n Fahrscheine
-            gedruckt werden, bei n&gt;1 Personen
-          </xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -2017,8 +2000,10 @@
       <xs:element name="Zusatzsortentyp" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
-            (Bedeutung projektspezifisch.
-            MENT:1=Flächenanstoß, 2=Zusatzanstoß, 3=Streckenanstoß)
+            Bedeutung projektspezifisch.
+            
+            Beispiel: LTN (Landestarif Niedersachsen)
+            1=Flächenanstoss, 2=Zusatzanstoss, 3=Streckenanstoss
           </xs:documentation>
         </xs:annotation>
       </xs:element>
@@ -2995,12 +2980,12 @@
       </xs:enumeration>
       <xs:enumeration value="3">
         <xs:annotation>
-          <xs:documentation>Überzone / Wabentyp (faßt Tarifpunkte vom Typ 2 oder 1 zusammen)</xs:documentation>
+          <xs:documentation>Überzone / Wabentyp (fasst Tarifpunkte vom Typ 2 oder 1 zusammen)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="4">
         <xs:annotation>
-          <xs:documentation>Region (faßt Überzonen zu Regionen zusammen)</xs:documentation>
+          <xs:documentation>Region (fasst Überzonen zu Regionen zusammen)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="5">
@@ -3010,7 +2995,7 @@
       </xs:enumeration>
       <xs:enumeration value="6">
         <xs:annotation>
-          <xs:documentation>Ort (faßt Ortsteile zusammen)</xs:documentation>
+          <xs:documentation>Ort (fasst Ortsteile zusammen)</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>
@@ -4692,34 +4677,6 @@
     <xs:union memberTypes="husstDV:ID_VertriebswegeHUSST_Type husstDV:ID_ProjektspezifischBitfeld_Type"/>
   </xs:simpleType>
 
-  <xs:simpleType name="Vorverkauf_Type">
-    <xs:annotation>
-      <xs:documentation>
-        Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist.
-        Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.
-        todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
-      </xs:documentation>
-      <xs:appinfo>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType>
-
-  <xs:simpleType name="Umschalttag_Type">
-    <xs:annotation>
-      <xs:documentation>
-        Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist.
-        Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert.
-        todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
-      </xs:documentation>
-      <xs:appinfo>
-        <api:schema name="Tarif"/>
-      </xs:appinfo>
-    </xs:annotation>
-    <xs:restriction base="xs:string"/>
-  </xs:simpleType>
-
   <xs:complexType name="GueltigkeitszeitRegeln_Type">
     <xs:annotation>
       <xs:documentation>
@@ -6281,7 +6238,14 @@
       <xs:element ref="husstDV:Tarifpunktmengen"/>
       <xs:element ref="husstDV:Tarifrelevantepunkte"/>
       <xs:element ref="husstDV:Teilrelationen"/>
-      <xs:element ref="husstDV:Unternehmen"/>
+      <xs:element ref="husstDV:Unternehmen">
+      	<xs:annotation>
+      		<xs:documentation>
+      		im Tarif: deprecated
+      		Wird in künftigen Definitionen für DvTarifAngebot nicht mehr enthalten sein. 
+      		</xs:documentation>
+      	</xs:annotation>
+      </xs:element>
       <xs:element ref="husstDV:Updateinfo"/>
       <xs:element ref="husstDV:VersionInhalt"/>
       <xs:element ref="husstDV:VersionStruktur"/>
