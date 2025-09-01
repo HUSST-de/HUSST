@@ -1321,12 +1321,18 @@
   </complexType>
 
   <complexType name="Transaktionsliste_Type">
+    <annotation>
+      <documentation> Auflistung aller einzelner Transaktionen in einem Warenkorb. </documentation>
+    </annotation>
     <sequence>
       <element name="Transaktion" type="husst:Transaktion_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="Transaktionsort_Type">
+    <annotation>
+      <documentation> Zur Angabe an welchem Ort eine Transaktion erstellt wurde. </documentation>
+    </annotation>
     <sequence>
       <element name="Ortspunkt" type="husst:Ortspunkt_Type" maxOccurs="1" minOccurs="0" />
       <element name="Tarifpunkt" type="husst:Tarifpunkt_Type" maxOccurs="1" minOccurs="0" />
@@ -1353,6 +1359,9 @@
   </complexType>
 
   <complexType name="Ueberweisung_Type">
+    <annotation>
+      <documentation> Zur Angabe der Informationen für eine Bezahlung per Überweisung. </documentation>
+    </annotation>
     <sequence>
       <element name="BLZ-BIC" type="string" maxOccurs="1" minOccurs="1" />
       <element name="Konto-IBAN" type="string" maxOccurs="1" minOccurs="1" />
@@ -1395,6 +1404,11 @@
 
 
   <complexType name="Vertriebsstelle_Type">
+    <annotation>
+      <documentation>Der Datensatz zur Identifikation der Vertriebsstelle.
+        Wird im Dienst verwendet um den angemeldeten Verkäufer, das VErkaufsgerät oder ähnliches zu identifizieren.
+      </documentation>
+    </annotation>
     <sequence>
       <element name="Typ" maxOccurs="1" minOccurs="1" type="husst:OrtsTyp_Type">
         <annotation>
@@ -1419,6 +1433,11 @@
   </complexType>
 
   <complexType name="Warenkorb_Type">
+    <annotation>
+      <documentation>Trägt die Informationen zu einem einzelnen Verkaufsvorgang. 
+        Die einzelnen verkauften Produkte befinden sich in der Transaktionslist. 
+        Zahlungsvorgänge und zugehörigen Belege werden in den jeweiligen Listen geführt. </documentation>
+    </annotation>
     <sequence>
       <element name="ReferenzExtern" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
@@ -1451,10 +1470,25 @@
   </complexType>
 
   <complexType name="Zaehldaten_Type">
+    <annotation>
+      <documentation>Datensatz zur Aufnahme von Zählungen.</documentation>
+    </annotation>
     <sequence>
-      <element name="Einsteiger" type="husst:INT4" maxOccurs="1" minOccurs="0" />
-      <element name="Aussteiger" type="husst:INT4" maxOccurs="1" minOccurs="0" />
-      <element name="Fehler" type="husst:INT4" maxOccurs="1" minOccurs="0" />
+      <element name="Einsteiger" type="husst:INT4" maxOccurs="1" minOccurs="0" >
+          <annotation>
+            <documentation>Anzahl der zugestiegenen Personen. </documentation>
+          </annotation>
+        </element>
+      <element name="Aussteiger" type="husst:INT4" maxOccurs="1" minOccurs="0" >
+          <annotation>
+            <documentation>Anzahl der ausgestiegenen Personen. </documentation>
+          </annotation>
+        </element>
+      <element name="Fehler" type="husst:INT4" maxOccurs="1" minOccurs="0" >
+          <annotation>
+            <documentation> </documentation>
+          </annotation>
+        </element>
     </sequence>
     <attribute name="Kennung" type="int" use="required">
       <annotation>
@@ -1464,12 +1498,19 @@
   </complexType>
 
   <complexType name="Zaehldatenliste_Type">
+    <annotation>
+      <documentation>Die Liste aller aufgenommenen Zähldaten.</documentation>
+    </annotation>
     <sequence>
       <element name="Zaehldaten" type="husst:Zaehldaten_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="Zahlung_Type">
+    <annotation>
+      <documentation>Grundtyp einer Zahlung. Beinhaltet den Betrag und die Zahlart, 
+        mit genaueren Informarionen, je nach Zahlart.</documentation>
+    </annotation>
     <sequence>
       <element name="Betrag" type="husst:Betrag_Type" maxOccurs="1" minOccurs="1" />
       <element name="Zahlart" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="1" />
@@ -1498,21 +1539,46 @@
   </complexType>
 
   <complexType name="Zahlungsliste_Type">
+    <annotation>
+      <documentation>Beinhaltet alle einzelnen Zahlungen.</documentation>
+    </annotation>
+    <sequence>
     <sequence>
       <element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>
 
   <complexType name="ZVTBezahlung_Type">
+    <annotation>
+      <documentation>Zahlungstyp für die Details Kartenzahlungen.</documentation>
+    </annotation>
     <sequence>
       <element name="Kartenherausgeber" type="husst:BezahlArt_Type" maxOccurs="1" minOccurs="0" />
-      <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1" />
-      <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1" />
-      <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0" />
+      <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1" >
+        <annotation>
+          <documentation>Eindeutige Terminal-ID bei Verwendung eines gesonderten
+            Kartenzahlungsterminals.</documentation>
+        </annotation>
+      </element>
+      <element name="TransaktionsNr" type="string" maxOccurs="1" minOccurs="1" >
+        <annotation>
+          <documentation>Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der
+            durchgeführten Zahlungstransaktion.</documentation>
+        </annotation>
+      </element>
+      <element name="Zeitpunkt" type="dateTime" maxOccurs="1" minOccurs="0" >
+        <annotation>
+          <documentation>Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister
+            registriert wurde.</documentation>
+        </annotation>
+      </element>
     </sequence>
   </complexType>
 
   <complexType name="WebShopBezahlung_Type">
+    <annotation>
+      <documentation>Zahlungstyp für die Details einer Onlinezahlungen.</documentation>
+    </annotation>
     <sequence>
       <element name="TerminalId" type="string" maxOccurs="1" minOccurs="1">
         <annotation>
