@@ -3,7 +3,7 @@
 :Author:   Husst AG Technik
 
 :root: {asciidoctorconfigdir}
-
+:imagesdir: images
 
 :toc:       left
 :toc-title: Inhalt

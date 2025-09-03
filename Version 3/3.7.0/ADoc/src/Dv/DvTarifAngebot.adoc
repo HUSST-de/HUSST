@@ -13,410 +13,331 @@ Enthält die vollständige Tarif- und Angebotsdatenbank für den öffentlichen P
 |=======================
 | |Eigenschaft|Beschreibung
 | |DefFahrgasttypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefFahrgasttyp_Type,DefFahrgasttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefFahrgasttyp_TypehusstDV:DefFahrgasttyp_Type,DefFahrgasttyp>>
 | |DefKomfortklassen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefKomfortklasse_Type,DefKomfortklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefKomfortklasse_TypehusstDV:DefKomfortklasse_Type,DefKomfortklasse>>
 | |DefNachbarhaltestellenbeziehungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefNachbarhaltestellenbeziehung_Type,DefNachbarhaltestellenbeziehung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefNachbarhaltestellenbeziehung_TypehusstDV:DefNachbarhaltestellenbeziehung_Type,DefNachbarhaltestellenbeziehung>>
 | |DefPreisfindungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefPreisfindung_Type,DefPreisfindung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefPreisfindung_TypehusstDV:DefPreisfindung_Type,DefPreisfindung>>
 | |DefRabattklassen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefRabattklasse_Type,DefRabattklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefRabattklasse_TypehusstDV:DefRabattklasse_Type,DefRabattklasse>>
 | |DefReisetypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefReisetyp_Type,DefReisetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefReisetyp_TypehusstDV:DefReisetyp_Type,DefReisetyp>>
 | |DefSortenausgaberegelungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefSortenausgaberegelung_Type,DefSortenausgaberegelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefSortenausgaberegelung_TypehusstDV:DefSortenausgaberegelung_Type,DefSortenausgaberegelung>>
 | |DefSortendruckregelungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefSortendruckregelung_Type,DefSortendruckregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefSortendruckregelung_TypehusstDV:DefSortendruckregelung_Type,DefSortendruckregelung>>
 | |DefVertriebswege|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefVertriebswege_Type,DefVertriebswege>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefVertriebswege_TypehusstDV:DefVertriebswege_Type,DefVertriebswege>>
 | |DefZahlungsarten|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefZahlungsarten_Type,DefZahlungsarten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefZahlungsarten_TypehusstDV:DefZahlungsarten_Type,DefZahlungsarten>>
 | |Relationszuordnungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Relationszuordnungen_Type,Relationszuordnungen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Relationszuordnungen_TypehusstDV:Relationszuordnungen_Type,Relationszuordnungen>>
 | |DefStreckenart|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefStreckenart_Type,DefStreckenart>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefStreckenart_TypehusstDV:DefStreckenart_Type,DefStreckenart>>
 | |DefStreckencodetyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefStreckencodetyp_Type,DefStreckencodetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefStreckencodetyp_TypehusstDV:DefStreckencodetyp_Type,DefStreckencodetyp>>
 | |Bearbeitung|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Bearbeitung_Type,Bearbeitung>>
 | |Bediengebiete|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Bediengebiete_Type,Bediengebiete>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Bediengebiete_TypehusstDV:Bediengebiete_Type,Bediengebiete>>
 | |DefErmittlungseinheit|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefErmittlungseinheit_Type,DefErmittlungseinheit>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefErmittlungseinheit_TypehusstDV:DefErmittlungseinheit_Type,DefErmittlungseinheit>>
 | |DefBundeslaender|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefBundesland_Type,DefBundesland>>
 | |DefOTPTypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefOTPTyp_Type,DefOTPTyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefOTPTyp_TypehusstDV:DefOTPTyp_Type,DefOTPTyp>>
 | |DefOrtspunkttypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefOrtspunkttyp_Type,DefOrtspunkttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefOrtspunkttyp_TypehusstDV:DefOrtspunkttyp_Type,DefOrtspunkttyp>>
 | |DefPreisquellen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefPreisquelle_Type,DefPreisquelle>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefPreisquelle_TypehusstDV:DefPreisquelle_Type,DefPreisquelle>>
 | |DefPreisspaltentypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefPreisspaltentyp_Type,DefPreisspaltentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefPreisspaltentyp_TypehusstDV:DefPreisspaltentyp_Type,DefPreisspaltentyp>>
 | |DefRelationenberechnungsregelungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefRelationenberechnungsregelung_Type,DefRelationenberechnungsregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefRelationenberechnungsregelung_TypehusstDV:DefRelationenberechnungsregelung_Type,DefRelationenberechnungsregelung>>
 | |DefRelationendruckregelungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefRelationendruckregelung_Type,DefRelationendruckregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefRelationendruckregelung_TypehusstDV:DefRelationendruckregelung_Type,DefRelationendruckregelung>>
 | |DefRelationscodegruppentypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefRelationscodegruppentyp_Type,DefRelationscodegruppentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefRelationscodegruppentyp_TypehusstDV:DefRelationscodegruppentyp_Type,DefRelationscodegruppentyp>>
 | |DefSortengruppentypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefSortengruppentyp_Type,DefSortengruppentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefSortengruppentyp_TypehusstDV:DefSortengruppentyp_Type,DefSortengruppentyp>>
 | |DefSortentypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefSortentyp_Type,DefSortentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefSortentyp_TypehusstDV:DefSortentyp_Type,DefSortentyp>>
 | |DefTarifpunkttypen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefTarifpunkttyp_Type,DefTarifpunkttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefTarifpunkttyp_TypehusstDV:DefTarifpunkttyp_Type,DefTarifpunkttyp>>
 | |DefWaehrungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefWaehrung_Type,DefWaehrung>>
 | |DefZahlgrenzentyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<DefZahlgrenzentyp_Type,DefZahlgrenzentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DefZahlgrenzentyp_TypehusstDV:DefZahlgrenzentyp_Type,DefZahlgrenzentyp>>
 | |Feiertage|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Feiertage_Type,Feiertage>>
 | |Gleichstellung|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Gleichstellung_Type,Gleichstellung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Gleichstellung_TypehusstDV:Gleichstellung_Type,Gleichstellung>>
 | |GleichstellungTarifart|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<GleichstellungTarifart_Type,GleichstellungTarifart>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<GleichstellungTarifart_TypehusstDV:GleichstellungTarifart_Type,GleichstellungTarifart>>
 | |Gleichstellungstyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Gleichstellungstyp_Type,Gleichstellungstyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Gleichstellungstyp_TypehusstDV:Gleichstellungstyp_Type,Gleichstellungstyp>>
 | |GueltigkeitszeitRegeln|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<GueltigkeitszeitRegeln_Type,GueltigkeitszeitRegeln>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<GueltigkeitszeitRegeln_TypehusstDV:GueltigkeitszeitRegeln_Type,GueltigkeitszeitRegeln>>
 | |Interpretationen|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Interpretationen_Type,Interpretationen>>
 | |Kalender|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Kalender_Type,Kalender>>
 | |Linien|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Linien_Type,Linien>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Linien_TypehusstDV:Linien_Type,Linien>>
 | |Mwst|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Mwst_Type,Mwst>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Mwst_TypehusstDV:Mwst_Type,Mwst>>
 | |Nachbarhaltestellen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Nachbarhaltestellen_Type,Nachbarhaltestellen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Nachbarhaltestellen_TypehusstDV:Nachbarhaltestellen_Type,Nachbarhaltestellen>>
 | |OrtspunktStreckencode|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<OrtspunktStreckencode_Type,OrtspunktStreckencode>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<OrtspunktStreckencode_TypehusstDV:OrtspunktStreckencode_Type,OrtspunktStreckencode>>
 | |Ortspunkte|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Ortspunkte_Type,Ortspunkte>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Ortspunkte_TypehusstDV:Ortspunkte_Type,Ortspunkte>>
 | |OrtspunkteKA|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<OrtspunkteKA_Type,OrtspunkteKA>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<OrtspunkteKA_TypehusstDV:OrtspunkteKA_Type,OrtspunkteKA>>
 | |OrtspunkteTG|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<OrtspunkteTG_Type,OrtspunkteTG>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<OrtspunkteTG_TypehusstDV:OrtspunkteTG_Type,OrtspunkteTG>>
 | |Preise|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Preise_Type,Preise>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Preise_TypehusstDV:Preise_Type,Preise>>
 | |Preisspalten|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Preisspalten_Type,Preisspalten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Preisspalten_TypehusstDV:Preisspalten_Type,Preisspalten>>
 | |Preisstufen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Preisstufen_Type,Preisstufen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Preisstufen_TypehusstDV:Preisstufen_Type,Preisstufen>>
 | |PreisstufenErmittlungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<PreisstufenErmittlungen_Type,PreisstufenErmittlungen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<PreisstufenErmittlungen_TypehusstDV:PreisstufenErmittlungen_Type,PreisstufenErmittlungen>>
 | |Preisstufendirektwahl|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Preisstufendirektwahl_Type,Preisstufendirektwahl>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Preisstufendirektwahl_TypehusstDV:Preisstufendirektwahl_Type,Preisstufendirektwahl>>
 | |RaeumlicheGueltigkeit|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<RaeumlicheGueltigkeit_Type,RaeumlicheGueltigkeit>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<RaeumlicheGueltigkeit_TypehusstDV:RaeumlicheGueltigkeit_Type,RaeumlicheGueltigkeit>>
 | |Relationen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Relationen_Type,Relationen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Relationen_TypehusstDV:Relationen_Type,Relationen>>
 | |Relationscodegruppen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Relationscodegruppen_Type,Relationscodegruppen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Relationscodegruppen_TypehusstDV:Relationscodegruppen_Type,Relationscodegruppen>>
 | |Relationscodes|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Relationscodes_Type,Relationscodes>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Relationscodes_TypehusstDV:Relationscodes_Type,Relationscodes>>
 | |Sorten|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Sorten_Type,Sorten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Sorten_TypehusstDV:Sorten_Type,Sorten>>
 | |SortenTarifarten|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<SortenTarifarten_Type,SortenTarifarten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<SortenTarifarten_TypehusstDV:SortenTarifarten_Type,SortenTarifarten>>
 | |Sortengruppen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Sortengruppen_Type,Sortengruppen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Sortengruppen_TypehusstDV:Sortengruppen_Type,Sortengruppen>>
 | |SortengruppenElemente|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<SortengruppenElemente_Type,SortengruppenElemente>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<SortengruppenElemente_TypehusstDV:SortengruppenElemente_Type,SortengruppenElemente>>
 | |SortengruppenErmittlungen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<SortengruppenErmittlungen_TypehusstDV:SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
 | |Strecke|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Strecke_Type,Strecke>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Strecke_TypehusstDV:Strecke_Type,Strecke>>
 | |Streckencode|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Streckencode_Type,Streckencode>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Streckencode_TypehusstDV:Streckencode_Type,Streckencode>>
 | |Streckenzuordnung|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Streckenzuordnung_Type,Streckenzuordnung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Streckenzuordnung_TypehusstDV:Streckenzuordnung_Type,Streckenzuordnung>>
 | |TagesartMerkmalElemente|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<TagesartMerkmalElemente_Type,TagesartMerkmalElemente>>
 | |Tagesarten|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tagesarten_Type,Tagesarten>>
 | |TagesmerkmalElemente|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<TagesmerkmalElemente_Type,TagesmerkmalElemente>>
 | |Tagesmerkmale|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tagesmerkmale_Type,Tagesmerkmale>>
 | |Tarifarten|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Tarifarten_Type,Tarifarten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tarifarten_TypehusstDV:Tarifarten_Type,Tarifarten>>
 | |Tarifgebiete|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Tarifgebiete_Type,Tarifgebiete>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tarifgebiete_TypehusstDV:Tarifgebiete_Type,Tarifgebiete>>
 | |Tarifpunkte|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Tarifpunkte_Type,Tarifpunkte>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tarifpunkte_TypehusstDV:Tarifpunkte_Type,Tarifpunkte>>
 | |TarifpunktmengeElemente|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<TarifpunktmengeElemente_Type,TarifpunktmengeElemente>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<TarifpunktmengeElemente_TypehusstDV:TarifpunktmengeElemente_Type,TarifpunktmengeElemente>>
 | |Tarifpunktmengen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Tarifpunktmengen_Type,Tarifpunktmengen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tarifpunktmengen_TypehusstDV:Tarifpunktmengen_Type,Tarifpunktmengen>>
 | |Tarifrelevantepunkte|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Tarifrelevantepunkte_TypehusstDV:Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
 | |Teilrelationen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Teilrelationen_Type,Teilrelationen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Teilrelationen_TypehusstDV:Teilrelationen_Type,Teilrelationen>>
 | |Unternehmen|
-[red]#_todo: Doku_#
+
+im Tarif: deprecated Wird in künftigen Definitionen für DvTarifAngebot nicht mehr enthalten sein. 
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Unternehmen_Type,Unternehmen>>
 | |Updateinfo|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Updateinfo_Type,Updateinfo>>
 | |VersionInhalt|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<VersionInhalt_Type,VersionInhalt>>
 | |VersionStruktur|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<VersionStruktur_Type,VersionStruktur>>
 | |Vias|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Vias_Type,Vias>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Vias_TypehusstDV:Vias_Type,Vias>>
 | |Wege|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Wege_Type,Wege>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Wege_TypehusstDV:Wege_Type,Wege>>
 | |Wegpositionen|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Wegpositionen_Type,Wegpositionen>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Wegpositionen_TypehusstDV:Wegpositionen_Type,Wegpositionen>>
 | |Zeitraeume|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Zeitraeume_Type,Zeitraeume>>
 | |Zeitraumoptionen|
-[red]#_todo: Doku_#
 
 
-Datentyp: 
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Zeitraumoptionen_Type,Zeitraumoptionen>>
 | |Zusatzsorten|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Zusatzsorten_Type,Zusatzsorten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Zusatzsorten_TypehusstDV:Zusatzsorten_Type,Zusatzsorten>>
 |=======================
 
 
@@ -437,29 +358,29 @@ Bediengebiete erlauben die Defintion von Sichten auf Auswahlelemente (Tarifrelev
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Bediengebiet|
 Eindeutige ID des Bediengebiets.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Bezeichnung des Bediengebiets z.B. Automaten oder Kassen.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -471,39 +392,36 @@ Verwendet in:
 [[DefErmittlungseinheit_Type]]
 ==== DefErmittlungseinheit
 
-IMPORTANT: [red]#_todo: Doku_#
-
+IMPORTANT: _todo: Doku_
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ermittlungseinheit|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
 | |Bezeichnung|
 Bezeichnung der Ermittlungseinheit
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -522,33 +440,33 @@ Der Fahrgasttyp bezeichnet die tarifrelevante Kategorie eines Fahrgastes z.B. Ki
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Fahrgasttyp|
 Eindeutige ID des Fahrgasttyps.
 
-Datentyp: <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
 | |Bezeichnung|
 Bezeichnung des Fahrgasttyps.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -567,33 +485,33 @@ Definiert die Komfortklasse für deren Benutzung die Fahrscheinsorte berechtigt 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Komfortklasse|
 Eindeutige ID der Komfortklasse.
 
-Datentyp: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Komfortklasse_Type,ID_Komfortklasse>>
 | |Bezeichnung|
 Bezeichnung der Komfortklasse.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -612,25 +530,25 @@ Definiert die möglichen Verwendungszwecke von Nachbarhaltestellenbeziehungen in
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Nachbarhaltestellenbeziehung|
 
 Art der Nachbarbeziehung.
 
 
-Datentyp: <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Bezeichnung der Art der Nachbarbeziehung.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -649,28 +567,25 @@ Definiert die möglichen Verwendungszwecke tarifrelevanter Punkte (OTP – Orte 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_OTPTyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_OTPTyp_Type,ID_OTPTyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_OTPTyp_Type,ID_OTPTyp>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -689,28 +604,25 @@ Definiert die möglichen Typen von Ortspunkten innerhalb der Datenversorgung. Or
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ortspunkttyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -729,27 +641,27 @@ Definiert die Art der Preisfindung für eine Sorte. Z.B. Festpreis, Relationbezo
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisfindung|
 Eindeutige ID der Preisfindung.
 
-Datentyp: <<ID_Preisfindung_Type,ID_Preisfindung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Preisfindung_Type,ID_Preisfindung>>
 | |Bezeichnung|
 Bezeichnung der Preisfindung.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -768,35 +680,33 @@ Definiert mögliche Quellenangaben, die einer Teilrelation zugeordnet werden kö
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisquelle|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Preisquelle_Type,ID_Preisquelle>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Preisquelle_Type,ID_Preisquelle>>
 | |Bezeichnung|
 
 Bezeichnung der Preisquelle z.B. NE-Blatt-Nummer
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -815,41 +725,39 @@ Definiert den Verwendungszweck oder die Herkunft einer Preisspalte.
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisspaltentyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
 | |Kennung|
 
 Zur eindeutigen Identifikation des Preisspaltentyps.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
 
 Zur Anzeige des Preispalten-Typs.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Zur externen Synchronisation des Preisspaltentyps.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -868,33 +776,33 @@ Definiert die Rabattklasse, z.B. "BahnCard50 1.Kl.", auf die in Sorten verweisen
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Rabattklasse|
 Eindeutige ID der Rabattklassse.
 
-Datentyp: <<ID_Rabattklasse_Type,ID_Rabattklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Rabattklasse_Type,ID_Rabattklasse>>
 | |Bezeichnung|
 Bezeichnung der Rabattklasse.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -911,32 +819,31 @@ Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...), auf d
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Reisetyp|
 Eindeutige ID des Reisetyps
 
-Datentyp: <<ID_Reisetyp_Type,ID_Reisetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Reisetyp_Type,ID_Reisetyp>>
 | |Bezeichnung|
 Bezeichnung des Reisetyps
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -955,27 +862,27 @@ Die Berechnungsregelung bestimmt, wie die Teilrelationen zu einer Relation zu ve
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relationenberechnungsregelung|
 Eindeutige ID der Berechnungsregelung.
 
-Datentyp: <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
 | |Bezeichnung|
 Bezeichnung der Berechnungsregelung.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -994,28 +901,25 @@ Die Druckregelung bestimmt, wie die Werte der Teilrelationen zu drucken sind. Di
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relationendruckregelung|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1034,28 +938,25 @@ Definiert die möglichen Typen von Relationscodegruppen innerhalb der Datenverso
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relcodegruppentyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1074,27 +975,27 @@ Die Sortenausgaberegelung bestimmt in welcher Art diese Sorte ausgegeben werden 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortenausgaberegelung|
 Eindeutige ID der Sortenausgaberegelung.
 
-Datentyp: <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
 | |Bezeichnung|
 Bezeichnung des Sortenausgaberegelungs.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1113,27 +1014,27 @@ Die Sortendruckregelung definiert die Art, in der ein Fahrschein gedruckt wird. 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortendruckregelung|
 Eindeutige ID der Sortendruckregelung.
 
-Datentyp: <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
 | |Bezeichnung|
 Bezeichnung der Sortendruckregelung.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1152,27 +1053,27 @@ Definiert den Verwendungszweck eines Typs von Sortengruppen. Siehe auch ID_Sorte
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortengruppentyp|
 Eindeutige ID der Sortengruppentypen.
 
-Datentyp: <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
 | |Bezeichnung|
 Bezeichnung des Sortengruppentyps.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1191,33 +1092,33 @@ Die vordefinierten Sortentypen stellen eine grobe Klassizifzierung der Sorte dar
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortentyp|
 Eindeutige ID des Sortentyps.
 
-Datentyp: <<ID_Sortentyp_Type,ID_Sortentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortentyp_Type,ID_Sortentyp>>
 | |Bezeichnung|
 Bezeichnung des Sortentyps.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1236,33 +1137,33 @@ Definiert eine fachliche Kategorie für Tarifstrecken. Die Streckenart steuert, 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Streckenart|
 Eindeutige ID der Streckenart.
 
-Datentyp: <<ID_Streckenart_Type,ID_Streckenart>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Streckenart_Type,ID_Streckenart>>
 | |Bezeichnung|
 Bezeichnung der Streckenart.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1281,33 +1182,33 @@ Definiert den Typ eines Streckencodes. Er klassifiziert Betriebsstellen für die
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Streckencodetyp|
 Eindeutige ID des Streckencodetyps.
 
-Datentyp: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
 | |Bezeichnung|
 Bezeichnung des Streckencodetyps.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1325,35 +1226,33 @@ Definiert die Art eines Tarifpunktes (Tarifhaltestelle, Zone/Wabe/Ring, Überzon
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunkttyp|
 
 Die HUSST definiert Tarifpunkttypen kleiner 1000, siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type Werte über 1000 können Projekt spezifisch vergeben werden.
 
 
-Datentyp: <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1372,27 +1271,27 @@ Die Vertriebswege kommen bei verschiedenen Typen als Attribut vor. In erster Lin
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Vertriebswege|
 Eindeutige ID der Vertriebswege.
 
-Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |Bezeichnung|
 Bezeichnung der Vertriebswege.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1415,27 +1314,25 @@ Werte kleiner 1000 sind durch HUSST standardisiert; Werte ab 1000 stehen für pr
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Zahlgrenzentyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
 | |Bezeichnung|
 Bezeichnung der Zahlgrenze.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1454,27 +1351,27 @@ Zahlungsarten definieren ein Verfahren, mit dem eine Sorte bezahlt werden kann. 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Zahlungsarten|
 Eindeutige ID der Zahlungsarten.
 
-Datentyp: <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
 | |Bezeichnung|
 Bezeichnung der Zahlungsarten.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1493,51 +1390,51 @@ Definiert eine tarifliche Gleichstellung zwischen zwei Streckencodes innerhalb e
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Gleichstellung|
 Eindeutige ID der Gleichstellungsregel.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 Tarifgebiet, in dem die Gleichstellung gilt.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Streckencode|
 Streckencode, der ab „EntfernungAb“ dem ID_StreckencodeGleichstellung gleichgestellt wird.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_StreckencodeGleichstellung|
 Streckencode, zu dem gleichgestellt wird.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Gleichstellungstyp|
 Typ der Gleichstellung.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |EntfernungAb|
 Schwellwert der Gesamtentfernung, ab dem die Gleichstellung greift.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 Bezeichnung der Gleichstellung.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 Schlüssel des Tarifgebers für diese Gleichstellung.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1556,29 +1453,29 @@ Verknüpft einen Gleichstellungstyp mit einer Tarifart innerhalb eines Tarifgebi
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Gleichstellungstyp|
 Typ der Gleichstellung, auf den sich die Zuordnung bezieht.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifart|
 Tarifart, für die die Gleichstellung gilt.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 Tarifgebiet, innerhalb dessen die Zuordnung wirksam ist.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 Schlüssel des Tarifgebers für diese Gleichstellungstyp-Tarifart Zuordnung.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -1591,7 +1488,7 @@ Verwendet in:
 ==== Gleichstellungstyp
 
 
-Die Art der Gleichstellung. 
+Die Art der Gleichstellung.
 
 Definiert den Typen einer Gleichstellung. Bestimmt, wie Gleichstellungen innerhalb eines Tarifgebiets interpretiert werden.
 
@@ -1599,35 +1496,35 @@ Definiert den Typen einer Gleichstellung. Bestimmt, wie Gleichstellungen innerha
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Gleichstellungstyp|
 Eindeutige ID des Gleichstellungstyps.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 Tarifgebiet, in dem der Gleichstellungstyp gilt.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 Bezeichnung des Gleichstellungstyps.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 Schlüssel des Tarifgebers für diesen Gleichstellungstyp.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1646,38 +1543,35 @@ Definiert eine zeitliche Gültigkeit. Darin enthalten sein kann auch die Vorverk
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_GueltigkeitszeitRegel|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |GueltigkeitszeitRegelNr|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Tarifgebiet|
-[red]#_todo: Doku_#
+Referenz auf das Tarifgebiet, dem das Element zugeordnet ist.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Param|
-[red]#_todo: Doku_#
+
+Hier werden die Regeln als kommagetrennte Liste hinterlegt. Das Format dafür ist  Stickwort, Leerzeichen Wert. Zum Beispiel: 'Dauer H:2' für eine Dauer von zwei Stunden.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1695,53 +1589,49 @@ Abbildung von Linien mit Zuordnung zum Fahrtverlauf. Dabei kann für die Hin- un
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Linie|
 Liniennummer
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Weg_Hin|
 Linienhauptweg
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Weg_Rueck|
 
 Linienhauptweg Rückrichtung
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Konzessionaer|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Bediengebiet|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1758,42 +1648,41 @@ Definition aller Mehrwertsteuersätze zur jeweiligen Referenzierung in Preisstuf
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Mwst|
 Eindeutige ID des Mehrwertsteuersatzes.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |MwstSatz|
 Prozentzahl des Mehrwertsteuersatzes.
 
-Datentyp: <<FLOAT1,FLOAT1>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<FLOAT1,FLOAT1>>
 | |Bezeichnung|
 Info zum MwSt.-Satz; bspw. ermäßigter Steuersatz etc.
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Mehrwertsteuerdatensätze über eine nicht numerische Referenz identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |KA_Mwst|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
 
 Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften. Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1812,73 +1701,67 @@ In der Verkaufslogik werden solche Nachbarhaltestellen bei der Anzeige von Vias 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Nachbarhaltestelle|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Bediengebiet|
 Bediengebiet, in dessen Kontext die Nachbarbeziehung definiert ist .
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Nachbarhaltestellenbeziehung|
 Art der Nachbarbeziehung.
 
-Datentyp: <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Nachbarhaltestellenbeziehung_Type,ID_Nachbarhaltestellenbeziehung>>
 |★ |ID_OrtspunktVon|
 ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (kleinere ID des Paares, bei Halbmatrix).
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_OrtspunktNach|
 ID_Ortspunkt, für die eine Nachbarbeziehung definiert wird (größere ID des Paares, bei Halbmatrix)
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |SortOrder|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Via|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Tarifart|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Tarifgebiet|
 Tarifgebiet, für das eine Nachbarhaltestelle definiert wird.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Preisstufe|
 Zuordnung Preisstufe
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Zahlgrenzen|
 Gibt den Wert an vom Typ des Zahlgrenzentyps.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Zahlgrenzentyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Zahlgrenzentyp_Type,ID_Zahlgrenzentyp>>
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -1897,43 +1780,43 @@ Ordnet einen Ortspunkt einem Streckencode in einem Tarifgebiet zu.
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
 Eindeutige ID des Ortspunkts.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 Eindeutige ID des Tarifgebiets eines Ortspunkts.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Streckencode|
 
 Eindeutige ID des Streckencodes.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Streckencodetyp|
 
 Typ dieses Streckencodes (dieses Haltepunktes).
 
 
-Datentyp: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
 | |ReferenzExtern|
 
 Schlüssel des Tarifgebers für diese Ortspunkt-Streckencode Zuordnung.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -1952,103 +1835,97 @@ Ortspunkte sind Haltestellen, die Tarifgebiet übergreifend definiert sind. Sie 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
 Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ortspunkttyp|
 
 Die Ortspunkte können in verschiedene Typen eingeteilt werden z.B. Haltestellen, Betriebshof etc.
 
 
-Datentyp: <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Ortspunkttyp_Type,ID_Ortspunkttyp>>
 |★ |Ortsnummer|
 
 Nummer der Haltestelle. Ggf. abhängig vom Ortspunkttyp und Bediengebiet.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Relcode|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |IBISnr|
 
 Technische Nummer der Haltestelle, z.B. eines IBIS-Systems Diese Nummer ist in der Regel Projekt spezifisch.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Bundesland|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Bundesland_Type,ID_Bundesland>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Bundesland_Type,ID_Bundesland>>
 | |Gemeindekennziffer|
 [red]#_todo: Doku_#
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
 
 Bezeichnung des Ortspunktes (z.B. für die Anzeige)
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungKurz|
 
 Kurzbezeichnung des Ortspunktes (z.B. für zusammengesetzte Via-Information, wenn das Attribut leer ist, wird Bezeichnung verwendet)
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungDruck|
 
 Bezeichnung des Ortspunktes für den Ausdruck (wenn das Attribut leer ist, wird Bezeichnung verwendet)
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Tarifgeber spezifisce Nr., bspw. für den Aufdruck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Bediengebiet|
 
 Bestimmt das Bediengebiet, das einzustellen ist, wenn dieser Ortspunkt als Standort ermittelt wird.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_OrtspunktReferenz|
 
 Referenziert einen übergeordneten Ortspunkt
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |XKoordWgs84|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<KoordWgs84_Type,KoordWgs84>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KoordWgs84_Type,KoordWgs84>>
 | |YKoordWgs84|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<KoordWgs84_Type,KoordWgs84>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KoordWgs84_Type,KoordWgs84>>
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2067,49 +1944,47 @@ Ergänzenender Datensatz für KA-Attribute der Ortspunkte. Diese Tabelle ist opt
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_OrtspunktKA|
 
 Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
 Referenz zum Ortspunkt, den der OrtspunktKA um VDV KA Eigenschaften ergänzt.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |KA_OrtOrgID|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |KA_OrtTyp|
 KA Ortstyp
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |KA_OrtNummer|
 KA Ortnummer
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2128,59 +2003,57 @@ Tarifgebiet spezifische-Attribute der Ortspunkte, die von dem referenzierenden O
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_OrtspunktTG|
 
 Eindeutige Datensatz-ID innerhalb der ID_Zeitraum
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ortspunkt|
 
 Referenz zum Ortspunkt, den der OrtspunktTG tarifgebietspezifisch ergänzt oder überschreibt.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-[red]#_todo: Doku_#
+Referenz auf das Tarifgebiet, dem das Element zugeordnet ist.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Ortsbezeichnung
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungKurz|
 
 Kurzbezeichnung des Orts
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungDruck|
 
 Bezeichnung des Orts für den Ausdruck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Tarifgeberspez. Nr., bspw. für Aufdruck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2197,73 +2070,73 @@ Preise aller Sorten, abhängig von Zeitraum und Tarifgebiet, ggf. auch von Preis
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preis|
 
 Eindeutige ID des Preises.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sorte|
 
 Eindeutige ID der Sorte.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 Die ID_Tarifgebiet bleibt als retundante Information erhalten. Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisstufe|
 
 Eindeutige ID der Preisstufe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisspalte|
 
 Eindeutige ID der Preisspalte.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 bisher: TarifgeberProduktNr Schlüssel des Tarifgebers
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Preis|
 
 Preis in kleinster Währungseinheit (z.b. Cent)
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |PreisstufenbezeichnungKurz|
 
 optional: abweichende Preisstufenkurzbezeichnung für Anzeige und Druck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Preisstufenbezeichnung|
 
 optional: abweichende Preisstufenbezeichnung für Anzeige und Druck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Mwst|
 
 optional: abweichende Mehrwertsteuerkennung
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_PreisstufeReferenz|
 
 optional Referenz auf die tatsächlich zu verwendende Preisstufe für Druck Anzeige Registrierung Gültigkeitsberechnung
@@ -2271,75 +2144,75 @@ optional Referenz auf die tatsächlich zu verwendende Preisstufe für Druck Anze
 Verwendung: Wenn eine Tarifverbindung eine ID_Preisstufe x liefert, und die Tarifbestimmungen definieren, dass für dieses Sorte statt der ID_Preisstufe x ein Fahrschein mit der Preisstufe y verkauft werden soll, wird in ID_PreisstufeReferenz ein Verweis auf Preisstufe y eingetragen.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_GueltigkeitszeitRegel|
 
 Definiert die zeitliche Gültigkeit des Produktes.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_RaeumlicheGueltigkeit|
 
 Verweis auf eine Definition für die räumliche Gültigkeit.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |KA_ProdOrgID|
 
 KA Produkt Organisationsnummer
 
 
-Datentyp: <<INT2,INT2>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT2,INT2>>
 | |KA_ProdNr|
 KA Produkt
 
-Datentyp: <<INT2,INT2>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT2,INT2>>
 | |KA_Rabatttyp|
 KA Rabatttyp
 
-Datentyp: <<KA_RabattParameter_CODE_Type,KA_RabattParameter_CODE>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KA_RabattParameter_CODE_Type,KA_RabattParameter_CODE>>
 | |KA_Mitnahme1Typ|
 
 Identifizierer für die Mitnahmeart, z.B. Fahrrad, Kind, Hund.
 
 
-Datentyp: <<KA_Profil_CODE_Type,KA_Profil_CODE>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KA_Profil_CODE_Type,KA_Profil_CODE>>
 | |KA_Mitnahme1MinAnzahl|
 
 Gibt die minimale Anzahl für die Mitnahme1 an.
 
 
-Datentyp: <<INT1,INT1>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT1,INT1>>
 | |KA_Mitnahme1MaxAnzahl|
 
 Gibt die maximale Anzahl für die Mitnahme1 an.
 
 
-Datentyp: <<INT1,INT1>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT1,INT1>>
 | |KA_Mitnahme2Typ|
 
 Identifizierer für die Mitnahmeart, z.B. Fahrrad, Kind, Hund.
 
 
-Datentyp: <<KA_Profil_CODE_Type,KA_Profil_CODE>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KA_Profil_CODE_Type,KA_Profil_CODE>>
 | |KA_Mitnahme2MinAnzahl|
 
 Gibt die minimale Anzahl für die Mitnahme2 an.
 
 
-Datentyp: <<INT1,INT1>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT1,INT1>>
 | |KA_Mitnahme2MaxAnzahl|
 
 Gibt die maximale Anzahl für die Mitnahme2 an.
 
 
-Datentyp: <<INT1,INT1>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT1,INT1>>
 | |DynAttribut|
 
 Dynamische Attribute von einem Preis.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2358,65 +2231,65 @@ Die Preisspalte definiert die Währung der zugeordneten Preise und ermöglicht P
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisspalte|
 
 Eindeutige ID der Preisspalte.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Waehrung|
 
 ISO-Kennung (dezimal) der Währung - außer EUR=999
 
 
-Datentyp: <<ID_Waehrung_Type,ID_Waehrung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Waehrung_Type,ID_Waehrung>>
 | |ID_Tarifgebiet|
 
 ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Preisspaltentyp|
 
 Definiert den Verwendungszweck oder die Herkunft einer Preisspalte. HUSST Standard=1
 
 
-Datentyp: <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Preisspaltentyp_Type,ID_Preisspaltentyp>>
 | |Bezeichnung|
 
 Spaltenüberschrift
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungKurz|
 
 Kurzbezeichnung der Preisspalte.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Hinweis|
 Info zur Preisspalte
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute von einer Preisspalte.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2433,85 +2306,85 @@ Definition der Preisstufen pro Tarifgebiet und Zeitraum
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisstufe|
 
 Eindeutige ID von einer Preisstufe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 ID vom Tarifgebiet.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Preisstufennummer|
 
 Eine Preisstufennummer.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungKurz|
 
 Kurzbezeichnung der Preisstufe.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
 
 Name der Preisstufe.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |WegstreckeInMetern|
 
 durschnittliche Wegstrecke in Meter für PKM (Personen-Kilometer) Berechnung
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Mwst|
 
 Nummer des Mehrwertsteuersatzes
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |UpgradeStopp|
 
 Ein Preisupgrade kann bis zu einschließlich dieser Preisstufe erfolgen. Es können mehrere Stopps eingebaut sein.
 
 
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 | |SortOrder|
 
 Die SortOrder einer Preisstufe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |KA_Preisstufe|
 
 KA_Preisstufe kennzeichnet die Preisstufe im VDVKA-Kontext, zur Bestimmung räumlicher und preislicher Gültigkeit.
 
 
-Datentyp: <<INT1,INT1>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT1,INT1>>
 | |DynAttribut|
 
 Dynamische Attribute von einer Preisstufe.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2536,57 +2409,60 @@ Hinweis:
 
 * Die Regel kann optional eine Beschreibung enthalten, die nicht für Vertriebsgeräte bestimmt ist.
 
+
+====
+Einheit: Minuten, Von: 0, Bis: 90, Schritt: 5, Preisstufe: 1 → Bei 32 Minuten: 7 Schritte → 7 × Preis von Preisstufe 1 Einheit: Minuten, Von: 90, Bis: 180, Schritt: 10, Preisstufe: 2 → Bei 117 Minuten: 3 Schritte → 3 × Preis von Preisstufe 2 Einheit: Kilometer, Von: 0, Bis: 100, Schritt: 100, Preisstufe: 3 → Bei 5 km: 1 Schritt → 1 × Preis von Preisstufe 3
+
+====
+
+
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_PreisstufenErmittlung|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisstufe|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Ermittlungseinheit|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Ermittlungseinheit_Type,ID_Ermittlungseinheit>>
 |★ |Von|
 Incl.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bis|
 Excl.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Schritt|
 
 Schritt darf nicht größer als Bis - Von sein. Schritt muss ein Teiler von Bis - Von sein => (Bis - Von) Modulo Schritt = 0.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2605,69 +2481,67 @@ Dient der direkten Auswahl einer Preisstufe ohne Relationsermittlung. Ermöglich
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Preisstufendirektwahl|
 
 Datensatz-Schlüssel - eindeutig innheralb der ID_Zeitraum
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Direktwahlschluessel|
 
 Schlüsselwert, über den die Pst-Direktwahl gefunden wird. Projektspezifisch definiert.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |★ |ID_Tarifart|
 
 Tarifart (0=Allgemein, 1=Bartarif, 2=Zeittarif)
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisstufe|
 Zuordnung Preisstufe
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Text zur Anzeige der Preisstufendirektwahl
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungDruck|
 
 Drucktext
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Relation|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Vertriebswege|
 
 Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
 
 
-Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2686,49 +2560,49 @@ Definition der räumlichen Gültigkeit
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_RaeumlicheGueltigkeit|
 
 Eindeutige Datensatz-ID innerhalb eines Zeitraumes
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Tarifpunktmenge|
 
 Referenz auf eine Tarifpunktmenge.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |KA_GueltigkeitsraumOriginaer|
 
 Die originäre räumliche Gültigkeit auf einem KA Ticket. Wird als ganzes TLV abgebildet, beginnend mit dem TAG 'DC'
 
 
-Datentyp: <<blobString,blobString>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<blobString,blobString>>
 | |KA_GueltigkeitsraumAlternativ|
 
 Die alternative räumliche Gültigkeit auf einem KA Ticket. Wird als ganzes TLV abgebildet, beginnend mit dem TAG 'D9'
 
 
-Datentyp: <<blobString,blobString>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<blobString,blobString>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute von einer räumlichen Gültigkeit.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2747,67 +2621,67 @@ Relation auf Relationscode Ebene
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relation|
 
 Eindeutige ID einer Relation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_RelcodeStart|
 
 ID des Relcodes vom Startpunkt.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_RelcodeZiel|
 
 ID des Relocdes vom Zielpunkt.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |SortOrder|
 
 Variantenzählung - Bestimmt die Reihenfolge der Vias in der Auswahl
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |GegenrichtungLiegtVor|
 
 Gibt an, ob die Relation auch in Gegenrichtung vorliegt.
 
 
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 | |ID_Vertriebswege|
 
 Schränkt die Verwendung des Elements auf die angegebenen Vertriebswege ein.
 
 
-Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |ID_Via|
 
 Nummer der Viatexte für diese Verbindung. Verweis auf Vias.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Berechnungsregelung|
 
 Regelt die Verwendung konkurrierender Teilrelationen (gleiche ID_Tarifgebiet, ID_Tarifart) zur Preisberechnung und Registrierung.
 
 
-Datentyp: <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Relationenberechnungsregelung_Type,ID_Relationenberechnungsregelung>>
 | |ID_Druckregelung|
 
 Regelt die Verwendung konkurrierender Teilrelationen für den Ausdruck von Tickets.
 
 
-Datentyp: <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Relationendruckregelung_Type,ID_Relationendruckregelung>>
 | |ID_TarifartStrecke|
 
 Die ID_TarifartStrecke ermöglicht oder verhindert eine parallele Suche in den Streckentarifen.
@@ -2817,13 +2691,13 @@ Die ID_TarifartStrecke ermöglicht oder verhindert eine parallele Suche in den S
 * das Vertriebsgerät darf nicht in der Streckenlogik suchen, wenn ID_TarifartStrecke leer bzw. nicht angegeben ist, unabhängig davon, ob die Relation mit Teilrelationen verknüpft ist, oder nicht.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
 
 Dynamische Attribute von einer Relation.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2840,38 +2714,33 @@ Fasst mehrere Relationscodes unter einer gemeinsamen Gruppennummer zusammen, z.�
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relcodegruppentyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Relcodegruppentyp_Type,ID_Relcodegruppentyp>>
 |★ |ID_Relcodegruppe|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Gruppennummer|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relcode|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2890,25 +2759,25 @@ Relationscodes fassen Tarifpunkte mehrerer Tarifgeber zusammen. Damit können ei
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relcode|
 
 Eindeutige ID des Relcodes.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
 
 Eindeutige ID des zugeordneten Tarifpunkts.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |=======================
   ★  Pflichtelemente
 
@@ -2927,43 +2796,43 @@ Verknüpft Relationen und Teilrelationen
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relationszuordung|
 
 Eindeutige ID der Relationszuordnung.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Relation|
 
 ID der verknüpften Relation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Teilrelation|
 
 ID der verknüpften Teilrelation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |SortOrder|
 
 Sortorder der Relationszuordnung.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
 
 Dynamische Attribute von einer Relationszuordnung.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -2982,175 +2851,175 @@ Artikel/Produkte/Fahrscheintypen
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sorte|
 
 Nummer der Sorte, eindeutig über alle Tarifgebiete und Tarifversionen
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortentyp|
 
 Typ der Sorte
 
 
-Datentyp: <<ID_Sortentyp_Type,ID_Sortentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortentyp_Type,ID_Sortentyp>>
 | |ReferenzExtern|
 
 Schlüssel des Tarifgebers für diese Sorte
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungKurz|
 
 Verwendung: Identifikation / optional Druck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
 
 Verwendung: Identifikation / optional Druck
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Ausgaberegelung|
 
 Hinweis zur Ausgabe der Sorte (Papierfahrschein / Elektronischer Fahrausweis etc.)
 
 
-Datentyp: <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortenausgaberegelung_Type,ID_Sortenausgaberegelung>>
 | |ID_Druckregelung|
 
 Steuert die Fahrscheinausgabe auf verschiedene Medien.
 
 
-Datentyp: <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortendruckregelung_Type,ID_Sortendruckregelung>>
 | |Layout|
 
 Layoutdefinition für den Ausdruck des Produktes
 
 
-Datentyp: <<blobString,blobString>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<blobString,blobString>>
 | |ID_Vertriebswege|
 
 Schränkt die Verwendung der Sorte auf die angegebenen Vertriebswege ein.
 
 
-Datentyp: <<ID_Vertriebswege_Type,ID_Vertriebswege>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Vertriebswege_Type,ID_Vertriebswege>>
 | |ID_Mwst|
 
 Nummer des Mehrwertsteuersatzes.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Zahlungsarten|
 
 Schränkt die Verwendung der Sorte auf die angegebenen Zahlungsarten ein.
 
 
-Datentyp: <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Zahlungsarten_Type,ID_Zahlungsarten>>
 | |ID_Komfortklasse|
 
 Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).
 
 
-Datentyp: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Komfortklasse_Type,ID_Komfortklasse>>
 | |ID_Rabattklasse|
 
 Hinweis zur Rabattklasse (BC25/BC50 ect.).
 
 
-Datentyp: <<ID_Rabattklasse_Type,ID_Rabattklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Rabattklasse_Type,ID_Rabattklasse>>
 | |ID_Fahrgasttyp|
 
 Hinweis zum Fahrgasttyp (Erwachsener/Kind etc.).
 
 
-Datentyp: <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Fahrgasttyp_Type,ID_Fahrgasttyp>>
 | |Mindestpersonenanzahl|
 
 Ab wievielen Personen darf der Fahrschein verkauft werden
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Hoechstpersonenanzahl|
 
 Bis zu wievielen Personen darf der Fahrschein maximal verkauft werden
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_GueltigkeitszeitRegel|
 
 Definiert die zeitliche Gültigkeit des Produktes.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Preisfindung|
 
 Hinweis zur Preisfindung.
 
 
-Datentyp: <<ID_Preisfindung_Type,ID_Preisfindung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Preisfindung_Type,ID_Preisfindung>>
 | |ID_Reisetyp|
 Beschreibt den Typ der Reise (normale Fahrt, HinUndRück, Rundreise, ...)
 
-Datentyp: <<ID_Reisetyp_Type,ID_Reisetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Reisetyp_Type,ID_Reisetyp>>
 | |BezeichnungDruck|
 
 Drucktext Verwendung ist abhängig von der Layoutdefinition
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |KA_ProdOrgID|
 
 KA Produkt Organisationsnummer
 
 
-Datentyp: <<INT2,INT2>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT2,INT2>>
 | |KA_ProdNr|
 KA Produkt
 
-Datentyp: <<INT2,INT2>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT2,INT2>>
 | |KA_Infotext|
 
 Freitextfeld zur Übermittlung zusätzlicher kunden- oder kontrollrelevanter Informationen im VDVKA-Kontext.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |KA_Fahrgasttyp|
 KA Fahrgasttyp
 
-Datentyp: <<KA_Kundentyp_CODE_Type,KA_Kundentyp_CODE>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KA_Kundentyp_CODE_Type,KA_Kundentyp_CODE>>
 | |KA_Verkehrsmittel|
 
 KA Verkehrsmittel
 
 
-Datentyp: <<KA_TransportmittelKategorie_CODE_Type,KA_TransportmittelKategorie_CODE>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KA_TransportmittelKategorie_CODE_Type,KA_TransportmittelKategorie_CODE>>
 | |KA_Serviceklasse|
 
 KA Serviceklasse
 
 
-Datentyp: <<KA_ServiceKlasse_CODE_Type,KA_ServiceKlasse_CODE>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<KA_ServiceKlasse_CODE_Type,KA_ServiceKlasse_CODE>>
 | |DynAttribut|
 
 Dynamische Attribute von einer Sorte.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3169,25 +3038,25 @@ N:M Zuordnung - Sorte / Tarifart
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sorte|
 
 Nummer der Sorte, eindeutig über alle Tarifgebiete innerhalb des ID_Zeitraum bzw. des Haupt-ID_Zeitraum
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifart|
 
 Tarifart (siehe Hilfstabelle Tarifart)
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |=======================
   ★  Pflichtelemente
 
@@ -3206,55 +3075,55 @@ Sortengruppen können Sorten für unterschiedliche Anwendungsfälle gruppieren. 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortengruppe|
 
 Eindeutige ID von einer Sortengruppe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortengruppentyp|
 
 ID des Sortengruppentyps.
 
 
-Datentyp: <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Sortengruppentyp_Type,ID_Sortengruppentyp>>
 |★ |ID_Bediengebiet|
 
 ID des Bediengebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |SortOrder|
 
 Sortorder von einer Sortengruppe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Name der Sortengruppe.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Externer Schlüssel für die Sortengruppe.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute von einer Sortengruppe.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3271,49 +3140,49 @@ Sorten/Preisstufen Einträge einer Sortengruppe.
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_SortengruppenElement|
 
 Eindeutige ID des Sortengruppenelements.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortengruppe|
 
 ID der Sortengruppe, zu der die Sorte zugeordnet ist.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |SortOrder|
 
 Sortorder des Sortengruppenelements.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sorte|
 
 ID der Sorte, die zur Sortengruppe zugeordnet ist.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Preisstufe|
 
 ID_Preisstufe ist optional. Wenn die Preisstufe angegeben ist, wird der Produkt als Festpreis verkauft. Ansonsten muss die Preisstufe aufgrund weiterer Einschränkungen (z.b. Auswahl einer Relation) ermittelt bzw. festgelegt werden.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
 
 Dynamische Attribute von einem Sortengruppenelement.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3332,47 +3201,45 @@ Die SortengruppenErmittlungen definieren Regeln zur Stukturierung von Tarifen in
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_SortengruppenErmittlung|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sortengruppe|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Tarifpunktmenge|
 
 Wenn gesetzt, definiert die Tarifpunktmenge zusätzlich zur zeitlichen eine räumliche Einschränkung.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_TagesartVon|
 
 Wenn gesetzt, gilt diese Regel nur an den bestimmten Tagen. Die gesetzte Tagesart gilt für die Uhrzeit StartVon. Wenn nicht gesetzt gilt die Regel an allen Tagen.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |StartVon|
 
 Gibt eine Uhrzeit von dem an diese Zeitperiode gilt. Diese ist inklusiv zu betrachten. Wenn StartVon und StartBis irrelevant sind, kann hier 00:00 Uhr eingetragen werden.
 
 
-Datentyp: <<UhrzeitMinuten,UhrzeitMinuten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<UhrzeitMinuten,UhrzeitMinuten>>
 |★ |StartBis|
 
 Gibt eine Uhrzeit an der an diese Zeitperiode endet. Diese ist exklusiv zu betrachten. Wenn StartBis kleiner ist als StartVon, dann ist StartBis am darauffolgenden Tag von StartVon. Wenn StartVon und StartBis irrelevant sind, kann hier 24:00 Uhr eingetragen werden.
 
 
-Datentyp: <<UhrzeitMinuten,UhrzeitMinuten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<UhrzeitMinuten,UhrzeitMinuten>>
 |★ |DauerMax|
 
 DauerMax definiert die maximale Nutzungsdauer für die diese Zeitperiode gewählt werden kann. Diese Dauer bezieht sich auf die Gesamtnutzung, auch wenn diese sich durch mehrere Zeitperioden zieht. Diese Dauer ist inklusiv zu betrachten.
@@ -3390,7 +3257,7 @@ Bsp 1: Nutzung von 01.01. 15:00 Uhr bis 03.01. 06:00 Uhr, Nutzungsdauer 39h => I
 Bsp 2: Nutzung von 01.01. 15:00 Uhr bis 05.01. 06:00 Uhr, Nutzungsdauer 63h => ID_Sortengruppe 1 und 2 sind durch DauerMax ausgeschlossen -> ID_Sortengruppe 3 tritt in Kraft
 
 
-Datentyp: <<DauerMinuten,DauerMinuten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DauerMinuten,DauerMinuten>>
 | |Ueberhang|
 
 Der Überhang definiert eine Toleranz-Zeitspanne für die die Nutzung der Zeitperiode überschritten werden darf ohne in eine neue Zeitperiode zu kommen.
@@ -3406,24 +3273,23 @@ Bsp 1: Nutzung von 01.01. 05:00 Uhr bis 01.01. 08:00 Uhr => ID_Sortengruppe 2 tr
 Bsp 2: Nutzung von 01.01. 05:00 Uhr bis 01.01. 10:00 Uhr => ID_Sortengruppe 2 tritt bis 07:00 Uhr in Kraft, da die 2h überschritten wurden. Ab 07:00 Uhr gilt ID_Sortengruppe 1.
 
 
-Datentyp: <<DauerMinuten,DauerMinuten>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DauerMinuten,DauerMinuten>>
 | |SortOrder|
 
 Definiert aufsteigend die Reihenfolge, in der die Regeln ausgewertet werden. Es gelten immer die Regeln, die als Erstes die komplette Nutzungsperiode abdecken.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Kann eine textuelle Beschreibung dieser Regel beinhalten. Diese ist nicht zur Verwendung von Vertriebsendgeräten vorgesehen.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3442,73 +3308,73 @@ Strecke eines Streckentarifs.
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Strecke|
 
 Eindeutige ID einer Strecke.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_StreckencodeStart|
 
 ID des Streckencodes des Starts.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_StreckencodeZiel|
 
 ID des Streckencodes des Ziels.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Entfernung|
 
 Entfernungswert der Strecke zur Tarifberechnung.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |SortOrder|
 
 Sortorder der Strecke.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Via|
 
 Nummer der Viatexte für diese Strecke. Verweis auf Vias.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Streckenart|
 
 Definiert Verkaufbarkeitseinschränkungen dieser Strecke.
 
 
-Datentyp: <<ID_Streckenart_Type,ID_Streckenart>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Streckenart_Type,ID_Streckenart>>
 | |ReferenzExtern|
 
 Schlüssel des Tarifgebers für diese Strecke
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute von einer Strecke.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3527,43 +3393,43 @@ Analog zum Relationscode kombiniert ein ID_Streckencode zu einem oder mehreren I
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Streckencode|
 
 Eindeutige ID des Streckencodes.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
 
 Eindeutige ID des Tarifpunkts.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Streckencodetyp|
 
 Typ dieses Streckencodes (dieses Haltepunktes).
 
 
-Datentyp: <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Streckencodetyp_Type,ID_Streckencodetyp>>
 | |ReferenzExtern|
 
 Schlüssel des Tarifgebers für diesen Streckencode.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -3582,37 +3448,37 @@ Ordnet eine Strecke einer oder mehreren Teilrelationen zu.
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Strecke|
 
 ID einer Strecke, der eine Teilrelationen zugeordnet wird.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Teilrelation|
 
 ID einer Teilrelation, die der Strecke zugeordnet wird.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Schlüssel des Tarifgebers für diese Strecke-Teilrelations Zuordnung.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -3631,39 +3497,39 @@ Gruppierungs- (Sorten via SortenTarifarten) und Differenzierungsattribut (Teilre
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifart|
 
 Eindeutige ID der Tarifart.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Zum Beispiel: 0=Allgemein, 1=Bartarif, 2=Zeittarif
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_Tarifgebiet|
 
 ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können..
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute von einer Tarifart.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3682,55 +3548,55 @@ Tarifgebiet ist eine logische Einheit, die alle Tarifelemente eines Tarifgebers 
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
 
 Eindeutige ID des Tarifgebiets.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |BezeichnungKurz|
 
 Kurzbezeichnung des Tarifgebiets.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
 
 Name des Tarifgebiets.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Erstellungsdatum|
 
 Erstellungsdatum des Tarifgebiets.
 
 
-Datentyp: <<DateTimeCompact,DateTimeCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateTimeCompact,DateTimeCompact>>
 | |Version|
 
 Version des Tarifgebiets.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 DynAttribute des Tarifgebiets.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3752,56 +3618,51 @@ Tarifpunkte bilden Endpunkte in der Tarifmatrix eines Tarifgebietes: Teilrelatio
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifgebiet|
-[red]#_todo: Doku_#
+Referenz auf das Tarifgebiet, dem das Element zugeordnet ist.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Tarifpunkttyp|
 
 Die HUSST definiert Tarifpunkttypen kleiner 1000, siehe ID_Tarifpunkttyp_Type bzw. ID_TarifpunkttypHusst_Type Werte über 1000 können Projekt spezifisch vergeben werden.
 
 
-Datentyp: <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Tarifpunkttyp_Type,ID_Tarifpunkttyp>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungDruck|
 
 Zum Druck kann z.B. ein gekürzter Namen des Tarifpunktes definiert werden.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_TarifpunktReferenz|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Die eindeutige Referenz des Tarifpunktes innerhalb des Tarifgebietes. Dieser Wert wird vom Tarifgeber vorgegeben und ist für die Erlösmeldung relevant. Ggf. ist es auch eine zu druckende Tarifpunktnummer.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3820,33 +3681,29 @@ Eintrag in einer geordneten Menge von Tarifpunkten.
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_TarifpunktmengeElement|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunktmenge|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunkt|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |SortOrder|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |=======================
   ★  Pflichtelemente
 
@@ -3866,29 +3723,27 @@ RaeumlicheGueltigkeits-Elemente und SortengruppenErmittlungen können auf Tarifp
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifpunktmenge|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3907,76 +3762,67 @@ OTP - Orte und tarifrelevante Punkte. Unabhhänig von konkreten Haltestellen bie
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifrelevanterpunkt|
 
 Eindeutiger DS-Index innerhalb der ID_Zeitraum
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_OTPTyp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_OTPTyp_Type,ID_OTPTyp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_OTPTyp_Type,ID_OTPTyp>>
 |★ |ID_Bediengebiet|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |★ |SortOrder|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Relcode|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Bundesland|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Bundesland_Type,ID_Bundesland>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Bundesland_Type,ID_Bundesland>>
 | |ID_Ortspunkt|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Sortengruppe|
 
 Verweist auf eine Sortengruppe, die mit dieser Zielauswahl direkt verkauft wird (Festpreis, keine Relation)
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Standortwahl_ID_Bediengebiet|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_TarifrelevanterpunktReferenz|
 
 Über ID_TarifrelevanterpunktReferenz kann eine baumartige Auswahlstruktur definiert werden. Blätter und Knoten referenzieren über ID_TarifrelevanterpunktReferenz einen Elternknoten im selben Zeitraum. Die Bildung von Referenzbäumen ist optional. SortOrder definiert die Sortierung aller Kindknoten eines Elternknotens. Innerhalb der gleichen SortOrder werden die Knoten alphabetisch sortiert.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -3995,127 +3841,127 @@ Relation (und Teilrelation) auf Tarifpunkt Ebene
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Teilrelation|
 
 Eindeutige ID der Teilrelation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tarifart|
 
 ID der Tarifart.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_TarifpunktStart|
 
 ID des Starttarifpunkts der Teilrelation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |TarifpunktbezeichnungStart|
 
 Bezeichnung des Starttarifpunkts der Teilrelation.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |★ |ID_TarifpunktZiel|
 
 ID des Zieltarifpunkts der Teilrelation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |TarifpunktbezeichnungZiel|
 
 Bezeichnung des Zieltarifpunkts der Teilrelation.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |★ |ID_Tarifgebiet|
 
 Die ID_Tarifgebiet bleibt als retundante Information erhalten. Sie muss aber mit der ID_Tarifgebiet der Preisstufe übereinstimmen.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Preisstufe|
 
 ID der Preisstufe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Preisquelle|
 
 ID der Preisquelle.
 
 
-Datentyp: <<ID_Preisquelle_Type,ID_Preisquelle>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Preisquelle_Type,ID_Preisquelle>>
 | |ID_Komfortklasse|
 
 Hinweis zur Komfortklasse (1.Klasse/2.Klasse etc).
 
 
-Datentyp: <<ID_Komfortklasse_Type,ID_Komfortklasse>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Komfortklasse_Type,ID_Komfortklasse>>
 | |AlternativePreisGruppe|
 
 Eine alternative Preisgruppe.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |EinnahmeAufteilung|
 
 Bezeichnung der EinnameAufteilung.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ViabezeichnungDruck|
 
 alternativer Via-Drucktext, hat Vorrang vor dem Drucktext des Via-Datensatzes
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ViabezeichnungRueckDruck|
 
 alternativer Via-Drucktext für den umgekehrte Streckenverlauf, hat Vorrang vor dem Drucktext_Rueck des Via-Datensatzes. Wenn ViaDrucktext_Rueck leer ist, aber ViaDrucktext gefüllt, hat ViaDrucktext Vorrang vor Drucktext_Rueck bzw. Drucktext des Via-Datensatzes.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_RaeumlicheGueltigkeit|
 
 Verweis auf eine Definition für die räumliche Gültigkeit.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_RaeumlicheGueltigkeit_Rueck|
 
 Optionale Referenz auf eine Tarifpunktmenge für den Rückweg.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Linie|
 
 ID der Linie der Teilrelation.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Referenz der zugrunde liegenden Information zu einer Datenmenge des Tarifgebers.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute der Teilrelation.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -4134,49 +3980,49 @@ Gesamt Relationsinformation
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Via|
 
 Eindeutige ID von einem Via.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Text zur Auswahl der Variante, Teilstrecken mit '*' getrennt
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungDruck|
 
 Drucktext, Teilstrecken mit '*' getrennt
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungRueck|
 
 Text zur Auswahl der Variante in der Rückrichtung, Teilstrecken mit '*' getrennt
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |BezeichnungRueckDruck|
 
 Drucktext in der Rückrichtung, Teilstrecken mit '*' getrennt
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute von einem Via.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -4195,33 +4041,31 @@ Fahrtnummer, Kursnummer
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Weg|
 Eindeutige Nummer des Weges.
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -4240,55 +4084,49 @@ Ortsposition innerhalb der Fahrt
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Wegposition|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Weg|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |SortOrder|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Ortspunkt|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Bediengebiet|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Entfernung|
 
 Entfernung vom vorhergehenden Ortspunkt in Metern
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Fangbereich|
 
 optionaler Fangbereich der Wegposition in Metern für eine GPS Ortung - überschreibt eine entsprechende Angabe bei der Ortspunktdefinition
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -4305,86 +4143,83 @@ Zusatzsorten umfassen Anschluss- oder Anstoßprodukte, die abhängig von Relatio
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Zusatzsorte|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Sorte|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ZuordnungRelCodeGrp|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ZuordnungRelCodeGrp_Type,ZuordnungRelCodeGrp>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ZuordnungRelCodeGrp_Type,ZuordnungRelCodeGrp>>
 | |Anbindung|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ZusSorteAnbindung_Type,ZusSorteAnbindung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ZusSorteAnbindung_Type,ZusSorteAnbindung>>
 | |Zusatzsortentyp|
 
-(Bedeutung projektspezifisch. MENT:1=Flächenanstoß, 2=Zusatzanstoß, 3=Streckenanstoß)
+Bedeutung projektspezifisch.
+
+Beispiel: LTN (Landestarif Niedersachsen) 1=Flächenanstoss, 2=Zusatzanstoss, 3=Streckenanstoss
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_Preisstufe|
 
 Fremdschlüssel zur Produktbildung - wenn angegeben, wird diese Preisstufe fest zur Preisbestimmung verwendet. Die Angabe hat Vorrang vor ID_PreisstufenGrenze.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_PreisstufeGrenze|
 
 wenn nicht vorhanden (und ID_Preisstufe nicht vorhanden) - alle Preisstufen möglich sonst alle Preisstufen mit ID_Preisstufe kleiner gleich ID_PreisstufeGrenze
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Hinweistext|
 
 z.B. für Zusatzinfo auf Quittungsausdruck – nicht bei Direktverkauf!
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ID_SortengruppeHauptsorten|
 
 Verweis auf SortenGruppe mit erlaubten Hauptsorten
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_RelcodegruppeStart|
 
 Verweis auf RelCodeGruppe die erlaubte RelCode_Start der Hauptrelation gruppiert = Vorlauf
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ID_RelcodegruppeZiel|
 
 Verweis auf RelCodeGruppe die erlaubte RelCode_Ziel der Hauptrelation gruppiert = Nachlauf
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Direktverkauf|
 
 False="immer mit Hauptsorte", True="Direktverkauf ohne Hauptsorte, falls Verkaufsort in Gruppierung durch VerkaufsRelCode enthalten"
 
 
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -4402,9 +4237,7 @@ Verwendet in:
 
 ==== ID_Ermittlungseinheit
 
-Die HUSST definiert ID_Ermittlungseinheit kleiner 1000 
-
-Die ID_Ermittlungseinheit ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Ermittlungseinheit kleiner 1000
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4438,9 +4271,7 @@ Verwendet in:
 
 ==== ID_Fahrgasttyp
 
-Die HUSST definiert ID_Fahrgasttyp kleiner 1000 angelehnt an VDV-KA Kundentyp 
-
-Die ID_Fahrgasttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Fahrgasttyp kleiner 1000 angelehnt an VDV-KA Kundentyp
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4554,9 +4385,7 @@ Verwendet in:
 
 ==== ID_Komfortklasse
 
-Die HUSST definiert ID_Komfortklasse kleiner 1000 angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255) 
-
-Die ID_Komfortklasse ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Komfortklasse kleiner 1000 angelehnt an VDV-KA ServiceKlasse (reserviert: 0-255)
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4598,9 +4427,7 @@ Verwendet in:
 
 ==== ID_Nachbarhaltestellenbeziehung
 
-Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000 
-
-Die ID_Nachbarhaltestellenbeziehung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Nachbarhaltestellenbeziehung kleiner 1000
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4634,9 +4461,7 @@ Verwendet in:
 
 ==== ID_OTPTyp
 
-Die HUSST definiert OTPTypen kleiner 1000 
-
-Die ID_OTPTyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert OTPTypen kleiner 1000
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4684,9 +4509,6 @@ Verwendet in:
 
 ==== ID_Ortspunkttyp
 Die HUSST definiert Ortspunkttypen kleiner 1000
-
-Die ID_Ortspunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
-
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
@@ -4727,9 +4549,7 @@ Verwendet in:
 
 ==== ID_Preisfindung
 
-Die HUSST definiert ID_Preisfindung kleiner 1000 Bit 0=Festpreis Bit 1=Relationsbezogen (nicht mit Bit 0 kombinierbar) Bit 2=Preisstufenupgrade (nur mit Bit 1 kombinierbar) Bit 8=Freie Preiseingabe (mit allen kombinierbar) 
-
-Die ID_Preisfindung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Preisfindung kleiner 1000 Bit 0=Festpreis Bit 1=Relationsbezogen (nicht mit Bit 0 kombinierbar) Bit 2=Preisstufenupgrade (nur mit Bit 1 kombinierbar) Bit 8=Freie Preiseingabe (mit allen kombinierbar)
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4797,9 +4617,6 @@ Verwendet in:
 
 ==== ID_Preisspaltentyp
 Die HUSST definiert ID_Preisspaltentyp kleiner 1000
-
-Die ID_Preisspaltentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
-
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
@@ -4822,9 +4639,7 @@ Verwendet in:
 
 ==== ID_Rabattklasse
 
-Die HUSST definiert ID_Rabattklasse kleiner 1000 angelehnt an VDV-KA RabattParameter. 
-
-Die ID_Rabattklasse ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Rabattklasse kleiner 1000 angelehnt an VDV-KA RabattParameter.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4904,9 +4719,7 @@ Verwendet in:
 
 ==== ID_Reisetyp
 
-Die HUSST definiert ID_Reisetyp kleiner 1000 
-
-Die ID_Reisetyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Reisetyp kleiner 1000
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -4948,9 +4761,7 @@ Verwendet in:
 
 ==== ID_Relationenberechnungsregelung
 
-Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000. 
-
-Die ID_Relationenberechnungsregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Relationenberechnungsregelung kleiner 1000.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5000,9 +4811,7 @@ Verwendet in:
 
 ==== ID_Relationendruckregelung
 
-Die HUSST definiert ID_Relationendruckregelung kleiner 1000 
-
-Die ID_Relationendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Relationendruckregelung kleiner 1000
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5044,9 +4853,6 @@ Verwendet in:
 
 ==== ID_Relcodegruppentyp
 Die HUSST definiert ID_Relcodegruppentyp kleiner 1000
-
-Die ID_Relcodegruppentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
-
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
@@ -5077,9 +4883,7 @@ Verwendet in:
 
 Die HUSST definiert ID_Sortenausgaberegelung kleiner 1024. Die Werte ergeben sich aus allen 32 möglichen Bitkombinationen der ersten 5 Bit.
 
-Bit 0=Papierfahrschein. Bit 1=EFS (z.B. Chipkarte). Bit 2=Handy Ticket. Bit 3=Papierfahrschein mit Barcode. Bit 4=EFS und Papierfahrschein [mit Barcode]. 
-
-Die ID_Sortenausgaberegelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
+Bit 0=Papierfahrschein. Bit 1=EFS (z.B. Chipkarte). Bit 2=Handy Ticket. Bit 3=Papierfahrschein mit Barcode. Bit 4=EFS und Papierfahrschein [mit Barcode].
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5343,9 +5147,7 @@ Verwendet in:
 
 ==== ID_Sortendruckregelung
 
-Die HUSST definiert ID_Sortendruckregelung kleiner 1000. 
-
-Die ID_Sortendruckregelung ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Sortendruckregelung kleiner 1000.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5389,9 +5191,7 @@ Verwendet in:
 
 ==== ID_Sortengruppentyp
 
-Die HUSST definiert ID_Sortengruppentyp sind in verschiedene Bereicht geklustert: 1-10 Verkaufssortengruppe. 11-20 Zusatzsortengruppen. 21-30 Gruppenfahrschein. 31-40 SortengruppenErmittlung-Gruppen. 
-
-Die ID_Sortengruppentyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Sortengruppentyp sind in verschiedene Bereicht geklustert: 1-10 Verkaufssortengruppe. 11-20 Zusatzsortengruppen. 21-30 Gruppenfahrschein. 31-40 SortengruppenErmittlung-Gruppen.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5457,9 +5257,7 @@ Verwendet in:
 
 ==== ID_Sortentyp
 
-Die HUSST vordefinierten Sortentypen sind in verschiedene Bereiche geklustert: 1- 10 Bar. 11- 20 Zeit. 21- 30 Artikel. 31- 40 Einzahlungen. 41- 50 Leihgeld. 991-999 Spezial. 
-
-Die ID_Sortentyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST vordefinierten Sortentypen sind in verschiedene Bereiche geklustert: 1- 10 Bar. 11- 20 Zeit. 21- 30 Artikel. 31- 40 Einzahlungen. 41- 50 Leihgeld. 991-999 Spezial.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5603,9 +5401,7 @@ Verwendet in:
 
 ==== ID_Streckenart
 
-Die HUSST definiert ID_Streckenart kleiner 1000. 
-
-Die ID_Streckenart ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Streckenart kleiner 1000.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5659,9 +5455,7 @@ Verwendet in:
 
 ==== ID_Streckencodetyp
 
-Die HUSST definiert ID_Streckencodetyp kleiner 1000. 
-
-Die ID_Streckencodetyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST definiert ID_Streckencodetyp kleiner 1000.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5703,9 +5497,6 @@ Verwendet in:
 
 ==== ID_Tarifpunkttyp
 Die HUSST definiert Tarifpunkttypen kleiner 1000
-
-Die ID_Tarifpunkttyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
-
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
@@ -5722,13 +5513,13 @@ Zone / Wabe / Ring (unmittelbar einer Tarifhaltestelle zugeordnet)
 Verwendet in: ohne Verwendung
 
 |3|
-Überzone / Wabentyp (faßt Tarifpunkte vom Typ 2 oder 1 zusammen)
+Überzone / Wabentyp (fasst Tarifpunkte vom Typ 2 oder 1 zusammen)
 
 
 Verwendet in: ohne Verwendung
 
 |4|
-Region (faßt Überzonen zu Regionen zusammen)
+Region (fasst Überzonen zu Regionen zusammen)
 
 
 Verwendet in: ohne Verwendung
@@ -5740,7 +5531,7 @@ Ortsteil (in seiner Funktion als Tarifpunkt)
 Verwendet in: ohne Verwendung
 
 |6|
-Ort (faßt Ortsteile zusammen)
+Ort (fasst Ortsteile zusammen)
 
 
 Verwendet in: ohne Verwendung
@@ -5758,9 +5549,7 @@ Verwendet in:
 
 ==== ID_Vertriebswege
 
-Die HUSST definiert ID_Vertriebswege kleiner 1024. 
-
-Die ID_Vertriebswege ist entweder eine von HUSST vordefinierte Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024.
+Die HUSST definiert ID_Vertriebswege kleiner 1024.
 
 [options="header" cols="20%,80%"]
 |=======================
@@ -5783,7 +5572,6 @@ Verwendet in:
 [[ID_Zahlgrenzentyp_Type]]
 
 ==== ID_Zahlgrenzentyp
-Die ID_Zahlgrenzentyp ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. 
 Die HUSST definiert ID_Zahlgrenzentyp kleiner 1000
 [options="header" cols="20%,80%"]
 |=======================
@@ -5818,7 +5606,6 @@ Verwendet in:
 [[ID_Zahlungsarten_Type]]
 
 ==== ID_Zahlungsarten
-Die ID_Zahlungsarten ist entweder eine von HUSST vordefinierte Zahl kleiner 1024 oder eine im Projekt vereinbarte Zahl größer gleich 1024. 
 
 Die HUSST definiert ID_Zahlungsart kleiner 1024.
 
@@ -6359,64 +6146,36 @@ Verwendet in:
  <<Sorten_Type,Sorten>>
 
 
-[[Sammelbeleg_Type]]
-
-
-==== Sammelbeleg
-IMPORTANT: [red]#_todo: Doku_#
-
-[options="header" cols="20%,80%"]
-|=======================
-|Wert|Beschreibung
-|true|
-ein Fahrschein für n Personen
-
-
-Verwendet in: ohne Verwendung
-
-|false|
-n Fahrscheine für n Personen
-
-
-Verwendet in: ohne Verwendung
-
-|auswahl|
-
-Bediener entscheidet, ob ein oder n Fahrscheine gedruckt werden, bei n>1 Personen
-
-
-
-Verwendet in: ohne Verwendung
-
-|=======================
-
-
-Verwendet in: ohne Verwendung
-
-
 [[ZuordnungRelCodeGrp_Type]]
 
 
 ==== ZuordnungRelCodeGrp
-teste diese Verwendung {nbsp}s. Verwendung in den ZusatzSorten_Type {nbsp}s. weiter Verwendungen
+
+Definiert die Verwendung der Relationscodegruppen-Verweise bei ZusatzSorten.
 
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
 |S|
-StartRelCode
+
+Die ID_RelationscodegruppeStart ist zu berücksichtigen. Zum Beispiel für eine Gruppe von Relationscodes, für die ein besonderes Produkt wie ein City-Ticket angeboten wird, mit dem der Reisende zum Startort gelangen kann.
+
 
 
 Verwendet in: ohne Verwendung
 
 |Z|
-ZielRelCode
+
+Die ID_RelationscodegruppeZiel ist zu berücksichtigen. Zum Beispiel für eine Gruppe von Relationscodes, für die ein besonderes Produkt wie der Eintritt zu einer Attraktion angeboten wird, wenn  diese Relationscodes das Ziel einer Relation sind.
+
 
 
 Verwendet in: ohne Verwendung
 
 |R|
-StartZielRelCode
+
+Sowohl ID_RelationscodegruppeStart als auch -Ziel sind zu berücksichtigen. Eine Zusatzsorte wird dann angeboten, wenn Start-Ziel-Relationscodes der Relation in der jeweils passenden Gruppe zu finden sind.   
+
 
 
 Verwendet in: ohne Verwendung
@@ -6432,7 +6191,9 @@ Verwendet in:
 
 
 ==== ZusSorteAnbindung
-{nbsp}s. Verwendung in den ZusatzSorten_Type
+
+Definiert die Art der Anbindung einer Zusatzsorte an das Hauptprodukt.
+
 [options="header" cols="20%,80%"]
 |=======================
 |Wert|Beschreibung
@@ -6477,35 +6238,11 @@ Verwendet in:
 
 ==== ID_Preisquelle
 
-Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert. 
-
-Die ID_Preisquelle ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000. Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+Die HUSST reserviert ID_Preisquelle kleiner 1000, aktuell werden keine Standard-Preisquellen definiert.
 
 
 Verwendet in:
  <<DefPreisquelle_Type,DefPreisquelle>>, <<Teilrelationen_Type,Teilrelationen>>
-
-
-[[Umschalttag_Type]]
-
-
-==== Umschalttag
-
-Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist. Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert. todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
-
-
-Verwendet in: ohne Verwendung
-
-
-[[Vorverkauf_Type]]
-
-
-==== Vorverkauf
-
-Definiert den Zeitraum, in dem der Fahrschein im Voraus verkaufbar ist. Die Syntax der Formel wird in einer eigenen HUSST-Definition konkretisiert. todo: Olaf definiert, Horst formuliert reguläre Ausdrücke
-
-
-Verwendet in: ohne Verwendung
 
 
 

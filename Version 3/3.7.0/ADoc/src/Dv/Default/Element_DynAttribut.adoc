@@ -1,0 +1,5 @@
+Defaulttext:
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.

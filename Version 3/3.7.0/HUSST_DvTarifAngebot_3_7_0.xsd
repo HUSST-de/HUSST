@@ -2687,7 +2687,13 @@
       </xs:element>
       <xs:element name="XKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="YKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0">
+      	<xs:annotation>
+      		<xs:appinfo>
+      			<api:nodocuneeded/>
+      		</xs:appinfo>
+      	</xs:annotation>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
 

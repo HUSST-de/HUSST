@@ -1,30 +1,26 @@
 
-===  Elemente
+=== Basis Elemente
 
 
 [[Bearbeitung_Type]]
 ==== Bearbeitung
 
-IMPORTANT: [red]#_todo: Doku_#
-
+IMPORTANT: _todo: Doku_
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |Bearbeitungsdatum|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<DateTimeCompact,DateTimeCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateTimeCompact,DateTimeCompact>>
 |★ |Lieferant|
 [red]#_todo: Doku_#
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Kommentar|
 [red]#_todo: Doku_#
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -43,41 +39,41 @@ Definiert einen Gliedstaat (in Deutschland: Bundesland).
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Bundesland|
 
 Eindeutige ID des Bundeslands.
 
 
-Datentyp: <<ID_Bundesland_Type,ID_Bundesland>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Bundesland_Type,ID_Bundesland>>
 | |Iso|
 
 Für Deutschland: die letzten zwei Stellen des ISO 3166-2 Codes für Gliedstaaten. DE-BW Baden-Württemberg also: BW DE-BY Bayern also: BY DE-BE Berlin also: BE DE-BB Brandenburg also: BB DE-HB Bremen also: HB DE-HH Hamburg also: HH DE-HE Hessen also: HE DE-MV Mecklenburg-Vorpommern also: MV DE-NI Niedersachsen also: NI DE-NW Nordrhein-Westfalen also: NW DE-RP Rheinland-Pfalz also: RP DE-SL Saarland also: SL DE-SN Sachsen also: SN DE-ST Sachsen-Anhalt also: ST DE-SH Schleswig-Holstein also: SH DE-TH Thüringen also: TH
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
 Name des Bundeslandes
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute des Bundeslands.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -94,37 +90,37 @@ Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Waehrung|
 
 Eindeutige ID der Währung.
 
 
-Datentyp: <<ID_Waehrung_Type,ID_Waehrung>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Waehrung_Type,ID_Waehrung>>
 | |Bezeichnung|
 
 ISO-Kurzbezeichnung der Währung, z.B. EUR, USD, CHF,...
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
 
 Dynamische Attribute der Währung.
 
 
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -136,44 +132,38 @@ Verwendet in:
 [[Feiertage_Type]]
 ==== Feiertage
 
-IMPORTANT: [red]#_todo: Doku_#
-
+IMPORTANT: _todo: Doku_
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Feiertag|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Bundesland|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<ID_Bundesland_Type,ID_Bundesland>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<ID_Bundesland_Type,ID_Bundesland>>
 |★ |Datum|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<DateCompact,DateCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateCompact,DateCompact>>
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -192,23 +182,21 @@ Interpretationen definiert, wie die Daten zu interpretieren sind. Dazu werden Pa
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Interpretationsschluessel|
-[red]#_todo: Doku_#
 
 
-Datentyp: <<Interpretationsschluessel_Type,Interpretationsschluessel>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<Interpretationsschluessel_Type,Interpretationsschluessel>>
 | |Wert|
 [red]#_todo: Doku_#
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -239,36 +227,35 @@ Siehe auch:
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Betriebstag|
 
 Datum des Betriebstages
 
 
-Datentyp: <<DateCompact,DateCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateCompact,DateCompact>>
 |★ |ID_Betriebstagesart|
 
 Kennung der Tagesart, die für diesen Betriebstag gilt.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Optionale externe Referenz, um den Kalendereintrag über einen nicht-numerischen Schlüssel eindeutig zu identifizieren.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -289,42 +276,41 @@ Diese Zuordnung hat in der Regel rein beschreibenden Charakter. Eine funktionale
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_TagesartMerkmalElement|
 
 Kennung des Tagesartmerkmalelements
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Betriebstagesart|
 
 Kennung der Betriebstagesart, zu der das Merkmalselement gehört.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_TagesmerkmalElement|
 
 Kennung des zugeordneten Tagesmerkmalelements.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ReferenzExtern|
 
 Optionale externe Referenz, um das Element über einen beliebigen, ggf. nicht-numerischen Schlüssel eindeutig zu identifizieren.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -345,36 +331,35 @@ Jedem Kalendertag ist genau eine Tagesart zugeordnet. Die Tagesart charakterisie
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Betriebstagesart|
 
 Kennung der Tagesart.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Informationen, welche Bedeutung diese Kennung hat.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Optionale externe Referenz zur Identifikation der Tagesart über einen nicht-numerischen Schlüssel.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -393,42 +378,41 @@ Beschreibt ein einzelnes Element innerhalb eines Tagesmerkmals. Jedes Tagesmerkm
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_TagesmerkmalElement|
 
 Kennung des Tagesmerkmalelements
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tagesmerkmal|
 
 Verweis auf das Tagesmerkmal, zu dem dieses Element gehört.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Bezeichnung|
 
 Eindeutiger Bezeichner des Tagesartmerkmalelements.
 
 
-Datentyp: <<String250,String250>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<String250,String250>>
 | |ReferenzExtern|
 
 Optionale externe Referenz, um das Element über einen beliebigen, ggf. nicht-numerischen Schlüssel eindeutig zu identifizieren.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -457,34 +441,33 @@ Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter. Eine vorgeg
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Tagesmerkmal|
 Kennung des Tagesmerkmals
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Bezeichnung|
 
 Frei wählbarer Name des Tagesmerkmals. Bezeichnungen mit dem Präfix "husst" sind reserviert. Die Bezeichnung "husstDefaultermittlung" besitzt eine festgelegte Bedeutung (siehe Beschreibung des Typs Tagesmerkmale_Type).
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |ReferenzExtern|
 
 Optionale externe Referenz, um das Merkmal über einen beliebigen, ggf. nicht-numerischen Schlüssel eindeutig zu identifizieren.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -502,45 +485,41 @@ Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem ei
 |=======================
 | |Eigenschaft|Beschreibung
 | |Deaktiviert|
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
 
-
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |ID_Unternehmen|
 [red]#_todo: Doku_#
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |BezeichnungKurz|
 [red]#_todo: Doku_#
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Bezeichnung|
-[red]#_todo: Doku_#
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Mandant|
 
 True, wenn das Unternehmen als Mandant im System geführt wird.
 
 
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 | |ReferenzExtern|
 
 Dient als Referenz um Unternehmen über eine nicht numerische Referenz ggf. auch bezogen auf Drittsysteme identifizieren zu können.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |DynAttribut|
-[red]#_todo: Doku_#
+Defaulttext: Optionaler Erweiterungsmechanismus für zusätzliche,  projektspezifische Eigenschaften.   Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
 
-
-Datentyp: <<DynAttribut_Subtype,DynAttribut_Subtype>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DynAttribut_Subtype,DynAttribut_Subtype>>
 |=======================
   ★  Pflichtelemente
 
@@ -563,19 +542,19 @@ Dokumentation von Updatevorgängen über der zunächst generierten Datenmenge
 Zeitpunkt des Updatevorgangs
 
 
-Datentyp: <<DateTimeCompact,DateTimeCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateTimeCompact,DateTimeCompact>>
 |★ |Filename|
 
 Filename des Updatescripts oder Bezeichnung des Updatevorgangs
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Purpose|
 
 Hinweis zum Zweck des Updatevorgangs
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -598,31 +577,31 @@ Enthält die Versionsinformationen einer kompletten HUSST-Datenlieferung. Dient 
 Eindeutige Kennung der Datenversion für die gesamte Lieferung. Darf innerhalb einer Datenlieferung nur einmal vorkommen.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Testdaten|
 
 Kennzeichnung, ob es sich bei der Lieferung um Testdaten handelt (true/false).
 
 
-Datentyp: boolean
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] boolean
 |★ |Erstellungsdatum|
 
 Datum und Uhrzeit, zu dem die Datenlieferung erzeugt wurde.
 
 
-Datentyp: <<DateTimeCompact,DateTimeCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateTimeCompact,DateTimeCompact>>
 |★ |Lieferant|
 
 Name oder Kennung des Lieferanten, der die Daten bereitstellt.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 | |Kommentar|
 
 Freitextfeld für zusätzliche Hinweise oder Bemerkungen zur Datenlieferung.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -634,8 +613,7 @@ Verwendet in:
 [[VersionStruktur_Type]]
 ==== VersionStruktur
 
-IMPORTANT: [red]#_todo: Doku_#
-
+IMPORTANT: _todo: Doku_
 [options="header" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -644,37 +622,37 @@ IMPORTANT: [red]#_todo: Doku_#
 Hauptversionsnummer (Major). Erhöht sich bei nicht abwärtskompatiblen Änderungen zur vorherigen Version.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |VersionMinor|
 
 Nebenversion (Minor). Erhöht sich bei abwärtskompatiblen Erweiterungen oder funktionalen Anpassungen.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |VersionPatch|
 
 Patch-Level. Erhöht sich bei abwärtskompatiblen Fehlerkorrekturen (Bugfixes).
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |Status|
 
 Aktueller Entwicklungs- oder Veröffentlichungsstatus der Version. Mögliche Werte siehe VersionStatus_Type.
 
 
-Datentyp: <<VersionStatus_Type,VersionStatus>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<VersionStatus_Type,VersionStatus>>
 | |Aenderungsdatum|
 
 Datum der letzten Änderung dieser Version im Format JJJJ-MM-TT.
 
 
-Datentyp: <<DateCompact,DateCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateCompact,DateCompact>>
 | |Aenderungsautor|
 
 Name oder Organisation des Autors, der die letzte Änderung vorgenommen hat.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -693,39 +671,39 @@ Beschreibt einen Gültigkeitszeitraum, in welchem eine bestimmte Datenmenge verw
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 | |ZeitraumVon|
 
 Startdatum und -uhrzeit des Zeitraums (einschließlich).
 
 
-Datentyp: <<DateTimeCompact,DateTimeCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateTimeCompact,DateTimeCompact>>
 | |ZeitraumBis|
 
 Enddatum und -uhrzeit des Zeitraums (einschließlich).
 
 
-Datentyp: <<DateTimeCompact,DateTimeCompact>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<DateTimeCompact,DateTimeCompact>>
 |★ |DatenversionZeitraum|
 
 Eindeutiger Schlüssel für die Datenmenge, die in dem Zeitraum enthalten ist, bezogen auf die DatenversionInhalt des Elements VersionInhalt.
 
 
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |★ |HauptZeitraumNr|
 
 Kennzeichnet den Hauptzeitraum, zu dem dieser Zeitraum gehört. Alle Zeiträume mit gleicher Hauptzeitraumnummer bilden einen gemeinsamen Datenraum, in dem alle Referenzen (ID_xx) die gleiche Bedeutung haben.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |SubZeitraumNr|
 
 Laufende Nummerierung der Subzeiträume innerhalb eines Hauptzeitraums, beginnend bei 1.
 
 
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |=======================
   ★  Pflichtelemente
 
@@ -744,18 +722,17 @@ ordnet einem Zeitraum zusätzliche Optionen zu
 |=======================
 | |Eigenschaft|Beschreibung
 |★ |ID_Zeitraum|
+Referenz auf den Zeitraum, zu dem das Element gehört.
 
-
-Datentyp: <<INT4,INT4>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<INT4,INT4>>
 |★ |Option|
 Schlüsselstring der Option
 
-Datentyp: <<String250,String250>>
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] <<String250,String250>>
 | |Wert|
 [red]#_todo: Doku_#
 
-
-Datentyp: string
+image:t-angle-brackets-v2.svg[<T>,35,35,opts=inline] string
 |=======================
   ★  Pflichtelemente
 
@@ -763,6 +740,1417 @@ Datentyp: string
 
 Verwendet in:
  <<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+=== Basis Enumerationen 
+
+
+[[ID_BundeslandHUSST_Type]]
+
+[[ID_Bundesland_Type]]
+
+==== ID_Bundesland
+
+Die HUSST definiert ID_Bundesland kleiner 1000. Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind.
+
+Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023 https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
+
+Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
+
+* siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|0|
+unbekannt
+
+
+Verwendet in: ohne Verwendung
+
+|1|
+Schleswig-Holstein (SH)
+
+
+Verwendet in: ohne Verwendung
+
+|2|
+Hamburg (HH)
+
+
+Verwendet in: ohne Verwendung
+
+|3|
+Niedersachsen (NI)
+
+
+Verwendet in: ohne Verwendung
+
+|4|
+Bremen (HB)
+
+
+Verwendet in: ohne Verwendung
+
+|5|
+Nordrhein-Westfalen (NW)
+
+
+Verwendet in: ohne Verwendung
+
+|6|
+Hessen (HE)
+
+
+Verwendet in: ohne Verwendung
+
+|7|
+Rheinland-Pfalz (RP)
+
+
+Verwendet in: ohne Verwendung
+
+|8|
+Baden-Württemberg (BW)
+
+
+Verwendet in: ohne Verwendung
+
+|9|
+Bayern (BY)
+
+
+Verwendet in: ohne Verwendung
+
+|10|
+Saarland (SL)
+
+
+Verwendet in: ohne Verwendung
+
+|11|
+Berlin (BE)
+
+
+Verwendet in: ohne Verwendung
+
+|12|
+Brandenburg (BB)
+
+
+Verwendet in: ohne Verwendung
+
+|13|
+Mecklenburg-Vorpommern (MV)
+
+
+Verwendet in: ohne Verwendung
+
+|14|
+Sachsen (SN)
+
+
+Verwendet in: ohne Verwendung
+
+|15|
+Sachsen-Anhalt (ST)
+
+
+Verwendet in: ohne Verwendung
+
+|16|
+Thüringen (TH)
+
+
+Verwendet in: ohne Verwendung
+
+|=======================
+
+
+Verwendet in:
+ <<DefBundesland_Type,DefBundesland>>, <<Feiertage_Type,Feiertage>>, <<Ortspunkte_Type,Ortspunkte>>, <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+
+
+[[ID_WaehrungHUSST_Type]]
+
+[[ID_Waehrung_Type]]
+
+==== ID_Waehrung
+
+Die HUSST definiert Waehrungs-ID kleiner 1000. Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden. Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|999|
+EUR
+
+
+Verwendet in: ohne Verwendung
+
+|280|
+DEM
+
+
+Verwendet in: ohne Verwendung
+
+|784|
+AED
+
+
+Verwendet in: ohne Verwendung
+
+|971|
+AFN
+
+
+Verwendet in: ohne Verwendung
+
+|008|
+ALL
+
+
+Verwendet in: ohne Verwendung
+
+|051|
+AMD
+
+
+Verwendet in: ohne Verwendung
+
+|532|
+ANG
+
+
+Verwendet in: ohne Verwendung
+
+|973|
+AOA
+
+
+Verwendet in: ohne Verwendung
+
+|032|
+ARS
+
+
+Verwendet in: ohne Verwendung
+
+|036|
+AUD
+
+
+Verwendet in: ohne Verwendung
+
+|533|
+AWG
+
+
+Verwendet in: ohne Verwendung
+
+|944|
+AZN
+
+
+Verwendet in: ohne Verwendung
+
+|977|
+BAM
+
+
+Verwendet in: ohne Verwendung
+
+|052|
+BBD
+
+
+Verwendet in: ohne Verwendung
+
+|050|
+BDT
+
+
+Verwendet in: ohne Verwendung
+
+|975|
+BGN
+
+
+Verwendet in: ohne Verwendung
+
+|048|
+BHD
+
+
+Verwendet in: ohne Verwendung
+
+|108|
+BIF
+
+
+Verwendet in: ohne Verwendung
+
+|060|
+BMD
+
+
+Verwendet in: ohne Verwendung
+
+|096|
+BND
+
+
+Verwendet in: ohne Verwendung
+
+|068|
+BOB
+
+
+Verwendet in: ohne Verwendung
+
+|984|
+BOV
+
+
+Verwendet in: ohne Verwendung
+
+|986|
+BRL
+
+
+Verwendet in: ohne Verwendung
+
+|044|
+BSD
+
+
+Verwendet in: ohne Verwendung
+
+|064|
+BTN
+
+
+Verwendet in: ohne Verwendung
+
+|072|
+BWP
+
+
+Verwendet in: ohne Verwendung
+
+|933|
+BYN
+
+
+Verwendet in: ohne Verwendung
+
+|084|
+BZD
+
+
+Verwendet in: ohne Verwendung
+
+|124|
+CAD
+
+
+Verwendet in: ohne Verwendung
+
+|976|
+CDF
+
+
+Verwendet in: ohne Verwendung
+
+|947|
+CHE
+
+
+Verwendet in: ohne Verwendung
+
+|756|
+CHF
+
+
+Verwendet in: ohne Verwendung
+
+|948|
+CHW
+
+
+Verwendet in: ohne Verwendung
+
+|990|
+CLF
+
+
+Verwendet in: ohne Verwendung
+
+|152|
+CLP
+
+
+Verwendet in: ohne Verwendung
+
+|156|
+CNY
+
+
+Verwendet in: ohne Verwendung
+
+|170|
+COP
+
+
+Verwendet in: ohne Verwendung
+
+|970|
+COU
+
+
+Verwendet in: ohne Verwendung
+
+|188|
+CRC
+
+
+Verwendet in: ohne Verwendung
+
+|931|
+CUC
+
+
+Verwendet in: ohne Verwendung
+
+|192|
+CUP
+
+
+Verwendet in: ohne Verwendung
+
+|132|
+CVE
+
+
+Verwendet in: ohne Verwendung
+
+|203|
+CZK
+
+
+Verwendet in: ohne Verwendung
+
+|262|
+DJF
+
+
+Verwendet in: ohne Verwendung
+
+|208|
+DKK
+
+
+Verwendet in: ohne Verwendung
+
+|214|
+DOP
+
+
+Verwendet in: ohne Verwendung
+
+|012|
+DZD
+
+
+Verwendet in: ohne Verwendung
+
+|818|
+EGP
+
+
+Verwendet in: ohne Verwendung
+
+|232|
+ERN
+
+
+Verwendet in: ohne Verwendung
+
+|230|
+ETB
+
+
+Verwendet in: ohne Verwendung
+
+|242|
+FJD
+
+
+Verwendet in: ohne Verwendung
+
+|238|
+FKP
+
+
+Verwendet in: ohne Verwendung
+
+|826|
+GBP
+
+
+Verwendet in: ohne Verwendung
+
+|981|
+GEL
+
+
+Verwendet in: ohne Verwendung
+
+|936|
+GHS
+
+
+Verwendet in: ohne Verwendung
+
+|292|
+GIP
+
+
+Verwendet in: ohne Verwendung
+
+|270|
+GMD
+
+
+Verwendet in: ohne Verwendung
+
+|324|
+GNF
+
+
+Verwendet in: ohne Verwendung
+
+|320|
+GTQ
+
+
+Verwendet in: ohne Verwendung
+
+|328|
+GYD
+
+
+Verwendet in: ohne Verwendung
+
+|344|
+HKD
+
+
+Verwendet in: ohne Verwendung
+
+|340|
+HNL
+
+
+Verwendet in: ohne Verwendung
+
+|332|
+HTG
+
+
+Verwendet in: ohne Verwendung
+
+|348|
+HUF
+
+
+Verwendet in: ohne Verwendung
+
+|360|
+IDR
+
+
+Verwendet in: ohne Verwendung
+
+|376|
+ILS
+
+
+Verwendet in: ohne Verwendung
+
+|356|
+INR
+
+
+Verwendet in: ohne Verwendung
+
+|368|
+IQD
+
+
+Verwendet in: ohne Verwendung
+
+|364|
+IRR
+
+
+Verwendet in: ohne Verwendung
+
+|352|
+ISK
+
+
+Verwendet in: ohne Verwendung
+
+|388|
+JMD
+
+
+Verwendet in: ohne Verwendung
+
+|400|
+JOD
+
+
+Verwendet in: ohne Verwendung
+
+|392|
+JPY
+
+
+Verwendet in: ohne Verwendung
+
+|404|
+KES
+
+
+Verwendet in: ohne Verwendung
+
+|417|
+KGS
+
+
+Verwendet in: ohne Verwendung
+
+|116|
+KHR
+
+
+Verwendet in: ohne Verwendung
+
+|174|
+KMF
+
+
+Verwendet in: ohne Verwendung
+
+|408|
+KPW
+
+
+Verwendet in: ohne Verwendung
+
+|410|
+KRW
+
+
+Verwendet in: ohne Verwendung
+
+|414|
+KWD
+
+
+Verwendet in: ohne Verwendung
+
+|136|
+KYD
+
+
+Verwendet in: ohne Verwendung
+
+|398|
+KZT
+
+
+Verwendet in: ohne Verwendung
+
+|418|
+LAK
+
+
+Verwendet in: ohne Verwendung
+
+|422|
+LBP
+
+
+Verwendet in: ohne Verwendung
+
+|144|
+LKR
+
+
+Verwendet in: ohne Verwendung
+
+|430|
+LRD
+
+
+Verwendet in: ohne Verwendung
+
+|426|
+LSL
+
+
+Verwendet in: ohne Verwendung
+
+|434|
+LYD
+
+
+Verwendet in: ohne Verwendung
+
+|504|
+MAD
+
+
+Verwendet in: ohne Verwendung
+
+|498|
+MDL
+
+
+Verwendet in: ohne Verwendung
+
+|969|
+MGA
+
+
+Verwendet in: ohne Verwendung
+
+|807|
+MKD
+
+
+Verwendet in: ohne Verwendung
+
+|104|
+MMK
+
+
+Verwendet in: ohne Verwendung
+
+|496|
+MNT
+
+
+Verwendet in: ohne Verwendung
+
+|446|
+MOP
+
+
+Verwendet in: ohne Verwendung
+
+|929|
+MRU
+
+
+Verwendet in: ohne Verwendung
+
+|480|
+MUR
+
+
+Verwendet in: ohne Verwendung
+
+|462|
+MVR
+
+
+Verwendet in: ohne Verwendung
+
+|454|
+MWK
+
+
+Verwendet in: ohne Verwendung
+
+|484|
+MXN
+
+
+Verwendet in: ohne Verwendung
+
+|979|
+MXV
+
+
+Verwendet in: ohne Verwendung
+
+|458|
+MYR
+
+
+Verwendet in: ohne Verwendung
+
+|943|
+MZN
+
+
+Verwendet in: ohne Verwendung
+
+|516|
+NAD
+
+
+Verwendet in: ohne Verwendung
+
+|566|
+NGN
+
+
+Verwendet in: ohne Verwendung
+
+|558|
+NIO
+
+
+Verwendet in: ohne Verwendung
+
+|578|
+NOK
+
+
+Verwendet in: ohne Verwendung
+
+|524|
+NPR
+
+
+Verwendet in: ohne Verwendung
+
+|554|
+NZD
+
+
+Verwendet in: ohne Verwendung
+
+|512|
+OMR
+
+
+Verwendet in: ohne Verwendung
+
+|590|
+PAB
+
+
+Verwendet in: ohne Verwendung
+
+|604|
+PEN
+
+
+Verwendet in: ohne Verwendung
+
+|598|
+PGK
+
+
+Verwendet in: ohne Verwendung
+
+|608|
+PHP
+
+
+Verwendet in: ohne Verwendung
+
+|586|
+PKR
+
+
+Verwendet in: ohne Verwendung
+
+|985|
+PLN
+
+
+Verwendet in: ohne Verwendung
+
+|600|
+PYG
+
+
+Verwendet in: ohne Verwendung
+
+|634|
+QAR
+
+
+Verwendet in: ohne Verwendung
+
+|946|
+RON
+
+
+Verwendet in: ohne Verwendung
+
+|941|
+RSD
+
+
+Verwendet in: ohne Verwendung
+
+|643|
+RUB
+
+
+Verwendet in: ohne Verwendung
+
+|646|
+RWF
+
+
+Verwendet in: ohne Verwendung
+
+|682|
+SAR
+
+
+Verwendet in: ohne Verwendung
+
+|090|
+SBD
+
+
+Verwendet in: ohne Verwendung
+
+|690|
+SCR
+
+
+Verwendet in: ohne Verwendung
+
+|938|
+SDG
+
+
+Verwendet in: ohne Verwendung
+
+|752|
+SEK
+
+
+Verwendet in: ohne Verwendung
+
+|702|
+SGD
+
+
+Verwendet in: ohne Verwendung
+
+|654|
+SHP
+
+
+Verwendet in: ohne Verwendung
+
+|925|
+SLE
+
+
+Verwendet in: ohne Verwendung
+
+|706|
+SOS
+
+
+Verwendet in: ohne Verwendung
+
+|968|
+SRD
+
+
+Verwendet in: ohne Verwendung
+
+|728|
+SSP
+
+
+Verwendet in: ohne Verwendung
+
+|930|
+STN
+
+
+Verwendet in: ohne Verwendung
+
+|222|
+SVC
+
+
+Verwendet in: ohne Verwendung
+
+|760|
+SYP
+
+
+Verwendet in: ohne Verwendung
+
+|748|
+SZL
+
+
+Verwendet in: ohne Verwendung
+
+|764|
+THB
+
+
+Verwendet in: ohne Verwendung
+
+|972|
+TJS
+
+
+Verwendet in: ohne Verwendung
+
+|934|
+TMT
+
+
+Verwendet in: ohne Verwendung
+
+|788|
+TND
+
+
+Verwendet in: ohne Verwendung
+
+|776|
+TOP
+
+
+Verwendet in: ohne Verwendung
+
+|949|
+TRY
+
+
+Verwendet in: ohne Verwendung
+
+|780|
+TTD
+
+
+Verwendet in: ohne Verwendung
+
+|901|
+TWD
+
+
+Verwendet in: ohne Verwendung
+
+|834|
+TZS
+
+
+Verwendet in: ohne Verwendung
+
+|980|
+UAH
+
+
+Verwendet in: ohne Verwendung
+
+|800|
+UGX
+
+
+Verwendet in: ohne Verwendung
+
+|840|
+USD
+
+
+Verwendet in: ohne Verwendung
+
+|997|
+USN
+
+
+Verwendet in: ohne Verwendung
+
+|940|
+UYI
+
+
+Verwendet in: ohne Verwendung
+
+|858|
+UYU
+
+
+Verwendet in: ohne Verwendung
+
+|927|
+UYW
+
+
+Verwendet in: ohne Verwendung
+
+|860|
+UZS
+
+
+Verwendet in: ohne Verwendung
+
+|926|
+VED
+
+
+Verwendet in: ohne Verwendung
+
+|928|
+VES
+
+
+Verwendet in: ohne Verwendung
+
+|704|
+VND
+
+
+Verwendet in: ohne Verwendung
+
+|548|
+VUV
+
+
+Verwendet in: ohne Verwendung
+
+|882|
+WST
+
+
+Verwendet in: ohne Verwendung
+
+|950|
+XAF
+
+
+Verwendet in: ohne Verwendung
+
+|961|
+XAG
+
+
+Verwendet in: ohne Verwendung
+
+|959|
+XAU
+
+
+Verwendet in: ohne Verwendung
+
+|955|
+XBA
+
+
+Verwendet in: ohne Verwendung
+
+|956|
+XBB
+
+
+Verwendet in: ohne Verwendung
+
+|957|
+XBC
+
+
+Verwendet in: ohne Verwendung
+
+|958|
+XBD
+
+
+Verwendet in: ohne Verwendung
+
+|951|
+XCD
+
+
+Verwendet in: ohne Verwendung
+
+|960|
+XDR
+
+
+Verwendet in: ohne Verwendung
+
+|952|
+XOF
+
+
+Verwendet in: ohne Verwendung
+
+|964|
+XPD
+
+
+Verwendet in: ohne Verwendung
+
+|953|
+XPF
+
+
+Verwendet in: ohne Verwendung
+
+|962|
+XPT
+
+
+Verwendet in: ohne Verwendung
+
+|994|
+XSU
+
+
+Verwendet in: ohne Verwendung
+
+|963|
+XTS
+
+
+Verwendet in: ohne Verwendung
+
+|965|
+XUA
+
+
+Verwendet in: ohne Verwendung
+
+|886|
+YER
+
+
+Verwendet in: ohne Verwendung
+
+|710|
+ZAR
+
+
+Verwendet in: ohne Verwendung
+
+|967|
+ZMW
+
+
+Verwendet in: ohne Verwendung
+
+|932|
+ZWL
+
+
+Verwendet in: ohne Verwendung
+
+|=======================
+
+
+Verwendet in:
+ <<DefWaehrung_Type,DefWaehrung>>, <<Preisspalten_Type,Preisspalten>>
+
+
+[[InterpretationsschluesselHUSST_Type]]
+
+[[Interpretationsschluessel_Type]]
+
+==== Interpretationsschluessel
+
+Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|husst.Relationen.Matrixtyp|
+
+Definiert, wie die Relationenmatrix zu interpretieren ist. mögliche Matrixtypen sind "Vollmatrix" : Jede Verbindung ist in jeder erlaubten Richtung in der Relationenmatrix hinterlegt. "Halbmatrix" : Zu jeder möglichen Verbindung ist nur die Variante ID_RelcodeStart größer gleich ID_RelcodeZiel hinterlegt, die umgekehrte Richtung ist dazu identisch. "erweitert Halbmatrix" : Die Relationen werden im Regelfall mit ID_RelcodeStart größer gleich ID_RelcodeZiel definiert, es kann aber auch die Rückrichtung definiert sein, dann muss das Flag GegenrichtungLiegtVor auf true gesetzt werden.
+
+
+
+Verwendet in: ohne Verwendung
+
+|husst.Relationen.Suchstrategie|
+
+Definiert, wie die Ermittlung einer Verkaufsverbindung erfolgen soll. Ist der Schlüssel nicht definiert, wird über ID_RelcodeStart und ID_RelcodeZiel in den Relationen nach einer oder mehreren Verbindungen gesucht. mögliche Suchstrategien sind "NbHstSuche + RCSuche" : Suchstrategie für die Relationsermittlung: Nachbarhaltestellensuche zusätzlich zur Relationscodesuche.
+
+
+
+Verwendet in: ohne Verwendung
+
+|husst.Teilrelationen.Matrixpreisbildung|
+
+Definiert, wie die Preisbildung aus den Teilrelationen erfolgen soll. Ist der Schlüssel nicht definiert, wird der Preis anhand der ID_Preisstufe der ersten Teilrelation ermittelt. mögliche Matrixpreisbildungen sind "Anstoß_CH" : Wenn nur eine Teilrelation exisitiert, dann wie beim Standardfall. Sonst: Preisstufenattribute werden von der Preisstufe der ersten Teilrelation verwendet. Der Preis wird nach einer eigenen CH-Logik aus den weiteren Teilrelationen berechnet.
+
+
+
+Verwendet in: ohne Verwendung
+
+|=======================
+
+
+Verwendet in:
+ <<Interpretationen_Type,Interpretationen>>
+
+
+[[VersionStatus_Type]]
+
+
+==== VersionStatus
+
+Gibt den aktuellen Status einer Version an.
+
+[options="header" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+|Release|
+
+Offizielle, veröffentlichte Version.
+
+
+
+Verwendet in: ohne Verwendung
+
+|work in progress|
+
+Laufende Bearbeitung.
+
+
+
+Verwendet in: ohne Verwendung
+
+|stabil|
+
+Getestete, stabile Version. Ist Obsolete - Bitte "Release" verwenden.
+
+
+
+Verwendet in: ohne Verwendung
+
+|in Arbeit|
+
+Befindet sich noch in der Entwicklung. Ist Obsolete - Bitte "work in progress" verwenden.
+
+
+
+Verwendet in: ohne Verwendung
+
+|=======================
+
+
+Verwendet in:
+ <<VersionStruktur_Type,VersionStruktur>>
+
+
+
+=== Basis Datentypen 
+
+
+[[DauerMinuten]]
+
+
+==== DauerMinuten
+
+Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+
+
+====
+z.B. PT30M - 30 Minuten
+
+====
+
+
+
+Verwendet in:
+ <<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
+
+
+[[ID_ProjektspezifischBitfeld_Type]]
+
+
+==== ID_ProjektspezifischBitfeld
+
+Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnend mit 1024. Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
+
+
+Verwendet in: ohne Verwendung
+
+
+[[ID_Projektspezifisch_Type]]
+
+
+==== ID_Projektspezifisch
+
+Frei definierbare IDs für Def-Elemente beginnend mit 1000. Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
+
+
+Verwendet in:
+ <<DefBundesland_Type,DefBundesland>>, <<DefWaehrung_Type,DefWaehrung>>, <<Feiertage_Type,Feiertage>>, <<Ortspunkte_Type,Ortspunkte>>, <<Preisspalten_Type,Preisspalten>>, <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+
+
+[[InterpretationsschluesselProjektspezifisch_Type]]
+
+
+==== InterpretationsschluesselProjektspezifisch
+
+Für projektspezifische Zwecke oder zum Test können eigene Namen für Interpretationsschluessel verwendet werden.
+
+Namensregeln: Eigene Namen .. .. dürfen nicht mit 'husst.' beginnen, .. dürfen nicht mit einer Zahl beginnen, .. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten .. müssen mit einem Wort beginnen, .. dürfen mehrere Wörter mit '.' oder '-' trennen, .. dürfen nicht mit einem Punkt enden.
+
+
+Verwendet in:
+ <<Interpretationen_Type,Interpretationen>>
+
+
+[[KoordWgs84_Type]]
+
+
+==== KoordWgs84
+
+Koordinate im WGS 84-Referenzsystem als Fließkommazahl (Dezimalgrad). Dieser Wert kann zur Angabe von Breiten- oder Längengraden genutzt werden.
+
+
+====
+z.B. 34.9655 für eine Koordinate
+
+====
+
+
+
+Verwendet in:
+ <<Ortspunkte_Type,Ortspunkte>>
+
+
+[[UhrzeitMinuten]]
+
+
+==== UhrzeitMinuten
+
+Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+
+
+====
+z.B. 08:00:00+02:00 - Ortszeit 2 Stunden vor UTC
+
+====
+
+
+
+Verwendet in:
+ <<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
+
+
 
 === technische Enumerationen 
 
@@ -776,53 +2164,6 @@ Die Werte eines dynamischen Attributes werden als String gespeichert. Der DynAtt
 
 Verwendet in:
  <<DynAttributDef_Type,DynAttributDef>>
-
-
-[[ID_BundeslandHUSST_Type]]
-
-==== ID_Bundesland
-
-Die HUSST definiert ID_Bundesland kleiner 1000. Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS) bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind.
-
-Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023 https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
-
-Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK)) verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
-
-* siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
-
-
-Verwendet in: ohne Verwendung
-
-
-[[ID_WaehrungHUSST_Type]]
-
-==== ID_Waehrung
-
-Die HUSST definiert Waehrungs-ID kleiner 1000. Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden. Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
-
-
-Verwendet in: ohne Verwendung
-
-
-[[InterpretationsschluesselHUSST_Type]]
-
-==== Interpretationsschluessel
-
-Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
-
-
-Verwendet in: ohne Verwendung
-
-
-[[VersionStatus_Type]]
-
-==== VersionStatus
-
-Gibt den aktuellen Status einer Version an.
-
-
-Verwendet in:
- <<VersionStruktur_Type,VersionStruktur>>
 
 
 
@@ -848,6 +2189,13 @@ Datum nach dem ISO 8601 Standard. Der gültige Bereich ist eingeschränkt:
 * 1990-01-01 - 2117-12-31
 
 
+====
+z.B. 2025-03-26
+
+====
+
+
+
 Verwendet in:
  <<Feiertage_Type,Feiertage>>, <<Kalender_Type,Kalender>>, <<VersionStruktur_Type,VersionStruktur>>
 
@@ -861,19 +2209,15 @@ Datum und Urzeit nach dem ISO 8601 Standard. Der gültige Bereich ist eingeschr�
 * 1990-01-01T00:00:00Z - 2117-12-31T23:59:58Z
 
 
+====
+z.B. 2025-03-26T22:40:47
+
+====
+
+
+
 Verwendet in:
  <<Bearbeitung_Type,Bearbeitung>>, <<PersonalIdentobjekte_Type,PersonalIdentobjekte>>, <<Personal_Type,Personal>>, <<Tarifgebiete_Type,Tarifgebiete>>, <<Updateinfo_Type,Updateinfo>>, <<VersionInhalt_Type,VersionInhalt>>, <<Zeitraeume_Type,Zeitraeume>>
-
-
-[[DauerMinuten]]
-
-==== DauerMinuten
-
-Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
-
-
-Verwendet in:
- <<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
 
 
 [[FLOAT1]]
@@ -883,28 +2227,15 @@ Verwendet in:
 Dezimalwert zwischen 0 und 100 in englischer Notation (Punkt als Dezimaltrennzeichen).
 
 
+====
+z.B. 19.00 für 19% MwSt
+
+====
+
+
+
 Verwendet in:
  <<Mwst_Type,Mwst>>
-
-
-[[ID_ProjektspezifischBitfeld_Type]]
-
-==== ID_ProjektspezifischBitfeld
-
-Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnend mit 1024. Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
-
-
-Verwendet in: ohne Verwendung
-
-
-[[ID_Projektspezifisch_Type]]
-
-==== ID_Projektspezifisch
-
-Frei definierbare IDs für Def-Elemente beginnend mit 1000. Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
-
-
-Verwendet in: ohne Verwendung
 
 
 [[INT1]]
@@ -949,34 +2280,18 @@ Entspricht einer Ganzzahl mit dem Wertebereich von acht Bytes (0 - 1844674407370
 Verwendet in: ohne Verwendung
 
 
-[[InterpretationsschluesselProjektspezifisch_Type]]
-
-==== InterpretationsschluesselProjektspezifisch
-
-Für projektspezifische Zwecke oder zum Test können eigene Namen für Interpretationsschluessel verwendet werden.
-
-Namensregeln: Eigene Namen .. .. dürfen nicht mit 'husst.' beginnen, .. dürfen nicht mit einer Zahl beginnen, .. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten .. müssen mit einem Wort beginnen, .. dürfen mehrere Wörter mit '.' oder '-' trennen, .. dürfen nicht mit einem Punkt enden.
-
-
-Verwendet in: ohne Verwendung
-
-
-[[KoordWgs84_Type]]
-
-==== KoordWgs84
-
-Koordinate im WGS 84-Referenzsystem als Fließkommazahl (Dezimalgrad). Dieser Wert kann zur Angabe von Breiten- oder Längengraden genutzt werden.
-
-
-Verwendet in:
- <<Ortspunkte_Type,Ortspunkte>>
-
-
 [[Lang_Type]]
 
 ==== Lang
 
 Stellt zwei buchstabige Sprachcodes gemäß ISO 639-1:2002 dar.
+
+
+====
+z.B. de für deutsch oder en für englisch
+
+====
+
 
 
 Verwendet in:
@@ -994,17 +2309,6 @@ Verwendet in:
  <<TagesmerkmalElemente_Type,TagesmerkmalElemente>>, <<Zeitraumoptionen_Type,Zeitraumoptionen>>
 
 
-[[UhrzeitMinuten]]
-
-==== UhrzeitMinuten
-
-Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
-
-
-Verwendet in:
- <<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
-
-
 [[blobString]]
 
 ==== blobString
@@ -1012,12 +2316,19 @@ Verwendet in:
 Der Datentyp blobString ist eine Zeichenkette, die nur aus den ASCII Zeichen zwischen U+0020 (Leerzeichen) und U+00FE (þ) sowie dem Eurozeichen (U+20AC) und dem Gedankenstrich (U+2013) bestehen darf.
 
 
+====
+z.B. æø6÷¶
+
+====
+
+
+
 Verwendet in:
  <<DynAttributWert_Type,DynAttributWert>>, <<RaeumlicheGueltigkeit_Type,RaeumlicheGueltigkeit>>, <<Sorten_Type,Sorten>>
 
 
 
-===  Definitionsstand
+=== Basis Definitionsstand
 
 
 HUSST Versorgungsdaten - Schema: Basis Version: 3.7.0

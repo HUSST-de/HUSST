@@ -1,0 +1,1 @@
+Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.

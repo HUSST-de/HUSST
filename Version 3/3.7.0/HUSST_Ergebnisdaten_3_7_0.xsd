@@ -1543,7 +1543,6 @@
       <documentation>Beinhaltet alle einzelnen Zahlungen.</documentation>
     </annotation>
     <sequence>
-    <sequence>
       <element name="Zahlung" type="husst:Zahlung_Type" minOccurs="0" maxOccurs="unbounded" />
     </sequence>
   </complexType>

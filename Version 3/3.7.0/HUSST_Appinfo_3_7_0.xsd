@@ -237,12 +237,26 @@ oder
     	</xs:annotation>
    	</xs:element>
 
-    <xs:element name="nodocuneeded" type="api:nodocuneeded_Type">
+    <xs:element name="needsDocu" type="api:needsDocu_Type">
+    	<xs:annotation>
+    		<xs:documentation>Elemente dieses Typs benötigen eigene Dokumentation</xs:documentation>
+    	</xs:annotation>
+    </xs:element>
+    <xs:complexType name="needsDocu_Type">
+    	<xs:annotation>
+    		<xs:documentation>
+Hinweis an die Dokumentationsgenerierung, dass für ein Strukturelement dieses Typs eine eigene Dokumentation benötigt wird.
+In der Regel, weil es sich bei dem Typ um einen technischen, keinen fachlichen Datentyp handelt. 
+    		</xs:documentation>
+    	</xs:annotation>
+    </xs:complexType>
+
+    <xs:element name="noDocu" type="api:noDocu_Type">
     	<xs:annotation>
     		<xs:documentation>das Element benötigt keine eigene Dokumentation</xs:documentation>
     	</xs:annotation>
     </xs:element>
-    <xs:complexType name="nodocuneeded_Type">
+    <xs:complexType name="noDocu_Type">
     	<xs:annotation>
     		<xs:documentation>
 Hinweis an die Dokumentationsgenerierung, dass für das Strukturelement keine eine Dokumentation benötigt wird.

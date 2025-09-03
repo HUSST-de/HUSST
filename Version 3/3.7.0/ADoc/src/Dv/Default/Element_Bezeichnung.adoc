@@ -1,0 +1,1 @@
+Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.

@@ -3,7 +3,7 @@
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:husstDV="http://husst.de/Versorgungsdaten/3_7_0"
-    xmlns:api="http://www.husst.de/Appinfo/3_7_0"
+    xmlns:api="http://husst.de/Appinfo/3_7_0"
 >
 	<xsl:output method="text" encoding="UTF-8" />
 
@@ -20,13 +20,14 @@
 		 wird von außen vorgegeben (z.Zt. 3)
 	 -->
 	<xsl:param name="einstiegsebene" as="xs:integer">0</xsl:param>
+	<xsl:param name="defaults"/>
 
 	<!-- ======================================================================
 		 globale Variablen 
 	= =  ================================================================== = = -->
 	<!-- die HusstVersion mit unterstrichen -->
 	<xsl:variable name="small"/>
-
+  
 	<!-- die HusstVersion -->
 	<xsl:variable name="nsHusst" select="if (namespace-uri-for-prefix('husstDV', /*) > '') then 'husstDV' else 'husst'" />
 	<xsl:variable name="uriHusst">
@@ -38,6 +39,12 @@
 	<xsl:variable name="verHusst" select="replace($version, '_', '.')"/>
 	<xsl:variable name="verHusst_" select="$version"/>
 
+	<!-- hilfreiche Konstanten -->
+	<xsl:variable name="crlf" select="'&#13;&#10;'"/>
+	
+	<!-- Pfad zu den Vorlagedateien -->
+	<xsl:variable name="pathTemplates" select="concat('file:///', iri-to-uri( concat(translate($defaults, '\', '/'), if (ends-with($defaults, '/')) then '' else '/') ))" />
+	
 	<!-- Dateiname der aktuellen Inputdatei -->
 	<xsl:variable name="documentName" select="concat('HUSST_Dv', $schema,'_', $verHusst_, '.xsd')" />
 	 
@@ -68,51 +75,62 @@
 	<xsl:variable name="enumTech"     select="/xs:schema/xs:simpleType[not(xs:annotation/xs:appinfo/api:schema/@name) and     xs:*/xs:enumeration]"/>
 	<xsl:variable name="simpleTech"   select="/xs:schema/xs:simpleType[not(xs:annotation/xs:appinfo/api:schema/@name) and not(xs:*/xs:enumeration) and not(xs:union)]"/>
 
+	<!-- Husst-eigene Typen, die eigene Doku brauchen -->
+	<xsl:variable name="needsDocu" select="$schemata/xs:schema/xs:*[@name and xs:annotation/xs:appinfo/api:needsDocu]"/>
+
+    <xsl:variable name="missingDocuTable">[red]#_todo: Doku_#</xsl:variable>
+    <xsl:variable name="missingDocu">IMPORTANT: _todo: Doku_</xsl:variable>
+  
+	<xsl:variable name="datentypV1" select="'&lt;T&gt;: '"/>
+	<xsl:variable name="datentypV2" select="'Datentyp: '"/>
+	<xsl:variable name="datentypV3" select="'image:t-angle-brackets-v2.svg[&lt;T&gt;,35,35,opts=inline] '"/>
+	<xsl:variable name="datentyp" select="$datentypV3"/>
   
 	<!-- ======================================================================
 		 die gesamte Xsd 
 	= =  ================================================================== = = -->
 <!-- 	<xsl:template match="xs:schema"> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 		<xsl:value-of select="concat('nsHusst:', $nsHusst)" /> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 		<xsl:value-of select="concat('uriHusst:', $uriHusst)" /> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 		<xsl:value-of select="concat('schema:', $schema)" /> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 		<xsl:value-of select="concat('root:', $root/@name)" /> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 		<xsl:value-of select="concat('elemente:', count(xs:complexType[not(@name=api:strip-ns($root/@type))]))" /> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 		<xsl:value-of select="concat('enumDomain:', count($enumDomain), ' simpleDomain:', count($simpleDomain), ' enumTech:', count($enumTech), ' simpleTech:', count($simpleTech))" /> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
-<!--         <xsl:text>&#13;&#10;</xsl:text> -->
+<!--         <xsl:value-of select="$crlf"/> -->
+<!--         <xsl:value-of select="$crlf"/> -->
 <!-- 	</xsl:template> -->
 	
 	<xsl:template match="xs:schema">
 <!-- 	<xsl:template match="xs:schema[$nsHusst='husstDV' or $nsHusst='husst']"> -->
+
 		<!-- Root Element(e) -->
 		<xsl:if test="count($root)>0">
-       		<xsl:text>&#13;&#10;</xsl:text>
-	        <xsl:text>&#13;&#10;</xsl:text>
+       		<xsl:value-of select="$crlf"/>
+	        <xsl:value-of select="$crlf"/>
 			<xsl:value-of select="api:header(0, concat($schema, if (count($root) > 1) then ' Rootelemente' else ' Rootelement' ))" />
-	        <xsl:text>&#13;&#10;</xsl:text>
+	        <xsl:value-of select="$crlf"/>
        		<xsl:for-each select="$root">
 				<xsl:apply-templates select="self::xs:*"/>
        		</xsl:for-each>
-	        <xsl:text>&#13;&#10;</xsl:text>       
+	        <xsl:value-of select="$crlf"/>       
        	</xsl:if>
 				
-       	<xsl:text>&#13;&#10;</xsl:text>       
+       	<xsl:value-of select="$crlf"/>       
 		<xsl:value-of select="api:header(0, concat($schema,' Elemente' ))" />
-        <xsl:text>&#13;&#10;</xsl:text>       
-        <xsl:text>&#13;&#10;</xsl:text>       
+        <xsl:value-of select="$crlf"/>       
+        <xsl:value-of select="$crlf"/>       
 	        
 
 		<!-- fachliche Elemente -->
@@ -123,60 +141,60 @@
 		<!-- fachliche Enumerationen -->
 		<xsl:if test="count($enumDomain) > 0">
 			<xsl:value-of select="api:header(0, concat($schema,' Enumerationen ' ))" />
-	        <xsl:text>&#13;&#10;</xsl:text>       
-	        <xsl:text>&#13;&#10;</xsl:text>       
+	        <xsl:value-of select="$crlf"/>       
+	        <xsl:value-of select="$crlf"/>       
 			<xsl:for-each select="$enumDomain">
 				<xsl:sort select="@name"/>
 				<xsl:apply-templates select="self::xs:*"/>
-		        <xsl:text>&#13;&#10;</xsl:text>       
+		        <xsl:value-of select="$crlf"/>       
 			</xsl:for-each>
-	        <xsl:text>&#13;&#10;</xsl:text>
+	        <xsl:value-of select="$crlf"/>
         </xsl:if>
                
 		<!-- fachliche Datentypen -->
 		<xsl:if test="count($simpleDomain) > 0">
 			<xsl:value-of select="api:header(0, concat($schema,' Datentypen ' ))" />
-	        <xsl:text>&#13;&#10;</xsl:text>       
-	        <xsl:text>&#13;&#10;</xsl:text>       
+	        <xsl:value-of select="$crlf"/>       
+	        <xsl:value-of select="$crlf"/>       
 			<xsl:for-each select="$simpleDomain">
 				<xsl:sort select="@name"/>
 				<xsl:apply-templates select="self::xs:*"/>
-		        <xsl:text>&#13;&#10;</xsl:text>       
+		        <xsl:value-of select="$crlf"/>       
 			</xsl:for-each>
-	        <xsl:text>&#13;&#10;</xsl:text>
+	        <xsl:value-of select="$crlf"/>
         </xsl:if>
                
 		<!-- technische Enumerationen -->
 		<xsl:if test="count($enumTech) > 0">
 			<xsl:value-of select="api:header(0, concat('', 'technische Enumerationen ' ))" />
-	        <xsl:text>&#13;&#10;</xsl:text>       
-	        <xsl:text>&#13;&#10;</xsl:text>       
+	        <xsl:value-of select="$crlf"/>       
+	        <xsl:value-of select="$crlf"/>       
 			<xsl:for-each select="$enumTech">
 				<xsl:sort select="@name"/>
 				<xsl:apply-templates select="self::xs:*"/>
-		        <xsl:text>&#13;&#10;</xsl:text>       
+		        <xsl:value-of select="$crlf"/>       
 			</xsl:for-each>
-	        <xsl:text>&#13;&#10;</xsl:text>
+	        <xsl:value-of select="$crlf"/>
         </xsl:if>        
                
 		<!-- fachliche Datentypen -->
 		<xsl:if test="count($simpleTech) > 0">
 			<xsl:value-of select="api:header(0, concat('', 'technische Datentypen ' ))" />
-	        <xsl:text>&#13;&#10;</xsl:text>       
-	        <xsl:text>&#13;&#10;</xsl:text>       
+	        <xsl:value-of select="$crlf"/>       
+	        <xsl:value-of select="$crlf"/>       
 			<xsl:for-each select="$simpleTech">
 				<xsl:sort select="@name"/>
 				<xsl:apply-templates select="self::xs:*"/>
-		        <xsl:text>&#13;&#10;</xsl:text>       
+		        <xsl:value-of select="$crlf"/>       
 			</xsl:for-each>
-	        <xsl:text>&#13;&#10;</xsl:text>
+	        <xsl:value-of select="$crlf"/>
         </xsl:if>
                
                
 		<!-- der Kopfkommentar -->
 		<xsl:value-of select="api:header(0, concat($schema,' Definitionsstand'))"/>
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="api:docu(xs:annotation/xs:documentation)"/>
+		<xsl:value-of select="$crlf"/>
+		<xsl:call-template name="api:docu"/>
 	</xsl:template>
 
 
@@ -186,7 +204,7 @@
 	= =  ================================================================== = = -->
 	<xsl:template match="xs:element[api:strip-ns(@type)=../xs:complexType/@name]">
 		<xsl:value-of select="api:setAnchor( api:strip-ns( @type ) )"/>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		<xsl:value-of select="api:header(1, @name)" />
 
 		<xsl:apply-templates select="../xs:complexType[@name=api:strip-ns(current()/@type)]"/>
@@ -194,11 +212,11 @@
 	<xsl:template match="xs:complexType[parent::xs:schema]">
 		<xsl:if test="not(@name=../xs:element/api:strip-ns(@type))">
 			<xsl:value-of select="api:setAnchor( @name )"/>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 			<xsl:value-of select="api:header(1, @name)" />
 		</xsl:if>
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:value-of select="api:docu(xs:annotation/xs:documentation)"/>
+		<xsl:value-of select="$crlf"/>
+		<xsl:call-template name="api:docu"/>
 		
 		<!-- [options="header"] -->
 		<!-- |======================= -->
@@ -206,50 +224,67 @@
 		<!-- |Bearbeitungdsatum  | -->
 		<!-- |Lieferant| das ist der Lieferant der Daten -->
 		<!-- |=======================		 -->
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		<xsl:text>[options="header" cols="2%,20%,78%"]</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		<xsl:text>|=======================</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		<xsl:text>| |Eigenschaft|Beschreibung</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 
-		<xsl:apply-templates select="xs:*/xs:element" />
+		<!-- Elemente der Struktur dokumentieren -->
+		<xsl:apply-templates select="xs:*/xs:element" mode="table"/>
+		
 		<xsl:text>|=======================</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		<xsl:if test="count(xs:*/xs:element[@minOccurs > 0]) > 0">
 			<xsl:text>&#160;&#160;★&#160;&#160;Pflichtelemente</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
+			<xsl:value-of select="$crlf"/>
 		</xsl:if>
 
         <xsl:call-template name="references"><xsl:with-param name="typeNames" select="@name"/></xsl:call-template>
 	</xsl:template>
-	<xsl:template match="xs:element" >
-		<xsl:value-of select="concat('|', if (@minOccurs > 0) then '★&#160;|' else ' |', @name, api:strip-ns(@ref), '|' )" />
-		<xsl:text>&#13;&#10;</xsl:text>
-		
-		<xsl:value-of select="api:docu(xs:annotation/xs:documentation, if (not(@name='Deaktiviert' or @name='ID_Zeitraum')) then 2 else 0)"/>
-		
-		<xsl:text>&#13;&#10;</xsl:text>
+	
+	<xsl:template match="xs:element" mode="table" >
 		<xsl:variable name="type">
-			<xsl:sequence>
-				<xsl:value-of select="@type"/>
-				<xsl:value-of select="/xs:schema/xs:*[@name=api:strip-ns(current()/@ref)]/@type"/>
-			</xsl:sequence>
+			<xsl:call-template name="type"/>
 		</xsl:variable>
-		
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:text>Datentyp: </xsl:text>
+
+		<xsl:value-of select="concat('|', if (@minOccurs > 0) then '★&#160;|' else ' |', @name, api:strip-ns(@ref), '|' )" />
+		<xsl:value-of select="$crlf"/>
+
+		<!-- Doku ist für eigene Datentypen optional -->		
 		<xsl:choose>
-			<xsl:when test="substring-before($type, ':')='husstDV' or substring-before($type, ':')='husst' ">
+			<xsl:when test="contains($type, 'husst') ">
+            	<xsl:call-template name="api:docu-table"/>
+			</xsl:when>
+			<xsl:otherwise>
+            	<xsl:call-template name="api:docu-table"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		
+		<xsl:value-of select="$crlf"/>
+		<xsl:value-of select="$crlf"/>
+		<xsl:value-of select="$datentyp"/>
+<!-- 		<xsl:text>Datentyp: </xsl:text> -->
+<!-- <xsl:text> -->
+<!-- #Datentyp:# -->
+<!-- </xsl:text> -->
+<!-- <xsl:value-of select="concat('$type=', $type, $crlf)"/>		 -->
+<!-- <xsl:text> -->
+<!-- #*****# -->
+<!-- </xsl:text>		 -->
+
+		<xsl:choose>
+			<xsl:when test="contains($type, 'husst') ">
 				<xsl:value-of select="api:linkAnchor( $type )"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="api:strip-ns( $type )"/>
 			</xsl:otherwise>
 		</xsl:choose>		 
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 	</xsl:template>
 	
 
@@ -258,20 +293,28 @@
 	= =  ================================================================== = = -->
 	<xsl:template match="xs:simpleType[@name=($simpleDomain|$enumDomain)/@name]">
 		<xsl:value-of select="api:setAnchor( api:strip-ns( @name ) )"/>
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
+		<xsl:value-of select="$crlf"/>
 		<xsl:if test="(count(../xs:simpleType[contains(xs:union/@memberTypes, current()/@name)]/@name) = 1) and contains(@name, 'HUSST')">
 			<xsl:value-of select="api:setAnchor( ../xs:simpleType[contains(xs:union/@memberTypes, current()/@name)]/@name)"/>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 		</xsl:if>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		<xsl:value-of select="api:header(1, api:captionText(@name))" />
 		<xsl:choose>
-			<xsl:when test="contains(@name, 'HUSST')">
-				<xsl:value-of select="api:docu(xs:annotation/xs:documentation|../xs:simpleType[substring-before(xs:union/@memberTypes, current()/@name)>'']/xs:annotation/xs:documentation)"/>
+			<xsl:when test="contains(@name, 'husst')">
+				<xsl:variable name="docu">
+					<xsl:for-each select="xs:annotation/xs:documentation">
+						<xsl:call-template name="api:docu-no-warning" />
+					</xsl:for-each>
+					<xsl:for-each select="../xs:simpleType[substring-before(xs:union/@memberTypes, current()/@name)>'']/xs:annotation/xs:documentation">
+						<xsl:call-template name="api:docu-no-warning" />
+					</xsl:for-each>
+				</xsl:variable>
+				<xsl:value-of select="if ($docu > '') then concat($docu, $crlf) else $missingDocu"/>				
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:value-of select="api:docu(xs:annotation/xs:documentation)"/>
+				<xsl:call-template name="api:docu"/>
 			</xsl:otherwise>
 		</xsl:choose> 
 		<xsl:if test="not(count(xs:*/xs:enumeration)=0)" >
@@ -281,40 +324,41 @@
 			<!-- |Bearbeitungdsatum  | -->
 			<!-- |Lieferant| das ist der Lieferant der Daten -->
 			<!-- |=======================		 -->
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 			<xsl:text>[options="header" cols="20%,80%"]</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 			<xsl:text>|=======================</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 			<xsl:text>|Wert|Beschreibung</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 	
-	
-			<xsl:apply-templates select="xs:*/xs:enumeration" />
+			<!-- einzelne Werte der Enumeration dokumentieren  -->
+			<xsl:apply-templates select="xs:*/xs:enumeration" mode="table" />
+			
 			<xsl:text>|=======================</xsl:text>
-			<xsl:text>&#13;&#10;</xsl:text>
+			<xsl:value-of select="$crlf"/>
 		</xsl:if>
 
 		<xsl:variable name="typeNames" select="@name|ancestor::xs:schema/xs:simpleType[xs:union/contains(@memberTypes, current()/@name)]/@name" />
         <xsl:call-template name="references"><xsl:with-param name="typeNames" select="$typeNames"/></xsl:call-template>
 	</xsl:template>
 		
-	<xsl:template match="xs:enumeration" >
+	<xsl:template match="xs:enumeration" mode="table" >
 		<xsl:value-of select="concat('|', @value, '|' )" />
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
 		
-		<xsl:value-of select="api:docu(xs:annotation/xs:documentation, 2)"/> 
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:call-template name="api:docu-table" />
+		<xsl:value-of select="$crlf"/>
 
         <xsl:call-template name="references"><xsl:with-param name="typeNames" select="@name"/></xsl:call-template>
 	</xsl:template>
 	
 	<xsl:template match="xs:simpleType|xs:complexType">
 		<xsl:value-of select="api:setAnchor( api:strip-ns( @name ) )"/>
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
+		<xsl:value-of select="$crlf"/>
 		<xsl:value-of select="api:header(1, api:captionText(@name))" />
-		<xsl:value-of select="api:docu(xs:annotation/xs:documentation)"/> 	
+		<xsl:call-template name="api:docu"/>
 
 
         <xsl:call-template name="references"><xsl:with-param name="typeNames" select="@name"/></xsl:call-template>
@@ -329,8 +373,8 @@
          |$schemata//xs:complexType[xs:*/xs:element/api:strip-ns(@ref)=$schemata//xs:element[api:strip-ns(@type)=$typeNames]/@name]
         "/>
 		
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
+		<xsl:value-of select="$crlf"/>
 		<xsl:text>Verwendet in:</xsl:text>
 		<xsl:choose>
 			<xsl:when test="(count($references) = 0)">
@@ -341,7 +385,7 @@
 				<xsl:value-of select="concat(' ', count($references), ' Elementen')"/>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:text>&#13;&#10;</xsl:text>
+				<xsl:value-of select="$crlf"/>
 	           	<xsl:for-each select="$references">
 	           		<xsl:sort select="@name"/>
            			<xsl:value-of select="if (position()=1) then ' ' else ', ' "/>
@@ -349,8 +393,16 @@
 	           	</xsl:for-each>
 			</xsl:otherwise>
 		</xsl:choose>
-		<xsl:text>&#13;&#10;</xsl:text>
-		<xsl:text>&#13;&#10;</xsl:text>
+		<xsl:value-of select="$crlf"/>
+		<xsl:value-of select="$crlf"/>
+	</xsl:template>
+	
+	<xsl:template name="type">
+		<xsl:sequence>
+			<xsl:value-of select="@type"/>
+			<xsl:value-of select="/xs:schema/xs:*[@name=api:strip-ns(current()/@ref)]/@type"/>
+			<xsl:value-of select="$schemata/xs:schema/xs:*[@name=api:strip-ns(current()/@ref)]/@type"/>
+		</xsl:sequence>
 	</xsl:template>
 
 	<!-- ======================================================================
@@ -364,7 +416,7 @@
 		<xsl:param name="text"/>
 		<xsl:sequence select="string-join(for $i in 1 to xs:integer($ebene + $einstiegsebene) return '=', '')"/>
 		<xsl:value-of select="$text"/>			
-		<xsl:text>&#13;&#10;</xsl:text> 		
+		<xsl:value-of select="$crlf"/> 		
 	</xsl:function>
 	
 	<!-- ======================================================================
@@ -439,45 +491,117 @@
 
 
 	<!-- ======================================================================
-	     function api:docu( lines : xs:string* ) : xs:string*
+	     template api:docu( warning : xs:integer* ) : xs:string
 	     ======================================================================
          Liefert einen Text als Fließtext einer Doku. 
          Wenn der Text leeer ist, wird eine Warnung ausgegeben, dass hier noch
          ein Dokumentierer gesucht würde.
 	= =  ================================================================== = = -->
-	<xsl:function name="api:docu" as="xs:string*">
-		<xsl:param name="lines" as="xs:string*"/>
-		<xsl:sequence  select="api:docu($lines, 1)"/>
-	</xsl:function>
+	<xsl:template name="api:docu-default-element" >
+		<xsl:param name="element" select="." as="element(xs:element)"/>
+	
+<!-- <xsl:text> -->
+<!-- #_docu-default-element_# -->
+<!-- </xsl:text> -->
+	
+	    <!-- versuche externe Datei zu laden -->
+	    <xsl:if test="$element/@name">
+			<xsl:variable name="filename" select="concat($pathTemplates,'Element_', $element/@name, '.adoc')" />
+			<xsl:variable name="externalText" select="if (unparsed-text-available($filename)) then unparsed-text($filename, 'UTF-8') else ''" />
+			<xsl:value-of select="api:docuFormat($externalText)" />
+
+			<xsl:if test="not(unparsed-text-available($filename))">
+			  <xsl:message select="concat('WARNING: not found:', $filename )"/>
+			</xsl:if>
+
+<!-- <xsl:text> -->
+<!-- #_docu_filename_# -->
+<!-- </xsl:text> -->
+<!-- <xsl:value-of select="concat($filename, $crlf)" /> -->
+<!-- <xsl:if test="unparsed-text-available($filename)"> -->
+<!-- <xsl:text> -->
+<!-- #_TREFFER_# -->
+<!-- </xsl:text> -->
+<!-- </xsl:if> -->
+      	</xsl:if>
+	</xsl:template>
+	
+	<xsl:template name="api:docu-no-warning">
+		<xsl:call-template name="api:docu"><xsl:with-param name="warning" select="''"/></xsl:call-template>
+	</xsl:template>
+
+	<xsl:template name="api:docu-table">
+		<xsl:variable name="type">
+			<xsl:call-template name="type"/>
+		</xsl:variable>
+		<xsl:variable name="typeObj" select="$schemata/xs:schema/xs:*[@name=$type]" />
+		<xsl:variable name="needsNoDocu" select="contains($type,'husst') and not($needsDocu[@name=substring-after($type,':')])" />
+
+<!-- <xsl:text> -->
+<!-- #_docu-table_# -->
+<!-- </xsl:text> -->
+<!-- <xsl:value-of select="concat('needsNoDocu=', $needsNoDocu, $crlf, $crlf)"/> -->
+
+<!-- <xsl:value-of select="concat('typename=', substring-after($type,':'), $crlf, $crlf)"/> -->
+
+<!-- <xsl:value-of select="$needsDocu[@name=substring-after($type,':')]/@name" separator=", "/> -->
 
 
-	<!-- ======================================================================
-	     function api:docu( lines : xs:string*; warning : xs:boolean ) : xs:string*
-	     ======================================================================
-         Liefert einen Text als Fließtext einer Doku. 
-         Wenn der Text leer ist, entscheidet der Parameter warning darüber, ob und wie 
-         eine Warnung ausgegeben wird, dass hier noch  ein Dokumentierer gesucht würde.
-	= =  ================================================================== = = -->
-	<xsl:function name="api:docu" as="xs:string*">
-		<xsl:param name="lines" as="xs:string*"/>
-		<xsl:param name="warning" as="xs:integer"/> <!-- 0=keine Warnung, 1=Warnung mit IMPORTANT:, 2=Warnung ohne IMPORTANT: (für Tabellen) -->
-		<xsl:sequence select="
-		  if (api:isEmpty($lines)) then 
-		    if ($warning=1) 
- 		      then 'IMPORTANT: [red]#_todo: Doku_#&#13;&#10;'  
-(: 		      then 'IMPORTANT: [red]#_Hier wird noch ein Dokumentierer gesucht!_#&#13;&#10;' :)  
-		      else if ($warning=2) 
-		        then  '[red]#_todo: Doku_#&#13;&#10;'
-		        else '' 
- 		  else 
- 		    api:docuFormat($lines)		
- 		"/> 
-	</xsl:function>	
+<!-- <xsl:value-of select="concat('$needsDocu.count=', count($needsDocu), $crlf)"/> -->
+<!-- <xsl:for-each select="$needsDocu"> -->
+<!-- 	<xsl:value-of select="concat(name(.),'=', @name, $crlf)"/> -->
+<!-- </xsl:for-each> -->
+
+
+<!-- <xsl:text> -->
+<!-- #===# -->
+
+<!-- </xsl:text> -->
+	
+
+		<xsl:variable name="warning">
+			<xsl:value-of select="if ( $needsNoDocu ) then '' else $missingDocuTable"/>
+		</xsl:variable>
+		<xsl:call-template name="api:docu"><xsl:with-param name="warning" select="$warning"/></xsl:call-template>
+	</xsl:template>
+	
+	<xsl:template name="api:docu">
+		<xsl:param name="warning" select="$missingDocu"/>
+
+		<xsl:variable name="lines">
+			<xsl:choose>
+				<!-- wenn ohne Doku und selbst Element, dann std-Doku suchen -->
+				<xsl:when test="self::xs:element and api:isEmpty(xs:annotation/xs:documentation)">
+					<xsl:call-template name="api:docu-default-element"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:value-of select="xs:annotation/xs:documentation"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+			
+		<xsl:variable name="isEmpty" select="api:isEmpty($lines)"/>
+		<xsl:variable name="maybeEmpty" select="xs:annotation/xs:appinfo/api:noDocu"/>
+		
+        <xsl:choose>
+        	<xsl:when test="not($isEmpty)"><xsl:value-of select="api:docuFormat($lines)"/></xsl:when>
+        	<xsl:when test="$maybeEmpty"/>
+        	<xsl:otherwise>                <xsl:value-of select="api:docuFormat($warning)"/></xsl:otherwise>
+        </xsl:choose>
+        
+        <xsl:apply-templates select="xs:annotation/xs:appinfo/api:example" mode="docu" />
+	</xsl:template>
+
+	<xsl:template match="api:example" mode="docu">
+<!-- 		<xsl:message select="concat('DEBUG: ', $crlf, '.Note', $crlf, '====', api:docuFormat(.), $crlf, '====', $crlf, $crlf)" /> -->
+		<xsl:value-of select="concat($crlf, $crlf, '====', api:docuFormat(.), $crlf, '====', $crlf, $crlf)" />
+	</xsl:template>
+
 
 	<xsl:function name="api:docuFormat" as="xs:string">
 	    <xsl:param name="lines" as="xs:string*"/>
 	
-	    <xsl:variable name="joined" select="string-join($lines, '&#13;&#10;')"/>
+	    <xsl:variable name="joined" select="string-join($lines, $crlf)"/>
 	    <xsl:variable name="formatted" select="
 			replace(
 				replace(
