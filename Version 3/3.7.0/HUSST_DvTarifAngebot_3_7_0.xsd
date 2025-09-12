@@ -2626,7 +2626,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             ID des Relationscodes, über den der Ortspunkt mit einem oder mehreren Tarifpunkten verknüpft ist.
@@ -2643,7 +2643,7 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             Amtlicher Gemeindeschlüssel (AGS)
@@ -2701,7 +2701,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="XKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="XKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             X-Koordinate der globalen Position des Ortspunktes.
@@ -2709,7 +2709,7 @@
           </xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="YKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="YKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
             desgl. Y-Koordinate
