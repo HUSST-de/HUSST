@@ -14,13 +14,15 @@ REM == Start: Hauptroutine =============================================
   call :Setup
 
   @echo --- transformiere die DV Xsds zu AsciiDoc ---
-  @rem   
+  @rem  
   call :DvTransXsd Basis
-  @rem   
+  @rem  
   call :DvTransXsd TarifAngebot
-  @rem   
+  @rem  
   call :DvTransXsd Vertrieb
-  
+  @rem  
+  call :ErgTransXsd Ergebnisdaten
+
   @echo on
   @rem call asciidoctor -o IndexStandard.html                           Main.adoc
 
@@ -48,8 +50,25 @@ REM %1 = Dv Schema: Basis, TarifAngebot, Vertrieb
   
   @echo transformiere %dirXsd%\HUSST_Dv%Schema%_%verHusst_%.xsd --^>%dirDocDv%\Dv%Schema%.adoc
   
+  set param=einstiegsebene=3 "defaults=%dirDefaultsDv%" schema=%Schema% verHusst=%verHusst%
   @rem 
-  %cmdJava% %cmdSaxTrans% -s:%dirXsd%\HUSST_Dv%Schema%_%verHusst_%.xsd  -xsl:%fnXsl% -o:%dirDocDv%\Dv%Schema%.adoc einstiegsebene=3 schema=%Schema% verHusst=%verHusst%
+  @echo    %param%
+  @rem 
+  %cmdJava% %cmdSaxTrans% -s:%dirXsd%\HUSST_Dv%Schema%_%verHusst_%.xsd  -xsl:%fnXsl% -o:%dirDocDv%\Dv%Schema%.adoc %param%
+goto :eof
+
+REM wandelt eine Husst_DvXxx.xsd in eine DvXxx.adoc Dokumentation
+REM %1 = Erg Schema: Basis, TarifAngebot, Vertrieb
+:ErgTransXsd
+  set "Schema=%~1"
+  
+  @echo transformiere %dirXsd%\HUSST_%Schema%_%verHusst_%.xsd --^>%dirDocErg%\%Schema%.adoc
+  
+  set param=einstiegsebene=3 "defaults=%dirDefaultsErg%" schema=%Schema% verHusst=%verHusst%
+  @rem 
+  @echo    %param%
+  @rem 
+  %cmdJava% %cmdSaxTrans% -s:%dirXsd%\HUSST_%Schema%_%verHusst_%.xsd  -xsl:%fnXsl% -o:%dirDocErg%\%Schema%.adoc %param%
 goto :eof
 
 :Setup
@@ -70,10 +89,16 @@ goto :eof
   REM Extrahiere die Versionsnummer aus dem Pfad
   set "dirXsd=..\.."
   set "dirDocDv=Dv"
+  set "dirDocErg=Ergebnisdaten"  
   for %%A in ("%dirXsd%") do set "verHusst=%%~nxA"
   set "verHusst_=%verHusst:.=_%"
 
+  REM Pfadparameter zu den jeweiligen Element-Default-Texten
+  set "dirDefaultsDv=%dirScript%%dirDocDv%\Default"
+  set "dirDefaultsErg=%dirScript%%dirDocErg%\Default"
+
   @REM @echo off  
+  @rem pause
 goto :eof
 
 :TearDown

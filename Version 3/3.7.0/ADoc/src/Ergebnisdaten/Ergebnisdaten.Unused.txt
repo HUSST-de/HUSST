@@ -1,0 +1,15 @@
+EinsatzTyp_Type
+Schichtsummen_Type
+Betriebszeit_Type
+blobString
+Char
+DateCompact
+DateTimeCompact
+INT1
+INT2
+INT8
+BezahlArtSimple_Type
+KasseTyp_Type
+KundenTypSimple_Type
+OrtsTypSimple_Type
+TransportserviceArtSimple_Type

@@ -1,0 +1,1 @@
+Referenz auf den Zeitraum, zu dem das Element gehört.
