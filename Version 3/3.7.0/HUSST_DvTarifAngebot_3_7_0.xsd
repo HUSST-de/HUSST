@@ -673,7 +673,7 @@
       </xs:appinfo>
       <xs:documentation>Tarifpunkte bilden Endpunkte in der Tarifmatrix eines Tarifgebietes:
 		Teilrelationen: Von-Tarifpunkt -&gt; Nach-Tarifpunkt -&gt; Preisstufe.
-		Ein Tarifpunkt wird über Relationscodes einer oder mehrerer Haltestellen (Ortstpunkte) zugeordnet.
+		Ein Tarifpunkt wird über Relationscodes einer oder mehrerer Haltestellen (Ortspunkte) zugeordnet.
 		Die Attribute der Tarifpunkte werden verwendet für 
 		- Aufdruck auf Fahrscheinen benötigt um eine Kontrolle der räumlichen Gültigkeit zu ermöglichen.
 		- das Verbuchen des Fahrscheinverkaufs in den Erlösdaten.		
@@ -2407,7 +2407,7 @@
     <xs:annotation>
       <xs:documentation>
         Tarifgebiet spezifische-Attribute der Ortspunkte, die von dem referenzierenden Ortspunkt abweichen.
-		Zu jedem Eintrag in OrtspunkteTG muss auch ein referenzierender Datensatz in Ortstpunkte existieren.
+		Zu jedem Eintrag in OrtspunkteTG muss auch ein referenzierender Datensatz in Ortspunkte existieren.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -2477,7 +2477,7 @@
       <xs:documentation>
         Ergänzenender Datensatz für KA-Attribute der Ortspunkte.
 		Diese Tabelle ist optional gefüllt, wenn die KA-Attribute benötigt werden.
-		Zu jedem Eintrag in OrtspunkteKA muss auch ein referenzierender Datensatz in Ortstpunkte existieren.
+		Zu jedem Eintrag in OrtspunkteKA muss auch ein referenzierender Datensatz in Ortspunkte existieren.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -2581,6 +2581,12 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="ID_Relcode" type="husstDV:INT4" minOccurs="0" maxOccurs="1"/>
+        <xs:annotation>
+          <xs:documentation>
+            ID des Relationscodes, über den der Ortspunkt mit einem oder mehreren Tarifpunkten verknüpft ist.
+			Damit wird eine Haltestelle z.B. verschiedenen Tarif-Zonen zugeordnet.
+          </xs:documentation>
+        </xs:annotation>
       <xs:element name="IBISnr" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2591,6 +2597,14 @@
       </xs:element>
       <xs:element name="ID_Bundesland" type="husstDV:ID_Bundesland_Type" minOccurs="0" maxOccurs="1"/>
       <xs:element name="Gemeindekennziffer" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        <xs:annotation>
+          <xs:documentation>
+            Amtlicher Gemeindeschlüssel (AGS)
+			8-stelliger Schlüssel zur eindeutigen Identifizierung einer Gemeinde mit den Bestandteilen: 
+			Bundesland (2 Stellen), Regierungsbezirk (1 Stelle), Kreis (2 Stellen) und Gemeinde (3 Stellen).
+			
+          </xs:documentation>
+        </xs:annotation>
       <xs:element name="Bezeichnung" type="xs:string" minOccurs="0" maxOccurs="1">
         <xs:annotation>
           <xs:documentation>
@@ -2640,7 +2654,18 @@
         </xs:annotation>
       </xs:element>
       <xs:element name="XKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1"/>
+        <xs:annotation>
+          <xs:documentation>
+            X-Koordinate der globalen Position des Ortspunktes.
+			WGS=World Geodetic System 1984
+          </xs:documentation>
+        </xs:annotation>
       <xs:element name="YKoordWgs84" type="husstDV:KoordWgs84_Type" minOccurs="0" maxOccurs="1"/>
+        <xs:annotation>
+          <xs:documentation>
+            desgl. Y-Koordinate
+          </xs:documentation>
+        </xs:annotation>
       <xs:element name="DynAttribut" type="husstDV:DynAttribut_Subtype" maxOccurs="unbounded" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
