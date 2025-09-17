@@ -1,0 +1,269 @@
+=== TarifAngebotTest Rootelemente
+
+[[OePVTarifDB_Type]]
+==== OePVTarifDB
+
+
+Das
+ist
+das
+Haus      
+Enthält die vollständige Tarif- und Angebotsdatenbank für den öffentlichen Personennahverkehr (ÖPNV) gemäß HUSST-Standard.
+Diese Struktur bildet die zentrale Wurzel für alle tarifrelevanten Definitionen, Relationen, Sorten und Preisstufen.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Husst-String
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ string
++++</div>+++
+ a| a|Husst-Complex
+
+ a|
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<Husst-Complex_Type,Husst-Complex>>
++++</div>+++
+ a| a|Husst-2
+
+ a|
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<Husst-2_Type,Husst-2>>
++++</div>+++
+ a| a|Husst-3
+
+ a|
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<Husst-3_Type,Husst-3>>
++++</div>+++
+ a| a|Husst-5
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ string
++++</div>+++
+ a| a|Zeitraeume
+
+ a|
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<Zeitraeume_Type,Zeitraeume>>
++++</div>+++
+|=======================
+
+
+Verwendet als: Rootelement
+
+[[Husst-Complex_Type]]
+==== Husst-Complex
+
+
+Bediengebiete erlauben die Definition von Sichten
+auf Auswahlelemente (Tarifrelevante Punkte, Haltestellen, etc.).
+Damit ist die Möglichkeit zur Filterung von Start/Zielauswahlen
+in verschiedenen Umfeldern möglich.
+
+
+====
+z.B. PT30M - 30 Minuten
+
+====
+
+
+
+====
+.Beispielwerte Husst-Complex
+[options="header,autonumber!" cols="20%,20%,60%"]
+|=======================
+|Eigenschaft|Wert|Hinweise
+// Zeile
+a| ID_Ortspunkttyp
+a| 1
+a| 
+
+// Zeile
+a| Bezeichnung
+a| Haltestelle
+a| 
+An einer Haltestelle können Fahrgäste in ein ÖPNV-Fahrzeug (Bus, Zug, ..) einsteigen oder daraus aussteigen.
+
+|=======================
+
+
+====
+
+
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<INT4,INT4>>
++++</div>+++
+ a| a|ID_Tarifgebiet
+
+ a|Referenz auf das Tarifgebiet, dem das Element zugeordnet ist.
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<INT4,INT4>>
++++</div>+++
+ a| a|Husst-2
+
+ a|
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<Husst-2_Type,Husst-2>>
++++</div>+++
+ a|★  a|ID_Bediengebiet
+
+ a|Eindeutige ID des Bediengebiets.
+
+====
+z.B. 19.00 für 19% MwSt
+
+====
+
+
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<INT4,INT4>>
++++</div>+++
+ a| a|ID_Enum
+
+ a|
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<ID_Enum_Type,ID_Enum>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|
+Bezeichnung des Bediengebiets z.B. Automaten oder Kassen.
+
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
+Optionaler Erweiterungsmechanismus für zusätzliche, projektspezifische Eigenschaften.
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
+
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<DynAttribut_Subtype,DynAttribut_Subtype>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. (((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype"><img src="images/t-angle-brackets-v2.svg" width="35" height="35" alt="<T>" />+++
+ <<DynAttribut_Subtype,DynAttribut_Subtype>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet als: Rootelement
+
+
+
+=== TarifAngebotTest Elemente
+
+
+=== TarifAngebotTest Enumerationen 
+
+
+[[ID_EnumHUSST_Type]]
+
+[[ID_Enum_Type]]
+
+==== ID_Enum
+
+ID_Enum_Type: ID_Enum ist entweder husst-spezifisch oder projektspezifisch definiert.
+
+
+====
+z.B. PT30M - 30 Minuten
+
+====
+
+
+ID_EnumHUSST_Type: Die HUSST definiert ID_Enum kleiner 1000
+
+====
+z.B. PT60M - 60 Minuten
+
+====
+
+
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|1 a|
+Standard Enum für den allgemeinen Verkauf((Verkauf))
+ a|1 a|
+ 1. Klasse
+ a|2 a|
+ 2. Klasse
+|=======================
+
+
+
+
+
+
+=== technische Datentypen 
+
+
+[[Husst-2_Type]]
+
+==== Husst-2
+IMPORTANT: _todo: Doku_
+
+Verwendet als: Rootelement
+
+
+[[Husst-3_Type]]
+
+==== Husst-3
+IMPORTANT: _todo: Doku_
+
+Verwendet als: Rootelement
+
+
+[[Husst-4_Type]]
+
+==== Husst-4
+IMPORTANT: _todo: Doku_
+
+
+
+
+
+=== TarifAngebotTest Definitionsstand
+
+
+(((Husst)))HUSST Versorgungsdaten - Schemata: Tarif, Angebot (verwendet Basisversorgungsdaten)
+Version: 3.7.0
+Mehr Informationen:
+
+* https://husst.de/
+
+* https://github.com/HUSST-de/HUSST
+Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+
+
+== Glosar
+[glossary]
+Term2:: Kurze Erläuterung zu Term1.
+Term1:: Erläuterung zu Term2.

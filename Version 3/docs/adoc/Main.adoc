@@ -1,0 +1,18 @@
+include::konfig/.asciidoctorconfig.adoc[]
+:doctype: book
+
+= HUSST Dokumentation V3.7.0
+
+root:{root}
+
+Technische Dokumentation V {Revision}
+  
+vom {Date}
+
+include::{root}allgemein/Einführung.adoc[]
+
+include::{root}datenversorgung/BereichDatenversorgung.adoc[]
+
+include::{root}ergebnisdaten/BereichErgebnisdaten.adoc[]
+
+include::{root}allgemein/Glossar.adoc[]

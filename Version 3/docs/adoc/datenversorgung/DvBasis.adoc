@@ -1,0 +1,1977 @@
+
+=== Basis Elemente
+
+
+[[Bearbeitung_Type]]
+==== Bearbeitung
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Bearbeitungsdatum
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a|★  a|Lieferant
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Kommentar
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[DefBundesland_Type]]
+==== DefBundeslaender
+
+
+Definiert einen Gliedstaat (in Deutschland: Bundesland).
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Bundesland
+
+ a|
+Eindeutige ID des Bundeslands.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_Bundesland_Type,ID_Bundesland>>
++++</div>+++
+ a| a|Iso
+
+ a|
+Für Deutschland: die letzten zwei Stellen des ISO
+3166-2 Codes für Gliedstaaten.
+DE-BW Baden-Württemberg also: BW
+DE-BY Bayern also: BY
+DE-BE Berlin also: BE
+DE-BB Brandenburg also: BB
+DE-HB Bremen also: HB
+DE-HH Hamburg also: HH
+DE-HE Hessen also: HE
+DE-MV Mecklenburg-Vorpommern also: MV
+DE-NI Niedersachsen also: NI
+DE-NW Nordrhein-Westfalen also: NW
+DE-RP Rheinland-Pfalz also: RP
+DE-SL Saarland also: SL
+DE-SN Sachsen also: SN
+DE-ST Sachsen-Anhalt also: ST
+DE-SH Schleswig-Holstein also: SH
+DE-TH Thüringen also: TH
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Bundeslandes
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+identifizieren zu können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
+Dynamische Attribute des Bundeslands.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[DefWaehrung_Type]]
+==== DefWaehrungen
+
+Definiert die Währungen, die in den Versorgungsdaten vorkommen (können). Siehe auch ID_Waehrung_Type bzw. ID_WaehrungHUSST_Type
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Waehrung
+
+ a|
+Eindeutige ID der Währung.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_Waehrung_Type,ID_Waehrung>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|
+ISO-Kurzbezeichnung der Währung, z.B. EUR, USD, CHF,...
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+identifizieren zu können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
+Dynamische Attribute der Währung.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[Feiertage_Type]]
+==== Feiertage
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Feiertag
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Bundesland
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_Bundesland_Type,ID_Bundesland>>
++++</div>+++
+ a|★  a|Datum
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateCompact,DateCompact>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[Interpretationen_Type]]
+==== Interpretationen
+
+
+Interpretationen definiert, wie die Daten zu
+interpretieren sind.
+Dazu werden Parameter mit einem
+Schluessel und einem Wert eingetragen.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|Interpretationsschluessel
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Interpretationsschluessel_Type,Interpretationsschluessel>>
++++</div>+++
+ a| a|Wert
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[Kalender_Type]]
+==== Kalender
+
+
+Beschreibt einen Kalender mit den jeweils zugeordneten Tagesarten.
+Ein Betriebstag entspricht einem Kalendertag, kann jedoch einen
+vom Kalenderdatum abweichenden Tagesanfang und ein abweichendes Tagesende haben.
+Diese Zeitpunkte werden nicht explizit im Kalender festgelegt.
+Benötigt das System eine Tagesart (ID_Tagesart), wird diese
+vorrangig aus den Einträgen des Kalenders ermittelt.
+Existiert für einen Kalendertag kein Eintrag, kann das System
+anhand von Tagesartmerkmalelementen eine Standard-Tagesart bestimmen
+z.B. aus dem Wochentag oder allgemein berechenbaren Feiertagen.
+Siehe auch:
+
+* Tagesmerkmale_Type
+
+* Tagesmerkmalelemente_Type
+
+* Tagesartmerkmalelemente_Type
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Betriebstag
+
+ a|
+Datum des Betriebstages
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateCompact,DateCompact>>
++++</div>+++
+ a|★  a|ID_Betriebstagesart
+
+ a|
+Kennung der Tagesart, die für diesen Betriebstag gilt.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Optionale externe Referenz, um den Kalendereintrag über einen
+nicht-numerischen Schlüssel eindeutig zu identifizieren.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[TagesartMerkmalElemente_Type]]
+==== TagesartMerkmalElemente
+
+
+Verknüpft eine Betriebstagesart mit einer Menge von TagesmerkmalElementen.
+Dadurch wird beschrieben, welche Merkmalsausprägungen für diese Tagesart gelten.
+Diese Zuordnung hat in der Regel rein beschreibenden Charakter.
+Eine funktionale Bedeutung ist nur für Elemente des Tagesmerkmals
+"husstDefaultermittlung" definiert (siehe Typ Tagesmerkmale_Type).
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_TagesartMerkmalElement
+
+ a|
+Kennung des Tagesartmerkmalelements
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Betriebstagesart
+
+ a|
+Kennung der Betriebstagesart, zu der das Merkmalselement gehört.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_TagesmerkmalElement
+
+ a|
+Kennung des zugeordneten Tagesmerkmalelements.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Optionale externe Referenz, um das Element über einen beliebigen,
+ggf. nicht-numerischen Schlüssel eindeutig zu identifizieren.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[Tagesarten_Type]]
+==== Tagesarten
+
+
+Beschreibt die logische Tagesart eines Kalendertages für das
+vorliegende System.
+Jedem Kalendertag ist genau eine Tagesart zugeordnet. Die Tagesart
+charakterisiert den Tag in funktionaler Hinsicht, z.B. als Werktag,
+Feiertag oder spezieller Betriebstag.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Betriebstagesart
+
+ a|
+Kennung der Tagesart.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|
+Informationen, welche Bedeutung diese Kennung hat.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Optionale externe Referenz zur Identifikation der Tagesart
+über einen nicht-numerischen Schlüssel.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[TagesmerkmalElemente_Type]]
+==== TagesmerkmalElemente
+
+
+Beschreibt ein einzelnes Element innerhalb eines Tagesmerkmals.
+Jedes Tagesmerkmal kann eine Liste unterschiedlicher Elemente besitzen,
+die jeweils einen bestimmten Wert oder eine Ausprägung des Merkmals darstellen.
+Siehe auch Definition des Typs Tagesmerkmale_Type.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_TagesmerkmalElement
+
+ a|
+Kennung des Tagesmerkmalelements
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Tagesmerkmal
+
+ a|
+Verweis auf das Tagesmerkmal, zu dem dieses Element gehört.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|Bezeichnung
+
+ a|
+Eindeutiger Bezeichner des Tagesartmerkmalelements.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<String250,String250>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Optionale externe Referenz, um das Element über einen beliebigen,
+ggf. nicht-numerischen Schlüssel eindeutig zu identifizieren.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[Tagesmerkmale_Type]]
+==== Tagesmerkmale
+
+
+Ein Tagesmerkmal muss so gestaltet sein, dass an jedem
+Betriebstag (Kalendertag aber ggf. abweichende Start-/Ende Uhrzeit) aus der
+Liste der Mermalelemente genau ein Element gültig ist.
+Für eine Tagesart können mehrere Elemente aus einer Liste eines
+Tagesmerkmales definiert sein.
+Beispiele:
+Tagesmerkmal:"Wochentag=("Mo","Di","Mi","Do","Fr","Sa","So")
+Tagesmerkmal:"Ferien"=("Ja","Nein")
+Die Husst Schnittstelle definiert ein Default-Tagesmerkmal mit dem
+vorgegebenen Bezeichner
+"husstDefaultermittlung"=("Mo","Di","Mi","Do","Fr","Sa","So","Mo/Feiertag","Di/Feiertag","Mi/Feiertag","Do/Feiertag","Fr/Feiertag","Sa/Feiertag","So/Feiertag")
+Mit diesem Tagesmerkmal können Tagesarten ausgezeichnet werden, die
+dann gelten sollen,
+wenn kein Kalendereintrag gefunden wird. Das Vertriebssystem ermittelt
+dann aufgrund des Wochentages und der
+allgemein berechenbaren Feiertage (Einige sind natürlich nicht eindeutig
+ermittelbar) das husstDefault-Tagesmerkmal
+und sucht eine Tagesart, für die dieses Merkmal gesetzt ist. Maximal
+vierzehn Tagesarten können darüber
+unterschieden werden und keine zwei Tagesarten dürfen eines der Merkmale
+gemeinsam haben).
+Das Tagesmerkmal "husstDefaultermittlung" muss nicht definiert werden.
+Wenn eine Datenmenge das Merkmal definiert,
+darf es nur mit der hier definierten Intension verwendet werden.
+Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter.
+Eine vorgegebene Behandlung oder
+Auswertung ist über den HUSST-Standard nicht definiert.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Tagesmerkmal
+
+ a|Kennung des Tagesmerkmals
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|
+Frei wählbarer Name des Tagesmerkmals.
+Bezeichnungen mit dem Präfix "husst" sind reserviert.
+Die Bezeichnung "husstDefaultermittlung" besitzt eine festgelegte
+Bedeutung (siehe Beschreibung des Typs Tagesmerkmale_Type).
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Optionale externe Referenz, um das Merkmal über einen beliebigen,
+ggf. nicht-numerischen Schlüssel eindeutig zu identifizieren.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>
+
+[[Unternehmen_Type]]
+==== Unternehmen
+
+Unternehmen definieren organisatorische Einheiten, die in dem Vertriebssystem eine Rolle übernehmen.
+Wenn sie die Rolle eines Mandanten im System übernehmen, kann dies über ihre Mandant Eigenschaft angezeigt werden.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Unternehmen
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|BezeichnungKurz
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Mandant
+
+ a|
+True, wenn das Unternehmen als Mandant im System geführt
+wird.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Dient als Referenz um Unternehmen über eine nicht numerische
+Referenz ggf. auch bezogen auf Drittsysteme identifizieren
+zu können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[Updateinfo_Type]]
+==== Updateinfo
+
+
+Dokumentation von Updatevorgängen über der zunächst
+generierten Datenmenge
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Updatetime
+
+ a|
+Zeitpunkt des Updatevorgangs
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a|★  a|Filename
+
+ a|
+Filename des Updatescripts oder Bezeichnung des Updatevorgangs
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Purpose
+
+ a|
+Hinweis zum Zweck des Updatevorgangs
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[VersionInhalt_Type]]
+==== VersionInhalt
+
+
+Enthält die Versionsinformationen einer kompletten HUSST-Datenlieferung.
+Dient als Metainformation, um Lieferungen eindeutig zu identifizieren und voneinander abzugrenzen.
+Über die Registrierung von DatenversionInhalt können Verkaufs- oder Versorgungsdaten
+einer konkreten Datenlieferung zugeordnet werden.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|DatenversionInhalt
+
+ a|
+Eindeutige Kennung der Datenversion für die gesamte Lieferung.
+Darf innerhalb einer Datenlieferung nur einmal vorkommen.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Testdaten
+
+ a|
+Kennzeichnung, ob es sich bei der Lieferung um Testdaten handelt (true/false).
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|Erstellungsdatum
+
+ a|
+Datum und Uhrzeit, zu dem die Datenlieferung erzeugt wurde.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a|★  a|Lieferant
+
+ a|
+Name oder Kennung des Lieferanten, der die Daten bereitstellt.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Kommentar
+
+ a|
+Freitextfeld für zusätzliche Hinweise oder Bemerkungen zur Datenlieferung.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[VersionStruktur_Type]]
+==== VersionStruktur
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|VersionMajor
+
+ a|
+Hauptversionsnummer (Major). Erhöht sich bei nicht abwärtskompatiblen Änderungen zur vorherigen Version.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|VersionMinor
+
+ a|
+Nebenversion (Minor). Erhöht sich bei abwärtskompatiblen Erweiterungen oder funktionalen Anpassungen.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|VersionPatch
+
+ a|
+Patch-Level. Erhöht sich bei abwärtskompatiblen Fehlerkorrekturen (Bugfixes).
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Status
+
+ a|
+Aktueller Entwicklungs- oder Veröffentlichungsstatus der Version.
+Mögliche Werte siehe VersionStatus_Type.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<VersionStatus_Type,VersionStatus>>
++++</div>+++
+ a| a|Aenderungsdatum
+
+ a|
+Datum der letzten Änderung dieser Version im Format JJJJ-MM-TT.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateCompact,DateCompact>>
++++</div>+++
+ a| a|Aenderungsautor
+
+ a|
+Name oder Organisation des Autors, der die letzte Änderung vorgenommen hat.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[Zeitraeume_Type]]
+==== Zeitraeume
+
+
+Beschreibt einen Gültigkeitszeitraum, in welchem eine bestimmte Datenmenge verwendet werden darf.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ZeitraumVon
+
+ a|
+Startdatum und -uhrzeit des Zeitraums (einschließlich).
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a| a|ZeitraumBis
+
+ a|
+Enddatum und -uhrzeit des Zeitraums (einschließlich).
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a|★  a|DatenversionZeitraum
+
+ a|
+Eindeutiger Schlüssel für die Datenmenge, die in dem Zeitraum enthalten ist,
+bezogen auf die DatenversionInhalt des Elements VersionInhalt.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|HauptZeitraumNr
+
+ a|
+Kennzeichnet den Hauptzeitraum, zu dem dieser Zeitraum gehört.
+Alle Zeiträume mit gleicher Hauptzeitraumnummer bilden einen gemeinsamen Datenraum,
+in dem alle Referenzen (ID_xx) die gleiche Bedeutung haben.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|SubZeitraumNr
+
+ a|
+Laufende Nummerierung der Subzeiträume innerhalb eines Hauptzeitraums, beginnend bei 1.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+[[Zeitraumoptionen_Type]]
+==== Zeitraumoptionen
+
+
+ordnet einem Zeitraum zusätzliche Optionen zu
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|Option
+
+ a|Schlüsselstring der Option
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<String250,String250>>
++++</div>+++
+ a| a|Wert
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<OePVTarifDB_Type,OePVTarifDB>>, <<husstPersonal_Type,husstPersonal>>
+
+=== Basis Enumerationen 
+
+
+[[ID_BundeslandHUSST_Type]]
+
+[[ID_Bundesland_Type]]
+
+==== ID_Bundesland
+
+Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
+
+
+Die HUSST definiert ID_Bundesland kleiner 1000.
+Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS)
+bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind.
+Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
+https://www.destatis.de/DE/Themen/Laender-Regionen/Regionales/Gemeindeverzeichnis/Administrativ/Archiv/Standardtabellen/02_BundeslaenderVorjahr.html
+Dieser 2-stellige Länderschlüssel wird u.a. auch in der DHID/Global-ID (=Landeskennzeichen(LK))
+verwendet und damit im deutschlandweiten zentralen Haltestellenverzeichnis (zHV)
+
+* siehe auch VDV-Schrift 432: https://www.vdv.de/downloads/3855/432SDS/forced.
+
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|0 a|
+unbekannt
+ a|1 a|
+Schleswig-Holstein (SH)
+ a|2 a|
+Hamburg (HH)
+ a|3 a|
+Niedersachsen (NI)
+ a|4 a|
+Bremen (HB)
+ a|5 a|
+Nordrhein-Westfalen (NW)
+ a|6 a|
+Hessen (HE)
+ a|7 a|
+Rheinland-Pfalz (RP)
+ a|8 a|
+Baden-Württemberg (BW)
+ a|9 a|
+Bayern (BY)
+ a|10 a|
+Saarland (SL)
+ a|11 a|
+Berlin (BE)
+ a|12 a|
+Brandenburg (BB)
+ a|13 a|
+Mecklenburg-Vorpommern (MV)
+ a|14 a|
+Sachsen (SN)
+ a|15 a|
+Sachsen-Anhalt (ST)
+ a|16 a|
+Thüringen (TH)
+|=======================
+
+
+Verwendet in: 
+<<DefBundesland_Type,DefBundesland>>, <<Feiertage_Type,Feiertage>>, <<Ortspunkte_Type,Ortspunkte>>, <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+
+
+[[ID_WaehrungHUSST_Type]]
+
+[[ID_Waehrung_Type]]
+
+==== ID_Waehrung
+
+Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
+
+
+Die HUSST definiert Waehrungs-ID kleiner 1000.
+Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
+Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
+
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|999 a|
+EUR
+ a|280 a|
+DEM
+ a|784 a|
+AED
+ a|971 a|
+AFN
+ a|008 a|
+ALL
+ a|051 a|
+AMD
+ a|532 a|
+ANG
+ a|973 a|
+AOA
+ a|032 a|
+ARS
+ a|036 a|
+AUD
+ a|533 a|
+AWG
+ a|944 a|
+AZN
+ a|977 a|
+BAM
+ a|052 a|
+BBD
+ a|050 a|
+BDT
+ a|975 a|
+BGN
+ a|048 a|
+BHD
+ a|108 a|
+BIF
+ a|060 a|
+BMD
+ a|096 a|
+BND
+ a|068 a|
+BOB
+ a|984 a|
+BOV
+ a|986 a|
+BRL
+ a|044 a|
+BSD
+ a|064 a|
+BTN
+ a|072 a|
+BWP
+ a|933 a|
+BYN
+ a|084 a|
+BZD
+ a|124 a|
+CAD
+ a|976 a|
+CDF
+ a|947 a|
+CHE
+ a|756 a|
+CHF
+ a|948 a|
+CHW
+ a|990 a|
+CLF
+ a|152 a|
+CLP
+ a|156 a|
+CNY
+ a|170 a|
+COP
+ a|970 a|
+COU
+ a|188 a|
+CRC
+ a|931 a|
+CUC
+ a|192 a|
+CUP
+ a|132 a|
+CVE
+ a|203 a|
+CZK
+ a|262 a|
+DJF
+ a|208 a|
+DKK
+ a|214 a|
+DOP
+ a|012 a|
+DZD
+ a|818 a|
+EGP
+ a|232 a|
+ERN
+ a|230 a|
+ETB
+ a|242 a|
+FJD
+ a|238 a|
+FKP
+ a|826 a|
+GBP
+ a|981 a|
+GEL
+ a|936 a|
+GHS
+ a|292 a|
+GIP
+ a|270 a|
+GMD
+ a|324 a|
+GNF
+ a|320 a|
+GTQ
+ a|328 a|
+GYD
+ a|344 a|
+HKD
+ a|340 a|
+HNL
+ a|332 a|
+HTG
+ a|348 a|
+HUF
+ a|360 a|
+IDR
+ a|376 a|
+ILS
+ a|356 a|
+INR
+ a|368 a|
+IQD
+ a|364 a|
+IRR
+ a|352 a|
+ISK
+ a|388 a|
+JMD
+ a|400 a|
+JOD
+ a|392 a|
+JPY
+ a|404 a|
+KES
+ a|417 a|
+KGS
+ a|116 a|
+KHR
+ a|174 a|
+KMF
+ a|408 a|
+KPW
+ a|410 a|
+KRW
+ a|414 a|
+KWD
+ a|136 a|
+KYD
+ a|398 a|
+KZT
+ a|418 a|
+LAK
+ a|422 a|
+LBP
+ a|144 a|
+LKR
+ a|430 a|
+LRD
+ a|426 a|
+LSL
+ a|434 a|
+LYD
+ a|504 a|
+MAD
+ a|498 a|
+MDL
+ a|969 a|
+MGA
+ a|807 a|
+MKD
+ a|104 a|
+MMK
+ a|496 a|
+MNT
+ a|446 a|
+MOP
+ a|929 a|
+MRU
+ a|480 a|
+MUR
+ a|462 a|
+MVR
+ a|454 a|
+MWK
+ a|484 a|
+MXN
+ a|979 a|
+MXV
+ a|458 a|
+MYR
+ a|943 a|
+MZN
+ a|516 a|
+NAD
+ a|566 a|
+NGN
+ a|558 a|
+NIO
+ a|578 a|
+NOK
+ a|524 a|
+NPR
+ a|554 a|
+NZD
+ a|512 a|
+OMR
+ a|590 a|
+PAB
+ a|604 a|
+PEN
+ a|598 a|
+PGK
+ a|608 a|
+PHP
+ a|586 a|
+PKR
+ a|985 a|
+PLN
+ a|600 a|
+PYG
+ a|634 a|
+QAR
+ a|946 a|
+RON
+ a|941 a|
+RSD
+ a|643 a|
+RUB
+ a|646 a|
+RWF
+ a|682 a|
+SAR
+ a|090 a|
+SBD
+ a|690 a|
+SCR
+ a|938 a|
+SDG
+ a|752 a|
+SEK
+ a|702 a|
+SGD
+ a|654 a|
+SHP
+ a|925 a|
+SLE
+ a|706 a|
+SOS
+ a|968 a|
+SRD
+ a|728 a|
+SSP
+ a|930 a|
+STN
+ a|222 a|
+SVC
+ a|760 a|
+SYP
+ a|748 a|
+SZL
+ a|764 a|
+THB
+ a|972 a|
+TJS
+ a|934 a|
+TMT
+ a|788 a|
+TND
+ a|776 a|
+TOP
+ a|949 a|
+TRY
+ a|780 a|
+TTD
+ a|901 a|
+TWD
+ a|834 a|
+TZS
+ a|980 a|
+UAH
+ a|800 a|
+UGX
+ a|840 a|
+USD
+ a|997 a|
+USN
+ a|940 a|
+UYI
+ a|858 a|
+UYU
+ a|927 a|
+UYW
+ a|860 a|
+UZS
+ a|926 a|
+VED
+ a|928 a|
+VES
+ a|704 a|
+VND
+ a|548 a|
+VUV
+ a|882 a|
+WST
+ a|950 a|
+XAF
+ a|961 a|
+XAG
+ a|959 a|
+XAU
+ a|955 a|
+XBA
+ a|956 a|
+XBB
+ a|957 a|
+XBC
+ a|958 a|
+XBD
+ a|951 a|
+XCD
+ a|960 a|
+XDR
+ a|952 a|
+XOF
+ a|964 a|
+XPD
+ a|953 a|
+XPF
+ a|962 a|
+XPT
+ a|994 a|
+XSU
+ a|963 a|
+XTS
+ a|965 a|
+XUA
+ a|886 a|
+YER
+ a|710 a|
+ZAR
+ a|967 a|
+ZMW
+ a|932 a|
+ZWL
+|=======================
+
+
+Verwendet in: 
+<<DefWaehrung_Type,DefWaehrung>>, <<Preisspalten_Type,Preisspalten>>
+
+
+[[InterpretationsschluesselHUSST_Type]]
+
+[[Interpretationsschluessel_Type]]
+
+==== Interpretationsschluessel
+Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.
+
+Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
+
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|husst.Relationen.Matrixtyp a|
+
+Definiert, wie die Relationenmatrix zu interpretieren ist.
+mögliche Matrixtypen sind
+"Vollmatrix" : Jede Verbindung ist in jeder erlaubten Richtung in der Relationenmatrix hinterlegt.
+"Halbmatrix" : Zu jeder möglichen Verbindung ist nur die Variante ID_RelcodeStart größer gleich ID_RelcodeZiel hinterlegt, die umgekehrte Richtung ist dazu identisch.
+"erweitert Halbmatrix" : Die Relationen werden im Regelfall mit ID_RelcodeStart größer gleich ID_RelcodeZiel definiert, es kann aber auch die Rückrichtung definiert
+sein,
+dann muss das Flag GegenrichtungLiegtVor auf true gesetzt werden.
+
+ a|husst.Relationen.Suchstrategie a|
+
+Definiert, wie die Ermittlung einer Verkaufsverbindung erfolgen soll.
+Ist der Schlüssel nicht definiert, wird über ID_RelcodeStart und ID_RelcodeZiel in den Relationen nach einer oder mehreren Verbindungen gesucht.
+mögliche Suchstrategien sind
+"NbHstSuche + RCSuche" : Suchstrategie für die Relationsermittlung: Nachbarhaltestellensuche zusätzlich zur Relationscodesuche.
+
+ a|husst.Teilrelationen.Matrixpreisbildung a|
+
+Definiert, wie die Preisbildung aus den Teilrelationen erfolgen soll.
+Ist der Schlüssel nicht definiert, wird der Preis anhand der ID_Preisstufe der ersten Teilrelation ermittelt.
+mögliche Matrixpreisbildungen sind
+"Anstoß_CH" : Wenn nur eine Teilrelation exisitiert, dann wie beim Standardfall.
+Sonst: Preisstufenattribute werden von der Preisstufe der ersten Teilrelation verwendet.
+Der Preis wird nach einer eigenen CH-Logik aus den weiteren Teilrelationen berechnet.
+
+|=======================
+
+
+Verwendet in: 
+<<Interpretationen_Type,Interpretationen>>
+
+
+[[VersionStatus_Type]]
+
+
+==== VersionStatus
+
+Gibt den aktuellen Status einer Version an.
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|Release a|
+
+Offizielle, veröffentlichte Version.
+
+ a|work in progress a|
+
+Laufende Bearbeitung.
+
+ a|stabil a|
+
+Getestete, stabile Version.
+Ist Obsolete - Bitte "Release" verwenden.
+
+ a|in Arbeit a|
+
+Befindet sich noch in der Entwicklung.
+Ist Obsolete - Bitte "work in progress" verwenden.
+
+|=======================
+
+
+Verwendet in: 
+<<VersionStruktur_Type,VersionStruktur>>
+
+
+
+=== Basis Datentypen 
+
+
+[[DauerMinuten]]
+
+
+==== DauerMinuten
+
+Definiert eine Dauer. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+
+
+====
+z.B. PT30M - 30 Minuten
+
+====
+
+
+
+Verwendet in: 
+<<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
+
+
+[[DynAttribut_Subtype]]
+==== DynAttribut
+
+
+Der Subtyp DynAttribut_Subtype dient der Definition von
+dynamischen Attributen als mögliche Erweiterung für die
+Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für
+eine Abbildung auf ein relationales Datenbankmodell
+verwendet.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Name
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Wert
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttributWert_Subtype,DynAttributWert>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 76 Elementen 
+
+
+[[ID_ProjektspezifischBitfeld_Type]]
+
+
+==== ID_ProjektspezifischBitfeld
+
+Frei definierbare IDs für Def-Elemente auf Bitfeld Basis beginnend mit 1024.
+Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
+
+
+
+
+
+[[ID_Projektspezifisch_Type]]
+
+
+==== ID_Projektspezifisch
+
+Frei definierbare IDs für Def-Elemente beginnend mit 1000.
+Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
+
+
+Verwendet in: 
+<<DefBundesland_Type,DefBundesland>>, <<DefWaehrung_Type,DefWaehrung>>, <<Feiertage_Type,Feiertage>>, <<Ortspunkte_Type,Ortspunkte>>, <<Preisspalten_Type,Preisspalten>>, <<Tarifrelevantepunkte_Type,Tarifrelevantepunkte>>
+
+
+[[InterpretationsschluesselProjektspezifisch_Type]]
+
+
+==== InterpretationsschluesselProjektspezifisch
+
+Für projektspezifische Zwecke oder zum Test
+können eigene Namen für Interpretationsschluessel verwendet werden.
+Namensregeln:
+Eigene Namen ..
+.. dürfen nicht mit 'husst.' beginnen,
+.. dürfen nicht mit einer Zahl beginnen,
+.. müssen mindestens ein Zeichen [a-ZöäüÖÄÜß\-0-9] je Wort enthalten
+.. müssen mit einem Wort beginnen,
+.. dürfen mehrere Wörter mit '.' oder '-' trennen,
+.. dürfen nicht mit einem Punkt enden.
+
+
+Verwendet in: 
+<<Interpretationen_Type,Interpretationen>>
+
+
+[[KoordWgs84_Type]]
+
+
+==== KoordWgs84
+
+Koordinate im WGS 84-Referenzsystem als Fließkommazahl (Dezimalgrad). Dieser Wert kann zur Angabe von Breiten- oder Längengraden genutzt werden.
+
+
+====
+z.B. 34.9655 für eine Koordinate
+
+====
+
+
+
+Verwendet in: 
+<<Ortspunkte_Type,Ortspunkte>>
+
+
+[[UhrzeitMinuten]]
+
+
+==== UhrzeitMinuten
+
+Definiert den Zeitpunkt eines Tages. Bei der Interpretation wird auf ganze Minuten geachtet. Sekunden-Angaben werden ignoriert.
+
+
+====
+z.B. 08:00:00+02:00 - Ortszeit 2 Stunden vor UTC
+
+====
+
+
+
+Verwendet in: 
+<<SortengruppenErmittlungen_Type,SortengruppenErmittlungen>>
+
+
+
+=== technische Enumerationen 
+
+
+[[DynAttributTyp_Type]]
+
+==== DynAttributTyp
+
+Die Werte eines dynamischen Attributes werden als String gespeichert.
+Der DynAttributTyp gibt an, wie der Wert zu interpretieren ist.
+
+
+Verwendet in: 
+<<DynAttributDef_Type,DynAttributDef>>
+
+
+
+=== technische Datentypen 
+
+
+[[Char]]
+
+==== Char
+
+Der Datentyp char speichert ein einzelnes Zeichen.
+
+
+
+
+
+[[DateCompact]]
+
+==== DateCompact
+
+Datum nach dem ISO 8601 Standard.
+Der gültige Bereich ist eingeschränkt:
+
+* 1990-01-01 - 2117-12-31
+
+
+====
+z.B. 2025-03-26
+
+====
+
+
+
+Verwendet in: 
+<<Feiertage_Type,Feiertage>>, <<Kalender_Type,Kalender>>, <<VersionStruktur_Type,VersionStruktur>>
+
+
+[[DateTimeCompact]]
+
+==== DateTimeCompact
+
+Datum und Urzeit nach dem ISO 8601 Standard.
+Der gültige Bereich ist eingeschränkt:
+
+* 1990-01-01T00:00:00Z - 2117-12-31T23:59:58Z
+
+
+====
+z.B. 2025-03-26T22:40:47
+
+====
+
+
+
+Verwendet in: 
+<<Bearbeitung_Type,Bearbeitung>>, <<PersonalIdentobjekte_Type,PersonalIdentobjekte>>, <<Personal_Type,Personal>>, <<Tarifgebiete_Type,Tarifgebiete>>, <<Updateinfo_Type,Updateinfo>>, <<VersionInhalt_Type,VersionInhalt>>, <<Zeitraeume_Type,Zeitraeume>>
+
+
+[[FLOAT1]]
+
+==== FLOAT1
+
+Dezimalwert zwischen 0 und 100 in englischer Notation (Punkt als Dezimaltrennzeichen).
+
+
+====
+z.B. 19.00 für 19% MwSt
+
+====
+
+
+
+Verwendet in: 
+<<Mwst_Type,Mwst>>
+
+
+[[INT1]]
+
+==== INT1
+
+Entspricht einer Ganzzahl mit dem Wertebereich von einem Byte (0 - 255).
+
+
+Verwendet in: 
+<<Preise_Type,Preise>>, <<Preisstufen_Type,Preisstufen>>
+
+
+[[INT2]]
+
+==== INT2
+
+Entspricht einer Ganzzahl mit dem Wertebereich von zwei Bytes (0 - 65535).
+
+
+Verwendet in: 
+<<Preise_Type,Preise>>, <<Sorten_Type,Sorten>>
+
+
+[[INT4]]
+
+==== INT4
+
+Entspricht einer Ganzzahl mit dem Wertebereich von vier Bytes (0 - 4294967295).
+
+
+Verwendet in: 91 Elementen 
+
+
+[[INT8]]
+
+==== INT8
+
+Entspricht einer Ganzzahl mit dem Wertebereich von acht Bytes (0 - 18446744073709551615).
+
+
+
+
+
+[[Lang_Type]]
+
+==== Lang
+
+Stellt zwei buchstabige Sprachcodes gemäß ISO 639-1:2002 dar.
+
+
+====
+z.B. de für deutsch oder en für englisch
+
+====
+
+
+
+Verwendet in: 
+<<DynAttributWert_Type,DynAttributWert>>, <<Sprachtexte_Type,Sprachtexte>>
+
+
+[[String250]]
+
+==== String250
+
+Der Datentyp String250 enthält eine Zeichenfolge mit maximal 250 Zeichen.
+
+
+Verwendet in: 
+<<TagesmerkmalElemente_Type,TagesmerkmalElemente>>, <<Zeitraumoptionen_Type,Zeitraumoptionen>>
+
+
+[[blobString]]
+
+==== blobString
+
+Der Datentyp blobString ist eine Zeichenkette, die nur aus den ASCII Zeichen zwischen U+0020 (Leerzeichen) und U+00FE (þ)
+sowie dem Eurozeichen (U+20AC) und dem Gedankenstrich (U+2013) bestehen darf.
+
+
+====
+z.B. æø6÷¶
+
+====
+
+
+
+Verwendet in: 
+<<DynAttributWert_Type,DynAttributWert>>, <<RaeumlicheGueltigkeit_Type,RaeumlicheGueltigkeit>>, <<Sorten_Type,Sorten>>
+
+
+
+=== Basis Definitionsstand
+
+
+HUSST Versorgungsdaten - Schema: Basis
+Version: 3.7.0
+Mehr Informationen:
+
+* https://husst.de/
+
+* https://github.com/HUSST-de/HUSST
+Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)

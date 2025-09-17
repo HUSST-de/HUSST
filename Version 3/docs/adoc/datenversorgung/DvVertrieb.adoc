@@ -1,0 +1,1036 @@
+
+
+=== Vertrieb Rootelement
+
+[[husstPersonal_Type]]
+==== husstPersonal
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Bearbeitung
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Bearbeitung_Type,Bearbeitung>>
++++</div>+++
+ a| a|Interpretationen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Interpretationen_Type,Interpretationen>>
++++</div>+++
+ a| a|Unternehmen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Unternehmen_Type,Unternehmen>>
++++</div>+++
+ a| a|Updateinfo
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Updateinfo_Type,Updateinfo>>
++++</div>+++
+ a| a|VersionInhalt
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<VersionInhalt_Type,VersionInhalt>>
++++</div>+++
+ a| a|VersionStruktur
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<VersionStruktur_Type,VersionStruktur>>
++++</div>+++
+ a| a|Zeitraeume
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Zeitraeume_Type,Zeitraeume>>
++++</div>+++
+ a| a|Zeitraumoptionen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Zeitraumoptionen_Type,Zeitraumoptionen>>
++++</div>+++
+ a| a|DefIdentobjekttyp
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DefIdentobjekttyp_Type,DefIdentobjekttyp>>
++++</div>+++
+ a| a|DefPasswortHashtyp
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DefPasswortHashtyp_Type,DefPasswortHashtyp>>
++++</div>+++
+ a| a|Einsatzarten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Einsatzarten_Type,Einsatzarten>>
++++</div>+++
+ a| a|Geraetetypen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Geraetetypen_Type,Geraetetypen>>
++++</div>+++
+ a| a|Geraet
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Geraet_Type,Geraet>>
++++</div>+++
+ a| a|GeraeteEinsatztypen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<GeraeteEinsatztypen_Type,GeraeteEinsatztypen>>
++++</div>+++
+ a| a|Identobjekte
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Identobjekte_Type,Identobjekte>>
++++</div>+++
+ a| a|PersonalIdentobjekte
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<PersonalIdentobjekte_Type,PersonalIdentobjekte>>
++++</div>+++
+ a| a|Personal
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Personal_Type,Personal>>
++++</div>+++
+ a| a|Personaleinsatz
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Personaleinsatz_Type,Personaleinsatz>>
++++</div>+++
+|=======================
+
+
+Verwendet als: Rootelement
+
+
+
+=== Vertrieb Elemente
+
+
+[[DefIdentobjekttyp_Type]]
+==== DefIdentobjekttyp
+
+Definiert einen Identifikationstyp zur Anmeldung.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Identobjekttyp
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+identifizieren zu können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[DefPasswortHashtyp_Type]]
+==== DefPasswortHashtyp
+
+Definiert einen Hashtyp mit dem übergebene Passwörter gehasht wurden. Wird zum vergleichen von Passwörtern beötigt.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_PasswortHashtyp
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+identifizieren zu können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[Einsatzarten_Type]]
+==== Einsatzarten
+
+Die Beschreibung für einen Personaleinsatz. Zum Beispiel: Verkäufer, Kontrolleur, Zugbegleiter, ...
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_EinsatzArt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Referenz zu einem extern definierten Element.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ID_Geraetetyp
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[Geraet_Type]]
+==== Geraet
+
+Die Stammdaten zu einem Gerät mit Zuweisung zu einem Unternehmen.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Geraet
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Geraetetyp
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|KA_KvpOrgID
+
+ a|KA KVP Nr
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ID_Unternehmen
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Dient als Referenz um extern definierte Elemente über einen ggf. auch nicht numerischen Schlüssel
+identifizieren zu können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[GeraeteEinsatztypen_Type]]
+==== GeraeteEinsatztypen
+
+Einsatzart eines Gerätes, zur Differenzierung der Datenverteilung
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_GeraeteEinsatztyp
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[Geraetetypen_Type]]
+==== Geraetetypen
+
+
+Der Gerätetyp ist Teil des Primärschlüssels eines Gerätes. 
+Er dient der Unterscheidung, um was für ein Gerät es sich handelt.
+Zum Beispiel: Verkaufstablett, Kontrollgerät, ...
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Geraetetyp
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|Name des Elements zur Verwendung in UI-Komponenten oder zum Ausdruck.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Referenz zu einem extern definierten Element.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[Identobjekte_Type]]
+==== Identobjekte
+
+
+Ident Objekte zur Identifizierung einer Person.
+Die ID des Identobjektes ist über alle Objekttypen und Mandanten
+eindeutig zu halten.
+Idealerweise sollten alle Identobjekte eines Objekttyps über alle Mandanten im
+System eindeutig sein.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Identobjekt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Identobjekttyp
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_Identobjekttyp_Type,ID_Identobjekttyp>>
++++</div>+++
+ a| a|Bezeichnung
+
+ a|
+Freier Text, der z.B. zur Anzeige verwendet werden kann.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ID_Unternehmen
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|
+Systemweit eindeutige Nummer/Kennung des Ident-Objektes
+z.B. zusammengesetzt aus ID_Identobjekttyp und Identobjekt_Schluessel
+ggf. mit ID_Unternehmen
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[Personal_Type]]
+==== Personal
+
+Dient zur Übergabe von Personaldaten und Zuordnung zu dem Unternehmen.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Personal
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ID_Unternehmen
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ID_AbrUnternehmen
+
+ a|Abrechnungs-Unternehmen, bei dem Einnahmen abgeliefert werden müssen
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ID_PasswortHashtyp
+
+ a|Gibt den Hashtyp an mit dem das Passwort gehasht wurde.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<ID_PasswortHashtyp_Type,ID_PasswortHashtyp>>
++++</div>+++
+ a| a|Passwort
+
+ a|
+Gehashtes Passwort. 
+Wenn angegeben, ist ID_PasswortHashtyp zwingen anzugeben
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Vorname
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Nachname
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|GueltigAb
+
+ a|
+Da Personal zu jeder Zeit einem Unternehmen ein- und austreten kann, gibt es 
+zusätzlich zum Zeitraum die Möglichkeit ein Einstiegsdatum anzugeben.
+Dies dient dazu nicht für jeden Beschäftigungsbeginn einen Zeitraum anlegen zu müssen.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a| a|GueltigBis
+
+ a|
+Da Personal zu jeder Zeit einem Unternehmen ein- und austreten kann, gibt es 
+zusätzlich zum Zeitraum die Möglichkeit ein Ausstiegsdatum anzugeben.
+Dies dient dazu nicht für jeden Beschäftigungsende einen Zeitraum anlegen zu müssen.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[PersonalIdentobjekte_Type]]
+==== PersonalIdentobjekte
+
+
+PersonalIdentobjekte weist einer Person kein, ein oder mehrere Identobjekte zu.
+Hinweis: Es handelt sich um eine n:m Beziehung. Auf einen künstlichen Schlüssel wird verzichtet.
+Die Struktur hat deshalb keinen PrimeKey!
+Einer Person kann ein Identobjekt auch mehrfach zugeordnet sein, mit unterschiedlichen
+GueltigAb, GueltigBis Intervallen. Ein Identobjekt darf immer dann zur Identifikation verwendet werden,
+wenn bei mindestens einem Zuordnungsobjekt der aktuelle Systemzeitpunkt
+im GueltigAb,GueltigBis Intervall liegt. Ist GueltigAb nicht angegeben,
+gilt die Zuordnung ab "schon immer", ist GueltigBis nicht angegeben
+gilt die Zuordnung "bis ewig".
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_PersonalIdentobjekt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Identobjekt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Personal
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|GueltigAb
+
+ a|
+Wenn angegeben, definiert GueltigAb den Beginn der Verwendbarkeit des Ident-Objektes.
+Vor diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a| a|GueltigBis
+
+ a|
+Wenn angegeben, definiert GueltigBis das Ende der Verwendbarkeit des Ident-Objektes.
+Nach diesem Zeitpunkt darf sich der Bediener mit diesem Objekt nicht erfolgreich am System anmelden können.
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DateTimeCompact,DateTimeCompact>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+[[Personaleinsatz_Type]]
+==== Personaleinsatz
+
+
+Dient zur Festlegung, welche Geräte und Einsatztypen dem 
+Persinal zugeordnet werden können.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Deaktiviert
+
+ a|Deaktiviert den Datensatz mit dem gleichen Primary-Key aus Lieferungen mit der gleichen Haupt- aber kleineren Subzeitraumnummern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a|★  a|ID_Zeitraum
+
+ a|Referenz auf den Zeitraum, zu dem das Element gehört.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Personaleinsatz
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Personal
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_Geraetetyp
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|ID_GeraeteEinsatztyp
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a|★  a|ID_EinsatzArt
+
+ a|
+Rolle, die er auf dem Gerätetyp einnimmt
+
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<INT4,INT4>>
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|(((dynamisches Attribut)))(((projekspezifische Erweiterung)))
+Optionaler Erweiterungsmechanismus für zusätzliche, 
+projektspezifische Eigenschaften. 
+
+Unbekannte Attribute sind von empfangenden Systemen zu ignorieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<DynAttribut_Subtype,DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<husstPersonal_Type,husstPersonal>>
+
+=== Vertrieb Enumerationen 
+
+
+[[ID_IdentobjekttypHUSST_Type]]
+
+[[ID_Identobjekttyp_Type]]
+
+==== ID_Identobjekttyp
+
+Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+
+
+Die HUSST definiert ID_Identobjekttypen kleiner 1000
+
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|0 a|
+nicht spezifiziert/unbestimmt
+ a|1 a|
+Fahrermodul
+ a|2 a|
+Chipkarte
+ a|3 a|
+Schlüssel
+ a|4 a|
+Anmeldecode
+|=======================
+
+
+Verwendet in: 
+<<DefIdentobjekttyp_Type,DefIdentobjekttyp>>, <<Identobjekte_Type,Identobjekte>>
+
+
+[[ID_PasswortHashtypHUSST_Type]]
+
+[[ID_PasswortHashtyp_Type]]
+
+==== ID_PasswortHashtyp
+
+Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
+
+
+Die HUSST definiert PasswortHashTypen kleiner 1000
+Die Verfahren 1 bis 4 entsprechen der Empfehlung
+https://en.wikipedia.org/wiki/Key_derivation_function
+
+
+[options="header,autonumber!" cols="20%,80%"]
+|=======================
+|Wert|Beschreibung
+ a|0 a|
+Klartext
+ a|1 a|
+argon2id
+ a|2 a|
+scrypt
+ a|3 a|
+bcrypt
+ a|4 a|
+PBKDF2
+|=======================
+
+
+Verwendet in: 
+<<DefPasswortHashtyp_Type,DefPasswortHashtyp>>, <<Personal_Type,Personal>>
+
+
+
+=== Vertrieb Definitionsstand
+
+
+HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)
+Version: 3.7.0
+Mehr Informationen:
+
+* https://husst.de/
+
+* https://github.com/HUSST-de/HUSST
+Lizensiert unter CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)

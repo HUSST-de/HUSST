@@ -1,0 +1,19 @@
+== Glossar
+deaktiviert:: 
+  Kennzeichnet ein Element mit der entsprechenden ID als „virtuell“ gelöscht innerhalb eines Hauptzeitraums.
+EFS:: 
+  Elektronischer Fahrschein, beispielsweise auf einer Chipkarte oder auf dem Handy.
+Externe Referenz:: 
+  Eindeutiger Verweis auf ein Objekt oder eine Entität außerhalb des aktuellen Systems.
+Hauptzeitraum:: 
+  Primärer Gültigkeitszeitraum einer Datenversion. Datensätze innerhalb eines Hauptzeitraums behalten ihre IDs über mehrere Subzeiträume hinweg.
+Husst:: 
+  Herstellerunabhängige Standardschnittstelle Tarif – Open-Source-Datenmodell für ÖPNV-Vertriebssysteme.
+Pflichtelement:: 
+  Ein Datenelement, das in allen Fällen ausgefüllt werden muss.
+Subzeitraum:: 
+  Untergeordneter Zeitraum innerhalb eines Hauptzeitraums. Teil-Datenlieferungen mit höherer Subzeitraumnummer ergänzen, überschreiben oder löschen "virtuell" die vorhergehenden Daten desselben Hauptzeitraums.
+VDV KA:: 
+  VDV Kernapplikation – Standard für Kontrolle und Vertrieb elektronischer Fahrausweise, VDV = Verband Deutscher Verkehrsunternehmen.
+Zeitraum:: 
+  Allgemeine Bezeichnung für ein Zeitintervall („von“ – „bis“).

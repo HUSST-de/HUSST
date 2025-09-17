@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+
+     viewBox="0 0 44 22"
+     font-family="Nunito, sans-serif"
+     dominant-baseline="middle"
+>
+
+  <text x="0" y="12"
+  id="tspanOpen"  class="tbracket tbracket-left" 
+  >&lt;</text>
+
+  <g class="tchar gchar" transform="scale(0.6),translate(11.5,9.5)">
+  <text x="16" y="12"
+  id="tspanT"      class="tchar" 
+  >T</text>
+  </g>
+
+  <text x="28" y="12"
+  id="tspanClose"  class="tbracket tbracket-right" 
+  >&gt;</text>
+
+</svg>

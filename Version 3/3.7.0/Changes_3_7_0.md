@@ -12,7 +12,8 @@ Status: Vorschläge
 | `reference`    | `string` |ja| Verweis auf eine externe Referenz zu einem Strukturelement|
 | `example`    | `example_Type` |ja| Freitextbeispiel                      |
 | `fieldexample` | `fieldexample_Type` |ja| Strukturiertes Beispiel mit Feldwerten |
-| `nodocuneeded` | `nodocuneeded_Type` |ja| Element benötigt keine Dokumentation |
+| `noDocu` | `noDocu_Type` |ja| Element benötigt nicht zwingend fachliche Dokumentation, es sei denn sie weicht ab vom Husst-Datentyp |
+| `needsDocu` | `needsDocu_Type` |ja| Element benötigt fachliche Dokumentation, unabhängig vom technischen Husst-Datentyp |
 
 ### Beispiele
 
@@ -107,9 +108,14 @@ Strukturiertes Beispiel mit Feldwerten
         </api:fieldexample>
 ```
 
-#### nodocuneeded
+#### noDocu
 Hinweis an die Dokumentationsgenerierung, dass für das Strukturelement keine eine Dokumentation benötigt wird.
 Zum Beispiel weil es schon im Rahmen der übergeordneten Struktur beschrieben wurde. 
+
+
+#### needsDocu
+Hinweis an die Dokumentationsgenerierung, dass für ein Strukturelement dieses Typs eine eigene Dokumentation benötigt wird.
+In der Regel, weil es sich bei dem Typ um einen technischen, keinen fachlichen Datentyp handelt. 
 
 
 ## HUSST_DvTarifAngebot_3_7_0
@@ -118,3 +124,8 @@ nicht mehr referenzierte Typen entfernt
 * Vorverkauf_Type
 * Umschalttag_Type
 * Sammelbeleg_Type
+
+## Dokumentationsgenerierung
+### Default Element Dokumentation
+Für Elemente kann eine Default-Dokumentation im Verzeichnis ADoc/src/(Dv|Ergebnisdaten)/Default
+hinterlegt werden. 

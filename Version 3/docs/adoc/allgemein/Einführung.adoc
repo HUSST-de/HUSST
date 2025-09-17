@@ -1,0 +1,19 @@
+== Einführung
+
+////
+Dieser Text wird nicht automatisch generiert sondern ist 
+direkt editiert.
+////
+
+Willkommen in der offiziellen technischen Husst Dokumentation. Hier findest du alle Informationen, die du benötigst, um Husst zu verstehen und zu nutzen.
+Diese Dokumentation ist in verschiedene Bereiche unterteilt, die jeweils spezifische Aspekte von Husst abdecken.
+
+Husst ist im Kern die Spezifikation eines Datenmodells - die Platform kann beliebig gewählt werden (Sqlite, XML, usw.), wobei zur Definition des Standards
+XSD verwendet wird.
+
+Die Dokumentation ist in drei Bereiche aufgeteilt: Datenversorgung, Ergebnisdaten und Glossar.
+In jedem Bereich wird das jeweilige Hauptelement (Rootelement), sowie alle weiteren fachlichen und technischen
+Elemente erläutert. Im Detail werden ihre Eigenschaften sowie Abhängigkeiten zu anderen Husst Elementen erklärt.
+Die von Husst definierten Datentypen und Aufzählungstypen, werden jeweils in einem eigenen Abschnitt erläutert.
+
+Im Glossar werden alle wichtigen Fachbegriffe kurz und bündig erkärt.

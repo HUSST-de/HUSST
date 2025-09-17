@@ -1,0 +1,5 @@
+Gibt die Währung eines Geldbetrages an.
+ 
+Die HUSST definiert Waehrungs-ID kleiner 1000.
+Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
+Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).

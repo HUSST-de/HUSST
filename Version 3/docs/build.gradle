@@ -1,0 +1,153 @@
+plugins {
+	id 'org.asciidoctor.jvm.convert' version '4.0.5'
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+ext {
+	husstVersion = '3.7.0'
+	husstVersionUl = husstVersion.replace('.', '_')
+	xsl = 'xsl/HusstXsdToADoc.xsl'
+	classpathSaxon = 'd:\\HN\\dev\\third\\Saxon\\SaxonHE12-5J\\saxon-he-12.5.jar'
+	loglevel = project.findProperty('loglevel') ?: 'INFO'
+	cwd = project.projectDir.absolutePath
+}
+
+
+task printProjectDir {
+	doLast {
+		println "Project Directory: ${project.projectDir}"
+	}
+}
+
+task copyAssets(type: Copy) {
+	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
+	description = "kopiert alle nötigen Dateien nach Output"
+
+	from  'styles'
+	from  'images'
+	include  '*.js', '*.png', '*.svg'
+	into  'output'
+	eachFile { fileCopyDetails ->
+		if (fileCopyDetails.name.endsWith('.js')) {
+			fileCopyDetails.path = "js/${fileCopyDetails.name}"
+		} else if (fileCopyDetails.name.endsWith('.png') || fileCopyDetails.name.endsWith('.svg')) {
+			fileCopyDetails.path = "images/${fileCopyDetails.name}"
+		}
+	}
+}
+
+task transformBasis(type: Exec) {
+	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
+	description = "transformiert xsd nach adoc"
+
+	inputs.file  "../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd"
+	inputs.file  "xsl/HusstXsdToADoc.xsl"
+	outputs.file  "adoc/datenversorgung/DvBasis.adoc"
+
+	
+	commandLine(
+		"java",
+		"-cp", classpathSaxon,
+		"net.sf.saxon.Transform",
+		"-s:../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd",
+		"-xsl:xsl/HusstXsdToADoc.xsl",
+		"-o:adoc/datenversorgung/DvBasis.adoc",
+		"einstiegsebene=3",
+		"defaults=${cwd}/adoc/datenversorgung/default",
+		"schema=Basis",
+		"verHusst=${husstVersion}",
+		"loglevel=${loglevel}",
+	)
+}
+
+task transformTarifAngebot(type: Exec) {
+	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
+	description = "transformiert xsd nach adoc"
+
+	// Konfigurations-Cache für diesen Task ausschalten
+	outputs.cacheIf { false }
+
+	inputs.file  "../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd"
+	inputs.file  "xsl/HusstXsdToADoc.xsl"
+	outputs.file  "adoc/datenversorgung/DvTarifAngebot.adoc"
+	
+	println "using loglevel = ${loglevel}"
+	commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvTarifAngebot.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=TarifAngebot', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+
+}
+
+task transformVertrieb(type: Exec) {
+	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
+	description = "transformiert xsd nach adoc"
+
+	inputs.file  "../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd"
+	inputs.file  "xsl/HusstXsdToADoc.xsl"
+	outputs.file  "adoc/datenversorgung/DvVertrieb.adoc"
+	
+	commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvVertrieb.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=Vertrieb', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+}
+
+task transformErgebnisdaten(type: Exec) {
+	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
+	description = "transformiert xsd nach adoc"
+
+	inputs.file  "../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd"
+	inputs.file  "xsl/HusstXsdToADoc.xsl"
+	outputs.file  "adoc/ergebnisdaten/Ergebnisdaten.adoc"
+	
+	commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/ergebnisdaten/Ergebnisdaten.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/ergebnisdaten/default", 'schema=Ergebnisdaten', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+}
+
+tasks.named('asciidoctor') {
+    forkOptions {
+        jvmArgs '--add-opens=java.base/sun.nio.ch=ALL-UNNAMED',
+                '--add-opens=java.base/java.io=ALL-UNNAMED'
+    }
+
+		inputs.files fileTree("adoc") {
+		include "*.adoc"
+	}
+	inputs.files fileTree("styles") {
+		include "*.css", "*.js", "*.png", "*.svg"
+	}
+	inputs.files fileTree("images") {
+		include "*.png", "*.svg"
+	}
+	inputs.files fileTree("konfig") {
+		include "*.adoc", "*.html", "*.rb"
+	}
+	outputs.file "output/Main.html"
+
+	sourceDir = file("adoc")
+	sources {
+		include 'Main.adoc'
+	}
+
+	attributes(
+		"docinfo"   : "shared",
+		"docinfodir": "konfig",
+		"stylesheet": 'styles/husst_roboto_orange.css',
+		"docinfo2"  : ''
+	)
+
+	outputDir = file('output')
+}
+
+// zum Debuggen
+task printGradlePropertiesFiles {
+	group = "verification"
+    // Pfade als *finale Variablen* auf Configuration-Time ermitteln
+    def globalFile = new File(System.getProperty("user.home"), ".gradle/gradle.properties")
+    def projectFile = layout.projectDirectory.file("gradle.properties").asFile
+
+    doLast {
+        println "Global gradle.properties: ${globalFile.exists() ? globalFile.absolutePath : 'nicht vorhanden'}"
+        println "Projekt gradle.properties: ${projectFile.exists() ? projectFile.absolutePath : 'nicht vorhanden'}"
+    }
+}
+asciidoctor.dependsOn transformBasis, transformTarifAngebot, transformVertrieb, transformErgebnisdaten
+build.dependsOn copyAssets, asciidoctor

@@ -1,0 +1,3751 @@
+
+
+=== Erg_Ergebnis Rootelement
+
+[[Erg_Schichtenliste_Type]]
+==== Erg_Schichten
+
+
+Rootelement der Ergebnisdaten. Umfasst die Liste aller Schichten 
+und die Informationen, mit welcher HUSST-Version das xml erstellt wurde. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Version
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_VersionStruktur_Type,Erg_VersionStruktur>>
++++</div>+++
+ a| a|Schicht
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Schicht_Type,Erg_Schicht>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet als: Rootelement
+
+
+
+=== Erg_Ergebnis Elemente
+
+
+[[Erg_Any_Type]]
+==== Erg_Any
+
+
+Der Datentyp für Felder, die keinen festen Typen haben. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|StringData
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|BinaryData
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+base64Binary
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Kontrolldaten_Type,Erg_Kontrolldaten>>, <<Erg_Transaktionsdaten_Type,Erg_Transaktionsdaten>>
+
+[[Erg_Ausgabeabschnitt_Type]]
+==== Erg_Ausgabeabschnitt
+
+
+Definiert einen Papierabschnitt mit seiner Startnummer und der Anzahl seiner
+Barcodeabschnitte oder Abschnittzähler. Die Startnummer ist immer die kleinste Nummer des
+gelesenen Abschnittes, egal in welche Richtung die Nummerierung der Rolle geht. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|StartNr
+
+ a|Startnummer des Abschnittzählers, z.B. Barcode oder anfängliche
+Rollennummer.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Anzahl
+
+ a|Anzahl der Abschnittzähler, z.B. Barcodes
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Beleg_Type,Erg_Beleg>>, <<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Barbezahlung_Type]]
+==== Erg_Barbezahlung
+
+
+Typ um eine Bargeldtransaktion mit Zahlund und Rückgeld abzubilden. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Einnahme
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Rueckgabe
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Bargeldbilanz_Type]]
+==== Erg_Bargeldbilanz
+
+
+Für jede vorkommende Währung werden hier die Bilanzen über den Dienst, der bei
+Automaten gleiche mit der Schicht ist, aufgeführt. Die zugehörigen Bargeld-Einnahmen finden
+sich in der Kassenliste. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Anfangsbestand
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Zufuehrungen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Entnahmen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Fehleinnahmen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Kassenentnahmen
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a|★  a|Endbestand
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Dienstende_Type,Erg_Dienstende>>
+
+[[Erg_Beleg_Type]]
+==== Erg_Beleg
+
+
+Enthält Informationen über den ausgegebenen Beleg 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|BelegNr
+
+ a|
+Laufende Aufdrucknummer auf einem Papierdokument oder gespeicherte
+Folgenummer 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Abschnitt
+
+ a|Zugehörige, unveränderliche Dokumentmerkmale. (Abschnittzähler oder
+rückseitiger Barcode)
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Ausgabeabschnitt_Type,Erg_Ausgabeabschnitt>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Dienstende_Type,Erg_Dienstende>>, <<Erg_EBEErfassung_Type,Erg_EBEErfassung>>, <<Erg_Geldbehaelterliste_Type,Erg_Geldbehaelterliste>>, <<Erg_Produkt_Type,Erg_Produkt>>, <<Erg_Restgeldbeleg_Type,Erg_Restgeldbeleg>>, <<Erg_Schichtabschluss_Type,Erg_Schichtabschluss>>, <<Erg_Warenkorb_Type,Erg_Warenkorb>>, <<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Belegkasse_Type]]
+==== Erg_Belegkasse
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Betrag
+
+ a|
+Hier kann der Gesamtbetrag der vereinnahmten Belege eingetragen werden 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Gutschrift
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Tarifprodukt_Type,Erg_Tarifprodukt>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Belegkassenliste_Type,Erg_Belegkassenliste>>
+
+[[Erg_Belegkassenliste_Type]]
+==== Erg_Belegkassenliste
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|BelegKasse
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Belegkasse_Type,Erg_Belegkasse>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Dienstende_Type,Erg_Dienstende>>, <<Erg_Schichtsummen_Type,Erg_Schichtsummen>>
+
+[[Erg_Betrag_Type]]
+==== Erg_Betrag
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Waehrung
+
+ a|Gibt die Währung eines Geldbetrages an.
+
+Die HUSST definiert Waehrungs-ID kleiner 1000.
+Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
+Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Waehrung_Type,Erg_Waehrung>>
++++</div>+++
+ a| a|Betrag
+
+ a|
+Betrag in kleinsten Währungseinheiten (z.B. Euro-Cent) 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Barbezahlung_Type,Erg_Barbezahlung>>, <<Erg_Bargeldbilanz_Type,Erg_Bargeldbilanz>>, <<Erg_Belegkasse_Type,Erg_Belegkasse>>, <<Erg_EBEVorgang_Type,Erg_EBEVorgang>>, <<Erg_Geldbehaelter_Type,Erg_Geldbehaelter>>, <<Erg_Kasse_Type,Erg_Kasse>>, <<Erg_Preis_Type,Erg_Preis>>, <<Erg_Stuecke_Type,Erg_Stuecke>>, <<Erg_Wertbehaelter_Type,Erg_Wertbehaelter>>, <<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_BezahlArt_Type]]
+==== Erg_BezahlArt
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in: 
+<<Erg_KKOfflineBezahlung_Type,Erg_KKOfflineBezahlung>>, <<Erg_Kasse_Type,Erg_Kasse>>, <<Erg_ZVTBezahlung_Type,Erg_ZVTBezahlung>>, <<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Datensatz_Type]]
+==== Erg_Datensatz
+
+
+Der Datensatztyp ist der Hauptdatenträger der Ergebnisdaten. Er enthält einen
+der unten genannten Datentypen zusammen mit einem Zeitpunkt und einer pro Schicht
+eindeutigen Datensatznummer. Jede Schicht enthält 2 bis n Datensätze (Ereignisse). Für eine
+ordentliche Schicht sollten mindestens die Datensätze Schichtbeginn und Schichtabschluss
+enthalten sein. Allerdings können diese Datensätze auch auf mehrere xml-Dateien aufgeteilt
+werden. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Schichtbeginn
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Schichtbeginn_Type,Erg_Schichtbeginn>>
++++</div>+++
+ a|★  a|Schichtabschluss
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Schichtabschluss_Type,Erg_Schichtabschluss>>
++++</div>+++
+ a|★  a|Pruefbeginn
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Pruefbeginn_Type,Erg_Pruefbeginn>>
++++</div>+++
+ a|★  a|Pruefabschluss
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Pruefabschluss_Type,Erg_Pruefabschluss>>
++++</div>+++
+ a|★  a|Komponentenliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Komponentenliste_Type,Erg_Komponentenliste>>
++++</div>+++
+ a|★  a|Meldung
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Meldung_Type,Erg_Meldung>>
++++</div>+++
+ a|★  a|Ausgabeabschnitt
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Ausgabeabschnitt_Type,Erg_Ausgabeabschnitt>>
++++</div>+++
+ a|★  a|Transaktionsdaten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsdaten_Type,Erg_Transaktionsdaten>>
++++</div>+++
+ a|★  a|Fahrtverlauf
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Fahrtverlauf_Type,Erg_Fahrtverlauf>>
++++</div>+++
+ a|★  a|Dienstbeginn
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Dienstbeginn_Type,Erg_Dienstbeginn>>
++++</div>+++
+ a|★  a|Dienstende
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Dienstende_Type,Erg_Dienstende>>
++++</div>+++
+ a|★  a|Kontrolldaten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Kontrolldaten_Type,Erg_Kontrolldaten>>
++++</div>+++
+ a|★  a|Geldbehaelterliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Geldbehaelterliste_Type,Erg_Geldbehaelterliste>>
++++</div>+++
+ a|★  a|Warenkorb
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Warenkorb_Type,Erg_Warenkorb>>
++++</div>+++
+ a|★  a|EBEErfassung
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_EBEErfassung_Type,Erg_EBEErfassung>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Schicht_Type,Erg_Schicht>>
+
+[[Erg_Dienstbeginn_Type]]
+==== Erg_Dienstbeginn
+
+
+Der Dienst Identifiziert den Verkäufer - oder verallgemeinert die
+Vertriebsstelle. Der Dienstbeginn kann gleichzeitig auf mehrere Vertriebsstellen bezogen
+sein. Hiermit besteht beispielsweise die Möglichkeit geichzeitig auf den Verkäufer und die
+Verkaufsstelle zu beziehen. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Vertriebsstelle
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Vertriebsstelle_Type,Erg_Vertriebsstelle>>
++++</div>+++
+ a| a|DienstPlanNr
+
+ a|
+Die laufende Bezeichnung des Dienstplans des Gerätebedieners. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Dienstende_Type]]
+==== Erg_Dienstende
+
+
+Das Dienstende beendet einen begonnenen Dienst. Zur Kontrolle beinhaltet der
+Datensatz die Summe aller Geldbeträge, aufgeteilt nach Bezahlart, aufgelistet. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Vertriebsstelle
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Vertriebsstelle_Type,Erg_Vertriebsstelle>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+ a|★  a|Kassenliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Kassenliste_Type,Erg_Kassenliste>>
++++</div>+++
+ a|★  a|Belegkassenliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Belegkassenliste_Type,Erg_Belegkassenliste>>
++++</div>+++
+ a| a|Bargeldbilanz
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Bargeldbilanz_Type,Erg_Bargeldbilanz>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_DynAttribut_Subtype]]
+==== Erg_DynAttribut
+
+
+Der Subtyp DynAttribut_Subtype dient der Definition von dynamischen Attributen
+als mögliche Erweiterung für die Xml-Darstellung der Daten. Der Subtyp wird nicht 1:1 für
+eine Abbildung auf ein relationales Datenbankmodell verwendet. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Name
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Wert
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Ausgabeabschnitt_Type,Erg_Ausgabeabschnitt>>, <<Erg_Beleg_Type,Erg_Beleg>>, <<Erg_Belegkasse_Type,Erg_Belegkasse>>, <<Erg_Dienstbeginn_Type,Erg_Dienstbeginn>>, <<Erg_Dienstende_Type,Erg_Dienstende>>, <<Erg_EBEErfassung_Type,Erg_EBEErfassung>>, <<Erg_EBEMerkmale_Type,Erg_EBEMerkmale>>, <<Erg_Fahrtverlauf_Type,Erg_Fahrtverlauf>>, <<Erg_Geldbehaelterliste_Type,Erg_Geldbehaelterliste>>, <<Erg_Kontrolldaten_Type,Erg_Kontrolldaten>>, <<Erg_Kundendaten_Type,Erg_Kundendaten>>, <<Erg_ProdFahrschein_Type,Erg_ProdFahrschein>>, <<Erg_Pruefabschluss_Type,Erg_Pruefabschluss>>, <<Erg_Pruefbeginn_Type,Erg_Pruefbeginn>>, <<Erg_Schichtabschluss_Type,Erg_Schichtabschluss>>, <<Erg_Schichtbeginn_Type,Erg_Schichtbeginn>>, <<Erg_Teilrelation_Type,Erg_Teilrelation>>, <<Erg_Transaktion_Type,Erg_Transaktion>>, <<Erg_Transaktionsdaten_Type,Erg_Transaktionsdaten>>, <<Erg_Transaktionsort_Type,Erg_Transaktionsort>>, <<Erg_Vertriebsstelle_Type,Erg_Vertriebsstelle>>
+
+[[Erg_EBEErfassung_Type]]
+==== Erg_EBEErfassung
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|BezugsNr
+
+ a|
+Eine eindeutige ID dieses EBE-Vorgangs, es könnte bei Verkaufsgeräten die
+UID sein, bei Nacherfassung muss die ID vom Bediener versorgt werden. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|EBEVorgang
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_EBEVorgang_Type,Erg_EBEVorgang>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+ a|★  a|Merkmale
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_EBEMerkmale_Type,Erg_EBEMerkmale>>
++++</div>+++
+ a| a|Kundendaten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Kundendaten_Type,Erg_Kundendaten>>
++++</div>+++
+ a|★  a|Verfolgung
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Verfolgung_Type,Erg_Verfolgung>>
++++</div>+++
+ a| a|Bemerkung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_EBEMerkmale_Type]]
+==== Erg_EBEMerkmale
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Ort
+
+ a|
+Eine Erfassung des Vorgangsorts. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|VorfallsOrtNotiz
+
+ a|
+Eine textuelle Beschreibung des Vorfallsorts. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|KomfortKlasse
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Fahrausweisart
+
+ a|
+Wenn ein Fahrausweis vorgezeigt wurde, welcher Art 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|FahrausweisNr
+
+ a|
+Die Nummer (laufende Nummer) des Fahrausweises 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|FahrausweisEingezogen
+
+ a|
+Wird auf true gesetzt, wenn der Fahrausweis eingezogen wurde. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a| a|FahrausweisAbholung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+date
++++</div>+++
+ a| a|Bearbeitungsstelle
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|EinstiegsHaltestelle
+
+ a|Die IBNR
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|EinstiegNotiz
+
+ a|
+Eine textuelle Beschreibung zum Einstieg 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ZielHaltestelle
+
+ a|Die IBNR
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|ZielNotiz
+
+ a|
+Eine textuelle Beschreibung zum Fahrtziel bzw. Ausstieg 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Codierung
+
+ a|
+Eine Codierung zur Angabe des Grunds zum EBE-Fall 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Codierung_Type,Erg_Codierung>>
++++</div>+++
+ a| a|Sitzplatz
+
+ a|
+Ein Hinweis, wo der EBE-Fall angetroffen wurde 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Verhalten
+
+ a|
+Bemerkungen zu Verhalten des EBE-Falls. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Polizei
+
+ a|
+Wenn Polizei hinzugezogen wurde, von welchem Revier. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Polizei_Type,Erg_Polizei>>
++++</div>+++
+ a| a|Bemerkung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Linie
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Kurs
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Verbundkennung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_EBEErfassung_Type,Erg_EBEErfassung>>
+
+[[Erg_EBEVorgang_Type]]
+==== Erg_EBEVorgang
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Typ
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_VorgangsTyp_Type,Erg_VorgangsTyp>>
++++</div>+++
+ a|★  a|Beanstandung
+
+ a|
+Entspricht der vorgegebenen Codierung z.B. der Bahn, in der Regel eine
+zweistellige Ziffer. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Begruendung
+
+ a|
+Der Grund der Beanstandung (zB. nicht lesbar, vermutlich verfälscht, Tarif
+ungültig, ohne Kundenkarte etc.) 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Bemerkung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Forderung
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|Referenzbetrag
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_EBEErfassung_Type,Erg_EBEErfassung>>
+
+[[Erg_EinsatzTyp_Type]]
+==== Erg_EinsatzTyp
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Name
+
+ a|
+Der Name ist ein beliebiger, sprechender Name des Einsatztyps (z.B.
+Vorverkauf, Bereich Hamburg Mitte). 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+
+
+
+
+[[Erg_Fahrtverlauf_Type]]
+==== Erg_Fahrtverlauf
+
+Diese Datensätze beinhalten, abweichend von anderen Datensätzen, Information
+aus betrieblichen VDV452 Daten.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Betrieb
+
+ a|
+REC_FRT.BETRIEB aus VDV bei Mandantensystemen, sonst 0. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a|★  a|FahrzeugNr
+
+ a|
+Nach VDV FAHRZEUG.FZG_NR 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|FahrzeugUnr
+
+ a|
+Nummer des Unternehmens, dem das Fahrzeug gehört. FAHRZEUG.ABK_UNTERNEHMEN 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|FahrerNr
+
+ a|Nch VDV: PERSONAL.FAHRER_NR
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|FahrerUnr
+
+ a|
+Nach VDV: PERSONAL.ABK_UNTERNEHMEN -> TEILNEHMER.UNTERNEHMEN 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a|★  a|FahrtID
+
+ a|
+Fahrtnummer der Fahrt laut VDV REC_FRT.FRT_ID 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Fahrt
+
+ a|Optionale Kennung der Fahrt als Text.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|LinieID
+
+ a|
+Nach VDV: Aus der Tabelle REC_LID.LI_NR 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Linie
+
+ a|Optionale Linieninformation als Text. Optional REC_LID.LIDNAME oder
+REC_LID.LI_KUERZEL
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Richtung
+
+ a|
+Nach VDV: REC_LID.LI_RI_NR 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|FahrplanLage
+
+ a|
+Fahrplanlage in Sekunden, negative Werte für Verfrühung. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|OrtTyp
+
+ a|Nach VDV: REC_ORT.ONR_TYP_NR
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|OrtNr
+
+ a|
+Haltepunktnummer nach VDV: REC_ORT.ORT_NR 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|HpEntfernung
+
+ a|
+Entfernung zum Haltepunkt in Metern, 0 = Haltepunkt, positiv: vor
+Haltepunkt 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|TuerOffen
+
+ a|
+false: Alle Türen sind am HP geschlossen. true: mindestens eine Türe ist
+offen. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a| a|HaltepunktDurch
+
+ a|
+false: Fahrzeug hat am Haltepunkt gehalten. true: der Haltepunkt wurde
+durchfahren. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a| a|Haltezeit
+
+ a|
+Haltezeit am Haltepunkt in Sekunden. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|HaltestelleBedarf
+
+ a|
+Gibt an, ob die Haltestelle eine reguläre oder eine Bedarfshaltestelle
+ist. false= reguläre Haltestelle, true = Bedarfshaltestelle 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a| a|TachoStand
+
+ a|Tachostand in Metern.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Koordinate
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_KoordWgs84_Type,Erg_KoordWgs84>>
++++</div>+++
+ a| a|ZaehldatenListe
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Zaehldatenliste_Type,Erg_Zaehldatenliste>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Geldbehaelter_Type]]
+==== Erg_Geldbehaelter
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Stueck
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Stuecke_Type,Erg_Stuecke>>
++++</div>+++
+ a| a|Wert
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Geldbehaelterliste_Type,Erg_Geldbehaelterliste>>
+
+[[Erg_Geldbehaelterliste_Type]]
+==== Erg_Geldbehaelterliste
+
+notiert die Geldwerte oder sonstige Werte (Gutscheine, Stornierungsbelege, ...)
+bezogen auf einen Vorgangszeitpunkt
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Vorgang
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_GeldBehaeltervorgang_Type,Erg_GeldBehaeltervorgang>>
++++</div>+++
+ a| a|Geldbehaelter
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Geldbehaelter_Type,Erg_Geldbehaelter>>
++++</div>+++
+ a| a|Wertbehaelter
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Wertbehaelter_Type,Erg_Wertbehaelter>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Geraet_Type]]
+==== Erg_Geraet
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Name
+
+ a|
+Der Name ist ein beliebiger, sprechender Name des Gerätes. (z.B.
+Busdrucker-1234). 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Id
+
+ a|
+Eindeutige Kennung eines Bestandteils der Gerätehardware (z.B. die MAC der
+Netzwerkhardware.) Welche Kennung das ist, muss von der Gerätesoftware entschieden
+werden. Das Element ist optional. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Schichtbeginn_Type,Erg_Schichtbeginn>>
+
+[[Erg_Gutscheinbezahlung_Type]]
+==== Erg_Gutscheinbezahlung
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|GutschId
+
+ a|Eindeutige Kennung des Gutscheintyps
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Tarifprodukt_Type,Erg_Tarifprodukt>>
++++</div>+++
+ a| a|Nr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_KAReferenz_Type]]
+==== Erg_KAReferenz
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|SamNummer
+
+ a|
+SAM_ID.samNummer 24 Bit (Beispiel 0x654321), eine, im gesamten
+Geltungsbereich der Kernapplikation eindeutige SAM-Kartennummer 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT3,Erg_INT3>>
++++</div>+++
+ a|★  a|SamSequenznummer
+
+ a|
+samSequenznummer 32 Bit (Beispiel 0x789ABCDE), eindeutige, fortlaufende
+Nummer die von einer SAM-Karte generiert wird. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Kontrolldaten_Type,Erg_Kontrolldaten>>, <<Erg_Transaktion_Type,Erg_Transaktion>>, <<Erg_Transaktionsdaten_Type,Erg_Transaktionsdaten>>, <<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_KKOfflineBezahlung_Type]]
+==== Erg_KKOfflineBezahlung
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Kartenherausgeber
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_BezahlArt_Type,Erg_BezahlArt>>
++++</div>+++
+ a|★  a|KartenNr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Pruefkennung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|GueltigBis
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+gYearMonth
++++</div>+++
+ a|★  a|Unterschrift
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Kasse_Type]]
+==== Erg_Kasse
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Betrag
+
+ a|
+Kassenstand in kleinster Waehrungseinheit (z.B. Cent, Rappen, etc.) 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a|★  a|Zahlart
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_BezahlArt_Type,Erg_BezahlArt>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Kassenliste_Type,Erg_Kassenliste>>
+
+[[Erg_Kassenliste_Type]]
+==== Erg_Kassenliste
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Kasse
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Kasse_Type,Erg_Kasse>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Dienstende_Type,Erg_Dienstende>>, <<Erg_Schichtsummen_Type,Erg_Schichtsummen>>
+
+[[Erg_Komponente_Type]]
+==== Erg_Komponente
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Name
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Version
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Variante
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|SerienNr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|PhysPosition
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|ErstellZeitPunkt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|Hersteller
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Komponente
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Komponente_Type,Erg_Komponente>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Komponente_Type,Erg_Komponente>>, <<Erg_Komponentenliste_Type,Erg_Komponentenliste>>
+
+[[Erg_Komponentenliste_Type]]
+==== Erg_Komponentenliste
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Vorgang
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_KomponentenVorgang_Type,Erg_KomponentenVorgang>>
++++</div>+++
+ a| a|Komponente
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Komponente_Type,Erg_Komponente>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Kontrolldaten_Type]]
+==== Erg_Kontrolldaten
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Typ
+
+ a|Kontrollmeldungen beliebiger Art z. B. Chipkartenkontrolle für
+KA-Berechtigung, DB-Online-Ticket, BOB-Ticket, DF-Fahrschein, ...
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Kontrolldaten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Any_Type,Erg_Any>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_KundenTyp_Type]]
+==== Erg_KundenTyp
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in: 
+<<Erg_Mitnahme_Type,Erg_Mitnahme>>
+
+[[Erg_Kundendaten_Type]]
+==== Erg_Kundendaten
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Fahrgast
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Person_Type,Erg_Person>>
++++</div>+++
+ a| a|Erzieher
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Person_Type,Erg_Person>>
++++</div>+++
+ a| a|Bemerkung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_EBEErfassung_Type,Erg_EBEErfassung>>
+
+[[Erg_Lastschrift_Type]]
+==== Erg_Lastschrift
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|BLZ-BIC
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Konto-IBAN
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|KartenfolgeNr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|Kartenart
+
+ a|1=ec-Karte Magnetstreifen
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|GueltigBis
+
+ a|Gültigendejahr der Karte
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+gYearMonth
++++</div>+++
+ a|★  a|Unterschrift
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Meldung_Type]]
+==== Erg_Meldung
+
+
+Dieser Datensatz dient der Aufnahme von Textmeldungen beliebiger Art. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Nr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|MeldModTyp
+
+ a|Typ des meldunggenerierenden Moduls
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Komponente
+
+ a|Komponentenbezeichnung
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|PhysPosition
+
+ a|Eine unterscheidende, physikalische Position, wenn mehrere gleiche
+Komponenten Meldungen emmitieren.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|Text
+
+ a|
+Meldungstext, Entwicklertext. Dieser Text wird in der Regel vor der
+Anzeige ersetzt. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Attribut
+
+ a|
+Kommagetrennte Attribute die für eine Meldungstextgenerierung benötigt
+werden: Format('User "%s" was sleeping between %s and %s',[Attribute]) So dass auch bei
+sprachvarianten Anzeigen dynamische Inhalte ausgegeben werden können. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Mitnahme_Type]]
+==== Erg_Mitnahme
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Fahrgasttyp
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_KundenTyp_Type,Erg_KundenTyp>>
++++</div>+++
+ a|★  a|Anzahl
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_ProdFahrschein_Type,Erg_ProdFahrschein>>
+
+[[Erg_OrtsTyp_Type]]
+==== Erg_OrtsTyp
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in: 
+<<Erg_Standort_Type,Erg_Standort>>, <<Erg_Vertriebsstelle_Type,Erg_Vertriebsstelle>>
+
+[[Erg_Ortspunkt_Type]]
+==== Erg_Ortspunkt
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|ID_Ortspunkt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
+
+[[Erg_Person_Type]]
+==== Erg_Person
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Vorname
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Nachname
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Namenszuatz
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|StrasseHausNr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Postleitzahl
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Laenderkennzeichen
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Wohnort
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Staat
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Geschlecht
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+
++++</div>+++
+ a| a|TelefonNr
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Geburtsdatum
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|Staatsangehoerigkeit
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Legitimtation
+
+ a|
+Beschreibung der legitimation, Ausweis, EC-Karte, etc. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|LegitimationNr
+
+ a|Ausweisnummer
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|LegitimationsDatum
+
+ a|
+Ausstellungsdateum der Legitimation 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|LegimitationsLand
+
+ a|
+Ausstellungsland der Legitimation 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|LegitimationBild
+
+ a|
+Auf der Legitimation war ein Lichtbild, das Lichtbild wurde dem EBE-Fall
+zugeordnet 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+boolean
++++</div>+++
+ a| a|Bemerkung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Kundendaten_Type,Erg_Kundendaten>>
+
+[[Erg_Polizei_Type]]
+==== Erg_Polizei
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Dienstnummer
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Vorname
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Nachname
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Dienststelle
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_EBEMerkmale_Type,Erg_EBEMerkmale>>
+
+[[Erg_Preis_Type]]
+==== Erg_Preis
+
+
+Wenn keine Preisspalte angegeben ist, wird von der Standardspalte "1"
+ausgegangen. Ansonsten muss die Nummer der zugehörigen Preisspalte der Datenversorgung
+angegeben. Die Kennung kann optional die Kennung der Preisspalte enthalten. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Betrag
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a| a|ID_Mwst
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a|★  a|MwstSatz
+
+ a|
+Wert zwischen 0 und 100 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_FLOAT1,Erg_FLOAT1>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Produkt_Type,Erg_Produkt>>
+
+[[Erg_ProdFahrschein_Type]]
+==== Erg_ProdFahrschein
+
+
+Beschreibt die räumliche und zeitliche Gültigkeit des verkauften Produkts. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|ZeitVon
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|ZeitBis
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|Von
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|Nach
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|Via
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|ID_Relation
+
+ a|
+Bezug auf die ID_Relation der Versorgungsdaten - die Datenversion ist
+identisch mit der in dem Tarifprodukt hinterlegten Datenversion 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Komfortklasse
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Rabattklasse
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Mitnahme
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Mitnahme_Type,Erg_Mitnahme>>
++++</div>+++
+ a| a|Teilrelation
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Teilrelation_Type,Erg_Teilrelation>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Produkt_Type,Erg_Produkt>>
+
+[[Erg_Produkt_Type]]
+==== Erg_Produkt
+
+
+Eine Datenstruktur, die die tariflichen Merkmale des verkauften Produkts
+beschreibt. Bei der Anwendung von Teilrelationen zur Aufteilung von Fremd- und
+Eigenleistungen wird wie folgt vorgegangen: Das verkaufte Produkt wird als Hauptprodukt mit
+der Id und ExtId 'anonym' eingetragen. Es gibt einen gemeinsamen Preis, einen gemeinsamen
+Beleg, un N Teilprodukte. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Anzahl
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|Tarifprodukt
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Tarifprodukt_Type,Erg_Tarifprodukt>>
++++</div>+++
+ a| a|Preis
+
+ a|
+Preisinformation zum Produkt, kannauch leer sein 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Preis_Type,Erg_Preis>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+ a| a|Fahrschein
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_ProdFahrschein_Type,Erg_ProdFahrschein>>
++++</div>+++
+ a| a|Teilprodukt
+
+ a|
+Unterprodukte, die mitverkauftwurden (Teilstrecken,City-Cards,...) 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Produkt_Type,Erg_Produkt>>
++++</div>+++
+ a| a|AnzahlTeile
+
+ a|
+Hier werden bei Mehrfahrtenkarten die Anzahl der einzelnen Abschnitte bzw.
+Anteile notiert. Wenn nicht angegeben ist, ist die Anzahl entweder unbekannt oder als
+Vorgabe 1. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|RestTeile
+
+ a|Hier können, je nach Kontext 1.) die Anzahl der derzeitig auf der
+elektronischen Mehrfahrtenkarte befindlichen "Streifen" oder 2.) die Anzahl der derzeit
+auf der elektronischen Debitkarte befindlichen Wertanteile notiert werden. Die
+Betrachtung stellt den Zustand VOR der Aktion dar. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Produkt_Type,Erg_Produkt>>, <<Erg_Transaktion_Type,Erg_Transaktion>>
+
+[[Erg_Pruefabschluss_Type]]
+==== Erg_Pruefabschluss
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Ausstieg
+
+ a|Ausstiegshaltestelle
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Pruefbeginn_Type]]
+==== Erg_Pruefbeginn
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Kleidung
+
+ a|
+Die vom Prüfer getragene Kleidung 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Pruefkleidung_Type,Erg_Pruefkleidung>>
++++</div>+++
+ a| a|Pruefart
+
+ a|Die Art der Prüfung
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Pruefart_Type,Erg_Pruefart>>
++++</div>+++
+ a| a|Pruefer
+
+ a|
+Beteiligte Prüfer (Nummer) 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Linie
+
+ a|Liniennummer
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Verkehrsmittel
+
+ a|Verkehrsmittel
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_TransportserviceArt_Type,Erg_TransportserviceArt>>
++++</div>+++
+ a| a|Einstieg
+
+ a|Einstiegshaltestelle
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|Richtung
+
+ a|Eine Richtungsangabe
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a| a|AnzahlFahrgaeste
+
+ a|
+Eine Abschätzung der Anzahl der Fahrgäste bei Einstieg 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Rechnungsstellung_Type]]
+==== Erg_Rechnungsstellung
+
+Dieses Element trägt nähere Angaben zum nachfolgenden Rechnungsstellungs- oder
+verfolgungsprozess.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|RechnungsRef
+
+ a|
+In der Regel eine Rechnungsnummer oder eine generierte Referenz auf eine
+zu erstellende Rechnung. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|KundenRef
+
+ a|
+Eine Referenz auf den Kunden zur Rechnungsstellung, in der Regel eine
+Kundennummer 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Vorgangszeitpunkt
+
+ a|Der zum Verkaufszeitpunkt zugehörige Zeitstempel.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|VorgangsRef
+
+ a|Ein optionaler Bezug auf den dazugehörigen Verkaufsvorgang.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Restgeldbeleg_Type]]
+==== Erg_Restgeldbeleg
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Ausgabevertriebsstelle
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Vertriebsstelle_Type,Erg_Vertriebsstelle>>
++++</div>+++
+ a| a|Kennung
+
+ a|Eine eindeutige Kennung zur Identifikation des Restgeldbelegs.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+ a| a|Ausstelldatum
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Schicht_Type]]
+==== Erg_Schicht
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Datensatz
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Schichtenliste_Type,Erg_Schichtenliste>>
+
+[[Erg_Schichtabschluss_Type]]
+==== Erg_Schichtabschluss
+
+
+Der Datensatz zum Schichtabschluss. Es ist der letzte Datensatz einer Schicht.
+Hier wird angegeben, wie der Schichtabschluss ausgelöst wurde. Hintergrund hierbei ist die
+Möglichkeit im personalbedienten Verkauf unterscheiden zu können, ob eine Schicht explizit
+durch den Nutzer eines Verkaufsgerätes (manuell) oder implizit durch das Gerät selbst
+(automatisch) durchgeführt wurde. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Ausloeser
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Ausloeser_Type,Erg_Ausloeser>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Schichtbeginn_Type]]
+==== Erg_Schichtbeginn
+
+
+Der Datensatz zum Schichtbeginn. Der Schichtbeginn beinhaltet die
+Identifikation des Verkaufgerätes und definiert den genauen Zeitpunkt, wann das
+Verkaufsgerät die Verkaufsbereitschaft erreicht hat. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|SchichtNr
+
+ a|
+Diese Schichtnummer enstpricht der den Anwendern bekannte Schichtnummer.
+In der Regel wird nach dieser Nummer ausgewertet und die Nummer wird auf Belege
+aufgedruckt. Die Schichtnummer ist mindestens für jede Schicht-UUID eindeutig. Die
+Schichtnummer sollte inkrementierend aufsteigen und nie '0' sein. Achtung: Schichtnummer
+vs. Dienstnummer: Innerhalb einer Schicht können mehrere Dienste auch gleichzeitig
+ablaufen. Kein Dienst überlappt zeitlich eine Schichtgrenze. Dienste sind in der Regel
+Personen-(Konten) oder Geräte-(Konten) zugeordnet. Schichten sind nur ein Behälter für
+Dienste. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|Geraet
+
+ a|
+Dieser Datensatz kennzeichnet das technische Gerät, das die Datensätze
+dieser Schicht erzeugt. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Geraet_Type,Erg_Geraet>>
++++</div>+++
+ a|★  a|Betriebsart
+
+ a|
+Dieses Feld unterscheidet die Datensätze dieser Schicht in Echt- und
+sonstigen Betrieb. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betriebsart_Type,Erg_Betriebsart>>
++++</div>+++
+ a| a|Standort
+
+ a|
+Dieses Feld bezeichnet den Standort zum Schichtbeginn. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Standort_Type,Erg_Standort>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Schichtsummen_Type]]
+==== Erg_Schichtsummen
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Kassenliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Kassenliste_Type,Erg_Kassenliste>>
++++</div>+++
+ a| a|BelegKassenliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Belegkassenliste_Type,Erg_Belegkassenliste>>
++++</div>+++
+|=======================
+
+
+
+
+[[Erg_Standort_Type]]
+==== Erg_Standort
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Typ
+
+ a|
+Mit dem Typ wird die Ausprägung des jeweilgen Standorts unterschieden. Die
+Standorte eines Typs und eines Mandanten sind fortlaufend durchnumeriert. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_OrtsTyp_Type,Erg_OrtsTyp>>
++++</div>+++
+ a| a|Name
+
+ a|
+Der Name ist ein beliebiger, sprechender Name des Standorts. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Schichtbeginn_Type,Erg_Schichtbeginn>>
+
+[[Erg_Stuecke_Type]]
+==== Erg_Stuecke
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Anzahl
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|StueckWert
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Geldbehaelter_Type,Erg_Geldbehaelter>>
+
+[[Erg_Tarifprodukt_Type]]
+==== Erg_Tarifprodukt
+
+
+Eine Datenstruktur, die die tariflichen Merkmale des verkauften Produkts
+beschreibt. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|ID_Tarifgebiet
+
+ a|
+Enthält die ID des Tarifgebiets aus der zugrundeliegenden Tarifdatenbank
+(Versorgungsdaten). 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|ID_Sorte
+
+ a|
+Enthält die in den Versorgungsdaten festgelegte ID der Sorte. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|ReferenzExternSorte
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|ID_Preisstufe
+
+ a|
+Enthält die ID der Preisstufe des verkauften Produkts. Die Preisstufe ist
+nur zusammen mit dem Tarifgebiet gültig. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|ReferenzExternPreisstufe
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ID_Preis
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|ReferenzExternPreis
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ID_Preisspalte
+
+ a|
+Enthält die ID der Preisspalte des verkauften Produkts. Die Preisspalte
+ist nur zusammen mit der Preisstufe und dem Tarifgebiet gültig. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Belegkasse_Type,Erg_Belegkasse>>, <<Erg_Gutscheinbezahlung_Type,Erg_Gutscheinbezahlung>>, <<Erg_Produkt_Type,Erg_Produkt>>
+
+[[Erg_Tarifpunkt_Type]]
+==== Erg_Tarifpunkt
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|ID_Tarifpunkt
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|ID_Tarifgebiet
+
+ a|
+Enthält die Nummer des Tarifgebiets aus der zugrundeliegenden
+Tarifdatenbank (Versorgungsdaten). 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|ReferenzExtern
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Teilrelation_Type,Erg_Teilrelation>>, <<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
+
+[[Erg_Teilrelation_Type]]
+==== Erg_Teilrelation
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|SortOrder
+
+ a|
+Die Sortierungsreihenfolge wird benötigt, um die Richtung der Durchfahrt
+zu erhalten. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|ID_Preisstufe
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|ReferenzExternPreisstufe
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|ID_Tarifgebiet
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Start
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Tarifpunkt_Type,Erg_Tarifpunkt>>
++++</div>+++
+ a| a|Ziel
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Tarifpunkt_Type,Erg_Tarifpunkt>>
++++</div>+++
+ a| a|ReferenzExternRelation
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|ID_Preisquelle
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_ProdFahrschein_Type,Erg_ProdFahrschein>>
+
+[[Erg_Transaktion_Type]]
+==== Erg_Transaktion
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Produkt
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Produkt_Type,Erg_Produkt>>
++++</div>+++
+ a| a|KundenNr
+
+ a|
+Über die KundenNr kann bei personalisierter Nutzung / Kauf der Bezug zu
+einem im Backend hinterlegten Kundendatensatz hergestellt werden. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|BezugsNr
+
+ a|
+Die BezugsNr findet unterschiedlich Verwendung und ist zwischen den
+Austauschpartnern der Schnittstelle zu vereinbaren. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Vorgangszeitpunkt
+
+ a|
+Vorgangsnummer und Vorgangszeitpunkt identifizieren einzeln oder gemeinsam
+einen Vorgang. Im Speziellen werden diese beiden Werte bei der Erstattung eines
+Gutscheins genutzt, dann entspricht der Vorgangszeitpunkt dem Zeitpunkt der Ausgabe des
+eingelösten Gutscheins. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Transaktionsliste_Type,Erg_Transaktionsliste>>
+
+[[Erg_Transaktionsdaten_Type]]
+==== Erg_Transaktionsdaten
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Transaktionsart
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsart_Type,Erg_Transaktionsart>>
++++</div>+++
+ a|★  a|Transaktionsdaten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Any_Type,Erg_Any>>
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_Transaktionsliste_Type]]
+==== Erg_Transaktionsliste
+
+
+Auflistung aller einzelner Transaktionen in einem Warenkorb. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Transaktion
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktion_Type,Erg_Transaktion>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Warenkorb_Type,Erg_Warenkorb>>
+
+[[Erg_Transaktionsort_Type]]
+==== Erg_Transaktionsort
+
+
+Zur Angabe an welchem Ort eine Transaktion erstellt wurde. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Ortspunkt
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Ortspunkt_Type,Erg_Ortspunkt>>
++++</div>+++
+ a| a|Tarifpunkt
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Tarifpunkt_Type,Erg_Tarifpunkt>>
++++</div>+++
+ a| a|ID_Relcode
+
+ a|Ein Relationscode umfasst mehrere Tarifpunkte. Die ID_Relcode referenziert
+somit den Relationscode des Tarifs.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_EBEMerkmale_Type,Erg_EBEMerkmale>>, <<Erg_ProdFahrschein_Type,Erg_ProdFahrschein>>, <<Erg_Pruefabschluss_Type,Erg_Pruefabschluss>>, <<Erg_Pruefbeginn_Type,Erg_Pruefbeginn>>, <<Erg_Warenkorb_Type,Erg_Warenkorb>>
+
+[[Erg_TransportserviceArt_Type]]
+==== Erg_TransportserviceArt
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+|=======================
+
+
+Verwendet in: 
+<<Erg_Pruefbeginn_Type,Erg_Pruefbeginn>>
+
+[[Erg_Ueberweisung_Type]]
+==== Erg_Ueberweisung
+
+
+Zur Angabe der Informationen für eine Bezahlung per Überweisung. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|BLZ-BIC
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Konto-IBAN
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Verfolgung_Type]]
+==== Erg_Verfolgung
+
+IMPORTANT: _todo: Doku_
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Typ
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_VerfolgungsTyp_Type,Erg_VerfolgungsTyp>>
++++</div>+++
+ a| a|Bemerkung
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_EBEErfassung_Type,Erg_EBEErfassung>>
+
+[[Erg_VersionStruktur_Type]]
+==== Erg_VersionStruktur
+
+
+Hier müssen Hinweise zur Version des Schemas angegeben werden. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|VersionMajor
+
+ a|
+Diese Versionsnummer muss sich immer bei Inkompatibilitäten zur
+Vorgängerversion ändern. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|VersionMinor
+
+ a|
+Diese Versionsnummer zählt kompatible Anpassungen. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|VersionPatch
+
+ a|Diese Versionsnummer zählt abwärtskompatible Bugfixes. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|Aenderungsdatum
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+date
++++</div>+++
+ a|★  a|Aenderungsautor
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Schichtenliste_Type,Erg_Schichtenliste>>
+
+[[Erg_Vertriebsstelle_Type]]
+==== Erg_Vertriebsstelle
+
+Der Datensatz zur Identifikation der Vertriebsstelle.
+Wird im Dienst verwendet um den angemeldeten Verkäufer, das VErkaufsgerät oder ähnliches zu identifizieren.
+
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Typ
+
+ a|
+Der Typ qualifiziert die beiden Elemente 'Mandant' und 'Nr'. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_OrtsTyp_Type,Erg_OrtsTyp>>
++++</div>+++
+ a|★  a|Mandant
+
+ a|
+Der Mandant qualifiziert eindeutig die Zugehörigkeit der 'Nr'. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a|★  a|Nr
+
+ a|
+Hier wird, je nach Typ der Vertriebsstelle, die Personalnummer, die
+Vertriebsstellennummer, die Gerätenummer etc. hinterlegt. Die Nummer ist nur in
+Beziehung zu Mandant und dem Typ eindeutig. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|DynAttribut
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_DynAttribut_Subtype,Erg_DynAttribut>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Dienstbeginn_Type,Erg_Dienstbeginn>>, <<Erg_Dienstende_Type,Erg_Dienstende>>, <<Erg_Restgeldbeleg_Type,Erg_Restgeldbeleg>>
+
+[[Erg_Warenkorb_Type]]
+==== Erg_Warenkorb
+
+Trägt die Informationen zu einem einzelnen Verkaufsvorgang. 
+Die einzelnen verkauften Produkte befinden sich in der Transaktionslist. 
+Zahlungsvorgänge und zugehörigen Belege werden in den jeweiligen Listen geführt. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|ReferenzExtern
+
+ a|
+Definiert optional einen Identifier, um den Warenkorb eindeutig zu
+referenzieren. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Transaktionsort
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsort_Type,Erg_Transaktionsort>>
++++</div>+++
+ a|★  a|Transaktionliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Transaktionsliste_Type,Erg_Transaktionsliste>>
++++</div>+++
+ a| a|Zahlungsliste
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Zahlungsliste_Type,Erg_Zahlungsliste>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Datensatz_Type,Erg_Datensatz>>
+
+[[Erg_WebShopBezahlung_Type]]
+==== Erg_WebShopBezahlung
+
+Zahlungstyp für die Details einer Onlinezahlungen.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|TerminalId
+
+ a|Eindeutige Terminal-ID bei Verwendung eines gesonderten
+Kartenzahlungsterminals.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|TransaktionsNr
+
+ a|Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der
+durchgeführten Zahlungstransaktion.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|Zeitpunkt
+
+ a|Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister
+registriert wurde.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Wertbehaelter_Type]]
+==== Erg_Wertbehaelter
+
+
+Hiermit werden Wertbehälter erfasst, z.B. Safebags. Die Nummer enstpricht der
+Nummer des Wertbehälters, die Wertanzahl der Anzahl der werthaltigen Anteile, z.B. die
+Anzahl der Belege. Es werden 2 Behälter unterschieden: 1. Behälter mit Bargeld -> dann muss
+der Betrag ausgefüllt sein (früher Wert), 2. Behälter mit werthaltigen Belegen -> dann muss
+die Wertanzahl ausgefüllt sein. 3. Eine Mischform ist auch möglich. 
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|WertAnzahl
+
+ a|[red]#_todo: Doku_#
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+int
++++</div>+++
+ a| a|Betrag
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Geldbehaelterliste_Type,Erg_Geldbehaelterliste>>
+
+[[Erg_ZVTBezahlung_Type]]
+==== Erg_ZVTBezahlung
+
+Zahlungstyp für die Details Kartenzahlungen.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Kartenherausgeber
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_BezahlArt_Type,Erg_BezahlArt>>
++++</div>+++
+ a|★  a|TerminalId
+
+ a|Eindeutige Terminal-ID bei Verwendung eines gesonderten
+Kartenzahlungsterminals.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a|★  a|TransaktionsNr
+
+ a|Vom Zahlungsdienstleister vergebene, eindeutige Transaktionsnummer der
+durchgeführten Zahlungstransaktion.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+string
++++</div>+++
+ a| a|Zeitpunkt
+
+ a|Zeitpunkt, zu dem die Zahlungstransaktion beim Zahlungsdienstleister
+registriert wurde.
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+dateTime
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
+
+[[Erg_Zaehldaten_Type]]
+==== Erg_Zaehldaten
+
+Datensatz zur Aufnahme von Zählungen.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Einsteiger
+
+ a|Anzahl der zugestiegenen Personen. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Aussteiger
+
+ a|Anzahl der ausgestiegenen Personen. 
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+ a| a|Fehler
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_INT4,Erg_INT4>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Zaehldatenliste_Type,Erg_Zaehldatenliste>>
+
+[[Erg_Zaehldatenliste_Type]]
+==== Erg_Zaehldatenliste
+
+Die Liste aller aufgenommenen Zähldaten.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Zaehldaten
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Zaehldaten_Type,Erg_Zaehldaten>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Fahrtverlauf_Type,Erg_Fahrtverlauf>>
+
+[[Erg_Zahlung_Type]]
+==== Erg_Zahlung
+
+Grundtyp einer Zahlung. Beinhaltet den Betrag und die Zahlart, 
+mit genaueren Informarionen, je nach Zahlart.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a|★  a|Betrag
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Betrag_Type,Erg_Betrag>>
++++</div>+++
+ a|★  a|Zahlart
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_BezahlArt_Type,Erg_BezahlArt>>
++++</div>+++
+ a| a|Beleg
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Beleg_Type,Erg_Beleg>>
++++</div>+++
+|=======================
+  ★  Pflichtelemente
+
+
+
+Verwendet in: 
+<<Erg_Zahlungsliste_Type,Erg_Zahlungsliste>>
+
+[[Erg_Zahlungsliste_Type]]
+==== Erg_Zahlungsliste
+
+Beinhaltet alle einzelnen Zahlungen.
+[options="header,autonumber!" cols="2%,20%,78%"]
+|=======================
+| |Eigenschaft|Beschreibung
+ a| a|Zahlung
+
+ a|
++++<div class="exampleblock datatype">+++
+image:type-nunito.svg[<T>,45,35,opts=inline] 
+<<Erg_Zahlung_Type,Erg_Zahlung>>
++++</div>+++
+|=======================
+
+
+Verwendet in: 
+<<Erg_Warenkorb_Type,Erg_Warenkorb>>
+
+=== Erg_technische Enumerationen 
+
+
+[[Erg_AusgabeabschnittTyp_Type]]
+
+==== Erg_AusgabeabschnittTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_Ausloeser_Type]]
+
+==== Erg_Ausloeser
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_BelegTyp_Type]]
+
+==== Erg_BelegTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_BelegkasseTyp_Type]]
+
+==== Erg_BelegkasseTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_Betriebsart_Type]]
+
+==== Erg_Betriebsart
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_BezahlArtKa_Type]]
+
+==== Erg_BezahlArtKa
+
+Die BezahlArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545:
+PaymentMeansCode 
+
+
+
+
+[[Erg_GeldBehaeltervorgang_Type]]
+
+==== Erg_GeldBehaeltervorgang
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_GeldbehaelterTyp_Type]]
+
+==== Erg_GeldbehaelterTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_KasseTyp_Type]]
+
+==== Erg_KasseTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_KomponentenKlasse_Type]]
+
+==== Erg_KomponentenKlasse
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_KomponentenVorgang_Type]]
+
+==== Erg_KomponentenVorgang
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_KundenTypKa_Type]]
+
+==== Erg_KundenTypKa
+
+Der Kundentyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545:
+ProfileCodeIOP 
+
+
+
+
+[[Erg_Meldungsklasse_Type]]
+
+==== Erg_Meldungsklasse
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_OrtsTypKa_Type]]
+
+==== Erg_OrtsTypKa
+
+Der OrtsTyp kommt aus der VDV-KA. Die KA-Werte kommen aus dem EN1545:
+LocationTypeCode 
+
+
+
+
+[[Erg_Preisverrechnung_Type]]
+
+==== Erg_Preisverrechnung
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_Pruefart_Type]]
+
+==== Erg_Pruefart
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_Pruefkleidung_Type]]
+
+==== Erg_Pruefkleidung
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_TransaktionTyp_Type]]
+
+==== Erg_TransaktionTyp
+Sonderfälle: • Gutscheine werden verkauft • Gutscheine werden erstattet •
+EBE-Einzahlung – der Kunde „kauft“ aus seiner EBE-Schuld mit der „BezugsNr“ einen Anteil, es
+liegt ein ktTransTyp „husst.Verkauf“ vor. Es gibt einen Preis, es wird ein Beleg gedruckt. •
+Die Ausgabe eines Wertes auf eine Karte (Debitkarte) entspricht dem Verkauf eines
+Gutscheins. Der Unterschied zum Gutschein ist, dass dieser Gutschein in Tranchen eingelöst
+werden kann. Es muss auf alle Fälle die „BezugsNr“ (sprich Kartennummer) und je nach
+Anwendung die Kundennummer beim Verkauf notiert werden. • Die Einlösung eines Wertes
+entspricht der teilweisen oder vollständigen Erstattung eines Gutscheins mit den gleichen
+Registrierungen, es können jedoch auch nur Teilwerte „erstattet“ werden. (ktTransTyp =
+husst.Erstattung) • Der Verkauf einer elektronischen Mehrfahrtenkarte entspricht dem Verkauf
+einer Mehrfahrtenkarte auf Papier mit dem einzigen Unterschied, dass die BezugsNr (sprich
+Kartennummer) und je nach Anwendung die Kundennummer registriert wird. In dem Feld
+„AnzahlTeile“ kann die Menge der Mehrfahrten, die jedoch schon über die Sorte festgelegt
+sein sollten, zusätzlich notiert werden. • Das Entwerten eines oder mehrerer „Streifen“
+einer elektronischen Mehrfahrtenkarte kann mittels „Registrierung“ erfasst werden. Wieder
+unterscheidet die Tarifprodukt den Kontext, es gibt keinen Preis, nur eventuell einen Beleg,
+aber eine „BezugsNr“. In dem Feld „AnzahlTeile“ müssen die Menge der entwerteten „Streifen“
+notiert werden. 
+
+
+
+
+[[Erg_Transaktionsart_Type]]
+
+==== Erg_Transaktionsart
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_TransportserviceArtKa_Type]]
+
+==== Erg_TransportserviceArtKa
+
+Die TransportserviceArt kommt aus der VDV-KA. Die KA-Werte kommen aus dem
+EN1545: TransportTypeCode 
+
+
+
+
+[[Erg_VerfolgungsTyp_Type]]
+
+==== Erg_VerfolgungsTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_VorgangsTyp_Type]]
+
+==== Erg_VorgangsTyp
+IMPORTANT: _todo: Doku_
+
+
+
+
+
+=== Erg_technische Datentypen 
+
+
+[[Erg_Betriebszeit_Type]]
+
+==== Erg_Betriebszeit
+
+Betriebszeiten dürfen über 24:00 Uhr hinausgehen 
+
+
+
+
+[[Erg_Char]]
+
+==== Erg_Char
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_Codierung_Type]]
+
+==== Erg_Codierung
+
+Die Codierung entspricht der DB-Codierung 
+
+Verwendet in: 
+<<Erg_EBEMerkmale_Type,Erg_EBEMerkmale>>
+
+
+[[Erg_DateCompact]]
+
+==== Erg_DateCompact
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_DateTimeCompact]]
+
+==== Erg_DateTimeCompact
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_FLOAT1]]
+
+==== Erg_FLOAT1
+
+englische Notation beachten, z. B. 19 Euro = 19.00 Euro 
+
+Verwendet in: 
+<<Erg_Preis_Type,Erg_Preis>>
+
+
+[[Erg_INT1]]
+
+==== Erg_INT1
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_INT2]]
+
+==== Erg_INT2
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_INT3]]
+
+==== Erg_INT3
+IMPORTANT: _todo: Doku_
+
+Verwendet in: 
+<<Erg_KAReferenz_Type,Erg_KAReferenz>>
+
+
+[[Erg_INT4]]
+
+==== Erg_INT4
+IMPORTANT: _todo: Doku_
+
+Verwendet in: 
+<<Erg_Fahrtverlauf_Type,Erg_Fahrtverlauf>>, <<Erg_KAReferenz_Type,Erg_KAReferenz>>, <<Erg_Preis_Type,Erg_Preis>>, <<Erg_ProdFahrschein_Type,Erg_ProdFahrschein>>, <<Erg_Tarifprodukt_Type,Erg_Tarifprodukt>>, <<Erg_Teilrelation_Type,Erg_Teilrelation>>, <<Erg_Zaehldaten_Type,Erg_Zaehldaten>>
+
+
+[[Erg_INT8]]
+
+==== Erg_INT8
+IMPORTANT: _todo: Doku_
+
+
+
+
+[[Erg_KoordWgs84_Type]]
+
+==== Erg_KoordWgs84
+IMPORTANT: _todo: Doku_
+
+Verwendet in: 
+<<Erg_Fahrtverlauf_Type,Erg_Fahrtverlauf>>
+
+
+[[Erg_ProjektspezifischAnstattKa_Type]]
+
+==== Erg_ProjektspezifischAnstattKa
+
+Definiert einen Typ, der anstatt eines Wertes aus der KA-Enumeration genutzt
+werden kann. Die KA-Enumerationen definieren Werte zwischen 1 und 255 (INT1). Wenn
+Buchstaben vorkommen, ist es ein Projektspezifischer Wert. 
+
+
+
+
+[[Erg_Projektspezifisch_Type]]
+
+==== Erg_Projektspezifisch
+Erlaubt alle Werte, die nicht mit "husst." beginnen.
+
+
+
+
+[[Erg_Waehrung_Type]]
+
+==== Erg_Waehrung
+Währungscode nach ISO 4217.
+
+Verwendet in: 
+<<Erg_Betrag_Type,Erg_Betrag>>
+
+
+[[Erg_blobString]]
+
+==== Erg_blobString
+IMPORTANT: _todo: Doku_
+
+
+
+
+
+=== Erg_Ergebnis Definitionsstand
+
+
+HUSST Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ -
+https://github.com/HUSST-de/HUSST Lizensiert unter CC BY-SA 4.0
+(https://creativecommons.org/licenses/by-sa/4.0/) 

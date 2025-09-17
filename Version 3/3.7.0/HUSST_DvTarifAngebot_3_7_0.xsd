@@ -5111,7 +5111,7 @@
   <xs:complexType name="Bediengebiete_Type">
     <xs:annotation>
       <xs:documentation>
-        Bediengebiete erlauben die Defintion von Sichten
+        Bediengebiete erlauben die Definition von Sichten
         auf Auswahlelemente (Tarifrelevante Punkte, Haltestellen, etc.).
         Damit ist die Möglichkeit zur Filterung von Start/Zielauswahlen
         in verschiedenen Umfeldern möglich.

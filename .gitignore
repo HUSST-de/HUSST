@@ -1,6 +1,12 @@
-
-Version 3/3.5.0/SQLiteAbbildung/createDB.bat
+/Version 3/3.5.0/SQLiteAbbildung/createDB.bat
 /.settings
 schema_version.txt
 /target
-Version 3/3.7.0/ADoc/src/HUSST.LNK
+/Version 3/docs/build
+/Version 3/docs/.gradle-cache
+/Version 3/docs/.gradle
+/Version 3/docs/.gradle
+Version 3/docs/.project
+/Version 3/docs/.settings
+Version 3/docs/gradlew.out.txt
+Version 3/docs/gradlew.err.txt
