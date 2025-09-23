@@ -1,5 +1,6 @@
 plugins {
     id 'org.asciidoctor.jvm.convert' version '4.0.5'
+    id 'java'
 }
 
 repositories {
@@ -19,6 +20,11 @@ task printProjectDir {
     doLast {
         println "Project Directory: ${project.projectDir}"
     }
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/net.sf.saxon/Saxon-HE
+	implementation 'net.sf.saxon:Saxon-HE:12.9'
 }
 
 task copyAssets(type: Copy) {
@@ -45,7 +51,7 @@ task copyAssets(type: Copy) {
     }
 }
 
-task transformBasis(type: Exec) {
+task transformBasis(type: JavaExec) {
     group = "documentation"
     description = "transformiert xsd nach adoc"
 
@@ -53,36 +59,43 @@ task transformBasis(type: Exec) {
     inputs.file "xsl/HusstXsdToADoc.xsl"
     outputs.file "adoc/datenversorgung/DvBasis.adoc"
 
-    commandLine(
-        "java",
-        "-cp", classpathSaxon,
-        "net.sf.saxon.Transform",
-        "-s:../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd",
-        "-xsl:xsl/HusstXsdToADoc.xsl",
-        "-o:adoc/datenversorgung/DvBasis.adoc",
-        "einstiegsebene=3",
-        "defaults=${cwd}/adoc/datenversorgung/default",
-        "schema=Basis",
-        "verHusst=${husstVersion}",
-        "loglevel=${loglevel}"
-    )
+    mainClass.set('net.sf.saxon.Transform')
+	classpath = sourceSets.main.runtimeClasspath
+	args = [
+		"-s:../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd",
+		"-xsl:xsl/HusstXsdToADoc.xsl",
+		"-o:adoc/datenversorgung/DvBasis.adoc",
+		"einstiegsebene=3",
+		"defaults=${cwd}/adoc/datenversorgung/default",
+		"schema=Basis",
+		"verHusst=${husstVersion}",
+		"loglevel=${loglevel}"
+	]
 }
 
-task transformTarifAngebot(type: Exec) {
+task transformTarifAngebot(type: JavaExec) {
     group = "documentation"
     description = "transformiert xsd nach adoc"
-
-    outputs.cacheIf { false }
 
     inputs.file "../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd"
     inputs.file "xsl/HusstXsdToADoc.xsl"
     outputs.file "adoc/datenversorgung/DvTarifAngebot.adoc"
 
-    println "using loglevel = ${loglevel}"
-    commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvTarifAngebot.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=TarifAngebot', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+    mainClass.set('net.sf.saxon.Transform')
+    classpath = sourceSets.main.runtimeClasspath
+    args = [
+        "-s:../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd",
+        "-xsl:xsl/HusstXsdToADoc.xsl",
+        "-o:adoc/datenversorgung/DvTarifAngebot.adoc",
+        "einstiegsebene=3",
+        "defaults=${cwd}/adoc/datenversorgung/default",
+        "schema=TarifAngebot",
+        "verHusst=${husstVersion}",
+        "loglevel=${loglevel}"
+    ]
 }
 
-task transformVertrieb(type: Exec) {
+task transformVertrieb(type: JavaExec) {
     group = "documentation"
     description = "transformiert xsd nach adoc"
 
@@ -90,10 +103,21 @@ task transformVertrieb(type: Exec) {
     inputs.file "xsl/HusstXsdToADoc.xsl"
     outputs.file "adoc/datenversorgung/DvVertrieb.adoc"
 
-    commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvVertrieb.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=Vertrieb', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+    mainClass.set('net.sf.saxon.Transform')
+    classpath = sourceSets.main.runtimeClasspath
+    args = [
+        "-s:../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd",
+        "-xsl:xsl/HusstXsdToADoc.xsl",
+        "-o:adoc/datenversorgung/DvVertrieb.adoc",
+        "einstiegsebene=3",
+        "defaults=${cwd}/adoc/datenversorgung/default",
+        "schema=Vertrieb",
+        "verHusst=${husstVersion}",
+        "loglevel=${loglevel}"
+    ]
 }
 
-task transformErgebnisdaten(type: Exec) {
+task transformErgebnisdaten(type: JavaExec) {
     group = "documentation"
     description = "transformiert xsd nach adoc"
 
@@ -101,7 +125,18 @@ task transformErgebnisdaten(type: Exec) {
     inputs.file "xsl/HusstXsdToADoc.xsl"
     outputs.file "adoc/ergebnisdaten/Ergebnisdaten.adoc"
 
-    commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/ergebnisdaten/Ergebnisdaten.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/ergebnisdaten/default", 'schema=Ergebnisdaten', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+    mainClass.set('net.sf.saxon.Transform')
+    classpath = sourceSets.main.runtimeClasspath
+    args = [
+        "-s:../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd",
+        "-xsl:xsl/HusstXsdToADoc.xsl",
+        "-o:adoc/ergebnisdaten/Ergebnisdaten.adoc",
+        "einstiegsebene=3",
+        "defaults=${cwd}/adoc/ergebnisdaten/default",
+        "schema=Ergebnisdaten",
+        "verHusst=${husstVersion}",
+        "loglevel=${loglevel}"
+    ]
 }
 
 configurations {
