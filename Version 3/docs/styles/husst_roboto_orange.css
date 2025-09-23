@@ -252,11 +252,12 @@ details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;marg
 table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:var(--husst-gray-logo-ultra-dark)}
 table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock.warning>table{border-collapse:separate;border:0;background:var(--husst-ltmetal-ultra);width:100%}
 .admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
 .admonitionblock>table td.icon{text-align:center;width:80px}
 .admonitionblock>table td.icon img{max-width:none}
 .admonitionblock>table td.icon .title{font-weight:bold;font-family:"Roboto",sans-serif;text-transform:uppercase}
-.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:var(--husst-gray-logo-ultra-dark_06)}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:2px solid #dddddf;color:var(--husst-gray-logo-ultra-dark_06)}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
 .exampleblock>.content>:first-child{margin-top:0}
@@ -433,7 +434,7 @@ a span.icon>.fa{cursor:inherit}
 .admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px var(--husst-gray-logo-ultra-dark_05);cursor:default}
 .admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
 .admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
-.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:var(--husst-orange-logo)}
 .admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
 .admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
 .conum[data-value]{display:inline-block;color:#fff!important;background:var(--husst-gray-logo-ultra-dark);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Roboto",sans-serif;font-style:normal;font-weight:bold}
@@ -505,6 +506,18 @@ td p {
 }
 td.tableblock>.content>:last-child{margin-bottom:0}
 /* */
+
+/* für veraltete Elemente */
+.deprecated {
+  background-color: var(--husst-orange-light);
+  padding: 4px 6px;
+  border: none
+}
+
+.deprecated .content {
+  background-color: var(--husst-gray-logo-ultra);
+  padding: 4px 6px;
+}
 
 .arrow{color: var(--husst-gray-logo);}
 

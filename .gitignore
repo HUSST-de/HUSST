@@ -5,8 +5,7 @@ schema_version.txt
 /Version 3/docs/build
 /Version 3/docs/.gradle-cache
 /Version 3/docs/.gradle
-/Version 3/docs/.gradle
-Version 3/docs/.project
+/Version 3/docs/.project
 /Version 3/docs/.settings
-Version 3/docs/gradlew.out.txt
-Version 3/docs/gradlew.err.txt
+/Version 3/docs/gradlew.out.txt
+/Version 3/docs/gradlew.err.txt

@@ -8,7 +8,7 @@
   
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)
+      Husst Versorgungsdaten - Schema: Personal (verwendet Basisversorgungsdaten)
       Version: 3.7.0
 
       Mehr Informationen:
@@ -127,7 +127,7 @@
   <xs:simpleType name="ID_PasswortHashtyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_PasswortHashtyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_PasswortHashtyp ist entweder eine von Husst vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
@@ -173,7 +173,7 @@
   <xs:simpleType name="ID_Identobjekttyp_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Identobjekttyp ist entweder eine von HUSST vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Identobjekttyp ist entweder eine von Husst vordefinierte Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/tree/master/Version%203/3.0
       </xs:documentation>
       <xs:appinfo>
@@ -452,7 +452,7 @@
    <xs:simpleType name="ID_IdentobjekttypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Identobjekttypen kleiner 1000
+        Die Husst definiert ID_Identobjekttypen kleiner 1000
       </xs:documentation>
       <xs:appinfo>
         <api:schema name="Vertrieb" />
@@ -490,7 +490,7 @@
    <xs:simpleType name="ID_PasswortHashtypHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert PasswortHashTypen kleiner 1000
+        Die Husst definiert PasswortHashTypen kleiner 1000
 
         Die Verfahren 1 bis 4 entsprechen der Empfehlung
         https://en.wikipedia.org/wiki/Key_derivation_function

@@ -1,21 +1,21 @@
-:Date:     2025-09-08
-:Revision: 0.2
-:Author:   Husst AG Technik
+// Doku-Attribute
+:author:   Husst AG Technik
+:revnumber: 0.3
+:revdate:   19. Sept 2025
+// optionaler Kommentar zur Doku-Version - wird im Subtitle nach dem Datum angezeigt nach einem '|' angezeigt
+//:revremark:
 
 :root: adoc/
 :imagesdir: images
 
+:nofooter:
 :toc:       left
 :toc-title: Inhalt
-//:toclevels: 3n   n
 :toclevels: 3n
 :icons: font
 :sectnums:
 :sectlinks:
 
-
 :lorem100: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 :lorem50:  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 :lorem: pass:[<div class="loremblock">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>]
-
-// :stylesheet: ~/custom.css

@@ -1,0 +1,268 @@
+@startuml
+  ' Orange-Töne (Hervorhebungen, Logos, Schrift)
+  !define HUSST_ORANGE_LIGHT    #ec7c35
+  !define HUSST_ORANGE_DARK     #993f0a
+  !define HUSST_ORANGE_LOGO     #e96822
+  !define HUSST_ORANGE_FONT     #c9520d
+
+  ' Grautöne (Arbeitsplatz, Hintergrund, Tabellen, Logos)
+  !define HUSST_GRAY_LIGHT             #837f73
+  !define HUSST_GRAY_DARK              #767366
+  !define HUSST_GRAY_LOGO_ULTRA        #f1f3f4
+  !define HUSST_GRAY_LOGO_ULTRA_DARK   #0f4044
+  !define HUSST_GRAY_LOGO_DARK         #526066
+  !define HUSST_GRAY_LOGO              #67737a
+
+  ' Metall-Töne (Hintergrundsystem, Erlösdatenbank)
+  !define HUSST_METAL_LIGHT   #b2b5b6
+  !define HUSST_METAL         #a9abad
+  !define HUSST_LT_METAL_ULTRA #f1f2f3
+  !define HUSST_LT_METAL_LIGHT #d8d9da
+  !define HUSST_LT_METAL       #d2d3d4
+
+  ' Geräte-Kreise
+  !define HUSST_YELLOW       #fcaf10
+  !define HUSST_YELLOW_LIGHT #fcb737
+  !define HUSST_GREEN        #57b945
+  !define HUSST_GREEN_LIGHT  #73bf57
+  !define HUSST_BLUE         #5a7dbe
+  !define HUSST_BLUE_LIGHT   #6d89c6
+
+!procedure Skin()
+  hide stereotype
+  skinparam componentStyle rectangle
+  skinparam packageStyle rectangle
+  skinparam shadowing false
+  skinparam dpi 150
+  ' Farbdefinitionen (Hex aus CSS-HSL-Kommentaren)
+  skinparam defaultFontColor HUSST_GRAY_LOGO_ULTRA_DARK
+  skinparam headerFontSize 18
+  skinparam headerHorizontalAlingment left
+  
+  skinparam component {
+    BackgroundColor<<Tarifquelle>> HUSST_BLUE_LIGHT
+    Fontcolor<<Tarifquelle>>       HUSST_LT_METAL_ULTRA
+    BackgroundColor<<Automat>>     HUSST_YELLOW
+    BackgroundColor<<Terminal>>    HUSST_YELLOW
+    BackgroundColor<<Kiosk>>       HUSST_YELLOW
+    BackgroundColor<<Vertrieb>>    HUSST_GREEN_LIGHT
+    BackgroundColor<<hidden>>      #FFFFFF
+    BorderColor<<hidden>>          #FFFFFF
+    FontColor<<hidden>>            #FFFFFF
+  }
+  skinparam database{
+    BackgroundColor<<Datenversorgung>> HUSST_ORANGE_LOGO
+    Fontcolor<<Datenversorgung>>       HUSST_GRAY_LOGO_ULTRA
+    BackgroundColor<<Ergebnis>>        HUSST_ORANGE_LOGO
+    Fontcolor<<Ergebnis>>              HUSST_GRAY_LOGO_ULTRA
+    BackgroundColor<<Vertrieb>>        HUSST_ORANGE_LOGO
+    Fontcolor<<Vertrieb>>              HUSST_GRAY_LOGO_ULTRA
+  }
+
+!endprocedure
+
+!procedure TarifEntitäten($withPackageDV = %false() )
+  package "Tarifquellen" as T {
+    [Deutschlandtarif] <<Tarifquelle>> as DT 
+    [Landestarife]     <<Tarifquelle>> as LT 
+    [Verbundtarife]    <<Tarifquelle>> as VT    
+    [Stadttarife]      <<Tarifquelle>> as ST 
+    [ (...) ]	       	 <<Tarifquelle>> as TSONST
+
+    ' Anordnung
+    DT -[hidden]right- LT
+    LT -[hidden]right- VT
+    VT -[hidden]right- ST
+    ST -[hidden]right- TSONST
+  }
+
+  !if ($withPackageDV)     
+      () " " as DV_top 
+      () " " as DV_bottom
+    package "Datenversorgung" as DV {
+  !endif  
+  database "Husst Datenversorgung\n(Tarif + Angebot)\n" <<Datenversorgung>> as Tarif
+  !if ($withPackageDV) 
+    }
+  !endif
+
+  hide left_margin_tarif
+  hide right_margin_tarif 
+!endprocedure
+
+!procedure TarifBeziehungen($withPackageDV = %false() )
+  !if ($withPackageDV) 
+    ' T      -down-> DV_anchor
+    ' T      -down-> DV
+
+    ' DT      --> DV
+    ' LT      --> DV
+    ' VT      --> DV
+    ' ST      --> DV
+    ' TSONST  --> DV  
+
+    ' T -down-> DV_top
+    
+
+    DT      --> DV_top
+    LT      --> DV_top
+    VT      --> DV_top
+    ST      --> DV_top
+    TSONST  --> DV_top  
+    
+    DV_top -down-> Tarif
+
+    Tarif -down-> DV_bottom
+  !else
+    DT      --> Tarif
+    LT      --> Tarif
+    VT      --> Tarif
+    ST      --> Tarif
+    TSONST  --> Tarif
+  !endif
+!endprocedure
+
+!procedure VerkaufEntitäten()
+  package "Verkaufsgeräte" as VG {
+    [Fahrscheinautomat]    <<Automat>>  as FSA
+    [Fahrscheindrucker]    <<Terminal>> as FSD
+    [Handverkaufsterminal] <<Terminal>> as HT
+    [PoS Kiosksystem]      <<Kiosk>>    as POS
+    [ (...) ]              <<Kiosk>>    as VERK
+  }
+
+  database "Husst Ergebnisdaten\n(z.B. Verkäufe, Abrechnung)\n" <<Ergebnis>> as Ergebnis
+
+  ' Anordnung
+  FSA -[hidden]right- FSD
+  FSD -[hidden]right- HT
+  HT  -[hidden]right- POS
+  POS -[hidden]right- VERK
+!endprocedure
+
+!procedure VerkaufBeziehungen()
+  FSA ..> Ergebnis 
+  FSD ..> Ergebnis
+  HT  ..> Ergebnis 
+  POS ..> Ergebnis
+  VERK ..> Ergebnis
+!endprocedure
+
+!procedure TarifVerkaufBeziehungen()
+  Tarif --> FSA
+  Tarif --> FSD
+  Tarif --> HT 
+  Tarif --> POS
+  Tarif --> VERK
+!endprocedure
+
+!procedure VertriebEntitäten($mitPackageDV = %false()) 
+  package "Vertriebsakteure" as VA {
+  	[Verkaufspersonal]   <<Vertrieb>> as PERS 
+  	[Geräte]             <<Vertrieb>> as GER
+  	[Verkaufsstandorte]  <<Vertrieb>> as STO
+    
+    PERS -[hidden]right- GER
+    GER  -[hidden]right- STO
+  }
+
+  !if ($mitPackageDV)
+    package "Datenversorgung" as DV{
+  !endif
+  database "      Husst Vertrieb         \n\n" <<Vertrieb>> as Vertrieb
+  !if ($mitPackageDV)
+    }
+  !endif
+!endprocedure 
+
+!procedure VertriebBeziehungen($mitPackageDV = %false())
+  !if ($mitPackageDV)
+    ' DV_anchor -down-> DV
+	  ' VA -down-> DV_anchor
+    ' VA -down-> DV
+    
+    ' VA -down-> DV_top
+   
+	  PERS --> DV_top
+	  GER  --> DV_top
+	  STO  --> DV_top
+
+    DV_top -down->  Vertrieb
+    Vertrieb -down-> DV_bottom
+  !else
+	  PERS --> Vertrieb
+	  GER  --> Vertrieb
+	  STO  --> Vertrieb
+  !endif
+!endprocedure
+  
+!procedure VertriebVerkaufBeziehungen()
+  Vertrieb --> FSA
+  Vertrieb --> FSD
+  Vertrieb --> HT
+  Vertrieb --> POS
+  Vertrieb --> VERK
+!endprocedure 
+
+!procedure DvVerkaufBeziehungen()
+  ' DV -down-> VG
+  ' DV_bottom -down-> VG
+  ' DV_bottom -down-> HT
+
+  DV_bottom --> FSA
+  DV_bottom --> FSD
+  DV_bottom --> HT
+  DV_bottom --> POS
+  DV_bottom --> VERK
+!endprocedure
+
+  !$PACKAGE_DV = %false()
+
+  ' Datei: Husst-Datenfluss.svg
+  Skin()
+  left header **Husst – ÖPNV-Vertrieb**\nDatenversorgung: Tarif-Angebot → Ergebnisdaten\n
+  TarifEntitäten()
+  TarifBeziehungen()
+  VerkaufEntitäten()
+  VerkaufBeziehungen()
+  TarifVerkaufBeziehungen()  
+  newpage
+
+  ' Datei: Husst-Datenfluss_001.svg
+  Skin()
+  left header **Husst – ÖPNV-Vertrieb**\nDatenversorgung: Vertriebsakteure → Ergebnisdaten\n
+  VertriebEntitäten()
+  VertriebBeziehungen()
+  VerkaufEntitäten()
+  VerkaufBeziehungen()
+  VertriebVerkaufBeziehungen()
+  newpage
+
+  ' Datei: Husst-Datenfluss_002.svg
+  Skin()
+  !$PACKAGE_DV = %true()
+  left header **Husst – ÖPNV-Vertrieb**\nDatenversorgung → Vekauf → Ergebnisdaten\n
+  TarifEntitäten( $PACKAGE_DV )
+  VertriebEntitäten( $PACKAGE_DV )
+  VerkaufEntitäten()
+  
+  ' Platzhalter zwischen den beiden Datenbanken
+  ' dann kann man den Titel des Packages  
+  ' trotzdem noch lesen 
+  package "Datenversorgung" as DV {
+    [     Dummy     ] <<hidden>> as D1
+    Tarif -[hidden]right- D1
+    D1 -[hidden]right- Vertrieb
+    D1 -[hidden]up- [DV_top]
+    D1 -[hidden]down- [DV_bottom]
+  }
+  
+  ' funktioniert nicht, deshalb malen wir es
+  ' weißer Adler auf weißem Grund
+  hide D1  
+  
+  TarifBeziehungen( $PACKAGE_DV )
+  VertriebBeziehungen( $PACKAGE_DV )
+  VerkaufBeziehungen()
+  DvVerkaufBeziehungen()
+@enduml

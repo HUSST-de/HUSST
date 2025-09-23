@@ -666,7 +666,7 @@ Wenn eine Datenmenge das Merkmal definiert,
 darf es nur mit der hier definierten Intension verwendet werden.
 Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter.
 Eine vorgegebene Behandlung oder
-Auswertung ist über den HUSST-Standard nicht definiert.
+Auswertung ist über den Husst-Standard nicht definiert.
 
 [options="header,autonumber!" cols="2%,20%,78%"]
 |=======================
@@ -866,7 +866,7 @@ Verwendet in:
 ==== VersionInhalt
 
 
-Enthält die Versionsinformationen einer kompletten HUSST-Datenlieferung.
+Enthält die Versionsinformationen einer kompletten Husst-Datenlieferung.
 Dient als Metainformation, um Lieferungen eindeutig zu identifizieren und voneinander abzugrenzen.
 Über die Registrierung von DatenversionInhalt können Verkaufs- oder Versorgungsdaten
 einer konkreten Datenlieferung zugeordnet werden.
@@ -1117,12 +1117,12 @@ Verwendet in:
 
 ==== ID_Bundesland
 
-Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+Die ID_Bundesland ist entweder eine von Husst vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
 Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
 
 
-Die HUSST definiert ID_Bundesland kleiner 1000.
-Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+Die Husst definiert ID_Bundesland kleiner 1000.
+Aktuell definiert die Husst ID_Bundesland für die deutschen Bundesländern
 analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS)
 bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind.
 Quelle: 02Bundeslaender_mit_Hauptstaedten.xslx - Statistisches Bundesamt (Destatis), 2023
@@ -1183,13 +1183,13 @@ Verwendet in:
 
 ==== ID_Waehrung
 
-Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+Die ID_Waehrung ist entweder eine von Husst vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
 Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
 
 
-Die HUSST definiert Waehrungs-ID kleiner 1000.
+Die Husst definiert Waehrungs-ID kleiner 1000.
 Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
-Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
+Außer für den EUR. Hier ist in der Husst die 999 definiert (ISO Standard wäre 978).
 
 
 [options="header,autonumber!" cols="20%,80%"]
@@ -1565,9 +1565,9 @@ Verwendet in:
 [[Interpretationsschluessel_Type]]
 
 ==== Interpretationsschluessel
-Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.
+Die Interpretationsschluessel sind entweder von der Husst vordefiniert oder eine im Projekt vereinbarter string.
 
-Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
+Die Husst definiert Interpretationsschluessel die mit 'husst.' beginnen.
 
 
 [options="header,autonumber!" cols="20%,80%"]
@@ -1967,7 +1967,7 @@ Verwendet in:
 === Basis Definitionsstand
 
 
-HUSST Versorgungsdaten - Schema: Basis
+Husst Versorgungsdaten - Schema: Basis
 Version: 3.7.0
 Mehr Informationen:
 

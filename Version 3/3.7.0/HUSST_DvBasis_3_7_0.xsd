@@ -7,7 +7,7 @@
 
   <xs:annotation>
     <xs:documentation>
-      HUSST Versorgungsdaten - Schema: Basis
+      Husst Versorgungsdaten - Schema: Basis
       Version: 3.7.0
 
       Mehr Informationen:
@@ -517,7 +517,7 @@
 
         Alle anderen Tagesartmerkmal haben lediglich deklarativen Charakter.
         Eine vorgegebene Behandlung oder
-        Auswertung ist über den HUSST-Standard nicht definiert.
+        Auswertung ist über den Husst-Standard nicht definiert.
       </xs:documentation>
       <xs:appinfo>
         <api:primekey>
@@ -729,9 +729,9 @@
   <xs:simpleType name="ID_WaehrungHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert Waehrungs-ID kleiner 1000.
+        Die Husst definiert Waehrungs-ID kleiner 1000.
         Als ID-Währung ist der dreistellige Zifferncode nach ISO 4217 zu verwenden.
-        Außer für den EUR. Hier ist in der HUSST die 999 definiert (ISO Standard wäre 978).
+        Außer für den EUR. Hier ist in der Husst die 999 definiert (ISO Standard wäre 978).
       </xs:documentation>
       <xs:appinfo>
         <api:schema name="Basis"/>
@@ -739,7 +739,7 @@
     </xs:annotation>
     <xs:restriction base="husstDV:INT4">
       <!-- ISO 4217 Standard definiert eigentlich 978 für den EUR,
-           aus historischen Gründen verwendet die HUSST aber die 999
+           aus historischen Gründen verwendet die Husst aber die 999
       -->
       <xs:enumeration value="999">
         <xs:annotation>
@@ -1826,7 +1826,7 @@
   <xs:simpleType name="ID_Waehrung_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Waehrung ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Waehrung ist entweder eine von Husst vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im frei definierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
       </xs:documentation>
       <xs:appinfo>
@@ -1839,7 +1839,7 @@
   <xs:simpleType name="InterpretationsschluesselHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert Interpretationsschluessel die mit 'husst.' beginnen.
+        Die Husst definiert Interpretationsschluessel die mit 'husst.' beginnen.
       </xs:documentation>
       <xs:appinfo>
         <api:schema name="Basis"/>
@@ -1914,7 +1914,7 @@
 
   <xs:simpleType name="Interpretationsschluessel_Type">
     <xs:annotation>
-      <xs:documentation>Die Interpretationsschluessel sind entweder von der HUSST vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
+      <xs:documentation>Die Interpretationsschluessel sind entweder von der Husst vordefiniert oder eine im Projekt vereinbarter string.</xs:documentation>
       <xs:appinfo>
         <api:schema name="Basis"/>
       </xs:appinfo>
@@ -2011,7 +2011,7 @@
   <xs:complexType name="VersionInhalt_Type">
     <xs:annotation>
       <xs:documentation>
-        Enthält die Versionsinformationen einer kompletten HUSST-Datenlieferung.
+        Enthält die Versionsinformationen einer kompletten Husst-Datenlieferung.
         Dient als Metainformation, um Lieferungen eindeutig zu identifizieren und voneinander abzugrenzen.
         Über die Registrierung von DatenversionInhalt können Verkaufs- oder Versorgungsdaten
         einer konkreten Datenlieferung zugeordnet werden.
@@ -2215,8 +2215,8 @@
   <xs:simpleType name="ID_BundeslandHUSST_Type">
     <xs:annotation>
       <xs:documentation>
-        Die HUSST definiert ID_Bundesland kleiner 1000.
-        Aktuell definiert die HUSST ID_Bundesland für die deutschen Bundesländern
+        Die Husst definiert ID_Bundesland kleiner 1000.
+        Aktuell definiert die Husst ID_Bundesland für die deutschen Bundesländern
         analog der "Liste deutscher Bundesländer" wie sie für den Amtlicher Regionalschlüssel (ARS)
         bzw. dem darin enthaltenen Amtlichen Gemeindeschlüssel (AGS) definiert sind.
 
@@ -2340,7 +2340,7 @@
   <xs:simpleType name="ID_Bundesland_Type">
     <xs:annotation>
       <xs:documentation>
-        Die ID_Bundesland ist entweder eine von HUSST vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
+        Die ID_Bundesland ist entweder eine von Husst vordefinierter Zahl kleiner 1000 oder eine im Projekt vereinbarte Zahl größer gleich 1000.
         Im freidefinierbaren Bereich gibt es herstellerspezifische Wertebereiche. s. https://github.com/HUSST-de/HUSST/blob/master/Version%203/README.md
       </xs:documentation>
       <xs:appinfo>

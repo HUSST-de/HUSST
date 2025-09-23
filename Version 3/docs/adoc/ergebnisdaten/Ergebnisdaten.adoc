@@ -7,7 +7,7 @@
 
 
 Rootelement der Ergebnisdaten. Umfasst die Liste aller Schichten 
-und die Informationen, mit welcher HUSST-Version das xml erstellt wurde. 
+und die Informationen, mit welcher Husst-Version das xml erstellt wurde. 
 [options="header,autonumber!" cols="2%,20%,78%"]
 |=======================
 | |Eigenschaft|Beschreibung
@@ -442,6 +442,9 @@ image:type-nunito.svg[<T>,45,35,opts=inline]
  a|★  a|Warenkorb
 
  a|
+Der Warenkorb bildet die Datenstruktur zum Übermitteln von Verkäufen. Dabei
+beinhaltet die Warenkorbstruktur die Möglichkeit einen Verkaufsvorgang mit mehreren
+Produkten und/oder mehreren Zahlungsarten abzubilden. 
 +++<div class="exampleblock datatype">+++
 image:type-nunito.svg[<T>,45,35,opts=inline] 
 <<Erg_Warenkorb_Type,Erg_Warenkorb>>
@@ -3746,6 +3749,6 @@ IMPORTANT: _todo: Doku_
 === Erg_Ergebnis Definitionsstand
 
 
-HUSST Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ -
+Husst Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ -
 https://github.com/HUSST-de/HUSST Lizensiert unter CC BY-SA 4.0
 (https://creativecommons.org/licenses/by-sa/4.0/) 

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="51.845688mm"
+  height="55.212132mm"
+  viewBox="0 0 51.845688 55.212132"
+  version="1.1"
+  id="svg1009">
+
+  <g id="g1046" transform="translate(-0.88194543,-1.2196541)" style="display:inline">
+    <text
+      x="25.135416"
+      y="25.370478"
+      text-anchor="middle"
+      dominant-baseline="central"
+      font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+      font-size="31.75px"
+      id="text1042"
+      dy="-1.0583333 1.0583333"
+      dx="2.6458333 -2.6458333"
+      style="display:inline;fill-opacity:1;stroke-width:0.264583">
+      <tspan
+        style="font-size:30.2777px;fill-opacity:1;stroke-width:0.264583"
+        id="tspan1036">&lt;</tspan>
+      <tspan
+        style="fill-opacity:1;stroke-width:0.264583"
+        id="tspan1038">&lt;T&gt;</tspan>
+      <tspan
+        style="font-size:30.2777px;fill-opacity:1;stroke-width:0.264583"
+        id="tspan1040"
+        dy="-1.0583333"
+        dx="-2.6458333">&gt;</tspan>
+    </text>
+
+    <rect
+      style="opacity:0.999;fill:none;stroke:none;stroke-width:2.75617"
+      id="rect1044"
+      width="51.845688"
+      height="55.212132"
+      x="0.88194543"
+      y="1.2196541" />
+  </g>
+</svg>

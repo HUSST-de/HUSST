@@ -1,3 +1,4 @@
+[[Glossar]]
 == Glossar
 deaktiviert:: 
   Kennzeichnet ein Element mit der entsprechenden ID als „virtuell“ gelöscht innerhalb eines Hauptzeitraums.

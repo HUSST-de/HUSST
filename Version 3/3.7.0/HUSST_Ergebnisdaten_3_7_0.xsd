@@ -5,7 +5,7 @@
   xmlns:husst="http://husst.de/Ergebnisdaten/3_7_0">
 
   <annotation>
-    <documentation> HUSST Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ -
+    <documentation> Husst Ergebnisdaten Version: 3.7.0 Mehr Informationen: - https://husst.de/ -
       https://github.com/HUSST-de/HUSST Lizensiert unter CC BY-SA 4.0
       (https://creativecommons.org/licenses/by-sa/4.0/) 
     </documentation>
@@ -161,12 +161,13 @@
       <element name="Kontrolldaten" type="husst:Kontrolldaten_Type" maxOccurs="1" minOccurs="1" />
       <element name="Geldbehaelterliste" type="husst:Geldbehaelterliste_Type" maxOccurs="1"
         minOccurs="1" />
-      <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1" />
-      <annotation>
-        <documentation> Der Warenkorb bildet die Datenstruktur zum Übermitteln von Verkäufen. Dabei
-          beinhaltet die Warenkorbstruktur die Möglichkeit einen Verkaufsvorgang mit mehreren
-          Produkten und/oder mehreren Zahlungsarten abzubilden. </documentation>
-      </annotation>
+      <element name="Warenkorb" type="husst:Warenkorb_Type" maxOccurs="1" minOccurs="1" >
+	      <annotation>
+	        <documentation> Der Warenkorb bildet die Datenstruktur zum Übermitteln von Verkäufen. Dabei
+	          beinhaltet die Warenkorbstruktur die Möglichkeit einen Verkaufsvorgang mit mehreren
+	          Produkten und/oder mehreren Zahlungsarten abzubilden. </documentation>
+	      </annotation>
+      </element>
       <element name="EBEErfassung" type="husst:EBEErfassung_Type" maxOccurs="1" minOccurs="1" />
     </choice>
     <attribute name="Zeitpunkt" type="dateTime" use="required">
@@ -1109,7 +1110,7 @@
   <complexType name="Schichtenliste_Type">
     <annotation>
       <documentation> Rootelement der Ergebnisdaten. Umfasst die Liste aller Schichten 
-        und die Informationen, mit welcher HUSST-Version das xml erstellt wurde. </documentation>
+        und die Informationen, mit welcher Husst-Version das xml erstellt wurde. </documentation>
     </annotation>
     <sequence>
       <element name="Version" type="husst:VersionStruktur_Type" maxOccurs="1" minOccurs="1" />

@@ -1,7 +1,45 @@
 === Einführung in die Datenversorgung
 
 ////
-Dieser Text muss manuell erstellt werden.
+Dieser Text wird nicht automatisch generiert sondern ist 
+direkt editiert.
 ////
 
-{lorem}
+
+=== Modul: Tarif/Angebot
+Den Kern der Husst-Datenversorgung bilden die Tarif- und Angebotsdaten.
+Sie beantworten die entscheidenden Fragen im ÖPNV-Vertrieb:
+
+- Welche Fahrscheine kann ein Fahrgast kaufen?
+- Von welchen Start- zu welchen Zielorten?
+- Und zu welchem Preis?
+
+Damit ein Verkaufsgerät diese Antworten geben kann, müssen sehr unterschiedliche Tarifquellen zusammengeführt werden. Dazu zählen etwa:
+
+- der bundesweite Deutschlandtarif,
+- länderspezifische Landestarife,
+- regionale Verbundtarife,
+
+sowie städtische Angebote.
+
+So entsteht aus vielen einzelnen Bausteinen eine gemeinsame Grundlage für einen einheitlichen Verkaufsprozess über alle Tarife hinweg – sowohl im personalbedienten Verkauf (z. B. beim Busfahrer) als auch im unbedienten Verkauf (z. B. am Automaten).
+
+Das folgende Diagramm zeigt exemplarisch, die zentrale Versorgung verschiedenster Vertriebsgeräte, mit Tarif und Angebot. 
+Da die Datenversorgung im Husst Format von vielen verschiedenen Herstellern unterstützt wird, kann ein Verkehrsunternehmen 
+seinen Tarif auf verschiedenen seiner Verkaufsgeräte zum Einsatz bringen, die auch von unterschiedlichen Herstellen stammen können. 
+
+image::Husst-Datenfluss.svg[opts="inline", width=800, style="max-width:100%", link={imagesdir}/Husst-Datenfluss.svg, alt="Husst - ÖPNV-Vertrieb/Datenversorgung → Vekauf → Ergebnisdaten "] 
+
+Das zentrale Datenelement der Tarif- und Angebotsdaten ist das <<TarifAngebot_Root>>.
+ 
+
+=== Modul: Vertrieb
+Einige Hersteller unterstützen auch die Versorgung der Verkaufsgeräte mit den Informationen zu Verkaufsgeräten, Verkaufspersonal und Verkaufsstandorten.
+Diese Inforamtion ist wichtig, um die Verkäufe später den richtigen Geräten und Menschen zuordnen zu können.
+Das Datenmodell erlaubt auch die Integration von Personalanmeldeinformationen für den bedienten Verkauf.
+Das Diagramm zeigt die Versorgung der Geräte mit den vertriebsrelevanten Informationen, die neben Tarif und Angebot
+zusätzlich im ÖPNV Vertrieb benötigt werden.
+
+image::Husst-Datenfluss_001.svg[opts="inline", width=800, style="max-width:100%", link={imagesdir}/Husst-Datenfluss_001.svg, alt="Husst - ÖPNV-Vertrieb/Datenversorgung → Vekauf → Ergebnisdaten "] 
+
+Das zentrale Datenelement der Vertriebsdaten ist das <<Vertrieb_Root>>.

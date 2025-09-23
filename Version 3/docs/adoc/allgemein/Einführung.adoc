@@ -5,15 +5,27 @@ Dieser Text wird nicht automatisch generiert sondern ist
 direkt editiert.
 ////
 
-Willkommen in der offiziellen technischen Husst Dokumentation. Hier findest du alle Informationen, die du benötigst, um Husst zu verstehen und zu nutzen.
-Diese Dokumentation ist in verschiedene Bereiche unterteilt, die jeweils spezifische Aspekte von Husst abdecken.
 
-Husst ist im Kern die Spezifikation eines Datenmodells - die Platform kann beliebig gewählt werden (Sqlite, XML, usw.), wobei zur Definition des Standards
-XSD verwendet wird.
+////
+Einführung in die eigentlichen Doku 
+////
+Willkommen in der offiziellen technischen Husst Dokumentation.
+Sie erläutert das Husst Datenmodell, seine Elemente und Abhängigkeiten.
+Die konkrete Plattform zur Abbildung der Daten (z. B. SQLite, XML) kann flexibel gewählt werden, 
+zur Definition des Standards wird XSD genutzt. 
 
-Die Dokumentation ist in drei Bereiche aufgeteilt: Datenversorgung, Ergebnisdaten und Glossar.
-In jedem Bereich wird das jeweilige Hauptelement (Rootelement), sowie alle weiteren fachlichen und technischen
-Elemente erläutert. Im Detail werden ihre Eigenschaften sowie Abhängigkeiten zu anderen Husst Elementen erklärt.
-Die von Husst definierten Datentypen und Aufzählungstypen, werden jeweils in einem eigenen Abschnitt erläutert.
+Die Dokumentation gliedert sich in:
 
-Im Glossar werden alle wichtigen Fachbegriffe kurz und bündig erkärt.
+* <<Datenversorgung>>
+* <<Ergebnisdaten>> und  
+* <<Glossar>>
+ 
+In jedem Datenschema wird zunächst das Hauptelement (Rootelement) und seine Beziehungen zu anderen Husst-Elementen dargestellt. 
+Fachbegriffe sind im Glossar aufgeführt.
+
+////
+Einführung in die Husst 
+////
+Das folgende Diagramm zeigt exemplarisch, wie die Husst Datenstrukturen im ÖPNV-Vertrieb eingesetzt werden können.
+
+image::Husst-Datenfluss_002.svg[opts="inline", width=800, style="max-width:100%", link={imagesdir}/Husst-Datenfluss_002.svg, alt="Husst - ÖPNV-Vertrieb/Datenversorgung → Vekauf → Ergebnisdaten "] 

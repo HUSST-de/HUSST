@@ -1,105 +1,141 @@
 plugins {
-	id 'org.asciidoctor.jvm.convert' version '4.0.5'
+    id 'org.asciidoctor.jvm.convert' version '4.0.5'
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
-
 
 ext {
-	husstVersion = '3.7.0'
-	husstVersionUl = husstVersion.replace('.', '_')
-	xsl = 'xsl/HusstXsdToADoc.xsl'
-	classpathSaxon = 'd:\\HN\\dev\\third\\Saxon\\SaxonHE12-5J\\saxon-he-12.5.jar'
-	loglevel = project.findProperty('loglevel') ?: 'INFO'
-	cwd = project.projectDir.absolutePath
+    husstVersion = '3.7.0'
+    husstVersionUl = husstVersion.replace('.', '_')
+    xsl = 'xsl/HusstXsdToADoc.xsl'
+    classpathSaxon = 'd:\\HN\\dev\\third\\Saxon\\SaxonHE12-5J\\saxon-he-12.5.jar'
+    loglevel = project.findProperty('loglevel') ?: 'INFO'
+    cwd = project.projectDir.absolutePath
 }
 
-
 task printProjectDir {
-	doLast {
-		println "Project Directory: ${project.projectDir}"
-	}
+    doLast {
+        println "Project Directory: ${project.projectDir}"
+    }
 }
 
 task copyAssets(type: Copy) {
-	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
-	description = "kopiert alle nötigen Dateien nach Output"
+    group = "documentation"
+    description = "kopiert alle nötigen Dateien nach Output"
 
-	from  'styles'
-	from  'images'
-	include  '*.js', '*.png', '*.svg'
-	into  'output'
-	eachFile { fileCopyDetails ->
-		if (fileCopyDetails.name.endsWith('.js')) {
-			fileCopyDetails.path = "js/${fileCopyDetails.name}"
-		} else if (fileCopyDetails.name.endsWith('.png') || fileCopyDetails.name.endsWith('.svg')) {
-			fileCopyDetails.path = "images/${fileCopyDetails.name}"
-		}
+	inputs.files fileTree("styles") {
+		include "*.png", "*.svg"
 	}
+	inputs.files fileTree("images") {
+		include "*.png", "*.svg"
+	}
+
+    from 'styles'
+    from 'images'
+    include '*.js', '*.png', '*.svg'
+    into 'output'
+    eachFile { fileCopyDetails ->
+        if (fileCopyDetails.name.endsWith('.js')) {
+            fileCopyDetails.path = "js/${fileCopyDetails.name}"
+        } else if (fileCopyDetails.name.endsWith('.png') || fileCopyDetails.name.endsWith('.svg')) {
+            fileCopyDetails.path = "images/${fileCopyDetails.name}"
+        }
+    }
 }
 
 task transformBasis(type: Exec) {
-	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
-	description = "transformiert xsd nach adoc"
+    group = "documentation"
+    description = "transformiert xsd nach adoc"
 
-	inputs.file  "../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd"
-	inputs.file  "xsl/HusstXsdToADoc.xsl"
-	outputs.file  "adoc/datenversorgung/DvBasis.adoc"
+    inputs.file "../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd"
+    inputs.file "xsl/HusstXsdToADoc.xsl"
+    outputs.file "adoc/datenversorgung/DvBasis.adoc"
 
-	
-	commandLine(
-		"java",
-		"-cp", classpathSaxon,
-		"net.sf.saxon.Transform",
-		"-s:../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd",
-		"-xsl:xsl/HusstXsdToADoc.xsl",
-		"-o:adoc/datenversorgung/DvBasis.adoc",
-		"einstiegsebene=3",
-		"defaults=${cwd}/adoc/datenversorgung/default",
-		"schema=Basis",
-		"verHusst=${husstVersion}",
-		"loglevel=${loglevel}",
-	)
+    commandLine(
+        "java",
+        "-cp", classpathSaxon,
+        "net.sf.saxon.Transform",
+        "-s:../${husstVersion}/HUSST_DvBasis_${husstVersionUl}.xsd",
+        "-xsl:xsl/HusstXsdToADoc.xsl",
+        "-o:adoc/datenversorgung/DvBasis.adoc",
+        "einstiegsebene=3",
+        "defaults=${cwd}/adoc/datenversorgung/default",
+        "schema=Basis",
+        "verHusst=${husstVersion}",
+        "loglevel=${loglevel}"
+    )
 }
 
 task transformTarifAngebot(type: Exec) {
-	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
-	description = "transformiert xsd nach adoc"
+    group = "documentation"
+    description = "transformiert xsd nach adoc"
 
-	// Konfigurations-Cache für diesen Task ausschalten
-	outputs.cacheIf { false }
+    outputs.cacheIf { false }
 
-	inputs.file  "../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd"
-	inputs.file  "xsl/HusstXsdToADoc.xsl"
-	outputs.file  "adoc/datenversorgung/DvTarifAngebot.adoc"
-	
-	println "using loglevel = ${loglevel}"
-	commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvTarifAngebot.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=TarifAngebot', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+    inputs.file "../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd"
+    inputs.file "xsl/HusstXsdToADoc.xsl"
+    outputs.file "adoc/datenversorgung/DvTarifAngebot.adoc"
 
+    println "using loglevel = ${loglevel}"
+    commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvTarifAngebot_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvTarifAngebot.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=TarifAngebot', "verHusst=${husstVersion}", "loglevel=${loglevel}"
 }
 
 task transformVertrieb(type: Exec) {
-	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
-	description = "transformiert xsd nach adoc"
+    group = "documentation"
+    description = "transformiert xsd nach adoc"
 
-	inputs.file  "../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd"
-	inputs.file  "xsl/HusstXsdToADoc.xsl"
-	outputs.file  "adoc/datenversorgung/DvVertrieb.adoc"
-	
-	commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvVertrieb.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=Vertrieb', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+    inputs.file "../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd"
+    inputs.file "xsl/HusstXsdToADoc.xsl"
+    outputs.file "adoc/datenversorgung/DvVertrieb.adoc"
+
+    commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_DvVertrieb_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/datenversorgung/DvVertrieb.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/datenversorgung/default", 'schema=Vertrieb', "verHusst=${husstVersion}", "loglevel=${loglevel}"
 }
 
 task transformErgebnisdaten(type: Exec) {
-	group = "documentation"             // frei wählbar, z. B. "build", "documentation"
-	description = "transformiert xsd nach adoc"
+    group = "documentation"
+    description = "transformiert xsd nach adoc"
 
-	inputs.file  "../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd"
-	inputs.file  "xsl/HusstXsdToADoc.xsl"
-	outputs.file  "adoc/ergebnisdaten/Ergebnisdaten.adoc"
+    inputs.file "../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd"
+    inputs.file "xsl/HusstXsdToADoc.xsl"
+    outputs.file "adoc/ergebnisdaten/Ergebnisdaten.adoc"
+
+    commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/ergebnisdaten/Ergebnisdaten.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/ergebnisdaten/default", 'schema=Ergebnisdaten', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+}
+
+configurations {
+    plantuml
+}
+
+dependencies {
+	plantuml 'net.sourceforge.plantuml:plantuml:1.2024.5'
+}
+
+task puml(type: JavaExec) {
+	group = 'documentation'
+	description = 'Render PlantUML diagrams'
 	
-	commandLine 'java', '-cp', classpathSaxon, 'net.sf.saxon.Transform', "-s:../${husstVersion}/HUSST_Ergebnisdaten_${husstVersionUl}.xsd", '-xsl:xsl/HusstXsdToADoc.xsl', '-o:adoc/ergebnisdaten/Ergebnisdaten.adoc', 'einstiegsebene=3', "defaults=${cwd}/adoc/ergebnisdaten/default", 'schema=Ergebnisdaten', "verHusst=${husstVersion}", "loglevel=${loglevel}"
+	inputs.files fileTree("diagrams") {
+		include "*.puml"
+	}
+	// Zielordner für die SVGs
+	def outputDir = file("images")
+	outputs.dir(outputDir)
+
+	classpath = configurations.plantuml
+	mainClass.set('net.sourceforge.plantuml.Run')
+	
+	// PlantUML-Argumente
+	args = ['-charset', 'UTF-8', '-tsvg', '-o', outputDir.absolutePath]
+  
+	// Alle .puml-Dateien anhängen
+	fileTree('diagrams') {
+	  include '*.puml'
+	}.each { f ->
+	  args += f.absolutePath
+	}
+
 }
 
 tasks.named('asciidoctor') {
@@ -108,7 +144,7 @@ tasks.named('asciidoctor') {
                 '--add-opens=java.base/java.io=ALL-UNNAMED'
     }
 
-		inputs.files fileTree("adoc") {
+	inputs.files fileTree("adoc") {
 		include "*.adoc"
 	}
 	inputs.files fileTree("styles") {
@@ -137,10 +173,10 @@ tasks.named('asciidoctor') {
 	outputDir = file('output')
 }
 
+
 // zum Debuggen
 task printGradlePropertiesFiles {
-	group = "verification"
-    // Pfade als *finale Variablen* auf Configuration-Time ermitteln
+    group = "verification"
     def globalFile = new File(System.getProperty("user.home"), ".gradle/gradle.properties")
     def projectFile = layout.projectDirectory.file("gradle.properties").asFile
 
@@ -149,5 +185,7 @@ task printGradlePropertiesFiles {
         println "Projekt gradle.properties: ${projectFile.exists() ? projectFile.absolutePath : 'nicht vorhanden'}"
     }
 }
-asciidoctor.dependsOn transformBasis, transformTarifAngebot, transformVertrieb, transformErgebnisdaten
+
+asciidoctor.dependsOn transformBasis, transformTarifAngebot, transformVertrieb, transformErgebnisdaten, puml
+copyAssets.dependsOn puml
 build.dependsOn copyAssets, asciidoctor

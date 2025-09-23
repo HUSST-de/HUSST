@@ -1,13 +1,10 @@
 include::konfig/.asciidoctorconfig.adoc[]
+
 :doctype: book
 
 = HUSST Dokumentation V3.7.0
 
-root:{root}
-
-Technische Dokumentation V {Revision}
-  
-vom {Date}
+Technische Dokumentation
 
 include::{root}allgemein/Einführung.adoc[]
 

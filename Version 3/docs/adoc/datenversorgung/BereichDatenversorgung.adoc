@@ -1,3 +1,4 @@
+[[Datenversorgung]]
 == Bereich Datenversorgung
 
 ////
@@ -6,8 +7,10 @@ Dieser Text wird automatisch generiert.
 
 include::DvEinführung.adoc[]
 
+[[TarifAngebot_Root]]
 include::DvTarifAngebot.adoc[]
 
+[[Vertrieb_Root]]
 include::DvVertrieb.adoc[]
 
 include::DvBasis.adoc[]
