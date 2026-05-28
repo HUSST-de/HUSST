@@ -490,7 +490,7 @@
       </element>
       <element name="Linie" type="string" maxOccurs="1" minOccurs="0">
         <annotation>
-          <documentation>Optionale Linieninformation als Text. Optional REC_LID.LIDNAME oder REC_LID.LI_KUERZEL</documentation>
+          <documentation>Optionale Linieninformation als Text. Zum Beispiel Linienname oder alphanumerische ID.</documentation>
         </annotation>
       </element>
       <element name="Richtung" type="int" maxOccurs="1" minOccurs="0">
