@@ -17,6 +17,17 @@ Weitere Hersteller können sich gerne einen Bereich via Pullrequest oder Issue a
 
 ## Changelog
 
+### 3.8.0 -> 3.9.0
+Änderungsdatum: 12. Oktober 2026
+* DvTarifAngebot
+   * Sorten_Type ergänzt um Vorverkauf (optional, INT4): Vorverkaufszeitraum in Tagen direkt an der Sorte.
+   * Streckencode_Type ergänzt um Verbundinfo (optional, string): Informationen zur Verbundfilterung im Deutschlandtarif (DTV).
+   * Streckencode_Type ergänzt um Leitpunktkuerzel (optional, string): Kürzel des zugeordneten Leitpunktes im Deutschlandtarif (DTV).
+* DynAttribute
+   * husst.Sorte.Umschalttag und husst.Sorte.Rueckfahrtage (jeweils int) in [DynAttribute.md](DynAttribute.md) aufgenommen.
+   * Die fachliche Dokumentation dieser beiden DynAttribute folgt separat.
+* Versionskennungen, Namespaces, Schema-Verweise und VersionMinor-Standardwerte auf 3.9.0 aktualisiert.
+
 ### 3.7.0 -> 3.8.0
 Änderungsdatum: 21. Juli 2025
 Matching von Verbund- und Streckenverbindungen 
